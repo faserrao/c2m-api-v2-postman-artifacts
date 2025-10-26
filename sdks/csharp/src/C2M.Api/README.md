@@ -6,12 +6,12 @@ Create a config.yaml file similar to what is below, then run the following power
 
 ```yaml
 generatorName: csharp
-inputSpec: /home/runner/work/c2m-api-repo/c2m-api-repo/openapi/c2mapiv2-openapi-spec-final.yaml
+inputSpec: /home/runner/work/c2m-api-v2-postman/c2m-api-v2-postman/openapi/c2mapiv2-openapi-spec-final.yaml
 outputDir: out
 
 # https://openapi-generator.tech/docs/generators/csharp
 additionalProperties:
-  packageGuid: '{1E6572A4-8F3F-4725-82D1-6DCA575D559D}'
+  packageGuid: '{A02E7D47-42E9-491F-93B0-2CD5D9669A4D}'
 
 # https://openapi-generator.tech/docs/integrations/#github-integration
 # gitHost:
