@@ -63,7 +63,7 @@ import com.google.gson.JsonParseException;
 
 import com.c2m.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-26T03:49:36.434628138Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-02T10:53:15.789177711Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class DocumentSourceIdentifier extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(DocumentSourceIdentifier.class.getName());
 
