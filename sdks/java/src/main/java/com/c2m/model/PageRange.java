@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * PageRange
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-02T10:56:51.757820973Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-05T02:45:53.394297139Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class PageRange {
   public static final String SERIALIZED_NAME_START_PAGE = "startPage";
   @SerializedName(SERIALIZED_NAME_START_PAGE)
