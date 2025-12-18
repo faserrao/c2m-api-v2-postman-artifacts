@@ -49,7 +49,7 @@ import com.c2m.JSON;
 /**
  * CreditCardDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-18T17:24:15.703211271Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-18T21:06:38.055662081Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class CreditCardDetails {
   /**
    * Gets or Sets cardType

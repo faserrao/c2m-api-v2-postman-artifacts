@@ -1,0 +1,481 @@
+{
+  "info": {
+    "name": "C2M API v2 - Getting Started",
+    "description": "Educational collection showing common API usage patterns organized by frequency.\n\n**Categories:**\n- **Most Frequently Used**: Essential calls every user needs\n- **Bulk Operations**: High-volume and batch processing\n- **Advanced Patterns**: Less common features and variations\n\n**How to use:**\n1. Set your `{{baseUrl}}` environment variable\n2. Replace `<string>` and `<integer>` placeholders with actual values\n3. Review the description of each request to understand the pattern\n4. Copy the pattern and adapt it to your needs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Most Frequently Used",
+      "description": "The essential API calls that most users need. Start here if you're new to the API.",
+      "item": [
+        {
+          "name": "Single recipient - basic job submission",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/single/doc",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "doc"
+              ]
+            },
+            "description": "Submit a single document to one recipient using jobTemplate"
+          },
+          "response": []
+        },
+        {
+          "name": "Mail merge - multiple recipients",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"addressList\": [\n      {\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"foo1\": \"<string>\",\n        \"foo2\": \"<string>\"\n      },\n      {\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"foo1\": \"<string>\",\n        \"foo2\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/single/doc",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "doc"
+              ]
+            },
+            "description": "Submit a single document to multiple recipients (mail merge)"
+          },
+          "response": []
+        },
+        {
+          "name": "Address capture - PDF with embedded addresses",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/single/pdf/addressCapture",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "pdf",
+                "addressCapture"
+              ]
+            },
+            "description": "Submit PDF where addresses are captured from the document itself"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Bulk Operations",
+      "description": "High-volume processing patterns for handling multiple documents or recipients efficiently.",
+      "item": [
+        {
+          "name": "Split PDF with address capture",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"jobs\": [\n    {\n      \"pages\": {\n        \"startPage\": \"<integer>\",\n        \"endPage\": \"<integer>\"\n      }\n    },\n    {\n      \"pages\": {\n        \"startPage\": \"<integer>\",\n        \"endPage\": \"<integer>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/single/pdf/split/addressCapture",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "pdf",
+                "split",
+                "addressCapture"
+              ]
+            },
+            "description": "Split a multi-page PDF and capture addresses from each section"
+          },
+          "response": []
+        },
+        {
+          "name": "Split PDF with specified addresses",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"jobs\": [\n    {\n      \"pages\": {\n        \"startPage\": \"<integer>\",\n        \"endPage\": \"<integer>\"\n      },\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\",\n          \"address1\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/single/pdf/split",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "pdf",
+                "split"
+              ]
+            },
+            "description": "Split a multi-page PDF and provide recipient address for each section"
+          },
+          "response": []
+        },
+        {
+          "name": "Multiple documents from ZIP with address capture",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/multi/zip/addressCapture",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "multi",
+                "zip",
+                "addressCapture"
+              ]
+            },
+            "description": "Submit multiple documents from a ZIP file with embedded addresses"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Advanced Patterns",
+      "description": "Less frequently used features and variations. Explore these once you're comfortable with the basics.",
+      "item": [
+        {
+          "name": "Merge multiple documents",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"documentsToMerge\": [\n      {\n        \"requestId\": \"<integer>\"\n      },\n      {\n        \"documentId\": \"<integer>\"\n      },\n      {\n        \"documentId\": \"<integer>\"\n      }\n    ]\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/multi/doc/merge",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "multi",
+                "doc",
+                "merge"
+              ]
+            },
+            "description": "Combine multiple documents into one before mailing"
+          },
+          "response": []
+        },
+        {
+          "name": "Using jobOptions instead of template",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/single/doc",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "doc"
+              ]
+            },
+            "description": "Specify job options directly instead of using a template"
+          },
+          "response": []
+        },
+        {
+          "name": "Using document URL instead of upload",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"url\": \"<string>\"\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/single/doc",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "doc"
+              ]
+            },
+            "description": "Reference a document by URL instead of uploading"
+          },
+          "response": []
+        },
+        {
+          "name": "Adding tags for organization",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/single/doc",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "doc"
+              ]
+            },
+            "description": "Add custom tags to track and organize jobs"
+          },
+          "response": []
+        },
+        {
+          "name": "Naming an address list for reuse",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"addressListName\": \"<string>\",\n    \"mappingId\": \"<integer>\",\n    \"addressList\": [\n      {\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"foo1\": \"<string>\",\n        \"foo2\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/single/doc",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "doc"
+              ]
+            },
+            "description": "Create a named address list that can be referenced in future jobs"
+          },
+          "response": []
+        },
+        {
+          "name": "Specifying payment method",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  },\n  \"paymentDetails\": {\n    \"creditCard\": {\n      \"cardNumber\": \"<string>\",\n      \"cardType\": \"<string>\",\n      \"cvv\": \"<string>\",\n      \"expirationMonth\": \"<string>\",\n      \"expirationYear\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/single/doc",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "doc"
+              ]
+            },
+            "description": "Specify how the job should be paid for"
+          },
+          "response": []
+        },
+        {
+          "name": "Multiple documents from ZIP - specify addresses",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"jobs\": [\n    {\n      \"filename\": \"<string>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\",\n          \"address1\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/multi/zip",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "multi",
+                "zip"
+              ]
+            },
+            "description": "Submit multiple documents from ZIP with specified addresses for each"
+          },
+          "response": []
+        },
+        {
+          "name": "Multiple separate documents",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"jobs\": [\n    {\n      \"documentSource\": {\n        \"documentId\": \"<integer>\"\n      },\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\",\n          \"address1\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/multi/doc",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "multi",
+                "doc"
+              ]
+            },
+            "description": "Submit multiple different documents with different recipients"
+          },
+          "response": []
+        },
+        {
+          "name": "Using stored documentId",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"documentId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/single/doc",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "doc"
+              ]
+            },
+            "description": "Reference a previously uploaded document by its ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Using saved addressListId",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"addressListId\": \"<integer>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/jobs/submit/single/doc",
+              "host": "{{baseUrl}}",
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "doc"
+              ]
+            },
+            "description": "Reference a previously saved address list by its ID"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
