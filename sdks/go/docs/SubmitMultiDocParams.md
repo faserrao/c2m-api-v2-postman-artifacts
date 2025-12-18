@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Items** | [**[]SubmitMultiDocWithTemplateParamsRequestItemsInner**](SubmitMultiDocWithTemplateParamsRequestItemsInner.md) |  | 
-**JobOptions** | [**JobOptions**](JobOptions.md) |  | 
-**PaymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | 
+**JobTemplate** | Pointer to **string** |  | [optional] 
+**MultiDocJobs** | [**[]MultiDocJobItem**](MultiDocJobItem.md) |  | 
+**PaymentDetails** | Pointer to [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
 
 ### NewSubmitMultiDocParams
 
-`func NewSubmitMultiDocParams(items []SubmitMultiDocWithTemplateParamsRequestItemsInner, jobOptions JobOptions, paymentDetails PaymentDetails, ) *SubmitMultiDocParams`
+`func NewSubmitMultiDocParams(multiDocJobs []MultiDocJobItem, ) *SubmitMultiDocParams`
 
 NewSubmitMultiDocParams instantiates a new SubmitMultiDocParams object
 This constructor will assign default values to properties that have it defined,
@@ -28,44 +28,49 @@ NewSubmitMultiDocParamsWithDefaults instantiates a new SubmitMultiDocParams obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetItems
+### GetJobTemplate
 
-`func (o *SubmitMultiDocParams) GetItems() []SubmitMultiDocWithTemplateParamsRequestItemsInner`
+`func (o *SubmitMultiDocParams) GetJobTemplate() string`
 
-GetItems returns the Items field if non-nil, zero value otherwise.
+GetJobTemplate returns the JobTemplate field if non-nil, zero value otherwise.
 
-### GetItemsOk
+### GetJobTemplateOk
 
-`func (o *SubmitMultiDocParams) GetItemsOk() (*[]SubmitMultiDocWithTemplateParamsRequestItemsInner, bool)`
+`func (o *SubmitMultiDocParams) GetJobTemplateOk() (*string, bool)`
 
-GetItemsOk returns a tuple with the Items field if it's non-nil, zero value otherwise
+GetJobTemplateOk returns a tuple with the JobTemplate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetItems
+### SetJobTemplate
 
-`func (o *SubmitMultiDocParams) SetItems(v []SubmitMultiDocWithTemplateParamsRequestItemsInner)`
+`func (o *SubmitMultiDocParams) SetJobTemplate(v string)`
 
-SetItems sets Items field to given value.
+SetJobTemplate sets JobTemplate field to given value.
 
+### HasJobTemplate
 
-### GetJobOptions
+`func (o *SubmitMultiDocParams) HasJobTemplate() bool`
 
-`func (o *SubmitMultiDocParams) GetJobOptions() JobOptions`
+HasJobTemplate returns a boolean if a field has been set.
 
-GetJobOptions returns the JobOptions field if non-nil, zero value otherwise.
+### GetMultiDocJobs
 
-### GetJobOptionsOk
+`func (o *SubmitMultiDocParams) GetMultiDocJobs() []MultiDocJobItem`
 
-`func (o *SubmitMultiDocParams) GetJobOptionsOk() (*JobOptions, bool)`
+GetMultiDocJobs returns the MultiDocJobs field if non-nil, zero value otherwise.
 
-GetJobOptionsOk returns a tuple with the JobOptions field if it's non-nil, zero value otherwise
+### GetMultiDocJobsOk
+
+`func (o *SubmitMultiDocParams) GetMultiDocJobsOk() (*[]MultiDocJobItem, bool)`
+
+GetMultiDocJobsOk returns a tuple with the MultiDocJobs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetJobOptions
+### SetMultiDocJobs
 
-`func (o *SubmitMultiDocParams) SetJobOptions(v JobOptions)`
+`func (o *SubmitMultiDocParams) SetMultiDocJobs(v []MultiDocJobItem)`
 
-SetJobOptions sets JobOptions field to given value.
+SetMultiDocJobs sets MultiDocJobs field to given value.
 
 
 ### GetPaymentDetails
@@ -87,6 +92,11 @@ and a boolean to check if the value has been set.
 
 SetPaymentDetails sets PaymentDetails field to given value.
 
+### HasPaymentDetails
+
+`func (o *SubmitMultiDocParams) HasPaymentDetails() bool`
+
+HasPaymentDetails returns a boolean if a field has been set.
 
 ### GetTags
 

@@ -35,21 +35,25 @@ class TestJobOptions(unittest.TestCase):
         model = JobOptions()
         if include_optional:
             return JobOptions(
-                document_class = 'businessLetter',
-                layout = 'portrait',
-                mailclass = 'firstClassMail',
-                paper_type = 'letter',
-                print_option = 'none',
-                envelope = 'flat'
+                document_class = '',
+                layout = '',
+                production_time = '',
+                envelope = '',
+                color = '',
+                paper_type = '',
+                print_option = '',
+                mail_class = ''
             )
         else:
             return JobOptions(
-                document_class = 'businessLetter',
-                layout = 'portrait',
-                mailclass = 'firstClassMail',
-                paper_type = 'letter',
-                print_option = 'none',
-                envelope = 'flat',
+                document_class = '',
+                layout = '',
+                production_time = '',
+                envelope = '',
+                color = '',
+                paper_type = '',
+                print_option = '',
+                mail_class = '',
         )
         """
 

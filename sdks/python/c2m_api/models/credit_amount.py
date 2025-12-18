@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Union
-from c2m_api.models.currency import Currency
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,8 +27,15 @@ class CreditAmount(BaseModel):
     CreditAmount
     """ # noqa: E501
     amount: Union[StrictFloat, StrictInt]
-    currency: Currency
+    currency: StrictStr
     __properties: ClassVar[List[str]] = ["amount", "currency"]
+
+    @field_validator('currency')
+    def currency_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['USD', 'EUR', 'GBP', 'CAD', 'AUD']):
+            raise ValueError("must be one of enum values ('USD', 'EUR', 'GBP', 'CAD', 'AUD')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

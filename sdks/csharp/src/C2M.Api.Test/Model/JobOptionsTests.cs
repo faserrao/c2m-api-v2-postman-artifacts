@@ -72,12 +72,30 @@ namespace C2M.Api.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Mailclass'
+        /// Test the property 'ProductionTime'
         /// </summary>
         [Fact]
-        public void MailclassTest()
+        public void ProductionTimeTest()
         {
-            // TODO unit test for the property 'Mailclass'
+            // TODO unit test for the property 'ProductionTime'
+        }
+
+        /// <summary>
+        /// Test the property 'Envelope'
+        /// </summary>
+        [Fact]
+        public void EnvelopeTest()
+        {
+            // TODO unit test for the property 'Envelope'
+        }
+
+        /// <summary>
+        /// Test the property 'Color'
+        /// </summary>
+        [Fact]
+        public void ColorTest()
+        {
+            // TODO unit test for the property 'Color'
         }
 
         /// <summary>
@@ -99,12 +117,12 @@ namespace C2M.Api.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Envelope'
+        /// Test the property 'MailClass'
         /// </summary>
         [Fact]
-        public void EnvelopeTest()
+        public void MailClassTest()
         {
-            // TODO unit test for the property 'Envelope'
+            // TODO unit test for the property 'MailClass'
         }
     }
 }

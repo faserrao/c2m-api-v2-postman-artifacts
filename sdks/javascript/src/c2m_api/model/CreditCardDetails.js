@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import CardType from './CardType';
 import ExpirationDate from './ExpirationDate';
 
 /**
@@ -24,7 +23,7 @@ class CreditCardDetails {
     /**
      * Constructs a new <code>CreditCardDetails</code>.
      * @alias module:c2m_api/model/CreditCardDetails
-     * @param cardType {module:c2m_api/model/CardType} 
+     * @param cardType {module:c2m_api/model/CreditCardDetails.CardTypeEnum} 
      * @param cardNumber {String} 
      * @param expirationDate {module:c2m_api/model/ExpirationDate} 
      * @param cvv {Number} 
@@ -58,7 +57,7 @@ class CreditCardDetails {
             obj = obj || new CreditCardDetails();
 
             if (data.hasOwnProperty('cardType')) {
-                obj['cardType'] = CardType.constructFromObject(data['cardType']);
+                obj['cardType'] = ApiClient.convertToType(data['cardType'], 'String');
             }
             if (data.hasOwnProperty('cardNumber')) {
                 obj['cardNumber'] = ApiClient.convertToType(data['cardNumber'], 'String');
@@ -86,6 +85,10 @@ class CreditCardDetails {
             }
         }
         // ensure the json data is a string
+        if (data['cardType'] && !(typeof data['cardType'] === 'string' || data['cardType'] instanceof String)) {
+            throw new Error("Expected the field `cardType` to be a primitive type in the JSON string but got " + data['cardType']);
+        }
+        // ensure the json data is a string
         if (data['cardNumber'] && !(typeof data['cardNumber'] === 'string' || data['cardNumber'] instanceof String)) {
             throw new Error("Expected the field `cardNumber` to be a primitive type in the JSON string but got " + data['cardNumber']);
         }
@@ -103,7 +106,7 @@ class CreditCardDetails {
 CreditCardDetails.RequiredProperties = ["cardType", "cardNumber", "expirationDate", "cvv"];
 
 /**
- * @member {module:c2m_api/model/CardType} cardType
+ * @member {module:c2m_api/model/CreditCardDetails.CardTypeEnum} cardType
  */
 CreditCardDetails.prototype['cardType'] = undefined;
 
@@ -124,6 +127,39 @@ CreditCardDetails.prototype['cvv'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>cardType</code> property.
+ * @enum {String}
+ * @readonly
+ */
+CreditCardDetails['CardTypeEnum'] = {
+
+    /**
+     * value: "visa"
+     * @const
+     */
+    "visa": "visa",
+
+    /**
+     * value: "mastercard"
+     * @const
+     */
+    "mastercard": "mastercard",
+
+    /**
+     * value: "discover"
+     * @const
+     */
+    "discover": "discover",
+
+    /**
+     * value: "americanExpress"
+     * @const
+     */
+    "americanExpress": "americanExpress"
+};
 
 
 

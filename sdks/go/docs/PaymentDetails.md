@@ -8,14 +8,12 @@ Name | Type | Description | Notes
 **InvoiceDetails** | [**InvoiceDetails**](InvoiceDetails.md) |  | 
 **AchDetails** | [**AchDetails**](AchDetails.md) |  | 
 **CreditAmount** | [**CreditAmount**](CreditAmount.md) |  | 
-**ApplePaymentDetails** | **map[string]interface{}** |  | 
-**GooglePaymentDetails** | **map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewPaymentDetails
 
-`func NewPaymentDetails(creditCardDetails CreditCardDetails, invoiceDetails InvoiceDetails, achDetails AchDetails, creditAmount CreditAmount, applePaymentDetails map[string]interface{}, googlePaymentDetails map[string]interface{}, ) *PaymentDetails`
+`func NewPaymentDetails(creditCardDetails CreditCardDetails, invoiceDetails InvoiceDetails, achDetails AchDetails, creditAmount CreditAmount, ) *PaymentDetails`
 
 NewPaymentDetails instantiates a new PaymentDetails object
 This constructor will assign default values to properties that have it defined,
@@ -108,46 +106,6 @@ and a boolean to check if the value has been set.
 `func (o *PaymentDetails) SetCreditAmount(v CreditAmount)`
 
 SetCreditAmount sets CreditAmount field to given value.
-
-
-### GetApplePaymentDetails
-
-`func (o *PaymentDetails) GetApplePaymentDetails() map[string]interface{}`
-
-GetApplePaymentDetails returns the ApplePaymentDetails field if non-nil, zero value otherwise.
-
-### GetApplePaymentDetailsOk
-
-`func (o *PaymentDetails) GetApplePaymentDetailsOk() (*map[string]interface{}, bool)`
-
-GetApplePaymentDetailsOk returns a tuple with the ApplePaymentDetails field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApplePaymentDetails
-
-`func (o *PaymentDetails) SetApplePaymentDetails(v map[string]interface{})`
-
-SetApplePaymentDetails sets ApplePaymentDetails field to given value.
-
-
-### GetGooglePaymentDetails
-
-`func (o *PaymentDetails) GetGooglePaymentDetails() map[string]interface{}`
-
-GetGooglePaymentDetails returns the GooglePaymentDetails field if non-nil, zero value otherwise.
-
-### GetGooglePaymentDetailsOk
-
-`func (o *PaymentDetails) GetGooglePaymentDetailsOk() (*map[string]interface{}, bool)`
-
-GetGooglePaymentDetailsOk returns a tuple with the GooglePaymentDetails field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetGooglePaymentDetails
-
-`func (o *PaymentDetails) SetGooglePaymentDetails(v map[string]interface{})`
-
-SetGooglePaymentDetails sets GooglePaymentDetails field to given value.
 
 
 

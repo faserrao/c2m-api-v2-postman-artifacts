@@ -27,7 +27,7 @@ Only one mechanism is required per call.
 
 ### Example
 
-* Bearer (JWT) Authentication (ShortTokenAuth):
+* OAuth Authentication (ShortTokenAuth):
 * Api Key Authentication (ClientKey):
 
 ```python
@@ -48,10 +48,7 @@ configuration = c2m_api.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): ShortTokenAuth
-configuration = c2m_api.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Configure API key authorization: ClientKey
 configuration.api_key['ClientKey'] = os.environ["API_KEY"]
@@ -119,7 +116,7 @@ The long-term token must be sent in the Authorization header as `Bearer <long_to
 
 ### Example
 
-* Bearer (JWT) Authentication (LongTokenAuth):
+* OAuth Authentication (LongTokenAuth):
 
 ```python
 import c2m_api
@@ -139,10 +136,7 @@ configuration = c2m_api.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): LongTokenAuth
-configuration = c2m_api.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with c2m_api.ApiClient(configuration) as api_client:
@@ -201,8 +195,8 @@ Revokes a short- or long-term token by its `tokenId`. Idempotent.
 
 ### Example
 
-* Bearer (JWT) Authentication (LongTokenAuth):
-* Bearer (JWT) Authentication (ShortTokenAuth):
+* OAuth Authentication (LongTokenAuth):
+* OAuth Authentication (ShortTokenAuth):
 
 ```python
 import c2m_api
@@ -220,15 +214,9 @@ configuration = c2m_api.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure Bearer authorization (JWT): LongTokenAuth
-configuration = c2m_api.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
-# Configure Bearer authorization (JWT): ShortTokenAuth
-configuration = c2m_api.Configuration(
-    access_token = os.environ["BEARER_TOKEN"]
-)
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with c2m_api.ApiClient(configuration) as api_client:

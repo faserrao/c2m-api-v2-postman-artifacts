@@ -14,16 +14,19 @@
 package com.c2m.model;
 
 import java.util.Objects;
-import com.c2m.model.RecipientAddress;
+import com.c2m.model.Address;
 import com.c2m.model.RecipientAddressSourceOneOf;
-import com.c2m.model.RecipientAddressSourceOneOf1;
+import com.c2m.model.RecipientaddresssourceVariant1;
+import com.c2m.model.RecipientaddresssourceVariant2;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 
@@ -60,7 +63,7 @@ import com.google.gson.JsonParseException;
 
 import com.c2m.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-05T02:45:53.394297139Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-18T14:18:40.161107459Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class RecipientAddressSource extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(RecipientAddressSource.class.getName());
 
@@ -72,9 +75,9 @@ public class RecipientAddressSource extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'RecipientAddressSource' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<RecipientAddress> adapterRecipientAddress = gson.getDelegateAdapter(this, TypeToken.get(RecipientAddress.class));
+            final TypeAdapter<RecipientaddresssourceVariant1> adapterRecipientaddresssourceVariant1 = gson.getDelegateAdapter(this, TypeToken.get(RecipientaddresssourceVariant1.class));
+            final TypeAdapter<RecipientaddresssourceVariant2> adapterRecipientaddresssourceVariant2 = gson.getDelegateAdapter(this, TypeToken.get(RecipientaddresssourceVariant2.class));
             final TypeAdapter<RecipientAddressSourceOneOf> adapterRecipientAddressSourceOneOf = gson.getDelegateAdapter(this, TypeToken.get(RecipientAddressSourceOneOf.class));
-            final TypeAdapter<RecipientAddressSourceOneOf1> adapterRecipientAddressSourceOneOf1 = gson.getDelegateAdapter(this, TypeToken.get(RecipientAddressSourceOneOf1.class));
 
             return (TypeAdapter<T>) new TypeAdapter<RecipientAddressSource>() {
                 @Override
@@ -84,9 +87,15 @@ public class RecipientAddressSource extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `RecipientAddress`
-                    if (value.getActualInstance() instanceof RecipientAddress) {
-                        JsonElement element = adapterRecipientAddress.toJsonTree((RecipientAddress)value.getActualInstance());
+                    // check if the actual instance is of the type `RecipientaddresssourceVariant1`
+                    if (value.getActualInstance() instanceof RecipientaddresssourceVariant1) {
+                        JsonElement element = adapterRecipientaddresssourceVariant1.toJsonTree((RecipientaddresssourceVariant1)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `RecipientaddresssourceVariant2`
+                    if (value.getActualInstance() instanceof RecipientaddresssourceVariant2) {
+                        JsonElement element = adapterRecipientaddresssourceVariant2.toJsonTree((RecipientaddresssourceVariant2)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
@@ -96,13 +105,7 @@ public class RecipientAddressSource extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `RecipientAddressSourceOneOf1`
-                    if (value.getActualInstance() instanceof RecipientAddressSourceOneOf1) {
-                        JsonElement element = adapterRecipientAddressSourceOneOf1.toJsonTree((RecipientAddressSourceOneOf1)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: RecipientAddress, RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: RecipientAddressSourceOneOf, RecipientaddresssourceVariant1, RecipientaddresssourceVariant2");
                 }
 
                 @Override
@@ -114,17 +117,29 @@ public class RecipientAddressSource extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize RecipientAddress
+                    // deserialize RecipientaddresssourceVariant1
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        RecipientAddress.validateJsonElement(jsonElement);
-                        actualAdapter = adapterRecipientAddress;
+                        RecipientaddresssourceVariant1.validateJsonElement(jsonElement);
+                        actualAdapter = adapterRecipientaddresssourceVariant1;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'RecipientAddress'");
+                        log.log(Level.FINER, "Input data matches schema 'RecipientaddresssourceVariant1'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for RecipientAddress failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'RecipientAddress'", e);
+                        errorMessages.add(String.format("Deserialization for RecipientaddresssourceVariant1 failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'RecipientaddresssourceVariant1'", e);
+                    }
+                    // deserialize RecipientaddresssourceVariant2
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        RecipientaddresssourceVariant2.validateJsonElement(jsonElement);
+                        actualAdapter = adapterRecipientaddresssourceVariant2;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'RecipientaddresssourceVariant2'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for RecipientaddresssourceVariant2 failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'RecipientaddresssourceVariant2'", e);
                     }
                     // deserialize RecipientAddressSourceOneOf
                     try {
@@ -137,18 +152,6 @@ public class RecipientAddressSource extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for RecipientAddressSourceOneOf failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'RecipientAddressSourceOneOf'", e);
-                    }
-                    // deserialize RecipientAddressSourceOneOf1
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        RecipientAddressSourceOneOf1.validateJsonElement(jsonElement);
-                        actualAdapter = adapterRecipientAddressSourceOneOf1;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'RecipientAddressSourceOneOf1'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for RecipientAddressSourceOneOf1 failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'RecipientAddressSourceOneOf1'", e);
                     }
 
                     if (match == 1) {
@@ -176,9 +179,9 @@ public class RecipientAddressSource extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("RecipientAddress", RecipientAddress.class);
+        schemas.put("RecipientaddresssourceVariant1", RecipientaddresssourceVariant1.class);
+        schemas.put("RecipientaddresssourceVariant2", RecipientaddresssourceVariant2.class);
         schemas.put("RecipientAddressSourceOneOf", RecipientAddressSourceOneOf.class);
-        schemas.put("RecipientAddressSourceOneOf1", RecipientAddressSourceOneOf1.class);
     }
 
     @Override
@@ -189,13 +192,18 @@ public class RecipientAddressSource extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * RecipientAddress, RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1
+     * RecipientAddressSourceOneOf, RecipientaddresssourceVariant1, RecipientaddresssourceVariant2
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof RecipientAddress) {
+        if (instance instanceof RecipientaddresssourceVariant1) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof RecipientaddresssourceVariant2) {
             super.setActualInstance(instance);
             return;
         }
@@ -205,19 +213,14 @@ public class RecipientAddressSource extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof RecipientAddressSourceOneOf1) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException("Invalid instance type. Must be RecipientAddress, RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1");
+        throw new RuntimeException("Invalid instance type. Must be RecipientAddressSourceOneOf, RecipientaddresssourceVariant1, RecipientaddresssourceVariant2");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * RecipientAddress, RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1
+     * RecipientAddressSourceOneOf, RecipientaddresssourceVariant1, RecipientaddresssourceVariant2
      *
-     * @return The actual instance (RecipientAddress, RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1)
+     * @return The actual instance (RecipientAddressSourceOneOf, RecipientaddresssourceVariant1, RecipientaddresssourceVariant2)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -226,14 +229,25 @@ public class RecipientAddressSource extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `RecipientAddress`. If the actual instance is not `RecipientAddress`,
+     * Get the actual instance of `RecipientaddresssourceVariant1`. If the actual instance is not `RecipientaddresssourceVariant1`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `RecipientAddress`
-     * @throws ClassCastException if the instance is not `RecipientAddress`
+     * @return The actual instance of `RecipientaddresssourceVariant1`
+     * @throws ClassCastException if the instance is not `RecipientaddresssourceVariant1`
      */
-    public RecipientAddress getRecipientAddress() throws ClassCastException {
-        return (RecipientAddress)super.getActualInstance();
+    public RecipientaddresssourceVariant1 getRecipientaddresssourceVariant1() throws ClassCastException {
+        return (RecipientaddresssourceVariant1)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `RecipientaddresssourceVariant2`. If the actual instance is not `RecipientaddresssourceVariant2`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `RecipientaddresssourceVariant2`
+     * @throws ClassCastException if the instance is not `RecipientaddresssourceVariant2`
+     */
+    public RecipientaddresssourceVariant2 getRecipientaddresssourceVariant2() throws ClassCastException {
+        return (RecipientaddresssourceVariant2)super.getActualInstance();
     }
 
     /**
@@ -248,17 +262,6 @@ public class RecipientAddressSource extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `RecipientAddressSourceOneOf1`. If the actual instance is not `RecipientAddressSourceOneOf1`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `RecipientAddressSourceOneOf1`
-     * @throws ClassCastException if the instance is not `RecipientAddressSourceOneOf1`
-     */
-    public RecipientAddressSourceOneOf1 getRecipientAddressSourceOneOf1() throws ClassCastException {
-        return (RecipientAddressSourceOneOf1)super.getActualInstance();
-    }
-
-    /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
@@ -268,12 +271,20 @@ public class RecipientAddressSource extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with RecipientAddress
+        // validate the json string with RecipientaddresssourceVariant1
         try {
-            RecipientAddress.validateJsonElement(jsonElement);
+            RecipientaddresssourceVariant1.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for RecipientAddress failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for RecipientaddresssourceVariant1 failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with RecipientaddresssourceVariant2
+        try {
+            RecipientaddresssourceVariant2.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for RecipientaddresssourceVariant2 failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with RecipientAddressSourceOneOf
@@ -284,16 +295,8 @@ public class RecipientAddressSource extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for RecipientAddressSourceOneOf failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with RecipientAddressSourceOneOf1
-        try {
-            RecipientAddressSourceOneOf1.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for RecipientAddressSourceOneOf1 failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for RecipientAddressSource with oneOf schemas: RecipientAddress, RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format("The JSON string is invalid for RecipientAddressSource with oneOf schemas: RecipientAddressSourceOneOf, RecipientaddresssourceVariant1, RecipientaddresssourceVariant2. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

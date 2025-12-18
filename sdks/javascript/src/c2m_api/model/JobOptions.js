@@ -12,12 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import DocumentClass from './DocumentClass';
-import Envelope from './Envelope';
-import Layout from './Layout';
-import Mailclass from './Mailclass';
-import PaperType from './PaperType';
-import PrintOption from './PrintOption';
 
 /**
  * The JobOptions model module.
@@ -28,16 +22,18 @@ class JobOptions {
     /**
      * Constructs a new <code>JobOptions</code>.
      * @alias module:c2m_api/model/JobOptions
-     * @param documentClass {module:c2m_api/model/DocumentClass} 
-     * @param layout {module:c2m_api/model/Layout} 
-     * @param mailclass {module:c2m_api/model/Mailclass} 
-     * @param paperType {module:c2m_api/model/PaperType} 
-     * @param printOption {module:c2m_api/model/PrintOption} 
-     * @param envelope {module:c2m_api/model/Envelope} 
+     * @param documentClass {String} 
+     * @param layout {String} 
+     * @param productionTime {String} 
+     * @param envelope {String} 
+     * @param color {String} 
+     * @param paperType {String} 
+     * @param printOption {String} 
+     * @param mailClass {String} 
      */
-    constructor(documentClass, layout, mailclass, paperType, printOption, envelope) { 
+    constructor(documentClass, layout, productionTime, envelope, color, paperType, printOption, mailClass) { 
         
-        JobOptions.initialize(this, documentClass, layout, mailclass, paperType, printOption, envelope);
+        JobOptions.initialize(this, documentClass, layout, productionTime, envelope, color, paperType, printOption, mailClass);
     }
 
     /**
@@ -45,13 +41,15 @@ class JobOptions {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, documentClass, layout, mailclass, paperType, printOption, envelope) { 
+    static initialize(obj, documentClass, layout, productionTime, envelope, color, paperType, printOption, mailClass) { 
         obj['documentClass'] = documentClass;
         obj['layout'] = layout;
-        obj['mailclass'] = mailclass;
+        obj['productionTime'] = productionTime;
+        obj['envelope'] = envelope;
+        obj['color'] = color;
         obj['paperType'] = paperType;
         obj['printOption'] = printOption;
-        obj['envelope'] = envelope;
+        obj['mailClass'] = mailClass;
     }
 
     /**
@@ -66,22 +64,28 @@ class JobOptions {
             obj = obj || new JobOptions();
 
             if (data.hasOwnProperty('documentClass')) {
-                obj['documentClass'] = DocumentClass.constructFromObject(data['documentClass']);
+                obj['documentClass'] = ApiClient.convertToType(data['documentClass'], 'String');
             }
             if (data.hasOwnProperty('layout')) {
-                obj['layout'] = Layout.constructFromObject(data['layout']);
+                obj['layout'] = ApiClient.convertToType(data['layout'], 'String');
             }
-            if (data.hasOwnProperty('mailclass')) {
-                obj['mailclass'] = Mailclass.constructFromObject(data['mailclass']);
-            }
-            if (data.hasOwnProperty('paperType')) {
-                obj['paperType'] = PaperType.constructFromObject(data['paperType']);
-            }
-            if (data.hasOwnProperty('printOption')) {
-                obj['printOption'] = PrintOption.constructFromObject(data['printOption']);
+            if (data.hasOwnProperty('productionTime')) {
+                obj['productionTime'] = ApiClient.convertToType(data['productionTime'], 'String');
             }
             if (data.hasOwnProperty('envelope')) {
-                obj['envelope'] = Envelope.constructFromObject(data['envelope']);
+                obj['envelope'] = ApiClient.convertToType(data['envelope'], 'String');
+            }
+            if (data.hasOwnProperty('color')) {
+                obj['color'] = ApiClient.convertToType(data['color'], 'String');
+            }
+            if (data.hasOwnProperty('paperType')) {
+                obj['paperType'] = ApiClient.convertToType(data['paperType'], 'String');
+            }
+            if (data.hasOwnProperty('printOption')) {
+                obj['printOption'] = ApiClient.convertToType(data['printOption'], 'String');
+            }
+            if (data.hasOwnProperty('mailClass')) {
+                obj['mailClass'] = ApiClient.convertToType(data['mailClass'], 'String');
             }
         }
         return obj;
@@ -99,6 +103,38 @@ class JobOptions {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // ensure the json data is a string
+        if (data['documentClass'] && !(typeof data['documentClass'] === 'string' || data['documentClass'] instanceof String)) {
+            throw new Error("Expected the field `documentClass` to be a primitive type in the JSON string but got " + data['documentClass']);
+        }
+        // ensure the json data is a string
+        if (data['layout'] && !(typeof data['layout'] === 'string' || data['layout'] instanceof String)) {
+            throw new Error("Expected the field `layout` to be a primitive type in the JSON string but got " + data['layout']);
+        }
+        // ensure the json data is a string
+        if (data['productionTime'] && !(typeof data['productionTime'] === 'string' || data['productionTime'] instanceof String)) {
+            throw new Error("Expected the field `productionTime` to be a primitive type in the JSON string but got " + data['productionTime']);
+        }
+        // ensure the json data is a string
+        if (data['envelope'] && !(typeof data['envelope'] === 'string' || data['envelope'] instanceof String)) {
+            throw new Error("Expected the field `envelope` to be a primitive type in the JSON string but got " + data['envelope']);
+        }
+        // ensure the json data is a string
+        if (data['color'] && !(typeof data['color'] === 'string' || data['color'] instanceof String)) {
+            throw new Error("Expected the field `color` to be a primitive type in the JSON string but got " + data['color']);
+        }
+        // ensure the json data is a string
+        if (data['paperType'] && !(typeof data['paperType'] === 'string' || data['paperType'] instanceof String)) {
+            throw new Error("Expected the field `paperType` to be a primitive type in the JSON string but got " + data['paperType']);
+        }
+        // ensure the json data is a string
+        if (data['printOption'] && !(typeof data['printOption'] === 'string' || data['printOption'] instanceof String)) {
+            throw new Error("Expected the field `printOption` to be a primitive type in the JSON string but got " + data['printOption']);
+        }
+        // ensure the json data is a string
+        if (data['mailClass'] && !(typeof data['mailClass'] === 'string' || data['mailClass'] instanceof String)) {
+            throw new Error("Expected the field `mailClass` to be a primitive type in the JSON string but got " + data['mailClass']);
+        }
 
         return true;
     }
@@ -106,37 +142,47 @@ class JobOptions {
 
 }
 
-JobOptions.RequiredProperties = ["documentClass", "layout", "mailclass", "paperType", "printOption", "envelope"];
+JobOptions.RequiredProperties = ["documentClass", "layout", "productionTime", "envelope", "color", "paperType", "printOption", "mailClass"];
 
 /**
- * @member {module:c2m_api/model/DocumentClass} documentClass
+ * @member {String} documentClass
  */
 JobOptions.prototype['documentClass'] = undefined;
 
 /**
- * @member {module:c2m_api/model/Layout} layout
+ * @member {String} layout
  */
 JobOptions.prototype['layout'] = undefined;
 
 /**
- * @member {module:c2m_api/model/Mailclass} mailclass
+ * @member {String} productionTime
  */
-JobOptions.prototype['mailclass'] = undefined;
+JobOptions.prototype['productionTime'] = undefined;
 
 /**
- * @member {module:c2m_api/model/PaperType} paperType
+ * @member {String} envelope
+ */
+JobOptions.prototype['envelope'] = undefined;
+
+/**
+ * @member {String} color
+ */
+JobOptions.prototype['color'] = undefined;
+
+/**
+ * @member {String} paperType
  */
 JobOptions.prototype['paperType'] = undefined;
 
 /**
- * @member {module:c2m_api/model/PrintOption} printOption
+ * @member {String} printOption
  */
 JobOptions.prototype['printOption'] = undefined;
 
 /**
- * @member {module:c2m_api/model/Envelope} envelope
+ * @member {String} mailClass
  */
-JobOptions.prototype['envelope'] = undefined;
+JobOptions.prototype['mailClass'] = undefined;
 
 
 

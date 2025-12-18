@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **card_type** | [**CardType**](CardType.md) |  |  |
+| **card_type** | **String** |  |  |
 | **card_number** | **String** |  |  |
 | **expiration_date** | [**ExpirationDate**](ExpirationDate.md) |  |  |
 | **cvv** | **Integer** |  |  |

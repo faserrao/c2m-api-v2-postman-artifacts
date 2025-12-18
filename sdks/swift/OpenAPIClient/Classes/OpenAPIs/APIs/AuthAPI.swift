@@ -35,8 +35,8 @@ open class AuthAPI {
      Issue or rotate a long-term token
      - POST /auth/tokens/long
      - Issues a long-term token (e.g., 30-90 days) for automation or server-to-server use. Requires step-up authentication. Choose one of the supported grant types:  - `client_credentials` + `client_secret` - `client_credentials` + one-time `otp_code` - `assertion` (e.g., signed JWT by your private key) - Or an existing short-term token with the `tokens:write` scope  Only one mechanism is required per call. 
-     - Bearer Token:
-       - type: http
+     - OAuth:
+       - type: oauth2
        - name: ShortTokenAuth
      - API Key:
        - type: apiKey X-Client-Id (HEADER)
@@ -86,8 +86,8 @@ open class AuthAPI {
      Issue a short-term access token
      - POST /auth/tokens/short
      - Exchange a valid long-term token for a short-lived JWT (e.g., 15 minutes). The long-term token must be sent in the Authorization header as `Bearer <long_token>`. 
-     - Bearer Token:
-       - type: http
+     - OAuth:
+       - type: oauth2
        - name: LongTokenAuth
      - parameter shortTokenRequest: (body)  (optional)
      - returns: RequestBuilder<ShortTokenResponse> 
@@ -133,11 +133,11 @@ open class AuthAPI {
      Revoke a token
      - POST /auth/tokens/{tokenId}/revoke
      - Revokes a short- or long-term token by its `tokenId`. Idempotent.
-     - Bearer Token:
-       - type: http
+     - OAuth:
+       - type: oauth2
        - name: LongTokenAuth
-     - Bearer Token:
-       - type: http
+     - OAuth:
+       - type: oauth2
        - name: ShortTokenAuth
      - parameter tokenId: (path) The token ID to revoke 
      - returns: RequestBuilder<Void> 

@@ -18,8 +18,6 @@ pub enum PaymentDetails {
     InvoicePayment(Box<models::InvoicePayment>),
     AchPayment(Box<models::AchPayment>),
     UserCreditPayment(Box<models::UserCreditPayment>),
-    ApplePayPayment(Box<models::ApplePayPayment>),
-    GooglePayPayment(Box<models::GooglePayPayment>),
 }
 
 impl Default for PaymentDetails {

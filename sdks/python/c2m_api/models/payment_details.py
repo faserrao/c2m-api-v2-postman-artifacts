@@ -18,16 +18,14 @@ import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
 from c2m_api.models.ach_payment import AchPayment
-from c2m_api.models.apple_pay_payment import ApplePayPayment
 from c2m_api.models.credit_card_payment import CreditCardPayment
-from c2m_api.models.google_pay_payment import GooglePayPayment
 from c2m_api.models.invoice_payment import InvoicePayment
 from c2m_api.models.user_credit_payment import UserCreditPayment
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-PAYMENTDETAILS_ONE_OF_SCHEMAS = ["AchPayment", "ApplePayPayment", "CreditCardPayment", "GooglePayPayment", "InvoicePayment", "UserCreditPayment"]
+PAYMENTDETAILS_ONE_OF_SCHEMAS = ["AchPayment", "CreditCardPayment", "InvoicePayment", "UserCreditPayment"]
 
 class PaymentDetails(BaseModel):
     """
@@ -41,12 +39,8 @@ class PaymentDetails(BaseModel):
     oneof_schema_3_validator: Optional[AchPayment] = None
     # data type: UserCreditPayment
     oneof_schema_4_validator: Optional[UserCreditPayment] = None
-    # data type: ApplePayPayment
-    oneof_schema_5_validator: Optional[ApplePayPayment] = None
-    # data type: GooglePayPayment
-    oneof_schema_6_validator: Optional[GooglePayPayment] = None
-    actual_instance: Optional[Union[AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment]] = None
-    one_of_schemas: Set[str] = { "AchPayment", "ApplePayPayment", "CreditCardPayment", "GooglePayPayment", "InvoicePayment", "UserCreditPayment" }
+    actual_instance: Optional[Union[AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment]] = None
+    one_of_schemas: Set[str] = { "AchPayment", "CreditCardPayment", "InvoicePayment", "UserCreditPayment" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -89,22 +83,12 @@ class PaymentDetails(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `UserCreditPayment`")
         else:
             match += 1
-        # validate data type: ApplePayPayment
-        if not isinstance(v, ApplePayPayment):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ApplePayPayment`")
-        else:
-            match += 1
-        # validate data type: GooglePayPayment
-        if not isinstance(v, GooglePayPayment):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `GooglePayPayment`")
-        else:
-            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in PaymentDetails with oneOf schemas: AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in PaymentDetails with oneOf schemas: AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in PaymentDetails with oneOf schemas: AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in PaymentDetails with oneOf schemas: AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -143,25 +127,13 @@ class PaymentDetails(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into ApplePayPayment
-        try:
-            instance.actual_instance = ApplePayPayment.from_json(json_str)
-            match += 1
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
-        # deserialize data into GooglePayPayment
-        try:
-            instance.actual_instance = GooglePayPayment.from_json(json_str)
-            match += 1
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into PaymentDetails with oneOf schemas: AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into PaymentDetails with oneOf schemas: AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into PaymentDetails with oneOf schemas: AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into PaymentDetails with oneOf schemas: AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -175,7 +147,7 @@ class PaymentDetails(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

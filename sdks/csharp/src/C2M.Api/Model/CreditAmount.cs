@@ -36,7 +36,7 @@ namespace C2M.Api.Model
         /// <param name="amount">amount</param>
         /// <param name="currency">currency</param>
         [JsonConstructor]
-        public CreditAmount(decimal amount, Currency currency)
+        public CreditAmount(decimal amount, CurrencyEnum currency)
         {
             Amount = amount;
             Currency = currency;
@@ -46,10 +46,118 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
+        /// Defines Currency
+        /// </summary>
+        public enum CurrencyEnum
+        {
+            /// <summary>
+            /// Enum USD for value: USD
+            /// </summary>
+            USD = 1,
+
+            /// <summary>
+            /// Enum EUR for value: EUR
+            /// </summary>
+            EUR = 2,
+
+            /// <summary>
+            /// Enum GBP for value: GBP
+            /// </summary>
+            GBP = 3,
+
+            /// <summary>
+            /// Enum CAD for value: CAD
+            /// </summary>
+            CAD = 4,
+
+            /// <summary>
+            /// Enum AUD for value: AUD
+            /// </summary>
+            AUD = 5
+        }
+
+        /// <summary>
+        /// Returns a <see cref="CurrencyEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static CurrencyEnum CurrencyEnumFromString(string value)
+        {
+            if (value.Equals("USD"))
+                return CurrencyEnum.USD;
+
+            if (value.Equals("EUR"))
+                return CurrencyEnum.EUR;
+
+            if (value.Equals("GBP"))
+                return CurrencyEnum.GBP;
+
+            if (value.Equals("CAD"))
+                return CurrencyEnum.CAD;
+
+            if (value.Equals("AUD"))
+                return CurrencyEnum.AUD;
+
+            throw new NotImplementedException($"Could not convert value to type CurrencyEnum: '{value}'");
+        }
+
+        /// <summary>
+        /// Returns a <see cref="CurrencyEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static CurrencyEnum? CurrencyEnumFromStringOrDefault(string value)
+        {
+            if (value.Equals("USD"))
+                return CurrencyEnum.USD;
+
+            if (value.Equals("EUR"))
+                return CurrencyEnum.EUR;
+
+            if (value.Equals("GBP"))
+                return CurrencyEnum.GBP;
+
+            if (value.Equals("CAD"))
+                return CurrencyEnum.CAD;
+
+            if (value.Equals("AUD"))
+                return CurrencyEnum.AUD;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="CurrencyEnum"/> to the json value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string CurrencyEnumToJsonValue(CurrencyEnum value)
+        {
+            if (value == CurrencyEnum.USD)
+                return "USD";
+
+            if (value == CurrencyEnum.EUR)
+                return "EUR";
+
+            if (value == CurrencyEnum.GBP)
+                return "GBP";
+
+            if (value == CurrencyEnum.CAD)
+                return "CAD";
+
+            if (value == CurrencyEnum.AUD)
+                return "AUD";
+
+            throw new NotImplementedException($"Value could not be handled: '{value}'");
+        }
+
+        /// <summary>
         /// Gets or Sets Currency
         /// </summary>
         [JsonPropertyName("currency")]
-        public Currency Currency { get; set; }
+        public CurrencyEnum Currency { get; set; }
 
         /// <summary>
         /// Gets or Sets Amount
@@ -105,7 +213,7 @@ namespace C2M.Api.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<decimal?> amount = default;
-            Option<Currency?> currency = default;
+            Option<CreditAmount.CurrencyEnum?> currency = default;
 
             while (utf8JsonReader.Read())
             {
@@ -128,7 +236,7 @@ namespace C2M.Api.Model
                         case "currency":
                             string? currencyRawValue = utf8JsonReader.GetString();
                             if (currencyRawValue != null)
-                                currency = new Option<Currency?>(CurrencyValueConverter.FromStringOrDefault(currencyRawValue));
+                                currency = new Option<CreditAmount.CurrencyEnum?>(CreditAmount.CurrencyEnumFromStringOrDefault(currencyRawValue));
                             break;
                         default:
                             break;
@@ -177,7 +285,7 @@ namespace C2M.Api.Model
         {
             writer.WriteNumber("amount", creditAmount.Amount);
 
-            var currencyRawValue = CurrencyValueConverter.ToJsonValue(creditAmount.Currency);
+            var currencyRawValue = CreditAmount.CurrencyEnumToJsonValue(creditAmount.Currency);
             writer.WriteString("currency", currencyRawValue);
         }
     }

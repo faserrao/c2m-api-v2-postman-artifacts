@@ -15,12 +15,6 @@
 
 package com.c2m.api.models
 
-import com.c2m.api.models.DocumentClass
-import com.c2m.api.models.Envelope
-import com.c2m.api.models.Layout
-import com.c2m.api.models.Mailclass
-import com.c2m.api.models.PaperType
-import com.c2m.api.models.PrintOption
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -30,32 +24,40 @@ import com.squareup.moshi.JsonClass
  *
  * @param documentClass 
  * @param layout 
- * @param mailclass 
+ * @param productionTime 
+ * @param envelope 
+ * @param color 
  * @param paperType 
  * @param printOption 
- * @param envelope 
+ * @param mailClass 
  */
 
 
 data class JobOptions (
 
     @Json(name = "documentClass")
-    val documentClass: DocumentClass,
+    val documentClass: kotlin.String,
 
     @Json(name = "layout")
-    val layout: Layout,
+    val layout: kotlin.String,
 
-    @Json(name = "mailclass")
-    val mailclass: Mailclass,
-
-    @Json(name = "paperType")
-    val paperType: PaperType,
-
-    @Json(name = "printOption")
-    val printOption: PrintOption,
+    @Json(name = "productionTime")
+    val productionTime: kotlin.String,
 
     @Json(name = "envelope")
-    val envelope: Envelope
+    val envelope: kotlin.String,
+
+    @Json(name = "color")
+    val color: kotlin.String,
+
+    @Json(name = "paperType")
+    val paperType: kotlin.String,
+
+    @Json(name = "printOption")
+    val printOption: kotlin.String,
+
+    @Json(name = "mailClass")
+    val mailClass: kotlin.String
 
 ) {
 

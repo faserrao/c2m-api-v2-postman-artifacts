@@ -17,11 +17,9 @@ package com.c2m.api.models
 
 import com.c2m.api.models.AchDetails
 import com.c2m.api.models.AchPayment
-import com.c2m.api.models.ApplePayPayment
 import com.c2m.api.models.CreditAmount
 import com.c2m.api.models.CreditCardDetails
 import com.c2m.api.models.CreditCardPayment
-import com.c2m.api.models.GooglePayPayment
 import com.c2m.api.models.InvoiceDetails
 import com.c2m.api.models.InvoicePayment
 import com.c2m.api.models.UserCreditPayment
@@ -36,8 +34,6 @@ import com.squareup.moshi.JsonClass
  * @param invoiceDetails 
  * @param achDetails 
  * @param creditAmount 
- * @param applePaymentDetails 
- * @param googlePaymentDetails 
  */
 
 
@@ -53,13 +49,7 @@ data class PaymentDetails (
     val achDetails: AchDetails,
 
     @Json(name = "creditAmount")
-    val creditAmount: CreditAmount,
-
-    @Json(name = "applePaymentDetails")
-    val applePaymentDetails: kotlin.Any,
-
-    @Json(name = "googlePaymentDetails")
-    val googlePaymentDetails: kotlin.Any
+    val creditAmount: CreditAmount
 
 ) {
 

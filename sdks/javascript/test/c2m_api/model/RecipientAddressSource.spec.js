@@ -54,80 +54,38 @@
       //expect(instance).to.be.a(C2MApiV2AuthOverlay.RecipientAddressSource);
     });
 
-    it('should have the property firstName (base name: "firstName")', function() {
-      // uncomment below and update the code to test the property firstName
+    it('should have the property mappingId (base name: "mappingId")', function() {
+      // uncomment below and update the code to test the property mappingId
       //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
       //expect(instance).to.be();
     });
 
-    it('should have the property lastName (base name: "lastName")', function() {
-      // uncomment below and update the code to test the property lastName
+    it('should have the property singleAddress (base name: "singleAddress")', function() {
+      // uncomment below and update the code to test the property singleAddress
       //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
       //expect(instance).to.be();
     });
 
-    it('should have the property address1 (base name: "address1")', function() {
-      // uncomment below and update the code to test the property address1
+    it('should have the property addressName (base name: "addressName")', function() {
+      // uncomment below and update the code to test the property addressName
       //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
       //expect(instance).to.be();
     });
 
-    it('should have the property city (base name: "city")', function() {
-      // uncomment below and update the code to test the property city
+    it('should have the property addressList (base name: "addressList")', function() {
+      // uncomment below and update the code to test the property addressList
       //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
       //expect(instance).to.be();
     });
 
-    it('should have the property state (base name: "state")', function() {
-      // uncomment below and update the code to test the property state
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property zip (base name: "zip")', function() {
-      // uncomment below and update the code to test the property zip
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property country (base name: "country")', function() {
-      // uncomment below and update the code to test the property country
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property nickName (base name: "nickName")', function() {
-      // uncomment below and update the code to test the property nickName
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property address2 (base name: "address2")', function() {
-      // uncomment below and update the code to test the property address2
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property address3 (base name: "address3")', function() {
-      // uncomment below and update the code to test the property address3
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property phoneNumber (base name: "phoneNumber")', function() {
-      // uncomment below and update the code to test the property phoneNumber
+    it('should have the property addressListName (base name: "addressListName")', function() {
+      // uncomment below and update the code to test the property addressListName
       //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
       //expect(instance).to.be();
     });
 
     it('should have the property addressListId (base name: "addressListId")', function() {
       // uncomment below and update the code to test the property addressListId
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property addressId (base name: "addressId")', function() {
-      // uncomment below and update the code to test the property addressId
       //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
       //expect(instance).to.be();
     });

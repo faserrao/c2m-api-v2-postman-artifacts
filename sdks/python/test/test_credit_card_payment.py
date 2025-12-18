@@ -39,7 +39,7 @@ class TestCreditCardPayment(unittest.TestCase):
                     card_type = 'visa', 
                     card_number = '', 
                     expiration_date = c2m_api.models.expiration_date.expirationDate(
-                        month = 1, 
+                        month = 56, 
                         year = 56, ), 
                     cvv = 56, )
             )
@@ -49,7 +49,7 @@ class TestCreditCardPayment(unittest.TestCase):
                     card_type = 'visa', 
                     card_number = '', 
                     expiration_date = c2m_api.models.expiration_date.expirationDate(
-                        month = 1, 
+                        month = 56, 
                         year = 56, ), 
                     cvv = 56, ),
         )

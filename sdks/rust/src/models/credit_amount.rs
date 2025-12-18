@@ -16,15 +16,35 @@ pub struct CreditAmount {
     #[serde(rename = "amount")]
     pub amount: f64,
     #[serde(rename = "currency")]
-    pub currency: models::Currency,
+    pub currency: Currency,
 }
 
 impl CreditAmount {
-    pub fn new(amount: f64, currency: models::Currency) -> CreditAmount {
+    pub fn new(amount: f64, currency: Currency) -> CreditAmount {
         CreditAmount {
             amount,
             currency,
         }
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Currency {
+    #[serde(rename = "USD")]
+    Usd,
+    #[serde(rename = "EUR")]
+    Eur,
+    #[serde(rename = "GBP")]
+    Gbp,
+    #[serde(rename = "CAD")]
+    Cad,
+    #[serde(rename = "AUD")]
+    Aud,
+}
+
+impl Default for Currency {
+    fn default() -> Currency {
+        Self::Usd
     }
 }
 

@@ -22,7 +22,7 @@ var _ MappedNullable = &CreditAmount{}
 // CreditAmount struct for CreditAmount
 type CreditAmount struct {
 	Amount float32 `json:"amount"`
-	Currency Currency `json:"currency"`
+	Currency string `json:"currency"`
 }
 
 type _CreditAmount CreditAmount
@@ -31,7 +31,7 @@ type _CreditAmount CreditAmount
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreditAmount(amount float32, currency Currency) *CreditAmount {
+func NewCreditAmount(amount float32, currency string) *CreditAmount {
 	this := CreditAmount{}
 	this.Amount = amount
 	this.Currency = currency
@@ -71,9 +71,9 @@ func (o *CreditAmount) SetAmount(v float32) {
 }
 
 // GetCurrency returns the Currency field value
-func (o *CreditAmount) GetCurrency() Currency {
+func (o *CreditAmount) GetCurrency() string {
 	if o == nil {
-		var ret Currency
+		var ret string
 		return ret
 	}
 
@@ -82,7 +82,7 @@ func (o *CreditAmount) GetCurrency() Currency {
 
 // GetCurrencyOk returns a tuple with the Currency field value
 // and a boolean to check if the value has been set.
-func (o *CreditAmount) GetCurrencyOk() (*Currency, bool) {
+func (o *CreditAmount) GetCurrencyOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -90,7 +90,7 @@ func (o *CreditAmount) GetCurrencyOk() (*Currency, bool) {
 }
 
 // SetCurrency sets field value
-func (o *CreditAmount) SetCurrency(v Currency) {
+func (o *CreditAmount) SetCurrency(v string) {
 	o.Currency = v
 }
 

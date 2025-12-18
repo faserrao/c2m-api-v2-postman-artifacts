@@ -14,11 +14,9 @@
 import ApiClient from '../ApiClient';
 import AchDetails from './AchDetails';
 import AchPayment from './AchPayment';
-import ApplePayPayment from './ApplePayPayment';
 import CreditAmount from './CreditAmount';
 import CreditCardDetails from './CreditCardDetails';
 import CreditCardPayment from './CreditCardPayment';
-import GooglePayPayment from './GooglePayPayment';
 import InvoiceDetails from './InvoiceDetails';
 import InvoicePayment from './InvoicePayment';
 import UserCreditPayment from './UserCreditPayment';
@@ -32,7 +30,7 @@ class PaymentDetails {
     /**
      * Constructs a new <code>PaymentDetails</code>.
      * @alias module:c2m_api/model/PaymentDetails
-     * @param {(module:c2m_api/model/AchPayment|module:c2m_api/model/ApplePayPayment|module:c2m_api/model/CreditCardPayment|module:c2m_api/model/GooglePayPayment|module:c2m_api/model/InvoicePayment|module:c2m_api/model/UserCreditPayment)} instance The actual instance to initialize PaymentDetails.
+     * @param {(module:c2m_api/model/AchPayment|module:c2m_api/model/CreditCardPayment|module:c2m_api/model/InvoicePayment|module:c2m_api/model/UserCreditPayment)} instance The actual instance to initialize PaymentDetails.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -105,43 +103,11 @@ class PaymentDetails {
             errorMessages.push("Failed to construct UserCreditPayment: " + err)
         }
 
-        try {
-            if (typeof instance === "ApplePayPayment") {
-                this.actualInstance = instance;
-            } else {
-                // plain JS object
-                // validate the object
-                ApplePayPayment.validateJSON(instance); // throw an exception if no match
-                // create ApplePayPayment from JS object
-                this.actualInstance = ApplePayPayment.constructFromObject(instance);
-            }
-            match++;
-        } catch(err) {
-            // json data failed to deserialize into ApplePayPayment
-            errorMessages.push("Failed to construct ApplePayPayment: " + err)
-        }
-
-        try {
-            if (typeof instance === "GooglePayPayment") {
-                this.actualInstance = instance;
-            } else {
-                // plain JS object
-                // validate the object
-                GooglePayPayment.validateJSON(instance); // throw an exception if no match
-                // create GooglePayPayment from JS object
-                this.actualInstance = GooglePayPayment.constructFromObject(instance);
-            }
-            match++;
-        } catch(err) {
-            // json data failed to deserialize into GooglePayPayment
-            errorMessages.push("Failed to construct GooglePayPayment: " + err)
-        }
-
         if (match > 1) {
-            throw new Error("Multiple matches found constructing `PaymentDetails` with oneOf schemas AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment. Input: " + JSON.stringify(instance));
+            throw new Error("Multiple matches found constructing `PaymentDetails` with oneOf schemas AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment. Input: " + JSON.stringify(instance));
         } else if (match === 0) {
             this.actualInstance = null; // clear the actual instance in case there are multiple matches
-            throw new Error("No match found constructing `PaymentDetails` with oneOf schemas AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment. Details: " +
+            throw new Error("No match found constructing `PaymentDetails` with oneOf schemas AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment. Details: " +
                             errorMessages.join(", "));
         } else { // only 1 match
             // the input is valid
@@ -160,16 +126,16 @@ class PaymentDetails {
     }
 
     /**
-     * Gets the actual instance, which can be <code>AchPayment</code>, <code>ApplePayPayment</code>, <code>CreditCardPayment</code>, <code>GooglePayPayment</code>, <code>InvoicePayment</code>, <code>UserCreditPayment</code>.
-     * @return {(module:c2m_api/model/AchPayment|module:c2m_api/model/ApplePayPayment|module:c2m_api/model/CreditCardPayment|module:c2m_api/model/GooglePayPayment|module:c2m_api/model/InvoicePayment|module:c2m_api/model/UserCreditPayment)} The actual instance.
+     * Gets the actual instance, which can be <code>AchPayment</code>, <code>CreditCardPayment</code>, <code>InvoicePayment</code>, <code>UserCreditPayment</code>.
+     * @return {(module:c2m_api/model/AchPayment|module:c2m_api/model/CreditCardPayment|module:c2m_api/model/InvoicePayment|module:c2m_api/model/UserCreditPayment)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>AchPayment</code>, <code>ApplePayPayment</code>, <code>CreditCardPayment</code>, <code>GooglePayPayment</code>, <code>InvoicePayment</code>, <code>UserCreditPayment</code>.
-     * @param {(module:c2m_api/model/AchPayment|module:c2m_api/model/ApplePayPayment|module:c2m_api/model/CreditCardPayment|module:c2m_api/model/GooglePayPayment|module:c2m_api/model/InvoicePayment|module:c2m_api/model/UserCreditPayment)} obj The actual instance.
+     * Sets the actual instance, which can be <code>AchPayment</code>, <code>CreditCardPayment</code>, <code>InvoicePayment</code>, <code>UserCreditPayment</code>.
+     * @param {(module:c2m_api/model/AchPayment|module:c2m_api/model/CreditCardPayment|module:c2m_api/model/InvoicePayment|module:c2m_api/model/UserCreditPayment)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = PaymentDetails.constructFromObject(obj).getActualInstance();
@@ -213,18 +179,8 @@ PaymentDetails.prototype['achDetails'] = undefined;
  */
 PaymentDetails.prototype['creditAmount'] = undefined;
 
-/**
- * @member {Object} applePaymentDetails
- */
-PaymentDetails.prototype['applePaymentDetails'] = undefined;
 
-/**
- * @member {Object} googlePaymentDetails
- */
-PaymentDetails.prototype['googlePaymentDetails'] = undefined;
-
-
-PaymentDetails.OneOf = ["AchPayment", "ApplePayPayment", "CreditCardPayment", "GooglePayPayment", "InvoicePayment", "UserCreditPayment"];
+PaymentDetails.OneOf = ["AchPayment", "CreditCardPayment", "InvoicePayment", "UserCreditPayment"];
 
 export default PaymentDetails;
 

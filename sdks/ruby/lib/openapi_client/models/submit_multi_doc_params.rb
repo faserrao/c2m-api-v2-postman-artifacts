@@ -15,9 +15,9 @@ require 'time'
 
 module OpenapiClient
   class SubmitMultiDocParams
-    attr_accessor :items
+    attr_accessor :job_template
 
-    attr_accessor :job_options
+    attr_accessor :multi_doc_jobs
 
     attr_accessor :payment_details
 
@@ -26,8 +26,8 @@ module OpenapiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'items' => :'items',
-        :'job_options' => :'jobOptions',
+        :'job_template' => :'jobTemplate',
+        :'multi_doc_jobs' => :'multiDocJobs',
         :'payment_details' => :'paymentDetails',
         :'tags' => :'tags'
       }
@@ -46,8 +46,8 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'items' => :'Array<SubmitMultiDocWithTemplateParamsRequestItemsInner>',
-        :'job_options' => :'JobOptions',
+        :'job_template' => :'String',
+        :'multi_doc_jobs' => :'Array<MultiDocJobItem>',
         :'payment_details' => :'PaymentDetails',
         :'tags' => :'Array<String>'
       }
@@ -75,24 +75,20 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'items')
-        if (value = attributes[:'items']).is_a?(Array)
-          self.items = value
-        end
-      else
-        self.items = nil
+      if attributes.key?(:'job_template')
+        self.job_template = attributes[:'job_template']
       end
 
-      if attributes.key?(:'job_options')
-        self.job_options = attributes[:'job_options']
+      if attributes.key?(:'multi_doc_jobs')
+        if (value = attributes[:'multi_doc_jobs']).is_a?(Array)
+          self.multi_doc_jobs = value
+        end
       else
-        self.job_options = nil
+        self.multi_doc_jobs = nil
       end
 
       if attributes.key?(:'payment_details')
         self.payment_details = attributes[:'payment_details']
-      else
-        self.payment_details = nil
       end
 
       if attributes.key?(:'tags')
@@ -107,16 +103,8 @@ module OpenapiClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @items.nil?
-        invalid_properties.push('invalid value for "items", items cannot be nil.')
-      end
-
-      if @job_options.nil?
-        invalid_properties.push('invalid value for "job_options", job_options cannot be nil.')
-      end
-
-      if @payment_details.nil?
-        invalid_properties.push('invalid value for "payment_details", payment_details cannot be nil.')
+      if @multi_doc_jobs.nil?
+        invalid_properties.push('invalid value for "multi_doc_jobs", multi_doc_jobs cannot be nil.')
       end
 
       invalid_properties
@@ -126,40 +114,18 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @items.nil?
-      return false if @job_options.nil?
-      return false if @payment_details.nil?
+      return false if @multi_doc_jobs.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] items Value to be assigned
-    def items=(items)
-      if items.nil?
-        fail ArgumentError, 'items cannot be nil'
+    # @param [Object] multi_doc_jobs Value to be assigned
+    def multi_doc_jobs=(multi_doc_jobs)
+      if multi_doc_jobs.nil?
+        fail ArgumentError, 'multi_doc_jobs cannot be nil'
       end
 
-      @items = items
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] job_options Value to be assigned
-    def job_options=(job_options)
-      if job_options.nil?
-        fail ArgumentError, 'job_options cannot be nil'
-      end
-
-      @job_options = job_options
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] payment_details Value to be assigned
-    def payment_details=(payment_details)
-      if payment_details.nil?
-        fail ArgumentError, 'payment_details cannot be nil'
-      end
-
-      @payment_details = payment_details
+      @multi_doc_jobs = multi_doc_jobs
     end
 
     # Checks equality by comparing each attribute.
@@ -167,8 +133,8 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          items == o.items &&
-          job_options == o.job_options &&
+          job_template == o.job_template &&
+          multi_doc_jobs == o.multi_doc_jobs &&
           payment_details == o.payment_details &&
           tags == o.tags
     end
@@ -182,7 +148,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [items, job_options, payment_details, tags].hash
+      [job_template, multi_doc_jobs, payment_details, tags].hash
     end
 
     # Builds the object from hash

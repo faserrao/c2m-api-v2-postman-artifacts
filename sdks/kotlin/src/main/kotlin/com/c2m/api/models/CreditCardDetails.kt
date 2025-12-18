@@ -15,7 +15,6 @@
 
 package com.c2m.api.models
 
-import com.c2m.api.models.CardType
 import com.c2m.api.models.ExpirationDate
 
 import com.squareup.moshi.Json
@@ -34,7 +33,7 @@ import com.squareup.moshi.JsonClass
 data class CreditCardDetails (
 
     @Json(name = "cardType")
-    val cardType: CardType,
+    val cardType: CreditCardDetails.CardType,
 
     @Json(name = "cardNumber")
     val cardNumber: kotlin.String,
@@ -47,6 +46,18 @@ data class CreditCardDetails (
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: visa,mastercard,discover,americanExpress
+     */
+    @JsonClass(generateAdapter = false)
+    enum class CardType(val value: kotlin.String) {
+        @Json(name = "visa") visa("visa"),
+        @Json(name = "mastercard") mastercard("mastercard"),
+        @Json(name = "discover") discover("discover"),
+        @Json(name = "americanExpress") americanExpress("americanExpress");
+    }
 
 }
 

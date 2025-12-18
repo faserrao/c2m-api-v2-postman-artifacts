@@ -13,16 +13,19 @@
 
 package com.c2m.model;
 
-import com.c2m.model.RecipientAddress;
+import com.c2m.model.Address;
 import com.c2m.model.RecipientAddressSourceOneOf;
-import com.c2m.model.RecipientAddressSourceOneOf1;
+import com.c2m.model.RecipientaddresssourceVariant1;
+import com.c2m.model.RecipientaddresssourceVariant2;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -41,91 +44,43 @@ public class RecipientAddressSourceTest {
     }
 
     /**
-     * Test the property 'firstName'
+     * Test the property 'mappingId'
      */
     @Test
-    public void firstNameTest() {
-        // TODO: test firstName
+    public void mappingIdTest() {
+        // TODO: test mappingId
     }
 
     /**
-     * Test the property 'lastName'
+     * Test the property 'singleAddress'
      */
     @Test
-    public void lastNameTest() {
-        // TODO: test lastName
+    public void singleAddressTest() {
+        // TODO: test singleAddress
     }
 
     /**
-     * Test the property 'address1'
+     * Test the property 'addressName'
      */
     @Test
-    public void address1Test() {
-        // TODO: test address1
+    public void addressNameTest() {
+        // TODO: test addressName
     }
 
     /**
-     * Test the property 'city'
+     * Test the property 'addressList'
      */
     @Test
-    public void cityTest() {
-        // TODO: test city
+    public void addressListTest() {
+        // TODO: test addressList
     }
 
     /**
-     * Test the property 'state'
+     * Test the property 'addressListName'
      */
     @Test
-    public void stateTest() {
-        // TODO: test state
-    }
-
-    /**
-     * Test the property 'zip'
-     */
-    @Test
-    public void zipTest() {
-        // TODO: test zip
-    }
-
-    /**
-     * Test the property 'country'
-     */
-    @Test
-    public void countryTest() {
-        // TODO: test country
-    }
-
-    /**
-     * Test the property 'nickName'
-     */
-    @Test
-    public void nickNameTest() {
-        // TODO: test nickName
-    }
-
-    /**
-     * Test the property 'address2'
-     */
-    @Test
-    public void address2Test() {
-        // TODO: test address2
-    }
-
-    /**
-     * Test the property 'address3'
-     */
-    @Test
-    public void address3Test() {
-        // TODO: test address3
-    }
-
-    /**
-     * Test the property 'phoneNumber'
-     */
-    @Test
-    public void phoneNumberTest() {
-        // TODO: test phoneNumber
+    public void addressListNameTest() {
+        // TODO: test addressListName
     }
 
     /**
@@ -134,14 +89,6 @@ public class RecipientAddressSourceTest {
     @Test
     public void addressListIdTest() {
         // TODO: test addressListId
-    }
-
-    /**
-     * Test the property 'addressId'
-     */
-    @Test
-    public void addressIdTest() {
-        // TODO: test addressId
     }
 
 }

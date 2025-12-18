@@ -21,12 +21,14 @@ var _ MappedNullable = &JobOptions{}
 
 // JobOptions struct for JobOptions
 type JobOptions struct {
-	DocumentClass DocumentClass `json:"documentClass"`
-	Layout Layout `json:"layout"`
-	Mailclass Mailclass `json:"mailclass"`
-	PaperType PaperType `json:"paperType"`
-	PrintOption PrintOption `json:"printOption"`
-	Envelope Envelope `json:"envelope"`
+	DocumentClass string `json:"documentClass"`
+	Layout string `json:"layout"`
+	ProductionTime string `json:"productionTime"`
+	Envelope string `json:"envelope"`
+	Color string `json:"color"`
+	PaperType string `json:"paperType"`
+	PrintOption string `json:"printOption"`
+	MailClass string `json:"mailClass"`
 }
 
 type _JobOptions JobOptions
@@ -35,14 +37,16 @@ type _JobOptions JobOptions
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewJobOptions(documentClass DocumentClass, layout Layout, mailclass Mailclass, paperType PaperType, printOption PrintOption, envelope Envelope) *JobOptions {
+func NewJobOptions(documentClass string, layout string, productionTime string, envelope string, color string, paperType string, printOption string, mailClass string) *JobOptions {
 	this := JobOptions{}
 	this.DocumentClass = documentClass
 	this.Layout = layout
-	this.Mailclass = mailclass
+	this.ProductionTime = productionTime
+	this.Envelope = envelope
+	this.Color = color
 	this.PaperType = paperType
 	this.PrintOption = printOption
-	this.Envelope = envelope
+	this.MailClass = mailClass
 	return &this
 }
 
@@ -55,9 +59,9 @@ func NewJobOptionsWithDefaults() *JobOptions {
 }
 
 // GetDocumentClass returns the DocumentClass field value
-func (o *JobOptions) GetDocumentClass() DocumentClass {
+func (o *JobOptions) GetDocumentClass() string {
 	if o == nil {
-		var ret DocumentClass
+		var ret string
 		return ret
 	}
 
@@ -66,7 +70,7 @@ func (o *JobOptions) GetDocumentClass() DocumentClass {
 
 // GetDocumentClassOk returns a tuple with the DocumentClass field value
 // and a boolean to check if the value has been set.
-func (o *JobOptions) GetDocumentClassOk() (*DocumentClass, bool) {
+func (o *JobOptions) GetDocumentClassOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -74,14 +78,14 @@ func (o *JobOptions) GetDocumentClassOk() (*DocumentClass, bool) {
 }
 
 // SetDocumentClass sets field value
-func (o *JobOptions) SetDocumentClass(v DocumentClass) {
+func (o *JobOptions) SetDocumentClass(v string) {
 	o.DocumentClass = v
 }
 
 // GetLayout returns the Layout field value
-func (o *JobOptions) GetLayout() Layout {
+func (o *JobOptions) GetLayout() string {
 	if o == nil {
-		var ret Layout
+		var ret string
 		return ret
 	}
 
@@ -90,7 +94,7 @@ func (o *JobOptions) GetLayout() Layout {
 
 // GetLayoutOk returns a tuple with the Layout field value
 // and a boolean to check if the value has been set.
-func (o *JobOptions) GetLayoutOk() (*Layout, bool) {
+func (o *JobOptions) GetLayoutOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -98,86 +102,38 @@ func (o *JobOptions) GetLayoutOk() (*Layout, bool) {
 }
 
 // SetLayout sets field value
-func (o *JobOptions) SetLayout(v Layout) {
+func (o *JobOptions) SetLayout(v string) {
 	o.Layout = v
 }
 
-// GetMailclass returns the Mailclass field value
-func (o *JobOptions) GetMailclass() Mailclass {
+// GetProductionTime returns the ProductionTime field value
+func (o *JobOptions) GetProductionTime() string {
 	if o == nil {
-		var ret Mailclass
+		var ret string
 		return ret
 	}
 
-	return o.Mailclass
+	return o.ProductionTime
 }
 
-// GetMailclassOk returns a tuple with the Mailclass field value
+// GetProductionTimeOk returns a tuple with the ProductionTime field value
 // and a boolean to check if the value has been set.
-func (o *JobOptions) GetMailclassOk() (*Mailclass, bool) {
+func (o *JobOptions) GetProductionTimeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Mailclass, true
+	return &o.ProductionTime, true
 }
 
-// SetMailclass sets field value
-func (o *JobOptions) SetMailclass(v Mailclass) {
-	o.Mailclass = v
-}
-
-// GetPaperType returns the PaperType field value
-func (o *JobOptions) GetPaperType() PaperType {
-	if o == nil {
-		var ret PaperType
-		return ret
-	}
-
-	return o.PaperType
-}
-
-// GetPaperTypeOk returns a tuple with the PaperType field value
-// and a boolean to check if the value has been set.
-func (o *JobOptions) GetPaperTypeOk() (*PaperType, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PaperType, true
-}
-
-// SetPaperType sets field value
-func (o *JobOptions) SetPaperType(v PaperType) {
-	o.PaperType = v
-}
-
-// GetPrintOption returns the PrintOption field value
-func (o *JobOptions) GetPrintOption() PrintOption {
-	if o == nil {
-		var ret PrintOption
-		return ret
-	}
-
-	return o.PrintOption
-}
-
-// GetPrintOptionOk returns a tuple with the PrintOption field value
-// and a boolean to check if the value has been set.
-func (o *JobOptions) GetPrintOptionOk() (*PrintOption, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.PrintOption, true
-}
-
-// SetPrintOption sets field value
-func (o *JobOptions) SetPrintOption(v PrintOption) {
-	o.PrintOption = v
+// SetProductionTime sets field value
+func (o *JobOptions) SetProductionTime(v string) {
+	o.ProductionTime = v
 }
 
 // GetEnvelope returns the Envelope field value
-func (o *JobOptions) GetEnvelope() Envelope {
+func (o *JobOptions) GetEnvelope() string {
 	if o == nil {
-		var ret Envelope
+		var ret string
 		return ret
 	}
 
@@ -186,7 +142,7 @@ func (o *JobOptions) GetEnvelope() Envelope {
 
 // GetEnvelopeOk returns a tuple with the Envelope field value
 // and a boolean to check if the value has been set.
-func (o *JobOptions) GetEnvelopeOk() (*Envelope, bool) {
+func (o *JobOptions) GetEnvelopeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -194,8 +150,104 @@ func (o *JobOptions) GetEnvelopeOk() (*Envelope, bool) {
 }
 
 // SetEnvelope sets field value
-func (o *JobOptions) SetEnvelope(v Envelope) {
+func (o *JobOptions) SetEnvelope(v string) {
 	o.Envelope = v
+}
+
+// GetColor returns the Color field value
+func (o *JobOptions) GetColor() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Color
+}
+
+// GetColorOk returns a tuple with the Color field value
+// and a boolean to check if the value has been set.
+func (o *JobOptions) GetColorOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Color, true
+}
+
+// SetColor sets field value
+func (o *JobOptions) SetColor(v string) {
+	o.Color = v
+}
+
+// GetPaperType returns the PaperType field value
+func (o *JobOptions) GetPaperType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PaperType
+}
+
+// GetPaperTypeOk returns a tuple with the PaperType field value
+// and a boolean to check if the value has been set.
+func (o *JobOptions) GetPaperTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PaperType, true
+}
+
+// SetPaperType sets field value
+func (o *JobOptions) SetPaperType(v string) {
+	o.PaperType = v
+}
+
+// GetPrintOption returns the PrintOption field value
+func (o *JobOptions) GetPrintOption() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PrintOption
+}
+
+// GetPrintOptionOk returns a tuple with the PrintOption field value
+// and a boolean to check if the value has been set.
+func (o *JobOptions) GetPrintOptionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PrintOption, true
+}
+
+// SetPrintOption sets field value
+func (o *JobOptions) SetPrintOption(v string) {
+	o.PrintOption = v
+}
+
+// GetMailClass returns the MailClass field value
+func (o *JobOptions) GetMailClass() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.MailClass
+}
+
+// GetMailClassOk returns a tuple with the MailClass field value
+// and a boolean to check if the value has been set.
+func (o *JobOptions) GetMailClassOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.MailClass, true
+}
+
+// SetMailClass sets field value
+func (o *JobOptions) SetMailClass(v string) {
+	o.MailClass = v
 }
 
 func (o JobOptions) MarshalJSON() ([]byte, error) {
@@ -210,10 +262,12 @@ func (o JobOptions) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["documentClass"] = o.DocumentClass
 	toSerialize["layout"] = o.Layout
-	toSerialize["mailclass"] = o.Mailclass
+	toSerialize["productionTime"] = o.ProductionTime
+	toSerialize["envelope"] = o.Envelope
+	toSerialize["color"] = o.Color
 	toSerialize["paperType"] = o.PaperType
 	toSerialize["printOption"] = o.PrintOption
-	toSerialize["envelope"] = o.Envelope
+	toSerialize["mailClass"] = o.MailClass
 	return toSerialize, nil
 }
 
@@ -224,10 +278,12 @@ func (o *JobOptions) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"documentClass",
 		"layout",
-		"mailclass",
+		"productionTime",
+		"envelope",
+		"color",
 		"paperType",
 		"printOption",
-		"envelope",
+		"mailClass",
 	}
 
 	allProperties := make(map[string]interface{})

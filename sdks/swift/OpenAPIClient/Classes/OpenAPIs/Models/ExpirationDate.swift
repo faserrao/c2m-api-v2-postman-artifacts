@@ -12,7 +12,6 @@ import AnyCodable
 
 public struct ExpirationDate: Codable, JSONEncodable, Hashable {
 
-    public static let monthRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 12, exclusiveMaximum: false, multipleOf: nil)
     public var month: Int
     public var year: Int
 

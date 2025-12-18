@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**List[SubmitMultiDocWithTemplateParamsRequestItemsInner]**](SubmitMultiDocWithTemplateParamsRequestItemsInner.md) |  | 
-**job_options** | [**JobOptions**](JobOptions.md) |  | 
-**payment_details** | [**PaymentDetails**](PaymentDetails.md) |  | 
+**job_template** | **str** |  | [optional] 
+**multi_doc_jobs** | [**List[MultiDocJobItem]**](MultiDocJobItem.md) |  | 
+**payment_details** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 
 ## Example

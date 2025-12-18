@@ -17,27 +17,27 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from c2m_api.models.recipient_address import RecipientAddress
 from c2m_api.models.recipient_address_source_one_of import RecipientAddressSourceOneOf
-from c2m_api.models.recipient_address_source_one_of1 import RecipientAddressSourceOneOf1
+from c2m_api.models.recipientaddresssource_variant1 import RecipientaddresssourceVariant1
+from c2m_api.models.recipientaddresssource_variant2 import RecipientaddresssourceVariant2
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-RECIPIENTADDRESSSOURCE_ONE_OF_SCHEMAS = ["RecipientAddress", "RecipientAddressSourceOneOf", "RecipientAddressSourceOneOf1"]
+RECIPIENTADDRESSSOURCE_ONE_OF_SCHEMAS = ["RecipientAddressSourceOneOf", "RecipientaddresssourceVariant1", "RecipientaddresssourceVariant2"]
 
 class RecipientAddressSource(BaseModel):
     """
     RecipientAddressSource
     """
-    # data type: RecipientAddress
-    oneof_schema_1_validator: Optional[RecipientAddress] = None
+    # data type: RecipientaddresssourceVariant1
+    oneof_schema_1_validator: Optional[RecipientaddresssourceVariant1] = None
+    # data type: RecipientaddresssourceVariant2
+    oneof_schema_2_validator: Optional[RecipientaddresssourceVariant2] = None
     # data type: RecipientAddressSourceOneOf
-    oneof_schema_2_validator: Optional[RecipientAddressSourceOneOf] = None
-    # data type: RecipientAddressSourceOneOf1
-    oneof_schema_3_validator: Optional[RecipientAddressSourceOneOf1] = None
-    actual_instance: Optional[Union[RecipientAddress, RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1]] = None
-    one_of_schemas: Set[str] = { "RecipientAddress", "RecipientAddressSourceOneOf", "RecipientAddressSourceOneOf1" }
+    oneof_schema_3_validator: Optional[RecipientAddressSourceOneOf] = None
+    actual_instance: Optional[Union[RecipientAddressSourceOneOf, RecipientaddresssourceVariant1, RecipientaddresssourceVariant2]] = None
+    one_of_schemas: Set[str] = { "RecipientAddressSourceOneOf", "RecipientaddresssourceVariant1", "RecipientaddresssourceVariant2" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -60,9 +60,14 @@ class RecipientAddressSource(BaseModel):
         instance = RecipientAddressSource.model_construct()
         error_messages = []
         match = 0
-        # validate data type: RecipientAddress
-        if not isinstance(v, RecipientAddress):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RecipientAddress`")
+        # validate data type: RecipientaddresssourceVariant1
+        if not isinstance(v, RecipientaddresssourceVariant1):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RecipientaddresssourceVariant1`")
+        else:
+            match += 1
+        # validate data type: RecipientaddresssourceVariant2
+        if not isinstance(v, RecipientaddresssourceVariant2):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `RecipientaddresssourceVariant2`")
         else:
             match += 1
         # validate data type: RecipientAddressSourceOneOf
@@ -70,17 +75,12 @@ class RecipientAddressSource(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `RecipientAddressSourceOneOf`")
         else:
             match += 1
-        # validate data type: RecipientAddressSourceOneOf1
-        if not isinstance(v, RecipientAddressSourceOneOf1):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RecipientAddressSourceOneOf1`")
-        else:
-            match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in RecipientAddressSource with oneOf schemas: RecipientAddress, RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in RecipientAddressSource with oneOf schemas: RecipientAddressSourceOneOf, RecipientaddresssourceVariant1, RecipientaddresssourceVariant2. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in RecipientAddressSource with oneOf schemas: RecipientAddress, RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in RecipientAddressSource with oneOf schemas: RecipientAddressSourceOneOf, RecipientaddresssourceVariant1, RecipientaddresssourceVariant2. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -95,9 +95,15 @@ class RecipientAddressSource(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into RecipientAddress
+        # deserialize data into RecipientaddresssourceVariant1
         try:
-            instance.actual_instance = RecipientAddress.from_json(json_str)
+            instance.actual_instance = RecipientaddresssourceVariant1.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into RecipientaddresssourceVariant2
+        try:
+            instance.actual_instance = RecipientaddresssourceVariant2.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
@@ -107,19 +113,13 @@ class RecipientAddressSource(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RecipientAddressSourceOneOf1
-        try:
-            instance.actual_instance = RecipientAddressSourceOneOf1.from_json(json_str)
-            match += 1
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into RecipientAddressSource with oneOf schemas: RecipientAddress, RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into RecipientAddressSource with oneOf schemas: RecipientAddressSourceOneOf, RecipientaddresssourceVariant1, RecipientaddresssourceVariant2. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into RecipientAddressSource with oneOf schemas: RecipientAddress, RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into RecipientAddressSource with oneOf schemas: RecipientAddressSourceOneOf, RecipientaddresssourceVariant1, RecipientaddresssourceVariant2. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -133,7 +133,7 @@ class RecipientAddressSource(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], RecipientAddress, RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], RecipientAddressSourceOneOf, RecipientaddresssourceVariant1, RecipientaddresssourceVariant2]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

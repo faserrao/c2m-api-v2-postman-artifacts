@@ -54,14 +54,14 @@
       //expect(instance).to.be.a(C2MApiV2AuthOverlay.SubmitMultiDocParams);
     });
 
-    it('should have the property items (base name: "items")', function() {
-      // uncomment below and update the code to test the property items
+    it('should have the property jobTemplate (base name: "jobTemplate")', function() {
+      // uncomment below and update the code to test the property jobTemplate
       //var instance = new C2MApiV2AuthOverlay.SubmitMultiDocParams();
       //expect(instance).to.be();
     });
 
-    it('should have the property jobOptions (base name: "jobOptions")', function() {
-      // uncomment below and update the code to test the property jobOptions
+    it('should have the property multiDocJobs (base name: "multiDocJobs")', function() {
+      // uncomment below and update the code to test the property multiDocJobs
       //var instance = new C2MApiV2AuthOverlay.SubmitMultiDocParams();
       //expect(instance).to.be();
     });

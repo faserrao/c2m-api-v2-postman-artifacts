@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from c2m_api.models.card_type import CardType
 from c2m_api.models.expiration_date import ExpirationDate
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,11 +27,18 @@ class CreditCardDetails(BaseModel):
     """
     CreditCardDetails
     """ # noqa: E501
-    card_type: CardType = Field(alias="cardType")
+    card_type: StrictStr = Field(alias="cardType")
     card_number: StrictStr = Field(alias="cardNumber")
     expiration_date: ExpirationDate = Field(alias="expirationDate")
     cvv: StrictInt
     __properties: ClassVar[List[str]] = ["cardType", "cardNumber", "expirationDate", "cvv"]
+
+    @field_validator('card_type')
+    def card_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['visa', 'mastercard', 'discover', 'americanExpress']):
+            raise ValueError("must be one of enum values ('visa', 'mastercard', 'discover', 'americanExpress')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

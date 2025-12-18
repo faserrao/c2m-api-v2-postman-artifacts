@@ -26,7 +26,7 @@ Issues a long-term token (e.g., 30-90 days) for automation or server-to-server u
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer (JWT) authorization: ShortTokenAuth
+// Configure OAuth2 access token for authorization: ShortTokenAuth
 $config = C2MApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ClientKey
@@ -91,7 +91,7 @@ Exchange a valid long-term token for a short-lived JWT (e.g., 15 minutes). The l
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer (JWT) authorization: LongTokenAuth
+// Configure OAuth2 access token for authorization: LongTokenAuth
 $config = C2MApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -151,10 +151,10 @@ Revokes a short- or long-term token by its `tokenId`. Idempotent.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer (JWT) authorization: LongTokenAuth
+// Configure OAuth2 access token for authorization: LongTokenAuth
 $config = C2MApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure Bearer (JWT) authorization: ShortTokenAuth
+// Configure OAuth2 access token for authorization: ShortTokenAuth
 $config = C2MApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 

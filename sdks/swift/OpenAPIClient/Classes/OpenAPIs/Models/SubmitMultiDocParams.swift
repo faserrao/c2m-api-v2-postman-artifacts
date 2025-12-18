@@ -12,21 +12,21 @@ import AnyCodable
 
 public struct SubmitMultiDocParams: Codable, JSONEncodable, Hashable {
 
-    public var items: [SubmitMultiDocWithTemplateParamsRequestItemsInner]
-    public var jobOptions: JobOptions
-    public var paymentDetails: PaymentDetails
+    public var jobTemplate: String?
+    public var multiDocJobs: [MultiDocJobItem]
+    public var paymentDetails: PaymentDetails?
     public var tags: [String]?
 
-    public init(items: [SubmitMultiDocWithTemplateParamsRequestItemsInner], jobOptions: JobOptions, paymentDetails: PaymentDetails, tags: [String]? = nil) {
-        self.items = items
-        self.jobOptions = jobOptions
+    public init(jobTemplate: String? = nil, multiDocJobs: [MultiDocJobItem], paymentDetails: PaymentDetails? = nil, tags: [String]? = nil) {
+        self.jobTemplate = jobTemplate
+        self.multiDocJobs = multiDocJobs
         self.paymentDetails = paymentDetails
         self.tags = tags
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case items
-        case jobOptions
+        case jobTemplate
+        case multiDocJobs
         case paymentDetails
         case tags
     }
@@ -35,9 +35,9 @@ public struct SubmitMultiDocParams: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(items, forKey: .items)
-        try container.encode(jobOptions, forKey: .jobOptions)
-        try container.encode(paymentDetails, forKey: .paymentDetails)
+        try container.encodeIfPresent(jobTemplate, forKey: .jobTemplate)
+        try container.encode(multiDocJobs, forKey: .multiDocJobs)
+        try container.encodeIfPresent(paymentDetails, forKey: .paymentDetails)
         try container.encodeIfPresent(tags, forKey: .tags)
     }
 }

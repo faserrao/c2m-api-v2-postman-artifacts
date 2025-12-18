@@ -48,15 +48,14 @@ All URIs are relative to *https://api.example.com/v1*
 | *AuthApi* | [**issueLongTermToken**](docs/AuthApi.md#issuelongtermtoken) | **POST** /auth/tokens/long | Issue or rotate a long-term token |
 | *AuthApi* | [**issueShortTermToken**](docs/AuthApi.md#issueshorttermtoken) | **POST** /auth/tokens/short | Issue a short-term access token |
 | *AuthApi* | [**revokeToken**](docs/AuthApi.md#revoketoken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token |
-| *DefaultApi* | [**mergeMultiDocParams**](docs/DefaultApi.md#mergemultidocparams) | **POST** /jobs/multi-doc-merge | Operation for /jobs/multi-doc-merge |
-| *DefaultApi* | [**mergeMultiDocWithTemplateParams**](docs/DefaultApi.md#mergemultidocwithtemplateparams) | **POST** /jobs/multi-doc-merge-job-template | Operation for /jobs/multi-doc-merge-job-template |
-| *DefaultApi* | [**multiPdfWithCaptureParams**](docs/DefaultApi.md#multipdfwithcaptureparams) | **POST** /jobs/multi-pdf-address-capture | Operation for /jobs/multi-pdf-address-capture |
-| *DefaultApi* | [**singleDocJobParams**](docs/DefaultApi.md#singledocjobparams) | **POST** /jobs/single-doc | Operation for /jobs/single-doc |
-| *DefaultApi* | [**splitPdfParams**](docs/DefaultApi.md#splitpdfparams) | **POST** /jobs/single-pdf-split | Operation for /jobs/single-pdf-split |
-| *DefaultApi* | [**splitPdfWithCaptureParams**](docs/DefaultApi.md#splitpdfwithcaptureparams) | **POST** /jobs/single-pdf-split-addressCapture | Operation for /jobs/single-pdf-split-addressCapture |
-| *DefaultApi* | [**submitMultiDocParams**](docs/DefaultApi.md#submitmultidocparams) | **POST** /jobs/multi-doc | Operation for /jobs/multi-doc |
-| *DefaultApi* | [**submitMultiDocWithTemplateParams**](docs/DefaultApi.md#submitmultidocwithtemplateparams) | **POST** /jobs/multi-docs-job-template | Operation for /jobs/multi-docs-job-template |
-| *DefaultApi* | [**submitSingleDocWithTemplateParams**](docs/DefaultApi.md#submitsingledocwithtemplateparams) | **POST** /jobs/single-doc-job-template | Operation for /jobs/single-doc-job-template |
+| *JobsApi* | [**submitMultiDocMergeParams**](docs/JobsApi.md#submitmultidocmergeparams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job |
+| *JobsApi* | [**submitMultiDocParams**](docs/JobsApi.md#submitmultidocparams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job |
+| *JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/JobsApi.md#submitmultizipaddresscaptureparams) | **POST** /jobs/submit/multi/zip/addressCapture | Submit a multi zip addressCapture job |
+| *JobsApi* | [**submitMultiZipParams**](docs/JobsApi.md#submitmultizipparams) | **POST** /jobs/submit/multi/zip | Submit a multi zip job |
+| *JobsApi* | [**submitSingleDocParams**](docs/JobsApi.md#submitsingledocparams) | **POST** /jobs/submit/single/doc | Submit a single doc job |
+| *JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/JobsApi.md#submitsinglepdfaddresscaptureparams) | **POST** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job |
+| *JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsApi.md#submitsinglepdfsplitaddresscaptureparams) | **POST** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job |
+| *JobsApi* | [**submitSinglePdfSplitParams**](docs/JobsApi.md#submitsinglepdfsplitparams) | **POST** /jobs/submit/single/pdf/split | Submit a single pdf split job |
 
 
 <a id="documentation-for-models"></a>
@@ -64,69 +63,51 @@ All URIs are relative to *https://api.example.com/v1*
 
  - [com.c2m.api.models.AchDetails](docs/AchDetails.md)
  - [com.c2m.api.models.AchPayment](docs/AchPayment.md)
- - [com.c2m.api.models.AddressListPdf](docs/AddressListPdf.md)
- - [com.c2m.api.models.AddressRegion](docs/AddressRegion.md)
- - [com.c2m.api.models.ApplePayPayment](docs/ApplePayPayment.md)
+ - [com.c2m.api.models.Address](docs/Address.md)
  - [com.c2m.api.models.AuthError](docs/AuthError.md)
  - [com.c2m.api.models.CardType](docs/CardType.md)
  - [com.c2m.api.models.CreditAmount](docs/CreditAmount.md)
  - [com.c2m.api.models.CreditCardDetails](docs/CreditCardDetails.md)
  - [com.c2m.api.models.CreditCardPayment](docs/CreditCardPayment.md)
  - [com.c2m.api.models.Currency](docs/Currency.md)
- - [com.c2m.api.models.DocumentClass](docs/DocumentClass.md)
- - [com.c2m.api.models.DocumentFormat](docs/DocumentFormat.md)
- - [com.c2m.api.models.DocumentSourceFromZip](docs/DocumentSourceFromZip.md)
- - [com.c2m.api.models.DocumentSourceIdentifier](docs/DocumentSourceIdentifier.md)
- - [com.c2m.api.models.DocumentSourceVariant1](docs/DocumentSourceVariant1.md)
- - [com.c2m.api.models.DocumentSourceVariant2](docs/DocumentSourceVariant2.md)
- - [com.c2m.api.models.DocumentSourceWithUpload](docs/DocumentSourceWithUpload.md)
- - [com.c2m.api.models.DocumentSourceWithUploadAndZip](docs/DocumentSourceWithUploadAndZip.md)
- - [com.c2m.api.models.Envelope](docs/Envelope.md)
+ - [com.c2m.api.models.DocSourceAll](docs/DocSourceAll.md)
+ - [com.c2m.api.models.DocSourceStandard](docs/DocSourceStandard.md)
+ - [com.c2m.api.models.DocSourceZipFile](docs/DocSourceZipFile.md)
+ - [com.c2m.api.models.DocumentSource](docs/DocumentSource.md)
  - [com.c2m.api.models.ExpirationDate](docs/ExpirationDate.md)
- - [com.c2m.api.models.ExtractionSpec](docs/ExtractionSpec.md)
- - [com.c2m.api.models.GooglePayPayment](docs/GooglePayPayment.md)
  - [com.c2m.api.models.InvoiceDetails](docs/InvoiceDetails.md)
  - [com.c2m.api.models.InvoicePayment](docs/InvoicePayment.md)
  - [com.c2m.api.models.JobOptions](docs/JobOptions.md)
- - [com.c2m.api.models.Layout](docs/Layout.md)
  - [com.c2m.api.models.LongTokenRequest](docs/LongTokenRequest.md)
  - [com.c2m.api.models.LongTokenResponse](docs/LongTokenResponse.md)
- - [com.c2m.api.models.Mailclass](docs/Mailclass.md)
- - [com.c2m.api.models.MergeMultiDocParams](docs/MergeMultiDocParams.md)
- - [com.c2m.api.models.MergeMultiDocParamsRequest](docs/MergeMultiDocParamsRequest.md)
- - [com.c2m.api.models.MergeMultiDocWithTemplateParams](docs/MergeMultiDocWithTemplateParams.md)
- - [com.c2m.api.models.MergeMultiDocWithTemplateParamsRequest](docs/MergeMultiDocWithTemplateParamsRequest.md)
- - [com.c2m.api.models.MultiPdfWithCaptureParams](docs/MultiPdfWithCaptureParams.md)
- - [com.c2m.api.models.MultiPdfWithCaptureParamsRequest](docs/MultiPdfWithCaptureParamsRequest.md)
- - [com.c2m.api.models.PageRange](docs/PageRange.md)
- - [com.c2m.api.models.PaperType](docs/PaperType.md)
+ - [com.c2m.api.models.MergeByRequestId](docs/MergeByRequestId.md)
+ - [com.c2m.api.models.MergeDocumentRef](docs/MergeDocumentRef.md)
+ - [com.c2m.api.models.MultiDocJobItem](docs/MultiDocJobItem.md)
+ - [com.c2m.api.models.MultiZipJobItem](docs/MultiZipJobItem.md)
  - [com.c2m.api.models.PaymentDetails](docs/PaymentDetails.md)
- - [com.c2m.api.models.PrintOption](docs/PrintOption.md)
- - [com.c2m.api.models.RecipientAddress](docs/RecipientAddress.md)
+ - [com.c2m.api.models.PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
+ - [com.c2m.api.models.PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
  - [com.c2m.api.models.RecipientAddressSource](docs/RecipientAddressSource.md)
  - [com.c2m.api.models.RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
- - [com.c2m.api.models.RecipientAddressSourceOneOf1](docs/RecipientAddressSourceOneOf1.md)
+ - [com.c2m.api.models.RecipientaddresssourceVariant1](docs/RecipientaddresssourceVariant1.md)
+ - [com.c2m.api.models.RecipientaddresssourceVariant2](docs/RecipientaddresssourceVariant2.md)
+ - [com.c2m.api.models.RequestIdSource](docs/RequestIdSource.md)
+ - [com.c2m.api.models.ReturnAddress](docs/ReturnAddress.md)
  - [com.c2m.api.models.ShortTokenRequest](docs/ShortTokenRequest.md)
  - [com.c2m.api.models.ShortTokenResponse](docs/ShortTokenResponse.md)
- - [com.c2m.api.models.SingleDocJobParams](docs/SingleDocJobParams.md)
- - [com.c2m.api.models.SingleDocJobParamsRequest](docs/SingleDocJobParamsRequest.md)
- - [com.c2m.api.models.SplitPdfParams](docs/SplitPdfParams.md)
- - [com.c2m.api.models.SplitPdfParamsRequest](docs/SplitPdfParamsRequest.md)
- - [com.c2m.api.models.SplitPdfParamsRequestItemsInner](docs/SplitPdfParamsRequestItemsInner.md)
- - [com.c2m.api.models.SplitPdfWithCaptureParams](docs/SplitPdfWithCaptureParams.md)
- - [com.c2m.api.models.SplitPdfWithCaptureParamsRequest](docs/SplitPdfWithCaptureParamsRequest.md)
  - [com.c2m.api.models.StandardResponse](docs/StandardResponse.md)
+ - [com.c2m.api.models.SubmitMultiDocMergeParams](docs/SubmitMultiDocMergeParams.md)
  - [com.c2m.api.models.SubmitMultiDocParams](docs/SubmitMultiDocParams.md)
- - [com.c2m.api.models.SubmitMultiDocParamsRequest](docs/SubmitMultiDocParamsRequest.md)
- - [com.c2m.api.models.SubmitMultiDocWithTemplateParams](docs/SubmitMultiDocWithTemplateParams.md)
- - [com.c2m.api.models.SubmitMultiDocWithTemplateParamsRequest](docs/SubmitMultiDocWithTemplateParamsRequest.md)
- - [com.c2m.api.models.SubmitMultiDocWithTemplateParamsRequestItemsInner](docs/SubmitMultiDocWithTemplateParamsRequestItemsInner.md)
- - [com.c2m.api.models.SubmitSingleDocWithTemplateParams](docs/SubmitSingleDocWithTemplateParams.md)
- - [com.c2m.api.models.SubmitSingleDocWithTemplateParamsRequest](docs/SubmitSingleDocWithTemplateParamsRequest.md)
- - [com.c2m.api.models.SubmitSingleDocWithTemplateParamsRequestOneOf](docs/SubmitSingleDocWithTemplateParamsRequestOneOf.md)
- - [com.c2m.api.models.SubmitSingleDocWithTemplateParamsRequestOneOf1](docs/SubmitSingleDocWithTemplateParamsRequestOneOf1.md)
- - [com.c2m.api.models.SubmitSingleDocWithTemplateParamsRequestOneOf2](docs/SubmitSingleDocWithTemplateParamsRequestOneOf2.md)
+ - [com.c2m.api.models.SubmitMultiZipAddressCaptureParams](docs/SubmitMultiZipAddressCaptureParams.md)
+ - [com.c2m.api.models.SubmitMultiZipParams](docs/SubmitMultiZipParams.md)
+ - [com.c2m.api.models.SubmitSingleDocParams](docs/SubmitSingleDocParams.md)
+ - [com.c2m.api.models.SubmitSinglePdfAddressCaptureParams](docs/SubmitSinglePdfAddressCaptureParams.md)
+ - [com.c2m.api.models.SubmitSinglePdfSplitAddressCaptureParams](docs/SubmitSinglePdfSplitAddressCaptureParams.md)
+ - [com.c2m.api.models.SubmitSinglePdfSplitParams](docs/SubmitSinglePdfSplitParams.md)
  - [com.c2m.api.models.UserCreditPayment](docs/UserCreditPayment.md)
+ - [com.c2m.api.models.ZipDocumentIdSource](docs/ZipDocumentIdSource.md)
+ - [com.c2m.api.models.ZipDocumentSource](docs/ZipDocumentSource.md)
+ - [com.c2m.api.models.ZipRequestIdSource](docs/ZipRequestIdSource.md)
 
 
 <a id="documentation-for-authorization"></a>
@@ -142,12 +123,22 @@ Authentication schemes defined for the API:
 <a id="LongTokenAuth"></a>
 ### LongTokenAuth
 
-- **Type**: HTTP Bearer Token authentication (JWT)
+- **Type**: OAuth
+- **Flow**: application
+- **Authorization URL**: 
+- **Scopes**: 
+  - tokens:write: Create new long-term tokens
+  - tokens:revoke: Revoke existing tokens
 
 <a id="ShortTokenAuth"></a>
 ### ShortTokenAuth
 
-- **Type**: HTTP Bearer Token authentication (JWT)
+- **Type**: OAuth
+- **Flow**: application
+- **Authorization URL**: 
+- **Scopes**: 
+  - tokens:write: Create new long-term tokens
+  - tokens:revoke: Revoke existing tokens
 
 <a id="ClientKey"></a>
 ### ClientKey

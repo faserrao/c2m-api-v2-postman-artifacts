@@ -13,22 +13,22 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SubmitMultiDocParams {
-    #[serde(rename = "items")]
-    pub items: Vec<models::SubmitMultiDocWithTemplateParamsRequestItemsInner>,
-    #[serde(rename = "jobOptions")]
-    pub job_options: Box<models::JobOptions>,
-    #[serde(rename = "paymentDetails")]
-    pub payment_details: Box<models::PaymentDetails>,
+    #[serde(rename = "jobTemplate", skip_serializing_if = "Option::is_none")]
+    pub job_template: Option<String>,
+    #[serde(rename = "multiDocJobs")]
+    pub multi_doc_jobs: Vec<models::MultiDocJobItem>,
+    #[serde(rename = "paymentDetails", skip_serializing_if = "Option::is_none")]
+    pub payment_details: Option<Box<models::PaymentDetails>>,
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<String>>,
 }
 
 impl SubmitMultiDocParams {
-    pub fn new(items: Vec<models::SubmitMultiDocWithTemplateParamsRequestItemsInner>, job_options: models::JobOptions, payment_details: models::PaymentDetails) -> SubmitMultiDocParams {
+    pub fn new(multi_doc_jobs: Vec<models::MultiDocJobItem>) -> SubmitMultiDocParams {
         SubmitMultiDocParams {
-            items,
-            job_options: Box::new(job_options),
-            payment_details: Box::new(payment_details),
+            job_template: None,
+            multi_doc_jobs,
+            payment_details: None,
             tags: None,
         }
     }

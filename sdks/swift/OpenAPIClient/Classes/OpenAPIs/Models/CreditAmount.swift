@@ -12,6 +12,13 @@ import AnyCodable
 
 public struct CreditAmount: Codable, JSONEncodable, Hashable {
 
+    public enum Currency: String, Codable, CaseIterable {
+        case usd = "USD"
+        case eur = "EUR"
+        case gbp = "GBP"
+        case cad = "CAD"
+        case aud = "AUD"
+    }
     public var amount: Double
     public var currency: Currency
 

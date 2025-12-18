@@ -35,19 +35,23 @@ namespace C2M.Api.Model
         /// </summary>
         /// <param name="documentClass">documentClass</param>
         /// <param name="layout">layout</param>
-        /// <param name="mailclass">mailclass</param>
+        /// <param name="productionTime">productionTime</param>
+        /// <param name="envelope">envelope</param>
+        /// <param name="color">color</param>
         /// <param name="paperType">paperType</param>
         /// <param name="printOption">printOption</param>
-        /// <param name="envelope">envelope</param>
+        /// <param name="mailClass">mailClass</param>
         [JsonConstructor]
-        public JobOptions(DocumentClass documentClass, Layout layout, Mailclass mailclass, PaperType paperType, PrintOption printOption, Envelope envelope)
+        public JobOptions(string documentClass, string layout, string productionTime, string envelope, string color, string paperType, string printOption, string mailClass)
         {
             DocumentClass = documentClass;
             Layout = layout;
-            Mailclass = mailclass;
+            ProductionTime = productionTime;
+            Envelope = envelope;
+            Color = color;
             PaperType = paperType;
             PrintOption = printOption;
-            Envelope = envelope;
+            MailClass = mailClass;
             OnCreated();
         }
 
@@ -57,37 +61,49 @@ namespace C2M.Api.Model
         /// Gets or Sets DocumentClass
         /// </summary>
         [JsonPropertyName("documentClass")]
-        public DocumentClass DocumentClass { get; set; }
+        public string DocumentClass { get; set; }
 
         /// <summary>
         /// Gets or Sets Layout
         /// </summary>
         [JsonPropertyName("layout")]
-        public Layout Layout { get; set; }
+        public string Layout { get; set; }
 
         /// <summary>
-        /// Gets or Sets Mailclass
+        /// Gets or Sets ProductionTime
         /// </summary>
-        [JsonPropertyName("mailclass")]
-        public Mailclass Mailclass { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PaperType
-        /// </summary>
-        [JsonPropertyName("paperType")]
-        public PaperType PaperType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PrintOption
-        /// </summary>
-        [JsonPropertyName("printOption")]
-        public PrintOption PrintOption { get; set; }
+        [JsonPropertyName("productionTime")]
+        public string ProductionTime { get; set; }
 
         /// <summary>
         /// Gets or Sets Envelope
         /// </summary>
         [JsonPropertyName("envelope")]
-        public Envelope Envelope { get; set; }
+        public string Envelope { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Color
+        /// </summary>
+        [JsonPropertyName("color")]
+        public string Color { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PaperType
+        /// </summary>
+        [JsonPropertyName("paperType")]
+        public string PaperType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PrintOption
+        /// </summary>
+        [JsonPropertyName("printOption")]
+        public string PrintOption { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MailClass
+        /// </summary>
+        [JsonPropertyName("mailClass")]
+        public string MailClass { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -99,10 +115,12 @@ namespace C2M.Api.Model
             sb.Append("class JobOptions {\n");
             sb.Append("  DocumentClass: ").Append(DocumentClass).Append("\n");
             sb.Append("  Layout: ").Append(Layout).Append("\n");
-            sb.Append("  Mailclass: ").Append(Mailclass).Append("\n");
+            sb.Append("  ProductionTime: ").Append(ProductionTime).Append("\n");
+            sb.Append("  Envelope: ").Append(Envelope).Append("\n");
+            sb.Append("  Color: ").Append(Color).Append("\n");
             sb.Append("  PaperType: ").Append(PaperType).Append("\n");
             sb.Append("  PrintOption: ").Append(PrintOption).Append("\n");
-            sb.Append("  Envelope: ").Append(Envelope).Append("\n");
+            sb.Append("  MailClass: ").Append(MailClass).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,12 +158,14 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<DocumentClass?> documentClass = default;
-            Option<Layout?> layout = default;
-            Option<Mailclass?> mailclass = default;
-            Option<PaperType?> paperType = default;
-            Option<PrintOption?> printOption = default;
-            Option<Envelope?> envelope = default;
+            Option<string?> documentClass = default;
+            Option<string?> layout = default;
+            Option<string?> productionTime = default;
+            Option<string?> envelope = default;
+            Option<string?> color = default;
+            Option<string?> paperType = default;
+            Option<string?> printOption = default;
+            Option<string?> mailClass = default;
 
             while (utf8JsonReader.Read())
             {
@@ -163,34 +183,28 @@ namespace C2M.Api.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "documentClass":
-                            string? documentClassRawValue = utf8JsonReader.GetString();
-                            if (documentClassRawValue != null)
-                                documentClass = new Option<DocumentClass?>(DocumentClassValueConverter.FromStringOrDefault(documentClassRawValue));
+                            documentClass = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "layout":
-                            string? layoutRawValue = utf8JsonReader.GetString();
-                            if (layoutRawValue != null)
-                                layout = new Option<Layout?>(LayoutValueConverter.FromStringOrDefault(layoutRawValue));
+                            layout = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
-                        case "mailclass":
-                            string? mailclassRawValue = utf8JsonReader.GetString();
-                            if (mailclassRawValue != null)
-                                mailclass = new Option<Mailclass?>(MailclassValueConverter.FromStringOrDefault(mailclassRawValue));
-                            break;
-                        case "paperType":
-                            string? paperTypeRawValue = utf8JsonReader.GetString();
-                            if (paperTypeRawValue != null)
-                                paperType = new Option<PaperType?>(PaperTypeValueConverter.FromStringOrDefault(paperTypeRawValue));
-                            break;
-                        case "printOption":
-                            string? printOptionRawValue = utf8JsonReader.GetString();
-                            if (printOptionRawValue != null)
-                                printOption = new Option<PrintOption?>(PrintOptionValueConverter.FromStringOrDefault(printOptionRawValue));
+                        case "productionTime":
+                            productionTime = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "envelope":
-                            string? envelopeRawValue = utf8JsonReader.GetString();
-                            if (envelopeRawValue != null)
-                                envelope = new Option<Envelope?>(EnvelopeValueConverter.FromStringOrDefault(envelopeRawValue));
+                            envelope = new Option<string?>(utf8JsonReader.GetString()!);
+                            break;
+                        case "color":
+                            color = new Option<string?>(utf8JsonReader.GetString()!);
+                            break;
+                        case "paperType":
+                            paperType = new Option<string?>(utf8JsonReader.GetString()!);
+                            break;
+                        case "printOption":
+                            printOption = new Option<string?>(utf8JsonReader.GetString()!);
+                            break;
+                        case "mailClass":
+                            mailClass = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         default:
                             break;
@@ -204,8 +218,14 @@ namespace C2M.Api.Model
             if (!layout.IsSet)
                 throw new ArgumentException("Property is required for class JobOptions.", nameof(layout));
 
-            if (!mailclass.IsSet)
-                throw new ArgumentException("Property is required for class JobOptions.", nameof(mailclass));
+            if (!productionTime.IsSet)
+                throw new ArgumentException("Property is required for class JobOptions.", nameof(productionTime));
+
+            if (!envelope.IsSet)
+                throw new ArgumentException("Property is required for class JobOptions.", nameof(envelope));
+
+            if (!color.IsSet)
+                throw new ArgumentException("Property is required for class JobOptions.", nameof(color));
 
             if (!paperType.IsSet)
                 throw new ArgumentException("Property is required for class JobOptions.", nameof(paperType));
@@ -213,8 +233,8 @@ namespace C2M.Api.Model
             if (!printOption.IsSet)
                 throw new ArgumentException("Property is required for class JobOptions.", nameof(printOption));
 
-            if (!envelope.IsSet)
-                throw new ArgumentException("Property is required for class JobOptions.", nameof(envelope));
+            if (!mailClass.IsSet)
+                throw new ArgumentException("Property is required for class JobOptions.", nameof(mailClass));
 
             if (documentClass.IsSet && documentClass.Value == null)
                 throw new ArgumentNullException(nameof(documentClass), "Property is not nullable for class JobOptions.");
@@ -222,8 +242,14 @@ namespace C2M.Api.Model
             if (layout.IsSet && layout.Value == null)
                 throw new ArgumentNullException(nameof(layout), "Property is not nullable for class JobOptions.");
 
-            if (mailclass.IsSet && mailclass.Value == null)
-                throw new ArgumentNullException(nameof(mailclass), "Property is not nullable for class JobOptions.");
+            if (productionTime.IsSet && productionTime.Value == null)
+                throw new ArgumentNullException(nameof(productionTime), "Property is not nullable for class JobOptions.");
+
+            if (envelope.IsSet && envelope.Value == null)
+                throw new ArgumentNullException(nameof(envelope), "Property is not nullable for class JobOptions.");
+
+            if (color.IsSet && color.Value == null)
+                throw new ArgumentNullException(nameof(color), "Property is not nullable for class JobOptions.");
 
             if (paperType.IsSet && paperType.Value == null)
                 throw new ArgumentNullException(nameof(paperType), "Property is not nullable for class JobOptions.");
@@ -231,10 +257,10 @@ namespace C2M.Api.Model
             if (printOption.IsSet && printOption.Value == null)
                 throw new ArgumentNullException(nameof(printOption), "Property is not nullable for class JobOptions.");
 
-            if (envelope.IsSet && envelope.Value == null)
-                throw new ArgumentNullException(nameof(envelope), "Property is not nullable for class JobOptions.");
+            if (mailClass.IsSet && mailClass.Value == null)
+                throw new ArgumentNullException(nameof(mailClass), "Property is not nullable for class JobOptions.");
 
-            return new JobOptions(documentClass.Value!.Value!, layout.Value!.Value!, mailclass.Value!.Value!, paperType.Value!.Value!, printOption.Value!.Value!, envelope.Value!.Value!);
+            return new JobOptions(documentClass.Value!, layout.Value!, productionTime.Value!, envelope.Value!, color.Value!, paperType.Value!, printOption.Value!, mailClass.Value!);
         }
 
         /// <summary>
@@ -261,23 +287,45 @@ namespace C2M.Api.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, JobOptions jobOptions, JsonSerializerOptions jsonSerializerOptions)
         {
-            var documentClassRawValue = DocumentClassValueConverter.ToJsonValue(jobOptions.DocumentClass);
-            writer.WriteString("documentClass", documentClassRawValue);
+            if (jobOptions.DocumentClass == null)
+                throw new ArgumentNullException(nameof(jobOptions.DocumentClass), "Property is required for class JobOptions.");
 
-            var layoutRawValue = LayoutValueConverter.ToJsonValue(jobOptions.Layout);
-            writer.WriteString("layout", layoutRawValue);
+            if (jobOptions.Layout == null)
+                throw new ArgumentNullException(nameof(jobOptions.Layout), "Property is required for class JobOptions.");
 
-            var mailclassRawValue = MailclassValueConverter.ToJsonValue(jobOptions.Mailclass);
-            writer.WriteString("mailclass", mailclassRawValue);
+            if (jobOptions.ProductionTime == null)
+                throw new ArgumentNullException(nameof(jobOptions.ProductionTime), "Property is required for class JobOptions.");
 
-            var paperTypeRawValue = PaperTypeValueConverter.ToJsonValue(jobOptions.PaperType);
-            writer.WriteString("paperType", paperTypeRawValue);
+            if (jobOptions.Envelope == null)
+                throw new ArgumentNullException(nameof(jobOptions.Envelope), "Property is required for class JobOptions.");
 
-            var printOptionRawValue = PrintOptionValueConverter.ToJsonValue(jobOptions.PrintOption);
-            writer.WriteString("printOption", printOptionRawValue);
+            if (jobOptions.Color == null)
+                throw new ArgumentNullException(nameof(jobOptions.Color), "Property is required for class JobOptions.");
 
-            var envelopeRawValue = EnvelopeValueConverter.ToJsonValue(jobOptions.Envelope);
-            writer.WriteString("envelope", envelopeRawValue);
+            if (jobOptions.PaperType == null)
+                throw new ArgumentNullException(nameof(jobOptions.PaperType), "Property is required for class JobOptions.");
+
+            if (jobOptions.PrintOption == null)
+                throw new ArgumentNullException(nameof(jobOptions.PrintOption), "Property is required for class JobOptions.");
+
+            if (jobOptions.MailClass == null)
+                throw new ArgumentNullException(nameof(jobOptions.MailClass), "Property is required for class JobOptions.");
+
+            writer.WriteString("documentClass", jobOptions.DocumentClass);
+
+            writer.WriteString("layout", jobOptions.Layout);
+
+            writer.WriteString("productionTime", jobOptions.ProductionTime);
+
+            writer.WriteString("envelope", jobOptions.Envelope);
+
+            writer.WriteString("color", jobOptions.Color);
+
+            writer.WriteString("paperType", jobOptions.PaperType);
+
+            writer.WriteString("printOption", jobOptions.PrintOption);
+
+            writer.WriteString("mailClass", jobOptions.MailClass);
         }
     }
 }

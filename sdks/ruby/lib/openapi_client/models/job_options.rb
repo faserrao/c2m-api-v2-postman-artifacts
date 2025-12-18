@@ -19,45 +19,29 @@ module OpenapiClient
 
     attr_accessor :layout
 
-    attr_accessor :mailclass
+    attr_accessor :production_time
+
+    attr_accessor :envelope
+
+    attr_accessor :color
 
     attr_accessor :paper_type
 
     attr_accessor :print_option
 
-    attr_accessor :envelope
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :mail_class
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'document_class' => :'documentClass',
         :'layout' => :'layout',
-        :'mailclass' => :'mailclass',
+        :'production_time' => :'productionTime',
+        :'envelope' => :'envelope',
+        :'color' => :'color',
         :'paper_type' => :'paperType',
         :'print_option' => :'printOption',
-        :'envelope' => :'envelope'
+        :'mail_class' => :'mailClass'
       }
     end
 
@@ -74,12 +58,14 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'document_class' => :'DocumentClass',
-        :'layout' => :'Layout',
-        :'mailclass' => :'Mailclass',
-        :'paper_type' => :'PaperType',
-        :'print_option' => :'PrintOption',
-        :'envelope' => :'Envelope'
+        :'document_class' => :'String',
+        :'layout' => :'String',
+        :'production_time' => :'String',
+        :'envelope' => :'String',
+        :'color' => :'String',
+        :'paper_type' => :'String',
+        :'print_option' => :'String',
+        :'mail_class' => :'String'
       }
     end
 
@@ -117,10 +103,22 @@ module OpenapiClient
         self.layout = nil
       end
 
-      if attributes.key?(:'mailclass')
-        self.mailclass = attributes[:'mailclass']
+      if attributes.key?(:'production_time')
+        self.production_time = attributes[:'production_time']
       else
-        self.mailclass = nil
+        self.production_time = nil
+      end
+
+      if attributes.key?(:'envelope')
+        self.envelope = attributes[:'envelope']
+      else
+        self.envelope = nil
+      end
+
+      if attributes.key?(:'color')
+        self.color = attributes[:'color']
+      else
+        self.color = nil
       end
 
       if attributes.key?(:'paper_type')
@@ -135,10 +133,10 @@ module OpenapiClient
         self.print_option = nil
       end
 
-      if attributes.key?(:'envelope')
-        self.envelope = attributes[:'envelope']
+      if attributes.key?(:'mail_class')
+        self.mail_class = attributes[:'mail_class']
       else
-        self.envelope = nil
+        self.mail_class = nil
       end
     end
 
@@ -155,8 +153,16 @@ module OpenapiClient
         invalid_properties.push('invalid value for "layout", layout cannot be nil.')
       end
 
-      if @mailclass.nil?
-        invalid_properties.push('invalid value for "mailclass", mailclass cannot be nil.')
+      if @production_time.nil?
+        invalid_properties.push('invalid value for "production_time", production_time cannot be nil.')
+      end
+
+      if @envelope.nil?
+        invalid_properties.push('invalid value for "envelope", envelope cannot be nil.')
+      end
+
+      if @color.nil?
+        invalid_properties.push('invalid value for "color", color cannot be nil.')
       end
 
       if @paper_type.nil?
@@ -167,8 +173,8 @@ module OpenapiClient
         invalid_properties.push('invalid value for "print_option", print_option cannot be nil.')
       end
 
-      if @envelope.nil?
-        invalid_properties.push('invalid value for "envelope", envelope cannot be nil.')
+      if @mail_class.nil?
+        invalid_properties.push('invalid value for "mail_class", mail_class cannot be nil.')
       end
 
       invalid_properties
@@ -180,10 +186,12 @@ module OpenapiClient
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @document_class.nil?
       return false if @layout.nil?
-      return false if @mailclass.nil?
+      return false if @production_time.nil?
+      return false if @envelope.nil?
+      return false if @color.nil?
       return false if @paper_type.nil?
       return false if @print_option.nil?
-      return false if @envelope.nil?
+      return false if @mail_class.nil?
       true
     end
 
@@ -208,13 +216,33 @@ module OpenapiClient
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] mailclass Value to be assigned
-    def mailclass=(mailclass)
-      if mailclass.nil?
-        fail ArgumentError, 'mailclass cannot be nil'
+    # @param [Object] production_time Value to be assigned
+    def production_time=(production_time)
+      if production_time.nil?
+        fail ArgumentError, 'production_time cannot be nil'
       end
 
-      @mailclass = mailclass
+      @production_time = production_time
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] envelope Value to be assigned
+    def envelope=(envelope)
+      if envelope.nil?
+        fail ArgumentError, 'envelope cannot be nil'
+      end
+
+      @envelope = envelope
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] color Value to be assigned
+    def color=(color)
+      if color.nil?
+        fail ArgumentError, 'color cannot be nil'
+      end
+
+      @color = color
     end
 
     # Custom attribute writer method with validation
@@ -238,13 +266,13 @@ module OpenapiClient
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] envelope Value to be assigned
-    def envelope=(envelope)
-      if envelope.nil?
-        fail ArgumentError, 'envelope cannot be nil'
+    # @param [Object] mail_class Value to be assigned
+    def mail_class=(mail_class)
+      if mail_class.nil?
+        fail ArgumentError, 'mail_class cannot be nil'
       end
 
-      @envelope = envelope
+      @mail_class = mail_class
     end
 
     # Checks equality by comparing each attribute.
@@ -254,10 +282,12 @@ module OpenapiClient
       self.class == o.class &&
           document_class == o.document_class &&
           layout == o.layout &&
-          mailclass == o.mailclass &&
+          production_time == o.production_time &&
+          envelope == o.envelope &&
+          color == o.color &&
           paper_type == o.paper_type &&
           print_option == o.print_option &&
-          envelope == o.envelope
+          mail_class == o.mail_class
     end
 
     # @see the `==` method
@@ -269,7 +299,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [document_class, layout, mailclass, paper_type, print_option, envelope].hash
+      [document_class, layout, production_time, envelope, color, paper_type, print_option, mail_class].hash
     end
 
     # Builds the object from hash

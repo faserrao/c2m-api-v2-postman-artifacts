@@ -19,7 +19,6 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.CreditAmount
-import com.c2m.api.models.Currency
 
 class CreditAmountTest : ShouldSpec() {
     init {

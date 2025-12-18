@@ -15,9 +15,7 @@ OpenapiClient::PaymentDetails.openapi_one_of
 # =>
 # [
 #   :'AchPayment',
-#   :'ApplePayPayment',
 #   :'CreditCardPayment',
-#   :'GooglePayPayment',
 #   :'InvoicePayment',
 #   :'UserCreditPayment'
 # ]
@@ -48,9 +46,7 @@ OpenapiClient::PaymentDetails.build(data_that_doesnt_match)
 #### Return type
 
 - `AchPayment`
-- `ApplePayPayment`
 - `CreditCardPayment`
-- `GooglePayPayment`
 - `InvoicePayment`
 - `UserCreditPayment`
 - `nil` (if no type matches)

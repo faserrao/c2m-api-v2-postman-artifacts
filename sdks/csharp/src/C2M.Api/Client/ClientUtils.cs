@@ -139,26 +139,16 @@ namespace C2M.Api.Client
                     : "false";
             if (obj is CardType cardType)
                 return CardTypeValueConverter.ToJsonValue(cardType);
+            if (obj is CreditAmount.CurrencyEnum creditAmountCurrencyEnum)
+                return CreditAmount.CurrencyEnumToJsonValue(creditAmountCurrencyEnum);
+            if (obj is CreditCardDetails.CardTypeEnum creditCardDetailsCardTypeEnum)
+                return CreditCardDetails.CardTypeEnumToJsonValue(creditCardDetailsCardTypeEnum);
             if (obj is Currency currency)
                 return CurrencyValueConverter.ToJsonValue(currency);
-            if (obj is DocumentClass documentClass)
-                return DocumentClassValueConverter.ToJsonValue(documentClass);
-            if (obj is DocumentFormat documentFormat)
-                return DocumentFormatValueConverter.ToJsonValue(documentFormat);
-            if (obj is Envelope envelope)
-                return EnvelopeValueConverter.ToJsonValue(envelope);
-            if (obj is Layout layout)
-                return LayoutValueConverter.ToJsonValue(layout);
             if (obj is LongTokenRequest.GrantTypeEnum longTokenRequestGrantTypeEnum)
                 return LongTokenRequest.GrantTypeEnumToJsonValue(longTokenRequestGrantTypeEnum);
             if (obj is LongTokenResponse.TokenTypeEnum longTokenResponseTokenTypeEnum)
                 return LongTokenResponse.TokenTypeEnumToJsonValue(longTokenResponseTokenTypeEnum);
-            if (obj is Mailclass mailclass)
-                return MailclassValueConverter.ToJsonValue(mailclass);
-            if (obj is PaperType paperType)
-                return PaperTypeValueConverter.ToJsonValue(paperType);
-            if (obj is PrintOption printOption)
-                return PrintOptionValueConverter.ToJsonValue(printOption);
             if (obj is ShortTokenResponse.TokenTypeEnum shortTokenResponseTokenTypeEnum)
                 return ShortTokenResponse.TokenTypeEnumToJsonValue(shortTokenResponseTokenTypeEnum);
             if (obj is ICollection collection)

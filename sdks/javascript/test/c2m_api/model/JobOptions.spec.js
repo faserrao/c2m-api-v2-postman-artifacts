@@ -66,8 +66,20 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property mailclass (base name: "mailclass")', function() {
-      // uncomment below and update the code to test the property mailclass
+    it('should have the property productionTime (base name: "productionTime")', function() {
+      // uncomment below and update the code to test the property productionTime
+      //var instance = new C2MApiV2AuthOverlay.JobOptions();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property envelope (base name: "envelope")', function() {
+      // uncomment below and update the code to test the property envelope
+      //var instance = new C2MApiV2AuthOverlay.JobOptions();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property color (base name: "color")', function() {
+      // uncomment below and update the code to test the property color
       //var instance = new C2MApiV2AuthOverlay.JobOptions();
       //expect(instance).to.be();
     });
@@ -84,8 +96,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property envelope (base name: "envelope")', function() {
-      // uncomment below and update the code to test the property envelope
+    it('should have the property mailClass (base name: "mailClass")', function() {
+      // uncomment below and update the code to test the property mailClass
       //var instance = new C2MApiV2AuthOverlay.JobOptions();
       //expect(instance).to.be();
     });

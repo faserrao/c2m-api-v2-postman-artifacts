@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cardType** | [**CardType**](CardType.md) |  | 
+**cardType** | **String** |  | 
 **cardNumber** | **String** |  | 
 **expirationDate** | [**ExpirationDate**](ExpirationDate.md) |  | 
 **cvv** | **Int** |  | 

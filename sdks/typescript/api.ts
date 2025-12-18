@@ -31,21 +31,18 @@ export interface AchDetails {
 export interface AchPayment {
     'achDetails': AchDetails;
 }
-export interface AddressListPdf {
-    'documentSourceIdentifier': DocumentSourceIdentifier;
-    'addressListRegion': string;
-    'delimiter'?: string;
-    'tags'?: Array<string>;
-}
-export interface AddressRegion {
-    'x': number;
-    'y': number;
-    'width': number;
-    'height': number;
-    'pageOffset': number;
-}
-export interface ApplePayPayment {
-    'applePaymentDetails': object;
+export interface Address {
+    'firstName': string;
+    'lastName': string;
+    'address1': string;
+    'city': string;
+    'state': string;
+    'zip': string;
+    'country': string;
+    'address2'?: string;
+    'address3'?: string;
+    'foo1'?: string;
+    'foo2'?: string;
 }
 export interface AuthError {
     /**
@@ -74,17 +71,34 @@ export type CardType = typeof CardType[keyof typeof CardType];
 
 export interface CreditAmount {
     'amount': number;
-    'currency': Currency;
+    'currency': CreditAmountCurrencyEnum;
 }
 
+export const CreditAmountCurrencyEnum = {
+    Usd: 'USD',
+    Eur: 'EUR',
+    Gbp: 'GBP',
+    Cad: 'CAD',
+    Aud: 'AUD'
+} as const;
+
+export type CreditAmountCurrencyEnum = typeof CreditAmountCurrencyEnum[keyof typeof CreditAmountCurrencyEnum];
 
 export interface CreditCardDetails {
-    'cardType': CardType;
+    'cardType': CreditCardDetailsCardTypeEnum;
     'cardNumber': string;
     'expirationDate': ExpirationDate;
     'cvv': number;
 }
 
+export const CreditCardDetailsCardTypeEnum = {
+    Visa: 'visa',
+    Mastercard: 'mastercard',
+    Discover: 'discover',
+    AmericanExpress: 'americanExpress'
+} as const;
+
+export type CreditCardDetailsCardTypeEnum = typeof CreditCardDetailsCardTypeEnum[keyof typeof CreditCardDetailsCardTypeEnum];
 
 export interface CreditCardPayment {
     'creditCardDetails': CreditCardDetails;
@@ -101,84 +115,29 @@ export const Currency = {
 export type Currency = typeof Currency[keyof typeof Currency];
 
 
-
-export const DocumentClass = {
-    BusinessLetter: 'businessLetter',
-    PersonalLetter: 'personalLetter'
-} as const;
-
-export type DocumentClass = typeof DocumentClass[keyof typeof DocumentClass];
-
-
-
-export const DocumentFormat = {
-    Pdf: 'pdf',
-    Doc: 'doc',
-    Docx: 'docx',
-    Pub: 'pub',
-    Ppt: 'ppt',
-    Pptx: 'pptx',
-    Png: 'png',
-    Jpeg: 'jpeg',
-    Odt: 'odt'
-} as const;
-
-export type DocumentFormat = typeof DocumentFormat[keyof typeof DocumentFormat];
-
-
-export interface DocumentSourceFromZip {
-    'zipId': number;
-    'documentName': string;
-}
 /**
- * @type DocumentSourceIdentifier
+ * @type DocSourceAll
  */
-export type DocumentSourceIdentifier = DocumentSourceFromZip | DocumentSourceVariant1 | DocumentSourceVariant2 | DocumentSourceWithUpload | DocumentSourceWithUploadAndZip;
+export type DocSourceAll = DocSourceStandard | DocSourceZipFile;
 
 /**
- * OneOf variant for documentSourceIdentifier
+ * @type DocSourceStandard
  */
-export interface DocumentSourceVariant1 {
-    'documentId': number;
-}
+export type DocSourceStandard = RequestIdSource | number | string;
+
 /**
- * OneOf variant for documentSourceIdentifier
+ * @type DocSourceZipFile
  */
-export interface DocumentSourceVariant2 {
-    'externalUrl': string;
-}
-export interface DocumentSourceWithUpload {
-    'uploadRequestId': number;
-    'documentName': string;
-}
-export interface DocumentSourceWithUploadAndZip {
-    'uploadRequestId': number;
-    'zipId': number;
-    'documentName': string;
-}
+export type DocSourceZipFile = ZipDocumentIdSource | ZipRequestIdSource;
 
-export const Envelope = {
-    Flat: 'flat',
-    WindowedFlat: 'windowedFlat',
-    Letter: 'letter',
-    Legal: 'legal',
-    Postcard: 'postcard'
-} as const;
-
-export type Envelope = typeof Envelope[keyof typeof Envelope];
-
+/**
+ * @type DocumentSource
+ */
+export type DocumentSource = RequestIdSource | ZipDocumentIdSource | ZipRequestIdSource | number | string;
 
 export interface ExpirationDate {
     'month': number;
     'year': number;
-}
-export interface ExtractionSpec {
-    'startPage': number;
-    'endPage': number;
-    'addressRegion': AddressRegion;
-}
-export interface GooglePayPayment {
-    'googlePaymentDetails': object;
 }
 export interface InvoiceDetails {
     'invoiceNumber': string;
@@ -188,24 +147,15 @@ export interface InvoicePayment {
     'invoiceDetails': InvoiceDetails;
 }
 export interface JobOptions {
-    'documentClass': DocumentClass;
-    'layout': Layout;
-    'mailclass': Mailclass;
-    'paperType': PaperType;
-    'printOption': PrintOption;
-    'envelope': Envelope;
+    'documentClass': string;
+    'layout': string;
+    'productionTime': string;
+    'envelope': string;
+    'color': string;
+    'paperType': string;
+    'printOption': string;
+    'mailClass': string;
 }
-
-
-
-export const Layout = {
-    Portrait: 'portrait',
-    Landscape: 'landscape'
-} as const;
-
-export type Layout = typeof Layout[keyof typeof Layout];
-
-
 /**
  * One of several credential mechanisms must be provided.
  */
@@ -281,82 +231,62 @@ export const LongTokenResponseTokenTypeEnum = {
 
 export type LongTokenResponseTokenTypeEnum = typeof LongTokenResponseTokenTypeEnum[keyof typeof LongTokenResponseTokenTypeEnum];
 
+export interface MergeByRequestId {
+    'requestId': number;
+    'filename'?: string;
+}
+/**
+ * @type MergeDocumentRef
+ */
+export type MergeDocumentRef = MergeByRequestId | number;
 
-export const Mailclass = {
-    FirstClassMail: 'firstClassMail',
-    PriorityMail: 'priorityMail',
-    LargeEnvelope: 'largeEnvelope'
-} as const;
-
-export type Mailclass = typeof Mailclass[keyof typeof Mailclass];
-
-
-export interface MergeMultiDocParams {
-    'documentsToMerge': Array<DocumentSourceIdentifier>;
+export interface MultiDocJobItem {
+    'jobTemplate'?: string;
+    'docSourceAll': DocSourceAll;
     'recipientAddressSource': RecipientAddressSource;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
 }
-export interface MergeMultiDocParamsRequest {
-    'documentsToMerge': Array<DocumentSourceIdentifier>;
+export interface MultiZipJobItem {
+    'jobTemplate'?: string;
+    'docSourceZipFile': DocSourceZipFile;
     'recipientAddressSource': RecipientAddressSource;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
 }
-export interface MergeMultiDocWithTemplateParams {
-    'documentsToMerge': Array<DocumentSourceIdentifier>;
-    'recipientAddressSource': RecipientAddressSource;
-    'jobTemplate': string;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface MergeMultiDocWithTemplateParamsRequest {
-    'documentsToMerge': Array<DocumentSourceIdentifier>;
-    'recipientAddressSource': RecipientAddressSource;
-    'jobTemplate': string;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface MultiPdfWithCaptureParams {
-    'addressCapturePdfs': Array<AddressListPdf>;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface MultiPdfWithCaptureParamsRequest {
-    'addressCapturePdfs': Array<AddressListPdf>;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface PageRange {
-    'startPage': number;
-    'endPage': number;
-}
-
-export const PaperType = {
-    Letter: 'letter',
-    Legal: 'legal',
-    Postcard: 'postcard'
-} as const;
-
-export type PaperType = typeof PaperType[keyof typeof PaperType];
-
-
 /**
  * @type PaymentDetails
  */
-export type PaymentDetails = AchPayment | ApplePayPayment | CreditCardPayment | GooglePayPayment | InvoicePayment | UserCreditPayment;
+export type PaymentDetails = AchPayment | CreditCardPayment | InvoicePayment | UserCreditPayment;
 
+export interface PdfSplitJobItemNoAddress {
+    'startPage': number;
+    'endPage': number;
+}
+export interface PdfSplitJobItemWithAddress {
+    'startPage': number;
+    'endPage': number;
+    'recipientAddressSource': RecipientAddressSource;
+}
+/**
+ * @type RecipientAddressSource
+ */
+export type RecipientAddressSource = RecipientAddressSourceOneOf | RecipientaddresssourceVariant1 | RecipientaddresssourceVariant2;
 
-export const PrintOption = {
-    None: 'none',
-    Color: 'color',
-    Grayscale: 'grayscale'
-} as const;
-
-export type PrintOption = typeof PrintOption[keyof typeof PrintOption];
-
-
-export interface RecipientAddress {
+export interface RecipientAddressSourceOneOf {
+    'addressListId': number;
+}
+export interface RecipientaddresssourceVariant1 {
+    'mappingId'?: number;
+    'singleAddress': Address;
+    'addressName'?: string;
+}
+export interface RecipientaddresssourceVariant2 {
+    'mappingId'?: number;
+    'addressList': Array<Address>;
+    'addressListName'?: string;
+}
+export interface RequestIdSource {
+    'requestId': number;
+    'filename'?: string;
+}
+export interface ReturnAddress {
     'firstName': string;
     'lastName': string;
     'address1': string;
@@ -364,21 +294,8 @@ export interface RecipientAddress {
     'state': string;
     'zip': string;
     'country': string;
-    'nickName'?: string;
     'address2'?: string;
     'address3'?: string;
-    'phoneNumber'?: string;
-}
-/**
- * @type RecipientAddressSource
- */
-export type RecipientAddressSource = RecipientAddress | RecipientAddressSourceOneOf | RecipientAddressSourceOneOf1;
-
-export interface RecipientAddressSourceOneOf {
-    'addressListId': number;
-}
-export interface RecipientAddressSourceOneOf1 {
-    'addressId': number;
 }
 export interface ShortTokenRequest {
     /**
@@ -420,112 +337,91 @@ export const ShortTokenResponseTokenTypeEnum = {
 
 export type ShortTokenResponseTokenTypeEnum = typeof ShortTokenResponseTokenTypeEnum[keyof typeof ShortTokenResponseTokenTypeEnum];
 
-export interface SingleDocJobParams {
-    'documentSourceIdentifier': DocumentSourceIdentifier;
-    'recipientAddressSources': Array<RecipientAddressSource>;
-    'jobOptions': JobOptions;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface SingleDocJobParamsRequest {
-    'documentSourceIdentifier': DocumentSourceIdentifier;
-    'recipientAddressSources': Array<RecipientAddressSource>;
-    'jobOptions': JobOptions;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface SplitPdfParams {
-    'documentSourceIdentifier': DocumentSourceIdentifier;
-    'items': Array<SplitPdfParamsRequestItemsInner>;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface SplitPdfParamsRequest {
-    'documentSourceIdentifier': DocumentSourceIdentifier;
-    'items': Array<SplitPdfParamsRequestItemsInner>;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface SplitPdfParamsRequestItemsInner {
-    'pageRange': PageRange;
-    'recipientAddressSources': Array<RecipientAddressSource>;
-}
-export interface SplitPdfWithCaptureParams {
-    'documentSourceIdentifier': DocumentSourceIdentifier;
-    'embeddedExtractionSpecs': Array<ExtractionSpec>;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface SplitPdfWithCaptureParamsRequest {
-    'documentSourceIdentifier': DocumentSourceIdentifier;
-    'embeddedExtractionSpecs': Array<ExtractionSpec>;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
 export interface StandardResponse {
     'status'?: string;
     'message'?: string;
     'jobId'?: string;
 }
-export interface SubmitMultiDocParams {
-    'items': Array<SubmitMultiDocWithTemplateParamsRequestItemsInner>;
-    'jobOptions': JobOptions;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface SubmitMultiDocParamsRequest {
-    'items': Array<SubmitMultiDocWithTemplateParamsRequestItemsInner>;
-    'jobOptions': JobOptions;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface SubmitMultiDocWithTemplateParams {
-    'items': Array<SubmitMultiDocWithTemplateParamsRequestItemsInner>;
-    'jobTemplate': string;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface SubmitMultiDocWithTemplateParamsRequest {
-    'items': Array<SubmitMultiDocWithTemplateParamsRequestItemsInner>;
-    'jobTemplate': string;
-    'paymentDetails': PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface SubmitMultiDocWithTemplateParamsRequestItemsInner {
-    'documentSourceIdentifier': DocumentSourceIdentifier;
+export interface SubmitMultiDocMergeParams {
+    'jobTemplate'?: string;
+    'mergeDocumentSource': Array<MergeDocumentRef>;
     'recipientAddressSource': RecipientAddressSource;
-}
-/**
- * @type SubmitSingleDocWithTemplateParams
- */
-export type SubmitSingleDocWithTemplateParams = SubmitSingleDocWithTemplateParamsRequestOneOf | SubmitSingleDocWithTemplateParamsRequestOneOf1 | SubmitSingleDocWithTemplateParamsRequestOneOf2;
-
-/**
- * @type SubmitSingleDocWithTemplateParamsRequest
- */
-export type SubmitSingleDocWithTemplateParamsRequest = SubmitSingleDocWithTemplateParamsRequestOneOf | SubmitSingleDocWithTemplateParamsRequestOneOf1 | SubmitSingleDocWithTemplateParamsRequestOneOf2;
-
-export interface SubmitSingleDocWithTemplateParamsRequestOneOf {
-    'jobTemplate': string;
-    'paymentDetails': PaymentDetails;
+    'paymentDetails'?: PaymentDetails;
+    'returnAddress'?: ReturnAddress;
+    'jobOptions'?: JobOptions;
     'tags'?: Array<string>;
-    'documentSourceIdentifier': DocumentSourceIdentifier;
 }
-export interface SubmitSingleDocWithTemplateParamsRequestOneOf1 {
-    'jobTemplate': string;
-    'paymentDetails': PaymentDetails;
+export interface SubmitMultiDocParams {
+    'jobTemplate'?: string;
+    'multiDocJobs': Array<MultiDocJobItem>;
+    'paymentDetails'?: PaymentDetails;
     'tags'?: Array<string>;
-    'recipientAddressSources': Array<RecipientAddressSource>;
 }
-export interface SubmitSingleDocWithTemplateParamsRequestOneOf2 {
-    'jobTemplate': string;
-    'paymentDetails': PaymentDetails;
+export interface SubmitMultiZipAddressCaptureParams {
+    'jobTemplate'?: string;
+    'zipDocumentSource': ZipDocumentSource;
+    'paymentDetails'?: PaymentDetails;
+    'returnAddress'?: ReturnAddress;
+    'jobOptions'?: JobOptions;
     'tags'?: Array<string>;
-    'documentSourceIdentifier': DocumentSourceIdentifier;
-    'recipientAddressSources': Array<RecipientAddressSource>;
+}
+export interface SubmitMultiZipParams {
+    'jobTemplate'?: string;
+    'multiZipJobs': Array<MultiZipJobItem>;
+    'paymentDetails'?: PaymentDetails;
+    'tags'?: Array<string>;
+}
+export interface SubmitSingleDocParams {
+    'jobTemplate'?: string;
+    'docSourceAll': DocSourceAll;
+    'recipientAddressSource': RecipientAddressSource;
+    'paymentDetails'?: PaymentDetails;
+    'returnAddress'?: ReturnAddress;
+    'jobOptions'?: JobOptions;
+    'tags'?: Array<string>;
+}
+export interface SubmitSinglePdfAddressCaptureParams {
+    'jobTemplate'?: string;
+    'docSourceStandard': DocSourceStandard;
+    'paymentDetails'?: PaymentDetails;
+    'returnAddress'?: ReturnAddress;
+    'jobOptions'?: JobOptions;
+    'tags'?: Array<string>;
+}
+export interface SubmitSinglePdfSplitAddressCaptureParams {
+    'jobTemplate'?: string;
+    'docSourceStandard': DocSourceStandard;
+    'pdfSplitJobsNoAddress': Array<PdfSplitJobItemNoAddress>;
+    'paymentDetails'?: PaymentDetails;
+    'returnAddress'?: ReturnAddress;
+    'jobOptions'?: JobOptions;
+    'tags'?: Array<string>;
+}
+export interface SubmitSinglePdfSplitParams {
+    'jobTemplate'?: string;
+    'docSourceStandard': DocSourceStandard;
+    'pdfSplitJobsWithAddress': Array<PdfSplitJobItemWithAddress>;
+    'paymentDetails'?: PaymentDetails;
+    'returnAddress'?: ReturnAddress;
+    'jobOptions'?: JobOptions;
+    'tags'?: Array<string>;
 }
 export interface UserCreditPayment {
     'creditAmount': CreditAmount;
+}
+export interface ZipDocumentIdSource {
+    'zipDocumentId': number;
+    'filename': string;
+}
+/**
+ * @type ZipDocumentSource
+ */
+export type ZipDocumentSource = ZipDocumentIdSource | ZipRequestIdSource;
+
+export interface ZipRequestIdSource {
+    'requestId': number;
+    'zipFilename': string;
+    'filename': string;
 }
 
 /**
@@ -556,8 +452,8 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
             const localVarQueryParameter = {} as any;
 
             // authentication ShortTokenAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "ShortTokenAuth", ["tokens:write"], configuration)
 
             // authentication ClientKey required
             await setApiKeyToObject(localVarHeaderParameter, "X-Client-Id", configuration)
@@ -597,8 +493,8 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
             const localVarQueryParameter = {} as any;
 
             // authentication LongTokenAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "LongTokenAuth", [], configuration)
 
 
     
@@ -638,12 +534,12 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
             const localVarQueryParameter = {} as any;
 
             // authentication LongTokenAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "LongTokenAuth", ["tokens:revoke"], configuration)
 
             // authentication ShortTokenAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "ShortTokenAuth", ["tokens:revoke"], configuration)
 
 
     
@@ -787,21 +683,21 @@ export class AuthApi extends BaseAPI {
 
 
 /**
- * DefaultApi - axios parameter creator
+ * JobsApi - axios parameter creator
  */
-export const DefaultApiAxiosParamCreator = function (configuration?: Configuration) {
+export const JobsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Operation for /jobs/multi-doc-merge
-         * @param {MergeMultiDocParamsRequest} mergeMultiDocParamsRequest 
+         * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a multi doc merge job
+         * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mergeMultiDocParams: async (mergeMultiDocParamsRequest: MergeMultiDocParamsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'mergeMultiDocParamsRequest' is not null or undefined
-            assertParamExists('mergeMultiDocParams', 'mergeMultiDocParamsRequest', mergeMultiDocParamsRequest)
-            const localVarPath = `/jobs/multi-doc-merge`;
+        submitMultiDocMergeParams: async (submitMultiDocMergeParams: SubmitMultiDocMergeParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'submitMultiDocMergeParams' is not null or undefined
+            assertParamExists('submitMultiDocMergeParams', 'submitMultiDocMergeParams', submitMultiDocMergeParams)
+            const localVarPath = `/jobs/submit/multi/doc/merge`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -824,7 +720,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(mergeMultiDocParamsRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(submitMultiDocMergeParams, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -832,16 +728,16 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
-         * @summary Operation for /jobs/multi-doc-merge-job-template
-         * @param {MergeMultiDocWithTemplateParamsRequest} mergeMultiDocWithTemplateParamsRequest 
+         * Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a multi doc job
+         * @param {SubmitMultiDocParams} submitMultiDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mergeMultiDocWithTemplateParams: async (mergeMultiDocWithTemplateParamsRequest: MergeMultiDocWithTemplateParamsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'mergeMultiDocWithTemplateParamsRequest' is not null or undefined
-            assertParamExists('mergeMultiDocWithTemplateParams', 'mergeMultiDocWithTemplateParamsRequest', mergeMultiDocWithTemplateParamsRequest)
-            const localVarPath = `/jobs/multi-doc-merge-job-template`;
+        submitMultiDocParams: async (submitMultiDocParams: SubmitMultiDocParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'submitMultiDocParams' is not null or undefined
+            assertParamExists('submitMultiDocParams', 'submitMultiDocParams', submitMultiDocParams)
+            const localVarPath = `/jobs/submit/multi/doc`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -864,7 +760,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(mergeMultiDocWithTemplateParamsRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(submitMultiDocParams, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -872,16 +768,16 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
-         * @summary Operation for /jobs/multi-pdf-address-capture
-         * @param {MultiPdfWithCaptureParamsRequest} multiPdfWithCaptureParamsRequest 
+         * Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a multi zip addressCapture job
+         * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        multiPdfWithCaptureParams: async (multiPdfWithCaptureParamsRequest: MultiPdfWithCaptureParamsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'multiPdfWithCaptureParamsRequest' is not null or undefined
-            assertParamExists('multiPdfWithCaptureParams', 'multiPdfWithCaptureParamsRequest', multiPdfWithCaptureParamsRequest)
-            const localVarPath = `/jobs/multi-pdf-address-capture`;
+        submitMultiZipAddressCaptureParams: async (submitMultiZipAddressCaptureParams: SubmitMultiZipAddressCaptureParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'submitMultiZipAddressCaptureParams' is not null or undefined
+            assertParamExists('submitMultiZipAddressCaptureParams', 'submitMultiZipAddressCaptureParams', submitMultiZipAddressCaptureParams)
+            const localVarPath = `/jobs/submit/multi/zip/addressCapture`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -904,7 +800,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(multiPdfWithCaptureParamsRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(submitMultiZipAddressCaptureParams, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -912,16 +808,16 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
-         * @summary Operation for /jobs/single-doc
-         * @param {SingleDocJobParamsRequest} singleDocJobParamsRequest 
+         * Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a multi zip job
+         * @param {SubmitMultiZipParams} submitMultiZipParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        singleDocJobParams: async (singleDocJobParamsRequest: SingleDocJobParamsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'singleDocJobParamsRequest' is not null or undefined
-            assertParamExists('singleDocJobParams', 'singleDocJobParamsRequest', singleDocJobParamsRequest)
-            const localVarPath = `/jobs/single-doc`;
+        submitMultiZipParams: async (submitMultiZipParams: SubmitMultiZipParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'submitMultiZipParams' is not null or undefined
+            assertParamExists('submitMultiZipParams', 'submitMultiZipParams', submitMultiZipParams)
+            const localVarPath = `/jobs/submit/multi/zip`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -944,7 +840,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(singleDocJobParamsRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(submitMultiZipParams, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -952,16 +848,16 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
-         * @summary Operation for /jobs/single-pdf-split
-         * @param {SplitPdfParamsRequest} splitPdfParamsRequest 
+         * Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a single doc job
+         * @param {SubmitSingleDocParams} submitSingleDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        splitPdfParams: async (splitPdfParamsRequest: SplitPdfParamsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'splitPdfParamsRequest' is not null or undefined
-            assertParamExists('splitPdfParams', 'splitPdfParamsRequest', splitPdfParamsRequest)
-            const localVarPath = `/jobs/single-pdf-split`;
+        submitSingleDocParams: async (submitSingleDocParams: SubmitSingleDocParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'submitSingleDocParams' is not null or undefined
+            assertParamExists('submitSingleDocParams', 'submitSingleDocParams', submitSingleDocParams)
+            const localVarPath = `/jobs/submit/single/doc`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -984,7 +880,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(splitPdfParamsRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(submitSingleDocParams, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -992,16 +888,16 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
-         * @summary Operation for /jobs/single-pdf-split-addressCapture
-         * @param {SplitPdfWithCaptureParamsRequest} splitPdfWithCaptureParamsRequest 
+         * Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a single pdf addressCapture job
+         * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        splitPdfWithCaptureParams: async (splitPdfWithCaptureParamsRequest: SplitPdfWithCaptureParamsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'splitPdfWithCaptureParamsRequest' is not null or undefined
-            assertParamExists('splitPdfWithCaptureParams', 'splitPdfWithCaptureParamsRequest', splitPdfWithCaptureParamsRequest)
-            const localVarPath = `/jobs/single-pdf-split-addressCapture`;
+        submitSinglePdfAddressCaptureParams: async (submitSinglePdfAddressCaptureParams: SubmitSinglePdfAddressCaptureParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'submitSinglePdfAddressCaptureParams' is not null or undefined
+            assertParamExists('submitSinglePdfAddressCaptureParams', 'submitSinglePdfAddressCaptureParams', submitSinglePdfAddressCaptureParams)
+            const localVarPath = `/jobs/submit/single/pdf/addressCapture`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1024,7 +920,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(splitPdfWithCaptureParamsRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(submitSinglePdfAddressCaptureParams, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1032,16 +928,16 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
-         * @summary Operation for /jobs/multi-doc
-         * @param {SubmitMultiDocParamsRequest} submitMultiDocParamsRequest 
+         * Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a single pdf split addressCapture job
+         * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        submitMultiDocParams: async (submitMultiDocParamsRequest: SubmitMultiDocParamsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'submitMultiDocParamsRequest' is not null or undefined
-            assertParamExists('submitMultiDocParams', 'submitMultiDocParamsRequest', submitMultiDocParamsRequest)
-            const localVarPath = `/jobs/multi-doc`;
+        submitSinglePdfSplitAddressCaptureParams: async (submitSinglePdfSplitAddressCaptureParams: SubmitSinglePdfSplitAddressCaptureParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'submitSinglePdfSplitAddressCaptureParams' is not null or undefined
+            assertParamExists('submitSinglePdfSplitAddressCaptureParams', 'submitSinglePdfSplitAddressCaptureParams', submitSinglePdfSplitAddressCaptureParams)
+            const localVarPath = `/jobs/submit/single/pdf/split/addressCapture`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1064,7 +960,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(submitMultiDocParamsRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(submitSinglePdfSplitAddressCaptureParams, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1072,16 +968,16 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
-         * @summary Operation for /jobs/multi-docs-job-template
-         * @param {SubmitMultiDocWithTemplateParamsRequest} submitMultiDocWithTemplateParamsRequest 
+         * Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a single pdf split job
+         * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        submitMultiDocWithTemplateParams: async (submitMultiDocWithTemplateParamsRequest: SubmitMultiDocWithTemplateParamsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'submitMultiDocWithTemplateParamsRequest' is not null or undefined
-            assertParamExists('submitMultiDocWithTemplateParams', 'submitMultiDocWithTemplateParamsRequest', submitMultiDocWithTemplateParamsRequest)
-            const localVarPath = `/jobs/multi-docs-job-template`;
+        submitSinglePdfSplitParams: async (submitSinglePdfSplitParams: SubmitSinglePdfSplitParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'submitSinglePdfSplitParams' is not null or undefined
+            assertParamExists('submitSinglePdfSplitParams', 'submitSinglePdfSplitParams', submitSinglePdfSplitParams)
+            const localVarPath = `/jobs/submit/single/pdf/split`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1104,47 +1000,7 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(submitMultiDocWithTemplateParamsRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Operation for /jobs/single-doc-job-template
-         * @param {SubmitSingleDocWithTemplateParamsRequest} submitSingleDocWithTemplateParamsRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        submitSingleDocWithTemplateParams: async (submitSingleDocWithTemplateParamsRequest: SubmitSingleDocWithTemplateParamsRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'submitSingleDocWithTemplateParamsRequest' is not null or undefined
-            assertParamExists('submitSingleDocWithTemplateParams', 'submitSingleDocWithTemplateParamsRequest', submitSingleDocWithTemplateParamsRequest)
-            const localVarPath = `/jobs/single-doc-job-template`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication bearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(submitSingleDocWithTemplateParamsRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(submitSinglePdfSplitParams, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1155,331 +1011,297 @@ export const DefaultApiAxiosParamCreator = function (configuration?: Configurati
 };
 
 /**
- * DefaultApi - functional programming interface
+ * JobsApi - functional programming interface
  */
-export const DefaultApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = DefaultApiAxiosParamCreator(configuration)
+export const JobsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = JobsApiAxiosParamCreator(configuration)
     return {
         /**
-         * 
-         * @summary Operation for /jobs/multi-doc-merge
-         * @param {MergeMultiDocParamsRequest} mergeMultiDocParamsRequest 
+         * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a multi doc merge job
+         * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async mergeMultiDocParams(mergeMultiDocParamsRequest: MergeMultiDocParamsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.mergeMultiDocParams(mergeMultiDocParamsRequest, options);
+        async submitMultiDocMergeParams(submitMultiDocMergeParams: SubmitMultiDocMergeParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitMultiDocMergeParams(submitMultiDocMergeParams, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.mergeMultiDocParams']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['JobsApi.submitMultiDocMergeParams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
-         * @summary Operation for /jobs/multi-doc-merge-job-template
-         * @param {MergeMultiDocWithTemplateParamsRequest} mergeMultiDocWithTemplateParamsRequest 
+         * Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a multi doc job
+         * @param {SubmitMultiDocParams} submitMultiDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async mergeMultiDocWithTemplateParams(mergeMultiDocWithTemplateParamsRequest: MergeMultiDocWithTemplateParamsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.mergeMultiDocWithTemplateParams(mergeMultiDocWithTemplateParamsRequest, options);
+        async submitMultiDocParams(submitMultiDocParams: SubmitMultiDocParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitMultiDocParams(submitMultiDocParams, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.mergeMultiDocWithTemplateParams']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['JobsApi.submitMultiDocParams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
-         * @summary Operation for /jobs/multi-pdf-address-capture
-         * @param {MultiPdfWithCaptureParamsRequest} multiPdfWithCaptureParamsRequest 
+         * Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a multi zip addressCapture job
+         * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async multiPdfWithCaptureParams(multiPdfWithCaptureParamsRequest: MultiPdfWithCaptureParamsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.multiPdfWithCaptureParams(multiPdfWithCaptureParamsRequest, options);
+        async submitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams: SubmitMultiZipAddressCaptureParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.multiPdfWithCaptureParams']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['JobsApi.submitMultiZipAddressCaptureParams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
-         * @summary Operation for /jobs/single-doc
-         * @param {SingleDocJobParamsRequest} singleDocJobParamsRequest 
+         * Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a multi zip job
+         * @param {SubmitMultiZipParams} submitMultiZipParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async singleDocJobParams(singleDocJobParamsRequest: SingleDocJobParamsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.singleDocJobParams(singleDocJobParamsRequest, options);
+        async submitMultiZipParams(submitMultiZipParams: SubmitMultiZipParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitMultiZipParams(submitMultiZipParams, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.singleDocJobParams']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['JobsApi.submitMultiZipParams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
-         * @summary Operation for /jobs/single-pdf-split
-         * @param {SplitPdfParamsRequest} splitPdfParamsRequest 
+         * Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a single doc job
+         * @param {SubmitSingleDocParams} submitSingleDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async splitPdfParams(splitPdfParamsRequest: SplitPdfParamsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.splitPdfParams(splitPdfParamsRequest, options);
+        async submitSingleDocParams(submitSingleDocParams: SubmitSingleDocParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSingleDocParams(submitSingleDocParams, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.splitPdfParams']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['JobsApi.submitSingleDocParams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
-         * @summary Operation for /jobs/single-pdf-split-addressCapture
-         * @param {SplitPdfWithCaptureParamsRequest} splitPdfWithCaptureParamsRequest 
+         * Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a single pdf addressCapture job
+         * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async splitPdfWithCaptureParams(splitPdfWithCaptureParamsRequest: SplitPdfWithCaptureParamsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.splitPdfWithCaptureParams(splitPdfWithCaptureParamsRequest, options);
+        async submitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams: SubmitSinglePdfAddressCaptureParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.splitPdfWithCaptureParams']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['JobsApi.submitSinglePdfAddressCaptureParams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
-         * @summary Operation for /jobs/multi-doc
-         * @param {SubmitMultiDocParamsRequest} submitMultiDocParamsRequest 
+         * Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a single pdf split addressCapture job
+         * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async submitMultiDocParams(submitMultiDocParamsRequest: SubmitMultiDocParamsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitMultiDocParams(submitMultiDocParamsRequest, options);
+        async submitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams: SubmitSinglePdfSplitAddressCaptureParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.submitMultiDocParams']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['JobsApi.submitSinglePdfSplitAddressCaptureParams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * 
-         * @summary Operation for /jobs/multi-docs-job-template
-         * @param {SubmitMultiDocWithTemplateParamsRequest} submitMultiDocWithTemplateParamsRequest 
+         * Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a single pdf split job
+         * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async submitMultiDocWithTemplateParams(submitMultiDocWithTemplateParamsRequest: SubmitMultiDocWithTemplateParamsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitMultiDocWithTemplateParams(submitMultiDocWithTemplateParamsRequest, options);
+        async submitSinglePdfSplitParams(submitSinglePdfSplitParams: SubmitSinglePdfSplitParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSinglePdfSplitParams(submitSinglePdfSplitParams, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.submitMultiDocWithTemplateParams']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * 
-         * @summary Operation for /jobs/single-doc-job-template
-         * @param {SubmitSingleDocWithTemplateParamsRequest} submitSingleDocWithTemplateParamsRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async submitSingleDocWithTemplateParams(submitSingleDocWithTemplateParamsRequest: SubmitSingleDocWithTemplateParamsRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSingleDocWithTemplateParams(submitSingleDocWithTemplateParamsRequest, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['DefaultApi.submitSingleDocWithTemplateParams']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['JobsApi.submitSinglePdfSplitParams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * DefaultApi - factory interface
+ * JobsApi - factory interface
  */
-export const DefaultApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = DefaultApiFp(configuration)
+export const JobsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = JobsApiFp(configuration)
     return {
         /**
-         * 
-         * @summary Operation for /jobs/multi-doc-merge
-         * @param {MergeMultiDocParamsRequest} mergeMultiDocParamsRequest 
+         * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a multi doc merge job
+         * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mergeMultiDocParams(mergeMultiDocParamsRequest: MergeMultiDocParamsRequest, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
-            return localVarFp.mergeMultiDocParams(mergeMultiDocParamsRequest, options).then((request) => request(axios, basePath));
+        submitMultiDocMergeParams(submitMultiDocMergeParams: SubmitMultiDocMergeParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
+            return localVarFp.submitMultiDocMergeParams(submitMultiDocMergeParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Operation for /jobs/multi-doc-merge-job-template
-         * @param {MergeMultiDocWithTemplateParamsRequest} mergeMultiDocWithTemplateParamsRequest 
+         * Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a multi doc job
+         * @param {SubmitMultiDocParams} submitMultiDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        mergeMultiDocWithTemplateParams(mergeMultiDocWithTemplateParamsRequest: MergeMultiDocWithTemplateParamsRequest, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
-            return localVarFp.mergeMultiDocWithTemplateParams(mergeMultiDocWithTemplateParamsRequest, options).then((request) => request(axios, basePath));
+        submitMultiDocParams(submitMultiDocParams: SubmitMultiDocParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
+            return localVarFp.submitMultiDocParams(submitMultiDocParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Operation for /jobs/multi-pdf-address-capture
-         * @param {MultiPdfWithCaptureParamsRequest} multiPdfWithCaptureParamsRequest 
+         * Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a multi zip addressCapture job
+         * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        multiPdfWithCaptureParams(multiPdfWithCaptureParamsRequest: MultiPdfWithCaptureParamsRequest, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
-            return localVarFp.multiPdfWithCaptureParams(multiPdfWithCaptureParamsRequest, options).then((request) => request(axios, basePath));
+        submitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams: SubmitMultiZipAddressCaptureParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
+            return localVarFp.submitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Operation for /jobs/single-doc
-         * @param {SingleDocJobParamsRequest} singleDocJobParamsRequest 
+         * Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a multi zip job
+         * @param {SubmitMultiZipParams} submitMultiZipParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        singleDocJobParams(singleDocJobParamsRequest: SingleDocJobParamsRequest, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
-            return localVarFp.singleDocJobParams(singleDocJobParamsRequest, options).then((request) => request(axios, basePath));
+        submitMultiZipParams(submitMultiZipParams: SubmitMultiZipParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
+            return localVarFp.submitMultiZipParams(submitMultiZipParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Operation for /jobs/single-pdf-split
-         * @param {SplitPdfParamsRequest} splitPdfParamsRequest 
+         * Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a single doc job
+         * @param {SubmitSingleDocParams} submitSingleDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        splitPdfParams(splitPdfParamsRequest: SplitPdfParamsRequest, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
-            return localVarFp.splitPdfParams(splitPdfParamsRequest, options).then((request) => request(axios, basePath));
+        submitSingleDocParams(submitSingleDocParams: SubmitSingleDocParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
+            return localVarFp.submitSingleDocParams(submitSingleDocParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Operation for /jobs/single-pdf-split-addressCapture
-         * @param {SplitPdfWithCaptureParamsRequest} splitPdfWithCaptureParamsRequest 
+         * Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a single pdf addressCapture job
+         * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        splitPdfWithCaptureParams(splitPdfWithCaptureParamsRequest: SplitPdfWithCaptureParamsRequest, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
-            return localVarFp.splitPdfWithCaptureParams(splitPdfWithCaptureParamsRequest, options).then((request) => request(axios, basePath));
+        submitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams: SubmitSinglePdfAddressCaptureParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
+            return localVarFp.submitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Operation for /jobs/multi-doc
-         * @param {SubmitMultiDocParamsRequest} submitMultiDocParamsRequest 
+         * Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a single pdf split addressCapture job
+         * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        submitMultiDocParams(submitMultiDocParamsRequest: SubmitMultiDocParamsRequest, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
-            return localVarFp.submitMultiDocParams(submitMultiDocParamsRequest, options).then((request) => request(axios, basePath));
+        submitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams: SubmitSinglePdfSplitAddressCaptureParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
+            return localVarFp.submitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Operation for /jobs/multi-docs-job-template
-         * @param {SubmitMultiDocWithTemplateParamsRequest} submitMultiDocWithTemplateParamsRequest 
+         * Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * @summary Submit a single pdf split job
+         * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        submitMultiDocWithTemplateParams(submitMultiDocWithTemplateParamsRequest: SubmitMultiDocWithTemplateParamsRequest, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
-            return localVarFp.submitMultiDocWithTemplateParams(submitMultiDocWithTemplateParamsRequest, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Operation for /jobs/single-doc-job-template
-         * @param {SubmitSingleDocWithTemplateParamsRequest} submitSingleDocWithTemplateParamsRequest 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        submitSingleDocWithTemplateParams(submitSingleDocWithTemplateParamsRequest: SubmitSingleDocWithTemplateParamsRequest, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
-            return localVarFp.submitSingleDocWithTemplateParams(submitSingleDocWithTemplateParamsRequest, options).then((request) => request(axios, basePath));
+        submitSinglePdfSplitParams(submitSinglePdfSplitParams: SubmitSinglePdfSplitParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
+            return localVarFp.submitSinglePdfSplitParams(submitSinglePdfSplitParams, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * DefaultApi - object-oriented interface
+ * JobsApi - object-oriented interface
  */
-export class DefaultApi extends BaseAPI {
+export class JobsApi extends BaseAPI {
     /**
-     * 
-     * @summary Operation for /jobs/multi-doc-merge
-     * @param {MergeMultiDocParamsRequest} mergeMultiDocParamsRequest 
+     * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * @summary Submit a multi doc merge job
+     * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public mergeMultiDocParams(mergeMultiDocParamsRequest: MergeMultiDocParamsRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).mergeMultiDocParams(mergeMultiDocParamsRequest, options).then((request) => request(this.axios, this.basePath));
+    public submitMultiDocMergeParams(submitMultiDocMergeParams: SubmitMultiDocMergeParams, options?: RawAxiosRequestConfig) {
+        return JobsApiFp(this.configuration).submitMultiDocMergeParams(submitMultiDocMergeParams, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * 
-     * @summary Operation for /jobs/multi-doc-merge-job-template
-     * @param {MergeMultiDocWithTemplateParamsRequest} mergeMultiDocWithTemplateParamsRequest 
+     * Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+     * @summary Submit a multi doc job
+     * @param {SubmitMultiDocParams} submitMultiDocParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public mergeMultiDocWithTemplateParams(mergeMultiDocWithTemplateParamsRequest: MergeMultiDocWithTemplateParamsRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).mergeMultiDocWithTemplateParams(mergeMultiDocWithTemplateParamsRequest, options).then((request) => request(this.axios, this.basePath));
+    public submitMultiDocParams(submitMultiDocParams: SubmitMultiDocParams, options?: RawAxiosRequestConfig) {
+        return JobsApiFp(this.configuration).submitMultiDocParams(submitMultiDocParams, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * 
-     * @summary Operation for /jobs/multi-pdf-address-capture
-     * @param {MultiPdfWithCaptureParamsRequest} multiPdfWithCaptureParamsRequest 
+     * Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * @summary Submit a multi zip addressCapture job
+     * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public multiPdfWithCaptureParams(multiPdfWithCaptureParamsRequest: MultiPdfWithCaptureParamsRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).multiPdfWithCaptureParams(multiPdfWithCaptureParamsRequest, options).then((request) => request(this.axios, this.basePath));
+    public submitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams: SubmitMultiZipAddressCaptureParams, options?: RawAxiosRequestConfig) {
+        return JobsApiFp(this.configuration).submitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * 
-     * @summary Operation for /jobs/single-doc
-     * @param {SingleDocJobParamsRequest} singleDocJobParamsRequest 
+     * Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * @summary Submit a multi zip job
+     * @param {SubmitMultiZipParams} submitMultiZipParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public singleDocJobParams(singleDocJobParamsRequest: SingleDocJobParamsRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).singleDocJobParams(singleDocJobParamsRequest, options).then((request) => request(this.axios, this.basePath));
+    public submitMultiZipParams(submitMultiZipParams: SubmitMultiZipParams, options?: RawAxiosRequestConfig) {
+        return JobsApiFp(this.configuration).submitMultiZipParams(submitMultiZipParams, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * 
-     * @summary Operation for /jobs/single-pdf-split
-     * @param {SplitPdfParamsRequest} splitPdfParamsRequest 
+     * Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+     * @summary Submit a single doc job
+     * @param {SubmitSingleDocParams} submitSingleDocParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public splitPdfParams(splitPdfParamsRequest: SplitPdfParamsRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).splitPdfParams(splitPdfParamsRequest, options).then((request) => request(this.axios, this.basePath));
+    public submitSingleDocParams(submitSingleDocParams: SubmitSingleDocParams, options?: RawAxiosRequestConfig) {
+        return JobsApiFp(this.configuration).submitSingleDocParams(submitSingleDocParams, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * 
-     * @summary Operation for /jobs/single-pdf-split-addressCapture
-     * @param {SplitPdfWithCaptureParamsRequest} splitPdfWithCaptureParamsRequest 
+     * Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * @summary Submit a single pdf addressCapture job
+     * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public splitPdfWithCaptureParams(splitPdfWithCaptureParamsRequest: SplitPdfWithCaptureParamsRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).splitPdfWithCaptureParams(splitPdfWithCaptureParamsRequest, options).then((request) => request(this.axios, this.basePath));
+    public submitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams: SubmitSinglePdfAddressCaptureParams, options?: RawAxiosRequestConfig) {
+        return JobsApiFp(this.configuration).submitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * 
-     * @summary Operation for /jobs/multi-doc
-     * @param {SubmitMultiDocParamsRequest} submitMultiDocParamsRequest 
+     * Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * @summary Submit a single pdf split addressCapture job
+     * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public submitMultiDocParams(submitMultiDocParamsRequest: SubmitMultiDocParamsRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).submitMultiDocParams(submitMultiDocParamsRequest, options).then((request) => request(this.axios, this.basePath));
+    public submitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams: SubmitSinglePdfSplitAddressCaptureParams, options?: RawAxiosRequestConfig) {
+        return JobsApiFp(this.configuration).submitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * 
-     * @summary Operation for /jobs/multi-docs-job-template
-     * @param {SubmitMultiDocWithTemplateParamsRequest} submitMultiDocWithTemplateParamsRequest 
+     * Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * @summary Submit a single pdf split job
+     * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    public submitMultiDocWithTemplateParams(submitMultiDocWithTemplateParamsRequest: SubmitMultiDocWithTemplateParamsRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).submitMultiDocWithTemplateParams(submitMultiDocWithTemplateParamsRequest, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Operation for /jobs/single-doc-job-template
-     * @param {SubmitSingleDocWithTemplateParamsRequest} submitSingleDocWithTemplateParamsRequest 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public submitSingleDocWithTemplateParams(submitSingleDocWithTemplateParamsRequest: SubmitSingleDocWithTemplateParamsRequest, options?: RawAxiosRequestConfig) {
-        return DefaultApiFp(this.configuration).submitSingleDocWithTemplateParams(submitSingleDocWithTemplateParamsRequest, options).then((request) => request(this.axios, this.basePath));
+    public submitSinglePdfSplitParams(submitSinglePdfSplitParams: SubmitSinglePdfSplitParams, options?: RawAxiosRequestConfig) {
+        return JobsApiFp(this.configuration).submitSinglePdfSplitParams(submitSinglePdfSplitParams, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -5,12 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**document_class** | [**DocumentClass**](DocumentClass.md) |  | 
-**layout** | [**Layout**](Layout.md) |  | 
-**mailclass** | [**Mailclass**](Mailclass.md) |  | 
-**paper_type** | [**PaperType**](PaperType.md) |  | 
-**print_option** | [**PrintOption**](PrintOption.md) |  | 
-**envelope** | [**Envelope**](Envelope.md) |  | 
+**document_class** | **str** |  | 
+**layout** | **str** |  | 
+**production_time** | **str** |  | 
+**envelope** | **str** |  | 
+**color** | **str** |  | 
+**paper_type** | **str** |  | 
+**print_option** | **str** |  | 
+**mail_class** | **str** |  | 
 
 ## Example
 

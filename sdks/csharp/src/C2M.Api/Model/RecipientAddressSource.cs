@@ -33,10 +33,20 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecipientAddressSource" /> class.
         /// </summary>
-        /// <param name="recipientAddress"></param>
-        public RecipientAddressSource(RecipientAddress recipientAddress)
+        /// <param name="recipientaddresssourceVariant1"></param>
+        public RecipientAddressSource(RecipientaddresssourceVariant1 recipientaddresssourceVariant1)
         {
-            RecipientAddress = recipientAddress;
+            RecipientaddresssourceVariant1 = recipientaddresssourceVariant1;
+            OnCreated();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RecipientAddressSource" /> class.
+        /// </summary>
+        /// <param name="recipientaddresssourceVariant2"></param>
+        public RecipientAddressSource(RecipientaddresssourceVariant2 recipientaddresssourceVariant2)
+        {
+            RecipientaddresssourceVariant2 = recipientaddresssourceVariant2;
             OnCreated();
         }
 
@@ -50,32 +60,22 @@ namespace C2M.Api.Model
             OnCreated();
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RecipientAddressSource" /> class.
-        /// </summary>
-        /// <param name="recipientAddressSourceOneOf1"></param>
-        public RecipientAddressSource(RecipientAddressSourceOneOf1 recipientAddressSourceOneOf1)
-        {
-            RecipientAddressSourceOneOf1 = recipientAddressSourceOneOf1;
-            OnCreated();
-        }
-
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets RecipientAddress
+        /// Gets or Sets RecipientaddresssourceVariant1
         /// </summary>
-        public RecipientAddress? RecipientAddress { get; set; }
+        public RecipientaddresssourceVariant1? RecipientaddresssourceVariant1 { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RecipientaddresssourceVariant2
+        /// </summary>
+        public RecipientaddresssourceVariant2? RecipientaddresssourceVariant2 { get; set; }
 
         /// <summary>
         /// Gets or Sets RecipientAddressSourceOneOf
         /// </summary>
         public RecipientAddressSourceOneOf? RecipientAddressSourceOneOf { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RecipientAddressSourceOneOf1
-        /// </summary>
-        public RecipientAddressSourceOneOf1? RecipientAddressSourceOneOf1 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -122,9 +122,9 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            RecipientAddress? recipientAddress = default;
+            RecipientaddresssourceVariant1? recipientaddresssourceVariant1 = default;
+            RecipientaddresssourceVariant2? recipientaddresssourceVariant2 = default;
             RecipientAddressSourceOneOf? recipientAddressSourceOneOf = default;
-            RecipientAddressSourceOneOf1? recipientAddressSourceOneOf1 = default;
 
             Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
             while (utf8JsonReaderOneOf.Read())
@@ -137,14 +137,14 @@ namespace C2M.Api.Model
 
                 if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
                 {
-                    Utf8JsonReader utf8JsonReaderRecipientAddress = utf8JsonReader;
-                    ClientUtils.TryDeserialize<RecipientAddress?>(ref utf8JsonReaderRecipientAddress, jsonSerializerOptions, out recipientAddress);
+                    Utf8JsonReader utf8JsonReaderRecipientaddresssourceVariant1 = utf8JsonReader;
+                    ClientUtils.TryDeserialize<RecipientaddresssourceVariant1?>(ref utf8JsonReaderRecipientaddresssourceVariant1, jsonSerializerOptions, out recipientaddresssourceVariant1);
+
+                    Utf8JsonReader utf8JsonReaderRecipientaddresssourceVariant2 = utf8JsonReader;
+                    ClientUtils.TryDeserialize<RecipientaddresssourceVariant2?>(ref utf8JsonReaderRecipientaddresssourceVariant2, jsonSerializerOptions, out recipientaddresssourceVariant2);
 
                     Utf8JsonReader utf8JsonReaderRecipientAddressSourceOneOf = utf8JsonReader;
                     ClientUtils.TryDeserialize<RecipientAddressSourceOneOf?>(ref utf8JsonReaderRecipientAddressSourceOneOf, jsonSerializerOptions, out recipientAddressSourceOneOf);
-
-                    Utf8JsonReader utf8JsonReaderRecipientAddressSourceOneOf1 = utf8JsonReader;
-                    ClientUtils.TryDeserialize<RecipientAddressSourceOneOf1?>(ref utf8JsonReaderRecipientAddressSourceOneOf1, jsonSerializerOptions, out recipientAddressSourceOneOf1);
                 }
             }
 
@@ -169,14 +169,14 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (recipientAddress != null)
-                return new RecipientAddressSource(recipientAddress);
+            if (recipientaddresssourceVariant1 != null)
+                return new RecipientAddressSource(recipientaddresssourceVariant1);
+
+            if (recipientaddresssourceVariant2 != null)
+                return new RecipientAddressSource(recipientaddresssourceVariant2);
 
             if (recipientAddressSourceOneOf != null)
                 return new RecipientAddressSource(recipientAddressSourceOneOf);
-
-            if (recipientAddressSourceOneOf1 != null)
-                return new RecipientAddressSource(recipientAddressSourceOneOf1);
 
             throw new JsonException();
         }

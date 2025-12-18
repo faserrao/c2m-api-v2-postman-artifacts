@@ -14,7 +14,6 @@
 package com.c2m.model;
 
 import java.util.Objects;
-import com.c2m.model.Currency;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -50,17 +49,75 @@ import com.c2m.JSON;
 /**
  * CreditAmount
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-05T02:45:53.394297139Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-18T14:18:40.161107459Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class CreditAmount {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   @javax.annotation.Nonnull
   private BigDecimal amount;
 
+  /**
+   * Gets or Sets currency
+   */
+  @JsonAdapter(CurrencyEnum.Adapter.class)
+  public enum CurrencyEnum {
+    USD("USD"),
+    
+    EUR("EUR"),
+    
+    GBP("GBP"),
+    
+    CAD("CAD"),
+    
+    AUD("AUD");
+
+    private String value;
+
+    CurrencyEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static CurrencyEnum fromValue(String value) {
+      for (CurrencyEnum b : CurrencyEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<CurrencyEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CurrencyEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CurrencyEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return CurrencyEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      CurrencyEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   @javax.annotation.Nonnull
-  private Currency currency;
+  private CurrencyEnum currency;
 
   public CreditAmount() {
   }
@@ -84,7 +141,7 @@ public class CreditAmount {
   }
 
 
-  public CreditAmount currency(@javax.annotation.Nonnull Currency currency) {
+  public CreditAmount currency(@javax.annotation.Nonnull CurrencyEnum currency) {
     this.currency = currency;
     return this;
   }
@@ -94,11 +151,11 @@ public class CreditAmount {
    * @return currency
    */
   @javax.annotation.Nonnull
-  public Currency getCurrency() {
+  public CurrencyEnum getCurrency() {
     return currency;
   }
 
-  public void setCurrency(@javax.annotation.Nonnull Currency currency) {
+  public void setCurrency(@javax.annotation.Nonnull CurrencyEnum currency) {
     this.currency = currency;
   }
 
@@ -183,8 +240,11 @@ public class CreditAmount {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("currency").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency").toString()));
+      }
       // validate the required field `currency`
-      Currency.validateJsonElement(jsonObj.get("currency"));
+      CurrencyEnum.validateJsonElement(jsonObj.get("currency"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

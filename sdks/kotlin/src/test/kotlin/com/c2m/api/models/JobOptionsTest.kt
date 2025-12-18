@@ -19,12 +19,6 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.JobOptions
-import com.c2m.api.models.DocumentClass
-import com.c2m.api.models.Envelope
-import com.c2m.api.models.Layout
-import com.c2m.api.models.Mailclass
-import com.c2m.api.models.PaperType
-import com.c2m.api.models.PrintOption
 
 class JobOptionsTest : ShouldSpec() {
     init {
@@ -43,10 +37,22 @@ class JobOptionsTest : ShouldSpec() {
             //modelInstance.layout shouldBe ("TODO")
         }
 
-        // to test the property `mailclass`
-        should("test mailclass") {
+        // to test the property `productionTime`
+        should("test productionTime") {
             // uncomment below to test the property
-            //modelInstance.mailclass shouldBe ("TODO")
+            //modelInstance.productionTime shouldBe ("TODO")
+        }
+
+        // to test the property `envelope`
+        should("test envelope") {
+            // uncomment below to test the property
+            //modelInstance.envelope shouldBe ("TODO")
+        }
+
+        // to test the property `color`
+        should("test color") {
+            // uncomment below to test the property
+            //modelInstance.color shouldBe ("TODO")
         }
 
         // to test the property `paperType`
@@ -61,10 +67,10 @@ class JobOptionsTest : ShouldSpec() {
             //modelInstance.printOption shouldBe ("TODO")
         }
 
-        // to test the property `envelope`
-        should("test envelope") {
+        // to test the property `mailClass`
+        should("test mailClass") {
             // uncomment below to test the property
-            //modelInstance.envelope shouldBe ("TODO")
+            //modelInstance.mailClass shouldBe ("TODO")
         }
 
     }

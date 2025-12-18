@@ -21,11 +21,9 @@ import io.kotlintest.specs.ShouldSpec
 import com.c2m.api.models.PaymentDetails
 import com.c2m.api.models.AchDetails
 import com.c2m.api.models.AchPayment
-import com.c2m.api.models.ApplePayPayment
 import com.c2m.api.models.CreditAmount
 import com.c2m.api.models.CreditCardDetails
 import com.c2m.api.models.CreditCardPayment
-import com.c2m.api.models.GooglePayPayment
 import com.c2m.api.models.InvoiceDetails
 import com.c2m.api.models.InvoicePayment
 import com.c2m.api.models.UserCreditPayment
@@ -57,18 +55,6 @@ class PaymentDetailsTest : ShouldSpec() {
         should("test creditAmount") {
             // uncomment below to test the property
             //modelInstance.creditAmount shouldBe ("TODO")
-        }
-
-        // to test the property `applePaymentDetails`
-        should("test applePaymentDetails") {
-            // uncomment below to test the property
-            //modelInstance.applePaymentDetails shouldBe ("TODO")
-        }
-
-        // to test the property `googlePaymentDetails`
-        should("test googlePaymentDetails") {
-            // uncomment below to test the property
-            //modelInstance.googlePaymentDetails shouldBe ("TODO")
         }
 
     }

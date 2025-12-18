@@ -24,8 +24,8 @@ require 'time'
 require 'openapi_client'
 # setup authorization
 OpenapiClient.configure do |config|
-  # Configure Bearer authorization (JWT): ShortTokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
+  # Configure OAuth2 access token for authorization: ShortTokenAuth
+  config.access_token = 'YOUR ACCESS TOKEN'
 
   # Configure API key authorization: ClientKey
   config.api_key['X-Client-Id'] = 'YOUR API KEY'
@@ -98,8 +98,8 @@ require 'time'
 require 'openapi_client'
 # setup authorization
 OpenapiClient.configure do |config|
-  # Configure Bearer authorization (JWT): LongTokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
+  # Configure OAuth2 access token for authorization: LongTokenAuth
+  config.access_token = 'YOUR ACCESS TOKEN'
 end
 
 api_instance = OpenapiClient::AuthApi.new
@@ -169,11 +169,11 @@ require 'time'
 require 'openapi_client'
 # setup authorization
 OpenapiClient.configure do |config|
-  # Configure Bearer authorization (JWT): LongTokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
+  # Configure OAuth2 access token for authorization: LongTokenAuth
+  config.access_token = 'YOUR ACCESS TOKEN'
 
-  # Configure Bearer authorization (JWT): ShortTokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
+  # Configure OAuth2 access token for authorization: ShortTokenAuth
+  config.access_token = 'YOUR ACCESS TOKEN'
 end
 
 api_instance = OpenapiClient::AuthApi.new

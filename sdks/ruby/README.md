@@ -59,8 +59,8 @@ require 'openapi_client'
 
 # Setup authorization
 OpenapiClient.configure do |config|
-  # Configure Bearer authorization (JWT): ShortTokenAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
+  # Configure OAuth2 access token for authorization: ShortTokenAuth
+  config.access_token = 'YOUR ACCESS TOKEN'
   # Configure a proc to get access tokens in lieu of the static access_token configuration
   config.access_token_getter = -> { 'YOUR TOKEN GETTER PROC' } 
 
@@ -92,84 +92,65 @@ Class | Method | HTTP request | Description
 *OpenapiClient::AuthApi* | [**issue_long_term_token**](docs/AuthApi.md#issue_long_term_token) | **POST** /auth/tokens/long | Issue or rotate a long-term token
 *OpenapiClient::AuthApi* | [**issue_short_term_token**](docs/AuthApi.md#issue_short_term_token) | **POST** /auth/tokens/short | Issue a short-term access token
 *OpenapiClient::AuthApi* | [**revoke_token**](docs/AuthApi.md#revoke_token) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
-*OpenapiClient::DefaultApi* | [**merge_multi_doc_params**](docs/DefaultApi.md#merge_multi_doc_params) | **POST** /jobs/multi-doc-merge | Operation for /jobs/multi-doc-merge
-*OpenapiClient::DefaultApi* | [**merge_multi_doc_with_template_params**](docs/DefaultApi.md#merge_multi_doc_with_template_params) | **POST** /jobs/multi-doc-merge-job-template | Operation for /jobs/multi-doc-merge-job-template
-*OpenapiClient::DefaultApi* | [**multi_pdf_with_capture_params**](docs/DefaultApi.md#multi_pdf_with_capture_params) | **POST** /jobs/multi-pdf-address-capture | Operation for /jobs/multi-pdf-address-capture
-*OpenapiClient::DefaultApi* | [**single_doc_job_params**](docs/DefaultApi.md#single_doc_job_params) | **POST** /jobs/single-doc | Operation for /jobs/single-doc
-*OpenapiClient::DefaultApi* | [**split_pdf_params**](docs/DefaultApi.md#split_pdf_params) | **POST** /jobs/single-pdf-split | Operation for /jobs/single-pdf-split
-*OpenapiClient::DefaultApi* | [**split_pdf_with_capture_params**](docs/DefaultApi.md#split_pdf_with_capture_params) | **POST** /jobs/single-pdf-split-addressCapture | Operation for /jobs/single-pdf-split-addressCapture
-*OpenapiClient::DefaultApi* | [**submit_multi_doc_params**](docs/DefaultApi.md#submit_multi_doc_params) | **POST** /jobs/multi-doc | Operation for /jobs/multi-doc
-*OpenapiClient::DefaultApi* | [**submit_multi_doc_with_template_params**](docs/DefaultApi.md#submit_multi_doc_with_template_params) | **POST** /jobs/multi-docs-job-template | Operation for /jobs/multi-docs-job-template
-*OpenapiClient::DefaultApi* | [**submit_single_doc_with_template_params**](docs/DefaultApi.md#submit_single_doc_with_template_params) | **POST** /jobs/single-doc-job-template | Operation for /jobs/single-doc-job-template
+*OpenapiClient::JobsApi* | [**submit_multi_doc_merge_params**](docs/JobsApi.md#submit_multi_doc_merge_params) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
+*OpenapiClient::JobsApi* | [**submit_multi_doc_params**](docs/JobsApi.md#submit_multi_doc_params) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
+*OpenapiClient::JobsApi* | [**submit_multi_zip_address_capture_params**](docs/JobsApi.md#submit_multi_zip_address_capture_params) | **POST** /jobs/submit/multi/zip/addressCapture | Submit a multi zip addressCapture job
+*OpenapiClient::JobsApi* | [**submit_multi_zip_params**](docs/JobsApi.md#submit_multi_zip_params) | **POST** /jobs/submit/multi/zip | Submit a multi zip job
+*OpenapiClient::JobsApi* | [**submit_single_doc_params**](docs/JobsApi.md#submit_single_doc_params) | **POST** /jobs/submit/single/doc | Submit a single doc job
+*OpenapiClient::JobsApi* | [**submit_single_pdf_address_capture_params**](docs/JobsApi.md#submit_single_pdf_address_capture_params) | **POST** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job
+*OpenapiClient::JobsApi* | [**submit_single_pdf_split_address_capture_params**](docs/JobsApi.md#submit_single_pdf_split_address_capture_params) | **POST** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job
+*OpenapiClient::JobsApi* | [**submit_single_pdf_split_params**](docs/JobsApi.md#submit_single_pdf_split_params) | **POST** /jobs/submit/single/pdf/split | Submit a single pdf split job
 
 
 ## Documentation for Models
 
  - [OpenapiClient::AchDetails](docs/AchDetails.md)
  - [OpenapiClient::AchPayment](docs/AchPayment.md)
- - [OpenapiClient::AddressListPdf](docs/AddressListPdf.md)
- - [OpenapiClient::AddressRegion](docs/AddressRegion.md)
- - [OpenapiClient::ApplePayPayment](docs/ApplePayPayment.md)
+ - [OpenapiClient::Address](docs/Address.md)
  - [OpenapiClient::AuthError](docs/AuthError.md)
  - [OpenapiClient::CardType](docs/CardType.md)
  - [OpenapiClient::CreditAmount](docs/CreditAmount.md)
  - [OpenapiClient::CreditCardDetails](docs/CreditCardDetails.md)
  - [OpenapiClient::CreditCardPayment](docs/CreditCardPayment.md)
  - [OpenapiClient::Currency](docs/Currency.md)
- - [OpenapiClient::DocumentClass](docs/DocumentClass.md)
- - [OpenapiClient::DocumentFormat](docs/DocumentFormat.md)
- - [OpenapiClient::DocumentSourceFromZip](docs/DocumentSourceFromZip.md)
- - [OpenapiClient::DocumentSourceIdentifier](docs/DocumentSourceIdentifier.md)
- - [OpenapiClient::DocumentSourceVariant1](docs/DocumentSourceVariant1.md)
- - [OpenapiClient::DocumentSourceVariant2](docs/DocumentSourceVariant2.md)
- - [OpenapiClient::DocumentSourceWithUpload](docs/DocumentSourceWithUpload.md)
- - [OpenapiClient::DocumentSourceWithUploadAndZip](docs/DocumentSourceWithUploadAndZip.md)
- - [OpenapiClient::Envelope](docs/Envelope.md)
+ - [OpenapiClient::DocSourceAll](docs/DocSourceAll.md)
+ - [OpenapiClient::DocSourceStandard](docs/DocSourceStandard.md)
+ - [OpenapiClient::DocSourceZipFile](docs/DocSourceZipFile.md)
+ - [OpenapiClient::DocumentSource](docs/DocumentSource.md)
  - [OpenapiClient::ExpirationDate](docs/ExpirationDate.md)
- - [OpenapiClient::ExtractionSpec](docs/ExtractionSpec.md)
- - [OpenapiClient::GooglePayPayment](docs/GooglePayPayment.md)
  - [OpenapiClient::InvoiceDetails](docs/InvoiceDetails.md)
  - [OpenapiClient::InvoicePayment](docs/InvoicePayment.md)
  - [OpenapiClient::JobOptions](docs/JobOptions.md)
- - [OpenapiClient::Layout](docs/Layout.md)
  - [OpenapiClient::LongTokenRequest](docs/LongTokenRequest.md)
  - [OpenapiClient::LongTokenResponse](docs/LongTokenResponse.md)
- - [OpenapiClient::Mailclass](docs/Mailclass.md)
- - [OpenapiClient::MergeMultiDocParams](docs/MergeMultiDocParams.md)
- - [OpenapiClient::MergeMultiDocParamsRequest](docs/MergeMultiDocParamsRequest.md)
- - [OpenapiClient::MergeMultiDocWithTemplateParams](docs/MergeMultiDocWithTemplateParams.md)
- - [OpenapiClient::MergeMultiDocWithTemplateParamsRequest](docs/MergeMultiDocWithTemplateParamsRequest.md)
- - [OpenapiClient::MultiPdfWithCaptureParams](docs/MultiPdfWithCaptureParams.md)
- - [OpenapiClient::MultiPdfWithCaptureParamsRequest](docs/MultiPdfWithCaptureParamsRequest.md)
- - [OpenapiClient::PageRange](docs/PageRange.md)
- - [OpenapiClient::PaperType](docs/PaperType.md)
+ - [OpenapiClient::MergeByRequestId](docs/MergeByRequestId.md)
+ - [OpenapiClient::MergeDocumentRef](docs/MergeDocumentRef.md)
+ - [OpenapiClient::MultiDocJobItem](docs/MultiDocJobItem.md)
+ - [OpenapiClient::MultiZipJobItem](docs/MultiZipJobItem.md)
  - [OpenapiClient::PaymentDetails](docs/PaymentDetails.md)
- - [OpenapiClient::PrintOption](docs/PrintOption.md)
- - [OpenapiClient::RecipientAddress](docs/RecipientAddress.md)
+ - [OpenapiClient::PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
+ - [OpenapiClient::PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
  - [OpenapiClient::RecipientAddressSource](docs/RecipientAddressSource.md)
  - [OpenapiClient::RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
- - [OpenapiClient::RecipientAddressSourceOneOf1](docs/RecipientAddressSourceOneOf1.md)
+ - [OpenapiClient::RecipientaddresssourceVariant1](docs/RecipientaddresssourceVariant1.md)
+ - [OpenapiClient::RecipientaddresssourceVariant2](docs/RecipientaddresssourceVariant2.md)
+ - [OpenapiClient::RequestIdSource](docs/RequestIdSource.md)
+ - [OpenapiClient::ReturnAddress](docs/ReturnAddress.md)
  - [OpenapiClient::ShortTokenRequest](docs/ShortTokenRequest.md)
  - [OpenapiClient::ShortTokenResponse](docs/ShortTokenResponse.md)
- - [OpenapiClient::SingleDocJobParams](docs/SingleDocJobParams.md)
- - [OpenapiClient::SingleDocJobParamsRequest](docs/SingleDocJobParamsRequest.md)
- - [OpenapiClient::SplitPdfParams](docs/SplitPdfParams.md)
- - [OpenapiClient::SplitPdfParamsRequest](docs/SplitPdfParamsRequest.md)
- - [OpenapiClient::SplitPdfParamsRequestItemsInner](docs/SplitPdfParamsRequestItemsInner.md)
- - [OpenapiClient::SplitPdfWithCaptureParams](docs/SplitPdfWithCaptureParams.md)
- - [OpenapiClient::SplitPdfWithCaptureParamsRequest](docs/SplitPdfWithCaptureParamsRequest.md)
  - [OpenapiClient::StandardResponse](docs/StandardResponse.md)
+ - [OpenapiClient::SubmitMultiDocMergeParams](docs/SubmitMultiDocMergeParams.md)
  - [OpenapiClient::SubmitMultiDocParams](docs/SubmitMultiDocParams.md)
- - [OpenapiClient::SubmitMultiDocParamsRequest](docs/SubmitMultiDocParamsRequest.md)
- - [OpenapiClient::SubmitMultiDocWithTemplateParams](docs/SubmitMultiDocWithTemplateParams.md)
- - [OpenapiClient::SubmitMultiDocWithTemplateParamsRequest](docs/SubmitMultiDocWithTemplateParamsRequest.md)
- - [OpenapiClient::SubmitMultiDocWithTemplateParamsRequestItemsInner](docs/SubmitMultiDocWithTemplateParamsRequestItemsInner.md)
- - [OpenapiClient::SubmitSingleDocWithTemplateParams](docs/SubmitSingleDocWithTemplateParams.md)
- - [OpenapiClient::SubmitSingleDocWithTemplateParamsRequest](docs/SubmitSingleDocWithTemplateParamsRequest.md)
- - [OpenapiClient::SubmitSingleDocWithTemplateParamsRequestOneOf](docs/SubmitSingleDocWithTemplateParamsRequestOneOf.md)
- - [OpenapiClient::SubmitSingleDocWithTemplateParamsRequestOneOf1](docs/SubmitSingleDocWithTemplateParamsRequestOneOf1.md)
- - [OpenapiClient::SubmitSingleDocWithTemplateParamsRequestOneOf2](docs/SubmitSingleDocWithTemplateParamsRequestOneOf2.md)
+ - [OpenapiClient::SubmitMultiZipAddressCaptureParams](docs/SubmitMultiZipAddressCaptureParams.md)
+ - [OpenapiClient::SubmitMultiZipParams](docs/SubmitMultiZipParams.md)
+ - [OpenapiClient::SubmitSingleDocParams](docs/SubmitSingleDocParams.md)
+ - [OpenapiClient::SubmitSinglePdfAddressCaptureParams](docs/SubmitSinglePdfAddressCaptureParams.md)
+ - [OpenapiClient::SubmitSinglePdfSplitAddressCaptureParams](docs/SubmitSinglePdfSplitAddressCaptureParams.md)
+ - [OpenapiClient::SubmitSinglePdfSplitParams](docs/SubmitSinglePdfSplitParams.md)
  - [OpenapiClient::UserCreditPayment](docs/UserCreditPayment.md)
+ - [OpenapiClient::ZipDocumentIdSource](docs/ZipDocumentIdSource.md)
+ - [OpenapiClient::ZipDocumentSource](docs/ZipDocumentSource.md)
+ - [OpenapiClient::ZipRequestIdSource](docs/ZipRequestIdSource.md)
 
 
 ## Documentation for Authorization
@@ -182,11 +163,23 @@ Authentication schemes defined for the API:
 
 ### LongTokenAuth
 
-- **Type**: Bearer authentication (JWT)
+
+- **Type**: OAuth
+- **Flow**: application
+- **Authorization URL**: 
+- **Scopes**: 
+  - tokens:write: Create new long-term tokens
+  - tokens:revoke: Revoke existing tokens
 
 ### ShortTokenAuth
 
-- **Type**: Bearer authentication (JWT)
+
+- **Type**: OAuth
+- **Flow**: application
+- **Authorization URL**: 
+- **Scopes**: 
+  - tokens:write: Create new long-term tokens
+  - tokens:revoke: Revoke existing tokens
 
 ### ClientKey
 

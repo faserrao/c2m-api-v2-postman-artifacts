@@ -63,7 +63,7 @@ module OpenapiClient
     def self.openapi_types
       {
         :'amount' => :'Float',
-        :'currency' => :'Currency'
+        :'currency' => :'String'
       }
     end
 
@@ -124,6 +124,8 @@ module OpenapiClient
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @amount.nil?
       return false if @currency.nil?
+      currency_validator = EnumAttributeValidator.new('String', ["USD", "EUR", "GBP", "CAD", "AUD"])
+      return false unless currency_validator.valid?(@currency)
       true
     end
 
@@ -137,13 +139,13 @@ module OpenapiClient
       @amount = amount
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] currency Value to be assigned
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] currency Object to be assigned
     def currency=(currency)
-      if currency.nil?
-        fail ArgumentError, 'currency cannot be nil'
+      validator = EnumAttributeValidator.new('String', ["USD", "EUR", "GBP", "CAD", "AUD"])
+      unless validator.valid?(currency)
+        fail ArgumentError, "invalid value for \"currency\", must be one of #{validator.allowable_values}."
       end
-
       @currency = currency
     end
 

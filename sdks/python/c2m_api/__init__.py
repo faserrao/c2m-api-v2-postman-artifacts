@@ -19,7 +19,7 @@ __version__ = "1.0.0"
 # Define package exports
 __all__ = [
     "AuthApi",
-    "DefaultApi",
+    "JobsApi",
     "ApiResponse",
     "ApiClient",
     "Configuration",
@@ -31,75 +31,57 @@ __all__ = [
     "ApiException",
     "AchDetails",
     "AchPayment",
-    "AddressListPdf",
-    "AddressRegion",
-    "ApplePayPayment",
+    "Address",
     "AuthError",
     "CardType",
     "CreditAmount",
     "CreditCardDetails",
     "CreditCardPayment",
     "Currency",
-    "DocumentClass",
-    "DocumentFormat",
-    "DocumentSourceFromZip",
-    "DocumentSourceIdentifier",
-    "DocumentSourceVariant1",
-    "DocumentSourceVariant2",
-    "DocumentSourceWithUpload",
-    "DocumentSourceWithUploadAndZip",
-    "Envelope",
+    "DocSourceAll",
+    "DocSourceStandard",
+    "DocSourceZipFile",
+    "DocumentSource",
     "ExpirationDate",
-    "ExtractionSpec",
-    "GooglePayPayment",
     "InvoiceDetails",
     "InvoicePayment",
     "JobOptions",
-    "Layout",
     "LongTokenRequest",
     "LongTokenResponse",
-    "Mailclass",
-    "MergeMultiDocParams",
-    "MergeMultiDocParamsRequest",
-    "MergeMultiDocWithTemplateParams",
-    "MergeMultiDocWithTemplateParamsRequest",
-    "MultiPdfWithCaptureParams",
-    "MultiPdfWithCaptureParamsRequest",
-    "PageRange",
-    "PaperType",
+    "MergeByRequestId",
+    "MergeDocumentRef",
+    "MultiDocJobItem",
+    "MultiZipJobItem",
     "PaymentDetails",
-    "PrintOption",
-    "RecipientAddress",
+    "PdfSplitJobItemNoAddress",
+    "PdfSplitJobItemWithAddress",
     "RecipientAddressSource",
     "RecipientAddressSourceOneOf",
-    "RecipientAddressSourceOneOf1",
+    "RecipientaddresssourceVariant1",
+    "RecipientaddresssourceVariant2",
+    "RequestIdSource",
+    "ReturnAddress",
     "ShortTokenRequest",
     "ShortTokenResponse",
-    "SingleDocJobParams",
-    "SingleDocJobParamsRequest",
-    "SplitPdfParams",
-    "SplitPdfParamsRequest",
-    "SplitPdfParamsRequestItemsInner",
-    "SplitPdfWithCaptureParams",
-    "SplitPdfWithCaptureParamsRequest",
     "StandardResponse",
+    "SubmitMultiDocMergeParams",
     "SubmitMultiDocParams",
-    "SubmitMultiDocParamsRequest",
-    "SubmitMultiDocWithTemplateParams",
-    "SubmitMultiDocWithTemplateParamsRequest",
-    "SubmitMultiDocWithTemplateParamsRequestItemsInner",
-    "SubmitSingleDocWithTemplateParams",
-    "SubmitSingleDocWithTemplateParamsRequest",
-    "SubmitSingleDocWithTemplateParamsRequestOneOf",
-    "SubmitSingleDocWithTemplateParamsRequestOneOf1",
-    "SubmitSingleDocWithTemplateParamsRequestOneOf2",
+    "SubmitMultiZipAddressCaptureParams",
+    "SubmitMultiZipParams",
+    "SubmitSingleDocParams",
+    "SubmitSinglePdfAddressCaptureParams",
+    "SubmitSinglePdfSplitAddressCaptureParams",
+    "SubmitSinglePdfSplitParams",
     "UserCreditPayment",
+    "ZipDocumentIdSource",
+    "ZipDocumentSource",
+    "ZipRequestIdSource",
 ]
 
 if __import__("typing").TYPE_CHECKING:
     # import apis into sdk package
     from c2m_api.api.auth_api import AuthApi as AuthApi
-    from c2m_api.api.default_api import DefaultApi as DefaultApi
+    from c2m_api.api.jobs_api import JobsApi as JobsApi
     
     # import ApiClient
     from c2m_api.api_response import ApiResponse as ApiResponse
@@ -115,69 +97,51 @@ if __import__("typing").TYPE_CHECKING:
     # import models into sdk package
     from c2m_api.models.ach_details import AchDetails as AchDetails
     from c2m_api.models.ach_payment import AchPayment as AchPayment
-    from c2m_api.models.address_list_pdf import AddressListPdf as AddressListPdf
-    from c2m_api.models.address_region import AddressRegion as AddressRegion
-    from c2m_api.models.apple_pay_payment import ApplePayPayment as ApplePayPayment
+    from c2m_api.models.address import Address as Address
     from c2m_api.models.auth_error import AuthError as AuthError
     from c2m_api.models.card_type import CardType as CardType
     from c2m_api.models.credit_amount import CreditAmount as CreditAmount
     from c2m_api.models.credit_card_details import CreditCardDetails as CreditCardDetails
     from c2m_api.models.credit_card_payment import CreditCardPayment as CreditCardPayment
     from c2m_api.models.currency import Currency as Currency
-    from c2m_api.models.document_class import DocumentClass as DocumentClass
-    from c2m_api.models.document_format import DocumentFormat as DocumentFormat
-    from c2m_api.models.document_source_from_zip import DocumentSourceFromZip as DocumentSourceFromZip
-    from c2m_api.models.document_source_identifier import DocumentSourceIdentifier as DocumentSourceIdentifier
-    from c2m_api.models.document_source_variant1 import DocumentSourceVariant1 as DocumentSourceVariant1
-    from c2m_api.models.document_source_variant2 import DocumentSourceVariant2 as DocumentSourceVariant2
-    from c2m_api.models.document_source_with_upload import DocumentSourceWithUpload as DocumentSourceWithUpload
-    from c2m_api.models.document_source_with_upload_and_zip import DocumentSourceWithUploadAndZip as DocumentSourceWithUploadAndZip
-    from c2m_api.models.envelope import Envelope as Envelope
+    from c2m_api.models.doc_source_all import DocSourceAll as DocSourceAll
+    from c2m_api.models.doc_source_standard import DocSourceStandard as DocSourceStandard
+    from c2m_api.models.doc_source_zip_file import DocSourceZipFile as DocSourceZipFile
+    from c2m_api.models.document_source import DocumentSource as DocumentSource
     from c2m_api.models.expiration_date import ExpirationDate as ExpirationDate
-    from c2m_api.models.extraction_spec import ExtractionSpec as ExtractionSpec
-    from c2m_api.models.google_pay_payment import GooglePayPayment as GooglePayPayment
     from c2m_api.models.invoice_details import InvoiceDetails as InvoiceDetails
     from c2m_api.models.invoice_payment import InvoicePayment as InvoicePayment
     from c2m_api.models.job_options import JobOptions as JobOptions
-    from c2m_api.models.layout import Layout as Layout
     from c2m_api.models.long_token_request import LongTokenRequest as LongTokenRequest
     from c2m_api.models.long_token_response import LongTokenResponse as LongTokenResponse
-    from c2m_api.models.mailclass import Mailclass as Mailclass
-    from c2m_api.models.merge_multi_doc_params import MergeMultiDocParams as MergeMultiDocParams
-    from c2m_api.models.merge_multi_doc_params_request import MergeMultiDocParamsRequest as MergeMultiDocParamsRequest
-    from c2m_api.models.merge_multi_doc_with_template_params import MergeMultiDocWithTemplateParams as MergeMultiDocWithTemplateParams
-    from c2m_api.models.merge_multi_doc_with_template_params_request import MergeMultiDocWithTemplateParamsRequest as MergeMultiDocWithTemplateParamsRequest
-    from c2m_api.models.multi_pdf_with_capture_params import MultiPdfWithCaptureParams as MultiPdfWithCaptureParams
-    from c2m_api.models.multi_pdf_with_capture_params_request import MultiPdfWithCaptureParamsRequest as MultiPdfWithCaptureParamsRequest
-    from c2m_api.models.page_range import PageRange as PageRange
-    from c2m_api.models.paper_type import PaperType as PaperType
+    from c2m_api.models.merge_by_request_id import MergeByRequestId as MergeByRequestId
+    from c2m_api.models.merge_document_ref import MergeDocumentRef as MergeDocumentRef
+    from c2m_api.models.multi_doc_job_item import MultiDocJobItem as MultiDocJobItem
+    from c2m_api.models.multi_zip_job_item import MultiZipJobItem as MultiZipJobItem
     from c2m_api.models.payment_details import PaymentDetails as PaymentDetails
-    from c2m_api.models.print_option import PrintOption as PrintOption
-    from c2m_api.models.recipient_address import RecipientAddress as RecipientAddress
+    from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress as PdfSplitJobItemNoAddress
+    from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress as PdfSplitJobItemWithAddress
     from c2m_api.models.recipient_address_source import RecipientAddressSource as RecipientAddressSource
     from c2m_api.models.recipient_address_source_one_of import RecipientAddressSourceOneOf as RecipientAddressSourceOneOf
-    from c2m_api.models.recipient_address_source_one_of1 import RecipientAddressSourceOneOf1 as RecipientAddressSourceOneOf1
+    from c2m_api.models.recipientaddresssource_variant1 import RecipientaddresssourceVariant1 as RecipientaddresssourceVariant1
+    from c2m_api.models.recipientaddresssource_variant2 import RecipientaddresssourceVariant2 as RecipientaddresssourceVariant2
+    from c2m_api.models.request_id_source import RequestIdSource as RequestIdSource
+    from c2m_api.models.return_address import ReturnAddress as ReturnAddress
     from c2m_api.models.short_token_request import ShortTokenRequest as ShortTokenRequest
     from c2m_api.models.short_token_response import ShortTokenResponse as ShortTokenResponse
-    from c2m_api.models.single_doc_job_params import SingleDocJobParams as SingleDocJobParams
-    from c2m_api.models.single_doc_job_params_request import SingleDocJobParamsRequest as SingleDocJobParamsRequest
-    from c2m_api.models.split_pdf_params import SplitPdfParams as SplitPdfParams
-    from c2m_api.models.split_pdf_params_request import SplitPdfParamsRequest as SplitPdfParamsRequest
-    from c2m_api.models.split_pdf_params_request_items_inner import SplitPdfParamsRequestItemsInner as SplitPdfParamsRequestItemsInner
-    from c2m_api.models.split_pdf_with_capture_params import SplitPdfWithCaptureParams as SplitPdfWithCaptureParams
-    from c2m_api.models.split_pdf_with_capture_params_request import SplitPdfWithCaptureParamsRequest as SplitPdfWithCaptureParamsRequest
     from c2m_api.models.standard_response import StandardResponse as StandardResponse
+    from c2m_api.models.submit_multi_doc_merge_params import SubmitMultiDocMergeParams as SubmitMultiDocMergeParams
     from c2m_api.models.submit_multi_doc_params import SubmitMultiDocParams as SubmitMultiDocParams
-    from c2m_api.models.submit_multi_doc_params_request import SubmitMultiDocParamsRequest as SubmitMultiDocParamsRequest
-    from c2m_api.models.submit_multi_doc_with_template_params import SubmitMultiDocWithTemplateParams as SubmitMultiDocWithTemplateParams
-    from c2m_api.models.submit_multi_doc_with_template_params_request import SubmitMultiDocWithTemplateParamsRequest as SubmitMultiDocWithTemplateParamsRequest
-    from c2m_api.models.submit_multi_doc_with_template_params_request_items_inner import SubmitMultiDocWithTemplateParamsRequestItemsInner as SubmitMultiDocWithTemplateParamsRequestItemsInner
-    from c2m_api.models.submit_single_doc_with_template_params import SubmitSingleDocWithTemplateParams as SubmitSingleDocWithTemplateParams
-    from c2m_api.models.submit_single_doc_with_template_params_request import SubmitSingleDocWithTemplateParamsRequest as SubmitSingleDocWithTemplateParamsRequest
-    from c2m_api.models.submit_single_doc_with_template_params_request_one_of import SubmitSingleDocWithTemplateParamsRequestOneOf as SubmitSingleDocWithTemplateParamsRequestOneOf
-    from c2m_api.models.submit_single_doc_with_template_params_request_one_of1 import SubmitSingleDocWithTemplateParamsRequestOneOf1 as SubmitSingleDocWithTemplateParamsRequestOneOf1
-    from c2m_api.models.submit_single_doc_with_template_params_request_one_of2 import SubmitSingleDocWithTemplateParamsRequestOneOf2 as SubmitSingleDocWithTemplateParamsRequestOneOf2
+    from c2m_api.models.submit_multi_zip_address_capture_params import SubmitMultiZipAddressCaptureParams as SubmitMultiZipAddressCaptureParams
+    from c2m_api.models.submit_multi_zip_params import SubmitMultiZipParams as SubmitMultiZipParams
+    from c2m_api.models.submit_single_doc_params import SubmitSingleDocParams as SubmitSingleDocParams
+    from c2m_api.models.submit_single_pdf_address_capture_params import SubmitSinglePdfAddressCaptureParams as SubmitSinglePdfAddressCaptureParams
+    from c2m_api.models.submit_single_pdf_split_address_capture_params import SubmitSinglePdfSplitAddressCaptureParams as SubmitSinglePdfSplitAddressCaptureParams
+    from c2m_api.models.submit_single_pdf_split_params import SubmitSinglePdfSplitParams as SubmitSinglePdfSplitParams
     from c2m_api.models.user_credit_payment import UserCreditPayment as UserCreditPayment
+    from c2m_api.models.zip_document_id_source import ZipDocumentIdSource as ZipDocumentIdSource
+    from c2m_api.models.zip_document_source import ZipDocumentSource as ZipDocumentSource
+    from c2m_api.models.zip_request_id_source import ZipRequestIdSource as ZipRequestIdSource
     
 else:
     from lazy_imports import LazyModule, as_package, load
@@ -189,7 +153,7 @@ else:
             ("__all__", __all__),
             """# import apis into sdk package
 from c2m_api.api.auth_api import AuthApi as AuthApi
-from c2m_api.api.default_api import DefaultApi as DefaultApi
+from c2m_api.api.jobs_api import JobsApi as JobsApi
 
 # import ApiClient
 from c2m_api.api_response import ApiResponse as ApiResponse
@@ -205,69 +169,51 @@ from c2m_api.exceptions import ApiException as ApiException
 # import models into sdk package
 from c2m_api.models.ach_details import AchDetails as AchDetails
 from c2m_api.models.ach_payment import AchPayment as AchPayment
-from c2m_api.models.address_list_pdf import AddressListPdf as AddressListPdf
-from c2m_api.models.address_region import AddressRegion as AddressRegion
-from c2m_api.models.apple_pay_payment import ApplePayPayment as ApplePayPayment
+from c2m_api.models.address import Address as Address
 from c2m_api.models.auth_error import AuthError as AuthError
 from c2m_api.models.card_type import CardType as CardType
 from c2m_api.models.credit_amount import CreditAmount as CreditAmount
 from c2m_api.models.credit_card_details import CreditCardDetails as CreditCardDetails
 from c2m_api.models.credit_card_payment import CreditCardPayment as CreditCardPayment
 from c2m_api.models.currency import Currency as Currency
-from c2m_api.models.document_class import DocumentClass as DocumentClass
-from c2m_api.models.document_format import DocumentFormat as DocumentFormat
-from c2m_api.models.document_source_from_zip import DocumentSourceFromZip as DocumentSourceFromZip
-from c2m_api.models.document_source_identifier import DocumentSourceIdentifier as DocumentSourceIdentifier
-from c2m_api.models.document_source_variant1 import DocumentSourceVariant1 as DocumentSourceVariant1
-from c2m_api.models.document_source_variant2 import DocumentSourceVariant2 as DocumentSourceVariant2
-from c2m_api.models.document_source_with_upload import DocumentSourceWithUpload as DocumentSourceWithUpload
-from c2m_api.models.document_source_with_upload_and_zip import DocumentSourceWithUploadAndZip as DocumentSourceWithUploadAndZip
-from c2m_api.models.envelope import Envelope as Envelope
+from c2m_api.models.doc_source_all import DocSourceAll as DocSourceAll
+from c2m_api.models.doc_source_standard import DocSourceStandard as DocSourceStandard
+from c2m_api.models.doc_source_zip_file import DocSourceZipFile as DocSourceZipFile
+from c2m_api.models.document_source import DocumentSource as DocumentSource
 from c2m_api.models.expiration_date import ExpirationDate as ExpirationDate
-from c2m_api.models.extraction_spec import ExtractionSpec as ExtractionSpec
-from c2m_api.models.google_pay_payment import GooglePayPayment as GooglePayPayment
 from c2m_api.models.invoice_details import InvoiceDetails as InvoiceDetails
 from c2m_api.models.invoice_payment import InvoicePayment as InvoicePayment
 from c2m_api.models.job_options import JobOptions as JobOptions
-from c2m_api.models.layout import Layout as Layout
 from c2m_api.models.long_token_request import LongTokenRequest as LongTokenRequest
 from c2m_api.models.long_token_response import LongTokenResponse as LongTokenResponse
-from c2m_api.models.mailclass import Mailclass as Mailclass
-from c2m_api.models.merge_multi_doc_params import MergeMultiDocParams as MergeMultiDocParams
-from c2m_api.models.merge_multi_doc_params_request import MergeMultiDocParamsRequest as MergeMultiDocParamsRequest
-from c2m_api.models.merge_multi_doc_with_template_params import MergeMultiDocWithTemplateParams as MergeMultiDocWithTemplateParams
-from c2m_api.models.merge_multi_doc_with_template_params_request import MergeMultiDocWithTemplateParamsRequest as MergeMultiDocWithTemplateParamsRequest
-from c2m_api.models.multi_pdf_with_capture_params import MultiPdfWithCaptureParams as MultiPdfWithCaptureParams
-from c2m_api.models.multi_pdf_with_capture_params_request import MultiPdfWithCaptureParamsRequest as MultiPdfWithCaptureParamsRequest
-from c2m_api.models.page_range import PageRange as PageRange
-from c2m_api.models.paper_type import PaperType as PaperType
+from c2m_api.models.merge_by_request_id import MergeByRequestId as MergeByRequestId
+from c2m_api.models.merge_document_ref import MergeDocumentRef as MergeDocumentRef
+from c2m_api.models.multi_doc_job_item import MultiDocJobItem as MultiDocJobItem
+from c2m_api.models.multi_zip_job_item import MultiZipJobItem as MultiZipJobItem
 from c2m_api.models.payment_details import PaymentDetails as PaymentDetails
-from c2m_api.models.print_option import PrintOption as PrintOption
-from c2m_api.models.recipient_address import RecipientAddress as RecipientAddress
+from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress as PdfSplitJobItemNoAddress
+from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress as PdfSplitJobItemWithAddress
 from c2m_api.models.recipient_address_source import RecipientAddressSource as RecipientAddressSource
 from c2m_api.models.recipient_address_source_one_of import RecipientAddressSourceOneOf as RecipientAddressSourceOneOf
-from c2m_api.models.recipient_address_source_one_of1 import RecipientAddressSourceOneOf1 as RecipientAddressSourceOneOf1
+from c2m_api.models.recipientaddresssource_variant1 import RecipientaddresssourceVariant1 as RecipientaddresssourceVariant1
+from c2m_api.models.recipientaddresssource_variant2 import RecipientaddresssourceVariant2 as RecipientaddresssourceVariant2
+from c2m_api.models.request_id_source import RequestIdSource as RequestIdSource
+from c2m_api.models.return_address import ReturnAddress as ReturnAddress
 from c2m_api.models.short_token_request import ShortTokenRequest as ShortTokenRequest
 from c2m_api.models.short_token_response import ShortTokenResponse as ShortTokenResponse
-from c2m_api.models.single_doc_job_params import SingleDocJobParams as SingleDocJobParams
-from c2m_api.models.single_doc_job_params_request import SingleDocJobParamsRequest as SingleDocJobParamsRequest
-from c2m_api.models.split_pdf_params import SplitPdfParams as SplitPdfParams
-from c2m_api.models.split_pdf_params_request import SplitPdfParamsRequest as SplitPdfParamsRequest
-from c2m_api.models.split_pdf_params_request_items_inner import SplitPdfParamsRequestItemsInner as SplitPdfParamsRequestItemsInner
-from c2m_api.models.split_pdf_with_capture_params import SplitPdfWithCaptureParams as SplitPdfWithCaptureParams
-from c2m_api.models.split_pdf_with_capture_params_request import SplitPdfWithCaptureParamsRequest as SplitPdfWithCaptureParamsRequest
 from c2m_api.models.standard_response import StandardResponse as StandardResponse
+from c2m_api.models.submit_multi_doc_merge_params import SubmitMultiDocMergeParams as SubmitMultiDocMergeParams
 from c2m_api.models.submit_multi_doc_params import SubmitMultiDocParams as SubmitMultiDocParams
-from c2m_api.models.submit_multi_doc_params_request import SubmitMultiDocParamsRequest as SubmitMultiDocParamsRequest
-from c2m_api.models.submit_multi_doc_with_template_params import SubmitMultiDocWithTemplateParams as SubmitMultiDocWithTemplateParams
-from c2m_api.models.submit_multi_doc_with_template_params_request import SubmitMultiDocWithTemplateParamsRequest as SubmitMultiDocWithTemplateParamsRequest
-from c2m_api.models.submit_multi_doc_with_template_params_request_items_inner import SubmitMultiDocWithTemplateParamsRequestItemsInner as SubmitMultiDocWithTemplateParamsRequestItemsInner
-from c2m_api.models.submit_single_doc_with_template_params import SubmitSingleDocWithTemplateParams as SubmitSingleDocWithTemplateParams
-from c2m_api.models.submit_single_doc_with_template_params_request import SubmitSingleDocWithTemplateParamsRequest as SubmitSingleDocWithTemplateParamsRequest
-from c2m_api.models.submit_single_doc_with_template_params_request_one_of import SubmitSingleDocWithTemplateParamsRequestOneOf as SubmitSingleDocWithTemplateParamsRequestOneOf
-from c2m_api.models.submit_single_doc_with_template_params_request_one_of1 import SubmitSingleDocWithTemplateParamsRequestOneOf1 as SubmitSingleDocWithTemplateParamsRequestOneOf1
-from c2m_api.models.submit_single_doc_with_template_params_request_one_of2 import SubmitSingleDocWithTemplateParamsRequestOneOf2 as SubmitSingleDocWithTemplateParamsRequestOneOf2
+from c2m_api.models.submit_multi_zip_address_capture_params import SubmitMultiZipAddressCaptureParams as SubmitMultiZipAddressCaptureParams
+from c2m_api.models.submit_multi_zip_params import SubmitMultiZipParams as SubmitMultiZipParams
+from c2m_api.models.submit_single_doc_params import SubmitSingleDocParams as SubmitSingleDocParams
+from c2m_api.models.submit_single_pdf_address_capture_params import SubmitSinglePdfAddressCaptureParams as SubmitSinglePdfAddressCaptureParams
+from c2m_api.models.submit_single_pdf_split_address_capture_params import SubmitSinglePdfSplitAddressCaptureParams as SubmitSinglePdfSplitAddressCaptureParams
+from c2m_api.models.submit_single_pdf_split_params import SubmitSinglePdfSplitParams as SubmitSinglePdfSplitParams
 from c2m_api.models.user_credit_payment import UserCreditPayment as UserCreditPayment
+from c2m_api.models.zip_document_id_source import ZipDocumentIdSource as ZipDocumentIdSource
+from c2m_api.models.zip_document_source import ZipDocumentSource as ZipDocumentSource
+from c2m_api.models.zip_request_id_source import ZipRequestIdSource as ZipRequestIdSource
 
 """,
             name=__name__,

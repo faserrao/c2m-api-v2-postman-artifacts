@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**card_type** | [**\C2MApi\Model\CardType**](CardType.md) |  |
+**card_type** | **string** |  |
 **card_number** | **string** |  |
 **expiration_date** | [**\C2MApi\Model\ExpirationDate**](ExpirationDate.md) |  |
 **cvv** | **int** |  |

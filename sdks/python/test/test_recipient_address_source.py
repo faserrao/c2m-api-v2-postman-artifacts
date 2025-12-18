@@ -35,31 +35,66 @@ class TestRecipientAddressSource(unittest.TestCase):
         model = RecipientAddressSource()
         if include_optional:
             return RecipientAddressSource(
-                first_name = '',
-                last_name = '',
-                address1 = '',
-                city = '',
-                state = '',
-                zip = '',
-                country = '',
-                nick_name = '',
-                address2 = '',
-                address3 = '',
-                phone_number = '',
-                address_list_id = 56,
-                address_id = 56
+                mapping_id = 56,
+                single_address = c2m_api.models.address.address(
+                    first_name = '', 
+                    last_name = '', 
+                    address1 = '', 
+                    city = '', 
+                    state = '', 
+                    zip = '', 
+                    country = '', 
+                    address2 = '', 
+                    address3 = '', 
+                    foo1 = '', 
+                    foo2 = '', ),
+                address_name = '',
+                address_list = [
+                    c2m_api.models.address.address(
+                        first_name = '', 
+                        last_name = '', 
+                        address1 = '', 
+                        city = '', 
+                        state = '', 
+                        zip = '', 
+                        country = '', 
+                        address2 = '', 
+                        address3 = '', 
+                        foo1 = '', 
+                        foo2 = '', )
+                    ],
+                address_list_name = '',
+                address_list_id = 56
             )
         else:
             return RecipientAddressSource(
-                first_name = '',
-                last_name = '',
-                address1 = '',
-                city = '',
-                state = '',
-                zip = '',
-                country = '',
+                single_address = c2m_api.models.address.address(
+                    first_name = '', 
+                    last_name = '', 
+                    address1 = '', 
+                    city = '', 
+                    state = '', 
+                    zip = '', 
+                    country = '', 
+                    address2 = '', 
+                    address3 = '', 
+                    foo1 = '', 
+                    foo2 = '', ),
+                address_list = [
+                    c2m_api.models.address.address(
+                        first_name = '', 
+                        last_name = '', 
+                        address1 = '', 
+                        city = '', 
+                        state = '', 
+                        zip = '', 
+                        country = '', 
+                        address2 = '', 
+                        address3 = '', 
+                        foo1 = '', 
+                        foo2 = '', )
+                    ],
                 address_list_id = 56,
-                address_id = 56,
         )
         """
 

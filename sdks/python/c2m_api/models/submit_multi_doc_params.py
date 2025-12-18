@@ -19,9 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from c2m_api.models.job_options import JobOptions
+from c2m_api.models.multi_doc_job_item import MultiDocJobItem
 from c2m_api.models.payment_details import PaymentDetails
-from c2m_api.models.submit_multi_doc_with_template_params_request_items_inner import SubmitMultiDocWithTemplateParamsRequestItemsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,11 +28,11 @@ class SubmitMultiDocParams(BaseModel):
     """
     SubmitMultiDocParams
     """ # noqa: E501
-    items: List[SubmitMultiDocWithTemplateParamsRequestItemsInner]
-    job_options: JobOptions = Field(alias="jobOptions")
-    payment_details: PaymentDetails = Field(alias="paymentDetails")
+    job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
+    multi_doc_jobs: List[MultiDocJobItem] = Field(alias="multiDocJobs")
+    payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
     tags: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["items", "jobOptions", "paymentDetails", "tags"]
+    __properties: ClassVar[List[str]] = ["jobTemplate", "multiDocJobs", "paymentDetails", "tags"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,16 +73,13 @@ class SubmitMultiDocParams(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in items (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in multi_doc_jobs (list)
         _items = []
-        if self.items:
-            for _item_items in self.items:
-                if _item_items:
-                    _items.append(_item_items.to_dict())
-            _dict['items'] = _items
-        # override the default output from pydantic by calling `to_dict()` of job_options
-        if self.job_options:
-            _dict['jobOptions'] = self.job_options.to_dict()
+        if self.multi_doc_jobs:
+            for _item_multi_doc_jobs in self.multi_doc_jobs:
+                if _item_multi_doc_jobs:
+                    _items.append(_item_multi_doc_jobs.to_dict())
+            _dict['multiDocJobs'] = _items
         # override the default output from pydantic by calling `to_dict()` of payment_details
         if self.payment_details:
             _dict['paymentDetails'] = self.payment_details.to_dict()
@@ -99,8 +95,8 @@ class SubmitMultiDocParams(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "items": [SubmitMultiDocWithTemplateParamsRequestItemsInner.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
-            "jobOptions": JobOptions.from_dict(obj["jobOptions"]) if obj.get("jobOptions") is not None else None,
+            "jobTemplate": obj.get("jobTemplate"),
+            "multiDocJobs": [MultiDocJobItem.from_dict(_item) for _item in obj["multiDocJobs"]] if obj.get("multiDocJobs") is not None else None,
             "paymentDetails": PaymentDetails.from_dict(obj["paymentDetails"]) if obj.get("paymentDetails") is not None else None,
             "tags": obj.get("tags")
         })

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**[SubmitMultiDocWithTemplateParamsRequestItemsInner]**](SubmitMultiDocWithTemplateParamsRequestItemsInner.md) |  | 
-**jobOptions** | [**JobOptions**](JobOptions.md) |  | 
-**paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | 
+**jobTemplate** | **String** |  | [optional] 
+**multiDocJobs** | [**[MultiDocJobItem]**](MultiDocJobItem.md) |  | 
+**paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **tags** | **[String]** |  | [optional] 
 
 

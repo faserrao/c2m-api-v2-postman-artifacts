@@ -254,17 +254,15 @@ module OpenapiClient
           },
         'LongTokenAuth' =>
           {
-            type: 'bearer',
+            type: 'oauth2',
             in: 'header',
-            format: 'JWT',
             key: 'Authorization',
             value: "Bearer #{access_token_with_refresh}"
           },
         'ShortTokenAuth' =>
           {
-            type: 'bearer',
+            type: 'oauth2',
             in: 'header',
-            format: 'JWT',
             key: 'Authorization',
             value: "Bearer #{access_token_with_refresh}"
           },

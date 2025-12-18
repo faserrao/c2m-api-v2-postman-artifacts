@@ -35,12 +35,12 @@ class TestExpirationDate(unittest.TestCase):
         model = ExpirationDate()
         if include_optional:
             return ExpirationDate(
-                month = 1,
+                month = 56,
                 year = 56
             )
         else:
             return ExpirationDate(
-                month = 1,
+                month = 56,
                 year = 56,
         )
         """

@@ -23,9 +23,9 @@ Issues a long-term token (e.g., 30-90 days) for automation or server-to-server u
 ```javascript
 import C2MApiV2AuthOverlay from 'c2_m_api_v2_auth_overlay';
 let defaultClient = C2MApiV2AuthOverlay.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: ShortTokenAuth
+// Configure OAuth2 access token for authorization: ShortTokenAuth
 let ShortTokenAuth = defaultClient.authentications['ShortTokenAuth'];
-ShortTokenAuth.accessToken = "YOUR ACCESS TOKEN"
+ShortTokenAuth.accessToken = 'YOUR ACCESS TOKEN';
 // Configure API key authorization: ClientKey
 let ClientKey = defaultClient.authentications['ClientKey'];
 ClientKey.apiKey = 'YOUR API KEY';
@@ -77,9 +77,9 @@ Exchange a valid long-term token for a short-lived JWT (e.g., 15 minutes). The l
 ```javascript
 import C2MApiV2AuthOverlay from 'c2_m_api_v2_auth_overlay';
 let defaultClient = C2MApiV2AuthOverlay.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: LongTokenAuth
+// Configure OAuth2 access token for authorization: LongTokenAuth
 let LongTokenAuth = defaultClient.authentications['LongTokenAuth'];
-LongTokenAuth.accessToken = "YOUR ACCESS TOKEN"
+LongTokenAuth.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new C2MApiV2AuthOverlay.AuthApi();
 let opts = {
@@ -128,12 +128,12 @@ Revokes a short- or long-term token by its &#x60;tokenId&#x60;. Idempotent.
 ```javascript
 import C2MApiV2AuthOverlay from 'c2_m_api_v2_auth_overlay';
 let defaultClient = C2MApiV2AuthOverlay.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: LongTokenAuth
+// Configure OAuth2 access token for authorization: LongTokenAuth
 let LongTokenAuth = defaultClient.authentications['LongTokenAuth'];
-LongTokenAuth.accessToken = "YOUR ACCESS TOKEN"
-// Configure Bearer (JWT) access token for authorization: ShortTokenAuth
+LongTokenAuth.accessToken = 'YOUR ACCESS TOKEN';
+// Configure OAuth2 access token for authorization: ShortTokenAuth
 let ShortTokenAuth = defaultClient.authentications['ShortTokenAuth'];
-ShortTokenAuth.accessToken = "YOUR ACCESS TOKEN"
+ShortTokenAuth.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new C2MApiV2AuthOverlay.AuthApi();
 let tokenId = "tokenId_example"; // String | The token ID to revoke

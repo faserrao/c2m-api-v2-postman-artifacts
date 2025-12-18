@@ -39,7 +39,19 @@ describe OpenapiClient::JobOptions do
     end
   end
 
-  describe 'test attribute "mailclass"' do
+  describe 'test attribute "production_time"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "envelope"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "color"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end
@@ -57,7 +69,7 @@ describe OpenapiClient::JobOptions do
     end
   end
 
-  describe 'test attribute "envelope"' do
+  describe 'test attribute "mail_class"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

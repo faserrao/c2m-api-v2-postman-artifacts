@@ -14,28 +14,34 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct JobOptions {
     #[serde(rename = "documentClass")]
-    pub document_class: models::DocumentClass,
+    pub document_class: String,
     #[serde(rename = "layout")]
-    pub layout: models::Layout,
-    #[serde(rename = "mailclass")]
-    pub mailclass: models::Mailclass,
-    #[serde(rename = "paperType")]
-    pub paper_type: models::PaperType,
-    #[serde(rename = "printOption")]
-    pub print_option: models::PrintOption,
+    pub layout: String,
+    #[serde(rename = "productionTime")]
+    pub production_time: String,
     #[serde(rename = "envelope")]
-    pub envelope: models::Envelope,
+    pub envelope: String,
+    #[serde(rename = "color")]
+    pub color: String,
+    #[serde(rename = "paperType")]
+    pub paper_type: String,
+    #[serde(rename = "printOption")]
+    pub print_option: String,
+    #[serde(rename = "mailClass")]
+    pub mail_class: String,
 }
 
 impl JobOptions {
-    pub fn new(document_class: models::DocumentClass, layout: models::Layout, mailclass: models::Mailclass, paper_type: models::PaperType, print_option: models::PrintOption, envelope: models::Envelope) -> JobOptions {
+    pub fn new(document_class: String, layout: String, production_time: String, envelope: String, color: String, paper_type: String, print_option: String, mail_class: String) -> JobOptions {
         JobOptions {
             document_class,
             layout,
-            mailclass,
+            production_time,
+            envelope,
+            color,
             paper_type,
             print_option,
-            envelope,
+            mail_class,
         }
     }
 }

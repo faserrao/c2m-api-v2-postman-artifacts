@@ -78,18 +78,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property applePaymentDetails (base name: "applePaymentDetails")', function() {
-      // uncomment below and update the code to test the property applePaymentDetails
-      //var instance = new C2MApiV2AuthOverlay.PaymentDetails();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property googlePaymentDetails (base name: "googlePaymentDetails")', function() {
-      // uncomment below and update the code to test the property googlePaymentDetails
-      //var instance = new C2MApiV2AuthOverlay.PaymentDetails();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

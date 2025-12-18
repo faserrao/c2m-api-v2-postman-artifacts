@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreditCardDetails {
     #[serde(rename = "cardType")]
-    pub card_type: models::CardType,
+    pub card_type: CardType,
     #[serde(rename = "cardNumber")]
     pub card_number: String,
     #[serde(rename = "expirationDate")]
@@ -24,13 +24,31 @@ pub struct CreditCardDetails {
 }
 
 impl CreditCardDetails {
-    pub fn new(card_type: models::CardType, card_number: String, expiration_date: models::ExpirationDate, cvv: i32) -> CreditCardDetails {
+    pub fn new(card_type: CardType, card_number: String, expiration_date: models::ExpirationDate, cvv: i32) -> CreditCardDetails {
         CreditCardDetails {
             card_type,
             card_number,
             expiration_date: Box::new(expiration_date),
             cvv,
         }
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum CardType {
+    #[serde(rename = "visa")]
+    Visa,
+    #[serde(rename = "mastercard")]
+    Mastercard,
+    #[serde(rename = "discover")]
+    Discover,
+    #[serde(rename = "americanExpress")]
+    AmericanExpress,
+}
+
+impl Default for CardType {
+    fn default() -> CardType {
+        Self::Visa
     }
 }
 

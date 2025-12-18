@@ -57,12 +57,14 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'document_class' => '\C2MApi\Model\DocumentClass',
-        'layout' => '\C2MApi\Model\Layout',
-        'mailclass' => '\C2MApi\Model\Mailclass',
-        'paper_type' => '\C2MApi\Model\PaperType',
-        'print_option' => '\C2MApi\Model\PrintOption',
-        'envelope' => '\C2MApi\Model\Envelope'
+        'document_class' => 'string',
+        'layout' => 'string',
+        'production_time' => 'string',
+        'envelope' => 'string',
+        'color' => 'string',
+        'paper_type' => 'string',
+        'print_option' => 'string',
+        'mail_class' => 'string'
     ];
 
     /**
@@ -75,10 +77,12 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'document_class' => null,
         'layout' => null,
-        'mailclass' => null,
+        'production_time' => null,
+        'envelope' => null,
+        'color' => null,
         'paper_type' => null,
         'print_option' => null,
-        'envelope' => null
+        'mail_class' => null
     ];
 
     /**
@@ -89,10 +93,12 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'document_class' => false,
         'layout' => false,
-        'mailclass' => false,
+        'production_time' => false,
+        'envelope' => false,
+        'color' => false,
         'paper_type' => false,
         'print_option' => false,
-        'envelope' => false
+        'mail_class' => false
     ];
 
     /**
@@ -183,10 +189,12 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'document_class' => 'documentClass',
         'layout' => 'layout',
-        'mailclass' => 'mailclass',
+        'production_time' => 'productionTime',
+        'envelope' => 'envelope',
+        'color' => 'color',
         'paper_type' => 'paperType',
         'print_option' => 'printOption',
-        'envelope' => 'envelope'
+        'mail_class' => 'mailClass'
     ];
 
     /**
@@ -197,10 +205,12 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'document_class' => 'setDocumentClass',
         'layout' => 'setLayout',
-        'mailclass' => 'setMailclass',
+        'production_time' => 'setProductionTime',
+        'envelope' => 'setEnvelope',
+        'color' => 'setColor',
         'paper_type' => 'setPaperType',
         'print_option' => 'setPrintOption',
-        'envelope' => 'setEnvelope'
+        'mail_class' => 'setMailClass'
     ];
 
     /**
@@ -211,10 +221,12 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'document_class' => 'getDocumentClass',
         'layout' => 'getLayout',
-        'mailclass' => 'getMailclass',
+        'production_time' => 'getProductionTime',
+        'envelope' => 'getEnvelope',
+        'color' => 'getColor',
         'paper_type' => 'getPaperType',
         'print_option' => 'getPrintOption',
-        'envelope' => 'getEnvelope'
+        'mail_class' => 'getMailClass'
     ];
 
     /**
@@ -276,10 +288,12 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('document_class', $data ?? [], null);
         $this->setIfExists('layout', $data ?? [], null);
-        $this->setIfExists('mailclass', $data ?? [], null);
+        $this->setIfExists('production_time', $data ?? [], null);
+        $this->setIfExists('envelope', $data ?? [], null);
+        $this->setIfExists('color', $data ?? [], null);
         $this->setIfExists('paper_type', $data ?? [], null);
         $this->setIfExists('print_option', $data ?? [], null);
-        $this->setIfExists('envelope', $data ?? [], null);
+        $this->setIfExists('mail_class', $data ?? [], null);
     }
 
     /**
@@ -315,8 +329,14 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['layout'] === null) {
             $invalidProperties[] = "'layout' can't be null";
         }
-        if ($this->container['mailclass'] === null) {
-            $invalidProperties[] = "'mailclass' can't be null";
+        if ($this->container['production_time'] === null) {
+            $invalidProperties[] = "'production_time' can't be null";
+        }
+        if ($this->container['envelope'] === null) {
+            $invalidProperties[] = "'envelope' can't be null";
+        }
+        if ($this->container['color'] === null) {
+            $invalidProperties[] = "'color' can't be null";
         }
         if ($this->container['paper_type'] === null) {
             $invalidProperties[] = "'paper_type' can't be null";
@@ -324,8 +344,8 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['print_option'] === null) {
             $invalidProperties[] = "'print_option' can't be null";
         }
-        if ($this->container['envelope'] === null) {
-            $invalidProperties[] = "'envelope' can't be null";
+        if ($this->container['mail_class'] === null) {
+            $invalidProperties[] = "'mail_class' can't be null";
         }
         return $invalidProperties;
     }
@@ -345,7 +365,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets document_class
      *
-     * @return \C2MApi\Model\DocumentClass
+     * @return string
      */
     public function getDocumentClass()
     {
@@ -355,7 +375,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets document_class
      *
-     * @param \C2MApi\Model\DocumentClass $document_class document_class
+     * @param string $document_class document_class
      *
      * @return self
      */
@@ -372,7 +392,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets layout
      *
-     * @return \C2MApi\Model\Layout
+     * @return string
      */
     public function getLayout()
     {
@@ -382,7 +402,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets layout
      *
-     * @param \C2MApi\Model\Layout $layout layout
+     * @param string $layout layout
      *
      * @return self
      */
@@ -397,28 +417,82 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets mailclass
+     * Gets production_time
      *
-     * @return \C2MApi\Model\Mailclass
+     * @return string
      */
-    public function getMailclass()
+    public function getProductionTime()
     {
-        return $this->container['mailclass'];
+        return $this->container['production_time'];
     }
 
     /**
-     * Sets mailclass
+     * Sets production_time
      *
-     * @param \C2MApi\Model\Mailclass $mailclass mailclass
+     * @param string $production_time production_time
      *
      * @return self
      */
-    public function setMailclass($mailclass)
+    public function setProductionTime($production_time)
     {
-        if (is_null($mailclass)) {
-            throw new \InvalidArgumentException('non-nullable mailclass cannot be null');
+        if (is_null($production_time)) {
+            throw new \InvalidArgumentException('non-nullable production_time cannot be null');
         }
-        $this->container['mailclass'] = $mailclass;
+        $this->container['production_time'] = $production_time;
+
+        return $this;
+    }
+
+    /**
+     * Gets envelope
+     *
+     * @return string
+     */
+    public function getEnvelope()
+    {
+        return $this->container['envelope'];
+    }
+
+    /**
+     * Sets envelope
+     *
+     * @param string $envelope envelope
+     *
+     * @return self
+     */
+    public function setEnvelope($envelope)
+    {
+        if (is_null($envelope)) {
+            throw new \InvalidArgumentException('non-nullable envelope cannot be null');
+        }
+        $this->container['envelope'] = $envelope;
+
+        return $this;
+    }
+
+    /**
+     * Gets color
+     *
+     * @return string
+     */
+    public function getColor()
+    {
+        return $this->container['color'];
+    }
+
+    /**
+     * Sets color
+     *
+     * @param string $color color
+     *
+     * @return self
+     */
+    public function setColor($color)
+    {
+        if (is_null($color)) {
+            throw new \InvalidArgumentException('non-nullable color cannot be null');
+        }
+        $this->container['color'] = $color;
 
         return $this;
     }
@@ -426,7 +500,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets paper_type
      *
-     * @return \C2MApi\Model\PaperType
+     * @return string
      */
     public function getPaperType()
     {
@@ -436,7 +510,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets paper_type
      *
-     * @param \C2MApi\Model\PaperType $paper_type paper_type
+     * @param string $paper_type paper_type
      *
      * @return self
      */
@@ -453,7 +527,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets print_option
      *
-     * @return \C2MApi\Model\PrintOption
+     * @return string
      */
     public function getPrintOption()
     {
@@ -463,7 +537,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets print_option
      *
-     * @param \C2MApi\Model\PrintOption $print_option print_option
+     * @param string $print_option print_option
      *
      * @return self
      */
@@ -478,28 +552,28 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets envelope
+     * Gets mail_class
      *
-     * @return \C2MApi\Model\Envelope
+     * @return string
      */
-    public function getEnvelope()
+    public function getMailClass()
     {
-        return $this->container['envelope'];
+        return $this->container['mail_class'];
     }
 
     /**
-     * Sets envelope
+     * Sets mail_class
      *
-     * @param \C2MApi\Model\Envelope $envelope envelope
+     * @param string $mail_class mail_class
      *
      * @return self
      */
-    public function setEnvelope($envelope)
+    public function setMailClass($mail_class)
     {
-        if (is_null($envelope)) {
-            throw new \InvalidArgumentException('non-nullable envelope cannot be null');
+        if (is_null($mail_class)) {
+            throw new \InvalidArgumentException('non-nullable mail_class cannot be null');
         }
-        $this->container['envelope'] = $envelope;
+        $this->container['mail_class'] = $mail_class;
 
         return $this;
     }

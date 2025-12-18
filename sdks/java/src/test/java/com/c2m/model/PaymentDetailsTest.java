@@ -15,11 +15,9 @@ package com.c2m.model;
 
 import com.c2m.model.AchDetails;
 import com.c2m.model.AchPayment;
-import com.c2m.model.ApplePayPayment;
 import com.c2m.model.CreditAmount;
 import com.c2m.model.CreditCardDetails;
 import com.c2m.model.CreditCardPayment;
-import com.c2m.model.GooglePayPayment;
 import com.c2m.model.InvoiceDetails;
 import com.c2m.model.InvoicePayment;
 import com.c2m.model.UserCreditPayment;
@@ -77,22 +75,6 @@ public class PaymentDetailsTest {
     @Test
     public void creditAmountTest() {
         // TODO: test creditAmount
-    }
-
-    /**
-     * Test the property 'applePaymentDetails'
-     */
-    @Test
-    public void applePaymentDetailsTest() {
-        // TODO: test applePaymentDetails
-    }
-
-    /**
-     * Test the property 'googlePaymentDetails'
-     */
-    @Test
-    public void googlePaymentDetailsTest() {
-        // TODO: test googlePaymentDetails
     }
 
 }

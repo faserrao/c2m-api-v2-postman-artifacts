@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | **number** |  | [default to undefined]
-**currency** | [**Currency**](Currency.md) |  | [default to undefined]
+**currency** | **string** |  | [default to undefined]
 
 ## Example
 

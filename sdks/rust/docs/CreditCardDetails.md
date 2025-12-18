@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**card_type** | [**models::CardType**](cardType.md) |  | 
+**card_type** | **String** |  | 
 **card_number** | **String** |  | 
 **expiration_date** | [**models::ExpirationDate**](expirationDate.md) |  | 
 **cvv** | **i32** |  | 

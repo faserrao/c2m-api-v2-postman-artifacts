@@ -16,6 +16,7 @@ Install the following dependencies:
 
 ```sh
 go get github.com/stretchr/testify/assert
+go get golang.org/x/oauth2
 go get golang.org/x/net/context
 ```
 
@@ -81,84 +82,65 @@ Class | Method | HTTP request | Description
 *AuthAPI* | [**IssueLongTermToken**](docs/AuthAPI.md#issuelongtermtoken) | **Post** /auth/tokens/long | Issue or rotate a long-term token
 *AuthAPI* | [**IssueShortTermToken**](docs/AuthAPI.md#issueshorttermtoken) | **Post** /auth/tokens/short | Issue a short-term access token
 *AuthAPI* | [**RevokeToken**](docs/AuthAPI.md#revoketoken) | **Post** /auth/tokens/{tokenId}/revoke | Revoke a token
-*DefaultAPI* | [**MergeMultiDocParams**](docs/DefaultAPI.md#mergemultidocparams) | **Post** /jobs/multi-doc-merge | Operation for /jobs/multi-doc-merge
-*DefaultAPI* | [**MergeMultiDocWithTemplateParams**](docs/DefaultAPI.md#mergemultidocwithtemplateparams) | **Post** /jobs/multi-doc-merge-job-template | Operation for /jobs/multi-doc-merge-job-template
-*DefaultAPI* | [**MultiPdfWithCaptureParams**](docs/DefaultAPI.md#multipdfwithcaptureparams) | **Post** /jobs/multi-pdf-address-capture | Operation for /jobs/multi-pdf-address-capture
-*DefaultAPI* | [**SingleDocJobParams**](docs/DefaultAPI.md#singledocjobparams) | **Post** /jobs/single-doc | Operation for /jobs/single-doc
-*DefaultAPI* | [**SplitPdfParams**](docs/DefaultAPI.md#splitpdfparams) | **Post** /jobs/single-pdf-split | Operation for /jobs/single-pdf-split
-*DefaultAPI* | [**SplitPdfWithCaptureParams**](docs/DefaultAPI.md#splitpdfwithcaptureparams) | **Post** /jobs/single-pdf-split-addressCapture | Operation for /jobs/single-pdf-split-addressCapture
-*DefaultAPI* | [**SubmitMultiDocParams**](docs/DefaultAPI.md#submitmultidocparams) | **Post** /jobs/multi-doc | Operation for /jobs/multi-doc
-*DefaultAPI* | [**SubmitMultiDocWithTemplateParams**](docs/DefaultAPI.md#submitmultidocwithtemplateparams) | **Post** /jobs/multi-docs-job-template | Operation for /jobs/multi-docs-job-template
-*DefaultAPI* | [**SubmitSingleDocWithTemplateParams**](docs/DefaultAPI.md#submitsingledocwithtemplateparams) | **Post** /jobs/single-doc-job-template | Operation for /jobs/single-doc-job-template
+*JobsAPI* | [**SubmitMultiDocMergeParams**](docs/JobsAPI.md#submitmultidocmergeparams) | **Post** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
+*JobsAPI* | [**SubmitMultiDocParams**](docs/JobsAPI.md#submitmultidocparams) | **Post** /jobs/submit/multi/doc | Submit a multi doc job
+*JobsAPI* | [**SubmitMultiZipAddressCaptureParams**](docs/JobsAPI.md#submitmultizipaddresscaptureparams) | **Post** /jobs/submit/multi/zip/addressCapture | Submit a multi zip addressCapture job
+*JobsAPI* | [**SubmitMultiZipParams**](docs/JobsAPI.md#submitmultizipparams) | **Post** /jobs/submit/multi/zip | Submit a multi zip job
+*JobsAPI* | [**SubmitSingleDocParams**](docs/JobsAPI.md#submitsingledocparams) | **Post** /jobs/submit/single/doc | Submit a single doc job
+*JobsAPI* | [**SubmitSinglePdfAddressCaptureParams**](docs/JobsAPI.md#submitsinglepdfaddresscaptureparams) | **Post** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job
+*JobsAPI* | [**SubmitSinglePdfSplitAddressCaptureParams**](docs/JobsAPI.md#submitsinglepdfsplitaddresscaptureparams) | **Post** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job
+*JobsAPI* | [**SubmitSinglePdfSplitParams**](docs/JobsAPI.md#submitsinglepdfsplitparams) | **Post** /jobs/submit/single/pdf/split | Submit a single pdf split job
 
 
 ## Documentation For Models
 
  - [AchDetails](docs/AchDetails.md)
  - [AchPayment](docs/AchPayment.md)
- - [AddressListPdf](docs/AddressListPdf.md)
- - [AddressRegion](docs/AddressRegion.md)
- - [ApplePayPayment](docs/ApplePayPayment.md)
+ - [Address](docs/Address.md)
  - [AuthError](docs/AuthError.md)
  - [CardType](docs/CardType.md)
  - [CreditAmount](docs/CreditAmount.md)
  - [CreditCardDetails](docs/CreditCardDetails.md)
  - [CreditCardPayment](docs/CreditCardPayment.md)
  - [Currency](docs/Currency.md)
- - [DocumentClass](docs/DocumentClass.md)
- - [DocumentFormat](docs/DocumentFormat.md)
- - [DocumentSourceFromZip](docs/DocumentSourceFromZip.md)
- - [DocumentSourceIdentifier](docs/DocumentSourceIdentifier.md)
- - [DocumentSourceVariant1](docs/DocumentSourceVariant1.md)
- - [DocumentSourceVariant2](docs/DocumentSourceVariant2.md)
- - [DocumentSourceWithUpload](docs/DocumentSourceWithUpload.md)
- - [DocumentSourceWithUploadAndZip](docs/DocumentSourceWithUploadAndZip.md)
- - [Envelope](docs/Envelope.md)
+ - [DocSourceAll](docs/DocSourceAll.md)
+ - [DocSourceStandard](docs/DocSourceStandard.md)
+ - [DocSourceZipFile](docs/DocSourceZipFile.md)
+ - [DocumentSource](docs/DocumentSource.md)
  - [ExpirationDate](docs/ExpirationDate.md)
- - [ExtractionSpec](docs/ExtractionSpec.md)
- - [GooglePayPayment](docs/GooglePayPayment.md)
  - [InvoiceDetails](docs/InvoiceDetails.md)
  - [InvoicePayment](docs/InvoicePayment.md)
  - [JobOptions](docs/JobOptions.md)
- - [Layout](docs/Layout.md)
  - [LongTokenRequest](docs/LongTokenRequest.md)
  - [LongTokenResponse](docs/LongTokenResponse.md)
- - [Mailclass](docs/Mailclass.md)
- - [MergeMultiDocParams](docs/MergeMultiDocParams.md)
- - [MergeMultiDocParamsRequest](docs/MergeMultiDocParamsRequest.md)
- - [MergeMultiDocWithTemplateParams](docs/MergeMultiDocWithTemplateParams.md)
- - [MergeMultiDocWithTemplateParamsRequest](docs/MergeMultiDocWithTemplateParamsRequest.md)
- - [MultiPdfWithCaptureParams](docs/MultiPdfWithCaptureParams.md)
- - [MultiPdfWithCaptureParamsRequest](docs/MultiPdfWithCaptureParamsRequest.md)
- - [PageRange](docs/PageRange.md)
- - [PaperType](docs/PaperType.md)
+ - [MergeByRequestId](docs/MergeByRequestId.md)
+ - [MergeDocumentRef](docs/MergeDocumentRef.md)
+ - [MultiDocJobItem](docs/MultiDocJobItem.md)
+ - [MultiZipJobItem](docs/MultiZipJobItem.md)
  - [PaymentDetails](docs/PaymentDetails.md)
- - [PrintOption](docs/PrintOption.md)
- - [RecipientAddress](docs/RecipientAddress.md)
+ - [PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
+ - [PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
  - [RecipientAddressSource](docs/RecipientAddressSource.md)
  - [RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
- - [RecipientAddressSourceOneOf1](docs/RecipientAddressSourceOneOf1.md)
+ - [RecipientaddresssourceVariant1](docs/RecipientaddresssourceVariant1.md)
+ - [RecipientaddresssourceVariant2](docs/RecipientaddresssourceVariant2.md)
+ - [RequestIdSource](docs/RequestIdSource.md)
+ - [ReturnAddress](docs/ReturnAddress.md)
  - [ShortTokenRequest](docs/ShortTokenRequest.md)
  - [ShortTokenResponse](docs/ShortTokenResponse.md)
- - [SingleDocJobParams](docs/SingleDocJobParams.md)
- - [SingleDocJobParamsRequest](docs/SingleDocJobParamsRequest.md)
- - [SplitPdfParams](docs/SplitPdfParams.md)
- - [SplitPdfParamsRequest](docs/SplitPdfParamsRequest.md)
- - [SplitPdfParamsRequestItemsInner](docs/SplitPdfParamsRequestItemsInner.md)
- - [SplitPdfWithCaptureParams](docs/SplitPdfWithCaptureParams.md)
- - [SplitPdfWithCaptureParamsRequest](docs/SplitPdfWithCaptureParamsRequest.md)
  - [StandardResponse](docs/StandardResponse.md)
+ - [SubmitMultiDocMergeParams](docs/SubmitMultiDocMergeParams.md)
  - [SubmitMultiDocParams](docs/SubmitMultiDocParams.md)
- - [SubmitMultiDocParamsRequest](docs/SubmitMultiDocParamsRequest.md)
- - [SubmitMultiDocWithTemplateParams](docs/SubmitMultiDocWithTemplateParams.md)
- - [SubmitMultiDocWithTemplateParamsRequest](docs/SubmitMultiDocWithTemplateParamsRequest.md)
- - [SubmitMultiDocWithTemplateParamsRequestItemsInner](docs/SubmitMultiDocWithTemplateParamsRequestItemsInner.md)
- - [SubmitSingleDocWithTemplateParams](docs/SubmitSingleDocWithTemplateParams.md)
- - [SubmitSingleDocWithTemplateParamsRequest](docs/SubmitSingleDocWithTemplateParamsRequest.md)
- - [SubmitSingleDocWithTemplateParamsRequestOneOf](docs/SubmitSingleDocWithTemplateParamsRequestOneOf.md)
- - [SubmitSingleDocWithTemplateParamsRequestOneOf1](docs/SubmitSingleDocWithTemplateParamsRequestOneOf1.md)
- - [SubmitSingleDocWithTemplateParamsRequestOneOf2](docs/SubmitSingleDocWithTemplateParamsRequestOneOf2.md)
+ - [SubmitMultiZipAddressCaptureParams](docs/SubmitMultiZipAddressCaptureParams.md)
+ - [SubmitMultiZipParams](docs/SubmitMultiZipParams.md)
+ - [SubmitSingleDocParams](docs/SubmitSingleDocParams.md)
+ - [SubmitSinglePdfAddressCaptureParams](docs/SubmitSinglePdfAddressCaptureParams.md)
+ - [SubmitSinglePdfSplitAddressCaptureParams](docs/SubmitSinglePdfSplitAddressCaptureParams.md)
+ - [SubmitSinglePdfSplitParams](docs/SubmitSinglePdfSplitParams.md)
  - [UserCreditPayment](docs/UserCreditPayment.md)
+ - [ZipDocumentIdSource](docs/ZipDocumentIdSource.md)
+ - [ZipDocumentSource](docs/ZipDocumentSource.md)
+ - [ZipRequestIdSource](docs/ZipRequestIdSource.md)
 
 
 ## Documentation For Authorization
@@ -178,23 +160,59 @@ r, err := client.Service.Operation(auth, args)
 
 ### LongTokenAuth
 
-- **Type**: HTTP Bearer token authentication
+
+- **Type**: OAuth
+- **Flow**: application
+- **Authorization URL**: 
+- **Scopes**: 
+ - **tokens:write**: Create new long-term tokens
+ - **tokens:revoke**: Revoke existing tokens
 
 Example
 
 ```go
-auth := context.WithValue(context.Background(), c2mapi.ContextAccessToken, "BEARER_TOKEN_STRING")
+auth := context.WithValue(context.Background(), c2mapi.ContextAccessToken, "ACCESSTOKENSTRING")
+r, err := client.Service.Operation(auth, args)
+```
+
+Or via OAuth2 module to automatically refresh tokens and perform user authentication.
+
+```go
+import "golang.org/x/oauth2"
+
+/* Perform OAuth2 round trip request and obtain a token */
+
+tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
+auth := context.WithValue(oauth2.NoContext, c2mapi.ContextOAuth2, tokenSource)
 r, err := client.Service.Operation(auth, args)
 ```
 
 ### ShortTokenAuth
 
-- **Type**: HTTP Bearer token authentication
+
+- **Type**: OAuth
+- **Flow**: application
+- **Authorization URL**: 
+- **Scopes**: 
+ - **tokens:write**: Create new long-term tokens
+ - **tokens:revoke**: Revoke existing tokens
 
 Example
 
 ```go
-auth := context.WithValue(context.Background(), c2mapi.ContextAccessToken, "BEARER_TOKEN_STRING")
+auth := context.WithValue(context.Background(), c2mapi.ContextAccessToken, "ACCESSTOKENSTRING")
+r, err := client.Service.Operation(auth, args)
+```
+
+Or via OAuth2 module to automatically refresh tokens and perform user authentication.
+
+```go
+import "golang.org/x/oauth2"
+
+/* Perform OAuth2 round trip request and obtain a token */
+
+tokenSource := oauth2cfg.TokenSource(createContext(httpClient), &token)
+auth := context.WithValue(oauth2.NoContext, c2mapi.ContextOAuth2, tokenSource)
 r, err := client.Service.Operation(auth, args)
 ```
 

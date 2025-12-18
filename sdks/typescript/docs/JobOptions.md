@@ -5,12 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**documentClass** | [**DocumentClass**](DocumentClass.md) |  | [default to undefined]
-**layout** | [**Layout**](Layout.md) |  | [default to undefined]
-**mailclass** | [**Mailclass**](Mailclass.md) |  | [default to undefined]
-**paperType** | [**PaperType**](PaperType.md) |  | [default to undefined]
-**printOption** | [**PrintOption**](PrintOption.md) |  | [default to undefined]
-**envelope** | [**Envelope**](Envelope.md) |  | [default to undefined]
+**documentClass** | **string** |  | [default to undefined]
+**layout** | **string** |  | [default to undefined]
+**productionTime** | **string** |  | [default to undefined]
+**envelope** | **string** |  | [default to undefined]
+**color** | **string** |  | [default to undefined]
+**paperType** | **string** |  | [default to undefined]
+**printOption** | **string** |  | [default to undefined]
+**mailClass** | **string** |  | [default to undefined]
 
 ## Example
 
@@ -20,10 +22,12 @@ import { JobOptions } from './api';
 const instance: JobOptions = {
     documentClass,
     layout,
-    mailclass,
+    productionTime,
+    envelope,
+    color,
     paperType,
     printOption,
-    envelope,
+    mailClass,
 };
 ```
 

@@ -70,26 +70,6 @@ namespace C2M.Api.Model
             OnCreated();
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentDetails" /> class.
-        /// </summary>
-        /// <param name="applePayPayment"></param>
-        public PaymentDetails(ApplePayPayment applePayPayment)
-        {
-            ApplePayPayment = applePayPayment;
-            OnCreated();
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PaymentDetails" /> class.
-        /// </summary>
-        /// <param name="googlePayPayment"></param>
-        public PaymentDetails(GooglePayPayment googlePayPayment)
-        {
-            GooglePayPayment = googlePayPayment;
-            OnCreated();
-        }
-
         partial void OnCreated();
 
         /// <summary>
@@ -111,16 +91,6 @@ namespace C2M.Api.Model
         /// Gets or Sets UserCreditPayment
         /// </summary>
         public UserCreditPayment? UserCreditPayment { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ApplePayPayment
-        /// </summary>
-        public ApplePayPayment? ApplePayPayment { get; set; }
-
-        /// <summary>
-        /// Gets or Sets GooglePayPayment
-        /// </summary>
-        public GooglePayPayment? GooglePayPayment { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -171,8 +141,6 @@ namespace C2M.Api.Model
             InvoicePayment? invoicePayment = default;
             AchPayment? achPayment = default;
             UserCreditPayment? userCreditPayment = default;
-            ApplePayPayment? applePayPayment = default;
-            GooglePayPayment? googlePayPayment = default;
 
             Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
             while (utf8JsonReaderOneOf.Read())
@@ -196,12 +164,6 @@ namespace C2M.Api.Model
 
                     Utf8JsonReader utf8JsonReaderUserCreditPayment = utf8JsonReader;
                     ClientUtils.TryDeserialize<UserCreditPayment?>(ref utf8JsonReaderUserCreditPayment, jsonSerializerOptions, out userCreditPayment);
-
-                    Utf8JsonReader utf8JsonReaderApplePayPayment = utf8JsonReader;
-                    ClientUtils.TryDeserialize<ApplePayPayment?>(ref utf8JsonReaderApplePayPayment, jsonSerializerOptions, out applePayPayment);
-
-                    Utf8JsonReader utf8JsonReaderGooglePayPayment = utf8JsonReader;
-                    ClientUtils.TryDeserialize<GooglePayPayment?>(ref utf8JsonReaderGooglePayPayment, jsonSerializerOptions, out googlePayPayment);
                 }
             }
 
@@ -237,12 +199,6 @@ namespace C2M.Api.Model
 
             if (userCreditPayment != null)
                 return new PaymentDetails(userCreditPayment);
-
-            if (applePayPayment != null)
-                return new PaymentDetails(applePayPayment);
-
-            if (googlePayPayment != null)
-                return new PaymentDetails(googlePayPayment);
 
             throw new JsonException();
         }

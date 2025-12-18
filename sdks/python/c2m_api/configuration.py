@@ -114,8 +114,8 @@ AuthSettings = TypedDict(
     "AuthSettings",
     {
         "bearerAuth": BearerFormatAuthSetting,
-        "LongTokenAuth": BearerFormatAuthSetting,
-        "ShortTokenAuth": BearerFormatAuthSetting,
+        "LongTokenAuth": OAuth2AuthSetting,
+        "ShortTokenAuth": OAuth2AuthSetting,
         "ClientKey": APIKeyAuthSetting,
     },
     total=False,
@@ -524,17 +524,15 @@ conf = c2m_api.Configuration(
             }
         if self.access_token is not None:
             auth['LongTokenAuth'] = {
-                'type': 'bearer',
+                'type': 'oauth2',
                 'in': 'header',
-                'format': 'JWT',
                 'key': 'Authorization',
                 'value': 'Bearer ' + self.access_token
             }
         if self.access_token is not None:
             auth['ShortTokenAuth'] = {
-                'type': 'bearer',
+                'type': 'oauth2',
                 'in': 'header',
-                'format': 'JWT',
                 'key': 'Authorization',
                 'value': 'Bearer ' + self.access_token
             }

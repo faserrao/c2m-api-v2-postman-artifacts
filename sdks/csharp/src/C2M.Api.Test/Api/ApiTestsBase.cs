@@ -60,13 +60,12 @@ namespace C2M.Api.Test.Api
                 BearerToken bearerToken1 = new(bearerTokenValue1, timeout: TimeSpan.FromSeconds(1));
                 options.AddTokens(bearerToken1);
 
-                string bearerTokenValue2 = context.Configuration["<token>"] ?? throw new Exception("Token not found.");
-                BearerToken bearerToken2 = new(bearerTokenValue2, timeout: TimeSpan.FromSeconds(1));
-                options.AddTokens(bearerToken2);
-
-                string bearerTokenValue3 = context.Configuration["<token>"] ?? throw new Exception("Token not found.");
-                BearerToken bearerToken3 = new(bearerTokenValue3, timeout: TimeSpan.FromSeconds(1));
-                options.AddTokens(bearerToken3);
+                string oauthTokenValue1 = context.Configuration["<token>"] ?? throw new Exception("Token not found.");
+                OAuthToken oauthToken1 = new(oauthTokenValue1, timeout: TimeSpan.FromSeconds(1));
+                options.AddTokens(oauthToken1);
+                string oauthTokenValue2 = context.Configuration["<token>"] ?? throw new Exception("Token not found.");
+                OAuthToken oauthToken2 = new(oauthTokenValue2, timeout: TimeSpan.FromSeconds(1));
+                options.AddTokens(oauthToken2);
             });
     }
 }

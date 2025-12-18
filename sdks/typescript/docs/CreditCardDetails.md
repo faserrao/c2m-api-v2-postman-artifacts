@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cardType** | [**CardType**](CardType.md) |  | [default to undefined]
+**cardType** | **string** |  | [default to undefined]
 **cardNumber** | **string** |  | [default to undefined]
 **expirationDate** | [**ExpirationDate**](ExpirationDate.md) |  | [default to undefined]
 **cvv** | **number** |  | [default to undefined]

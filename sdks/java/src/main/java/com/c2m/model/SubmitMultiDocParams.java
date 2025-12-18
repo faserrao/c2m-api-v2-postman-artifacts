@@ -14,9 +14,8 @@
 package com.c2m.model;
 
 import java.util.Objects;
-import com.c2m.model.JobOptions;
+import com.c2m.model.MultiDocJobItem;
 import com.c2m.model.PaymentDetails;
-import com.c2m.model.SubmitMultiDocWithTemplateParamsRequestItemsInner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -53,21 +52,21 @@ import com.c2m.JSON;
 /**
  * SubmitMultiDocParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-05T02:45:53.394297139Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-18T14:18:40.161107459Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class SubmitMultiDocParams {
-  public static final String SERIALIZED_NAME_ITEMS = "items";
-  @SerializedName(SERIALIZED_NAME_ITEMS)
-  @javax.annotation.Nonnull
-  private List<SubmitMultiDocWithTemplateParamsRequestItemsInner> items = new ArrayList<>();
+  public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
+  @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)
+  @javax.annotation.Nullable
+  private String jobTemplate;
 
-  public static final String SERIALIZED_NAME_JOB_OPTIONS = "jobOptions";
-  @SerializedName(SERIALIZED_NAME_JOB_OPTIONS)
+  public static final String SERIALIZED_NAME_MULTI_DOC_JOBS = "multiDocJobs";
+  @SerializedName(SERIALIZED_NAME_MULTI_DOC_JOBS)
   @javax.annotation.Nonnull
-  private JobOptions jobOptions;
+  private List<MultiDocJobItem> multiDocJobs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PAYMENT_DETAILS = "paymentDetails";
   @SerializedName(SERIALIZED_NAME_PAYMENT_DETAILS)
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   private PaymentDetails paymentDetails;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
@@ -78,53 +77,53 @@ public class SubmitMultiDocParams {
   public SubmitMultiDocParams() {
   }
 
-  public SubmitMultiDocParams items(@javax.annotation.Nonnull List<SubmitMultiDocWithTemplateParamsRequestItemsInner> items) {
-    this.items = items;
+  public SubmitMultiDocParams jobTemplate(@javax.annotation.Nullable String jobTemplate) {
+    this.jobTemplate = jobTemplate;
     return this;
   }
 
-  public SubmitMultiDocParams addItemsItem(SubmitMultiDocWithTemplateParamsRequestItemsInner itemsItem) {
-    if (this.items == null) {
-      this.items = new ArrayList<>();
+  /**
+   * Get jobTemplate
+   * @return jobTemplate
+   */
+  @javax.annotation.Nullable
+  public String getJobTemplate() {
+    return jobTemplate;
+  }
+
+  public void setJobTemplate(@javax.annotation.Nullable String jobTemplate) {
+    this.jobTemplate = jobTemplate;
+  }
+
+
+  public SubmitMultiDocParams multiDocJobs(@javax.annotation.Nonnull List<MultiDocJobItem> multiDocJobs) {
+    this.multiDocJobs = multiDocJobs;
+    return this;
+  }
+
+  public SubmitMultiDocParams addMultiDocJobsItem(MultiDocJobItem multiDocJobsItem) {
+    if (this.multiDocJobs == null) {
+      this.multiDocJobs = new ArrayList<>();
     }
-    this.items.add(itemsItem);
+    this.multiDocJobs.add(multiDocJobsItem);
     return this;
   }
 
   /**
-   * Get items
-   * @return items
+   * Get multiDocJobs
+   * @return multiDocJobs
    */
   @javax.annotation.Nonnull
-  public List<SubmitMultiDocWithTemplateParamsRequestItemsInner> getItems() {
-    return items;
+  public List<MultiDocJobItem> getMultiDocJobs() {
+    return multiDocJobs;
   }
 
-  public void setItems(@javax.annotation.Nonnull List<SubmitMultiDocWithTemplateParamsRequestItemsInner> items) {
-    this.items = items;
-  }
-
-
-  public SubmitMultiDocParams jobOptions(@javax.annotation.Nonnull JobOptions jobOptions) {
-    this.jobOptions = jobOptions;
-    return this;
-  }
-
-  /**
-   * Get jobOptions
-   * @return jobOptions
-   */
-  @javax.annotation.Nonnull
-  public JobOptions getJobOptions() {
-    return jobOptions;
-  }
-
-  public void setJobOptions(@javax.annotation.Nonnull JobOptions jobOptions) {
-    this.jobOptions = jobOptions;
+  public void setMultiDocJobs(@javax.annotation.Nonnull List<MultiDocJobItem> multiDocJobs) {
+    this.multiDocJobs = multiDocJobs;
   }
 
 
-  public SubmitMultiDocParams paymentDetails(@javax.annotation.Nonnull PaymentDetails paymentDetails) {
+  public SubmitMultiDocParams paymentDetails(@javax.annotation.Nullable PaymentDetails paymentDetails) {
     this.paymentDetails = paymentDetails;
     return this;
   }
@@ -133,12 +132,12 @@ public class SubmitMultiDocParams {
    * Get paymentDetails
    * @return paymentDetails
    */
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public PaymentDetails getPaymentDetails() {
     return paymentDetails;
   }
 
-  public void setPaymentDetails(@javax.annotation.Nonnull PaymentDetails paymentDetails) {
+  public void setPaymentDetails(@javax.annotation.Nullable PaymentDetails paymentDetails) {
     this.paymentDetails = paymentDetails;
   }
 
@@ -180,23 +179,23 @@ public class SubmitMultiDocParams {
       return false;
     }
     SubmitMultiDocParams submitMultiDocParams = (SubmitMultiDocParams) o;
-    return Objects.equals(this.items, submitMultiDocParams.items) &&
-        Objects.equals(this.jobOptions, submitMultiDocParams.jobOptions) &&
+    return Objects.equals(this.jobTemplate, submitMultiDocParams.jobTemplate) &&
+        Objects.equals(this.multiDocJobs, submitMultiDocParams.multiDocJobs) &&
         Objects.equals(this.paymentDetails, submitMultiDocParams.paymentDetails) &&
         Objects.equals(this.tags, submitMultiDocParams.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, jobOptions, paymentDetails, tags);
+    return Objects.hash(jobTemplate, multiDocJobs, paymentDetails, tags);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubmitMultiDocParams {\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
-    sb.append("    jobOptions: ").append(toIndentedString(jobOptions)).append("\n");
+    sb.append("    jobTemplate: ").append(toIndentedString(jobTemplate)).append("\n");
+    sb.append("    multiDocJobs: ").append(toIndentedString(multiDocJobs)).append("\n");
     sb.append("    paymentDetails: ").append(toIndentedString(paymentDetails)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
@@ -220,10 +219,10 @@ public class SubmitMultiDocParams {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("items", "jobOptions", "paymentDetails", "tags"));
+    openapiFields = new HashSet<String>(Arrays.asList("jobTemplate", "multiDocJobs", "paymentDetails", "tags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("items", "jobOptions", "paymentDetails"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("multiDocJobs"));
   }
 
   /**
@@ -254,20 +253,23 @@ public class SubmitMultiDocParams {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("jobTemplate") != null && !jsonObj.get("jobTemplate").isJsonNull()) && !jsonObj.get("jobTemplate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `jobTemplate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jobTemplate").toString()));
+      }
       // ensure the json data is an array
-      if (!jsonObj.get("items").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `items` to be an array in the JSON string but got `%s`", jsonObj.get("items").toString()));
+      if (!jsonObj.get("multiDocJobs").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `multiDocJobs` to be an array in the JSON string but got `%s`", jsonObj.get("multiDocJobs").toString()));
       }
 
-      JsonArray jsonArrayitems = jsonObj.getAsJsonArray("items");
-      // validate the required field `items` (array)
-      for (int i = 0; i < jsonArrayitems.size(); i++) {
-        SubmitMultiDocWithTemplateParamsRequestItemsInner.validateJsonElement(jsonArrayitems.get(i));
+      JsonArray jsonArraymultiDocJobs = jsonObj.getAsJsonArray("multiDocJobs");
+      // validate the required field `multiDocJobs` (array)
+      for (int i = 0; i < jsonArraymultiDocJobs.size(); i++) {
+        MultiDocJobItem.validateJsonElement(jsonArraymultiDocJobs.get(i));
       };
-      // validate the required field `jobOptions`
-      JobOptions.validateJsonElement(jsonObj.get("jobOptions"));
-      // validate the required field `paymentDetails`
-      PaymentDetails.validateJsonElement(jsonObj.get("paymentDetails"));
+      // validate the optional field `paymentDetails`
+      if (jsonObj.get("paymentDetails") != null && !jsonObj.get("paymentDetails").isJsonNull()) {
+        PaymentDetails.validateJsonElement(jsonObj.get("paymentDetails"));
+      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull() && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));

@@ -257,12 +257,12 @@ open class ApiClient(val baseUrl: String, val client: Call.Factory = defaultClie
         }
         if (requestConfig.headers[Authorization].isNullOrEmpty()) {
             accessToken?.let { accessToken ->
-                requestConfig.headers[Authorization] = "Bearer $accessToken"
+                requestConfig.headers[Authorization] = "Bearer $accessToken "
             }
         }
         if (requestConfig.headers[Authorization].isNullOrEmpty()) {
             accessToken?.let { accessToken ->
-                requestConfig.headers[Authorization] = "Bearer $accessToken"
+                requestConfig.headers[Authorization] = "Bearer $accessToken "
             }
         }
         if (requestConfig.headers["X-Client-Id"].isNullOrEmpty()) {

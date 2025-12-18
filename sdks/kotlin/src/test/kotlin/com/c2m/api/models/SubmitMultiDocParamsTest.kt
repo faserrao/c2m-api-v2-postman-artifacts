@@ -19,25 +19,24 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.SubmitMultiDocParams
-import com.c2m.api.models.JobOptions
+import com.c2m.api.models.MultiDocJobItem
 import com.c2m.api.models.PaymentDetails
-import com.c2m.api.models.SubmitMultiDocWithTemplateParamsRequestItemsInner
 
 class SubmitMultiDocParamsTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of SubmitMultiDocParams
         //val modelInstance = SubmitMultiDocParams()
 
-        // to test the property `items`
-        should("test items") {
+        // to test the property `multiDocJobs`
+        should("test multiDocJobs") {
             // uncomment below to test the property
-            //modelInstance.items shouldBe ("TODO")
+            //modelInstance.multiDocJobs shouldBe ("TODO")
         }
 
-        // to test the property `jobOptions`
-        should("test jobOptions") {
+        // to test the property `jobTemplate`
+        should("test jobTemplate") {
             // uncomment below to test the property
-            //modelInstance.jobOptions shouldBe ("TODO")
+            //modelInstance.jobTemplate shouldBe ("TODO")
         }
 
         // to test the property `paymentDetails`

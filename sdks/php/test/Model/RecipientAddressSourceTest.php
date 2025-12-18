@@ -80,99 +80,45 @@ class RecipientAddressSourceTest extends TestCase
     }
 
     /**
-     * Test attribute "first_name"
+     * Test attribute "mapping_id"
      */
-    public function testPropertyFirstName()
+    public function testPropertyMappingId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "last_name"
+     * Test attribute "single_address"
      */
-    public function testPropertyLastName()
+    public function testPropertySingleAddress()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "address1"
+     * Test attribute "address_name"
      */
-    public function testPropertyAddress1()
+    public function testPropertyAddressName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "city"
+     * Test attribute "address_list"
      */
-    public function testPropertyCity()
+    public function testPropertyAddressList()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "state"
+     * Test attribute "address_list_name"
      */
-    public function testPropertyState()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "zip"
-     */
-    public function testPropertyZip()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "country"
-     */
-    public function testPropertyCountry()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "nick_name"
-     */
-    public function testPropertyNickName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "address2"
-     */
-    public function testPropertyAddress2()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "address3"
-     */
-    public function testPropertyAddress3()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "phone_number"
-     */
-    public function testPropertyPhoneNumber()
+    public function testPropertyAddressListName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -182,15 +128,6 @@ class RecipientAddressSourceTest extends TestCase
      * Test attribute "address_list_id"
      */
     public function testPropertyAddressListId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "address_id"
-     */
-    public function testPropertyAddressId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

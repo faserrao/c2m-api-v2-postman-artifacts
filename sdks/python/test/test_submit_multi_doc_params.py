@@ -35,18 +35,13 @@ class TestSubmitMultiDocParams(unittest.TestCase):
         model = SubmitMultiDocParams()
         if include_optional:
             return SubmitMultiDocParams(
-                items = [
-                    c2m_api.models.submit_multi_doc_with_template_params_request_items_inner.submitMultiDocWithTemplateParams_request_items_inner(
-                        document_source_identifier = null, 
+                job_template = '',
+                multi_doc_jobs = [
+                    c2m_api.models.multi_doc_job_item.multiDocJobItem(
+                        job_template = '', 
+                        doc_source_all = null, 
                         recipient_address_source = null, )
                     ],
-                job_options = c2m_api.models.job_options.jobOptions(
-                    document_class = 'businessLetter', 
-                    layout = 'portrait', 
-                    mailclass = 'firstClassMail', 
-                    paper_type = 'letter', 
-                    print_option = 'none', 
-                    envelope = 'flat', ),
                 payment_details = None,
                 tags = [
                     ''
@@ -54,19 +49,12 @@ class TestSubmitMultiDocParams(unittest.TestCase):
             )
         else:
             return SubmitMultiDocParams(
-                items = [
-                    c2m_api.models.submit_multi_doc_with_template_params_request_items_inner.submitMultiDocWithTemplateParams_request_items_inner(
-                        document_source_identifier = null, 
+                multi_doc_jobs = [
+                    c2m_api.models.multi_doc_job_item.multiDocJobItem(
+                        job_template = '', 
+                        doc_source_all = null, 
                         recipient_address_source = null, )
                     ],
-                job_options = c2m_api.models.job_options.jobOptions(
-                    document_class = 'businessLetter', 
-                    layout = 'portrait', 
-                    mailclass = 'firstClassMail', 
-                    paper_type = 'letter', 
-                    print_option = 'none', 
-                    envelope = 'flat', ),
-                payment_details = None,
         )
         """
 

@@ -8,15 +8,14 @@ servers:
   description: Production server
 - url: http://localhost:4010
   description: Mock server
+tags:
+- name: jobs
+  description: Job submission endpoints for mailing documents
 components:
   schemas:
-    documentName:
-      type: string
     firstName:
       type: string
     lastName:
-      type: string
-    nickName:
       type: string
     address1:
       type: string
@@ -34,11 +33,6 @@ components:
       type: string
     phoneNumber:
       type: string
-    externalUrl:
-      type: string
-      format: uri
-    tag:
-      type: string
     tags:
       type: array
       items:
@@ -53,19 +47,9 @@ components:
       type: string
     cardNumber:
       type: string
-    delimiter:
-      type: string
-    tbd:
-      type: string
     documentId:
       type: integer
-    addressId:
-      type: integer
     addressListId:
-      type: integer
-    uploadRequestId:
-      type: integer
-    zipId:
       type: integer
     startPage:
       type: integer
@@ -81,345 +65,171 @@ components:
       type: integer
     checkDigit:
       type: integer
-    pageOffset:
-      type: integer
     amountDue:
       type: number
     amount:
       type: number
-    x:
-      type: number
-    y:
-      type: number
-    width:
-      type: number
-    height:
-      type: number
-    submitSingleDocWithTemplateParams:
-      oneOf:
-      - type: object
-        properties:
-          jobTemplate:
-            $ref: '#/components/schemas/jobTemplate'
-          paymentDetails:
-            $ref: '#/components/schemas/paymentDetails'
-          tags:
-            $ref: '#/components/schemas/tags'
-          documentSourceIdentifier:
-            $ref: '#/components/schemas/documentSourceIdentifier'
-        required:
-        - jobTemplate
-        - paymentDetails
-        - documentSourceIdentifier
-      - type: object
-        properties:
-          jobTemplate:
-            $ref: '#/components/schemas/jobTemplate'
-          paymentDetails:
-            $ref: '#/components/schemas/paymentDetails'
-          tags:
-            $ref: '#/components/schemas/tags'
-          recipientAddressSources:
-            type: array
-            items:
-              $ref: '#/components/schemas/recipientAddressSource'
-        required:
-        - jobTemplate
-        - paymentDetails
-        - recipientAddressSources
-      - type: object
-        properties:
-          jobTemplate:
-            $ref: '#/components/schemas/jobTemplate'
-          paymentDetails:
-            $ref: '#/components/schemas/paymentDetails'
-          tags:
-            $ref: '#/components/schemas/tags'
-          documentSourceIdentifier:
-            $ref: '#/components/schemas/documentSourceIdentifier'
-          recipientAddressSources:
-            type: array
-            items:
-              $ref: '#/components/schemas/recipientAddressSource'
-        required:
-        - jobTemplate
-        - paymentDetails
-        - documentSourceIdentifier
-        - recipientAddressSources
-    submitMultiDocWithTemplateParams:
+    submitSingleDocParams:
       type: object
       properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              documentSourceIdentifier:
-                $ref: '#/components/schemas/documentSourceIdentifier'
-              recipientAddressSource:
-                $ref: '#/components/schemas/recipientAddressSource'
-            required:
-            - documentSourceIdentifier
-            - recipientAddressSource
         jobTemplate:
-          $ref: '#/components/schemas/jobTemplate'
-        paymentDetails:
-          $ref: '#/components/schemas/paymentDetails'
-        tags:
-          $ref: '#/components/schemas/tags'
-      required:
-      - items
-      - jobTemplate
-      - paymentDetails
-    mergeMultiDocWithTemplateParams:
-      type: object
-      properties:
-        documentsToMerge:
-          $ref: '#/components/schemas/documentsToMerge'
+          type: string
+        docSourceAll:
+          $ref: '#/components/schemas/docSourceAll'
         recipientAddressSource:
           $ref: '#/components/schemas/recipientAddressSource'
-        jobTemplate:
-          $ref: '#/components/schemas/jobTemplate'
         paymentDetails:
           $ref: '#/components/schemas/paymentDetails'
-        tags:
-          $ref: '#/components/schemas/tags'
-      required:
-      - documentsToMerge
-      - recipientAddressSource
-      - jobTemplate
-      - paymentDetails
-    singleDocJobParams:
-      type: object
-      properties:
-        documentSourceIdentifier:
-          $ref: '#/components/schemas/documentSourceIdentifier'
-        recipientAddressSources:
-          type: array
-          items:
-            $ref: '#/components/schemas/recipientAddressSource'
+        returnAddress:
+          $ref: '#/components/schemas/returnAddress'
         jobOptions:
           $ref: '#/components/schemas/jobOptions'
-        paymentDetails:
-          $ref: '#/components/schemas/paymentDetails'
         tags:
           $ref: '#/components/schemas/tags'
       required:
-      - documentSourceIdentifier
-      - recipientAddressSources
-      - jobOptions
-      - paymentDetails
+      - docSourceAll
+      - recipientAddressSource
+    submitSinglePdfAddressCaptureParams:
+      type: object
+      properties:
+        jobTemplate:
+          type: string
+        docSourceStandard:
+          $ref: '#/components/schemas/docSourceStandard'
+        paymentDetails:
+          $ref: '#/components/schemas/paymentDetails'
+        returnAddress:
+          $ref: '#/components/schemas/returnAddress'
+        jobOptions:
+          $ref: '#/components/schemas/jobOptions'
+        tags:
+          $ref: '#/components/schemas/tags'
+      required:
+      - docSourceStandard
+    submitSinglePdfSplitParams:
+      type: object
+      properties:
+        jobTemplate:
+          type: string
+        docSourceStandard:
+          $ref: '#/components/schemas/docSourceStandard'
+        pdfSplitJobsWithAddress:
+          $ref: '#/components/schemas/pdfSplitJobsWithAddress'
+        paymentDetails:
+          $ref: '#/components/schemas/paymentDetails'
+        returnAddress:
+          $ref: '#/components/schemas/returnAddress'
+        jobOptions:
+          $ref: '#/components/schemas/jobOptions'
+        tags:
+          $ref: '#/components/schemas/tags'
+      required:
+      - docSourceStandard
+      - pdfSplitJobsWithAddress
+    submitSinglePdfSplitAddressCaptureParams:
+      type: object
+      properties:
+        jobTemplate:
+          type: string
+        docSourceStandard:
+          $ref: '#/components/schemas/docSourceStandard'
+        pdfSplitJobsNoAddress:
+          $ref: '#/components/schemas/pdfSplitJobsNoAddress'
+        paymentDetails:
+          $ref: '#/components/schemas/paymentDetails'
+        returnAddress:
+          $ref: '#/components/schemas/returnAddress'
+        jobOptions:
+          $ref: '#/components/schemas/jobOptions'
+        tags:
+          $ref: '#/components/schemas/tags'
+      required:
+      - docSourceStandard
+      - pdfSplitJobsNoAddress
     submitMultiDocParams:
       type: object
       properties:
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              documentSourceIdentifier:
-                $ref: '#/components/schemas/documentSourceIdentifier'
-              recipientAddressSource:
-                $ref: '#/components/schemas/recipientAddressSource'
-            required:
-            - documentSourceIdentifier
-            - recipientAddressSource
-        jobOptions:
-          $ref: '#/components/schemas/jobOptions'
+        jobTemplate:
+          type: string
+        multiDocJobs:
+          $ref: '#/components/schemas/multiDocJobs'
         paymentDetails:
           $ref: '#/components/schemas/paymentDetails'
         tags:
           $ref: '#/components/schemas/tags'
       required:
-      - items
-      - jobOptions
-      - paymentDetails
-    mergeMultiDocParams:
+      - multiDocJobs
+    submitMultiDocMergeParams:
       type: object
       properties:
-        documentsToMerge:
-          $ref: '#/components/schemas/documentsToMerge'
+        jobTemplate:
+          type: string
+        mergeDocumentSource:
+          $ref: '#/components/schemas/mergeDocumentSource'
         recipientAddressSource:
           $ref: '#/components/schemas/recipientAddressSource'
         paymentDetails:
           $ref: '#/components/schemas/paymentDetails'
+        returnAddress:
+          $ref: '#/components/schemas/returnAddress'
+        jobOptions:
+          $ref: '#/components/schemas/jobOptions'
         tags:
           $ref: '#/components/schemas/tags'
       required:
-      - documentsToMerge
+      - mergeDocumentSource
       - recipientAddressSource
-      - paymentDetails
-    documentsToMerge:
-      type: array
-      items:
-        $ref: '#/components/schemas/documentSourceIdentifier'
-    splitPdfParams:
+    submitMultiZipParams:
       type: object
       properties:
-        documentSourceIdentifier:
-          $ref: '#/components/schemas/documentSourceIdentifier'
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              pageRange:
-                $ref: '#/components/schemas/pageRange'
-              recipientAddressSources:
-                type: array
-                items:
-                  $ref: '#/components/schemas/recipientAddressSource'
-            required:
-            - pageRange
-            - recipientAddressSources
+        jobTemplate:
+          type: string
+        multiZipJobs:
+          $ref: '#/components/schemas/multiZipJobs'
         paymentDetails:
           $ref: '#/components/schemas/paymentDetails'
         tags:
           $ref: '#/components/schemas/tags'
       required:
-      - documentSourceIdentifier
-      - items
-      - paymentDetails
-    pageRange:
+      - multiZipJobs
+    submitMultiZipAddressCaptureParams:
       type: object
       properties:
-        startPage:
-          $ref: '#/components/schemas/startPage'
-        endPage:
-          $ref: '#/components/schemas/endPage'
-      required:
-      - startPage
-      - endPage
-    splitPdfWithCaptureParams:
-      type: object
-      properties:
-        documentSourceIdentifier:
-          $ref: '#/components/schemas/documentSourceIdentifier'
-        embeddedExtractionSpecs:
-          $ref: '#/components/schemas/embeddedExtractionSpecs'
+        jobTemplate:
+          type: string
+        zipDocumentSource:
+          $ref: '#/components/schemas/zipDocumentSource'
         paymentDetails:
           $ref: '#/components/schemas/paymentDetails'
+        returnAddress:
+          $ref: '#/components/schemas/returnAddress'
+        jobOptions:
+          $ref: '#/components/schemas/jobOptions'
         tags:
           $ref: '#/components/schemas/tags'
       required:
-      - documentSourceIdentifier
-      - embeddedExtractionSpecs
-      - paymentDetails
-    embeddedExtractionSpecs:
-      type: array
-      items:
-        $ref: '#/components/schemas/extractionSpec'
-    extractionSpec:
-      type: object
-      properties:
-        startPage:
-          $ref: '#/components/schemas/startPage'
-        endPage:
-          $ref: '#/components/schemas/endPage'
-        addressRegion:
-          $ref: '#/components/schemas/addressRegion'
-      required:
-      - startPage
-      - endPage
-      - addressRegion
-    addressRegion:
-      type: object
-      properties:
-        x:
-          $ref: '#/components/schemas/x'
-        y:
-          $ref: '#/components/schemas/y'
-        width:
-          $ref: '#/components/schemas/width'
-        height:
-          $ref: '#/components/schemas/height'
-        pageOffset:
-          $ref: '#/components/schemas/pageOffset'
-      required:
-      - x
-      - y
-      - width
-      - height
-      - pageOffset
-    multiPdfWithCaptureParams:
-      type: object
-      properties:
-        addressCapturePdfs:
-          $ref: '#/components/schemas/addressCapturePdfs'
-        paymentDetails:
-          $ref: '#/components/schemas/paymentDetails'
-        tags:
-          $ref: '#/components/schemas/tags'
-      required:
-      - addressCapturePdfs
-      - paymentDetails
-    addressCapturePdfs:
-      type: array
-      items:
-        $ref: '#/components/schemas/addressListPdf'
-    addressListPdf:
-      type: object
-      properties:
-        documentSourceIdentifier:
-          $ref: '#/components/schemas/documentSourceIdentifier'
-        addressListRegion:
-          $ref: '#/components/schemas/addressListRegion'
-        delimiter:
-          $ref: '#/components/schemas/delimiter'
-        tags:
-          $ref: '#/components/schemas/tags'
-      required:
-      - documentSourceIdentifier
-      - addressListRegion
-    addressListRegion:
-      $ref: '#/components/schemas/tbd'
-    documentSourceIdentifier:
-      oneOf:
-      - $ref: '#/components/schemas/DocumentSourceVariant1'
-      - $ref: '#/components/schemas/DocumentSourceVariant2'
-      - $ref: '#/components/schemas/DocumentSourceWithUpload'
-      - $ref: '#/components/schemas/DocumentSourceWithUploadAndZip'
-      - $ref: '#/components/schemas/DocumentSourceFromZip'
-    recipientAddressSource:
-      oneOf:
-      - $ref: '#/components/schemas/recipientAddress'
-      - type: object
-        properties:
-          addressListId:
-            $ref: '#/components/schemas/addressListId'
-        required:
-        - addressListId
-      - type: object
-        properties:
-          addressId:
-            $ref: '#/components/schemas/addressId'
-        required:
-        - addressId
-    recipientAddress:
+      - zipDocumentSource
+    returnAddress:
       type: object
       properties:
         firstName:
-          $ref: '#/components/schemas/firstName'
+          type: string
         lastName:
-          $ref: '#/components/schemas/lastName'
+          type: string
         address1:
-          $ref: '#/components/schemas/address1'
+          type: string
         city:
-          $ref: '#/components/schemas/city'
+          type: string
         state:
-          $ref: '#/components/schemas/state'
+          type: string
         zip:
-          $ref: '#/components/schemas/zip'
+          type: string
         country:
-          $ref: '#/components/schemas/country'
-        nickName:
-          $ref: '#/components/schemas/nickName'
+          type: string
         address2:
-          $ref: '#/components/schemas/address2'
+          type: string
         address3:
-          $ref: '#/components/schemas/address3'
-        phoneNumber:
-          $ref: '#/components/schemas/phoneNumber'
+          type: string
       required:
       - firstName
       - lastName
@@ -432,46 +242,271 @@ components:
       type: object
       properties:
         documentClass:
-          $ref: '#/components/schemas/documentClass'
+          type: string
         layout:
-          $ref: '#/components/schemas/layout'
-        mailclass:
-          $ref: '#/components/schemas/mailclass'
-        paperType:
-          $ref: '#/components/schemas/paperType'
-        printOption:
-          $ref: '#/components/schemas/printOption'
+          type: string
+        productionTime:
+          type: string
         envelope:
-          $ref: '#/components/schemas/envelope'
+          type: string
+        color:
+          type: string
+        paperType:
+          type: string
+        printOption:
+          type: string
+        mailClass:
+          type: string
       required:
       - documentClass
       - layout
-      - mailclass
+      - productionTime
+      - envelope
+      - color
       - paperType
       - printOption
-      - envelope
+      - mailClass
+    documentClass:
+      type: string
+    layout:
+      type: string
+    productionTime:
+      type: string
+    envelope:
+      type: string
+    color:
+      type: string
+    paperType:
+      type: string
+    printOption:
+      type: string
+    mailClass:
+      type: string
+    tagsList:
+      type: array
+      items:
+        type: string
+    foo1:
+      type: string
+    foo2:
+      type: string
+    address:
+      type: object
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
+        address1:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip:
+          type: string
+        country:
+          type: string
+        address2:
+          type: string
+        address3:
+          type: string
+        foo1:
+          type: string
+        foo2:
+          type: string
+      required:
+      - firstName
+      - lastName
+      - address1
+      - city
+      - state
+      - zip
+      - country
+    recipientAddressSource:
+      oneOf:
+      - $ref: '#/components/schemas/RecipientaddresssourceVariant1'
+      - $ref: '#/components/schemas/RecipientaddresssourceVariant2'
+      - type: object
+        properties:
+          addressListId:
+            $ref: '#/components/schemas/addressListId'
+        required:
+        - addressListId
+    mappingId:
+      $ref: '#/components/schemas/id'
+    addressName:
+      type: string
+    addressListName:
+      type: string
+    singleAddress:
+      $ref: '#/components/schemas/address'
+    addressList:
+      type: array
+      items:
+        $ref: '#/components/schemas/address'
+    documentSource:
+      oneOf:
+      - $ref: '#/components/schemas/documentIdSource'
+      - $ref: '#/components/schemas/requestIdSource'
+      - $ref: '#/components/schemas/urlSource'
+      - $ref: '#/components/schemas/zipDocumentIdSource'
+      - $ref: '#/components/schemas/zipRequestIdSource'
+    documentIdSource:
+      $ref: '#/components/schemas/documentId'
+    requestIdSource:
+      type: object
+      properties:
+        requestId:
+          type: integer
+        filename:
+          type: string
+      required:
+      - requestId
+    requestId:
+      $ref: '#/components/schemas/id'
+    filename:
+      type: string
+    urlSource:
+      $ref: '#/components/schemas/url'
+    url:
+      type: string
+    zipDocumentIdSource:
+      type: object
+      properties:
+        zipDocumentId:
+          type: integer
+        filename:
+          type: string
+      required:
+      - zipDocumentId
+      - filename
+    zipDocumentId:
+      $ref: '#/components/schemas/id'
+    zipRequestIdSource:
+      type: object
+      properties:
+        requestId:
+          type: integer
+        zipFilename:
+          type: string
+        filename:
+          type: string
+      required:
+      - requestId
+      - zipFilename
+      - filename
+    zipFilename:
+      type: string
+    zipDocumentSource:
+      oneOf:
+      - $ref: '#/components/schemas/zipDocumentIdSource'
+      - $ref: '#/components/schemas/zipRequestIdSource'
+    docSourceStandard:
+      oneOf:
+      - $ref: '#/components/schemas/documentIdSource'
+      - $ref: '#/components/schemas/requestIdSource'
+      - $ref: '#/components/schemas/urlSource'
+    docSourceZipFile:
+      oneOf:
+      - $ref: '#/components/schemas/zipDocumentIdSource'
+      - $ref: '#/components/schemas/zipRequestIdSource'
+    docSourceAll:
+      oneOf:
+      - $ref: '#/components/schemas/docSourceStandard'
+      - $ref: '#/components/schemas/docSourceZipFile'
+    mergeDocumentSource:
+      $ref: '#/components/schemas/documentsToMerge'
+    documentsToMerge:
+      type: array
+      items:
+        $ref: '#/components/schemas/mergeDocumentRef'
+    mergeDocumentRef:
+      oneOf:
+      - $ref: '#/components/schemas/mergeByDocumentId'
+      - $ref: '#/components/schemas/mergeByRequestId'
+    mergeByDocumentId:
+      $ref: '#/components/schemas/documentId'
+    mergeByRequestId:
+      type: object
+      properties:
+        requestId:
+          type: integer
+        filename:
+          type: string
+      required:
+      - requestId
+    multiDocJobs:
+      type: array
+      items:
+        $ref: '#/components/schemas/multiDocJobItem'
+    multiDocJobItem:
+      type: object
+      properties:
+        jobTemplate:
+          type: string
+        docSourceAll:
+          $ref: '#/components/schemas/docSourceAll'
+        recipientAddressSource:
+          $ref: '#/components/schemas/recipientAddressSource'
+      required:
+      - docSourceAll
+      - recipientAddressSource
+    pdfSplitJobsWithAddress:
+      type: array
+      items:
+        $ref: '#/components/schemas/pdfSplitJobItemWithAddress'
+    pdfSplitJobsNoAddress:
+      type: array
+      items:
+        $ref: '#/components/schemas/pdfSplitJobItemNoAddress'
+    pdfSplitJobItemWithAddress:
+      type: object
+      properties:
+        startPage:
+          type: integer
+        endPage:
+          type: integer
+        recipientAddressSource:
+          $ref: '#/components/schemas/recipientAddressSource'
+      required:
+      - startPage
+      - endPage
+      - recipientAddressSource
+    pdfSplitJobItemNoAddress:
+      type: object
+      properties:
+        startPage:
+          type: integer
+        endPage:
+          type: integer
+      required:
+      - startPage
+      - endPage
+    multiZipJobs:
+      type: array
+      items:
+        $ref: '#/components/schemas/multiZipJobItem'
+    multiZipJobItem:
+      type: object
+      properties:
+        jobTemplate:
+          type: string
+        docSourceZipFile:
+          $ref: '#/components/schemas/docSourceZipFile'
+        recipientAddressSource:
+          $ref: '#/components/schemas/recipientAddressSource'
+      required:
+      - docSourceZipFile
+      - recipientAddressSource
+    id:
+      type: integer
     paymentDetails:
       oneOf:
       - $ref: '#/components/schemas/creditCardPayment'
       - $ref: '#/components/schemas/invoicePayment'
       - $ref: '#/components/schemas/achPayment'
       - $ref: '#/components/schemas/userCreditPayment'
-      - $ref: '#/components/schemas/applePayPayment'
-      - $ref: '#/components/schemas/googlePayPayment'
-    applePayPayment:
-      type: object
-      properties:
-        applePaymentDetails:
-          $ref: '#/components/schemas/applePaymentDetails'
-      required:
-      - applePaymentDetails
-    googlePayPayment:
-      type: object
-      properties:
-        googlePaymentDetails:
-          $ref: '#/components/schemas/googlePaymentDetails'
-      required:
-      - googlePaymentDetails
     creditCardPayment:
       type: object
       properties:
@@ -504,13 +539,18 @@ components:
       type: object
       properties:
         cardType:
-          $ref: '#/components/schemas/cardType'
+          type: string
+          enum:
+          - visa
+          - mastercard
+          - discover
+          - americanExpress
         cardNumber:
-          $ref: '#/components/schemas/cardNumber'
+          type: string
         expirationDate:
           $ref: '#/components/schemas/expirationDate'
         cvv:
-          $ref: '#/components/schemas/cvv'
+          type: integer
       required:
       - cardType
       - cardNumber
@@ -520,9 +560,9 @@ components:
       type: object
       properties:
         invoiceNumber:
-          $ref: '#/components/schemas/invoiceNumber'
+          type: string
         amountDue:
-          $ref: '#/components/schemas/amountDue'
+          type: number
       required:
       - invoiceNumber
       - amountDue
@@ -530,11 +570,11 @@ components:
       type: object
       properties:
         routingNumber:
-          $ref: '#/components/schemas/routingNumber'
+          type: string
         accountNumber:
-          $ref: '#/components/schemas/accountNumber'
+          type: string
         checkDigit:
-          $ref: '#/components/schemas/checkDigit'
+          type: integer
       required:
       - routingNumber
       - accountNumber
@@ -543,16 +583,18 @@ components:
       type: object
       properties:
         amount:
-          $ref: '#/components/schemas/amount'
+          type: number
         currency:
-          $ref: '#/components/schemas/currency'
+          type: string
+          enum:
+          - USD
+          - EUR
+          - GBP
+          - CAD
+          - AUD
       required:
       - amount
       - currency
-    applePaymentDetails:
-      type: object
-    googlePaymentDetails:
-      type: object
     currency:
       type: string
       enum:
@@ -561,6 +603,16 @@ components:
       - GBP
       - CAD
       - AUD
+    expirationDate:
+      type: object
+      properties:
+        month:
+          type: integer
+        year:
+          type: integer
+      required:
+      - month
+      - year
     cardType:
       type: string
       enum:
@@ -568,70 +620,6 @@ components:
       - mastercard
       - discover
       - americanExpress
-    expirationDate:
-      type: object
-      properties:
-        month:
-          $ref: '#/components/schemas/month'
-        year:
-          $ref: '#/components/schemas/year'
-      required:
-      - month
-      - year
-    documentFormat:
-      type: string
-      enum:
-      - pdf
-      - doc
-      - docx
-      - pub
-      - ppt
-      - pptx
-      - png
-      - jpeg
-      - odt
-    printOption:
-      type: string
-      enum:
-      - none
-      - color
-      - grayscale
-    envelope:
-      type: string
-      enum:
-      - flat
-      - windowedFlat
-      - letter
-      - legal
-      - postcard
-    paperType:
-      type: string
-      enum:
-      - letter
-      - legal
-      - postcard
-    layout:
-      type: string
-      enum:
-      - portrait
-      - landscape
-    mailclass:
-      type: string
-      enum:
-      - firstClassMail
-      - priorityMail
-      - largeEnvelope
-    documentClass:
-      type: string
-      enum:
-      - businessLetter
-      - personalLetter
-    exactlyOneNewAddress:
-      $ref: '#/components/schemas/recipientAddress'
-    exactlyOneListId:
-      type: integer
-    exactlyOneId:
-      type: integer
     StandardResponse:
       type: object
       properties:
@@ -641,55 +629,28 @@ components:
           type: string
         jobId:
           type: string
-    DocumentSourceWithUpload:
+    RecipientaddresssourceVariant1:
       type: object
       properties:
-        uploadRequestId:
-          $ref: '#/components/schemas/uploadRequestId'
-        documentName:
-          $ref: '#/components/schemas/documentName'
+        mappingId:
+          type: integer
+        singleAddress:
+          $ref: '#/components/schemas/singleAddress'
+        addressName:
+          type: string
       required:
-      - uploadRequestId
-      - documentName
-    DocumentSourceWithUploadAndZip:
+      - singleAddress
+    RecipientaddresssourceVariant2:
       type: object
       properties:
-        uploadRequestId:
-          $ref: '#/components/schemas/uploadRequestId'
-        zipId:
-          $ref: '#/components/schemas/zipId'
-        documentName:
-          $ref: '#/components/schemas/documentName'
+        mappingId:
+          type: integer
+        addressList:
+          $ref: '#/components/schemas/addressList'
+        addressListName:
+          type: string
       required:
-      - uploadRequestId
-      - zipId
-      - documentName
-    DocumentSourceFromZip:
-      type: object
-      properties:
-        zipId:
-          $ref: '#/components/schemas/zipId'
-        documentName:
-          $ref: '#/components/schemas/documentName'
-      required:
-      - zipId
-      - documentName
-    DocumentSourceVariant1:
-      type: object
-      properties:
-        documentId:
-          $ref: '#/components/schemas/documentId'
-      required:
-      - documentId
-      description: OneOf variant for documentSourceIdentifier
-    DocumentSourceVariant2:
-      type: object
-      properties:
-        externalUrl:
-          $ref: '#/components/schemas/externalUrl'
-      required:
-      - externalUrl
-      description: OneOf variant for documentSourceIdentifier
+      - addressList
   parameters:
     Authorization:
       name: Authorization
@@ -713,65 +674,19 @@ components:
 security:
 - bearerAuth: []
 paths:
-  /jobs/single-doc-job-template:
+  /jobs/submit/single/doc:
     post:
-      summary: Operation for /jobs/single-doc-job-template
-      operationId: submitSingleDocWithTemplateParams
+      tags:
+      - jobs
+      summary: Submit a single doc job
+      description: Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+      operationId: submitSingleDocParams
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              oneOf:
-              - type: object
-                properties:
-                  jobTemplate:
-                    $ref: '#/components/schemas/jobTemplate'
-                  paymentDetails:
-                    $ref: '#/components/schemas/paymentDetails'
-                  tags:
-                    $ref: '#/components/schemas/tags'
-                  documentSourceIdentifier:
-                    $ref: '#/components/schemas/documentSourceIdentifier'
-                required:
-                - jobTemplate
-                - paymentDetails
-                - documentSourceIdentifier
-              - type: object
-                properties:
-                  jobTemplate:
-                    $ref: '#/components/schemas/jobTemplate'
-                  paymentDetails:
-                    $ref: '#/components/schemas/paymentDetails'
-                  tags:
-                    $ref: '#/components/schemas/tags'
-                  recipientAddressSources:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/recipientAddressSource'
-                required:
-                - jobTemplate
-                - paymentDetails
-                - recipientAddressSources
-              - type: object
-                properties:
-                  jobTemplate:
-                    $ref: '#/components/schemas/jobTemplate'
-                  paymentDetails:
-                    $ref: '#/components/schemas/paymentDetails'
-                  tags:
-                    $ref: '#/components/schemas/tags'
-                  documentSourceIdentifier:
-                    $ref: '#/components/schemas/documentSourceIdentifier'
-                  recipientAddressSources:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/recipientAddressSource'
-                required:
-                - jobTemplate
-                - paymentDetails
-                - documentSourceIdentifier
-                - recipientAddressSources
+              $ref: '#/components/schemas/submitSingleDocParams'
       responses:
         '200':
           description: Success
@@ -783,39 +698,19 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
-  /jobs/multi-docs-job-template:
+  /jobs/submit/single/pdf/addressCapture:
     post:
-      summary: Operation for /jobs/multi-docs-job-template
-      operationId: submitMultiDocWithTemplateParams
+      tags:
+      - jobs
+      summary: Submit a single pdf addressCapture job
+      description: Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+      operationId: submitSinglePdfAddressCaptureParams
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                items:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      documentSourceIdentifier:
-                        $ref: '#/components/schemas/documentSourceIdentifier'
-                      recipientAddressSource:
-                        $ref: '#/components/schemas/recipientAddressSource'
-                    required:
-                    - documentSourceIdentifier
-                    - recipientAddressSource
-                jobTemplate:
-                  $ref: '#/components/schemas/jobTemplate'
-                paymentDetails:
-                  $ref: '#/components/schemas/paymentDetails'
-                tags:
-                  $ref: '#/components/schemas/tags'
-              required:
-              - items
-              - jobTemplate
-              - paymentDetails
+              $ref: '#/components/schemas/submitSinglePdfAddressCaptureParams'
       responses:
         '200':
           description: Success
@@ -827,32 +722,19 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
-  /jobs/multi-doc-merge-job-template:
+  /jobs/submit/single/pdf/split:
     post:
-      summary: Operation for /jobs/multi-doc-merge-job-template
-      operationId: mergeMultiDocWithTemplateParams
+      tags:
+      - jobs
+      summary: Submit a single pdf split job
+      description: Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+      operationId: submitSinglePdfSplitParams
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                documentsToMerge:
-                  $ref: '#/components/schemas/documentsToMerge'
-                recipientAddressSource:
-                  $ref: '#/components/schemas/recipientAddressSource'
-                jobTemplate:
-                  $ref: '#/components/schemas/jobTemplate'
-                paymentDetails:
-                  $ref: '#/components/schemas/paymentDetails'
-                tags:
-                  $ref: '#/components/schemas/tags'
-              required:
-              - documentsToMerge
-              - recipientAddressSource
-              - jobTemplate
-              - paymentDetails
+              $ref: '#/components/schemas/submitSinglePdfSplitParams'
       responses:
         '200':
           description: Success
@@ -864,34 +746,19 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
-  /jobs/single-doc:
+  /jobs/submit/single/pdf/split/addressCapture:
     post:
-      summary: Operation for /jobs/single-doc
-      operationId: singleDocJobParams
+      tags:
+      - jobs
+      summary: Submit a single pdf split addressCapture job
+      description: Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+      operationId: submitSinglePdfSplitAddressCaptureParams
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                documentSourceIdentifier:
-                  $ref: '#/components/schemas/documentSourceIdentifier'
-                recipientAddressSources:
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/recipientAddressSource'
-                jobOptions:
-                  $ref: '#/components/schemas/jobOptions'
-                paymentDetails:
-                  $ref: '#/components/schemas/paymentDetails'
-                tags:
-                  $ref: '#/components/schemas/tags'
-              required:
-              - documentSourceIdentifier
-              - recipientAddressSources
-              - jobOptions
-              - paymentDetails
+              $ref: '#/components/schemas/submitSinglePdfSplitAddressCaptureParams'
       responses:
         '200':
           description: Success
@@ -903,39 +770,19 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
-  /jobs/multi-doc:
+  /jobs/submit/multi/doc:
     post:
-      summary: Operation for /jobs/multi-doc
+      tags:
+      - jobs
+      summary: Submit a multi doc job
+      description: Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
       operationId: submitMultiDocParams
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                items:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      documentSourceIdentifier:
-                        $ref: '#/components/schemas/documentSourceIdentifier'
-                      recipientAddressSource:
-                        $ref: '#/components/schemas/recipientAddressSource'
-                    required:
-                    - documentSourceIdentifier
-                    - recipientAddressSource
-                jobOptions:
-                  $ref: '#/components/schemas/jobOptions'
-                paymentDetails:
-                  $ref: '#/components/schemas/paymentDetails'
-                tags:
-                  $ref: '#/components/schemas/tags'
-              required:
-              - items
-              - jobOptions
-              - paymentDetails
+              $ref: '#/components/schemas/submitMultiDocParams'
       responses:
         '200':
           description: Success
@@ -947,29 +794,19 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
-  /jobs/multi-doc-merge:
+  /jobs/submit/multi/doc/merge:
     post:
-      summary: Operation for /jobs/multi-doc-merge
-      operationId: mergeMultiDocParams
+      tags:
+      - jobs
+      summary: Submit a multi doc merge job
+      description: Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+      operationId: submitMultiDocMergeParams
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                documentsToMerge:
-                  $ref: '#/components/schemas/documentsToMerge'
-                recipientAddressSource:
-                  $ref: '#/components/schemas/recipientAddressSource'
-                paymentDetails:
-                  $ref: '#/components/schemas/paymentDetails'
-                tags:
-                  $ref: '#/components/schemas/tags'
-              required:
-              - documentsToMerge
-              - recipientAddressSource
-              - paymentDetails
+              $ref: '#/components/schemas/submitMultiDocMergeParams'
       responses:
         '200':
           description: Success
@@ -981,41 +818,19 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
-  /jobs/single-pdf-split:
+  /jobs/submit/multi/zip:
     post:
-      summary: Operation for /jobs/single-pdf-split
-      operationId: splitPdfParams
+      tags:
+      - jobs
+      summary: Submit a multi zip job
+      description: Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+      operationId: submitMultiZipParams
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                documentSourceIdentifier:
-                  $ref: '#/components/schemas/documentSourceIdentifier'
-                items:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      pageRange:
-                        $ref: '#/components/schemas/pageRange'
-                      recipientAddressSources:
-                        type: array
-                        items:
-                          $ref: '#/components/schemas/recipientAddressSource'
-                    required:
-                    - pageRange
-                    - recipientAddressSources
-                paymentDetails:
-                  $ref: '#/components/schemas/paymentDetails'
-                tags:
-                  $ref: '#/components/schemas/tags'
-              required:
-              - documentSourceIdentifier
-              - items
-              - paymentDetails
+              $ref: '#/components/schemas/submitMultiZipParams'
       responses:
         '200':
           description: Success
@@ -1027,60 +842,19 @@ paths:
           description: Invalid request
         '401':
           description: Unauthorized
-  /jobs/single-pdf-split-addressCapture:
+  /jobs/submit/multi/zip/addressCapture:
     post:
-      summary: Operation for /jobs/single-pdf-split-addressCapture
-      operationId: splitPdfWithCaptureParams
+      tags:
+      - jobs
+      summary: Submit a multi zip addressCapture job
+      description: Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+      operationId: submitMultiZipAddressCaptureParams
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                documentSourceIdentifier:
-                  $ref: '#/components/schemas/documentSourceIdentifier'
-                embeddedExtractionSpecs:
-                  $ref: '#/components/schemas/embeddedExtractionSpecs'
-                paymentDetails:
-                  $ref: '#/components/schemas/paymentDetails'
-                tags:
-                  $ref: '#/components/schemas/tags'
-              required:
-              - documentSourceIdentifier
-              - embeddedExtractionSpecs
-              - paymentDetails
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/StandardResponse'
-        '400':
-          description: Invalid request
-        '401':
-          description: Unauthorized
-  /jobs/multi-pdf-address-capture:
-    post:
-      summary: Operation for /jobs/multi-pdf-address-capture
-      operationId: multiPdfWithCaptureParams
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                addressCapturePdfs:
-                  $ref: '#/components/schemas/addressCapturePdfs'
-                paymentDetails:
-                  $ref: '#/components/schemas/paymentDetails'
-                tags:
-                  $ref: '#/components/schemas/tags'
-              required:
-              - addressCapturePdfs
-              - paymentDetails
+              $ref: '#/components/schemas/submitMultiZipAddressCaptureParams'
       responses:
         '200':
           description: Success

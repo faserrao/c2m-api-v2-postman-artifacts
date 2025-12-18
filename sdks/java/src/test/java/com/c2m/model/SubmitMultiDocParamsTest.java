@@ -13,9 +13,8 @@
 
 package com.c2m.model;
 
-import com.c2m.model.JobOptions;
+import com.c2m.model.MultiDocJobItem;
 import com.c2m.model.PaymentDetails;
-import com.c2m.model.SubmitMultiDocWithTemplateParamsRequestItemsInner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,19 +42,19 @@ public class SubmitMultiDocParamsTest {
     }
 
     /**
-     * Test the property 'items'
+     * Test the property 'jobTemplate'
      */
     @Test
-    public void itemsTest() {
-        // TODO: test items
+    public void jobTemplateTest() {
+        // TODO: test jobTemplate
     }
 
     /**
-     * Test the property 'jobOptions'
+     * Test the property 'multiDocJobs'
      */
     @Test
-    public void jobOptionsTest() {
-        // TODO: test jobOptions
+    public void multiDocJobsTest() {
+        // TODO: test multiDocJobs
     }
 
     /**

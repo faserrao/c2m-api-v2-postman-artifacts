@@ -60,9 +60,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         'credit_card_details' => '\C2MApi\Model\CreditCardDetails',
         'invoice_details' => '\C2MApi\Model\InvoiceDetails',
         'ach_details' => '\C2MApi\Model\AchDetails',
-        'credit_amount' => '\C2MApi\Model\CreditAmount',
-        'apple_payment_details' => 'object',
-        'google_payment_details' => 'object'
+        'credit_amount' => '\C2MApi\Model\CreditAmount'
     ];
 
     /**
@@ -76,9 +74,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         'credit_card_details' => null,
         'invoice_details' => null,
         'ach_details' => null,
-        'credit_amount' => null,
-        'apple_payment_details' => null,
-        'google_payment_details' => null
+        'credit_amount' => null
     ];
 
     /**
@@ -90,9 +86,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         'credit_card_details' => false,
         'invoice_details' => false,
         'ach_details' => false,
-        'credit_amount' => false,
-        'apple_payment_details' => false,
-        'google_payment_details' => false
+        'credit_amount' => false
     ];
 
     /**
@@ -184,9 +178,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         'credit_card_details' => 'creditCardDetails',
         'invoice_details' => 'invoiceDetails',
         'ach_details' => 'achDetails',
-        'credit_amount' => 'creditAmount',
-        'apple_payment_details' => 'applePaymentDetails',
-        'google_payment_details' => 'googlePaymentDetails'
+        'credit_amount' => 'creditAmount'
     ];
 
     /**
@@ -198,9 +190,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         'credit_card_details' => 'setCreditCardDetails',
         'invoice_details' => 'setInvoiceDetails',
         'ach_details' => 'setAchDetails',
-        'credit_amount' => 'setCreditAmount',
-        'apple_payment_details' => 'setApplePaymentDetails',
-        'google_payment_details' => 'setGooglePaymentDetails'
+        'credit_amount' => 'setCreditAmount'
     ];
 
     /**
@@ -212,9 +202,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         'credit_card_details' => 'getCreditCardDetails',
         'invoice_details' => 'getInvoiceDetails',
         'ach_details' => 'getAchDetails',
-        'credit_amount' => 'getCreditAmount',
-        'apple_payment_details' => 'getApplePaymentDetails',
-        'google_payment_details' => 'getGooglePaymentDetails'
+        'credit_amount' => 'getCreditAmount'
     ];
 
     /**
@@ -278,8 +266,6 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('invoice_details', $data ?? [], null);
         $this->setIfExists('ach_details', $data ?? [], null);
         $this->setIfExists('credit_amount', $data ?? [], null);
-        $this->setIfExists('apple_payment_details', $data ?? [], null);
-        $this->setIfExists('google_payment_details', $data ?? [], null);
     }
 
     /**
@@ -320,12 +306,6 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['credit_amount'] === null) {
             $invalidProperties[] = "'credit_amount' can't be null";
-        }
-        if ($this->container['apple_payment_details'] === null) {
-            $invalidProperties[] = "'apple_payment_details' can't be null";
-        }
-        if ($this->container['google_payment_details'] === null) {
-            $invalidProperties[] = "'google_payment_details' can't be null";
         }
         return $invalidProperties;
     }
@@ -446,60 +426,6 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable credit_amount cannot be null');
         }
         $this->container['credit_amount'] = $credit_amount;
-
-        return $this;
-    }
-
-    /**
-     * Gets apple_payment_details
-     *
-     * @return object
-     */
-    public function getApplePaymentDetails()
-    {
-        return $this->container['apple_payment_details'];
-    }
-
-    /**
-     * Sets apple_payment_details
-     *
-     * @param object $apple_payment_details apple_payment_details
-     *
-     * @return self
-     */
-    public function setApplePaymentDetails($apple_payment_details)
-    {
-        if (is_null($apple_payment_details)) {
-            throw new \InvalidArgumentException('non-nullable apple_payment_details cannot be null');
-        }
-        $this->container['apple_payment_details'] = $apple_payment_details;
-
-        return $this;
-    }
-
-    /**
-     * Gets google_payment_details
-     *
-     * @return object
-     */
-    public function getGooglePaymentDetails()
-    {
-        return $this->container['google_payment_details'];
-    }
-
-    /**
-     * Sets google_payment_details
-     *
-     * @param object $google_payment_details google_payment_details
-     *
-     * @return self
-     */
-    public function setGooglePaymentDetails($google_payment_details)
-    {
-        if (is_null($google_payment_details)) {
-            throw new \InvalidArgumentException('non-nullable google_payment_details cannot be null');
-        }
-        $this->container['google_payment_details'] = $google_payment_details;
 
         return $this;
     }

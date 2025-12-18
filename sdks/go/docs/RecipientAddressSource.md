@@ -4,25 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FirstName** | **string** |  | 
-**LastName** | **string** |  | 
-**Address1** | **string** |  | 
-**City** | **string** |  | 
-**State** | **string** |  | 
-**Zip** | **string** |  | 
-**Country** | **string** |  | 
-**NickName** | Pointer to **string** |  | [optional] 
-**Address2** | Pointer to **string** |  | [optional] 
-**Address3** | Pointer to **string** |  | [optional] 
-**PhoneNumber** | Pointer to **string** |  | [optional] 
+**MappingId** | Pointer to **int32** |  | [optional] 
+**SingleAddress** | [**Address**](Address.md) |  | 
+**AddressName** | Pointer to **string** |  | [optional] 
+**AddressList** | [**[]Address**](Address.md) |  | 
+**AddressListName** | Pointer to **string** |  | [optional] 
 **AddressListId** | **int32** |  | 
-**AddressId** | **int32** |  | 
 
 ## Methods
 
 ### NewRecipientAddressSource
 
-`func NewRecipientAddressSource(firstName string, lastName string, address1 string, city string, state string, zip string, country string, addressListId int32, addressId int32, ) *RecipientAddressSource`
+`func NewRecipientAddressSource(singleAddress Address, addressList []Address, addressListId int32, ) *RecipientAddressSource`
 
 NewRecipientAddressSource instantiates a new RecipientAddressSource object
 This constructor will assign default values to properties that have it defined,
@@ -37,245 +30,120 @@ NewRecipientAddressSourceWithDefaults instantiates a new RecipientAddressSource 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetFirstName
+### GetMappingId
 
-`func (o *RecipientAddressSource) GetFirstName() string`
+`func (o *RecipientAddressSource) GetMappingId() int32`
 
-GetFirstName returns the FirstName field if non-nil, zero value otherwise.
+GetMappingId returns the MappingId field if non-nil, zero value otherwise.
 
-### GetFirstNameOk
+### GetMappingIdOk
 
-`func (o *RecipientAddressSource) GetFirstNameOk() (*string, bool)`
+`func (o *RecipientAddressSource) GetMappingIdOk() (*int32, bool)`
 
-GetFirstNameOk returns a tuple with the FirstName field if it's non-nil, zero value otherwise
+GetMappingIdOk returns a tuple with the MappingId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFirstName
+### SetMappingId
 
-`func (o *RecipientAddressSource) SetFirstName(v string)`
+`func (o *RecipientAddressSource) SetMappingId(v int32)`
 
-SetFirstName sets FirstName field to given value.
+SetMappingId sets MappingId field to given value.
 
+### HasMappingId
 
-### GetLastName
+`func (o *RecipientAddressSource) HasMappingId() bool`
 
-`func (o *RecipientAddressSource) GetLastName() string`
+HasMappingId returns a boolean if a field has been set.
 
-GetLastName returns the LastName field if non-nil, zero value otherwise.
+### GetSingleAddress
 
-### GetLastNameOk
+`func (o *RecipientAddressSource) GetSingleAddress() Address`
 
-`func (o *RecipientAddressSource) GetLastNameOk() (*string, bool)`
+GetSingleAddress returns the SingleAddress field if non-nil, zero value otherwise.
 
-GetLastNameOk returns a tuple with the LastName field if it's non-nil, zero value otherwise
+### GetSingleAddressOk
+
+`func (o *RecipientAddressSource) GetSingleAddressOk() (*Address, bool)`
+
+GetSingleAddressOk returns a tuple with the SingleAddress field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLastName
+### SetSingleAddress
 
-`func (o *RecipientAddressSource) SetLastName(v string)`
+`func (o *RecipientAddressSource) SetSingleAddress(v Address)`
 
-SetLastName sets LastName field to given value.
+SetSingleAddress sets SingleAddress field to given value.
 
 
-### GetAddress1
+### GetAddressName
 
-`func (o *RecipientAddressSource) GetAddress1() string`
+`func (o *RecipientAddressSource) GetAddressName() string`
 
-GetAddress1 returns the Address1 field if non-nil, zero value otherwise.
+GetAddressName returns the AddressName field if non-nil, zero value otherwise.
 
-### GetAddress1Ok
+### GetAddressNameOk
 
-`func (o *RecipientAddressSource) GetAddress1Ok() (*string, bool)`
+`func (o *RecipientAddressSource) GetAddressNameOk() (*string, bool)`
 
-GetAddress1Ok returns a tuple with the Address1 field if it's non-nil, zero value otherwise
+GetAddressNameOk returns a tuple with the AddressName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAddress1
+### SetAddressName
 
-`func (o *RecipientAddressSource) SetAddress1(v string)`
+`func (o *RecipientAddressSource) SetAddressName(v string)`
 
-SetAddress1 sets Address1 field to given value.
+SetAddressName sets AddressName field to given value.
 
+### HasAddressName
 
-### GetCity
+`func (o *RecipientAddressSource) HasAddressName() bool`
 
-`func (o *RecipientAddressSource) GetCity() string`
+HasAddressName returns a boolean if a field has been set.
 
-GetCity returns the City field if non-nil, zero value otherwise.
+### GetAddressList
 
-### GetCityOk
+`func (o *RecipientAddressSource) GetAddressList() []Address`
 
-`func (o *RecipientAddressSource) GetCityOk() (*string, bool)`
+GetAddressList returns the AddressList field if non-nil, zero value otherwise.
 
-GetCityOk returns a tuple with the City field if it's non-nil, zero value otherwise
+### GetAddressListOk
+
+`func (o *RecipientAddressSource) GetAddressListOk() (*[]Address, bool)`
+
+GetAddressListOk returns a tuple with the AddressList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCity
+### SetAddressList
 
-`func (o *RecipientAddressSource) SetCity(v string)`
+`func (o *RecipientAddressSource) SetAddressList(v []Address)`
 
-SetCity sets City field to given value.
+SetAddressList sets AddressList field to given value.
 
 
-### GetState
+### GetAddressListName
 
-`func (o *RecipientAddressSource) GetState() string`
+`func (o *RecipientAddressSource) GetAddressListName() string`
 
-GetState returns the State field if non-nil, zero value otherwise.
+GetAddressListName returns the AddressListName field if non-nil, zero value otherwise.
 
-### GetStateOk
+### GetAddressListNameOk
 
-`func (o *RecipientAddressSource) GetStateOk() (*string, bool)`
+`func (o *RecipientAddressSource) GetAddressListNameOk() (*string, bool)`
 
-GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
+GetAddressListNameOk returns a tuple with the AddressListName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetState
+### SetAddressListName
 
-`func (o *RecipientAddressSource) SetState(v string)`
+`func (o *RecipientAddressSource) SetAddressListName(v string)`
 
-SetState sets State field to given value.
+SetAddressListName sets AddressListName field to given value.
 
+### HasAddressListName
 
-### GetZip
+`func (o *RecipientAddressSource) HasAddressListName() bool`
 
-`func (o *RecipientAddressSource) GetZip() string`
-
-GetZip returns the Zip field if non-nil, zero value otherwise.
-
-### GetZipOk
-
-`func (o *RecipientAddressSource) GetZipOk() (*string, bool)`
-
-GetZipOk returns a tuple with the Zip field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetZip
-
-`func (o *RecipientAddressSource) SetZip(v string)`
-
-SetZip sets Zip field to given value.
-
-
-### GetCountry
-
-`func (o *RecipientAddressSource) GetCountry() string`
-
-GetCountry returns the Country field if non-nil, zero value otherwise.
-
-### GetCountryOk
-
-`func (o *RecipientAddressSource) GetCountryOk() (*string, bool)`
-
-GetCountryOk returns a tuple with the Country field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCountry
-
-`func (o *RecipientAddressSource) SetCountry(v string)`
-
-SetCountry sets Country field to given value.
-
-
-### GetNickName
-
-`func (o *RecipientAddressSource) GetNickName() string`
-
-GetNickName returns the NickName field if non-nil, zero value otherwise.
-
-### GetNickNameOk
-
-`func (o *RecipientAddressSource) GetNickNameOk() (*string, bool)`
-
-GetNickNameOk returns a tuple with the NickName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNickName
-
-`func (o *RecipientAddressSource) SetNickName(v string)`
-
-SetNickName sets NickName field to given value.
-
-### HasNickName
-
-`func (o *RecipientAddressSource) HasNickName() bool`
-
-HasNickName returns a boolean if a field has been set.
-
-### GetAddress2
-
-`func (o *RecipientAddressSource) GetAddress2() string`
-
-GetAddress2 returns the Address2 field if non-nil, zero value otherwise.
-
-### GetAddress2Ok
-
-`func (o *RecipientAddressSource) GetAddress2Ok() (*string, bool)`
-
-GetAddress2Ok returns a tuple with the Address2 field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAddress2
-
-`func (o *RecipientAddressSource) SetAddress2(v string)`
-
-SetAddress2 sets Address2 field to given value.
-
-### HasAddress2
-
-`func (o *RecipientAddressSource) HasAddress2() bool`
-
-HasAddress2 returns a boolean if a field has been set.
-
-### GetAddress3
-
-`func (o *RecipientAddressSource) GetAddress3() string`
-
-GetAddress3 returns the Address3 field if non-nil, zero value otherwise.
-
-### GetAddress3Ok
-
-`func (o *RecipientAddressSource) GetAddress3Ok() (*string, bool)`
-
-GetAddress3Ok returns a tuple with the Address3 field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAddress3
-
-`func (o *RecipientAddressSource) SetAddress3(v string)`
-
-SetAddress3 sets Address3 field to given value.
-
-### HasAddress3
-
-`func (o *RecipientAddressSource) HasAddress3() bool`
-
-HasAddress3 returns a boolean if a field has been set.
-
-### GetPhoneNumber
-
-`func (o *RecipientAddressSource) GetPhoneNumber() string`
-
-GetPhoneNumber returns the PhoneNumber field if non-nil, zero value otherwise.
-
-### GetPhoneNumberOk
-
-`func (o *RecipientAddressSource) GetPhoneNumberOk() (*string, bool)`
-
-GetPhoneNumberOk returns a tuple with the PhoneNumber field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPhoneNumber
-
-`func (o *RecipientAddressSource) SetPhoneNumber(v string)`
-
-SetPhoneNumber sets PhoneNumber field to given value.
-
-### HasPhoneNumber
-
-`func (o *RecipientAddressSource) HasPhoneNumber() bool`
-
-HasPhoneNumber returns a boolean if a field has been set.
+HasAddressListName returns a boolean if a field has been set.
 
 ### GetAddressListId
 
@@ -295,26 +163,6 @@ and a boolean to check if the value has been set.
 `func (o *RecipientAddressSource) SetAddressListId(v int32)`
 
 SetAddressListId sets AddressListId field to given value.
-
-
-### GetAddressId
-
-`func (o *RecipientAddressSource) GetAddressId() int32`
-
-GetAddressId returns the AddressId field if non-nil, zero value otherwise.
-
-### GetAddressIdOk
-
-`func (o *RecipientAddressSource) GetAddressIdOk() (*int32, bool)`
-
-GetAddressIdOk returns a tuple with the AddressId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAddressId
-
-`func (o *RecipientAddressSource) SetAddressId(v int32)`
-
-SetAddressId sets AddressId field to given value.
 
 
 

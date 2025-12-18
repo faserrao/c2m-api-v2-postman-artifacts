@@ -54,21 +54,21 @@ namespace C2M.Api.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'Items'
+        /// Test the property 'MultiDocJobs'
         /// </summary>
         [Fact]
-        public void ItemsTest()
+        public void MultiDocJobsTest()
         {
-            // TODO unit test for the property 'Items'
+            // TODO unit test for the property 'MultiDocJobs'
         }
 
         /// <summary>
-        /// Test the property 'JobOptions'
+        /// Test the property 'JobTemplate'
         /// </summary>
         [Fact]
-        public void JobOptionsTest()
+        public void JobTemplateTest()
         {
-            // TODO unit test for the property 'JobOptions'
+            // TODO unit test for the property 'JobTemplate'
         }
 
         /// <summary>

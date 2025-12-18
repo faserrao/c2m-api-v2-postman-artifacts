@@ -12,29 +12,35 @@ import AnyCodable
 
 public struct JobOptions: Codable, JSONEncodable, Hashable {
 
-    public var documentClass: DocumentClass
-    public var layout: Layout
-    public var mailclass: Mailclass
-    public var paperType: PaperType
-    public var printOption: PrintOption
-    public var envelope: Envelope
+    public var documentClass: String
+    public var layout: String
+    public var productionTime: String
+    public var envelope: String
+    public var color: String
+    public var paperType: String
+    public var printOption: String
+    public var mailClass: String
 
-    public init(documentClass: DocumentClass, layout: Layout, mailclass: Mailclass, paperType: PaperType, printOption: PrintOption, envelope: Envelope) {
+    public init(documentClass: String, layout: String, productionTime: String, envelope: String, color: String, paperType: String, printOption: String, mailClass: String) {
         self.documentClass = documentClass
         self.layout = layout
-        self.mailclass = mailclass
+        self.productionTime = productionTime
+        self.envelope = envelope
+        self.color = color
         self.paperType = paperType
         self.printOption = printOption
-        self.envelope = envelope
+        self.mailClass = mailClass
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case documentClass
         case layout
-        case mailclass
+        case productionTime
+        case envelope
+        case color
         case paperType
         case printOption
-        case envelope
+        case mailClass
     }
 
     // Encodable protocol methods
@@ -43,10 +49,12 @@ public struct JobOptions: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(documentClass, forKey: .documentClass)
         try container.encode(layout, forKey: .layout)
-        try container.encode(mailclass, forKey: .mailclass)
+        try container.encode(productionTime, forKey: .productionTime)
+        try container.encode(envelope, forKey: .envelope)
+        try container.encode(color, forKey: .color)
         try container.encode(paperType, forKey: .paperType)
         try container.encode(printOption, forKey: .printOption)
-        try container.encode(envelope, forKey: .envelope)
+        try container.encode(mailClass, forKey: .mailClass)
     }
 }
 

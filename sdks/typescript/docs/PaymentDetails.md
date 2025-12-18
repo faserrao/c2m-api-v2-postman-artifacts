@@ -9,8 +9,6 @@ Name | Type | Description | Notes
 **invoiceDetails** | [**InvoiceDetails**](InvoiceDetails.md) |  | [default to undefined]
 **achDetails** | [**AchDetails**](AchDetails.md) |  | [default to undefined]
 **creditAmount** | [**CreditAmount**](CreditAmount.md) |  | [default to undefined]
-**applePaymentDetails** | **object** |  | [default to undefined]
-**googlePaymentDetails** | **object** |  | [default to undefined]
 
 ## Example
 
@@ -22,8 +20,6 @@ const instance: PaymentDetails = {
     invoiceDetails,
     achDetails,
     creditAmount,
-    applePaymentDetails,
-    googlePaymentDetails,
 };
 ```
 

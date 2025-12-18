@@ -15,7 +15,6 @@
 
 package com.c2m.api.models
 
-import com.c2m.api.models.Currency
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -34,10 +33,23 @@ data class CreditAmount (
     val amount: java.math.BigDecimal,
 
     @Json(name = "currency")
-    val currency: Currency
+    val currency: CreditAmount.Currency
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: USD,EUR,GBP,CAD,AUD
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Currency(val value: kotlin.String) {
+        @Json(name = "USD") USD("USD"),
+        @Json(name = "EUR") EUR("EUR"),
+        @Json(name = "GBP") GBP("GBP"),
+        @Json(name = "CAD") CAD("CAD"),
+        @Json(name = "AUD") AUD("AUD");
+    }
 
 }
 

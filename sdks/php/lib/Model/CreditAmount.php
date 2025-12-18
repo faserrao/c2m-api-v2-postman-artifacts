@@ -58,7 +58,7 @@ class CreditAmount implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'amount' => 'float',
-        'currency' => '\C2MApi\Model\Currency'
+        'currency' => 'string'
     ];
 
     /**
@@ -234,6 +234,27 @@ class CreditAmount implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const CURRENCY_USD = 'USD';
+    public const CURRENCY_EUR = 'EUR';
+    public const CURRENCY_GBP = 'GBP';
+    public const CURRENCY_CAD = 'CAD';
+    public const CURRENCY_AUD = 'AUD';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCurrencyAllowableValues()
+    {
+        return [
+            self::CURRENCY_USD,
+            self::CURRENCY_EUR,
+            self::CURRENCY_GBP,
+            self::CURRENCY_CAD,
+            self::CURRENCY_AUD,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -287,6 +308,15 @@ class CreditAmount implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['currency'] === null) {
             $invalidProperties[] = "'currency' can't be null";
         }
+        $allowedValues = $this->getCurrencyAllowableValues();
+        if (!is_null($this->container['currency']) && !in_array($this->container['currency'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'currency', must be one of '%s'",
+                $this->container['currency'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -332,7 +362,7 @@ class CreditAmount implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets currency
      *
-     * @return \C2MApi\Model\Currency
+     * @return string
      */
     public function getCurrency()
     {
@@ -342,7 +372,7 @@ class CreditAmount implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets currency
      *
-     * @param \C2MApi\Model\Currency $currency currency
+     * @param string $currency currency
      *
      * @return self
      */
@@ -350,6 +380,16 @@ class CreditAmount implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($currency)) {
             throw new \InvalidArgumentException('non-nullable currency cannot be null');
+        }
+        $allowedValues = $this->getCurrencyAllowableValues();
+        if (!in_array($currency, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'currency', must be one of '%s'",
+                    $currency,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['currency'] = $currency;
 

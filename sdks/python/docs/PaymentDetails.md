@@ -9,8 +9,6 @@ Name | Type | Description | Notes
 **invoice_details** | [**InvoiceDetails**](InvoiceDetails.md) |  | 
 **ach_details** | [**AchDetails**](AchDetails.md) |  | 
 **credit_amount** | [**CreditAmount**](CreditAmount.md) |  | 
-**apple_payment_details** | **object** |  | 
-**google_payment_details** | **object** |  | 
 
 ## Example
 

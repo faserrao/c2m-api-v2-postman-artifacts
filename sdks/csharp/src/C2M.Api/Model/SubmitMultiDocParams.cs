@@ -33,16 +33,16 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubmitMultiDocParams" /> class.
         /// </summary>
-        /// <param name="items">items</param>
-        /// <param name="jobOptions">jobOptions</param>
+        /// <param name="multiDocJobs">multiDocJobs</param>
+        /// <param name="jobTemplate">jobTemplate</param>
         /// <param name="paymentDetails">paymentDetails</param>
         /// <param name="tags">tags</param>
         [JsonConstructor]
-        public SubmitMultiDocParams(List<SubmitMultiDocWithTemplateParamsRequestItemsInner> items, JobOptions jobOptions, PaymentDetails paymentDetails, Option<List<string>?> tags = default)
+        public SubmitMultiDocParams(List<MultiDocJobItem> multiDocJobs, Option<string?> jobTemplate = default, Option<PaymentDetails?> paymentDetails = default, Option<List<string>?> tags = default)
         {
-            Items = items;
-            JobOptions = jobOptions;
-            PaymentDetails = paymentDetails;
+            MultiDocJobs = multiDocJobs;
+            JobTemplateOption = jobTemplate;
+            PaymentDetailsOption = paymentDetails;
             TagsOption = tags;
             OnCreated();
         }
@@ -50,22 +50,36 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets Items
+        /// Gets or Sets MultiDocJobs
         /// </summary>
-        [JsonPropertyName("items")]
-        public List<SubmitMultiDocWithTemplateParamsRequestItemsInner> Items { get; set; }
+        [JsonPropertyName("multiDocJobs")]
+        public List<MultiDocJobItem> MultiDocJobs { get; set; }
 
         /// <summary>
-        /// Gets or Sets JobOptions
+        /// Used to track the state of JobTemplate
         /// </summary>
-        [JsonPropertyName("jobOptions")]
-        public JobOptions JobOptions { get; set; }
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> JobTemplateOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets JobTemplate
+        /// </summary>
+        [JsonPropertyName("jobTemplate")]
+        public string? JobTemplate { get { return this.JobTemplateOption; } set { this.JobTemplateOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of PaymentDetails
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<PaymentDetails?> PaymentDetailsOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets PaymentDetails
         /// </summary>
         [JsonPropertyName("paymentDetails")]
-        public PaymentDetails PaymentDetails { get; set; }
+        public PaymentDetails? PaymentDetails { get { return this.PaymentDetailsOption; } set { this.PaymentDetailsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Tags
@@ -88,8 +102,8 @@ namespace C2M.Api.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SubmitMultiDocParams {\n");
-            sb.Append("  Items: ").Append(Items).Append("\n");
-            sb.Append("  JobOptions: ").Append(JobOptions).Append("\n");
+            sb.Append("  MultiDocJobs: ").Append(MultiDocJobs).Append("\n");
+            sb.Append("  JobTemplate: ").Append(JobTemplate).Append("\n");
             sb.Append("  PaymentDetails: ").Append(PaymentDetails).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("}\n");
@@ -129,8 +143,8 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<List<SubmitMultiDocWithTemplateParamsRequestItemsInner>?> items = default;
-            Option<JobOptions?> jobOptions = default;
+            Option<List<MultiDocJobItem>?> multiDocJobs = default;
+            Option<string?> jobTemplate = default;
             Option<PaymentDetails?> paymentDetails = default;
             Option<List<string>?> tags = default;
 
@@ -149,11 +163,11 @@ namespace C2M.Api.Model
 
                     switch (localVarJsonPropertyName)
                     {
-                        case "items":
-                            items = new Option<List<SubmitMultiDocWithTemplateParamsRequestItemsInner>?>(JsonSerializer.Deserialize<List<SubmitMultiDocWithTemplateParamsRequestItemsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                        case "multiDocJobs":
+                            multiDocJobs = new Option<List<MultiDocJobItem>?>(JsonSerializer.Deserialize<List<MultiDocJobItem>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
-                        case "jobOptions":
-                            jobOptions = new Option<JobOptions?>(JsonSerializer.Deserialize<JobOptions>(ref utf8JsonReader, jsonSerializerOptions)!);
+                        case "jobTemplate":
+                            jobTemplate = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "paymentDetails":
                             paymentDetails = new Option<PaymentDetails?>(JsonSerializer.Deserialize<PaymentDetails>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -167,20 +181,14 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (!items.IsSet)
-                throw new ArgumentException("Property is required for class SubmitMultiDocParams.", nameof(items));
+            if (!multiDocJobs.IsSet)
+                throw new ArgumentException("Property is required for class SubmitMultiDocParams.", nameof(multiDocJobs));
 
-            if (!jobOptions.IsSet)
-                throw new ArgumentException("Property is required for class SubmitMultiDocParams.", nameof(jobOptions));
+            if (multiDocJobs.IsSet && multiDocJobs.Value == null)
+                throw new ArgumentNullException(nameof(multiDocJobs), "Property is not nullable for class SubmitMultiDocParams.");
 
-            if (!paymentDetails.IsSet)
-                throw new ArgumentException("Property is required for class SubmitMultiDocParams.", nameof(paymentDetails));
-
-            if (items.IsSet && items.Value == null)
-                throw new ArgumentNullException(nameof(items), "Property is not nullable for class SubmitMultiDocParams.");
-
-            if (jobOptions.IsSet && jobOptions.Value == null)
-                throw new ArgumentNullException(nameof(jobOptions), "Property is not nullable for class SubmitMultiDocParams.");
+            if (jobTemplate.IsSet && jobTemplate.Value == null)
+                throw new ArgumentNullException(nameof(jobTemplate), "Property is not nullable for class SubmitMultiDocParams.");
 
             if (paymentDetails.IsSet && paymentDetails.Value == null)
                 throw new ArgumentNullException(nameof(paymentDetails), "Property is not nullable for class SubmitMultiDocParams.");
@@ -188,7 +196,7 @@ namespace C2M.Api.Model
             if (tags.IsSet && tags.Value == null)
                 throw new ArgumentNullException(nameof(tags), "Property is not nullable for class SubmitMultiDocParams.");
 
-            return new SubmitMultiDocParams(items.Value!, jobOptions.Value!, paymentDetails.Value!, tags);
+            return new SubmitMultiDocParams(multiDocJobs.Value!, jobTemplate, paymentDetails, tags);
         }
 
         /// <summary>
@@ -215,24 +223,28 @@ namespace C2M.Api.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SubmitMultiDocParams submitMultiDocParams, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (submitMultiDocParams.Items == null)
-                throw new ArgumentNullException(nameof(submitMultiDocParams.Items), "Property is required for class SubmitMultiDocParams.");
+            if (submitMultiDocParams.MultiDocJobs == null)
+                throw new ArgumentNullException(nameof(submitMultiDocParams.MultiDocJobs), "Property is required for class SubmitMultiDocParams.");
 
-            if (submitMultiDocParams.JobOptions == null)
-                throw new ArgumentNullException(nameof(submitMultiDocParams.JobOptions), "Property is required for class SubmitMultiDocParams.");
+            if (submitMultiDocParams.JobTemplateOption.IsSet && submitMultiDocParams.JobTemplate == null)
+                throw new ArgumentNullException(nameof(submitMultiDocParams.JobTemplate), "Property is required for class SubmitMultiDocParams.");
 
-            if (submitMultiDocParams.PaymentDetails == null)
+            if (submitMultiDocParams.PaymentDetailsOption.IsSet && submitMultiDocParams.PaymentDetails == null)
                 throw new ArgumentNullException(nameof(submitMultiDocParams.PaymentDetails), "Property is required for class SubmitMultiDocParams.");
 
             if (submitMultiDocParams.TagsOption.IsSet && submitMultiDocParams.Tags == null)
                 throw new ArgumentNullException(nameof(submitMultiDocParams.Tags), "Property is required for class SubmitMultiDocParams.");
 
-            writer.WritePropertyName("items");
-            JsonSerializer.Serialize(writer, submitMultiDocParams.Items, jsonSerializerOptions);
-            writer.WritePropertyName("jobOptions");
-            JsonSerializer.Serialize(writer, submitMultiDocParams.JobOptions, jsonSerializerOptions);
-            writer.WritePropertyName("paymentDetails");
-            JsonSerializer.Serialize(writer, submitMultiDocParams.PaymentDetails, jsonSerializerOptions);
+            writer.WritePropertyName("multiDocJobs");
+            JsonSerializer.Serialize(writer, submitMultiDocParams.MultiDocJobs, jsonSerializerOptions);
+            if (submitMultiDocParams.JobTemplateOption.IsSet)
+                writer.WriteString("jobTemplate", submitMultiDocParams.JobTemplate);
+
+            if (submitMultiDocParams.PaymentDetailsOption.IsSet)
+            {
+                writer.WritePropertyName("paymentDetails");
+                JsonSerializer.Serialize(writer, submitMultiDocParams.PaymentDetails, jsonSerializerOptions);
+            }
             if (submitMultiDocParams.TagsOption.IsSet)
             {
                 writer.WritePropertyName("tags");

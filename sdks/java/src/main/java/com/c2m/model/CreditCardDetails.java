@@ -14,7 +14,6 @@
 package com.c2m.model;
 
 import java.util.Objects;
-import com.c2m.model.CardType;
 import com.c2m.model.ExpirationDate;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -50,12 +49,68 @@ import com.c2m.JSON;
 /**
  * CreditCardDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-05T02:45:53.394297139Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-18T14:18:40.161107459Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class CreditCardDetails {
+  /**
+   * Gets or Sets cardType
+   */
+  @JsonAdapter(CardTypeEnum.Adapter.class)
+  public enum CardTypeEnum {
+    VISA("visa"),
+    
+    MASTERCARD("mastercard"),
+    
+    DISCOVER("discover"),
+    
+    AMERICAN_EXPRESS("americanExpress");
+
+    private String value;
+
+    CardTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static CardTypeEnum fromValue(String value) {
+      for (CardTypeEnum b : CardTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<CardTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final CardTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public CardTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return CardTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      CardTypeEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_CARD_TYPE = "cardType";
   @SerializedName(SERIALIZED_NAME_CARD_TYPE)
   @javax.annotation.Nonnull
-  private CardType cardType;
+  private CardTypeEnum cardType;
 
   public static final String SERIALIZED_NAME_CARD_NUMBER = "cardNumber";
   @SerializedName(SERIALIZED_NAME_CARD_NUMBER)
@@ -75,7 +130,7 @@ public class CreditCardDetails {
   public CreditCardDetails() {
   }
 
-  public CreditCardDetails cardType(@javax.annotation.Nonnull CardType cardType) {
+  public CreditCardDetails cardType(@javax.annotation.Nonnull CardTypeEnum cardType) {
     this.cardType = cardType;
     return this;
   }
@@ -85,11 +140,11 @@ public class CreditCardDetails {
    * @return cardType
    */
   @javax.annotation.Nonnull
-  public CardType getCardType() {
+  public CardTypeEnum getCardType() {
     return cardType;
   }
 
-  public void setCardType(@javax.annotation.Nonnull CardType cardType) {
+  public void setCardType(@javax.annotation.Nonnull CardTypeEnum cardType) {
     this.cardType = cardType;
   }
 
@@ -235,8 +290,11 @@ public class CreditCardDetails {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("cardType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cardType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardType").toString()));
+      }
       // validate the required field `cardType`
-      CardType.validateJsonElement(jsonObj.get("cardType"));
+      CardTypeEnum.validateJsonElement(jsonObj.get("cardType"));
       if (!jsonObj.get("cardNumber").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `cardNumber` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cardNumber").toString()));
       }

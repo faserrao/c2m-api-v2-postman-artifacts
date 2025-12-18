@@ -57,7 +57,7 @@ class CreditCardDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'card_type' => '\C2MApi\Model\CardType',
+        'card_type' => 'string',
         'card_number' => 'string',
         'expiration_date' => '\C2MApi\Model\ExpirationDate',
         'cvv' => 'int'
@@ -246,6 +246,25 @@ class CreditCardDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
+    public const CARD_TYPE_VISA = 'visa';
+    public const CARD_TYPE_MASTERCARD = 'mastercard';
+    public const CARD_TYPE_DISCOVER = 'discover';
+    public const CARD_TYPE_AMERICAN_EXPRESS = 'americanExpress';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCardTypeAllowableValues()
+    {
+        return [
+            self::CARD_TYPE_VISA,
+            self::CARD_TYPE_MASTERCARD,
+            self::CARD_TYPE_DISCOVER,
+            self::CARD_TYPE_AMERICAN_EXPRESS,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -298,6 +317,15 @@ class CreditCardDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
         if ($this->container['card_type'] === null) {
             $invalidProperties[] = "'card_type' can't be null";
         }
+        $allowedValues = $this->getCardTypeAllowableValues();
+        if (!is_null($this->container['card_type']) && !in_array($this->container['card_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'card_type', must be one of '%s'",
+                $this->container['card_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['card_number'] === null) {
             $invalidProperties[] = "'card_number' can't be null";
         }
@@ -325,7 +353,7 @@ class CreditCardDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets card_type
      *
-     * @return \C2MApi\Model\CardType
+     * @return string
      */
     public function getCardType()
     {
@@ -335,7 +363,7 @@ class CreditCardDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets card_type
      *
-     * @param \C2MApi\Model\CardType $card_type card_type
+     * @param string $card_type card_type
      *
      * @return self
      */
@@ -343,6 +371,16 @@ class CreditCardDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         if (is_null($card_type)) {
             throw new \InvalidArgumentException('non-nullable card_type cannot be null');
+        }
+        $allowedValues = $this->getCardTypeAllowableValues();
+        if (!in_array($card_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'card_type', must be one of '%s'",
+                    $card_type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['card_type'] = $card_type;
 

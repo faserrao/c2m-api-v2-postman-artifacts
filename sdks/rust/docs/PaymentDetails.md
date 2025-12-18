@@ -5,9 +5,7 @@
 | Name | Description |
 |---- | -----|
 | AchPayment |  |
-| ApplePayPayment |  |
 | CreditCardPayment |  |
-| GooglePayPayment |  |
 | InvoicePayment |  |
 | UserCreditPayment |  |
 

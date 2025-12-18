@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | **float32** |  | 
-**Currency** | [**Currency**](Currency.md) |  | 
+**Currency** | **string** |  | 
 
 ## Methods
 
 ### NewCreditAmount
 
-`func NewCreditAmount(amount float32, currency Currency, ) *CreditAmount`
+`func NewCreditAmount(amount float32, currency string, ) *CreditAmount`
 
 NewCreditAmount instantiates a new CreditAmount object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetAmount sets Amount field to given value.
 
 ### GetCurrency
 
-`func (o *CreditAmount) GetCurrency() Currency`
+`func (o *CreditAmount) GetCurrency() string`
 
 GetCurrency returns the Currency field if non-nil, zero value otherwise.
 
 ### GetCurrencyOk
 
-`func (o *CreditAmount) GetCurrencyOk() (*Currency, bool)`
+`func (o *CreditAmount) GetCurrencyOk() (*string, bool)`
 
 GetCurrencyOk returns a tuple with the Currency field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCurrency
 
-`func (o *CreditAmount) SetCurrency(v Currency)`
+`func (o *CreditAmount) SetCurrency(v string)`
 
 SetCurrency sets Currency field to given value.
 

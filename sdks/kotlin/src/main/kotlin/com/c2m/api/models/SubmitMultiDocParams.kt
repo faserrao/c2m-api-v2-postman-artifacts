@@ -15,9 +15,8 @@
 
 package com.c2m.api.models
 
-import com.c2m.api.models.JobOptions
+import com.c2m.api.models.MultiDocJobItem
 import com.c2m.api.models.PaymentDetails
-import com.c2m.api.models.SubmitMultiDocWithTemplateParamsRequestItemsInner
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -25,8 +24,8 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param items 
- * @param jobOptions 
+ * @param multiDocJobs 
+ * @param jobTemplate 
  * @param paymentDetails 
  * @param tags 
  */
@@ -34,14 +33,14 @@ import com.squareup.moshi.JsonClass
 
 data class SubmitMultiDocParams (
 
-    @Json(name = "items")
-    val items: kotlin.collections.List<SubmitMultiDocWithTemplateParamsRequestItemsInner>,
+    @Json(name = "multiDocJobs")
+    val multiDocJobs: kotlin.collections.List<MultiDocJobItem>,
 
-    @Json(name = "jobOptions")
-    val jobOptions: JobOptions,
+    @Json(name = "jobTemplate")
+    val jobTemplate: kotlin.String? = null,
 
     @Json(name = "paymentDetails")
-    val paymentDetails: PaymentDetails,
+    val paymentDetails: PaymentDetails? = null,
 
     @Json(name = "tags")
     val tags: kotlin.collections.List<kotlin.String>? = null

@@ -12,9 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
-import JobOptions from './JobOptions';
+import MultiDocJobItem from './MultiDocJobItem';
 import PaymentDetails from './PaymentDetails';
-import SubmitMultiDocWithTemplateParamsRequestItemsInner from './SubmitMultiDocWithTemplateParamsRequestItemsInner';
 
 /**
  * The SubmitMultiDocParams model module.
@@ -25,13 +24,11 @@ class SubmitMultiDocParams {
     /**
      * Constructs a new <code>SubmitMultiDocParams</code>.
      * @alias module:c2m_api/model/SubmitMultiDocParams
-     * @param items {Array.<module:c2m_api/model/SubmitMultiDocWithTemplateParamsRequestItemsInner>} 
-     * @param jobOptions {module:c2m_api/model/JobOptions} 
-     * @param paymentDetails {module:c2m_api/model/PaymentDetails} 
+     * @param multiDocJobs {Array.<module:c2m_api/model/MultiDocJobItem>} 
      */
-    constructor(items, jobOptions, paymentDetails) { 
+    constructor(multiDocJobs) { 
         
-        SubmitMultiDocParams.initialize(this, items, jobOptions, paymentDetails);
+        SubmitMultiDocParams.initialize(this, multiDocJobs);
     }
 
     /**
@@ -39,10 +36,8 @@ class SubmitMultiDocParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, items, jobOptions, paymentDetails) { 
-        obj['items'] = items;
-        obj['jobOptions'] = jobOptions;
-        obj['paymentDetails'] = paymentDetails;
+    static initialize(obj, multiDocJobs) { 
+        obj['multiDocJobs'] = multiDocJobs;
     }
 
     /**
@@ -56,11 +51,11 @@ class SubmitMultiDocParams {
         if (data) {
             obj = obj || new SubmitMultiDocParams();
 
-            if (data.hasOwnProperty('items')) {
-                obj['items'] = ApiClient.convertToType(data['items'], [SubmitMultiDocWithTemplateParamsRequestItemsInner]);
+            if (data.hasOwnProperty('jobTemplate')) {
+                obj['jobTemplate'] = ApiClient.convertToType(data['jobTemplate'], 'String');
             }
-            if (data.hasOwnProperty('jobOptions')) {
-                obj['jobOptions'] = JobOptions.constructFromObject(data['jobOptions']);
+            if (data.hasOwnProperty('multiDocJobs')) {
+                obj['multiDocJobs'] = ApiClient.convertToType(data['multiDocJobs'], [MultiDocJobItem]);
             }
             if (data.hasOwnProperty('paymentDetails')) {
                 obj['paymentDetails'] = PaymentDetails.constructFromObject(data['paymentDetails']);
@@ -84,19 +79,19 @@ class SubmitMultiDocParams {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
-        if (data['items']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['items'])) {
-                throw new Error("Expected the field `items` to be an array in the JSON data but got " + data['items']);
-            }
-            // validate the optional field `items` (array)
-            for (const item of data['items']) {
-                SubmitMultiDocWithTemplateParamsRequestItemsInner.validateJSON(item);
-            };
+        // ensure the json data is a string
+        if (data['jobTemplate'] && !(typeof data['jobTemplate'] === 'string' || data['jobTemplate'] instanceof String)) {
+            throw new Error("Expected the field `jobTemplate` to be a primitive type in the JSON string but got " + data['jobTemplate']);
         }
-        // validate the optional field `jobOptions`
-        if (data['jobOptions']) { // data not null
-          JobOptions.validateJSON(data['jobOptions']);
+        if (data['multiDocJobs']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['multiDocJobs'])) {
+                throw new Error("Expected the field `multiDocJobs` to be an array in the JSON data but got " + data['multiDocJobs']);
+            }
+            // validate the optional field `multiDocJobs` (array)
+            for (const item of data['multiDocJobs']) {
+                MultiDocJobItem.validateJSON(item);
+            };
         }
         // validate the optional field `paymentDetails`
         if (data['paymentDetails']) { // data not null
@@ -113,17 +108,17 @@ class SubmitMultiDocParams {
 
 }
 
-SubmitMultiDocParams.RequiredProperties = ["items", "jobOptions", "paymentDetails"];
+SubmitMultiDocParams.RequiredProperties = ["multiDocJobs"];
 
 /**
- * @member {Array.<module:c2m_api/model/SubmitMultiDocWithTemplateParamsRequestItemsInner>} items
+ * @member {String} jobTemplate
  */
-SubmitMultiDocParams.prototype['items'] = undefined;
+SubmitMultiDocParams.prototype['jobTemplate'] = undefined;
 
 /**
- * @member {module:c2m_api/model/JobOptions} jobOptions
+ * @member {Array.<module:c2m_api/model/MultiDocJobItem>} multiDocJobs
  */
-SubmitMultiDocParams.prototype['jobOptions'] = undefined;
+SubmitMultiDocParams.prototype['multiDocJobs'] = undefined;
 
 /**
  * @member {module:c2m_api/model/PaymentDetails} paymentDetails

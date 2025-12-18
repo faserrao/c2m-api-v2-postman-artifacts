@@ -13,12 +13,6 @@
 
 package com.c2m.model;
 
-import com.c2m.model.DocumentClass;
-import com.c2m.model.Envelope;
-import com.c2m.model.Layout;
-import com.c2m.model.Mailclass;
-import com.c2m.model.PaperType;
-import com.c2m.model.PrintOption;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -60,11 +54,27 @@ public class JobOptionsTest {
     }
 
     /**
-     * Test the property 'mailclass'
+     * Test the property 'productionTime'
      */
     @Test
-    public void mailclassTest() {
-        // TODO: test mailclass
+    public void productionTimeTest() {
+        // TODO: test productionTime
+    }
+
+    /**
+     * Test the property 'envelope'
+     */
+    @Test
+    public void envelopeTest() {
+        // TODO: test envelope
+    }
+
+    /**
+     * Test the property 'color'
+     */
+    @Test
+    public void colorTest() {
+        // TODO: test color
     }
 
     /**
@@ -84,11 +94,11 @@ public class JobOptionsTest {
     }
 
     /**
-     * Test the property 'envelope'
+     * Test the property 'mailClass'
      */
     @Test
-    public void envelopeTest() {
-        // TODO: test envelope
+    public void mailClassTest() {
+        // TODO: test mailClass
     }
 
 }

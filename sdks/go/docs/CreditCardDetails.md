@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CardType** | [**CardType**](CardType.md) |  | 
+**CardType** | **string** |  | 
 **CardNumber** | **string** |  | 
 **ExpirationDate** | [**ExpirationDate**](ExpirationDate.md) |  | 
 **Cvv** | **int32** |  | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewCreditCardDetails
 
-`func NewCreditCardDetails(cardType CardType, cardNumber string, expirationDate ExpirationDate, cvv int32, ) *CreditCardDetails`
+`func NewCreditCardDetails(cardType string, cardNumber string, expirationDate ExpirationDate, cvv int32, ) *CreditCardDetails`
 
 NewCreditCardDetails instantiates a new CreditCardDetails object
 This constructor will assign default values to properties that have it defined,
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCardType
 
-`func (o *CreditCardDetails) GetCardType() CardType`
+`func (o *CreditCardDetails) GetCardType() string`
 
 GetCardType returns the CardType field if non-nil, zero value otherwise.
 
 ### GetCardTypeOk
 
-`func (o *CreditCardDetails) GetCardTypeOk() (*CardType, bool)`
+`func (o *CreditCardDetails) GetCardTypeOk() (*string, bool)`
 
 GetCardTypeOk returns a tuple with the CardType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCardType
 
-`func (o *CreditCardDetails) SetCardType(v CardType)`
+`func (o *CreditCardDetails) SetCardType(v string)`
 
 SetCardType sets CardType field to given value.
 

@@ -12,6 +12,12 @@ import AnyCodable
 
 public struct CreditCardDetails: Codable, JSONEncodable, Hashable {
 
+    public enum CardType: String, Codable, CaseIterable {
+        case visa = "visa"
+        case mastercard = "mastercard"
+        case discover = "discover"
+        case americanexpress = "americanExpress"
+    }
     public var cardType: CardType
     public var cardNumber: String
     public var expirationDate: ExpirationDate

@@ -8,7 +8,5 @@ Name | Type | Description | Notes
 **invoiceDetails** | [**InvoiceDetails**](InvoiceDetails.md) |  | 
 **achDetails** | [**AchDetails**](AchDetails.md) |  | 
 **creditAmount** | [**CreditAmount**](CreditAmount.md) |  | 
-**applePaymentDetails** | **Object** |  | 
-**googlePaymentDetails** | **Object** |  | 
 
 

@@ -17,14 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from c2m_api.models.document_class import DocumentClass
-from c2m_api.models.envelope import Envelope
-from c2m_api.models.layout import Layout
-from c2m_api.models.mailclass import Mailclass
-from c2m_api.models.paper_type import PaperType
-from c2m_api.models.print_option import PrintOption
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -32,13 +26,15 @@ class JobOptions(BaseModel):
     """
     JobOptions
     """ # noqa: E501
-    document_class: DocumentClass = Field(alias="documentClass")
-    layout: Layout
-    mailclass: Mailclass
-    paper_type: PaperType = Field(alias="paperType")
-    print_option: PrintOption = Field(alias="printOption")
-    envelope: Envelope
-    __properties: ClassVar[List[str]] = ["documentClass", "layout", "mailclass", "paperType", "printOption", "envelope"]
+    document_class: StrictStr = Field(alias="documentClass")
+    layout: StrictStr
+    production_time: StrictStr = Field(alias="productionTime")
+    envelope: StrictStr
+    color: StrictStr
+    paper_type: StrictStr = Field(alias="paperType")
+    print_option: StrictStr = Field(alias="printOption")
+    mail_class: StrictStr = Field(alias="mailClass")
+    __properties: ClassVar[List[str]] = ["documentClass", "layout", "productionTime", "envelope", "color", "paperType", "printOption", "mailClass"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -93,10 +89,12 @@ class JobOptions(BaseModel):
         _obj = cls.model_validate({
             "documentClass": obj.get("documentClass"),
             "layout": obj.get("layout"),
-            "mailclass": obj.get("mailclass"),
+            "productionTime": obj.get("productionTime"),
+            "envelope": obj.get("envelope"),
+            "color": obj.get("color"),
             "paperType": obj.get("paperType"),
             "printOption": obj.get("printOption"),
-            "envelope": obj.get("envelope")
+            "mailClass": obj.get("mailClass")
         })
         return _obj
 

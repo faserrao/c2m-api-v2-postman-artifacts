@@ -68,7 +68,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'card_type' => :'CardType',
+        :'card_type' => :'String',
         :'card_number' => :'String',
         :'expiration_date' => :'ExpirationDate',
         :'cvv' => :'Integer'
@@ -151,19 +151,21 @@ module OpenapiClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @card_type.nil?
+      card_type_validator = EnumAttributeValidator.new('String', ["visa", "mastercard", "discover", "americanExpress"])
+      return false unless card_type_validator.valid?(@card_type)
       return false if @card_number.nil?
       return false if @expiration_date.nil?
       return false if @cvv.nil?
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] card_type Value to be assigned
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] card_type Object to be assigned
     def card_type=(card_type)
-      if card_type.nil?
-        fail ArgumentError, 'card_type cannot be nil'
+      validator = EnumAttributeValidator.new('String', ["visa", "mastercard", "discover", "americanExpress"])
+      unless validator.valid?(card_type)
+        fail ArgumentError, "invalid value for \"card_type\", must be one of #{validator.allowable_values}."
       end
-
       @card_type = card_type
     end
 

@@ -38,7 +38,7 @@ namespace C2M.Api.Model
         /// <param name="expirationDate">expirationDate</param>
         /// <param name="cvv">cvv</param>
         [JsonConstructor]
-        public CreditCardDetails(CardType cardType, string cardNumber, ExpirationDate expirationDate, int cvv)
+        public CreditCardDetails(CardTypeEnum cardType, string cardNumber, ExpirationDate expirationDate, int cvv)
         {
             CardType = cardType;
             CardNumber = cardNumber;
@@ -50,10 +50,104 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
+        /// Defines CardType
+        /// </summary>
+        public enum CardTypeEnum
+        {
+            /// <summary>
+            /// Enum Visa for value: visa
+            /// </summary>
+            Visa = 1,
+
+            /// <summary>
+            /// Enum Mastercard for value: mastercard
+            /// </summary>
+            Mastercard = 2,
+
+            /// <summary>
+            /// Enum Discover for value: discover
+            /// </summary>
+            Discover = 3,
+
+            /// <summary>
+            /// Enum AmericanExpress for value: americanExpress
+            /// </summary>
+            AmericanExpress = 4
+        }
+
+        /// <summary>
+        /// Returns a <see cref="CardTypeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static CardTypeEnum CardTypeEnumFromString(string value)
+        {
+            if (value.Equals("visa"))
+                return CardTypeEnum.Visa;
+
+            if (value.Equals("mastercard"))
+                return CardTypeEnum.Mastercard;
+
+            if (value.Equals("discover"))
+                return CardTypeEnum.Discover;
+
+            if (value.Equals("americanExpress"))
+                return CardTypeEnum.AmericanExpress;
+
+            throw new NotImplementedException($"Could not convert value to type CardTypeEnum: '{value}'");
+        }
+
+        /// <summary>
+        /// Returns a <see cref="CardTypeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static CardTypeEnum? CardTypeEnumFromStringOrDefault(string value)
+        {
+            if (value.Equals("visa"))
+                return CardTypeEnum.Visa;
+
+            if (value.Equals("mastercard"))
+                return CardTypeEnum.Mastercard;
+
+            if (value.Equals("discover"))
+                return CardTypeEnum.Discover;
+
+            if (value.Equals("americanExpress"))
+                return CardTypeEnum.AmericanExpress;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="CardTypeEnum"/> to the json value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string CardTypeEnumToJsonValue(CardTypeEnum value)
+        {
+            if (value == CardTypeEnum.Visa)
+                return "visa";
+
+            if (value == CardTypeEnum.Mastercard)
+                return "mastercard";
+
+            if (value == CardTypeEnum.Discover)
+                return "discover";
+
+            if (value == CardTypeEnum.AmericanExpress)
+                return "americanExpress";
+
+            throw new NotImplementedException($"Value could not be handled: '{value}'");
+        }
+
+        /// <summary>
         /// Gets or Sets CardType
         /// </summary>
         [JsonPropertyName("cardType")]
-        public CardType CardType { get; set; }
+        public CardTypeEnum CardType { get; set; }
 
         /// <summary>
         /// Gets or Sets CardNumber
@@ -122,7 +216,7 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<CardType?> cardType = default;
+            Option<CreditCardDetails.CardTypeEnum?> cardType = default;
             Option<string?> cardNumber = default;
             Option<ExpirationDate?> expirationDate = default;
             Option<int?> cvv = default;
@@ -145,7 +239,7 @@ namespace C2M.Api.Model
                         case "cardType":
                             string? cardTypeRawValue = utf8JsonReader.GetString();
                             if (cardTypeRawValue != null)
-                                cardType = new Option<CardType?>(CardTypeValueConverter.FromStringOrDefault(cardTypeRawValue));
+                                cardType = new Option<CreditCardDetails.CardTypeEnum?>(CreditCardDetails.CardTypeEnumFromStringOrDefault(cardTypeRawValue));
                             break;
                         case "cardNumber":
                             cardNumber = new Option<string?>(utf8JsonReader.GetString()!);
@@ -219,9 +313,8 @@ namespace C2M.Api.Model
             if (creditCardDetails.ExpirationDate == null)
                 throw new ArgumentNullException(nameof(creditCardDetails.ExpirationDate), "Property is required for class CreditCardDetails.");
 
-            var cardTypeRawValue = CardTypeValueConverter.ToJsonValue(creditCardDetails.CardType);
+            var cardTypeRawValue = CreditCardDetails.CardTypeEnumToJsonValue(creditCardDetails.CardType);
             writer.WriteString("cardType", cardTypeRawValue);
-
             writer.WriteString("cardNumber", creditCardDetails.CardNumber);
 
             writer.WritePropertyName("expirationDate");

@@ -21,9 +21,9 @@ var _ MappedNullable = &SubmitMultiDocParams{}
 
 // SubmitMultiDocParams struct for SubmitMultiDocParams
 type SubmitMultiDocParams struct {
-	Items []SubmitMultiDocWithTemplateParamsRequestItemsInner `json:"items"`
-	JobOptions JobOptions `json:"jobOptions"`
-	PaymentDetails PaymentDetails `json:"paymentDetails"`
+	JobTemplate *string `json:"jobTemplate,omitempty"`
+	MultiDocJobs []MultiDocJobItem `json:"multiDocJobs"`
+	PaymentDetails *PaymentDetails `json:"paymentDetails,omitempty"`
 	Tags []string `json:"tags,omitempty"`
 }
 
@@ -33,11 +33,9 @@ type _SubmitMultiDocParams SubmitMultiDocParams
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSubmitMultiDocParams(items []SubmitMultiDocWithTemplateParamsRequestItemsInner, jobOptions JobOptions, paymentDetails PaymentDetails) *SubmitMultiDocParams {
+func NewSubmitMultiDocParams(multiDocJobs []MultiDocJobItem) *SubmitMultiDocParams {
 	this := SubmitMultiDocParams{}
-	this.Items = items
-	this.JobOptions = jobOptions
-	this.PaymentDetails = paymentDetails
+	this.MultiDocJobs = multiDocJobs
 	return &this
 }
 
@@ -49,76 +47,92 @@ func NewSubmitMultiDocParamsWithDefaults() *SubmitMultiDocParams {
 	return &this
 }
 
-// GetItems returns the Items field value
-func (o *SubmitMultiDocParams) GetItems() []SubmitMultiDocWithTemplateParamsRequestItemsInner {
+// GetJobTemplate returns the JobTemplate field value if set, zero value otherwise.
+func (o *SubmitMultiDocParams) GetJobTemplate() string {
+	if o == nil || IsNil(o.JobTemplate) {
+		var ret string
+		return ret
+	}
+	return *o.JobTemplate
+}
+
+// GetJobTemplateOk returns a tuple with the JobTemplate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SubmitMultiDocParams) GetJobTemplateOk() (*string, bool) {
+	if o == nil || IsNil(o.JobTemplate) {
+		return nil, false
+	}
+	return o.JobTemplate, true
+}
+
+// HasJobTemplate returns a boolean if a field has been set.
+func (o *SubmitMultiDocParams) HasJobTemplate() bool {
+	if o != nil && !IsNil(o.JobTemplate) {
+		return true
+	}
+
+	return false
+}
+
+// SetJobTemplate gets a reference to the given string and assigns it to the JobTemplate field.
+func (o *SubmitMultiDocParams) SetJobTemplate(v string) {
+	o.JobTemplate = &v
+}
+
+// GetMultiDocJobs returns the MultiDocJobs field value
+func (o *SubmitMultiDocParams) GetMultiDocJobs() []MultiDocJobItem {
 	if o == nil {
-		var ret []SubmitMultiDocWithTemplateParamsRequestItemsInner
+		var ret []MultiDocJobItem
 		return ret
 	}
 
-	return o.Items
+	return o.MultiDocJobs
 }
 
-// GetItemsOk returns a tuple with the Items field value
+// GetMultiDocJobsOk returns a tuple with the MultiDocJobs field value
 // and a boolean to check if the value has been set.
-func (o *SubmitMultiDocParams) GetItemsOk() ([]SubmitMultiDocWithTemplateParamsRequestItemsInner, bool) {
+func (o *SubmitMultiDocParams) GetMultiDocJobsOk() ([]MultiDocJobItem, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Items, true
+	return o.MultiDocJobs, true
 }
 
-// SetItems sets field value
-func (o *SubmitMultiDocParams) SetItems(v []SubmitMultiDocWithTemplateParamsRequestItemsInner) {
-	o.Items = v
+// SetMultiDocJobs sets field value
+func (o *SubmitMultiDocParams) SetMultiDocJobs(v []MultiDocJobItem) {
+	o.MultiDocJobs = v
 }
 
-// GetJobOptions returns the JobOptions field value
-func (o *SubmitMultiDocParams) GetJobOptions() JobOptions {
-	if o == nil {
-		var ret JobOptions
-		return ret
-	}
-
-	return o.JobOptions
-}
-
-// GetJobOptionsOk returns a tuple with the JobOptions field value
-// and a boolean to check if the value has been set.
-func (o *SubmitMultiDocParams) GetJobOptionsOk() (*JobOptions, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.JobOptions, true
-}
-
-// SetJobOptions sets field value
-func (o *SubmitMultiDocParams) SetJobOptions(v JobOptions) {
-	o.JobOptions = v
-}
-
-// GetPaymentDetails returns the PaymentDetails field value
+// GetPaymentDetails returns the PaymentDetails field value if set, zero value otherwise.
 func (o *SubmitMultiDocParams) GetPaymentDetails() PaymentDetails {
-	if o == nil {
+	if o == nil || IsNil(o.PaymentDetails) {
 		var ret PaymentDetails
 		return ret
 	}
-
-	return o.PaymentDetails
+	return *o.PaymentDetails
 }
 
-// GetPaymentDetailsOk returns a tuple with the PaymentDetails field value
+// GetPaymentDetailsOk returns a tuple with the PaymentDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *SubmitMultiDocParams) GetPaymentDetailsOk() (*PaymentDetails, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.PaymentDetails) {
 		return nil, false
 	}
-	return &o.PaymentDetails, true
+	return o.PaymentDetails, true
 }
 
-// SetPaymentDetails sets field value
+// HasPaymentDetails returns a boolean if a field has been set.
+func (o *SubmitMultiDocParams) HasPaymentDetails() bool {
+	if o != nil && !IsNil(o.PaymentDetails) {
+		return true
+	}
+
+	return false
+}
+
+// SetPaymentDetails gets a reference to the given PaymentDetails and assigns it to the PaymentDetails field.
 func (o *SubmitMultiDocParams) SetPaymentDetails(v PaymentDetails) {
-	o.PaymentDetails = v
+	o.PaymentDetails = &v
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise.
@@ -163,9 +177,13 @@ func (o SubmitMultiDocParams) MarshalJSON() ([]byte, error) {
 
 func (o SubmitMultiDocParams) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["items"] = o.Items
-	toSerialize["jobOptions"] = o.JobOptions
-	toSerialize["paymentDetails"] = o.PaymentDetails
+	if !IsNil(o.JobTemplate) {
+		toSerialize["jobTemplate"] = o.JobTemplate
+	}
+	toSerialize["multiDocJobs"] = o.MultiDocJobs
+	if !IsNil(o.PaymentDetails) {
+		toSerialize["paymentDetails"] = o.PaymentDetails
+	}
 	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags
 	}
@@ -177,9 +195,7 @@ func (o *SubmitMultiDocParams) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"items",
-		"jobOptions",
-		"paymentDetails",
+		"multiDocJobs",
 	}
 
 	allProperties := make(map[string]interface{})

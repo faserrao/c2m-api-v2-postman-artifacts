@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **items** | [**Array&lt;SubmitMultiDocWithTemplateParamsRequestItemsInner&gt;**](SubmitMultiDocWithTemplateParamsRequestItemsInner.md) |  |  |
-| **job_options** | [**JobOptions**](JobOptions.md) |  |  |
-| **payment_details** | [**PaymentDetails**](PaymentDetails.md) |  |  |
+| **job_template** | **String** |  | [optional] |
+| **multi_doc_jobs** | [**Array&lt;MultiDocJobItem&gt;**](MultiDocJobItem.md) |  |  |
+| **payment_details** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] |
 | **tags** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
@@ -15,8 +15,8 @@
 require 'openapi_client'
 
 instance = OpenapiClient::SubmitMultiDocParams.new(
-  items: null,
-  job_options: null,
+  job_template: null,
+  multi_doc_jobs: null,
   payment_details: null,
   tags: null
 )

@@ -32,9 +32,9 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.example.com/v1");
     
-    // Configure HTTP bearer authorization: ShortTokenAuth
-    HttpBearerAuth ShortTokenAuth = (HttpBearerAuth) defaultClient.getAuthentication("ShortTokenAuth");
-    ShortTokenAuth.setBearerToken("BEARER TOKEN");
+    // Configure OAuth2 access token for authorization: ShortTokenAuth
+    OAuth ShortTokenAuth = (OAuth) defaultClient.getAuthentication("ShortTokenAuth");
+    ShortTokenAuth.setAccessToken("YOUR ACCESS TOKEN");
 
     // Configure API key authorization: ClientKey
     ApiKeyAuth ClientKey = (ApiKeyAuth) defaultClient.getAuthentication("ClientKey");
@@ -109,9 +109,9 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.example.com/v1");
     
-    // Configure HTTP bearer authorization: LongTokenAuth
-    HttpBearerAuth LongTokenAuth = (HttpBearerAuth) defaultClient.getAuthentication("LongTokenAuth");
-    LongTokenAuth.setBearerToken("BEARER TOKEN");
+    // Configure OAuth2 access token for authorization: LongTokenAuth
+    OAuth LongTokenAuth = (OAuth) defaultClient.getAuthentication("LongTokenAuth");
+    LongTokenAuth.setAccessToken("YOUR ACCESS TOKEN");
 
     AuthApi apiInstance = new AuthApi(defaultClient);
     ShortTokenRequest shortTokenRequest = new ShortTokenRequest(); // ShortTokenRequest | 
@@ -179,13 +179,13 @@ public class Example {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("https://api.example.com/v1");
     
-    // Configure HTTP bearer authorization: LongTokenAuth
-    HttpBearerAuth LongTokenAuth = (HttpBearerAuth) defaultClient.getAuthentication("LongTokenAuth");
-    LongTokenAuth.setBearerToken("BEARER TOKEN");
+    // Configure OAuth2 access token for authorization: LongTokenAuth
+    OAuth LongTokenAuth = (OAuth) defaultClient.getAuthentication("LongTokenAuth");
+    LongTokenAuth.setAccessToken("YOUR ACCESS TOKEN");
 
-    // Configure HTTP bearer authorization: ShortTokenAuth
-    HttpBearerAuth ShortTokenAuth = (HttpBearerAuth) defaultClient.getAuthentication("ShortTokenAuth");
-    ShortTokenAuth.setBearerToken("BEARER TOKEN");
+    // Configure OAuth2 access token for authorization: ShortTokenAuth
+    OAuth ShortTokenAuth = (OAuth) defaultClient.getAuthentication("ShortTokenAuth");
+    ShortTokenAuth.setAccessToken("YOUR ACCESS TOKEN");
 
     AuthApi apiInstance = new AuthApi(defaultClient);
     String tokenId = "tokenId_example"; // String | The token ID to revoke

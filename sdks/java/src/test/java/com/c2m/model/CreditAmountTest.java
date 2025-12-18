@@ -13,7 +13,6 @@
 
 package com.c2m.model;
 
-import com.c2m.model.Currency;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

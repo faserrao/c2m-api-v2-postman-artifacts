@@ -48,7 +48,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-// Configure Bearer (JWT) authorization: ShortTokenAuth
+// Configure OAuth2 access token for authorization: ShortTokenAuth
 $config = C2MApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure API key authorization: ClientKey
@@ -83,83 +83,64 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**issueLongTermToken**](docs/Api/AuthApi.md#issuelongtermtoken) | **POST** /auth/tokens/long | Issue or rotate a long-term token
 *AuthApi* | [**issueShortTermToken**](docs/Api/AuthApi.md#issueshorttermtoken) | **POST** /auth/tokens/short | Issue a short-term access token
 *AuthApi* | [**revokeToken**](docs/Api/AuthApi.md#revoketoken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
-*DefaultApi* | [**mergeMultiDocParams**](docs/Api/DefaultApi.md#mergemultidocparams) | **POST** /jobs/multi-doc-merge | Operation for /jobs/multi-doc-merge
-*DefaultApi* | [**mergeMultiDocWithTemplateParams**](docs/Api/DefaultApi.md#mergemultidocwithtemplateparams) | **POST** /jobs/multi-doc-merge-job-template | Operation for /jobs/multi-doc-merge-job-template
-*DefaultApi* | [**multiPdfWithCaptureParams**](docs/Api/DefaultApi.md#multipdfwithcaptureparams) | **POST** /jobs/multi-pdf-address-capture | Operation for /jobs/multi-pdf-address-capture
-*DefaultApi* | [**singleDocJobParams**](docs/Api/DefaultApi.md#singledocjobparams) | **POST** /jobs/single-doc | Operation for /jobs/single-doc
-*DefaultApi* | [**splitPdfParams**](docs/Api/DefaultApi.md#splitpdfparams) | **POST** /jobs/single-pdf-split | Operation for /jobs/single-pdf-split
-*DefaultApi* | [**splitPdfWithCaptureParams**](docs/Api/DefaultApi.md#splitpdfwithcaptureparams) | **POST** /jobs/single-pdf-split-addressCapture | Operation for /jobs/single-pdf-split-addressCapture
-*DefaultApi* | [**submitMultiDocParams**](docs/Api/DefaultApi.md#submitmultidocparams) | **POST** /jobs/multi-doc | Operation for /jobs/multi-doc
-*DefaultApi* | [**submitMultiDocWithTemplateParams**](docs/Api/DefaultApi.md#submitmultidocwithtemplateparams) | **POST** /jobs/multi-docs-job-template | Operation for /jobs/multi-docs-job-template
-*DefaultApi* | [**submitSingleDocWithTemplateParams**](docs/Api/DefaultApi.md#submitsingledocwithtemplateparams) | **POST** /jobs/single-doc-job-template | Operation for /jobs/single-doc-job-template
+*JobsApi* | [**submitMultiDocMergeParams**](docs/Api/JobsApi.md#submitmultidocmergeparams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
+*JobsApi* | [**submitMultiDocParams**](docs/Api/JobsApi.md#submitmultidocparams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
+*JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/Api/JobsApi.md#submitmultizipaddresscaptureparams) | **POST** /jobs/submit/multi/zip/addressCapture | Submit a multi zip addressCapture job
+*JobsApi* | [**submitMultiZipParams**](docs/Api/JobsApi.md#submitmultizipparams) | **POST** /jobs/submit/multi/zip | Submit a multi zip job
+*JobsApi* | [**submitSingleDocParams**](docs/Api/JobsApi.md#submitsingledocparams) | **POST** /jobs/submit/single/doc | Submit a single doc job
+*JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/Api/JobsApi.md#submitsinglepdfaddresscaptureparams) | **POST** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job
+*JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/Api/JobsApi.md#submitsinglepdfsplitaddresscaptureparams) | **POST** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job
+*JobsApi* | [**submitSinglePdfSplitParams**](docs/Api/JobsApi.md#submitsinglepdfsplitparams) | **POST** /jobs/submit/single/pdf/split | Submit a single pdf split job
 
 ## Models
 
 - [AchDetails](docs/Model/AchDetails.md)
 - [AchPayment](docs/Model/AchPayment.md)
-- [AddressListPdf](docs/Model/AddressListPdf.md)
-- [AddressRegion](docs/Model/AddressRegion.md)
-- [ApplePayPayment](docs/Model/ApplePayPayment.md)
+- [Address](docs/Model/Address.md)
 - [AuthError](docs/Model/AuthError.md)
 - [CardType](docs/Model/CardType.md)
 - [CreditAmount](docs/Model/CreditAmount.md)
 - [CreditCardDetails](docs/Model/CreditCardDetails.md)
 - [CreditCardPayment](docs/Model/CreditCardPayment.md)
 - [Currency](docs/Model/Currency.md)
-- [DocumentClass](docs/Model/DocumentClass.md)
-- [DocumentFormat](docs/Model/DocumentFormat.md)
-- [DocumentSourceFromZip](docs/Model/DocumentSourceFromZip.md)
-- [DocumentSourceIdentifier](docs/Model/DocumentSourceIdentifier.md)
-- [DocumentSourceVariant1](docs/Model/DocumentSourceVariant1.md)
-- [DocumentSourceVariant2](docs/Model/DocumentSourceVariant2.md)
-- [DocumentSourceWithUpload](docs/Model/DocumentSourceWithUpload.md)
-- [DocumentSourceWithUploadAndZip](docs/Model/DocumentSourceWithUploadAndZip.md)
-- [Envelope](docs/Model/Envelope.md)
+- [DocSourceAll](docs/Model/DocSourceAll.md)
+- [DocSourceStandard](docs/Model/DocSourceStandard.md)
+- [DocSourceZipFile](docs/Model/DocSourceZipFile.md)
+- [DocumentSource](docs/Model/DocumentSource.md)
 - [ExpirationDate](docs/Model/ExpirationDate.md)
-- [ExtractionSpec](docs/Model/ExtractionSpec.md)
-- [GooglePayPayment](docs/Model/GooglePayPayment.md)
 - [InvoiceDetails](docs/Model/InvoiceDetails.md)
 - [InvoicePayment](docs/Model/InvoicePayment.md)
 - [JobOptions](docs/Model/JobOptions.md)
-- [Layout](docs/Model/Layout.md)
 - [LongTokenRequest](docs/Model/LongTokenRequest.md)
 - [LongTokenResponse](docs/Model/LongTokenResponse.md)
-- [Mailclass](docs/Model/Mailclass.md)
-- [MergeMultiDocParams](docs/Model/MergeMultiDocParams.md)
-- [MergeMultiDocParamsRequest](docs/Model/MergeMultiDocParamsRequest.md)
-- [MergeMultiDocWithTemplateParams](docs/Model/MergeMultiDocWithTemplateParams.md)
-- [MergeMultiDocWithTemplateParamsRequest](docs/Model/MergeMultiDocWithTemplateParamsRequest.md)
-- [MultiPdfWithCaptureParams](docs/Model/MultiPdfWithCaptureParams.md)
-- [MultiPdfWithCaptureParamsRequest](docs/Model/MultiPdfWithCaptureParamsRequest.md)
-- [PageRange](docs/Model/PageRange.md)
-- [PaperType](docs/Model/PaperType.md)
+- [MergeByRequestId](docs/Model/MergeByRequestId.md)
+- [MergeDocumentRef](docs/Model/MergeDocumentRef.md)
+- [MultiDocJobItem](docs/Model/MultiDocJobItem.md)
+- [MultiZipJobItem](docs/Model/MultiZipJobItem.md)
 - [PaymentDetails](docs/Model/PaymentDetails.md)
-- [PrintOption](docs/Model/PrintOption.md)
-- [RecipientAddress](docs/Model/RecipientAddress.md)
+- [PdfSplitJobItemNoAddress](docs/Model/PdfSplitJobItemNoAddress.md)
+- [PdfSplitJobItemWithAddress](docs/Model/PdfSplitJobItemWithAddress.md)
 - [RecipientAddressSource](docs/Model/RecipientAddressSource.md)
 - [RecipientAddressSourceOneOf](docs/Model/RecipientAddressSourceOneOf.md)
-- [RecipientAddressSourceOneOf1](docs/Model/RecipientAddressSourceOneOf1.md)
+- [RecipientaddresssourceVariant1](docs/Model/RecipientaddresssourceVariant1.md)
+- [RecipientaddresssourceVariant2](docs/Model/RecipientaddresssourceVariant2.md)
+- [RequestIdSource](docs/Model/RequestIdSource.md)
+- [ReturnAddress](docs/Model/ReturnAddress.md)
 - [ShortTokenRequest](docs/Model/ShortTokenRequest.md)
 - [ShortTokenResponse](docs/Model/ShortTokenResponse.md)
-- [SingleDocJobParams](docs/Model/SingleDocJobParams.md)
-- [SingleDocJobParamsRequest](docs/Model/SingleDocJobParamsRequest.md)
-- [SplitPdfParams](docs/Model/SplitPdfParams.md)
-- [SplitPdfParamsRequest](docs/Model/SplitPdfParamsRequest.md)
-- [SplitPdfParamsRequestItemsInner](docs/Model/SplitPdfParamsRequestItemsInner.md)
-- [SplitPdfWithCaptureParams](docs/Model/SplitPdfWithCaptureParams.md)
-- [SplitPdfWithCaptureParamsRequest](docs/Model/SplitPdfWithCaptureParamsRequest.md)
 - [StandardResponse](docs/Model/StandardResponse.md)
+- [SubmitMultiDocMergeParams](docs/Model/SubmitMultiDocMergeParams.md)
 - [SubmitMultiDocParams](docs/Model/SubmitMultiDocParams.md)
-- [SubmitMultiDocParamsRequest](docs/Model/SubmitMultiDocParamsRequest.md)
-- [SubmitMultiDocWithTemplateParams](docs/Model/SubmitMultiDocWithTemplateParams.md)
-- [SubmitMultiDocWithTemplateParamsRequest](docs/Model/SubmitMultiDocWithTemplateParamsRequest.md)
-- [SubmitMultiDocWithTemplateParamsRequestItemsInner](docs/Model/SubmitMultiDocWithTemplateParamsRequestItemsInner.md)
-- [SubmitSingleDocWithTemplateParams](docs/Model/SubmitSingleDocWithTemplateParams.md)
-- [SubmitSingleDocWithTemplateParamsRequest](docs/Model/SubmitSingleDocWithTemplateParamsRequest.md)
-- [SubmitSingleDocWithTemplateParamsRequestOneOf](docs/Model/SubmitSingleDocWithTemplateParamsRequestOneOf.md)
-- [SubmitSingleDocWithTemplateParamsRequestOneOf1](docs/Model/SubmitSingleDocWithTemplateParamsRequestOneOf1.md)
-- [SubmitSingleDocWithTemplateParamsRequestOneOf2](docs/Model/SubmitSingleDocWithTemplateParamsRequestOneOf2.md)
+- [SubmitMultiZipAddressCaptureParams](docs/Model/SubmitMultiZipAddressCaptureParams.md)
+- [SubmitMultiZipParams](docs/Model/SubmitMultiZipParams.md)
+- [SubmitSingleDocParams](docs/Model/SubmitSingleDocParams.md)
+- [SubmitSinglePdfAddressCaptureParams](docs/Model/SubmitSinglePdfAddressCaptureParams.md)
+- [SubmitSinglePdfSplitAddressCaptureParams](docs/Model/SubmitSinglePdfSplitAddressCaptureParams.md)
+- [SubmitSinglePdfSplitParams](docs/Model/SubmitSinglePdfSplitParams.md)
 - [UserCreditPayment](docs/Model/UserCreditPayment.md)
+- [ZipDocumentIdSource](docs/Model/ZipDocumentIdSource.md)
+- [ZipDocumentSource](docs/Model/ZipDocumentSource.md)
+- [ZipRequestIdSource](docs/Model/ZipRequestIdSource.md)
 
 ## Authorization
 
@@ -170,11 +151,21 @@ Authentication schemes defined for the API:
 
 ### LongTokenAuth
 
-- **Type**: Bearer authentication (JWT)
+- **Type**: `OAuth`
+- **Flow**: `application`
+- **Authorization URL**: ``
+- **Scopes**: 
+    - **tokens:write**: Create new long-term tokens
+    - **tokens:revoke**: Revoke existing tokens
 
 ### ShortTokenAuth
 
-- **Type**: Bearer authentication (JWT)
+- **Type**: `OAuth`
+- **Flow**: `application`
+- **Authorization URL**: ``
+- **Scopes**: 
+    - **tokens:write**: Create new long-term tokens
+    - **tokens:revoke**: Revoke existing tokens
 
 ### ClientKey
 

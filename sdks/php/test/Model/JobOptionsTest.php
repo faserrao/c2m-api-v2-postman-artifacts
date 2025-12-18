@@ -98,9 +98,27 @@ class JobOptionsTest extends TestCase
     }
 
     /**
-     * Test attribute "mailclass"
+     * Test attribute "production_time"
      */
-    public function testPropertyMailclass()
+    public function testPropertyProductionTime()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "envelope"
+     */
+    public function testPropertyEnvelope()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "color"
+     */
+    public function testPropertyColor()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -125,9 +143,9 @@ class JobOptionsTest extends TestCase
     }
 
     /**
-     * Test attribute "envelope"
+     * Test attribute "mail_class"
      */
-    public function testPropertyEnvelope()
+    public function testPropertyMailClass()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -12,9 +12,7 @@ import AnyCodable
 
 public enum PaymentDetails: Codable, JSONEncodable, Hashable {
     case typeAchPayment(AchPayment)
-    case typeApplePayPayment(ApplePayPayment)
     case typeCreditCardPayment(CreditCardPayment)
-    case typeGooglePayPayment(GooglePayPayment)
     case typeInvoicePayment(InvoicePayment)
     case typeUserCreditPayment(UserCreditPayment)
 
@@ -23,11 +21,7 @@ public enum PaymentDetails: Codable, JSONEncodable, Hashable {
         switch self {
         case .typeAchPayment(let value):
             try container.encode(value)
-        case .typeApplePayPayment(let value):
-            try container.encode(value)
         case .typeCreditCardPayment(let value):
-            try container.encode(value)
-        case .typeGooglePayPayment(let value):
             try container.encode(value)
         case .typeInvoicePayment(let value):
             try container.encode(value)
@@ -40,12 +34,8 @@ public enum PaymentDetails: Codable, JSONEncodable, Hashable {
         let container = try decoder.singleValueContainer()
         if let value = try? container.decode(AchPayment.self) {
             self = .typeAchPayment(value)
-        } else if let value = try? container.decode(ApplePayPayment.self) {
-            self = .typeApplePayPayment(value)
         } else if let value = try? container.decode(CreditCardPayment.self) {
             self = .typeCreditCardPayment(value)
-        } else if let value = try? container.decode(GooglePayPayment.self) {
-            self = .typeGooglePayPayment(value)
         } else if let value = try? container.decode(InvoicePayment.self) {
             self = .typeInvoicePayment(value)
         } else if let value = try? container.decode(UserCreditPayment.self) {

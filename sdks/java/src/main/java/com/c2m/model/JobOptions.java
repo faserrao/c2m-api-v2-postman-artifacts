@@ -14,12 +14,6 @@
 package com.c2m.model;
 
 import java.util.Objects;
-import com.c2m.model.DocumentClass;
-import com.c2m.model.Envelope;
-import com.c2m.model.Layout;
-import com.c2m.model.Mailclass;
-import com.c2m.model.PaperType;
-import com.c2m.model.PrintOption;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -54,42 +48,52 @@ import com.c2m.JSON;
 /**
  * JobOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-05T02:45:53.394297139Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-18T14:18:40.161107459Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class JobOptions {
   public static final String SERIALIZED_NAME_DOCUMENT_CLASS = "documentClass";
   @SerializedName(SERIALIZED_NAME_DOCUMENT_CLASS)
   @javax.annotation.Nonnull
-  private DocumentClass documentClass;
+  private String documentClass;
 
   public static final String SERIALIZED_NAME_LAYOUT = "layout";
   @SerializedName(SERIALIZED_NAME_LAYOUT)
   @javax.annotation.Nonnull
-  private Layout layout;
+  private String layout;
 
-  public static final String SERIALIZED_NAME_MAILCLASS = "mailclass";
-  @SerializedName(SERIALIZED_NAME_MAILCLASS)
+  public static final String SERIALIZED_NAME_PRODUCTION_TIME = "productionTime";
+  @SerializedName(SERIALIZED_NAME_PRODUCTION_TIME)
   @javax.annotation.Nonnull
-  private Mailclass mailclass;
-
-  public static final String SERIALIZED_NAME_PAPER_TYPE = "paperType";
-  @SerializedName(SERIALIZED_NAME_PAPER_TYPE)
-  @javax.annotation.Nonnull
-  private PaperType paperType;
-
-  public static final String SERIALIZED_NAME_PRINT_OPTION = "printOption";
-  @SerializedName(SERIALIZED_NAME_PRINT_OPTION)
-  @javax.annotation.Nonnull
-  private PrintOption printOption;
+  private String productionTime;
 
   public static final String SERIALIZED_NAME_ENVELOPE = "envelope";
   @SerializedName(SERIALIZED_NAME_ENVELOPE)
   @javax.annotation.Nonnull
-  private Envelope envelope;
+  private String envelope;
+
+  public static final String SERIALIZED_NAME_COLOR = "color";
+  @SerializedName(SERIALIZED_NAME_COLOR)
+  @javax.annotation.Nonnull
+  private String color;
+
+  public static final String SERIALIZED_NAME_PAPER_TYPE = "paperType";
+  @SerializedName(SERIALIZED_NAME_PAPER_TYPE)
+  @javax.annotation.Nonnull
+  private String paperType;
+
+  public static final String SERIALIZED_NAME_PRINT_OPTION = "printOption";
+  @SerializedName(SERIALIZED_NAME_PRINT_OPTION)
+  @javax.annotation.Nonnull
+  private String printOption;
+
+  public static final String SERIALIZED_NAME_MAIL_CLASS = "mailClass";
+  @SerializedName(SERIALIZED_NAME_MAIL_CLASS)
+  @javax.annotation.Nonnull
+  private String mailClass;
 
   public JobOptions() {
   }
 
-  public JobOptions documentClass(@javax.annotation.Nonnull DocumentClass documentClass) {
+  public JobOptions documentClass(@javax.annotation.Nonnull String documentClass) {
     this.documentClass = documentClass;
     return this;
   }
@@ -99,16 +103,16 @@ public class JobOptions {
    * @return documentClass
    */
   @javax.annotation.Nonnull
-  public DocumentClass getDocumentClass() {
+  public String getDocumentClass() {
     return documentClass;
   }
 
-  public void setDocumentClass(@javax.annotation.Nonnull DocumentClass documentClass) {
+  public void setDocumentClass(@javax.annotation.Nonnull String documentClass) {
     this.documentClass = documentClass;
   }
 
 
-  public JobOptions layout(@javax.annotation.Nonnull Layout layout) {
+  public JobOptions layout(@javax.annotation.Nonnull String layout) {
     this.layout = layout;
     return this;
   }
@@ -118,73 +122,35 @@ public class JobOptions {
    * @return layout
    */
   @javax.annotation.Nonnull
-  public Layout getLayout() {
+  public String getLayout() {
     return layout;
   }
 
-  public void setLayout(@javax.annotation.Nonnull Layout layout) {
+  public void setLayout(@javax.annotation.Nonnull String layout) {
     this.layout = layout;
   }
 
 
-  public JobOptions mailclass(@javax.annotation.Nonnull Mailclass mailclass) {
-    this.mailclass = mailclass;
+  public JobOptions productionTime(@javax.annotation.Nonnull String productionTime) {
+    this.productionTime = productionTime;
     return this;
   }
 
   /**
-   * Get mailclass
-   * @return mailclass
+   * Get productionTime
+   * @return productionTime
    */
   @javax.annotation.Nonnull
-  public Mailclass getMailclass() {
-    return mailclass;
+  public String getProductionTime() {
+    return productionTime;
   }
 
-  public void setMailclass(@javax.annotation.Nonnull Mailclass mailclass) {
-    this.mailclass = mailclass;
-  }
-
-
-  public JobOptions paperType(@javax.annotation.Nonnull PaperType paperType) {
-    this.paperType = paperType;
-    return this;
-  }
-
-  /**
-   * Get paperType
-   * @return paperType
-   */
-  @javax.annotation.Nonnull
-  public PaperType getPaperType() {
-    return paperType;
-  }
-
-  public void setPaperType(@javax.annotation.Nonnull PaperType paperType) {
-    this.paperType = paperType;
+  public void setProductionTime(@javax.annotation.Nonnull String productionTime) {
+    this.productionTime = productionTime;
   }
 
 
-  public JobOptions printOption(@javax.annotation.Nonnull PrintOption printOption) {
-    this.printOption = printOption;
-    return this;
-  }
-
-  /**
-   * Get printOption
-   * @return printOption
-   */
-  @javax.annotation.Nonnull
-  public PrintOption getPrintOption() {
-    return printOption;
-  }
-
-  public void setPrintOption(@javax.annotation.Nonnull PrintOption printOption) {
-    this.printOption = printOption;
-  }
-
-
-  public JobOptions envelope(@javax.annotation.Nonnull Envelope envelope) {
+  public JobOptions envelope(@javax.annotation.Nonnull String envelope) {
     this.envelope = envelope;
     return this;
   }
@@ -194,12 +160,88 @@ public class JobOptions {
    * @return envelope
    */
   @javax.annotation.Nonnull
-  public Envelope getEnvelope() {
+  public String getEnvelope() {
     return envelope;
   }
 
-  public void setEnvelope(@javax.annotation.Nonnull Envelope envelope) {
+  public void setEnvelope(@javax.annotation.Nonnull String envelope) {
     this.envelope = envelope;
+  }
+
+
+  public JobOptions color(@javax.annotation.Nonnull String color) {
+    this.color = color;
+    return this;
+  }
+
+  /**
+   * Get color
+   * @return color
+   */
+  @javax.annotation.Nonnull
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(@javax.annotation.Nonnull String color) {
+    this.color = color;
+  }
+
+
+  public JobOptions paperType(@javax.annotation.Nonnull String paperType) {
+    this.paperType = paperType;
+    return this;
+  }
+
+  /**
+   * Get paperType
+   * @return paperType
+   */
+  @javax.annotation.Nonnull
+  public String getPaperType() {
+    return paperType;
+  }
+
+  public void setPaperType(@javax.annotation.Nonnull String paperType) {
+    this.paperType = paperType;
+  }
+
+
+  public JobOptions printOption(@javax.annotation.Nonnull String printOption) {
+    this.printOption = printOption;
+    return this;
+  }
+
+  /**
+   * Get printOption
+   * @return printOption
+   */
+  @javax.annotation.Nonnull
+  public String getPrintOption() {
+    return printOption;
+  }
+
+  public void setPrintOption(@javax.annotation.Nonnull String printOption) {
+    this.printOption = printOption;
+  }
+
+
+  public JobOptions mailClass(@javax.annotation.Nonnull String mailClass) {
+    this.mailClass = mailClass;
+    return this;
+  }
+
+  /**
+   * Get mailClass
+   * @return mailClass
+   */
+  @javax.annotation.Nonnull
+  public String getMailClass() {
+    return mailClass;
+  }
+
+  public void setMailClass(@javax.annotation.Nonnull String mailClass) {
+    this.mailClass = mailClass;
   }
 
 
@@ -215,15 +257,17 @@ public class JobOptions {
     JobOptions jobOptions = (JobOptions) o;
     return Objects.equals(this.documentClass, jobOptions.documentClass) &&
         Objects.equals(this.layout, jobOptions.layout) &&
-        Objects.equals(this.mailclass, jobOptions.mailclass) &&
+        Objects.equals(this.productionTime, jobOptions.productionTime) &&
+        Objects.equals(this.envelope, jobOptions.envelope) &&
+        Objects.equals(this.color, jobOptions.color) &&
         Objects.equals(this.paperType, jobOptions.paperType) &&
         Objects.equals(this.printOption, jobOptions.printOption) &&
-        Objects.equals(this.envelope, jobOptions.envelope);
+        Objects.equals(this.mailClass, jobOptions.mailClass);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentClass, layout, mailclass, paperType, printOption, envelope);
+    return Objects.hash(documentClass, layout, productionTime, envelope, color, paperType, printOption, mailClass);
   }
 
   @Override
@@ -232,10 +276,12 @@ public class JobOptions {
     sb.append("class JobOptions {\n");
     sb.append("    documentClass: ").append(toIndentedString(documentClass)).append("\n");
     sb.append("    layout: ").append(toIndentedString(layout)).append("\n");
-    sb.append("    mailclass: ").append(toIndentedString(mailclass)).append("\n");
+    sb.append("    productionTime: ").append(toIndentedString(productionTime)).append("\n");
+    sb.append("    envelope: ").append(toIndentedString(envelope)).append("\n");
+    sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    paperType: ").append(toIndentedString(paperType)).append("\n");
     sb.append("    printOption: ").append(toIndentedString(printOption)).append("\n");
-    sb.append("    envelope: ").append(toIndentedString(envelope)).append("\n");
+    sb.append("    mailClass: ").append(toIndentedString(mailClass)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -257,10 +303,10 @@ public class JobOptions {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("documentClass", "layout", "mailclass", "paperType", "printOption", "envelope"));
+    openapiFields = new HashSet<String>(Arrays.asList("documentClass", "layout", "productionTime", "envelope", "color", "paperType", "printOption", "mailClass"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("documentClass", "layout", "mailclass", "paperType", "printOption", "envelope"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("documentClass", "layout", "productionTime", "envelope", "color", "paperType", "printOption", "mailClass"));
   }
 
   /**
@@ -291,18 +337,30 @@ public class JobOptions {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `documentClass`
-      DocumentClass.validateJsonElement(jsonObj.get("documentClass"));
-      // validate the required field `layout`
-      Layout.validateJsonElement(jsonObj.get("layout"));
-      // validate the required field `mailclass`
-      Mailclass.validateJsonElement(jsonObj.get("mailclass"));
-      // validate the required field `paperType`
-      PaperType.validateJsonElement(jsonObj.get("paperType"));
-      // validate the required field `printOption`
-      PrintOption.validateJsonElement(jsonObj.get("printOption"));
-      // validate the required field `envelope`
-      Envelope.validateJsonElement(jsonObj.get("envelope"));
+      if (!jsonObj.get("documentClass").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `documentClass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentClass").toString()));
+      }
+      if (!jsonObj.get("layout").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `layout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("layout").toString()));
+      }
+      if (!jsonObj.get("productionTime").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `productionTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("productionTime").toString()));
+      }
+      if (!jsonObj.get("envelope").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `envelope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("envelope").toString()));
+      }
+      if (!jsonObj.get("color").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `color` to be a primitive type in the JSON string but got `%s`", jsonObj.get("color").toString()));
+      }
+      if (!jsonObj.get("paperType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `paperType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paperType").toString()));
+      }
+      if (!jsonObj.get("printOption").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `printOption` to be a primitive type in the JSON string but got `%s`", jsonObj.get("printOption").toString()));
+      }
+      if (!jsonObj.get("mailClass").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mailClass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailClass").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

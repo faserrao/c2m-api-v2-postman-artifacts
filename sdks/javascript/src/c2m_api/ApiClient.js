@@ -46,8 +46,8 @@ class ApiClient {
          */
         this.authentications = {
             'bearerAuth': {type: 'bearer'}, // JWT
-            'LongTokenAuth': {type: 'bearer'}, // JWT
-            'ShortTokenAuth': {type: 'bearer'}, // JWT
+            'LongTokenAuth': {type: 'oauth2'},
+            'ShortTokenAuth': {type: 'oauth2'},
             'ClientKey': {type: 'apiKey', 'in': 'header', name: 'X-Client-Id'}
         }
 

@@ -16,11 +16,9 @@ package com.c2m.model;
 import java.util.Objects;
 import com.c2m.model.AchDetails;
 import com.c2m.model.AchPayment;
-import com.c2m.model.ApplePayPayment;
 import com.c2m.model.CreditAmount;
 import com.c2m.model.CreditCardDetails;
 import com.c2m.model.CreditCardPayment;
-import com.c2m.model.GooglePayPayment;
 import com.c2m.model.InvoiceDetails;
 import com.c2m.model.InvoicePayment;
 import com.c2m.model.UserCreditPayment;
@@ -67,7 +65,7 @@ import com.google.gson.JsonParseException;
 
 import com.c2m.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-05T02:45:53.394297139Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-12-18T14:18:40.161107459Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class PaymentDetails extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PaymentDetails.class.getName());
 
@@ -83,8 +81,6 @@ public class PaymentDetails extends AbstractOpenApiSchema {
             final TypeAdapter<InvoicePayment> adapterInvoicePayment = gson.getDelegateAdapter(this, TypeToken.get(InvoicePayment.class));
             final TypeAdapter<AchPayment> adapterAchPayment = gson.getDelegateAdapter(this, TypeToken.get(AchPayment.class));
             final TypeAdapter<UserCreditPayment> adapterUserCreditPayment = gson.getDelegateAdapter(this, TypeToken.get(UserCreditPayment.class));
-            final TypeAdapter<ApplePayPayment> adapterApplePayPayment = gson.getDelegateAdapter(this, TypeToken.get(ApplePayPayment.class));
-            final TypeAdapter<GooglePayPayment> adapterGooglePayPayment = gson.getDelegateAdapter(this, TypeToken.get(GooglePayPayment.class));
 
             return (TypeAdapter<T>) new TypeAdapter<PaymentDetails>() {
                 @Override
@@ -118,19 +114,7 @@ public class PaymentDetails extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `ApplePayPayment`
-                    if (value.getActualInstance() instanceof ApplePayPayment) {
-                        JsonElement element = adapterApplePayPayment.toJsonTree((ApplePayPayment)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    // check if the actual instance is of the type `GooglePayPayment`
-                    if (value.getActualInstance() instanceof GooglePayPayment) {
-                        JsonElement element = adapterGooglePayPayment.toJsonTree((GooglePayPayment)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment");
                 }
 
                 @Override
@@ -190,30 +174,6 @@ public class PaymentDetails extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for UserCreditPayment failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'UserCreditPayment'", e);
                     }
-                    // deserialize ApplePayPayment
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        ApplePayPayment.validateJsonElement(jsonElement);
-                        actualAdapter = adapterApplePayPayment;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'ApplePayPayment'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for ApplePayPayment failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'ApplePayPayment'", e);
-                    }
-                    // deserialize GooglePayPayment
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        GooglePayPayment.validateJsonElement(jsonElement);
-                        actualAdapter = adapterGooglePayPayment;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'GooglePayPayment'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for GooglePayPayment failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'GooglePayPayment'", e);
-                    }
 
                     if (match == 1) {
                         PaymentDetails ret = new PaymentDetails();
@@ -244,8 +204,6 @@ public class PaymentDetails extends AbstractOpenApiSchema {
         schemas.put("InvoicePayment", InvoicePayment.class);
         schemas.put("AchPayment", AchPayment.class);
         schemas.put("UserCreditPayment", UserCreditPayment.class);
-        schemas.put("ApplePayPayment", ApplePayPayment.class);
-        schemas.put("GooglePayPayment", GooglePayPayment.class);
     }
 
     @Override
@@ -256,7 +214,7 @@ public class PaymentDetails extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment
+     * AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -282,24 +240,14 @@ public class PaymentDetails extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof ApplePayPayment) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        if (instance instanceof GooglePayPayment) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException("Invalid instance type. Must be AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment");
+        throw new RuntimeException("Invalid instance type. Must be AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment
+     * AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment
      *
-     * @return The actual instance (AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment)
+     * @return The actual instance (AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -352,28 +300,6 @@ public class PaymentDetails extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `ApplePayPayment`. If the actual instance is not `ApplePayPayment`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `ApplePayPayment`
-     * @throws ClassCastException if the instance is not `ApplePayPayment`
-     */
-    public ApplePayPayment getApplePayPayment() throws ClassCastException {
-        return (ApplePayPayment)super.getActualInstance();
-    }
-
-    /**
-     * Get the actual instance of `GooglePayPayment`. If the actual instance is not `GooglePayPayment`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `GooglePayPayment`
-     * @throws ClassCastException if the instance is not `GooglePayPayment`
-     */
-    public GooglePayPayment getGooglePayPayment() throws ClassCastException {
-        return (GooglePayPayment)super.getActualInstance();
-    }
-
-    /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
@@ -415,24 +341,8 @@ public class PaymentDetails extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for UserCreditPayment failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with ApplePayPayment
-        try {
-            ApplePayPayment.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for ApplePayPayment failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
-        // validate the json string with GooglePayPayment
-        try {
-            GooglePayPayment.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for GooglePayPayment failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for PaymentDetails with oneOf schemas: AchPayment, ApplePayPayment, CreditCardPayment, GooglePayPayment, InvoicePayment, UserCreditPayment. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format("The JSON string is invalid for PaymentDetails with oneOf schemas: AchPayment, CreditCardPayment, InvoicePayment, UserCreditPayment. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

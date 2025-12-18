@@ -11,30 +11,30 @@ import AnyCodable
 #endif
 
 public enum RecipientAddressSource: Codable, JSONEncodable, Hashable {
-    case typeRecipientAddress(RecipientAddress)
     case typeRecipientAddressSourceOneOf(RecipientAddressSourceOneOf)
-    case typeRecipientAddressSourceOneOf1(RecipientAddressSourceOneOf1)
+    case typeRecipientaddresssourceVariant1(RecipientaddresssourceVariant1)
+    case typeRecipientaddresssourceVariant2(RecipientaddresssourceVariant2)
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
-        case .typeRecipientAddress(let value):
-            try container.encode(value)
         case .typeRecipientAddressSourceOneOf(let value):
             try container.encode(value)
-        case .typeRecipientAddressSourceOneOf1(let value):
+        case .typeRecipientaddresssourceVariant1(let value):
+            try container.encode(value)
+        case .typeRecipientaddresssourceVariant2(let value):
             try container.encode(value)
         }
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        if let value = try? container.decode(RecipientAddress.self) {
-            self = .typeRecipientAddress(value)
-        } else if let value = try? container.decode(RecipientAddressSourceOneOf.self) {
+        if let value = try? container.decode(RecipientAddressSourceOneOf.self) {
             self = .typeRecipientAddressSourceOneOf(value)
-        } else if let value = try? container.decode(RecipientAddressSourceOneOf1.self) {
-            self = .typeRecipientAddressSourceOneOf1(value)
+        } else if let value = try? container.decode(RecipientaddresssourceVariant1.self) {
+            self = .typeRecipientaddresssourceVariant1(value)
+        } else if let value = try? container.decode(RecipientaddresssourceVariant2.self) {
+            self = .typeRecipientaddresssourceVariant2(value)
         } else {
             throw DecodingError.typeMismatch(Self.Type.self, .init(codingPath: decoder.codingPath, debugDescription: "Unable to decode instance of RecipientAddressSource"))
         }

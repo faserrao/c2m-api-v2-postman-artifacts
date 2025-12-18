@@ -5,19 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**first_name** | **str** |  | 
-**last_name** | **str** |  | 
-**address1** | **str** |  | 
-**city** | **str** |  | 
-**state** | **str** |  | 
-**zip** | **str** |  | 
-**country** | **str** |  | 
-**nick_name** | **str** |  | [optional] 
-**address2** | **str** |  | [optional] 
-**address3** | **str** |  | [optional] 
-**phone_number** | **str** |  | [optional] 
+**mapping_id** | **int** |  | [optional] 
+**single_address** | [**Address**](Address.md) |  | 
+**address_name** | **str** |  | [optional] 
+**address_list** | [**List[Address]**](Address.md) |  | 
+**address_list_name** | **str** |  | [optional] 
 **address_list_id** | **int** |  | 
-**address_id** | **int** |  | 
 
 ## Example
 

@@ -3,7 +3,7 @@
 if __import__("typing").TYPE_CHECKING:
     # import apis into api package
     from c2m_api.api.auth_api import AuthApi
-    from c2m_api.api.default_api import DefaultApi
+    from c2m_api.api.jobs_api import JobsApi
     
 else:
     from lazy_imports import LazyModule, as_package, load
@@ -13,7 +13,7 @@ else:
             *as_package(__file__),
             """# import apis into api package
 from c2m_api.api.auth_api import AuthApi
-from c2m_api.api.default_api import DefaultApi
+from c2m_api.api.jobs_api import JobsApi
 
 """,
             name=__name__,

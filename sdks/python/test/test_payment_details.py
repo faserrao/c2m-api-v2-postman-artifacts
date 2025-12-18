@@ -39,7 +39,7 @@ class TestPaymentDetails(unittest.TestCase):
                     card_type = 'visa', 
                     card_number = '', 
                     expiration_date = c2m_api.models.expiration_date.expirationDate(
-                        month = 1, 
+                        month = 56, 
                         year = 56, ), 
                     cvv = 56, ),
                 invoice_details = c2m_api.models.invoice_details.invoiceDetails(
@@ -51,9 +51,7 @@ class TestPaymentDetails(unittest.TestCase):
                     check_digit = 56, ),
                 credit_amount = c2m_api.models.credit_amount.creditAmount(
                     amount = 1.337, 
-                    currency = 'USD', ),
-                apple_payment_details = c2m_api.models.apple_payment_details.applePaymentDetails(),
-                google_payment_details = c2m_api.models.google_payment_details.googlePaymentDetails()
+                    currency = 'USD', )
             )
         else:
             return PaymentDetails(
@@ -61,7 +59,7 @@ class TestPaymentDetails(unittest.TestCase):
                     card_type = 'visa', 
                     card_number = '', 
                     expiration_date = c2m_api.models.expiration_date.expirationDate(
-                        month = 1, 
+                        month = 56, 
                         year = 56, ), 
                     cvv = 56, ),
                 invoice_details = c2m_api.models.invoice_details.invoiceDetails(
@@ -74,8 +72,6 @@ class TestPaymentDetails(unittest.TestCase):
                 credit_amount = c2m_api.models.credit_amount.creditAmount(
                     amount = 1.337, 
                     currency = 'USD', ),
-                apple_payment_details = c2m_api.models.apple_payment_details.applePaymentDetails(),
-                google_payment_details = c2m_api.models.google_payment_details.googlePaymentDetails(),
         )
         """
 

@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import Currency from './Currency';
 
 /**
  * The CreditAmount model module.
@@ -24,7 +23,7 @@ class CreditAmount {
      * Constructs a new <code>CreditAmount</code>.
      * @alias module:c2m_api/model/CreditAmount
      * @param amount {Number} 
-     * @param currency {module:c2m_api/model/Currency} 
+     * @param currency {module:c2m_api/model/CreditAmount.CurrencyEnum} 
      */
     constructor(amount, currency) { 
         
@@ -56,7 +55,7 @@ class CreditAmount {
                 obj['amount'] = ApiClient.convertToType(data['amount'], 'Number');
             }
             if (data.hasOwnProperty('currency')) {
-                obj['currency'] = Currency.constructFromObject(data['currency']);
+                obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
             }
         }
         return obj;
@@ -74,6 +73,10 @@ class CreditAmount {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // ensure the json data is a string
+        if (data['currency'] && !(typeof data['currency'] === 'string' || data['currency'] instanceof String)) {
+            throw new Error("Expected the field `currency` to be a primitive type in the JSON string but got " + data['currency']);
+        }
 
         return true;
     }
@@ -89,12 +92,51 @@ CreditAmount.RequiredProperties = ["amount", "currency"];
 CreditAmount.prototype['amount'] = undefined;
 
 /**
- * @member {module:c2m_api/model/Currency} currency
+ * @member {module:c2m_api/model/CreditAmount.CurrencyEnum} currency
  */
 CreditAmount.prototype['currency'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>currency</code> property.
+ * @enum {String}
+ * @readonly
+ */
+CreditAmount['CurrencyEnum'] = {
+
+    /**
+     * value: "USD"
+     * @const
+     */
+    "USD": "USD",
+
+    /**
+     * value: "EUR"
+     * @const
+     */
+    "EUR": "EUR",
+
+    /**
+     * value: "GBP"
+     * @const
+     */
+    "GBP": "GBP",
+
+    /**
+     * value: "CAD"
+     * @const
+     */
+    "CAD": "CAD",
+
+    /**
+     * value: "AUD"
+     * @const
+     */
+    "AUD": "AUD"
+};
 
 
 

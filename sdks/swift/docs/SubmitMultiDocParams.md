@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [SubmitMultiDocWithTemplateParamsRequestItemsInner] |  | 
-**jobOptions** | [**JobOptions**](JobOptions.md) |  | 
-**paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | 
+**jobTemplate** | **String** |  | [optional] 
+**multiDocJobs** | [MultiDocJobItem] |  | 
+**paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **tags** | **[String]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

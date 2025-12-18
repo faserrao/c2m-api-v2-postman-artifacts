@@ -21,7 +21,7 @@ var _ MappedNullable = &CreditCardDetails{}
 
 // CreditCardDetails struct for CreditCardDetails
 type CreditCardDetails struct {
-	CardType CardType `json:"cardType"`
+	CardType string `json:"cardType"`
 	CardNumber string `json:"cardNumber"`
 	ExpirationDate ExpirationDate `json:"expirationDate"`
 	Cvv int32 `json:"cvv"`
@@ -33,7 +33,7 @@ type _CreditCardDetails CreditCardDetails
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreditCardDetails(cardType CardType, cardNumber string, expirationDate ExpirationDate, cvv int32) *CreditCardDetails {
+func NewCreditCardDetails(cardType string, cardNumber string, expirationDate ExpirationDate, cvv int32) *CreditCardDetails {
 	this := CreditCardDetails{}
 	this.CardType = cardType
 	this.CardNumber = cardNumber
@@ -51,9 +51,9 @@ func NewCreditCardDetailsWithDefaults() *CreditCardDetails {
 }
 
 // GetCardType returns the CardType field value
-func (o *CreditCardDetails) GetCardType() CardType {
+func (o *CreditCardDetails) GetCardType() string {
 	if o == nil {
-		var ret CardType
+		var ret string
 		return ret
 	}
 
@@ -62,7 +62,7 @@ func (o *CreditCardDetails) GetCardType() CardType {
 
 // GetCardTypeOk returns a tuple with the CardType field value
 // and a boolean to check if the value has been set.
-func (o *CreditCardDetails) GetCardTypeOk() (*CardType, bool) {
+func (o *CreditCardDetails) GetCardTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -70,7 +70,7 @@ func (o *CreditCardDetails) GetCardTypeOk() (*CardType, bool) {
 }
 
 // SetCardType sets field value
-func (o *CreditCardDetails) SetCardType(v CardType) {
+func (o *CreditCardDetails) SetCardType(v string) {
 	o.CardType = v
 }
 

@@ -19,9 +19,7 @@ import (
 // PaymentDetails - struct for PaymentDetails
 type PaymentDetails struct {
 	AchPayment *AchPayment
-	ApplePayPayment *ApplePayPayment
 	CreditCardPayment *CreditCardPayment
-	GooglePayPayment *GooglePayPayment
 	InvoicePayment *InvoicePayment
 	UserCreditPayment *UserCreditPayment
 }
@@ -33,24 +31,10 @@ func AchPaymentAsPaymentDetails(v *AchPayment) PaymentDetails {
 	}
 }
 
-// ApplePayPaymentAsPaymentDetails is a convenience function that returns ApplePayPayment wrapped in PaymentDetails
-func ApplePayPaymentAsPaymentDetails(v *ApplePayPayment) PaymentDetails {
-	return PaymentDetails{
-		ApplePayPayment: v,
-	}
-}
-
 // CreditCardPaymentAsPaymentDetails is a convenience function that returns CreditCardPayment wrapped in PaymentDetails
 func CreditCardPaymentAsPaymentDetails(v *CreditCardPayment) PaymentDetails {
 	return PaymentDetails{
 		CreditCardPayment: v,
-	}
-}
-
-// GooglePayPaymentAsPaymentDetails is a convenience function that returns GooglePayPayment wrapped in PaymentDetails
-func GooglePayPaymentAsPaymentDetails(v *GooglePayPayment) PaymentDetails {
-	return PaymentDetails{
-		GooglePayPayment: v,
 	}
 }
 
@@ -90,23 +74,6 @@ func (dst *PaymentDetails) UnmarshalJSON(data []byte) error {
 		dst.AchPayment = nil
 	}
 
-	// try to unmarshal data into ApplePayPayment
-	err = newStrictDecoder(data).Decode(&dst.ApplePayPayment)
-	if err == nil {
-		jsonApplePayPayment, _ := json.Marshal(dst.ApplePayPayment)
-		if string(jsonApplePayPayment) == "{}" { // empty struct
-			dst.ApplePayPayment = nil
-		} else {
-			if err = validator.Validate(dst.ApplePayPayment); err != nil {
-				dst.ApplePayPayment = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.ApplePayPayment = nil
-	}
-
 	// try to unmarshal data into CreditCardPayment
 	err = newStrictDecoder(data).Decode(&dst.CreditCardPayment)
 	if err == nil {
@@ -122,23 +89,6 @@ func (dst *PaymentDetails) UnmarshalJSON(data []byte) error {
 		}
 	} else {
 		dst.CreditCardPayment = nil
-	}
-
-	// try to unmarshal data into GooglePayPayment
-	err = newStrictDecoder(data).Decode(&dst.GooglePayPayment)
-	if err == nil {
-		jsonGooglePayPayment, _ := json.Marshal(dst.GooglePayPayment)
-		if string(jsonGooglePayPayment) == "{}" { // empty struct
-			dst.GooglePayPayment = nil
-		} else {
-			if err = validator.Validate(dst.GooglePayPayment); err != nil {
-				dst.GooglePayPayment = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.GooglePayPayment = nil
 	}
 
 	// try to unmarshal data into InvoicePayment
@@ -178,9 +128,7 @@ func (dst *PaymentDetails) UnmarshalJSON(data []byte) error {
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.AchPayment = nil
-		dst.ApplePayPayment = nil
 		dst.CreditCardPayment = nil
-		dst.GooglePayPayment = nil
 		dst.InvoicePayment = nil
 		dst.UserCreditPayment = nil
 
@@ -198,16 +146,8 @@ func (src PaymentDetails) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.AchPayment)
 	}
 
-	if src.ApplePayPayment != nil {
-		return json.Marshal(&src.ApplePayPayment)
-	}
-
 	if src.CreditCardPayment != nil {
 		return json.Marshal(&src.CreditCardPayment)
-	}
-
-	if src.GooglePayPayment != nil {
-		return json.Marshal(&src.GooglePayPayment)
 	}
 
 	if src.InvoicePayment != nil {
@@ -230,16 +170,8 @@ func (obj *PaymentDetails) GetActualInstance() (interface{}) {
 		return obj.AchPayment
 	}
 
-	if obj.ApplePayPayment != nil {
-		return obj.ApplePayPayment
-	}
-
 	if obj.CreditCardPayment != nil {
 		return obj.CreditCardPayment
-	}
-
-	if obj.GooglePayPayment != nil {
-		return obj.GooglePayPayment
 	}
 
 	if obj.InvoicePayment != nil {
@@ -260,16 +192,8 @@ func (obj PaymentDetails) GetActualInstanceValue() (interface{}) {
 		return *obj.AchPayment
 	}
 
-	if obj.ApplePayPayment != nil {
-		return *obj.ApplePayPayment
-	}
-
 	if obj.CreditCardPayment != nil {
 		return *obj.CreditCardPayment
-	}
-
-	if obj.GooglePayPayment != nil {
-		return *obj.GooglePayPayment
 	}
 
 	if obj.InvoicePayment != nil {

@@ -33,11 +33,11 @@ namespace C2M.Api.Test.Api
                 BearerToken bearerToken1 = new("<token>", timeout: TimeSpan.FromSeconds(1));
                 options.AddTokens(bearerToken1);
 
-                BearerToken bearerToken2 = new("<token>", timeout: TimeSpan.FromSeconds(1));
-                options.AddTokens(bearerToken2);
+                OAuthToken oauthToken1 = new("token", timeout: TimeSpan.FromSeconds(1));
+                options.AddTokens(oauthToken1);
 
-                BearerToken bearerToken3 = new("<token>", timeout: TimeSpan.FromSeconds(1));
-                options.AddTokens(bearerToken3);
+                OAuthToken oauthToken2 = new("token", timeout: TimeSpan.FromSeconds(1));
+                options.AddTokens(oauthToken2);
             })
             .Build();
 
@@ -50,11 +50,11 @@ namespace C2M.Api.Test.Api
                 BearerToken bearerToken1 = new("<token>", timeout: TimeSpan.FromSeconds(1));
                 options.AddTokens(bearerToken1);
 
-                BearerToken bearerToken2 = new("<token>", timeout: TimeSpan.FromSeconds(1));
-                options.AddTokens(bearerToken2);
+                OAuthToken oauthToken = new("token", timeout: TimeSpan.FromSeconds(1));
+                options.AddTokens(oauthToken);
 
-                BearerToken bearerToken3 = new("<token>", timeout: TimeSpan.FromSeconds(1));
-                options.AddTokens(bearerToken3);
+                OAuthToken oauthToken = new("token", timeout: TimeSpan.FromSeconds(1));
+                options.AddTokens(oauthToken);
                 options.AddApiHttpClients(client => client.BaseAddress = new Uri(ClientUtils.BASE_ADDRESS));
             })
             .Build();
@@ -70,11 +70,11 @@ namespace C2M.Api.Test.Api
                     BearerToken bearerToken1 = new("<token>", timeout: TimeSpan.FromSeconds(1));
                     options.AddTokens(bearerToken1);
 
-                    BearerToken bearerToken2 = new("<token>", timeout: TimeSpan.FromSeconds(1));
-                    options.AddTokens(bearerToken2);
+                    OAuthToken oauthToken1 = new("token", timeout: TimeSpan.FromSeconds(1));
+                    options.AddTokens(oauthToken1);
 
-                    BearerToken bearerToken3 = new("<token>", timeout: TimeSpan.FromSeconds(1));
-                    options.AddTokens(bearerToken3);
+                    OAuthToken oauthToken2 = new("token", timeout: TimeSpan.FromSeconds(1));
+                    options.AddTokens(oauthToken2);
                 });
             })
             .Build();
@@ -90,11 +90,11 @@ namespace C2M.Api.Test.Api
                     BearerToken bearerToken1 = new("<token>", timeout: TimeSpan.FromSeconds(1));
                     options.AddTokens(bearerToken1);
 
-                    BearerToken bearerToken2 = new("<token>", timeout: TimeSpan.FromSeconds(1));
-                    options.AddTokens(bearerToken2);
+                    OAuthToken oauthToken1 = new("token", timeout: TimeSpan.FromSeconds(1));
+                    options.AddTokens(oauthToken1);
 
-                    BearerToken bearerToken3 = new("<token>", timeout: TimeSpan.FromSeconds(1));
-                    options.AddTokens(bearerToken3);
+                    OAuthToken oauthToken2 = new("token", timeout: TimeSpan.FromSeconds(1));
+                    options.AddTokens(oauthToken2);
                     options.AddApiHttpClients(client => client.BaseAddress = new Uri(ClientUtils.BASE_ADDRESS));
                 });
             })
@@ -109,8 +109,8 @@ namespace C2M.Api.Test.Api
             var authApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IAuthApi>();
             Assert.True(authApi.HttpClient.BaseAddress != null);
 
-            var defaultApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IDefaultApi>();
-            Assert.True(defaultApi.HttpClient.BaseAddress != null);
+            var jobsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IJobsApi>();
+            Assert.True(jobsApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -122,8 +122,8 @@ namespace C2M.Api.Test.Api
             var authApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IAuthApi>();
             Assert.True(authApi.HttpClient.BaseAddress != null);
 
-            var defaultApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IDefaultApi>();
-            Assert.True(defaultApi.HttpClient.BaseAddress != null);
+            var jobsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IJobsApi>();
+            Assert.True(jobsApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -135,8 +135,8 @@ namespace C2M.Api.Test.Api
             var authApi = _hostUsingAddWithAClient.Services.GetRequiredService<IAuthApi>();
             Assert.True(authApi.HttpClient.BaseAddress != null);
             
-            var defaultApi = _hostUsingAddWithAClient.Services.GetRequiredService<IDefaultApi>();
-            Assert.True(defaultApi.HttpClient.BaseAddress != null);
+            var jobsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IJobsApi>();
+            Assert.True(jobsApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -148,8 +148,8 @@ namespace C2M.Api.Test.Api
             var authApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IAuthApi>();
             Assert.True(authApi.HttpClient.BaseAddress != null);
 
-            var defaultApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IDefaultApi>();
-            Assert.True(defaultApi.HttpClient.BaseAddress != null);
+            var jobsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IJobsApi>();
+            Assert.True(jobsApi.HttpClient.BaseAddress != null);
         }
     }
 }

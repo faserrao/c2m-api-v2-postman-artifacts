@@ -18,16 +18,9 @@ import (
 
 // RecipientAddressSource - struct for RecipientAddressSource
 type RecipientAddressSource struct {
-	RecipientAddress *RecipientAddress
 	RecipientAddressSourceOneOf *RecipientAddressSourceOneOf
-	RecipientAddressSourceOneOf1 *RecipientAddressSourceOneOf1
-}
-
-// RecipientAddressAsRecipientAddressSource is a convenience function that returns RecipientAddress wrapped in RecipientAddressSource
-func RecipientAddressAsRecipientAddressSource(v *RecipientAddress) RecipientAddressSource {
-	return RecipientAddressSource{
-		RecipientAddress: v,
-	}
+	RecipientaddresssourceVariant1 *RecipientaddresssourceVariant1
+	RecipientaddresssourceVariant2 *RecipientaddresssourceVariant2
 }
 
 // RecipientAddressSourceOneOfAsRecipientAddressSource is a convenience function that returns RecipientAddressSourceOneOf wrapped in RecipientAddressSource
@@ -37,10 +30,17 @@ func RecipientAddressSourceOneOfAsRecipientAddressSource(v *RecipientAddressSour
 	}
 }
 
-// RecipientAddressSourceOneOf1AsRecipientAddressSource is a convenience function that returns RecipientAddressSourceOneOf1 wrapped in RecipientAddressSource
-func RecipientAddressSourceOneOf1AsRecipientAddressSource(v *RecipientAddressSourceOneOf1) RecipientAddressSource {
+// RecipientaddresssourceVariant1AsRecipientAddressSource is a convenience function that returns RecipientaddresssourceVariant1 wrapped in RecipientAddressSource
+func RecipientaddresssourceVariant1AsRecipientAddressSource(v *RecipientaddresssourceVariant1) RecipientAddressSource {
 	return RecipientAddressSource{
-		RecipientAddressSourceOneOf1: v,
+		RecipientaddresssourceVariant1: v,
+	}
+}
+
+// RecipientaddresssourceVariant2AsRecipientAddressSource is a convenience function that returns RecipientaddresssourceVariant2 wrapped in RecipientAddressSource
+func RecipientaddresssourceVariant2AsRecipientAddressSource(v *RecipientaddresssourceVariant2) RecipientAddressSource {
+	return RecipientAddressSource{
+		RecipientaddresssourceVariant2: v,
 	}
 }
 
@@ -49,23 +49,6 @@ func RecipientAddressSourceOneOf1AsRecipientAddressSource(v *RecipientAddressSou
 func (dst *RecipientAddressSource) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into RecipientAddress
-	err = newStrictDecoder(data).Decode(&dst.RecipientAddress)
-	if err == nil {
-		jsonRecipientAddress, _ := json.Marshal(dst.RecipientAddress)
-		if string(jsonRecipientAddress) == "{}" { // empty struct
-			dst.RecipientAddress = nil
-		} else {
-			if err = validator.Validate(dst.RecipientAddress); err != nil {
-				dst.RecipientAddress = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.RecipientAddress = nil
-	}
-
 	// try to unmarshal data into RecipientAddressSourceOneOf
 	err = newStrictDecoder(data).Decode(&dst.RecipientAddressSourceOneOf)
 	if err == nil {
@@ -83,28 +66,45 @@ func (dst *RecipientAddressSource) UnmarshalJSON(data []byte) error {
 		dst.RecipientAddressSourceOneOf = nil
 	}
 
-	// try to unmarshal data into RecipientAddressSourceOneOf1
-	err = newStrictDecoder(data).Decode(&dst.RecipientAddressSourceOneOf1)
+	// try to unmarshal data into RecipientaddresssourceVariant1
+	err = newStrictDecoder(data).Decode(&dst.RecipientaddresssourceVariant1)
 	if err == nil {
-		jsonRecipientAddressSourceOneOf1, _ := json.Marshal(dst.RecipientAddressSourceOneOf1)
-		if string(jsonRecipientAddressSourceOneOf1) == "{}" { // empty struct
-			dst.RecipientAddressSourceOneOf1 = nil
+		jsonRecipientaddresssourceVariant1, _ := json.Marshal(dst.RecipientaddresssourceVariant1)
+		if string(jsonRecipientaddresssourceVariant1) == "{}" { // empty struct
+			dst.RecipientaddresssourceVariant1 = nil
 		} else {
-			if err = validator.Validate(dst.RecipientAddressSourceOneOf1); err != nil {
-				dst.RecipientAddressSourceOneOf1 = nil
+			if err = validator.Validate(dst.RecipientaddresssourceVariant1); err != nil {
+				dst.RecipientaddresssourceVariant1 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.RecipientAddressSourceOneOf1 = nil
+		dst.RecipientaddresssourceVariant1 = nil
+	}
+
+	// try to unmarshal data into RecipientaddresssourceVariant2
+	err = newStrictDecoder(data).Decode(&dst.RecipientaddresssourceVariant2)
+	if err == nil {
+		jsonRecipientaddresssourceVariant2, _ := json.Marshal(dst.RecipientaddresssourceVariant2)
+		if string(jsonRecipientaddresssourceVariant2) == "{}" { // empty struct
+			dst.RecipientaddresssourceVariant2 = nil
+		} else {
+			if err = validator.Validate(dst.RecipientaddresssourceVariant2); err != nil {
+				dst.RecipientaddresssourceVariant2 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.RecipientaddresssourceVariant2 = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.RecipientAddress = nil
 		dst.RecipientAddressSourceOneOf = nil
-		dst.RecipientAddressSourceOneOf1 = nil
+		dst.RecipientaddresssourceVariant1 = nil
+		dst.RecipientaddresssourceVariant2 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(RecipientAddressSource)")
 	} else if match == 1 {
@@ -116,16 +116,16 @@ func (dst *RecipientAddressSource) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src RecipientAddressSource) MarshalJSON() ([]byte, error) {
-	if src.RecipientAddress != nil {
-		return json.Marshal(&src.RecipientAddress)
-	}
-
 	if src.RecipientAddressSourceOneOf != nil {
 		return json.Marshal(&src.RecipientAddressSourceOneOf)
 	}
 
-	if src.RecipientAddressSourceOneOf1 != nil {
-		return json.Marshal(&src.RecipientAddressSourceOneOf1)
+	if src.RecipientaddresssourceVariant1 != nil {
+		return json.Marshal(&src.RecipientaddresssourceVariant1)
+	}
+
+	if src.RecipientaddresssourceVariant2 != nil {
+		return json.Marshal(&src.RecipientaddresssourceVariant2)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -136,16 +136,16 @@ func (obj *RecipientAddressSource) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.RecipientAddress != nil {
-		return obj.RecipientAddress
-	}
-
 	if obj.RecipientAddressSourceOneOf != nil {
 		return obj.RecipientAddressSourceOneOf
 	}
 
-	if obj.RecipientAddressSourceOneOf1 != nil {
-		return obj.RecipientAddressSourceOneOf1
+	if obj.RecipientaddresssourceVariant1 != nil {
+		return obj.RecipientaddresssourceVariant1
+	}
+
+	if obj.RecipientaddresssourceVariant2 != nil {
+		return obj.RecipientaddresssourceVariant2
 	}
 
 	// all schemas are nil
@@ -154,16 +154,16 @@ func (obj *RecipientAddressSource) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj RecipientAddressSource) GetActualInstanceValue() (interface{}) {
-	if obj.RecipientAddress != nil {
-		return *obj.RecipientAddress
-	}
-
 	if obj.RecipientAddressSourceOneOf != nil {
 		return *obj.RecipientAddressSourceOneOf
 	}
 
-	if obj.RecipientAddressSourceOneOf1 != nil {
-		return *obj.RecipientAddressSourceOneOf1
+	if obj.RecipientaddresssourceVariant1 != nil {
+		return *obj.RecipientaddresssourceVariant1
+	}
+
+	if obj.RecipientaddresssourceVariant2 != nil {
+		return *obj.RecipientaddresssourceVariant2
 	}
 
 	// all schemas are nil

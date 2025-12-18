@@ -4,12 +4,14 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **document_class** | [**DocumentClass**](DocumentClass.md) |  |  |
-| **layout** | [**Layout**](Layout.md) |  |  |
-| **mailclass** | [**Mailclass**](Mailclass.md) |  |  |
-| **paper_type** | [**PaperType**](PaperType.md) |  |  |
-| **print_option** | [**PrintOption**](PrintOption.md) |  |  |
-| **envelope** | [**Envelope**](Envelope.md) |  |  |
+| **document_class** | **String** |  |  |
+| **layout** | **String** |  |  |
+| **production_time** | **String** |  |  |
+| **envelope** | **String** |  |  |
+| **color** | **String** |  |  |
+| **paper_type** | **String** |  |  |
+| **print_option** | **String** |  |  |
+| **mail_class** | **String** |  |  |
 
 ## Example
 
@@ -19,10 +21,12 @@ require 'openapi_client'
 instance = OpenapiClient::JobOptions.new(
   document_class: null,
   layout: null,
-  mailclass: null,
+  production_time: null,
+  envelope: null,
+  color: null,
   paper_type: null,
   print_option: null,
-  envelope: null
+  mail_class: null
 )
 ```
 

@@ -20,9 +20,7 @@ module OpenapiClient
       def openapi_one_of
         [
           :'AchPayment',
-          :'ApplePayPayment',
           :'CreditCardPayment',
-          :'GooglePayPayment',
           :'InvoicePayment',
           :'UserCreditPayment'
         ]

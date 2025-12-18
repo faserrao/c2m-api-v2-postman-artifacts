@@ -19,7 +19,6 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.CreditCardDetails
-import com.c2m.api.models.CardType
 import com.c2m.api.models.ExpirationDate
 
 class CreditCardDetailsTest : ShouldSpec() {

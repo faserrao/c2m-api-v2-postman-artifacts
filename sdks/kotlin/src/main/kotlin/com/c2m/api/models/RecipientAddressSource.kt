@@ -15,9 +15,10 @@
 
 package com.c2m.api.models
 
-import com.c2m.api.models.RecipientAddress
+import com.c2m.api.models.Address
 import com.c2m.api.models.RecipientAddressSourceOneOf
-import com.c2m.api.models.RecipientAddressSourceOneOf1
+import com.c2m.api.models.RecipientaddresssourceVariant1
+import com.c2m.api.models.RecipientaddresssourceVariant2
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -25,62 +26,34 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param firstName 
- * @param lastName 
- * @param address1 
- * @param city 
- * @param state 
- * @param zip 
- * @param country 
+ * @param singleAddress 
+ * @param addressList 
  * @param addressListId 
- * @param addressId 
- * @param nickName 
- * @param address2 
- * @param address3 
- * @param phoneNumber 
+ * @param mappingId 
+ * @param addressName 
+ * @param addressListName 
  */
 
 
 data class RecipientAddressSource (
 
-    @Json(name = "firstName")
-    val firstName: kotlin.String,
+    @Json(name = "singleAddress")
+    val singleAddress: Address,
 
-    @Json(name = "lastName")
-    val lastName: kotlin.String,
-
-    @Json(name = "address1")
-    val address1: kotlin.String,
-
-    @Json(name = "city")
-    val city: kotlin.String,
-
-    @Json(name = "state")
-    val state: kotlin.String,
-
-    @Json(name = "zip")
-    val zip: kotlin.String,
-
-    @Json(name = "country")
-    val country: kotlin.String,
+    @Json(name = "addressList")
+    val addressList: kotlin.collections.List<Address>,
 
     @Json(name = "addressListId")
     val addressListId: kotlin.Int,
 
-    @Json(name = "addressId")
-    val addressId: kotlin.Int,
+    @Json(name = "mappingId")
+    val mappingId: kotlin.Int? = null,
 
-    @Json(name = "nickName")
-    val nickName: kotlin.String? = null,
+    @Json(name = "addressName")
+    val addressName: kotlin.String? = null,
 
-    @Json(name = "address2")
-    val address2: kotlin.String? = null,
-
-    @Json(name = "address3")
-    val address3: kotlin.String? = null,
-
-    @Json(name = "phoneNumber")
-    val phoneNumber: kotlin.String? = null
+    @Json(name = "addressListName")
+    val addressListName: kotlin.String? = null
 
 ) {
 

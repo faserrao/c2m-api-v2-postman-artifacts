@@ -7,12 +7,14 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**documentClass** | **DocumentClass** |  |  |
-|**layout** | **Layout** |  |  |
-|**mailclass** | **Mailclass** |  |  |
-|**paperType** | **PaperType** |  |  |
-|**printOption** | **PrintOption** |  |  |
-|**envelope** | **Envelope** |  |  |
+|**documentClass** | **String** |  |  |
+|**layout** | **String** |  |  |
+|**productionTime** | **String** |  |  |
+|**envelope** | **String** |  |  |
+|**color** | **String** |  |  |
+|**paperType** | **String** |  |  |
+|**printOption** | **String** |  |  |
+|**mailClass** | **String** |  |  |
 
 
 

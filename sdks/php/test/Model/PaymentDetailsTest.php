@@ -114,22 +114,4 @@ class PaymentDetailsTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "apple_payment_details"
-     */
-    public function testPropertyApplePaymentDetails()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "google_payment_details"
-     */
-    public function testPropertyGooglePaymentDetails()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
 }
