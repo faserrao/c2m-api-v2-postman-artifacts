@@ -41,7 +41,6 @@ __all__ = [
     "DocSourceAll",
     "DocSourceStandard",
     "DocSourceZipFile",
-    "DocumentSource",
     "ExpirationDate",
     "InvoiceDetails",
     "InvoicePayment",
@@ -107,7 +106,6 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.doc_source_all import DocSourceAll as DocSourceAll
     from c2m_api.models.doc_source_standard import DocSourceStandard as DocSourceStandard
     from c2m_api.models.doc_source_zip_file import DocSourceZipFile as DocSourceZipFile
-    from c2m_api.models.document_source import DocumentSource as DocumentSource
     from c2m_api.models.expiration_date import ExpirationDate as ExpirationDate
     from c2m_api.models.invoice_details import InvoiceDetails as InvoiceDetails
     from c2m_api.models.invoice_payment import InvoicePayment as InvoicePayment
@@ -179,7 +177,6 @@ from c2m_api.models.currency import Currency as Currency
 from c2m_api.models.doc_source_all import DocSourceAll as DocSourceAll
 from c2m_api.models.doc_source_standard import DocSourceStandard as DocSourceStandard
 from c2m_api.models.doc_source_zip_file import DocSourceZipFile as DocSourceZipFile
-from c2m_api.models.document_source import DocumentSource as DocumentSource
 from c2m_api.models.expiration_date import ExpirationDate as ExpirationDate
 from c2m_api.models.invoice_details import InvoiceDetails as InvoiceDetails
 from c2m_api.models.invoice_payment import InvoicePayment as InvoicePayment

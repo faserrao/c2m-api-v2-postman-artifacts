@@ -57,7 +57,6 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new DocSourceAllJsonConverter());
             _jsonOptions.Converters.Add(new DocSourceStandardJsonConverter());
             _jsonOptions.Converters.Add(new DocSourceZipFileJsonConverter());
-            _jsonOptions.Converters.Add(new DocumentSourceJsonConverter());
             _jsonOptions.Converters.Add(new ExpirationDateJsonConverter());
             _jsonOptions.Converters.Add(new InvoiceDetailsJsonConverter());
             _jsonOptions.Converters.Add(new InvoicePaymentJsonConverter());

@@ -22,8 +22,6 @@ pub mod doc_source_standard;
 pub use self::doc_source_standard::DocSourceStandard;
 pub mod doc_source_zip_file;
 pub use self::doc_source_zip_file::DocSourceZipFile;
-pub mod document_source;
-pub use self::document_source::DocumentSource;
 pub mod expiration_date;
 pub use self::expiration_date::ExpirationDate;
 pub mod invoice_details;

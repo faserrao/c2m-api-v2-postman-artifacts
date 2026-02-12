@@ -1,122 +1,661 @@
 {
   "info": {
     "name": "C2M API v2 - Getting Started",
-    "description": "Educational collection showing common API usage patterns organized by frequency.\n\n**Categories:**\n- **Most Frequently Used**: Essential calls every user needs\n- **Bulk Operations**: High-volume and batch processing\n- **Advanced Patterns**: Less common features and variations\n\n**How to use:**\n1. Set your `{{baseUrl}}` environment variable\n2. Replace `<string>` and `<integer>` placeholders with actual values\n3. Review the description of each request to understand the pattern\n4. Copy the pattern and adapt it to your needs",
+    "description": "Educational collection organized by usage patterns to help new users get started with the C2M API.\n\nThis collection demonstrates 16 common patterns across 3 categories:\n- Most Frequently Used (3 patterns)\n- Bulk Operations (3 patterns)\n- Advanced Patterns (10 patterns)\n\nAll request bodies show complete API structure with placeholders (<string>, <integer>, <oneOf>) for learning purposes.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
       "name": "Most Frequently Used",
-      "description": "The essential API calls that most users need. Start here if you're new to the API.",
+      "description": "The most common API calls for everyday use",
       "item": [
         {
+          "id": "26d6c0f1-a6a3-4aeb-b356-1f7fa5e8ae47",
           "name": "Single recipient - basic job submission",
           "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+            "name": "Submit a single doc job",
+            "description": {
+              "content": "Submit a single document to one recipient using jobTemplate\n\nUses docSourceAll (requestId variant) and recipientAddressSource (singleAddress variant)",
+              "type": "text/plain"
             },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/single/doc",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "single",
                 "doc"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Submit a single document to one recipient using jobTemplate"
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "auth": null
           },
-          "response": []
+          "response": [
+            {
+              "id": "57e9c358-4c58-430a-8570-33760eafc45f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a991e38-a84f-4eb0-bd43-7b2de05f5d88",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3141ba8d-34f8-4197-a631-8360a690c061",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
         },
         {
+          "id": "26d6c0f1-a6a3-4aeb-b356-1f7fa5e8ae47",
           "name": "Mail merge - multiple recipients",
           "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"addressList\": [\n      {\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"foo1\": \"<string>\",\n        \"foo2\": \"<string>\"\n      },\n      {\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"foo1\": \"<string>\",\n        \"foo2\": \"<string>\"\n      }\n    ]\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+            "name": "Submit a single doc job",
+            "description": {
+              "content": "Submit a single document to multiple recipients\n\nUses recipientAddressSource (addressList variant) with custom merge fields (foo1, foo2)",
+              "type": "text/plain"
             },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/single/doc",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "single",
                 "doc"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Submit a single document to multiple recipients (mail merge)"
-          },
-          "response": []
-        },
-        {
-          "name": "Address capture - PDF with embedded addresses",
-          "request": {
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "method": "POST",
-            "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  }\n}",
+              "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
             },
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57e9c358-4c58-430a-8570-33760eafc45f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a991e38-a84f-4eb0-bd43-7b2de05f5d88",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3141ba8d-34f8-4197-a631-8360a690c061",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd8aeaef-1386-416c-a488-5806ed845b54",
+          "name": "Address capture - PDF with embedded addresses",
+          "request": {
+            "name": "Submit a single pdf addressCapture job",
+            "description": {
+              "content": "Submit PDF where addresses are extracted from the document\n\nNo recipientAddressSource needed - addresses are captured from PDF content",
+              "type": "text/plain"
+            },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/single/pdf/addressCapture",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "single",
                 "pdf",
                 "addressCapture"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Submit PDF where addresses are captured from the document itself"
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "auth": null
           },
-          "response": []
+          "response": [
+            {
+              "id": "b593d37a-a20c-4e04-81b1-2227b2fa291e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "pdf",
+                    "addressCapture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70b00b5c-9f5b-464f-9a7b-c237bcc15eea",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "pdf",
+                    "addressCapture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c517498f-f418-41a4-aacb-cd24e02786a5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "pdf",
+                    "addressCapture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
         }
       ]
     },
     {
       "name": "Bulk Operations",
-      "description": "High-volume processing patterns for handling multiple documents or recipients efficiently.",
+      "description": "High-volume processing for multiple documents or recipients",
       "item": [
         {
+          "id": "80850ea9-85e7-41cf-800b-69e47539b33c",
           "name": "Split PDF with address capture",
           "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"jobs\": [\n    {\n      \"pages\": {\n        \"startPage\": \"<integer>\",\n        \"endPage\": \"<integer>\"\n      }\n    },\n    {\n      \"pages\": {\n        \"startPage\": \"<integer>\",\n        \"endPage\": \"<integer>\"\n      }\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+            "name": "Submit a single pdf split addressCapture job",
+            "description": {
+              "content": "Split a multi-page PDF and capture addresses from each section\n\nUses pdfSplitJobsNoAddress (startPage/endPage without recipientAddressSource)",
+              "type": "text/plain"
             },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/single/pdf/split/addressCapture",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
@@ -124,356 +663,2731 @@
                 "pdf",
                 "split",
                 "addressCapture"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Split a multi-page PDF and capture addresses from each section"
-          },
-          "response": []
-        },
-        {
-          "name": "Split PDF with specified addresses",
-          "request": {
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "method": "POST",
-            "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"jobs\": [\n    {\n      \"pages\": {\n        \"startPage\": \"<integer>\",\n        \"endPage\": \"<integer>\"\n      },\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\",\n          \"address1\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+              "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsNoAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
             },
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d140d7b-4907-4cf8-98fc-85ff71e87544",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "pdf",
+                    "split",
+                    "addressCapture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsNoAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ddf13267-5dc0-438d-92fa-921689968d9a",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "pdf",
+                    "split",
+                    "addressCapture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsNoAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ea4d9c8a-88ff-413c-a175-d0439521746c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "pdf",
+                    "split",
+                    "addressCapture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsNoAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8cb29caa-0fd3-442a-802c-29aadbee0f91",
+          "name": "Split PDF with specified addresses",
+          "request": {
+            "name": "Submit a single pdf split job",
+            "description": {
+              "content": "Split a multi-page PDF and provide recipient address for each section\n\nUses pdfSplitJobsWithAddress (startPage/endPage WITH recipientAddressSource)",
+              "type": "text/plain"
+            },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/single/pdf/split",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "single",
                 "pdf",
                 "split"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Split a multi-page PDF and provide recipient address for each section"
-          },
-          "response": []
-        },
-        {
-          "name": "Multiple documents from ZIP with address capture",
-          "request": {
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "method": "POST",
-            "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  }\n}",
+              "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsWithAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
             },
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc617a53-eb77-4668-9837-cd913d5a92e7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "pdf",
+                    "split"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsWithAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7da17a02-88b0-4a6f-9a22-4a2bfcf8e3f8",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "pdf",
+                    "split"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsWithAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f41b5a9-62d0-4451-9f71-b500d6cf44a5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "pdf",
+                    "split"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsWithAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f29da3f1-6505-49c5-b480-c1b1ad4a1c69",
+          "name": "Multiple documents from ZIP with address capture",
+          "request": {
+            "name": "Submit a multi zip addressCapture job",
+            "description": {
+              "content": "Submit multiple documents from a ZIP file with embedded addresses\n\nUses zipDocumentSource (zip-only document sources)",
+              "type": "text/plain"
+            },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/multi/zip/addressCapture",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "multi",
                 "zip",
                 "addressCapture"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Submit multiple documents from a ZIP file with embedded addresses"
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"zipDocumentSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "auth": null
           },
-          "response": []
+          "response": [
+            {
+              "id": "0e2c71a7-5be9-4593-9744-248b9e3f39f9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "multi",
+                    "zip",
+                    "addressCapture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"zipDocumentSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "987f2435-891e-4cf6-a88a-2c9dc4ab55fe",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "multi",
+                    "zip",
+                    "addressCapture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"zipDocumentSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8010c62e-d725-46bd-9e00-fc5e875f1f5c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "multi",
+                    "zip",
+                    "addressCapture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"zipDocumentSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
         }
       ]
     },
     {
       "name": "Advanced Patterns",
-      "description": "Less frequently used features and variations. Explore these once you're comfortable with the basics.",
+      "description": "Advanced features and edge cases for complex workflows",
       "item": [
         {
+          "id": "c1a42c87-61eb-40c5-aa08-5b03bfe989ad",
           "name": "Merge multiple documents",
           "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"documentsToMerge\": [\n      {\n        \"requestId\": \"<integer>\"\n      },\n      {\n        \"documentId\": \"<integer>\"\n      },\n      {\n        \"documentId\": \"<integer>\"\n      }\n    ]\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+            "name": "Submit a multi doc merge job",
+            "description": {
+              "content": "Combine multiple documents into one before mailing\n\nUses mergeDocumentSource (documentsToMerge array)",
+              "type": "text/plain"
             },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/multi/doc/merge",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "multi",
                 "doc",
                 "merge"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Combine multiple documents into one before mailing"
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mergeDocumentSource\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "auth": null
           },
-          "response": []
+          "response": [
+            {
+              "id": "68ad311e-80e7-461e-945a-3f146062cc41",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "multi",
+                    "doc",
+                    "merge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mergeDocumentSource\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4cf4faf-a782-4723-9a2d-c3182f5d9ccb",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "multi",
+                    "doc",
+                    "merge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mergeDocumentSource\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "96fa9979-c457-46ae-8941-dc0569f41e08",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "multi",
+                    "doc",
+                    "merge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"mergeDocumentSource\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
         },
         {
+          "id": "26d6c0f1-a6a3-4aeb-b356-1f7fa5e8ae47",
           "name": "Using jobOptions instead of template",
           "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+            "name": "Submit a single doc job",
+            "description": {
+              "content": "Specify job options directly instead of using a template\n\nUses jobOptions (documentClass, layout, etc.) instead of jobTemplate",
+              "type": "text/plain"
             },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/single/doc",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "single",
                 "doc"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Specify job options directly instead of using a template"
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "auth": null
           },
-          "response": []
+          "response": [
+            {
+              "id": "57e9c358-4c58-430a-8570-33760eafc45f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a991e38-a84f-4eb0-bd43-7b2de05f5d88",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3141ba8d-34f8-4197-a631-8360a690c061",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
         },
         {
+          "id": "26d6c0f1-a6a3-4aeb-b356-1f7fa5e8ae47",
           "name": "Using document URL instead of upload",
           "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"url\": \"<string>\"\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+            "name": "Submit a single doc job",
+            "description": {
+              "content": "Reference a document by URL instead of uploading\n\nUses docSourceAll (url variant) to fetch document from external source",
+              "type": "text/plain"
             },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/single/doc",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "single",
                 "doc"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Reference a document by URL instead of uploading"
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "auth": null
           },
-          "response": []
+          "response": [
+            {
+              "id": "57e9c358-4c58-430a-8570-33760eafc45f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a991e38-a84f-4eb0-bd43-7b2de05f5d88",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3141ba8d-34f8-4197-a631-8360a690c061",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
         },
         {
+          "id": "26d6c0f1-a6a3-4aeb-b356-1f7fa5e8ae47",
           "name": "Adding tags for organization",
           "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+            "name": "Submit a single doc job",
+            "description": {
+              "content": "Add custom tags to track and organize jobs\n\nUses tags array (optional field) for job categorization",
+              "type": "text/plain"
             },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/single/doc",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "single",
                 "doc"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Add custom tags to track and organize jobs"
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "auth": null
           },
-          "response": []
+          "response": [
+            {
+              "id": "57e9c358-4c58-430a-8570-33760eafc45f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a991e38-a84f-4eb0-bd43-7b2de05f5d88",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3141ba8d-34f8-4197-a631-8360a690c061",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
         },
         {
+          "id": "26d6c0f1-a6a3-4aeb-b356-1f7fa5e8ae47",
           "name": "Naming an address list for reuse",
           "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"addressListName\": \"<string>\",\n    \"mappingId\": \"<integer>\",\n    \"addressList\": [\n      {\n        \"firstName\": \"<string>\",\n        \"lastName\": \"<string>\",\n        \"address1\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zip\": \"<string>\",\n        \"foo1\": \"<string>\",\n        \"foo2\": \"<string>\"\n      }\n    ]\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+            "name": "Submit a single doc job",
+            "description": {
+              "content": "Create a named address list that can be referenced in future jobs\n\nUses addressListName (optional field) to save address list for reuse",
+              "type": "text/plain"
             },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/single/doc",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "single",
                 "doc"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Create a named address list that can be referenced in future jobs"
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "auth": null
           },
-          "response": []
+          "response": [
+            {
+              "id": "57e9c358-4c58-430a-8570-33760eafc45f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a991e38-a84f-4eb0-bd43-7b2de05f5d88",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3141ba8d-34f8-4197-a631-8360a690c061",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
         },
         {
+          "id": "26d6c0f1-a6a3-4aeb-b356-1f7fa5e8ae47",
           "name": "Specifying payment method",
           "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  },\n  \"paymentDetails\": {\n    \"creditCard\": {\n      \"cardNumber\": \"<string>\",\n      \"cardType\": \"<string>\",\n      \"cvv\": \"<string>\",\n      \"expirationMonth\": \"<string>\",\n      \"expirationYear\": \"<string>\"\n    }\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+            "name": "Submit a single doc job",
+            "description": {
+              "content": "Specify how the job should be paid for\n\nUses paymentDetails (optional field) with creditCard variant",
+              "type": "text/plain"
             },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/single/doc",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "single",
                 "doc"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Specify how the job should be paid for"
-          },
-          "response": []
-        },
-        {
-          "name": "Multiple documents from ZIP - specify addresses",
-          "request": {
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "method": "POST",
-            "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"jobs\": [\n    {\n      \"filename\": \"<string>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\",\n          \"address1\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+              "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
             },
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "57e9c358-4c58-430a-8570-33760eafc45f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a991e38-a84f-4eb0-bd43-7b2de05f5d88",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3141ba8d-34f8-4197-a631-8360a690c061",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "495b7502-34ef-4688-934f-6919c8c54b58",
+          "name": "Multiple documents from ZIP - specify addresses",
+          "request": {
+            "name": "Submit a multi zip job",
+            "description": {
+              "content": "Submit multiple documents from ZIP with specified addresses for each\n\nUses multiZipJobs array with docSourceZipFile and recipientAddressSource",
+              "type": "text/plain"
+            },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/multi/zip",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "multi",
                 "zip"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Submit multiple documents from ZIP with specified addresses for each"
-          },
-          "response": []
-        },
-        {
-          "name": "Multiple separate documents",
-          "request": {
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "method": "POST",
-            "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"jobs\": [\n    {\n      \"documentSource\": {\n        \"documentId\": \"<integer>\"\n      },\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<string>\",\n          \"lastName\": \"<string>\",\n          \"address1\": \"<string>\",\n          \"city\": \"<string>\",\n          \"state\": \"<string>\",\n          \"zip\": \"<string>\"\n        }\n      }\n    }\n  ]\n}",
+              "raw": "{\n  \"multiZipJobs\": [\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
             },
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "30037fe9-b64c-4cae-bb7d-3f02a9925150",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "multi",
+                    "zip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"multiZipJobs\": [\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc8c39f0-2c66-412a-abb8-9b2f68386b4f",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "multi",
+                    "zip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"multiZipJobs\": [\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a35e9e2f-6a48-49f7-b047-a76808258f3c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "multi",
+                    "zip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"multiZipJobs\": [\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "da981a03-3722-45d1-ba00-42fa1c47b712",
+          "name": "Multiple separate documents",
+          "request": {
+            "name": "Submit a multi doc job",
+            "description": {
+              "content": "Submit multiple different documents with different recipients\n\nUses multiDocJobs array with docSourceAll and recipientAddressSource per job",
+              "type": "text/plain"
+            },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/multi/doc",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "multi",
                 "doc"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Submit multiple different documents with different recipients"
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"multiDocJobs\": [\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "auth": null
           },
-          "response": []
+          "response": [
+            {
+              "id": "c7706a14-ce12-47d1-b857-d80c507f9018",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "multi",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"multiDocJobs\": [\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0bdb7339-1646-46b8-92b3-8dde8860ae9b",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "multi",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"multiDocJobs\": [\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f9443a9-175d-4b89-a385-d01410990207",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "multi",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"multiDocJobs\": [\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
         },
         {
+          "id": "26d6c0f1-a6a3-4aeb-b356-1f7fa5e8ae47",
           "name": "Using stored documentId",
           "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"documentId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"address1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"state\": \"<string>\",\n      \"zip\": \"<string>\"\n    }\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+            "name": "Submit a single doc job",
+            "description": {
+              "content": "Reference a previously uploaded document by its ID\n\nUses docSourceAll (documentId variant) to reference stored document",
+              "type": "text/plain"
             },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/single/doc",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "single",
                 "doc"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Reference a previously uploaded document by its ID"
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "auth": null
           },
-          "response": []
+          "response": [
+            {
+              "id": "57e9c358-4c58-430a-8570-33760eafc45f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a991e38-a84f-4eb0-bd43-7b2de05f5d88",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3141ba8d-34f8-4197-a631-8360a690c061",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
         },
         {
+          "id": "26d6c0f1-a6a3-4aeb-b356-1f7fa5e8ae47",
           "name": "Using saved addressListId",
           "request": {
-            "method": "POST",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<string>\",\n  \"documentSource\": {\n    \"requestId\": \"<integer>\"\n  },\n  \"recipientAddressSource\": {\n    \"addressListId\": \"<integer>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
+            "name": "Submit a single doc job",
+            "description": {
+              "content": "Reference a previously saved address list by its ID\n\nUses recipientAddressSource (addressListId variant) to reference stored list",
+              "type": "text/plain"
             },
             "url": {
-              "raw": "{{baseUrl}}/jobs/submit/single/doc",
-              "host": "{{baseUrl}}",
               "path": [
                 "jobs",
                 "submit",
                 "single",
                 "doc"
-              ]
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
             },
-            "description": "Reference a previously saved address list by its ID"
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "auth": null
           },
-          "response": []
+          "response": [
+            {
+              "id": "57e9c358-4c58-430a-8570-33760eafc45f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"<string>\",\n  \"message\": \"<string>\",\n  \"jobId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a991e38-a84f-4eb0-bd43-7b2de05f5d88",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3141ba8d-34f8-4197-a631-8360a690c061",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "jobs",
+                    "submit",
+                    "single",
+                    "doc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [],
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
         }
       ]
     }

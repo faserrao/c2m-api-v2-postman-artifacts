@@ -106,7 +106,6 @@ Class | Method | HTTP request | Description
 - [DocSourceAll](docs/Model/DocSourceAll.md)
 - [DocSourceStandard](docs/Model/DocSourceStandard.md)
 - [DocSourceZipFile](docs/Model/DocSourceZipFile.md)
-- [DocumentSource](docs/Model/DocumentSource.md)
 - [ExpirationDate](docs/Model/ExpirationDate.md)
 - [InvoiceDetails](docs/Model/InvoiceDetails.md)
 - [InvoicePayment](docs/Model/InvoicePayment.md)

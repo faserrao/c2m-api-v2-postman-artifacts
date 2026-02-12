@@ -130,11 +130,6 @@ export type DocSourceStandard = RequestIdSource | number | string;
  */
 export type DocSourceZipFile = ZipDocumentIdSource | ZipRequestIdSource;
 
-/**
- * @type DocumentSource
- */
-export type DocumentSource = RequestIdSource | ZipDocumentIdSource | ZipRequestIdSource | number | string;
-
 export interface ExpirationDate {
     'month': number;
     'year': number;

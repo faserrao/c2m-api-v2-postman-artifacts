@@ -25,7 +25,6 @@ import Currency from './model/Currency';
 import DocSourceAll from './model/DocSourceAll';
 import DocSourceStandard from './model/DocSourceStandard';
 import DocSourceZipFile from './model/DocSourceZipFile';
-import DocumentSource from './model/DocumentSource';
 import ExpirationDate from './model/ExpirationDate';
 import InvoiceDetails from './model/InvoiceDetails';
 import InvoicePayment from './model/InvoicePayment';
@@ -173,12 +172,6 @@ export {
      * @property {module:c2m_api/model/DocSourceZipFile}
      */
     DocSourceZipFile,
-
-    /**
-     * The DocumentSource model constructor.
-     * @property {module:c2m_api/model/DocumentSource}
-     */
-    DocumentSource,
 
     /**
      * The ExpirationDate model constructor.

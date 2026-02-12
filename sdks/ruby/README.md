@@ -116,7 +116,6 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::DocSourceAll](docs/DocSourceAll.md)
  - [OpenapiClient::DocSourceStandard](docs/DocSourceStandard.md)
  - [OpenapiClient::DocSourceZipFile](docs/DocSourceZipFile.md)
- - [OpenapiClient::DocumentSource](docs/DocumentSource.md)
  - [OpenapiClient::ExpirationDate](docs/ExpirationDate.md)
  - [OpenapiClient::InvoiceDetails](docs/InvoiceDetails.md)
  - [OpenapiClient::InvoicePayment](docs/InvoicePayment.md)

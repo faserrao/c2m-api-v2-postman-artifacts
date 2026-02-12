@@ -157,7 +157,6 @@ Class | Method | HTTP request | Description
  - [C2MApiV2AuthOverlay.DocSourceAll](docs/DocSourceAll.md)
  - [C2MApiV2AuthOverlay.DocSourceStandard](docs/DocSourceStandard.md)
  - [C2MApiV2AuthOverlay.DocSourceZipFile](docs/DocSourceZipFile.md)
- - [C2MApiV2AuthOverlay.DocumentSource](docs/DocumentSource.md)
  - [C2MApiV2AuthOverlay.ExpirationDate](docs/ExpirationDate.md)
  - [C2MApiV2AuthOverlay.InvoiceDetails](docs/InvoiceDetails.md)
  - [C2MApiV2AuthOverlay.InvoicePayment](docs/InvoicePayment.md)
