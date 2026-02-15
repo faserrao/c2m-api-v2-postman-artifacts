@@ -13,6 +13,7 @@
 
 
 import ApiClient from "../ApiClient";
+import ErrorResponse from '../model/ErrorResponse';
 import StandardResponse from '../model/StandardResponse';
 import SubmitMultiDocMergeParams from '../model/SubmitMultiDocMergeParams';
 import SubmitMultiDocParams from '../model/SubmitMultiDocParams';

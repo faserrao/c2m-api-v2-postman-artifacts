@@ -19,6 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.apis.JobsApi
+import com.c2m.api.models.ErrorResponse
 import com.c2m.api.models.StandardResponse
 import com.c2m.api.models.SubmitMultiDocMergeParams
 import com.c2m.api.models.SubmitMultiDocParams

@@ -80,8 +80,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 <a id="submitMultiDocParams"></a>
 # **submitMultiDocParams**
@@ -149,8 +153,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 <a id="submitMultiZipAddressCaptureParams"></a>
 # **submitMultiZipAddressCaptureParams**
@@ -218,8 +226,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 <a id="submitMultiZipParams"></a>
 # **submitMultiZipParams**
@@ -287,8 +299,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 <a id="submitSingleDocParams"></a>
 # **submitSingleDocParams**
@@ -356,8 +372,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 <a id="submitSinglePdfAddressCaptureParams"></a>
 # **submitSinglePdfAddressCaptureParams**
@@ -425,8 +445,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 <a id="submitSinglePdfSplitAddressCaptureParams"></a>
 # **submitSinglePdfSplitAddressCaptureParams**
@@ -494,8 +518,12 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 <a id="submitSinglePdfSplitParams"></a>
 # **submitSinglePdfSplitParams**
@@ -563,6 +591,10 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 

@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.c2m.model.ErrorResponse;
 import com.c2m.model.StandardResponse;
 import com.c2m.model.SubmitMultiDocMergeParams;
 import com.c2m.model.SubmitMultiDocParams;
@@ -91,8 +92,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitMultiDocMergeParamsCall(@javax.annotation.Nonnull SubmitMultiDocMergeParams submitMultiDocMergeParams, final ApiCallback _callback) throws ApiException {
@@ -162,8 +167,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public StandardResponse submitMultiDocMergeParams(@javax.annotation.Nonnull SubmitMultiDocMergeParams submitMultiDocMergeParams) throws ApiException {
@@ -182,8 +191,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<StandardResponse> submitMultiDocMergeParamsWithHttpInfo(@javax.annotation.Nonnull SubmitMultiDocMergeParams submitMultiDocMergeParams) throws ApiException {
@@ -204,8 +217,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitMultiDocMergeParamsAsync(@javax.annotation.Nonnull SubmitMultiDocMergeParams submitMultiDocMergeParams, final ApiCallback<StandardResponse> _callback) throws ApiException {
@@ -226,8 +243,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitMultiDocParamsCall(@javax.annotation.Nonnull SubmitMultiDocParams submitMultiDocParams, final ApiCallback _callback) throws ApiException {
@@ -297,8 +318,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public StandardResponse submitMultiDocParams(@javax.annotation.Nonnull SubmitMultiDocParams submitMultiDocParams) throws ApiException {
@@ -317,8 +342,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<StandardResponse> submitMultiDocParamsWithHttpInfo(@javax.annotation.Nonnull SubmitMultiDocParams submitMultiDocParams) throws ApiException {
@@ -339,8 +368,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitMultiDocParamsAsync(@javax.annotation.Nonnull SubmitMultiDocParams submitMultiDocParams, final ApiCallback<StandardResponse> _callback) throws ApiException {
@@ -361,8 +394,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitMultiZipAddressCaptureParamsCall(@javax.annotation.Nonnull SubmitMultiZipAddressCaptureParams submitMultiZipAddressCaptureParams, final ApiCallback _callback) throws ApiException {
@@ -432,8 +469,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public StandardResponse submitMultiZipAddressCaptureParams(@javax.annotation.Nonnull SubmitMultiZipAddressCaptureParams submitMultiZipAddressCaptureParams) throws ApiException {
@@ -452,8 +493,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<StandardResponse> submitMultiZipAddressCaptureParamsWithHttpInfo(@javax.annotation.Nonnull SubmitMultiZipAddressCaptureParams submitMultiZipAddressCaptureParams) throws ApiException {
@@ -474,8 +519,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitMultiZipAddressCaptureParamsAsync(@javax.annotation.Nonnull SubmitMultiZipAddressCaptureParams submitMultiZipAddressCaptureParams, final ApiCallback<StandardResponse> _callback) throws ApiException {
@@ -496,8 +545,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitMultiZipParamsCall(@javax.annotation.Nonnull SubmitMultiZipParams submitMultiZipParams, final ApiCallback _callback) throws ApiException {
@@ -567,8 +620,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public StandardResponse submitMultiZipParams(@javax.annotation.Nonnull SubmitMultiZipParams submitMultiZipParams) throws ApiException {
@@ -587,8 +644,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<StandardResponse> submitMultiZipParamsWithHttpInfo(@javax.annotation.Nonnull SubmitMultiZipParams submitMultiZipParams) throws ApiException {
@@ -609,8 +670,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitMultiZipParamsAsync(@javax.annotation.Nonnull SubmitMultiZipParams submitMultiZipParams, final ApiCallback<StandardResponse> _callback) throws ApiException {
@@ -631,8 +696,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitSingleDocParamsCall(@javax.annotation.Nonnull SubmitSingleDocParams submitSingleDocParams, final ApiCallback _callback) throws ApiException {
@@ -702,8 +771,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public StandardResponse submitSingleDocParams(@javax.annotation.Nonnull SubmitSingleDocParams submitSingleDocParams) throws ApiException {
@@ -722,8 +795,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<StandardResponse> submitSingleDocParamsWithHttpInfo(@javax.annotation.Nonnull SubmitSingleDocParams submitSingleDocParams) throws ApiException {
@@ -744,8 +821,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitSingleDocParamsAsync(@javax.annotation.Nonnull SubmitSingleDocParams submitSingleDocParams, final ApiCallback<StandardResponse> _callback) throws ApiException {
@@ -766,8 +847,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitSinglePdfAddressCaptureParamsCall(@javax.annotation.Nonnull SubmitSinglePdfAddressCaptureParams submitSinglePdfAddressCaptureParams, final ApiCallback _callback) throws ApiException {
@@ -837,8 +922,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public StandardResponse submitSinglePdfAddressCaptureParams(@javax.annotation.Nonnull SubmitSinglePdfAddressCaptureParams submitSinglePdfAddressCaptureParams) throws ApiException {
@@ -857,8 +946,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<StandardResponse> submitSinglePdfAddressCaptureParamsWithHttpInfo(@javax.annotation.Nonnull SubmitSinglePdfAddressCaptureParams submitSinglePdfAddressCaptureParams) throws ApiException {
@@ -879,8 +972,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitSinglePdfAddressCaptureParamsAsync(@javax.annotation.Nonnull SubmitSinglePdfAddressCaptureParams submitSinglePdfAddressCaptureParams, final ApiCallback<StandardResponse> _callback) throws ApiException {
@@ -901,8 +998,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitSinglePdfSplitAddressCaptureParamsCall(@javax.annotation.Nonnull SubmitSinglePdfSplitAddressCaptureParams submitSinglePdfSplitAddressCaptureParams, final ApiCallback _callback) throws ApiException {
@@ -972,8 +1073,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public StandardResponse submitSinglePdfSplitAddressCaptureParams(@javax.annotation.Nonnull SubmitSinglePdfSplitAddressCaptureParams submitSinglePdfSplitAddressCaptureParams) throws ApiException {
@@ -992,8 +1097,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<StandardResponse> submitSinglePdfSplitAddressCaptureParamsWithHttpInfo(@javax.annotation.Nonnull SubmitSinglePdfSplitAddressCaptureParams submitSinglePdfSplitAddressCaptureParams) throws ApiException {
@@ -1014,8 +1123,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitSinglePdfSplitAddressCaptureParamsAsync(@javax.annotation.Nonnull SubmitSinglePdfSplitAddressCaptureParams submitSinglePdfSplitAddressCaptureParams, final ApiCallback<StandardResponse> _callback) throws ApiException {
@@ -1036,8 +1149,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitSinglePdfSplitParamsCall(@javax.annotation.Nonnull SubmitSinglePdfSplitParams submitSinglePdfSplitParams, final ApiCallback _callback) throws ApiException {
@@ -1107,8 +1224,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public StandardResponse submitSinglePdfSplitParams(@javax.annotation.Nonnull SubmitSinglePdfSplitParams submitSinglePdfSplitParams) throws ApiException {
@@ -1127,8 +1248,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<StandardResponse> submitSinglePdfSplitParamsWithHttpInfo(@javax.annotation.Nonnull SubmitSinglePdfSplitParams submitSinglePdfSplitParams) throws ApiException {
@@ -1149,8 +1274,12 @@ public class JobsApi {
        <caption>Response Details</caption>
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Invalid request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request - Invalid request parameters </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized - Missing or invalid authentication </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
+        <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call submitSinglePdfSplitParamsAsync(@javax.annotation.Nonnull SubmitSinglePdfSplitParams submitSinglePdfSplitParams, final ApiCallback<StandardResponse> _callback) throws ApiException {

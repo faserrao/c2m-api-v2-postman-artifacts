@@ -1,0 +1,41 @@
+# ErrorCode
+
+## Enum
+
+
+* `MISSING_REQUIRED_FIELD` (value: `"MISSING_REQUIRED_FIELD"`)
+
+* `INVALID_ONEOF` (value: `"INVALID_ONEOF"`)
+
+* `INVALID_JSON` (value: `"INVALID_JSON"`)
+
+* `MISSING_AUTH_HEADER` (value: `"MISSING_AUTH_HEADER"`)
+
+* `INVALID_TOKEN` (value: `"INVALID_TOKEN"`)
+
+* `EXPIRED_TOKEN` (value: `"EXPIRED_TOKEN"`)
+
+* `INSUFFICIENT_PERMISSIONS` (value: `"INSUFFICIENT_PERMISSIONS"`)
+
+* `ACCOUNT_SUSPENDED` (value: `"ACCOUNT_SUSPENDED"`)
+
+* `JOB_NOT_FOUND` (value: `"JOB_NOT_FOUND"`)
+
+* `RESOURCE_NOT_FOUND` (value: `"RESOURCE_NOT_FOUND"`)
+
+* `INVALID_ENUM_VALUE` (value: `"INVALID_ENUM_VALUE"`)
+
+* `MUTUAL_EXCLUSION_VIOLATION` (value: `"MUTUAL_EXCLUSION_VIOLATION"`)
+
+* `INVALID_FORMAT` (value: `"INVALID_FORMAT"`)
+
+* `SERVER_ERROR` (value: `"SERVER_ERROR"`)
+
+* `DATABASE_ERROR` (value: `"DATABASE_ERROR"`)
+
+* `EXTERNAL_SERVICE_ERROR` (value: `"EXTERNAL_SERVICE_ERROR"`)
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

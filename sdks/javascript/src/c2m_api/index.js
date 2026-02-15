@@ -25,6 +25,9 @@ import Currency from './model/Currency';
 import DocSourceAll from './model/DocSourceAll';
 import DocSourceStandard from './model/DocSourceStandard';
 import DocSourceZipFile from './model/DocSourceZipFile';
+import ErrorCode from './model/ErrorCode';
+import ErrorResponse from './model/ErrorResponse';
+import ErrorType from './model/ErrorType';
 import ExpirationDate from './model/ExpirationDate';
 import InvoiceDetails from './model/InvoiceDetails';
 import InvoicePayment from './model/InvoicePayment';
@@ -172,6 +175,24 @@ export {
      * @property {module:c2m_api/model/DocSourceZipFile}
      */
     DocSourceZipFile,
+
+    /**
+     * The ErrorCode model constructor.
+     * @property {module:c2m_api/model/ErrorCode}
+     */
+    ErrorCode,
+
+    /**
+     * The ErrorResponse model constructor.
+     * @property {module:c2m_api/model/ErrorResponse}
+     */
+    ErrorResponse,
+
+    /**
+     * The ErrorType model constructor.
+     * @property {module:c2m_api/model/ErrorType}
+     */
+    ErrorType,
 
     /**
      * The ExpirationDate model constructor.

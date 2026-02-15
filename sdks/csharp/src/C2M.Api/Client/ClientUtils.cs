@@ -145,6 +145,14 @@ namespace C2M.Api.Client
                 return CreditCardDetails.CardTypeEnumToJsonValue(creditCardDetailsCardTypeEnum);
             if (obj is Currency currency)
                 return CurrencyValueConverter.ToJsonValue(currency);
+            if (obj is ErrorCode errorCode)
+                return ErrorCodeValueConverter.ToJsonValue(errorCode);
+            if (obj is ErrorResponse.ErrorTypeEnum errorResponseErrorTypeEnum)
+                return ErrorResponse.ErrorTypeEnumToJsonValue(errorResponseErrorTypeEnum);
+            if (obj is ErrorResponse.ErrorCodeEnum errorResponseErrorCodeEnum)
+                return ErrorResponse.ErrorCodeEnumToJsonValue(errorResponseErrorCodeEnum);
+            if (obj is ErrorType errorType)
+                return ErrorTypeValueConverter.ToJsonValue(errorType);
             if (obj is LongTokenRequest.GrantTypeEnum longTokenRequestGrantTypeEnum)
                 return LongTokenRequest.GrantTypeEnumToJsonValue(longTokenRequestGrantTypeEnum);
             if (obj is LongTokenResponse.TokenTypeEnum longTokenResponseTokenTypeEnum)
