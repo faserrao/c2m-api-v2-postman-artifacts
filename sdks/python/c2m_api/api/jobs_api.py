@@ -99,12 +99,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -172,12 +168,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -245,12 +237,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -391,12 +379,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -464,12 +448,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -537,12 +517,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -683,12 +659,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -756,12 +728,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -829,12 +797,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -975,12 +939,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1048,12 +1008,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1121,12 +1077,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1267,12 +1219,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1340,12 +1288,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1413,12 +1357,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1559,12 +1499,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1632,12 +1568,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1705,12 +1637,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1851,12 +1779,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1924,12 +1848,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1997,12 +1917,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2143,12 +2059,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2216,12 +2128,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2289,12 +2197,8 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StandardResponse",
-            '400': "ErrorResponse",
-            '401': "ErrorResponse",
-            '403': "ErrorResponse",
-            '404': "ErrorResponse",
-            '422': "ErrorResponse",
-            '500': "ErrorResponse",
+            '400': None,
+            '401': None,
         }
         response_data = self.api_client.call_api(
             *_param,

@@ -156,7 +156,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse
+     * @return \C2MApi\Model\StandardResponse
      */
     public function submitMultiDocMergeParams($submit_multi_doc_merge_params, string $contentType = self::contentTypes['submitMultiDocMergeParams'][0])
     {
@@ -174,7 +174,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \C2MApi\Model\StandardResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitMultiDocMergeParamsWithHttpInfo($submit_multi_doc_merge_params, string $contentType = self::contentTypes['submitMultiDocMergeParams'][0])
     {
@@ -210,42 +210,6 @@ class JobsApi
                         $request,
                         $response,
                     );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 404:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
             }
 
             
@@ -274,54 +238,6 @@ class JobsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\C2MApi\Model\StandardResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -511,7 +427,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse
+     * @return \C2MApi\Model\StandardResponse
      */
     public function submitMultiDocParams($submit_multi_doc_params, string $contentType = self::contentTypes['submitMultiDocParams'][0])
     {
@@ -529,7 +445,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \C2MApi\Model\StandardResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitMultiDocParamsWithHttpInfo($submit_multi_doc_params, string $contentType = self::contentTypes['submitMultiDocParams'][0])
     {
@@ -565,42 +481,6 @@ class JobsApi
                         $request,
                         $response,
                     );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 404:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
             }
 
             
@@ -629,54 +509,6 @@ class JobsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\C2MApi\Model\StandardResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -866,7 +698,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse
+     * @return \C2MApi\Model\StandardResponse
      */
     public function submitMultiZipAddressCaptureParams($submit_multi_zip_address_capture_params, string $contentType = self::contentTypes['submitMultiZipAddressCaptureParams'][0])
     {
@@ -884,7 +716,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \C2MApi\Model\StandardResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitMultiZipAddressCaptureParamsWithHttpInfo($submit_multi_zip_address_capture_params, string $contentType = self::contentTypes['submitMultiZipAddressCaptureParams'][0])
     {
@@ -920,42 +752,6 @@ class JobsApi
                         $request,
                         $response,
                     );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 404:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
             }
 
             
@@ -984,54 +780,6 @@ class JobsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\C2MApi\Model\StandardResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1221,7 +969,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse
+     * @return \C2MApi\Model\StandardResponse
      */
     public function submitMultiZipParams($submit_multi_zip_params, string $contentType = self::contentTypes['submitMultiZipParams'][0])
     {
@@ -1239,7 +987,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \C2MApi\Model\StandardResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitMultiZipParamsWithHttpInfo($submit_multi_zip_params, string $contentType = self::contentTypes['submitMultiZipParams'][0])
     {
@@ -1275,42 +1023,6 @@ class JobsApi
                         $request,
                         $response,
                     );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 404:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
             }
 
             
@@ -1339,54 +1051,6 @@ class JobsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\C2MApi\Model\StandardResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1576,7 +1240,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse
+     * @return \C2MApi\Model\StandardResponse
      */
     public function submitSingleDocParams($submit_single_doc_params, string $contentType = self::contentTypes['submitSingleDocParams'][0])
     {
@@ -1594,7 +1258,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \C2MApi\Model\StandardResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitSingleDocParamsWithHttpInfo($submit_single_doc_params, string $contentType = self::contentTypes['submitSingleDocParams'][0])
     {
@@ -1630,42 +1294,6 @@ class JobsApi
                         $request,
                         $response,
                     );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 404:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
             }
 
             
@@ -1694,54 +1322,6 @@ class JobsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\C2MApi\Model\StandardResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1931,7 +1511,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse
+     * @return \C2MApi\Model\StandardResponse
      */
     public function submitSinglePdfAddressCaptureParams($submit_single_pdf_address_capture_params, string $contentType = self::contentTypes['submitSinglePdfAddressCaptureParams'][0])
     {
@@ -1949,7 +1529,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \C2MApi\Model\StandardResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitSinglePdfAddressCaptureParamsWithHttpInfo($submit_single_pdf_address_capture_params, string $contentType = self::contentTypes['submitSinglePdfAddressCaptureParams'][0])
     {
@@ -1985,42 +1565,6 @@ class JobsApi
                         $request,
                         $response,
                     );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 404:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
             }
 
             
@@ -2049,54 +1593,6 @@ class JobsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\C2MApi\Model\StandardResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2286,7 +1782,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse
+     * @return \C2MApi\Model\StandardResponse
      */
     public function submitSinglePdfSplitAddressCaptureParams($submit_single_pdf_split_address_capture_params, string $contentType = self::contentTypes['submitSinglePdfSplitAddressCaptureParams'][0])
     {
@@ -2304,7 +1800,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \C2MApi\Model\StandardResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitSinglePdfSplitAddressCaptureParamsWithHttpInfo($submit_single_pdf_split_address_capture_params, string $contentType = self::contentTypes['submitSinglePdfSplitAddressCaptureParams'][0])
     {
@@ -2340,42 +1836,6 @@ class JobsApi
                         $request,
                         $response,
                     );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 404:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
             }
 
             
@@ -2404,54 +1864,6 @@ class JobsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\C2MApi\Model\StandardResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2641,7 +2053,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse
+     * @return \C2MApi\Model\StandardResponse
      */
     public function submitSinglePdfSplitParams($submit_single_pdf_split_params, string $contentType = self::contentTypes['submitSinglePdfSplitParams'][0])
     {
@@ -2659,7 +2071,7 @@ class JobsApi
      *
      * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \C2MApi\Model\StandardResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function submitSinglePdfSplitParamsWithHttpInfo($submit_single_pdf_split_params, string $contentType = self::contentTypes['submitSinglePdfSplitParams'][0])
     {
@@ -2695,42 +2107,6 @@ class JobsApi
                         $request,
                         $response,
                     );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 404:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
             }
 
             
@@ -2759,54 +2135,6 @@ class JobsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\C2MApi\Model\StandardResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

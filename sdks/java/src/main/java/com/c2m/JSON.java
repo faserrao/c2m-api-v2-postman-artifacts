@@ -106,7 +106,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceAll.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceStandard.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceZipFile.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ErrorResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ExpirationDate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.InvoiceDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.InvoicePayment.CustomTypeAdapterFactory());

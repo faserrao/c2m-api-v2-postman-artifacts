@@ -19,12 +19,8 @@ use super::{Error, configuration, ContentType};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubmitMultiDocMergeParamsError {
-    Status400(models::ErrorResponse),
-    Status401(models::ErrorResponse),
-    Status403(models::ErrorResponse),
-    Status404(models::ErrorResponse),
-    Status422(models::ErrorResponse),
-    Status500(models::ErrorResponse),
+    Status400(),
+    Status401(),
     UnknownValue(serde_json::Value),
 }
 
@@ -32,12 +28,8 @@ pub enum SubmitMultiDocMergeParamsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubmitMultiDocParamsError {
-    Status400(models::ErrorResponse),
-    Status401(models::ErrorResponse),
-    Status403(models::ErrorResponse),
-    Status404(models::ErrorResponse),
-    Status422(models::ErrorResponse),
-    Status500(models::ErrorResponse),
+    Status400(),
+    Status401(),
     UnknownValue(serde_json::Value),
 }
 
@@ -45,12 +37,8 @@ pub enum SubmitMultiDocParamsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubmitMultiZipAddressCaptureParamsError {
-    Status400(models::ErrorResponse),
-    Status401(models::ErrorResponse),
-    Status403(models::ErrorResponse),
-    Status404(models::ErrorResponse),
-    Status422(models::ErrorResponse),
-    Status500(models::ErrorResponse),
+    Status400(),
+    Status401(),
     UnknownValue(serde_json::Value),
 }
 
@@ -58,12 +46,8 @@ pub enum SubmitMultiZipAddressCaptureParamsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubmitMultiZipParamsError {
-    Status400(models::ErrorResponse),
-    Status401(models::ErrorResponse),
-    Status403(models::ErrorResponse),
-    Status404(models::ErrorResponse),
-    Status422(models::ErrorResponse),
-    Status500(models::ErrorResponse),
+    Status400(),
+    Status401(),
     UnknownValue(serde_json::Value),
 }
 
@@ -71,12 +55,8 @@ pub enum SubmitMultiZipParamsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubmitSingleDocParamsError {
-    Status400(models::ErrorResponse),
-    Status401(models::ErrorResponse),
-    Status403(models::ErrorResponse),
-    Status404(models::ErrorResponse),
-    Status422(models::ErrorResponse),
-    Status500(models::ErrorResponse),
+    Status400(),
+    Status401(),
     UnknownValue(serde_json::Value),
 }
 
@@ -84,12 +64,8 @@ pub enum SubmitSingleDocParamsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubmitSinglePdfAddressCaptureParamsError {
-    Status400(models::ErrorResponse),
-    Status401(models::ErrorResponse),
-    Status403(models::ErrorResponse),
-    Status404(models::ErrorResponse),
-    Status422(models::ErrorResponse),
-    Status500(models::ErrorResponse),
+    Status400(),
+    Status401(),
     UnknownValue(serde_json::Value),
 }
 
@@ -97,12 +73,8 @@ pub enum SubmitSinglePdfAddressCaptureParamsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubmitSinglePdfSplitAddressCaptureParamsError {
-    Status400(models::ErrorResponse),
-    Status401(models::ErrorResponse),
-    Status403(models::ErrorResponse),
-    Status404(models::ErrorResponse),
-    Status422(models::ErrorResponse),
-    Status500(models::ErrorResponse),
+    Status400(),
+    Status401(),
     UnknownValue(serde_json::Value),
 }
 
@@ -110,12 +82,8 @@ pub enum SubmitSinglePdfSplitAddressCaptureParamsError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum SubmitSinglePdfSplitParamsError {
-    Status400(models::ErrorResponse),
-    Status401(models::ErrorResponse),
-    Status403(models::ErrorResponse),
-    Status404(models::ErrorResponse),
-    Status422(models::ErrorResponse),
-    Status500(models::ErrorResponse),
+    Status400(),
+    Status401(),
     UnknownValue(serde_json::Value),
 }
 

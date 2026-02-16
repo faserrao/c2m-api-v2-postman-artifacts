@@ -62,12 +62,8 @@ const { status, data } = await apiInstance.submitMultiDocMergeParams(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Success |  -  |
-|**400** | Bad Request - Invalid request parameters |  -  |
-|**401** | Unauthorized - Missing or invalid authentication |  -  |
-|**403** | Forbidden - Insufficient permissions |  -  |
-|**404** | Not Found - Resource not found |  -  |
-|**422** | Unprocessable Entity - Validation failed |  -  |
-|**500** | Internal Server Error - Server encountered an error |  -  |
+|**400** | Invalid request |  -  |
+|**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -120,12 +116,8 @@ const { status, data } = await apiInstance.submitMultiDocParams(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Success |  -  |
-|**400** | Bad Request - Invalid request parameters |  -  |
-|**401** | Unauthorized - Missing or invalid authentication |  -  |
-|**403** | Forbidden - Insufficient permissions |  -  |
-|**404** | Not Found - Resource not found |  -  |
-|**422** | Unprocessable Entity - Validation failed |  -  |
-|**500** | Internal Server Error - Server encountered an error |  -  |
+|**400** | Invalid request |  -  |
+|**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -178,12 +170,8 @@ const { status, data } = await apiInstance.submitMultiZipAddressCaptureParams(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Success |  -  |
-|**400** | Bad Request - Invalid request parameters |  -  |
-|**401** | Unauthorized - Missing or invalid authentication |  -  |
-|**403** | Forbidden - Insufficient permissions |  -  |
-|**404** | Not Found - Resource not found |  -  |
-|**422** | Unprocessable Entity - Validation failed |  -  |
-|**500** | Internal Server Error - Server encountered an error |  -  |
+|**400** | Invalid request |  -  |
+|**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -236,12 +224,8 @@ const { status, data } = await apiInstance.submitMultiZipParams(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Success |  -  |
-|**400** | Bad Request - Invalid request parameters |  -  |
-|**401** | Unauthorized - Missing or invalid authentication |  -  |
-|**403** | Forbidden - Insufficient permissions |  -  |
-|**404** | Not Found - Resource not found |  -  |
-|**422** | Unprocessable Entity - Validation failed |  -  |
-|**500** | Internal Server Error - Server encountered an error |  -  |
+|**400** | Invalid request |  -  |
+|**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -294,12 +278,8 @@ const { status, data } = await apiInstance.submitSingleDocParams(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Success |  -  |
-|**400** | Bad Request - Invalid request parameters |  -  |
-|**401** | Unauthorized - Missing or invalid authentication |  -  |
-|**403** | Forbidden - Insufficient permissions |  -  |
-|**404** | Not Found - Resource not found |  -  |
-|**422** | Unprocessable Entity - Validation failed |  -  |
-|**500** | Internal Server Error - Server encountered an error |  -  |
+|**400** | Invalid request |  -  |
+|**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -352,12 +332,8 @@ const { status, data } = await apiInstance.submitSinglePdfAddressCaptureParams(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Success |  -  |
-|**400** | Bad Request - Invalid request parameters |  -  |
-|**401** | Unauthorized - Missing or invalid authentication |  -  |
-|**403** | Forbidden - Insufficient permissions |  -  |
-|**404** | Not Found - Resource not found |  -  |
-|**422** | Unprocessable Entity - Validation failed |  -  |
-|**500** | Internal Server Error - Server encountered an error |  -  |
+|**400** | Invalid request |  -  |
+|**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -410,12 +386,8 @@ const { status, data } = await apiInstance.submitSinglePdfSplitAddressCapturePar
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Success |  -  |
-|**400** | Bad Request - Invalid request parameters |  -  |
-|**401** | Unauthorized - Missing or invalid authentication |  -  |
-|**403** | Forbidden - Insufficient permissions |  -  |
-|**404** | Not Found - Resource not found |  -  |
-|**422** | Unprocessable Entity - Validation failed |  -  |
-|**500** | Internal Server Error - Server encountered an error |  -  |
+|**400** | Invalid request |  -  |
+|**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -468,12 +440,8 @@ const { status, data } = await apiInstance.submitSinglePdfSplitParams(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | Success |  -  |
-|**400** | Bad Request - Invalid request parameters |  -  |
-|**401** | Unauthorized - Missing or invalid authentication |  -  |
-|**403** | Forbidden - Insufficient permissions |  -  |
-|**404** | Not Found - Resource not found |  -  |
-|**422** | Unprocessable Entity - Validation failed |  -  |
-|**500** | Internal Server Error - Server encountered an error |  -  |
+|**400** | Invalid request |  -  |
+|**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

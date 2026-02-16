@@ -19,7 +19,6 @@ import java.io.IOException
 import okhttp3.Call
 import okhttp3.HttpUrl
 
-import com.c2m.api.models.ErrorResponse
 import com.c2m.api.models.StandardResponse
 import com.c2m.api.models.SubmitMultiDocMergeParams
 import com.c2m.api.models.SubmitMultiDocParams

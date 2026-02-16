@@ -2,7 +2,7 @@
 
 C2M API v2 - Auth Overlay
 - API version: 2.0.0
-  - Build date: 2026-02-16T10:22:37.612676410Z[Etc/UTC]
+  - Build date: 2026-02-16T18:50:13.089785431Z[Etc/UTC]
   - Generator version: 7.15.0
 
 API for submitting documents with various routing options
@@ -153,9 +153,6 @@ Class | Method | HTTP request | Description
  - [DocSourceAll](docs/DocSourceAll.md)
  - [DocSourceStandard](docs/DocSourceStandard.md)
  - [DocSourceZipFile](docs/DocSourceZipFile.md)
- - [ErrorCode](docs/ErrorCode.md)
- - [ErrorResponse](docs/ErrorResponse.md)
- - [ErrorType](docs/ErrorType.md)
  - [ExpirationDate](docs/ExpirationDate.md)
  - [InvoiceDetails](docs/InvoiceDetails.md)
  - [InvoicePayment](docs/InvoicePayment.md)
