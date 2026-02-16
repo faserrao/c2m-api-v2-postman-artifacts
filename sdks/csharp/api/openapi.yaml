@@ -60,7 +60,7 @@ paths:
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{{\"field\": \"docSourceAll\", \"location\": \"\
                       requestBody\"}}"
-                    errorTrackingId: TRK-20260215-U3UI9C
+                    errorTrackingId: TRK-20260216-Y4D3ND
                 example2:
                   summary: Invalid oneOf field selection
                   value:
@@ -70,7 +70,7 @@ paths:
                     errorDetails: "{{\"field\": \"documentSourceIdentifier\", \"validOptions\"\
                       : [\"documentId\", \"requestId\", \"url\", \"zipDocumentId\"\
                       , \"zipRequestId\"]}}"
-                    errorTrackingId: TRK-20260215-OP0II7
+                    errorTrackingId: TRK-20260216-GCGOGF
                 example3:
                   summary: Malformed JSON in request body
                   value:
@@ -79,7 +79,7 @@ paths:
                     errorCode: INVALID_JSON
                     errorDetails: "{{\"parseError\": \"Unexpected token at line 5\"\
                       , \"column\": 12}}"
-                    errorTrackingId: TRK-20260215-TDPIF1
+                    errorTrackingId: TRK-20260216-O2DRRP
               schema:
                 $ref: "#/components/schemas/HTTP_400_BAD_REQUEST"
           description: Bad Request - Invalid request parameters
@@ -95,7 +95,7 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{{\"requiredHeader\": \"Authorization\", \"format\"\
                       : \"Bearer <token>\"}}"
-                    errorTrackingId: TRK-20260215-LDE7DF
+                    errorTrackingId: TRK-20260216-LH0D27
                 example2:
                   summary: Invalid or expired authentication token
                   value:
@@ -104,7 +104,7 @@ paths:
                     errorCode: INVALID_TOKEN
                     errorDetails: "{{\"reason\": \"Token signature verification failed\"\
                       , \"expiresAt\": \"2026-02-15T10:30:00Z\"}}"
-                    errorTrackingId: TRK-20260215-SMN543
+                    errorTrackingId: TRK-20260216-EHV9PZ
               schema:
                 $ref: "#/components/schemas/HTTP_401_UNAUTHORIZED"
           description: Unauthorized - Missing or invalid authentication
@@ -120,7 +120,7 @@ paths:
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{{\"requiredPermission\": \"jobs:submit\", \"userPermissions\"\
                       : [\"jobs:read\"]}}"
-                    errorTrackingId: TRK-20260215-VKRPNZ
+                    errorTrackingId: TRK-20260216-CSR897
                 example2:
                   summary: Account has been suspended
                   value:
@@ -130,7 +130,7 @@ paths:
                     errorDetails: "{{\"reason\": \"Payment overdue\", \"suspendedSince\"\
                       : \"2026-02-01\", \"contactSupport\": \"support@click2mail.com\"\
                       }}"
-                    errorTrackingId: TRK-20260215-EF5VKE
+                    errorTrackingId: TRK-20260216-B21MH7
               schema:
                 $ref: "#/components/schemas/HTTP_403_FORBIDDEN"
           description: Forbidden - Insufficient permissions
@@ -146,7 +146,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{{\"resourceType\": \"document\", \"resourceId\"\
                       : \"DOC-12345\"}}"
-                    errorTrackingId: TRK-20260215-TVFUWZ
+                    errorTrackingId: TRK-20260216-Q9CLDL
                 example2:
                   summary: Job not found
                   value:
@@ -155,7 +155,7 @@ paths:
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{{\"jobId\": \"job_20260215_999999\", \"possibleReasons\"\
                       : [\"Invalid ID\", \"Job expired\", \"Job deleted\"]}}"
-                    errorTrackingId: TRK-20260215-PE4AFK
+                    errorTrackingId: TRK-20260216-O1B54G
               schema:
                 $ref: "#/components/schemas/HTTP_404_NOT_FOUND"
           description: Not Found - Resource not found
@@ -173,7 +173,7 @@ paths:
                       issue\": \"not found in document library\"}}, {{\"field\": \"\
                       recipientAddress.postalCode\", \"issue\": \"invalid format -\
                       \ must be 5 or 9 digits\"}}]}}"
-                    errorTrackingId: TRK-20260215-ZYCGBV
+                    errorTrackingId: TRK-20260216-LWJKX7
                 example2:
                   summary: Business rule violation detected
                   value:
@@ -184,7 +184,7 @@ paths:
                       \ and jobOptions\", \"conflictingFields\": [\"jobTemplate\"\
                       , \"jobOptions\"], \"resolution\": \"Remove one of the conflicting\
                       \ fields\"}}"
-                    errorTrackingId: TRK-20260215-9SUHNJ
+                    errorTrackingId: TRK-20260216-Q4E79V
                 example3:
                   summary: Invalid enum value provided
                   value:
@@ -194,7 +194,7 @@ paths:
                     errorDetails: "{{\"field\": \"paymentDetails.cardType\", \"providedValue\"\
                       : \"mastercard\", \"validValues\": [\"visa\", \"mastercard\"\
                       , \"discover\", \"americanExpress\"]}}"
-                    errorTrackingId: TRK-20260215-X5FMB4
+                    errorTrackingId: TRK-20260216-17YKS5
               schema:
                 $ref: "#/components/schemas/HTTP_422_UNPROCESSABLE_ENTITY"
           description: Unprocessable Entity - Validation failed
@@ -210,7 +210,7 @@ paths:
                     errorCode: SERVER_ERROR
                     errorDetails: "{{\"message\": \"Internal processing error\", \"\
                       retryAfter\": 60}}"
-                    errorTrackingId: TRK-20260215-FK5VNA
+                    errorTrackingId: TRK-20260216-FWJMXR
                 example2:
                   summary: Database operation failed
                   value:
@@ -219,7 +219,7 @@ paths:
                     errorCode: DATABASE_ERROR
                     errorDetails: "{{\"operation\": \"INSERT\", \"table\": \"jobs\"\
                       , \"retryRecommended\": true}}"
-                    errorTrackingId: TRK-20260215-P2LVPO
+                    errorTrackingId: TRK-20260216-T413AM
                 example3:
                   summary: External service temporarily unavailable
                   value:
@@ -228,7 +228,7 @@ paths:
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{{\"service\": \"payment-processor\", \"status\"\
                       : \"timeout\", \"retryAfter\": 120}}"
-                    errorTrackingId: TRK-20260215-LCCGA7
+                    errorTrackingId: TRK-20260216-2YB5VP
               schema:
                 $ref: "#/components/schemas/HTTP_500_INTERNAL_SERVER_ERROR"
           description: Internal Server Error - Server encountered an error
@@ -279,7 +279,7 @@ paths:
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{{\"field\": \"docSourceStandard\", \"location\"\
                       : \"requestBody\"}}"
-                    errorTrackingId: TRK-20260215-FI6Q8E
+                    errorTrackingId: TRK-20260216-D4ZR5V
                 example2:
                   summary: Invalid oneOf field selection
                   value:
@@ -289,7 +289,7 @@ paths:
                     errorDetails: "{{\"field\": \"documentSourceIdentifier\", \"validOptions\"\
                       : [\"documentId\", \"requestId\", \"url\", \"zipDocumentId\"\
                       , \"zipRequestId\"]}}"
-                    errorTrackingId: TRK-20260215-11NH4U
+                    errorTrackingId: TRK-20260216-SMDCPS
                 example3:
                   summary: Malformed JSON in request body
                   value:
@@ -298,7 +298,7 @@ paths:
                     errorCode: INVALID_JSON
                     errorDetails: "{{\"parseError\": \"Unexpected token at line 5\"\
                       , \"column\": 12}}"
-                    errorTrackingId: TRK-20260215-NJ2JT3
+                    errorTrackingId: TRK-20260216-WSWUWU
               schema:
                 $ref: "#/components/schemas/HTTP_400_BAD_REQUEST"
           description: Bad Request - Invalid request parameters
@@ -314,7 +314,7 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{{\"requiredHeader\": \"Authorization\", \"format\"\
                       : \"Bearer <token>\"}}"
-                    errorTrackingId: TRK-20260215-TGJ9UF
+                    errorTrackingId: TRK-20260216-LBVOYS
                 example2:
                   summary: Invalid or expired authentication token
                   value:
@@ -323,7 +323,7 @@ paths:
                     errorCode: INVALID_TOKEN
                     errorDetails: "{{\"reason\": \"Token signature verification failed\"\
                       , \"expiresAt\": \"2026-02-15T10:30:00Z\"}}"
-                    errorTrackingId: TRK-20260215-G4C62R
+                    errorTrackingId: TRK-20260216-E08STF
               schema:
                 $ref: "#/components/schemas/HTTP_401_UNAUTHORIZED"
           description: Unauthorized - Missing or invalid authentication
@@ -339,7 +339,7 @@ paths:
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{{\"requiredPermission\": \"jobs:submit\", \"userPermissions\"\
                       : [\"jobs:read\"]}}"
-                    errorTrackingId: TRK-20260215-MWSW3V
+                    errorTrackingId: TRK-20260216-T0AA8U
                 example2:
                   summary: Account has been suspended
                   value:
@@ -349,7 +349,7 @@ paths:
                     errorDetails: "{{\"reason\": \"Payment overdue\", \"suspendedSince\"\
                       : \"2026-02-01\", \"contactSupport\": \"support@click2mail.com\"\
                       }}"
-                    errorTrackingId: TRK-20260215-GGXG4R
+                    errorTrackingId: TRK-20260216-65NL3G
               schema:
                 $ref: "#/components/schemas/HTTP_403_FORBIDDEN"
           description: Forbidden - Insufficient permissions
@@ -365,7 +365,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{{\"resourceType\": \"addressList\", \"resourceId\"\
                       : \"ADDR-67890\"}}"
-                    errorTrackingId: TRK-20260215-U4F71H
+                    errorTrackingId: TRK-20260216-UG7P5I
                 example2:
                   summary: Job not found
                   value:
@@ -374,7 +374,7 @@ paths:
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{{\"jobId\": \"job_20260215_999999\", \"possibleReasons\"\
                       : [\"Invalid ID\", \"Job expired\", \"Job deleted\"]}}"
-                    errorTrackingId: TRK-20260215-ECPUDJ
+                    errorTrackingId: TRK-20260216-YB256W
               schema:
                 $ref: "#/components/schemas/HTTP_404_NOT_FOUND"
           description: Not Found - Resource not found
@@ -392,7 +392,7 @@ paths:
                       issue\": \"not found in document library\"}}, {{\"field\": \"\
                       recipientAddress.postalCode\", \"issue\": \"invalid format -\
                       \ must be 5 or 9 digits\"}}]}}"
-                    errorTrackingId: TRK-20260215-B2PEVZ
+                    errorTrackingId: TRK-20260216-9JXB34
                 example2:
                   summary: Business rule violation detected
                   value:
@@ -403,7 +403,7 @@ paths:
                       \ and jobOptions\", \"conflictingFields\": [\"jobTemplate\"\
                       , \"jobOptions\"], \"resolution\": \"Remove one of the conflicting\
                       \ fields\"}}"
-                    errorTrackingId: TRK-20260215-WX938U
+                    errorTrackingId: TRK-20260216-YOE8UN
                 example3:
                   summary: Invalid enum value provided
                   value:
@@ -413,7 +413,7 @@ paths:
                     errorDetails: "{{\"field\": \"paymentDetails.cardType\", \"providedValue\"\
                       : \"mastercard\", \"validValues\": [\"visa\", \"mastercard\"\
                       , \"discover\", \"americanExpress\"]}}"
-                    errorTrackingId: TRK-20260215-3K183S
+                    errorTrackingId: TRK-20260216-EUISA4
               schema:
                 $ref: "#/components/schemas/HTTP_422_UNPROCESSABLE_ENTITY"
           description: Unprocessable Entity - Validation failed
@@ -429,7 +429,7 @@ paths:
                     errorCode: SERVER_ERROR
                     errorDetails: "{{\"message\": \"Internal processing error\", \"\
                       retryAfter\": 60}}"
-                    errorTrackingId: TRK-20260215-0LCK20
+                    errorTrackingId: TRK-20260216-S7N2NL
                 example2:
                   summary: Database operation failed
                   value:
@@ -438,7 +438,7 @@ paths:
                     errorCode: DATABASE_ERROR
                     errorDetails: "{{\"operation\": \"INSERT\", \"table\": \"jobs\"\
                       , \"retryRecommended\": true}}"
-                    errorTrackingId: TRK-20260215-XCMHZX
+                    errorTrackingId: TRK-20260216-GSUQLQ
                 example3:
                   summary: External service temporarily unavailable
                   value:
@@ -447,7 +447,7 @@ paths:
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{{\"service\": \"payment-processor\", \"status\"\
                       : \"timeout\", \"retryAfter\": 120}}"
-                    errorTrackingId: TRK-20260215-LCFFYB
+                    errorTrackingId: TRK-20260216-I5SMVZ
               schema:
                 $ref: "#/components/schemas/HTTP_500_INTERNAL_SERVER_ERROR"
           description: Internal Server Error - Server encountered an error
@@ -498,7 +498,7 @@ paths:
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{{\"field\": \"docSourceStandard\", \"location\"\
                       : \"requestBody\"}}"
-                    errorTrackingId: TRK-20260215-CIRXGF
+                    errorTrackingId: TRK-20260216-MR9H5Q
                 example2:
                   summary: Invalid oneOf field selection
                   value:
@@ -508,7 +508,7 @@ paths:
                     errorDetails: "{{\"field\": \"documentSourceIdentifier\", \"validOptions\"\
                       : [\"documentId\", \"requestId\", \"url\", \"zipDocumentId\"\
                       , \"zipRequestId\"]}}"
-                    errorTrackingId: TRK-20260215-WIFJ6E
+                    errorTrackingId: TRK-20260216-K98KRM
                 example3:
                   summary: Malformed JSON in request body
                   value:
@@ -517,7 +517,7 @@ paths:
                     errorCode: INVALID_JSON
                     errorDetails: "{{\"parseError\": \"Unexpected token at line 5\"\
                       , \"column\": 12}}"
-                    errorTrackingId: TRK-20260215-WO1ZEH
+                    errorTrackingId: TRK-20260216-YERA2P
               schema:
                 $ref: "#/components/schemas/HTTP_400_BAD_REQUEST"
           description: Bad Request - Invalid request parameters
@@ -533,7 +533,7 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{{\"requiredHeader\": \"Authorization\", \"format\"\
                       : \"Bearer <token>\"}}"
-                    errorTrackingId: TRK-20260215-KIT91K
+                    errorTrackingId: TRK-20260216-25DKVL
                 example2:
                   summary: Invalid or expired authentication token
                   value:
@@ -542,7 +542,7 @@ paths:
                     errorCode: INVALID_TOKEN
                     errorDetails: "{{\"reason\": \"Token signature verification failed\"\
                       , \"expiresAt\": \"2026-02-15T10:30:00Z\"}}"
-                    errorTrackingId: TRK-20260215-N39XSI
+                    errorTrackingId: TRK-20260216-YRZ22P
               schema:
                 $ref: "#/components/schemas/HTTP_401_UNAUTHORIZED"
           description: Unauthorized - Missing or invalid authentication
@@ -558,7 +558,7 @@ paths:
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{{\"requiredPermission\": \"jobs:submit\", \"userPermissions\"\
                       : [\"jobs:read\"]}}"
-                    errorTrackingId: TRK-20260215-EBFGMI
+                    errorTrackingId: TRK-20260216-63U9SL
                 example2:
                   summary: Account has been suspended
                   value:
@@ -568,7 +568,7 @@ paths:
                     errorDetails: "{{\"reason\": \"Payment overdue\", \"suspendedSince\"\
                       : \"2026-02-01\", \"contactSupport\": \"support@click2mail.com\"\
                       }}"
-                    errorTrackingId: TRK-20260215-JCS8M1
+                    errorTrackingId: TRK-20260216-9E50XA
               schema:
                 $ref: "#/components/schemas/HTTP_403_FORBIDDEN"
           description: Forbidden - Insufficient permissions
@@ -584,7 +584,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{{\"resourceType\": \"document\", \"resourceId\"\
                       : \"DOC-12345\"}}"
-                    errorTrackingId: TRK-20260215-E6N34V
+                    errorTrackingId: TRK-20260216-SC0J88
                 example2:
                   summary: Job not found
                   value:
@@ -593,7 +593,7 @@ paths:
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{{\"jobId\": \"job_20260215_999999\", \"possibleReasons\"\
                       : [\"Invalid ID\", \"Job expired\", \"Job deleted\"]}}"
-                    errorTrackingId: TRK-20260215-I14478
+                    errorTrackingId: TRK-20260216-IDZFOW
               schema:
                 $ref: "#/components/schemas/HTTP_404_NOT_FOUND"
           description: Not Found - Resource not found
@@ -611,7 +611,7 @@ paths:
                       issue\": \"not found in document library\"}}, {{\"field\": \"\
                       recipientAddress.postalCode\", \"issue\": \"invalid format -\
                       \ must be 5 or 9 digits\"}}]}}"
-                    errorTrackingId: TRK-20260215-8EGA3J
+                    errorTrackingId: TRK-20260216-SW7RTI
                 example2:
                   summary: Business rule violation detected
                   value:
@@ -622,7 +622,7 @@ paths:
                       \ and jobOptions\", \"conflictingFields\": [\"jobTemplate\"\
                       , \"jobOptions\"], \"resolution\": \"Remove one of the conflicting\
                       \ fields\"}}"
-                    errorTrackingId: TRK-20260215-GPIU3F
+                    errorTrackingId: TRK-20260216-QM3URW
                 example3:
                   summary: Invalid enum value provided
                   value:
@@ -632,7 +632,7 @@ paths:
                     errorDetails: "{{\"field\": \"paymentDetails.cardType\", \"providedValue\"\
                       : \"mastercard\", \"validValues\": [\"visa\", \"mastercard\"\
                       , \"discover\", \"americanExpress\"]}}"
-                    errorTrackingId: TRK-20260215-P79BVW
+                    errorTrackingId: TRK-20260216-DH5N2Q
               schema:
                 $ref: "#/components/schemas/HTTP_422_UNPROCESSABLE_ENTITY"
           description: Unprocessable Entity - Validation failed
@@ -648,7 +648,7 @@ paths:
                     errorCode: SERVER_ERROR
                     errorDetails: "{{\"message\": \"Internal processing error\", \"\
                       retryAfter\": 60}}"
-                    errorTrackingId: TRK-20260215-KTJ979
+                    errorTrackingId: TRK-20260216-RFL6F4
                 example2:
                   summary: Database operation failed
                   value:
@@ -657,7 +657,7 @@ paths:
                     errorCode: DATABASE_ERROR
                     errorDetails: "{{\"operation\": \"INSERT\", \"table\": \"jobs\"\
                       , \"retryRecommended\": true}}"
-                    errorTrackingId: TRK-20260215-TKP7G6
+                    errorTrackingId: TRK-20260216-E9O0RH
                 example3:
                   summary: External service temporarily unavailable
                   value:
@@ -666,7 +666,7 @@ paths:
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{{\"service\": \"payment-processor\", \"status\"\
                       : \"timeout\", \"retryAfter\": 120}}"
-                    errorTrackingId: TRK-20260215-6YS0IS
+                    errorTrackingId: TRK-20260216-T7XIIW
               schema:
                 $ref: "#/components/schemas/HTTP_500_INTERNAL_SERVER_ERROR"
           description: Internal Server Error - Server encountered an error
@@ -717,7 +717,7 @@ paths:
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{{\"field\": \"docSourceStandard\", \"location\"\
                       : \"requestBody\"}}"
-                    errorTrackingId: TRK-20260215-GSBV9J
+                    errorTrackingId: TRK-20260216-S3ZMOV
                 example2:
                   summary: Invalid oneOf field selection
                   value:
@@ -727,7 +727,7 @@ paths:
                     errorDetails: "{{\"field\": \"documentSourceIdentifier\", \"validOptions\"\
                       : [\"documentId\", \"requestId\", \"url\", \"zipDocumentId\"\
                       , \"zipRequestId\"]}}"
-                    errorTrackingId: TRK-20260215-V8M6S9
+                    errorTrackingId: TRK-20260216-6E63TE
                 example3:
                   summary: Malformed JSON in request body
                   value:
@@ -736,7 +736,7 @@ paths:
                     errorCode: INVALID_JSON
                     errorDetails: "{{\"parseError\": \"Unexpected token at line 5\"\
                       , \"column\": 12}}"
-                    errorTrackingId: TRK-20260215-G41253
+                    errorTrackingId: TRK-20260216-5XZA79
               schema:
                 $ref: "#/components/schemas/HTTP_400_BAD_REQUEST"
           description: Bad Request - Invalid request parameters
@@ -752,7 +752,7 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{{\"requiredHeader\": \"Authorization\", \"format\"\
                       : \"Bearer <token>\"}}"
-                    errorTrackingId: TRK-20260215-GXJWZB
+                    errorTrackingId: TRK-20260216-07846J
                 example2:
                   summary: Invalid or expired authentication token
                   value:
@@ -761,7 +761,7 @@ paths:
                     errorCode: INVALID_TOKEN
                     errorDetails: "{{\"reason\": \"Token signature verification failed\"\
                       , \"expiresAt\": \"2026-02-15T10:30:00Z\"}}"
-                    errorTrackingId: TRK-20260215-YX18MS
+                    errorTrackingId: TRK-20260216-NI018E
               schema:
                 $ref: "#/components/schemas/HTTP_401_UNAUTHORIZED"
           description: Unauthorized - Missing or invalid authentication
@@ -777,7 +777,7 @@ paths:
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{{\"requiredPermission\": \"jobs:submit\", \"userPermissions\"\
                       : [\"jobs:read\"]}}"
-                    errorTrackingId: TRK-20260215-1DPSDP
+                    errorTrackingId: TRK-20260216-ROZEBZ
                 example2:
                   summary: Account has been suspended
                   value:
@@ -787,7 +787,7 @@ paths:
                     errorDetails: "{{\"reason\": \"Payment overdue\", \"suspendedSince\"\
                       : \"2026-02-01\", \"contactSupport\": \"support@click2mail.com\"\
                       }}"
-                    errorTrackingId: TRK-20260215-4GO0RA
+                    errorTrackingId: TRK-20260216-CEOV5B
               schema:
                 $ref: "#/components/schemas/HTTP_403_FORBIDDEN"
           description: Forbidden - Insufficient permissions
@@ -803,7 +803,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{{\"resourceType\": \"addressList\", \"resourceId\"\
                       : \"ADDR-67890\"}}"
-                    errorTrackingId: TRK-20260215-VX987H
+                    errorTrackingId: TRK-20260216-0C875F
                 example2:
                   summary: Job not found
                   value:
@@ -812,7 +812,7 @@ paths:
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{{\"jobId\": \"job_20260215_999999\", \"possibleReasons\"\
                       : [\"Invalid ID\", \"Job expired\", \"Job deleted\"]}}"
-                    errorTrackingId: TRK-20260215-UQVVVK
+                    errorTrackingId: TRK-20260216-KNC48R
               schema:
                 $ref: "#/components/schemas/HTTP_404_NOT_FOUND"
           description: Not Found - Resource not found
@@ -830,7 +830,7 @@ paths:
                       issue\": \"not found in document library\"}}, {{\"field\": \"\
                       recipientAddress.postalCode\", \"issue\": \"invalid format -\
                       \ must be 5 or 9 digits\"}}]}}"
-                    errorTrackingId: TRK-20260215-YAOFFF
+                    errorTrackingId: TRK-20260216-U439CZ
                 example2:
                   summary: Business rule violation detected
                   value:
@@ -841,7 +841,7 @@ paths:
                       \ and jobOptions\", \"conflictingFields\": [\"jobTemplate\"\
                       , \"jobOptions\"], \"resolution\": \"Remove one of the conflicting\
                       \ fields\"}}"
-                    errorTrackingId: TRK-20260215-3C0TLU
+                    errorTrackingId: TRK-20260216-22N4C1
                 example3:
                   summary: Invalid enum value provided
                   value:
@@ -851,7 +851,7 @@ paths:
                     errorDetails: "{{\"field\": \"paymentDetails.cardType\", \"providedValue\"\
                       : \"mastercard\", \"validValues\": [\"visa\", \"mastercard\"\
                       , \"discover\", \"americanExpress\"]}}"
-                    errorTrackingId: TRK-20260215-MHHMX0
+                    errorTrackingId: TRK-20260216-UGGT45
               schema:
                 $ref: "#/components/schemas/HTTP_422_UNPROCESSABLE_ENTITY"
           description: Unprocessable Entity - Validation failed
@@ -867,7 +867,7 @@ paths:
                     errorCode: SERVER_ERROR
                     errorDetails: "{{\"message\": \"Internal processing error\", \"\
                       retryAfter\": 60}}"
-                    errorTrackingId: TRK-20260215-X7RSMF
+                    errorTrackingId: TRK-20260216-9KDDV2
                 example2:
                   summary: Database operation failed
                   value:
@@ -876,7 +876,7 @@ paths:
                     errorCode: DATABASE_ERROR
                     errorDetails: "{{\"operation\": \"INSERT\", \"table\": \"jobs\"\
                       , \"retryRecommended\": true}}"
-                    errorTrackingId: TRK-20260215-EGIKGI
+                    errorTrackingId: TRK-20260216-17UHV2
                 example3:
                   summary: External service temporarily unavailable
                   value:
@@ -885,7 +885,7 @@ paths:
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{{\"service\": \"payment-processor\", \"status\"\
                       : \"timeout\", \"retryAfter\": 120}}"
-                    errorTrackingId: TRK-20260215-U05NDI
+                    errorTrackingId: TRK-20260216-KKRP9O
               schema:
                 $ref: "#/components/schemas/HTTP_500_INTERNAL_SERVER_ERROR"
           description: Internal Server Error - Server encountered an error
@@ -936,7 +936,7 @@ paths:
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{{\"field\": \"docSourceAll\", \"location\": \"\
                       requestBody\"}}"
-                    errorTrackingId: TRK-20260215-9N7WTH
+                    errorTrackingId: TRK-20260216-59OSLQ
                 example2:
                   summary: Invalid oneOf field selection
                   value:
@@ -946,7 +946,7 @@ paths:
                     errorDetails: "{{\"field\": \"documentSourceIdentifier\", \"validOptions\"\
                       : [\"documentId\", \"requestId\", \"url\", \"zipDocumentId\"\
                       , \"zipRequestId\"]}}"
-                    errorTrackingId: TRK-20260215-PL1GU8
+                    errorTrackingId: TRK-20260216-BYXJNB
                 example3:
                   summary: Malformed JSON in request body
                   value:
@@ -955,7 +955,7 @@ paths:
                     errorCode: INVALID_JSON
                     errorDetails: "{{\"parseError\": \"Unexpected token at line 5\"\
                       , \"column\": 12}}"
-                    errorTrackingId: TRK-20260215-A72IUO
+                    errorTrackingId: TRK-20260216-YJE5DG
               schema:
                 $ref: "#/components/schemas/HTTP_400_BAD_REQUEST"
           description: Bad Request - Invalid request parameters
@@ -971,7 +971,7 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{{\"requiredHeader\": \"Authorization\", \"format\"\
                       : \"Bearer <token>\"}}"
-                    errorTrackingId: TRK-20260215-U7EEUT
+                    errorTrackingId: TRK-20260216-W7GZ1H
                 example2:
                   summary: Invalid or expired authentication token
                   value:
@@ -980,7 +980,7 @@ paths:
                     errorCode: INVALID_TOKEN
                     errorDetails: "{{\"reason\": \"Token signature verification failed\"\
                       , \"expiresAt\": \"2026-02-15T10:30:00Z\"}}"
-                    errorTrackingId: TRK-20260215-AGJWGE
+                    errorTrackingId: TRK-20260216-MMEAO7
               schema:
                 $ref: "#/components/schemas/HTTP_401_UNAUTHORIZED"
           description: Unauthorized - Missing or invalid authentication
@@ -996,7 +996,7 @@ paths:
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{{\"requiredPermission\": \"jobs:submit\", \"userPermissions\"\
                       : [\"jobs:read\"]}}"
-                    errorTrackingId: TRK-20260215-IGQY8G
+                    errorTrackingId: TRK-20260216-0SDKLZ
                 example2:
                   summary: Account has been suspended
                   value:
@@ -1006,7 +1006,7 @@ paths:
                     errorDetails: "{{\"reason\": \"Payment overdue\", \"suspendedSince\"\
                       : \"2026-02-01\", \"contactSupport\": \"support@click2mail.com\"\
                       }}"
-                    errorTrackingId: TRK-20260215-AYA4F4
+                    errorTrackingId: TRK-20260216-EAH29V
               schema:
                 $ref: "#/components/schemas/HTTP_403_FORBIDDEN"
           description: Forbidden - Insufficient permissions
@@ -1022,7 +1022,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{{\"resourceType\": \"document\", \"resourceId\"\
                       : \"DOC-12345\"}}"
-                    errorTrackingId: TRK-20260215-E48AID
+                    errorTrackingId: TRK-20260216-V1OKYS
                 example2:
                   summary: Job not found
                   value:
@@ -1031,7 +1031,7 @@ paths:
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{{\"jobId\": \"job_20260215_999999\", \"possibleReasons\"\
                       : [\"Invalid ID\", \"Job expired\", \"Job deleted\"]}}"
-                    errorTrackingId: TRK-20260215-7QCB2R
+                    errorTrackingId: TRK-20260216-DIKU77
               schema:
                 $ref: "#/components/schemas/HTTP_404_NOT_FOUND"
           description: Not Found - Resource not found
@@ -1049,7 +1049,7 @@ paths:
                       issue\": \"not found in document library\"}}, {{\"field\": \"\
                       recipientAddress.postalCode\", \"issue\": \"invalid format -\
                       \ must be 5 or 9 digits\"}}]}}"
-                    errorTrackingId: TRK-20260215-UBXPP4
+                    errorTrackingId: TRK-20260216-UKWK6Y
                 example2:
                   summary: Business rule violation detected
                   value:
@@ -1060,7 +1060,7 @@ paths:
                       \ and jobOptions\", \"conflictingFields\": [\"jobTemplate\"\
                       , \"jobOptions\"], \"resolution\": \"Remove one of the conflicting\
                       \ fields\"}}"
-                    errorTrackingId: TRK-20260215-7ZPDGW
+                    errorTrackingId: TRK-20260216-5GYC58
                 example3:
                   summary: Invalid enum value provided
                   value:
@@ -1070,7 +1070,7 @@ paths:
                     errorDetails: "{{\"field\": \"paymentDetails.cardType\", \"providedValue\"\
                       : \"mastercard\", \"validValues\": [\"visa\", \"mastercard\"\
                       , \"discover\", \"americanExpress\"]}}"
-                    errorTrackingId: TRK-20260215-8QZSA7
+                    errorTrackingId: TRK-20260216-C37LLI
               schema:
                 $ref: "#/components/schemas/HTTP_422_UNPROCESSABLE_ENTITY"
           description: Unprocessable Entity - Validation failed
@@ -1086,7 +1086,7 @@ paths:
                     errorCode: SERVER_ERROR
                     errorDetails: "{{\"message\": \"Internal processing error\", \"\
                       retryAfter\": 60}}"
-                    errorTrackingId: TRK-20260215-IRBGXX
+                    errorTrackingId: TRK-20260216-YWFFD4
                 example2:
                   summary: Database operation failed
                   value:
@@ -1095,7 +1095,7 @@ paths:
                     errorCode: DATABASE_ERROR
                     errorDetails: "{{\"operation\": \"INSERT\", \"table\": \"jobs\"\
                       , \"retryRecommended\": true}}"
-                    errorTrackingId: TRK-20260215-INCEXW
+                    errorTrackingId: TRK-20260216-5O17PX
                 example3:
                   summary: External service temporarily unavailable
                   value:
@@ -1104,7 +1104,7 @@ paths:
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{{\"service\": \"payment-processor\", \"status\"\
                       : \"timeout\", \"retryAfter\": 120}}"
-                    errorTrackingId: TRK-20260215-E820DA
+                    errorTrackingId: TRK-20260216-T1LQAJ
               schema:
                 $ref: "#/components/schemas/HTTP_500_INTERNAL_SERVER_ERROR"
           description: Internal Server Error - Server encountered an error
@@ -1155,7 +1155,7 @@ paths:
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{{\"field\": \"docSourceAll\", \"location\": \"\
                       requestBody\"}}"
-                    errorTrackingId: TRK-20260215-7UWFJK
+                    errorTrackingId: TRK-20260216-EX7GZR
                 example2:
                   summary: Invalid oneOf field selection
                   value:
@@ -1165,7 +1165,7 @@ paths:
                     errorDetails: "{{\"field\": \"documentSourceIdentifier\", \"validOptions\"\
                       : [\"documentId\", \"requestId\", \"url\", \"zipDocumentId\"\
                       , \"zipRequestId\"]}}"
-                    errorTrackingId: TRK-20260215-AIIAJ4
+                    errorTrackingId: TRK-20260216-C6E1A8
                 example3:
                   summary: Malformed JSON in request body
                   value:
@@ -1174,7 +1174,7 @@ paths:
                     errorCode: INVALID_JSON
                     errorDetails: "{{\"parseError\": \"Unexpected token at line 5\"\
                       , \"column\": 12}}"
-                    errorTrackingId: TRK-20260215-H9FYXV
+                    errorTrackingId: TRK-20260216-DJ8FHH
               schema:
                 $ref: "#/components/schemas/HTTP_400_BAD_REQUEST"
           description: Bad Request - Invalid request parameters
@@ -1190,7 +1190,7 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{{\"requiredHeader\": \"Authorization\", \"format\"\
                       : \"Bearer <token>\"}}"
-                    errorTrackingId: TRK-20260215-A83E8U
+                    errorTrackingId: TRK-20260216-4JIB16
                 example2:
                   summary: Invalid or expired authentication token
                   value:
@@ -1199,7 +1199,7 @@ paths:
                     errorCode: INVALID_TOKEN
                     errorDetails: "{{\"reason\": \"Token signature verification failed\"\
                       , \"expiresAt\": \"2026-02-15T10:30:00Z\"}}"
-                    errorTrackingId: TRK-20260215-QZFU0D
+                    errorTrackingId: TRK-20260216-A02QJ2
               schema:
                 $ref: "#/components/schemas/HTTP_401_UNAUTHORIZED"
           description: Unauthorized - Missing or invalid authentication
@@ -1215,7 +1215,7 @@ paths:
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{{\"requiredPermission\": \"jobs:submit\", \"userPermissions\"\
                       : [\"jobs:read\"]}}"
-                    errorTrackingId: TRK-20260215-QAH803
+                    errorTrackingId: TRK-20260216-NHQ9D2
                 example2:
                   summary: Account has been suspended
                   value:
@@ -1225,7 +1225,7 @@ paths:
                     errorDetails: "{{\"reason\": \"Payment overdue\", \"suspendedSince\"\
                       : \"2026-02-01\", \"contactSupport\": \"support@click2mail.com\"\
                       }}"
-                    errorTrackingId: TRK-20260215-NG6U4T
+                    errorTrackingId: TRK-20260216-1Z1S6U
               schema:
                 $ref: "#/components/schemas/HTTP_403_FORBIDDEN"
           description: Forbidden - Insufficient permissions
@@ -1241,7 +1241,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{{\"resourceType\": \"document\", \"resourceId\"\
                       : \"DOC-12345\"}}"
-                    errorTrackingId: TRK-20260215-IPHUOW
+                    errorTrackingId: TRK-20260216-AVICB2
                 example2:
                   summary: Job not found
                   value:
@@ -1250,7 +1250,7 @@ paths:
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{{\"jobId\": \"job_20260215_999999\", \"possibleReasons\"\
                       : [\"Invalid ID\", \"Job expired\", \"Job deleted\"]}}"
-                    errorTrackingId: TRK-20260215-K860KC
+                    errorTrackingId: TRK-20260216-GLDSJ6
               schema:
                 $ref: "#/components/schemas/HTTP_404_NOT_FOUND"
           description: Not Found - Resource not found
@@ -1268,7 +1268,7 @@ paths:
                       issue\": \"not found in document library\"}}, {{\"field\": \"\
                       recipientAddress.postalCode\", \"issue\": \"invalid format -\
                       \ must be 5 or 9 digits\"}}]}}"
-                    errorTrackingId: TRK-20260215-KNQMUI
+                    errorTrackingId: TRK-20260216-NXD5YR
                 example2:
                   summary: Business rule violation detected
                   value:
@@ -1279,7 +1279,7 @@ paths:
                       \ and jobOptions\", \"conflictingFields\": [\"jobTemplate\"\
                       , \"jobOptions\"], \"resolution\": \"Remove one of the conflicting\
                       \ fields\"}}"
-                    errorTrackingId: TRK-20260215-B9LIC6
+                    errorTrackingId: TRK-20260216-NXBIRV
                 example3:
                   summary: Invalid enum value provided
                   value:
@@ -1289,7 +1289,7 @@ paths:
                     errorDetails: "{{\"field\": \"paymentDetails.cardType\", \"providedValue\"\
                       : \"mastercard\", \"validValues\": [\"visa\", \"mastercard\"\
                       , \"discover\", \"americanExpress\"]}}"
-                    errorTrackingId: TRK-20260215-GJ5HX4
+                    errorTrackingId: TRK-20260216-VDPPEV
               schema:
                 $ref: "#/components/schemas/HTTP_422_UNPROCESSABLE_ENTITY"
           description: Unprocessable Entity - Validation failed
@@ -1305,7 +1305,7 @@ paths:
                     errorCode: SERVER_ERROR
                     errorDetails: "{{\"message\": \"Internal processing error\", \"\
                       retryAfter\": 60}}"
-                    errorTrackingId: TRK-20260215-NYM0EB
+                    errorTrackingId: TRK-20260216-99D9YA
                 example2:
                   summary: Database operation failed
                   value:
@@ -1314,7 +1314,7 @@ paths:
                     errorCode: DATABASE_ERROR
                     errorDetails: "{{\"operation\": \"INSERT\", \"table\": \"jobs\"\
                       , \"retryRecommended\": true}}"
-                    errorTrackingId: TRK-20260215-SXDTSD
+                    errorTrackingId: TRK-20260216-7F1FSY
                 example3:
                   summary: External service temporarily unavailable
                   value:
@@ -1323,7 +1323,7 @@ paths:
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{{\"service\": \"payment-processor\", \"status\"\
                       : \"timeout\", \"retryAfter\": 120}}"
-                    errorTrackingId: TRK-20260215-QA7CQF
+                    errorTrackingId: TRK-20260216-ALLKI5
               schema:
                 $ref: "#/components/schemas/HTTP_500_INTERNAL_SERVER_ERROR"
           description: Internal Server Error - Server encountered an error
@@ -1374,7 +1374,7 @@ paths:
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{{\"field\": \"docSourceAll\", \"location\": \"\
                       requestBody\"}}"
-                    errorTrackingId: TRK-20260215-GLVJIZ
+                    errorTrackingId: TRK-20260216-5CI7EV
                 example2:
                   summary: Invalid oneOf field selection
                   value:
@@ -1384,7 +1384,7 @@ paths:
                     errorDetails: "{{\"field\": \"documentSourceIdentifier\", \"validOptions\"\
                       : [\"documentId\", \"requestId\", \"url\", \"zipDocumentId\"\
                       , \"zipRequestId\"]}}"
-                    errorTrackingId: TRK-20260215-4KWSS1
+                    errorTrackingId: TRK-20260216-UDY1AV
                 example3:
                   summary: Malformed JSON in request body
                   value:
@@ -1393,7 +1393,7 @@ paths:
                     errorCode: INVALID_JSON
                     errorDetails: "{{\"parseError\": \"Unexpected token at line 5\"\
                       , \"column\": 12}}"
-                    errorTrackingId: TRK-20260215-JLB46J
+                    errorTrackingId: TRK-20260216-T26DRC
               schema:
                 $ref: "#/components/schemas/HTTP_400_BAD_REQUEST"
           description: Bad Request - Invalid request parameters
@@ -1409,7 +1409,7 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{{\"requiredHeader\": \"Authorization\", \"format\"\
                       : \"Bearer <token>\"}}"
-                    errorTrackingId: TRK-20260215-EDU842
+                    errorTrackingId: TRK-20260216-AW4FTF
                 example2:
                   summary: Invalid or expired authentication token
                   value:
@@ -1418,7 +1418,7 @@ paths:
                     errorCode: INVALID_TOKEN
                     errorDetails: "{{\"reason\": \"Token signature verification failed\"\
                       , \"expiresAt\": \"2026-02-15T10:30:00Z\"}}"
-                    errorTrackingId: TRK-20260215-U3QZNR
+                    errorTrackingId: TRK-20260216-39DCSC
               schema:
                 $ref: "#/components/schemas/HTTP_401_UNAUTHORIZED"
           description: Unauthorized - Missing or invalid authentication
@@ -1434,7 +1434,7 @@ paths:
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{{\"requiredPermission\": \"jobs:submit\", \"userPermissions\"\
                       : [\"jobs:read\"]}}"
-                    errorTrackingId: TRK-20260215-3A7BJQ
+                    errorTrackingId: TRK-20260216-3Y84G1
                 example2:
                   summary: Account has been suspended
                   value:
@@ -1444,7 +1444,7 @@ paths:
                     errorDetails: "{{\"reason\": \"Payment overdue\", \"suspendedSince\"\
                       : \"2026-02-01\", \"contactSupport\": \"support@click2mail.com\"\
                       }}"
-                    errorTrackingId: TRK-20260215-87EX6F
+                    errorTrackingId: TRK-20260216-D03ZWX
               schema:
                 $ref: "#/components/schemas/HTTP_403_FORBIDDEN"
           description: Forbidden - Insufficient permissions
@@ -1460,7 +1460,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{{\"resourceType\": \"document\", \"resourceId\"\
                       : \"DOC-12345\"}}"
-                    errorTrackingId: TRK-20260215-X97LC9
+                    errorTrackingId: TRK-20260216-K3KH2O
                 example2:
                   summary: Job not found
                   value:
@@ -1469,7 +1469,7 @@ paths:
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{{\"jobId\": \"job_20260215_999999\", \"possibleReasons\"\
                       : [\"Invalid ID\", \"Job expired\", \"Job deleted\"]}}"
-                    errorTrackingId: TRK-20260215-6E6TE7
+                    errorTrackingId: TRK-20260216-TJPXAW
               schema:
                 $ref: "#/components/schemas/HTTP_404_NOT_FOUND"
           description: Not Found - Resource not found
@@ -1487,7 +1487,7 @@ paths:
                       issue\": \"not found in document library\"}}, {{\"field\": \"\
                       recipientAddress.postalCode\", \"issue\": \"invalid format -\
                       \ must be 5 or 9 digits\"}}]}}"
-                    errorTrackingId: TRK-20260215-SLXMQ8
+                    errorTrackingId: TRK-20260216-6P2M47
                 example2:
                   summary: Business rule violation detected
                   value:
@@ -1498,7 +1498,7 @@ paths:
                       \ and jobOptions\", \"conflictingFields\": [\"jobTemplate\"\
                       , \"jobOptions\"], \"resolution\": \"Remove one of the conflicting\
                       \ fields\"}}"
-                    errorTrackingId: TRK-20260215-CFE5EW
+                    errorTrackingId: TRK-20260216-WXVLAY
                 example3:
                   summary: Invalid enum value provided
                   value:
@@ -1508,7 +1508,7 @@ paths:
                     errorDetails: "{{\"field\": \"paymentDetails.cardType\", \"providedValue\"\
                       : \"mastercard\", \"validValues\": [\"visa\", \"mastercard\"\
                       , \"discover\", \"americanExpress\"]}}"
-                    errorTrackingId: TRK-20260215-JAXV4S
+                    errorTrackingId: TRK-20260216-A54NIT
               schema:
                 $ref: "#/components/schemas/HTTP_422_UNPROCESSABLE_ENTITY"
           description: Unprocessable Entity - Validation failed
@@ -1524,7 +1524,7 @@ paths:
                     errorCode: SERVER_ERROR
                     errorDetails: "{{\"message\": \"Internal processing error\", \"\
                       retryAfter\": 60}}"
-                    errorTrackingId: TRK-20260215-A34KTB
+                    errorTrackingId: TRK-20260216-PY0PAS
                 example2:
                   summary: Database operation failed
                   value:
@@ -1533,7 +1533,7 @@ paths:
                     errorCode: DATABASE_ERROR
                     errorDetails: "{{\"operation\": \"INSERT\", \"table\": \"jobs\"\
                       , \"retryRecommended\": true}}"
-                    errorTrackingId: TRK-20260215-MAVH74
+                    errorTrackingId: TRK-20260216-PFDFLQ
                 example3:
                   summary: External service temporarily unavailable
                   value:
@@ -1542,7 +1542,7 @@ paths:
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{{\"service\": \"payment-processor\", \"status\"\
                       : \"timeout\", \"retryAfter\": 120}}"
-                    errorTrackingId: TRK-20260215-DARBGF
+                    errorTrackingId: TRK-20260216-GED2IL
               schema:
                 $ref: "#/components/schemas/HTTP_500_INTERNAL_SERVER_ERROR"
           description: Internal Server Error - Server encountered an error
@@ -1593,7 +1593,7 @@ paths:
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{{\"field\": \"zipDocumentSource\", \"location\"\
                       : \"requestBody\"}}"
-                    errorTrackingId: TRK-20260215-ZRRDBI
+                    errorTrackingId: TRK-20260216-IOWYXS
                 example2:
                   summary: Invalid oneOf field selection
                   value:
@@ -1603,7 +1603,7 @@ paths:
                     errorDetails: "{{\"field\": \"documentSourceIdentifier\", \"validOptions\"\
                       : [\"documentId\", \"requestId\", \"url\", \"zipDocumentId\"\
                       , \"zipRequestId\"]}}"
-                    errorTrackingId: TRK-20260215-WUDIYO
+                    errorTrackingId: TRK-20260216-6ZQIXT
                 example3:
                   summary: Malformed JSON in request body
                   value:
@@ -1612,7 +1612,7 @@ paths:
                     errorCode: INVALID_JSON
                     errorDetails: "{{\"parseError\": \"Unexpected token at line 5\"\
                       , \"column\": 12}}"
-                    errorTrackingId: TRK-20260215-U2ERM0
+                    errorTrackingId: TRK-20260216-Y05BNT
               schema:
                 $ref: "#/components/schemas/HTTP_400_BAD_REQUEST"
           description: Bad Request - Invalid request parameters
@@ -1628,7 +1628,7 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{{\"requiredHeader\": \"Authorization\", \"format\"\
                       : \"Bearer <token>\"}}"
-                    errorTrackingId: TRK-20260215-3LMMW1
+                    errorTrackingId: TRK-20260216-56PEWS
                 example2:
                   summary: Invalid or expired authentication token
                   value:
@@ -1637,7 +1637,7 @@ paths:
                     errorCode: INVALID_TOKEN
                     errorDetails: "{{\"reason\": \"Token signature verification failed\"\
                       , \"expiresAt\": \"2026-02-15T10:30:00Z\"}}"
-                    errorTrackingId: TRK-20260215-5HW0K7
+                    errorTrackingId: TRK-20260216-RBP4MM
               schema:
                 $ref: "#/components/schemas/HTTP_401_UNAUTHORIZED"
           description: Unauthorized - Missing or invalid authentication
@@ -1653,7 +1653,7 @@ paths:
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{{\"requiredPermission\": \"jobs:submit\", \"userPermissions\"\
                       : [\"jobs:read\"]}}"
-                    errorTrackingId: TRK-20260215-RO3RS8
+                    errorTrackingId: TRK-20260216-8OWZPM
                 example2:
                   summary: Account has been suspended
                   value:
@@ -1663,7 +1663,7 @@ paths:
                     errorDetails: "{{\"reason\": \"Payment overdue\", \"suspendedSince\"\
                       : \"2026-02-01\", \"contactSupport\": \"support@click2mail.com\"\
                       }}"
-                    errorTrackingId: TRK-20260215-1AU4KJ
+                    errorTrackingId: TRK-20260216-EECDN8
               schema:
                 $ref: "#/components/schemas/HTTP_403_FORBIDDEN"
           description: Forbidden - Insufficient permissions
@@ -1679,7 +1679,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{{\"resourceType\": \"addressList\", \"resourceId\"\
                       : \"ADDR-67890\"}}"
-                    errorTrackingId: TRK-20260215-I5CD7K
+                    errorTrackingId: TRK-20260216-LA2HZS
                 example2:
                   summary: Job not found
                   value:
@@ -1688,7 +1688,7 @@ paths:
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{{\"jobId\": \"job_20260215_999999\", \"possibleReasons\"\
                       : [\"Invalid ID\", \"Job expired\", \"Job deleted\"]}}"
-                    errorTrackingId: TRK-20260215-UGO7Q7
+                    errorTrackingId: TRK-20260216-M28I4L
               schema:
                 $ref: "#/components/schemas/HTTP_404_NOT_FOUND"
           description: Not Found - Resource not found
@@ -1706,7 +1706,7 @@ paths:
                       \ \"issue\": \"not found in document library\"}}, {{\"field\"\
                       : \"recipientAddress.postalCode\", \"issue\": \"invalid format\
                       \ - must be 5 or 9 digits\"}}]}}"
-                    errorTrackingId: TRK-20260215-34MCVZ
+                    errorTrackingId: TRK-20260216-OPRI48
                 example2:
                   summary: Business rule violation detected
                   value:
@@ -1717,7 +1717,7 @@ paths:
                       \ and jobOptions\", \"conflictingFields\": [\"jobTemplate\"\
                       , \"jobOptions\"], \"resolution\": \"Remove one of the conflicting\
                       \ fields\"}}"
-                    errorTrackingId: TRK-20260215-QAYQH0
+                    errorTrackingId: TRK-20260216-R7HKKB
                 example3:
                   summary: Invalid enum value provided
                   value:
@@ -1727,7 +1727,7 @@ paths:
                     errorDetails: "{{\"field\": \"paymentDetails.cardType\", \"providedValue\"\
                       : \"mastercard\", \"validValues\": [\"visa\", \"mastercard\"\
                       , \"discover\", \"americanExpress\"]}}"
-                    errorTrackingId: TRK-20260215-I9FCWQ
+                    errorTrackingId: TRK-20260216-5P7WB5
               schema:
                 $ref: "#/components/schemas/HTTP_422_UNPROCESSABLE_ENTITY"
           description: Unprocessable Entity - Validation failed
@@ -1743,7 +1743,7 @@ paths:
                     errorCode: SERVER_ERROR
                     errorDetails: "{{\"message\": \"Internal processing error\", \"\
                       retryAfter\": 60}}"
-                    errorTrackingId: TRK-20260215-V569AV
+                    errorTrackingId: TRK-20260216-DT1740
                 example2:
                   summary: Database operation failed
                   value:
@@ -1752,7 +1752,7 @@ paths:
                     errorCode: DATABASE_ERROR
                     errorDetails: "{{\"operation\": \"INSERT\", \"table\": \"jobs\"\
                       , \"retryRecommended\": true}}"
-                    errorTrackingId: TRK-20260215-I9OEAN
+                    errorTrackingId: TRK-20260216-1I4DE0
                 example3:
                   summary: External service temporarily unavailable
                   value:
@@ -1761,7 +1761,7 @@ paths:
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{{\"service\": \"payment-processor\", \"status\"\
                       : \"timeout\", \"retryAfter\": 120}}"
-                    errorTrackingId: TRK-20260215-0N11P8
+                    errorTrackingId: TRK-20260216-F477RP
               schema:
                 $ref: "#/components/schemas/HTTP_500_INTERNAL_SERVER_ERROR"
           description: Internal Server Error - Server encountered an error
