@@ -54,7 +54,7 @@ import com.c2m.JSON;
 /**
  * SubmitSinglePdfAddressCaptureParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T18:56:49.423265754Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T20:59:42.677965516Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class SubmitSinglePdfAddressCaptureParams {
   public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
   @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)
