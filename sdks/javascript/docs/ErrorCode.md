@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.ErrorCode
+# C2MApiV2.ErrorCode
 
 ## Enum
 

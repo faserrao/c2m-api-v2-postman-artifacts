@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.RecipientaddresssourceVariant1
+# C2MApiV2.RecipientaddresssourceVariant1
 
 ## Properties
 

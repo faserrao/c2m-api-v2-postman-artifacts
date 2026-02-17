@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
-  description: API for submitting documents with various routing options
-  title: C2M API v2 - Auth Overlay
+  description: API for submitting mailing jobs with various document routing options
+  title: C2M API v2
   version: 2.0.0
 servers:
 - description: Production server
@@ -11,7 +11,11 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- description: Job submission endpoints for mailing documents
+- description: Recommended endpoints - use a saved Job Template to define mailing
+    settings once and reuse across submissions
+  name: templates
+- description: "Specialized job submission endpoints for PDF, ZIP, and address-capture\
+    \ workflows"
   name: jobs
 - description: Authentication and token management endpoints
   name: auth
@@ -38,13 +42,13 @@ paths:
                   value:
                     status: success
                     message: doc job created successfully
-                    jobId: doc_job_123456
+                    requestId: doc_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: doc job queued for processing
-                    jobId: doc_job_789012
+                    requestId: doc_job_789012
               schema:
                 $ref: "#/components/schemas/StandardResponse"
           description: Success
@@ -158,7 +162,7 @@ paths:
           description: Internal Server Error - Server encountered an error
       summary: Submit a single doc job
       tags:
-      - jobs
+      - templates
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -184,13 +188,13 @@ paths:
                   value:
                     status: success
                     message: addressCapture job created successfully
-                    jobId: addressCapture_job_123456
+                    requestId: addressCapture_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: addressCapture job queued for processing
-                    jobId: addressCapture_job_789012
+                    requestId: addressCapture_job_789012
               schema:
                 $ref: "#/components/schemas/StandardResponse"
           description: Success
@@ -330,13 +334,13 @@ paths:
                   value:
                     status: success
                     message: split job created successfully
-                    jobId: split_job_123456
+                    requestId: split_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: split job queued for processing
-                    jobId: split_job_789012
+                    requestId: split_job_789012
               schema:
                 $ref: "#/components/schemas/StandardResponse"
           description: Success
@@ -476,13 +480,13 @@ paths:
                   value:
                     status: success
                     message: addressCapture job created successfully
-                    jobId: addressCapture_job_123456
+                    requestId: addressCapture_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: addressCapture job queued for processing
-                    jobId: addressCapture_job_789012
+                    requestId: addressCapture_job_789012
               schema:
                 $ref: "#/components/schemas/StandardResponse"
           description: Success
@@ -622,13 +626,13 @@ paths:
                   value:
                     status: success
                     message: doc job created successfully
-                    jobId: doc_job_123456
+                    requestId: doc_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: doc job queued for processing
-                    jobId: doc_job_789012
+                    requestId: doc_job_789012
               schema:
                 $ref: "#/components/schemas/StandardResponse"
           description: Success
@@ -742,7 +746,7 @@ paths:
           description: Internal Server Error - Server encountered an error
       summary: Submit a multi doc job
       tags:
-      - jobs
+      - templates
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -768,13 +772,13 @@ paths:
                   value:
                     status: success
                     message: merge job created successfully
-                    jobId: merge_job_123456
+                    requestId: merge_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: merge job queued for processing
-                    jobId: merge_job_789012
+                    requestId: merge_job_789012
               schema:
                 $ref: "#/components/schemas/StandardResponse"
           description: Success
@@ -888,7 +892,7 @@ paths:
           description: Internal Server Error - Server encountered an error
       summary: Submit a multi doc merge job
       tags:
-      - jobs
+      - templates
       x-content-type: application/json
       x-accepts:
       - application/json
@@ -914,13 +918,13 @@ paths:
                   value:
                     status: success
                     message: zip job created successfully
-                    jobId: zip_job_123456
+                    requestId: zip_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: zip job queued for processing
-                    jobId: zip_job_789012
+                    requestId: zip_job_789012
               schema:
                 $ref: "#/components/schemas/StandardResponse"
           description: Success
@@ -1060,13 +1064,13 @@ paths:
                   value:
                     status: success
                     message: addressCapture job created successfully
-                    jobId: addressCapture_job_123456
+                    requestId: addressCapture_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: addressCapture job queued for processing
-                    jobId: addressCapture_job_789012
+                    requestId: addressCapture_job_789012
               schema:
                 $ref: "#/components/schemas/StandardResponse"
           description: Success
@@ -2226,13 +2230,13 @@ components:
       example:
         status: success
         message: Job created successfully
-        jobId: job_20241227_123456
+        requestId: job_20241227_123456
       properties:
         status:
           type: string
         message:
           type: string
-        jobId:
+        requestId:
           type: string
       type: object
     RecipientaddresssourceVariant1:

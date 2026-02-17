@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**status** | **String** |  |  [optional] |
 |**message** | **String** |  |  [optional] |
-|**jobId** | **String** |  |  [optional] |
+|**requestId** | **String** |  |  [optional] |
 
 
 

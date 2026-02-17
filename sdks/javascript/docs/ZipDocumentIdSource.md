@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.ZipDocumentIdSource
+# C2MApiV2.ZipDocumentIdSource
 
 ## Properties
 

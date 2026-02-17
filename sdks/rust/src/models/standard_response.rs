@@ -1,7 +1,7 @@
 /*
- * C2M API v2 - Auth Overlay
+ * C2M API v2
  *
- * API for submitting documents with various routing options
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -17,8 +17,8 @@ pub struct StandardResponse {
     pub status: Option<String>,
     #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
     pub message: Option<String>,
-    #[serde(rename = "jobId", skip_serializing_if = "Option::is_none")]
-    pub job_id: Option<String>,
+    #[serde(rename = "requestId", skip_serializing_if = "Option::is_none")]
+    pub request_id: Option<String>,
 }
 
 impl StandardResponse {
@@ -26,7 +26,7 @@ impl StandardResponse {
         StandardResponse {
             status: None,
             message: None,
-            job_id: None,
+            request_id: None,
         }
     }
 }

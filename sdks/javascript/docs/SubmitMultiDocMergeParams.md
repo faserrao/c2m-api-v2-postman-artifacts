@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.SubmitMultiDocMergeParams
+# C2MApiV2.SubmitMultiDocMergeParams
 
 ## Properties
 

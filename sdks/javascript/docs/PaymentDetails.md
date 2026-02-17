@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.PaymentDetails
+# C2MApiV2.PaymentDetails
 
 ## Properties
 

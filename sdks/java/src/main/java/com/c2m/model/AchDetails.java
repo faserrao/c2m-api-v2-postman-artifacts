@@ -1,6 +1,6 @@
 /*
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * AchDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T01:33:55.788013521Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T04:52:17.947100257Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class AchDetails {
   public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routingNumber";
   @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)

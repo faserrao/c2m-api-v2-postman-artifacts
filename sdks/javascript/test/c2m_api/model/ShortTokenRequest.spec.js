@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.ShortTokenRequest();
+    instance = new C2MApiV2.ShortTokenRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('ShortTokenRequest', function() {
     it('should create an instance of ShortTokenRequest', function() {
       // uncomment below and update the code to test ShortTokenRequest
-      //var instance = new C2MApiV2AuthOverlay.ShortTokenRequest();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.ShortTokenRequest);
+      //var instance = new C2MApiV2.ShortTokenRequest();
+      //expect(instance).to.be.a(C2MApiV2.ShortTokenRequest);
     });
 
     it('should have the property longToken (base name: "long_token")', function() {
       // uncomment below and update the code to test the property longToken
-      //var instance = new C2MApiV2AuthOverlay.ShortTokenRequest();
+      //var instance = new C2MApiV2.ShortTokenRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property scopes (base name: "scopes")', function() {
       // uncomment below and update the code to test the property scopes
-      //var instance = new C2MApiV2AuthOverlay.ShortTokenRequest();
+      //var instance = new C2MApiV2.ShortTokenRequest();
       //expect(instance).to.be();
     });
 

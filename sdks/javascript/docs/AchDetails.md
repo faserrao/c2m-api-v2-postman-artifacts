@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.AchDetails
+# C2MApiV2.AchDetails
 
 ## Properties
 

@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.LongTokenRequest();
+    instance = new C2MApiV2.LongTokenRequest();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,55 +50,55 @@
   describe('LongTokenRequest', function() {
     it('should create an instance of LongTokenRequest', function() {
       // uncomment below and update the code to test LongTokenRequest
-      //var instance = new C2MApiV2AuthOverlay.LongTokenRequest();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.LongTokenRequest);
+      //var instance = new C2MApiV2.LongTokenRequest();
+      //expect(instance).to.be.a(C2MApiV2.LongTokenRequest);
     });
 
     it('should have the property grantType (base name: "grant_type")', function() {
       // uncomment below and update the code to test the property grantType
-      //var instance = new C2MApiV2AuthOverlay.LongTokenRequest();
+      //var instance = new C2MApiV2.LongTokenRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property clientId (base name: "client_id")', function() {
       // uncomment below and update the code to test the property clientId
-      //var instance = new C2MApiV2AuthOverlay.LongTokenRequest();
+      //var instance = new C2MApiV2.LongTokenRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property clientSecret (base name: "client_secret")', function() {
       // uncomment below and update the code to test the property clientSecret
-      //var instance = new C2MApiV2AuthOverlay.LongTokenRequest();
+      //var instance = new C2MApiV2.LongTokenRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property otpCode (base name: "otp_code")', function() {
       // uncomment below and update the code to test the property otpCode
-      //var instance = new C2MApiV2AuthOverlay.LongTokenRequest();
+      //var instance = new C2MApiV2.LongTokenRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property assertionType (base name: "assertion_type")', function() {
       // uncomment below and update the code to test the property assertionType
-      //var instance = new C2MApiV2AuthOverlay.LongTokenRequest();
+      //var instance = new C2MApiV2.LongTokenRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property assertion (base name: "assertion")', function() {
       // uncomment below and update the code to test the property assertion
-      //var instance = new C2MApiV2AuthOverlay.LongTokenRequest();
+      //var instance = new C2MApiV2.LongTokenRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property scopes (base name: "scopes")', function() {
       // uncomment below and update the code to test the property scopes
-      //var instance = new C2MApiV2AuthOverlay.LongTokenRequest();
+      //var instance = new C2MApiV2.LongTokenRequest();
       //expect(instance).to.be();
     });
 
     it('should have the property ttlSeconds (base name: "ttl_seconds")', function() {
       // uncomment below and update the code to test the property ttlSeconds
-      //var instance = new C2MApiV2AuthOverlay.LongTokenRequest();
+      //var instance = new C2MApiV2.LongTokenRequest();
       //expect(instance).to.be();
     });
 

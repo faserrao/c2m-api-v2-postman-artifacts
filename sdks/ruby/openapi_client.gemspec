@@ -1,9 +1,9 @@
 # -*- encoding: utf-8 -*-
 
 =begin
-#C2M API v2 - Auth Overlay
+#C2M API v2
 
-#API for submitting documents with various routing options
+#API for submitting mailing jobs with various document routing options
 
 The version of the OpenAPI document: 2.0.0
 
@@ -22,8 +22,8 @@ Gem::Specification.new do |s|
   s.authors     = ["OpenAPI-Generator"]
   s.email       = [""]
   s.homepage    = "https://openapi-generator.tech"
-  s.summary     = "C2M API v2 - Auth Overlay Ruby Gem"
-  s.description = "API for submitting documents with various routing options"
+  s.summary     = "C2M API v2 Ruby Gem"
+  s.description = "API for submitting mailing jobs with various document routing options"
   s.license     = "Unlicense"
   s.required_ruby_version = ">= 2.7"
   s.metadata    = {}

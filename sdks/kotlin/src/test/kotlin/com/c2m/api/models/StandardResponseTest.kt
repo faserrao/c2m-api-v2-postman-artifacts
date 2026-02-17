@@ -37,10 +37,10 @@ class StandardResponseTest : ShouldSpec() {
             //modelInstance.message shouldBe ("TODO")
         }
 
-        // to test the property `jobId`
-        should("test jobId") {
+        // to test the property `requestId`
+        should("test requestId") {
             // uncomment below to test the property
-            //modelInstance.jobId shouldBe ("TODO")
+            //modelInstance.requestId shouldBe ("TODO")
         }
 
     }

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **string** |  | [optional] [default to undefined]
 **message** | **string** |  | [optional] [default to undefined]
-**jobId** | **string** |  | [optional] [default to undefined]
+**requestId** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -17,7 +17,7 @@ import { StandardResponse } from './api';
 const instance: StandardResponse = {
     status,
     message,
-    jobId,
+    requestId,
 };
 ```
 

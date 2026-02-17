@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.Address();
+    instance = new C2MApiV2.Address();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,73 +50,73 @@
   describe('Address', function() {
     it('should create an instance of Address', function() {
       // uncomment below and update the code to test Address
-      //var instance = new C2MApiV2AuthOverlay.Address();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.Address);
+      //var instance = new C2MApiV2.Address();
+      //expect(instance).to.be.a(C2MApiV2.Address);
     });
 
     it('should have the property firstName (base name: "firstName")', function() {
       // uncomment below and update the code to test the property firstName
-      //var instance = new C2MApiV2AuthOverlay.Address();
+      //var instance = new C2MApiV2.Address();
       //expect(instance).to.be();
     });
 
     it('should have the property lastName (base name: "lastName")', function() {
       // uncomment below and update the code to test the property lastName
-      //var instance = new C2MApiV2AuthOverlay.Address();
+      //var instance = new C2MApiV2.Address();
       //expect(instance).to.be();
     });
 
     it('should have the property address1 (base name: "address1")', function() {
       // uncomment below and update the code to test the property address1
-      //var instance = new C2MApiV2AuthOverlay.Address();
+      //var instance = new C2MApiV2.Address();
       //expect(instance).to.be();
     });
 
     it('should have the property city (base name: "city")', function() {
       // uncomment below and update the code to test the property city
-      //var instance = new C2MApiV2AuthOverlay.Address();
+      //var instance = new C2MApiV2.Address();
       //expect(instance).to.be();
     });
 
     it('should have the property state (base name: "state")', function() {
       // uncomment below and update the code to test the property state
-      //var instance = new C2MApiV2AuthOverlay.Address();
+      //var instance = new C2MApiV2.Address();
       //expect(instance).to.be();
     });
 
     it('should have the property zip (base name: "zip")', function() {
       // uncomment below and update the code to test the property zip
-      //var instance = new C2MApiV2AuthOverlay.Address();
+      //var instance = new C2MApiV2.Address();
       //expect(instance).to.be();
     });
 
     it('should have the property country (base name: "country")', function() {
       // uncomment below and update the code to test the property country
-      //var instance = new C2MApiV2AuthOverlay.Address();
+      //var instance = new C2MApiV2.Address();
       //expect(instance).to.be();
     });
 
     it('should have the property address2 (base name: "address2")', function() {
       // uncomment below and update the code to test the property address2
-      //var instance = new C2MApiV2AuthOverlay.Address();
+      //var instance = new C2MApiV2.Address();
       //expect(instance).to.be();
     });
 
     it('should have the property address3 (base name: "address3")', function() {
       // uncomment below and update the code to test the property address3
-      //var instance = new C2MApiV2AuthOverlay.Address();
+      //var instance = new C2MApiV2.Address();
       //expect(instance).to.be();
     });
 
     it('should have the property foo1 (base name: "foo1")', function() {
       // uncomment below and update the code to test the property foo1
-      //var instance = new C2MApiV2AuthOverlay.Address();
+      //var instance = new C2MApiV2.Address();
       //expect(instance).to.be();
     });
 
     it('should have the property foo2 (base name: "foo2")', function() {
       // uncomment below and update the code to test the property foo2
-      //var instance = new C2MApiV2AuthOverlay.Address();
+      //var instance = new C2MApiV2.Address();
       //expect(instance).to.be();
     });
 

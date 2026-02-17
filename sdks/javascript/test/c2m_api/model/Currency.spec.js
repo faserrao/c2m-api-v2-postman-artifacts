@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,9 +20,9 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
@@ -49,8 +49,8 @@
   describe('Currency', function() {
     it('should create an instance of Currency', function() {
       // uncomment below and update the code to test Currency
-      //var instance = new C2MApiV2AuthOverlay.Currency();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.Currency);
+      //var instance = new C2MApiV2.Currency();
+      //expect(instance).to.be.a(C2MApiV2.Currency);
     });
 
   });

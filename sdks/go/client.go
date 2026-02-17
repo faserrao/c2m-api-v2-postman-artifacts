@@ -1,7 +1,7 @@
 /*
-C2M API v2 - Auth Overlay
+C2M API v2
 
-API for submitting documents with various routing options
+API for submitting mailing jobs with various document routing options
 
 API version: 2.0.0
 */
@@ -42,7 +42,7 @@ var (
 	queryDescape    = strings.NewReplacer( "%5B", "[", "%5D", "]" )
 )
 
-// APIClient manages communication with the C2M API v2 - Auth Overlay API v2.0.0
+// APIClient manages communication with the C2M API v2 API v2.0.0
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -53,6 +53,8 @@ type APIClient struct {
 	AuthAPI *AuthAPIService
 
 	JobsAPI *JobsAPIService
+
+	TemplatesAPI *TemplatesAPIService
 }
 
 type service struct {
@@ -73,6 +75,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.AuthAPI = (*AuthAPIService)(&c.common)
 	c.JobsAPI = (*JobsAPIService)(&c.common)
+	c.TemplatesAPI = (*TemplatesAPIService)(&c.common)
 
 	return c
 }

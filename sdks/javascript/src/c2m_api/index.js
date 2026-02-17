@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -64,17 +64,18 @@ import ZipDocumentSource from './model/ZipDocumentSource';
 import ZipRequestIdSource from './model/ZipRequestIdSource';
 import AuthApi from './api/AuthApi';
 import JobsApi from './api/JobsApi';
+import TemplatesApi from './api/TemplatesApi';
 
 
 /**
-* API for submitting documents with various routing options.<br>
+* API for submitting mailing jobs with various document routing options.<br>
 * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
 * <pre>
-* var C2MApiV2AuthOverlay = require('c2m_api/index'); // See note below*.
-* var xxxSvc = new C2MApiV2AuthOverlay.XxxApi(); // Allocate the API class we're going to use.
-* var yyyModel = new C2MApiV2AuthOverlay.Yyy(); // Construct a model instance.
+* var C2MApiV2 = require('c2m_api/index'); // See note below*.
+* var xxxSvc = new C2MApiV2.XxxApi(); // Allocate the API class we're going to use.
+* var yyyModel = new C2MApiV2.Yyy(); // Construct a model instance.
 * yyyModel.someProperty = 'someValue';
 * ...
 * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -86,8 +87,8 @@ import JobsApi from './api/JobsApi';
 * <p>
 * A non-AMD browser application (discouraged) might do something like this:
 * <pre>
-* var xxxSvc = new C2MApiV2AuthOverlay.XxxApi(); // Allocate the API class we're going to use.
-* var yyy = new C2MApiV2AuthOverlay.Yyy(); // Construct a model instance.
+* var xxxSvc = new C2MApiV2.XxxApi(); // Allocate the API class we're going to use.
+* var yyy = new C2MApiV2.Yyy(); // Construct a model instance.
 * yyyModel.someProperty = 'someValue';
 * ...
 * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -408,5 +409,11 @@ export {
     * The JobsApi service constructor.
     * @property {module:c2m_api/api/JobsApi}
     */
-    JobsApi
+    JobsApi,
+
+    /**
+    * The TemplatesApi service constructor.
+    * @property {module:c2m_api/api/TemplatesApi}
+    */
+    TemplatesApi
 };

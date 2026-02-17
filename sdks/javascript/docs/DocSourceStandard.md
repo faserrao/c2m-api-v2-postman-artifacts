@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.DocSourceStandard
+# C2MApiV2.DocSourceStandard
 
 ## Properties
 

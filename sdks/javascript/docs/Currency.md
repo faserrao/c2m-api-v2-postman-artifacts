@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.Currency
+# C2MApiV2.Currency
 
 ## Enum
 

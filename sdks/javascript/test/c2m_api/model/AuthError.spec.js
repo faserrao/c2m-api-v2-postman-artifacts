@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.AuthError();
+    instance = new C2MApiV2.AuthError();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('AuthError', function() {
     it('should create an instance of AuthError', function() {
       // uncomment below and update the code to test AuthError
-      //var instance = new C2MApiV2AuthOverlay.AuthError();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.AuthError);
+      //var instance = new C2MApiV2.AuthError();
+      //expect(instance).to.be.a(C2MApiV2.AuthError);
     });
 
     it('should have the property code (base name: "code")', function() {
       // uncomment below and update the code to test the property code
-      //var instance = new C2MApiV2AuthOverlay.AuthError();
+      //var instance = new C2MApiV2.AuthError();
       //expect(instance).to.be();
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instance = new C2MApiV2AuthOverlay.AuthError();
+      //var instance = new C2MApiV2.AuthError();
       //expect(instance).to.be();
     });
 
     it('should have the property details (base name: "details")', function() {
       // uncomment below and update the code to test the property details
-      //var instance = new C2MApiV2AuthOverlay.AuthError();
+      //var instance = new C2MApiV2.AuthError();
       //expect(instance).to.be();
     });
 

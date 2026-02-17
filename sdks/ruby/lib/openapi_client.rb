@@ -1,7 +1,7 @@
 =begin
-#C2M API v2 - Auth Overlay
+#C2M API v2
 
-#API for submitting documents with various routing options
+#API for submitting mailing jobs with various document routing options
 
 The version of the OpenAPI document: 2.0.0
 
@@ -70,6 +70,7 @@ require 'openapi_client/models/zip_request_id_source'
 # APIs
 require 'openapi_client/api/auth_api'
 require 'openapi_client/api/jobs_api'
+require 'openapi_client/api/templates_api'
 
 module OpenapiClient
   class << self

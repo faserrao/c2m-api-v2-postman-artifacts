@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.SubmitSinglePdfSplitParams
+# C2MApiV2.SubmitSinglePdfSplitParams
 
 ## Properties
 

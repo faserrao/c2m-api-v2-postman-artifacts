@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.CreditAmount
+# C2MApiV2.CreditAmount
 
 ## Properties
 

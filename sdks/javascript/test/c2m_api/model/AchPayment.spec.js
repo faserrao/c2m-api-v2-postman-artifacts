@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.AchPayment();
+    instance = new C2MApiV2.AchPayment();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('AchPayment', function() {
     it('should create an instance of AchPayment', function() {
       // uncomment below and update the code to test AchPayment
-      //var instance = new C2MApiV2AuthOverlay.AchPayment();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.AchPayment);
+      //var instance = new C2MApiV2.AchPayment();
+      //expect(instance).to.be.a(C2MApiV2.AchPayment);
     });
 
     it('should have the property achDetails (base name: "achDetails")', function() {
       // uncomment below and update the code to test the property achDetails
-      //var instance = new C2MApiV2AuthOverlay.AchPayment();
+      //var instance = new C2MApiV2.AchPayment();
       //expect(instance).to.be();
     });
 

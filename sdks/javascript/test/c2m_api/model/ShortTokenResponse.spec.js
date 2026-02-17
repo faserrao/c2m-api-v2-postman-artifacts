@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.ShortTokenResponse();
+    instance = new C2MApiV2.ShortTokenResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,43 +50,43 @@
   describe('ShortTokenResponse', function() {
     it('should create an instance of ShortTokenResponse', function() {
       // uncomment below and update the code to test ShortTokenResponse
-      //var instance = new C2MApiV2AuthOverlay.ShortTokenResponse();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.ShortTokenResponse);
+      //var instance = new C2MApiV2.ShortTokenResponse();
+      //expect(instance).to.be.a(C2MApiV2.ShortTokenResponse);
     });
 
     it('should have the property tokenType (base name: "token_type")', function() {
       // uncomment below and update the code to test the property tokenType
-      //var instance = new C2MApiV2AuthOverlay.ShortTokenResponse();
+      //var instance = new C2MApiV2.ShortTokenResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property accessToken (base name: "access_token")', function() {
       // uncomment below and update the code to test the property accessToken
-      //var instance = new C2MApiV2AuthOverlay.ShortTokenResponse();
+      //var instance = new C2MApiV2.ShortTokenResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property expiresIn (base name: "expires_in")', function() {
       // uncomment below and update the code to test the property expiresIn
-      //var instance = new C2MApiV2AuthOverlay.ShortTokenResponse();
+      //var instance = new C2MApiV2.ShortTokenResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property expiresAt (base name: "expires_at")', function() {
       // uncomment below and update the code to test the property expiresAt
-      //var instance = new C2MApiV2AuthOverlay.ShortTokenResponse();
+      //var instance = new C2MApiV2.ShortTokenResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property scopes (base name: "scopes")', function() {
       // uncomment below and update the code to test the property scopes
-      //var instance = new C2MApiV2AuthOverlay.ShortTokenResponse();
+      //var instance = new C2MApiV2.ShortTokenResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property tokenId (base name: "token_id")', function() {
       // uncomment below and update the code to test the property tokenId
-      //var instance = new C2MApiV2AuthOverlay.ShortTokenResponse();
+      //var instance = new C2MApiV2.ShortTokenResponse();
       //expect(instance).to.be();
     });
 

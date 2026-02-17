@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.SubmitSingleDocParams
+# C2MApiV2.SubmitSingleDocParams
 
 ## Properties
 

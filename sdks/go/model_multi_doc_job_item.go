@@ -1,7 +1,7 @@
 /*
-C2M API v2 - Auth Overlay
+C2M API v2
 
-API for submitting documents with various routing options
+API for submitting mailing jobs with various document routing options
 
 API version: 2.0.0
 */

@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.LongTokenResponse
+# C2MApiV2.LongTokenResponse
 
 ## Properties
 

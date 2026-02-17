@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.SubmitSingleDocParams();
+    instance = new C2MApiV2.SubmitSingleDocParams();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,49 +50,49 @@
   describe('SubmitSingleDocParams', function() {
     it('should create an instance of SubmitSingleDocParams', function() {
       // uncomment below and update the code to test SubmitSingleDocParams
-      //var instance = new C2MApiV2AuthOverlay.SubmitSingleDocParams();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.SubmitSingleDocParams);
+      //var instance = new C2MApiV2.SubmitSingleDocParams();
+      //expect(instance).to.be.a(C2MApiV2.SubmitSingleDocParams);
     });
 
     it('should have the property jobTemplate (base name: "jobTemplate")', function() {
       // uncomment below and update the code to test the property jobTemplate
-      //var instance = new C2MApiV2AuthOverlay.SubmitSingleDocParams();
+      //var instance = new C2MApiV2.SubmitSingleDocParams();
       //expect(instance).to.be();
     });
 
     it('should have the property docSourceAll (base name: "docSourceAll")', function() {
       // uncomment below and update the code to test the property docSourceAll
-      //var instance = new C2MApiV2AuthOverlay.SubmitSingleDocParams();
+      //var instance = new C2MApiV2.SubmitSingleDocParams();
       //expect(instance).to.be();
     });
 
     it('should have the property recipientAddressSource (base name: "recipientAddressSource")', function() {
       // uncomment below and update the code to test the property recipientAddressSource
-      //var instance = new C2MApiV2AuthOverlay.SubmitSingleDocParams();
+      //var instance = new C2MApiV2.SubmitSingleDocParams();
       //expect(instance).to.be();
     });
 
     it('should have the property paymentDetails (base name: "paymentDetails")', function() {
       // uncomment below and update the code to test the property paymentDetails
-      //var instance = new C2MApiV2AuthOverlay.SubmitSingleDocParams();
+      //var instance = new C2MApiV2.SubmitSingleDocParams();
       //expect(instance).to.be();
     });
 
     it('should have the property returnAddress (base name: "returnAddress")', function() {
       // uncomment below and update the code to test the property returnAddress
-      //var instance = new C2MApiV2AuthOverlay.SubmitSingleDocParams();
+      //var instance = new C2MApiV2.SubmitSingleDocParams();
       //expect(instance).to.be();
     });
 
     it('should have the property jobOptions (base name: "jobOptions")', function() {
       // uncomment below and update the code to test the property jobOptions
-      //var instance = new C2MApiV2AuthOverlay.SubmitSingleDocParams();
+      //var instance = new C2MApiV2.SubmitSingleDocParams();
       //expect(instance).to.be();
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instance = new C2MApiV2AuthOverlay.SubmitSingleDocParams();
+      //var instance = new C2MApiV2.SubmitSingleDocParams();
       //expect(instance).to.be();
     });
 

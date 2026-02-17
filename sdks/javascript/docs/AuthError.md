@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.AuthError
+# C2MApiV2.AuthError
 
 ## Properties
 

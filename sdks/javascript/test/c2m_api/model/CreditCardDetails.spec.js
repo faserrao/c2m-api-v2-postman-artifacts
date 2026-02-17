@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.CreditCardDetails();
+    instance = new C2MApiV2.CreditCardDetails();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('CreditCardDetails', function() {
     it('should create an instance of CreditCardDetails', function() {
       // uncomment below and update the code to test CreditCardDetails
-      //var instance = new C2MApiV2AuthOverlay.CreditCardDetails();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.CreditCardDetails);
+      //var instance = new C2MApiV2.CreditCardDetails();
+      //expect(instance).to.be.a(C2MApiV2.CreditCardDetails);
     });
 
     it('should have the property cardType (base name: "cardType")', function() {
       // uncomment below and update the code to test the property cardType
-      //var instance = new C2MApiV2AuthOverlay.CreditCardDetails();
+      //var instance = new C2MApiV2.CreditCardDetails();
       //expect(instance).to.be();
     });
 
     it('should have the property cardNumber (base name: "cardNumber")', function() {
       // uncomment below and update the code to test the property cardNumber
-      //var instance = new C2MApiV2AuthOverlay.CreditCardDetails();
+      //var instance = new C2MApiV2.CreditCardDetails();
       //expect(instance).to.be();
     });
 
     it('should have the property expirationDate (base name: "expirationDate")', function() {
       // uncomment below and update the code to test the property expirationDate
-      //var instance = new C2MApiV2AuthOverlay.CreditCardDetails();
+      //var instance = new C2MApiV2.CreditCardDetails();
       //expect(instance).to.be();
     });
 
     it('should have the property cvv (base name: "cvv")', function() {
       // uncomment below and update the code to test the property cvv
-      //var instance = new C2MApiV2AuthOverlay.CreditCardDetails();
+      //var instance = new C2MApiV2.CreditCardDetails();
       //expect(instance).to.be();
     });
 

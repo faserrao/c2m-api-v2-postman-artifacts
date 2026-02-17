@@ -1,6 +1,6 @@
 /*
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * StandardResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T01:33:55.788013521Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T04:52:17.947100257Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class StandardResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -60,10 +60,10 @@ public class StandardResponse {
   @javax.annotation.Nullable
   private String message;
 
-  public static final String SERIALIZED_NAME_JOB_ID = "jobId";
-  @SerializedName(SERIALIZED_NAME_JOB_ID)
+  public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
   @javax.annotation.Nullable
-  private String jobId;
+  private String requestId;
 
   public StandardResponse() {
   }
@@ -106,22 +106,22 @@ public class StandardResponse {
   }
 
 
-  public StandardResponse jobId(@javax.annotation.Nullable String jobId) {
-    this.jobId = jobId;
+  public StandardResponse requestId(@javax.annotation.Nullable String requestId) {
+    this.requestId = requestId;
     return this;
   }
 
   /**
-   * Get jobId
-   * @return jobId
+   * Get requestId
+   * @return requestId
    */
   @javax.annotation.Nullable
-  public String getJobId() {
-    return jobId;
+  public String getRequestId() {
+    return requestId;
   }
 
-  public void setJobId(@javax.annotation.Nullable String jobId) {
-    this.jobId = jobId;
+  public void setRequestId(@javax.annotation.Nullable String requestId) {
+    this.requestId = requestId;
   }
 
 
@@ -137,12 +137,12 @@ public class StandardResponse {
     StandardResponse standardResponse = (StandardResponse) o;
     return Objects.equals(this.status, standardResponse.status) &&
         Objects.equals(this.message, standardResponse.message) &&
-        Objects.equals(this.jobId, standardResponse.jobId);
+        Objects.equals(this.requestId, standardResponse.requestId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, message, jobId);
+    return Objects.hash(status, message, requestId);
   }
 
   @Override
@@ -151,7 +151,7 @@ public class StandardResponse {
     sb.append("class StandardResponse {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
-    sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -173,7 +173,7 @@ public class StandardResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("status", "message", "jobId"));
+    openapiFields = new HashSet<String>(Arrays.asList("status", "message", "requestId"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(0);
@@ -206,8 +206,8 @@ public class StandardResponse {
       if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
       }
-      if ((jsonObj.get("jobId") != null && !jsonObj.get("jobId").isJsonNull()) && !jsonObj.get("jobId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `jobId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jobId").toString()));
+      if ((jsonObj.get("requestId") != null && !jsonObj.get("requestId").isJsonNull()) && !jsonObj.get("requestId").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `requestId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestId").toString()));
       }
   }
 

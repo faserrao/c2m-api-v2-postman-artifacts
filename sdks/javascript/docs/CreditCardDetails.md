@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.CreditCardDetails
+# C2MApiV2.CreditCardDetails
 
 ## Properties
 

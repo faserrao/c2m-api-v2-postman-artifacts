@@ -1,6 +1,6 @@
 /*
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -16,11 +16,8 @@ package com.c2m.api;
 import com.c2m.ApiException;
 import com.c2m.model.ErrorResponse;
 import com.c2m.model.StandardResponse;
-import com.c2m.model.SubmitMultiDocMergeParams;
-import com.c2m.model.SubmitMultiDocParams;
 import com.c2m.model.SubmitMultiZipAddressCaptureParams;
 import com.c2m.model.SubmitMultiZipParams;
-import com.c2m.model.SubmitSingleDocParams;
 import com.c2m.model.SubmitSinglePdfAddressCaptureParams;
 import com.c2m.model.SubmitSinglePdfSplitAddressCaptureParams;
 import com.c2m.model.SubmitSinglePdfSplitParams;
@@ -39,34 +36,6 @@ import java.util.Map;
 public class JobsApiTest {
 
     private final JobsApi api = new JobsApi();
-
-    /**
-     * Submit a multi doc merge job
-     *
-     * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void submitMultiDocMergeParamsTest() throws ApiException {
-        SubmitMultiDocMergeParams submitMultiDocMergeParams = null;
-        StandardResponse response = api.submitMultiDocMergeParams(submitMultiDocMergeParams);
-        // TODO: test validations
-    }
-
-    /**
-     * Submit a multi doc job
-     *
-     * Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void submitMultiDocParamsTest() throws ApiException {
-        SubmitMultiDocParams submitMultiDocParams = null;
-        StandardResponse response = api.submitMultiDocParams(submitMultiDocParams);
-        // TODO: test validations
-    }
 
     /**
      * Submit a multi zip addressCapture job
@@ -93,20 +62,6 @@ public class JobsApiTest {
     public void submitMultiZipParamsTest() throws ApiException {
         SubmitMultiZipParams submitMultiZipParams = null;
         StandardResponse response = api.submitMultiZipParams(submitMultiZipParams);
-        // TODO: test validations
-    }
-
-    /**
-     * Submit a single doc job
-     *
-     * Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void submitSingleDocParamsTest() throws ApiException {
-        SubmitSingleDocParams submitSingleDocParams = null;
-        StandardResponse response = api.submitSingleDocParams(submitSingleDocParams);
         // TODO: test validations
     }
 

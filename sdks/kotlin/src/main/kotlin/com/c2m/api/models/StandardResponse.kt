@@ -24,7 +24,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param status 
  * @param message 
- * @param jobId 
+ * @param requestId 
  */
 
 
@@ -36,8 +36,8 @@ data class StandardResponse (
     @Json(name = "message")
     val message: kotlin.String? = null,
 
-    @Json(name = "jobId")
-    val jobId: kotlin.String? = null
+    @Json(name = "requestId")
+    val requestId: kotlin.String? = null
 
 ) {
 

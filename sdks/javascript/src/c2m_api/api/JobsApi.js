@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -15,11 +15,8 @@
 import ApiClient from "../ApiClient";
 import ErrorResponse from '../model/ErrorResponse';
 import StandardResponse from '../model/StandardResponse';
-import SubmitMultiDocMergeParams from '../model/SubmitMultiDocMergeParams';
-import SubmitMultiDocParams from '../model/SubmitMultiDocParams';
 import SubmitMultiZipAddressCaptureParams from '../model/SubmitMultiZipAddressCaptureParams';
 import SubmitMultiZipParams from '../model/SubmitMultiZipParams';
-import SubmitSingleDocParams from '../model/SubmitSingleDocParams';
 import SubmitSinglePdfAddressCaptureParams from '../model/SubmitSinglePdfAddressCaptureParams';
 import SubmitSinglePdfSplitAddressCaptureParams from '../model/SubmitSinglePdfSplitAddressCaptureParams';
 import SubmitSinglePdfSplitParams from '../model/SubmitSinglePdfSplitParams';
@@ -42,90 +39,6 @@ export default class JobsApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
-
-    /**
-     * Callback function to receive the result of the submitMultiDocMergeParams operation.
-     * @callback module:c2m_api/api/JobsApi~submitMultiDocMergeParamsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:c2m_api/model/StandardResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Submit a multi doc merge job
-     * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
-     * @param {module:c2m_api/model/SubmitMultiDocMergeParams} submitMultiDocMergeParams 
-     * @param {module:c2m_api/api/JobsApi~submitMultiDocMergeParamsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:c2m_api/model/StandardResponse}
-     */
-    submitMultiDocMergeParams(submitMultiDocMergeParams, callback) {
-      let postBody = submitMultiDocMergeParams;
-      // verify the required parameter 'submitMultiDocMergeParams' is set
-      if (submitMultiDocMergeParams === undefined || submitMultiDocMergeParams === null) {
-        throw new Error("Missing the required parameter 'submitMultiDocMergeParams' when calling submitMultiDocMergeParams");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['bearerAuth'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = StandardResponse;
-      return this.apiClient.callApi(
-        '/jobs/submit/multi/doc/merge', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the submitMultiDocParams operation.
-     * @callback module:c2m_api/api/JobsApi~submitMultiDocParamsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:c2m_api/model/StandardResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Submit a multi doc job
-     * Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
-     * @param {module:c2m_api/model/SubmitMultiDocParams} submitMultiDocParams 
-     * @param {module:c2m_api/api/JobsApi~submitMultiDocParamsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:c2m_api/model/StandardResponse}
-     */
-    submitMultiDocParams(submitMultiDocParams, callback) {
-      let postBody = submitMultiDocParams;
-      // verify the required parameter 'submitMultiDocParams' is set
-      if (submitMultiDocParams === undefined || submitMultiDocParams === null) {
-        throw new Error("Missing the required parameter 'submitMultiDocParams' when calling submitMultiDocParams");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['bearerAuth'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = StandardResponse;
-      return this.apiClient.callApi(
-        '/jobs/submit/multi/doc', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
 
     /**
      * Callback function to receive the result of the submitMultiZipAddressCaptureParams operation.
@@ -206,48 +119,6 @@ export default class JobsApi {
       let returnType = StandardResponse;
       return this.apiClient.callApi(
         '/jobs/submit/multi/zip', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the submitSingleDocParams operation.
-     * @callback module:c2m_api/api/JobsApi~submitSingleDocParamsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:c2m_api/model/StandardResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Submit a single doc job
-     * Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
-     * @param {module:c2m_api/model/SubmitSingleDocParams} submitSingleDocParams 
-     * @param {module:c2m_api/api/JobsApi~submitSingleDocParamsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:c2m_api/model/StandardResponse}
-     */
-    submitSingleDocParams(submitSingleDocParams, callback) {
-      let postBody = submitSingleDocParams;
-      // verify the required parameter 'submitSingleDocParams' is set
-      if (submitSingleDocParams === undefined || submitSingleDocParams === null) {
-        throw new Error("Missing the required parameter 'submitSingleDocParams' when calling submitSingleDocParams");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['bearerAuth'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = StandardResponse;
-      return this.apiClient.callApi(
-        '/jobs/submit/single/doc', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

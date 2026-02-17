@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.MultiZipJobItem();
+    instance = new C2MApiV2.MultiZipJobItem();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('MultiZipJobItem', function() {
     it('should create an instance of MultiZipJobItem', function() {
       // uncomment below and update the code to test MultiZipJobItem
-      //var instance = new C2MApiV2AuthOverlay.MultiZipJobItem();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.MultiZipJobItem);
+      //var instance = new C2MApiV2.MultiZipJobItem();
+      //expect(instance).to.be.a(C2MApiV2.MultiZipJobItem);
     });
 
     it('should have the property jobTemplate (base name: "jobTemplate")', function() {
       // uncomment below and update the code to test the property jobTemplate
-      //var instance = new C2MApiV2AuthOverlay.MultiZipJobItem();
+      //var instance = new C2MApiV2.MultiZipJobItem();
       //expect(instance).to.be();
     });
 
     it('should have the property docSourceZipFile (base name: "docSourceZipFile")', function() {
       // uncomment below and update the code to test the property docSourceZipFile
-      //var instance = new C2MApiV2AuthOverlay.MultiZipJobItem();
+      //var instance = new C2MApiV2.MultiZipJobItem();
       //expect(instance).to.be();
     });
 
     it('should have the property recipientAddressSource (base name: "recipientAddressSource")', function() {
       // uncomment below and update the code to test the property recipientAddressSource
-      //var instance = new C2MApiV2AuthOverlay.MultiZipJobItem();
+      //var instance = new C2MApiV2.MultiZipJobItem();
       //expect(instance).to.be();
     });
 

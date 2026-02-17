@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.JobOptions
+# C2MApiV2.JobOptions
 
 ## Properties
 

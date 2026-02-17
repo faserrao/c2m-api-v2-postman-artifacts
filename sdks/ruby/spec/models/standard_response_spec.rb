@@ -1,7 +1,7 @@
 =begin
-#C2M API v2 - Auth Overlay
+#C2M API v2
 
-#API for submitting documents with various routing options
+#API for submitting mailing jobs with various document routing options
 
 The version of the OpenAPI document: 2.0.0
 
@@ -39,7 +39,7 @@ describe OpenapiClient::StandardResponse do
     end
   end
 
-  describe 'test attribute "job_id"' do
+  describe 'test attribute "request_id"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

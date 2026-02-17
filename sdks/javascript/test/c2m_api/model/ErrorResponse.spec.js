@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.ErrorResponse();
+    instance = new C2MApiV2.ErrorResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,37 +50,37 @@
   describe('ErrorResponse', function() {
     it('should create an instance of ErrorResponse', function() {
       // uncomment below and update the code to test ErrorResponse
-      //var instance = new C2MApiV2AuthOverlay.ErrorResponse();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.ErrorResponse);
+      //var instance = new C2MApiV2.ErrorResponse();
+      //expect(instance).to.be.a(C2MApiV2.ErrorResponse);
     });
 
     it('should have the property errorType (base name: "errorType")', function() {
       // uncomment below and update the code to test the property errorType
-      //var instance = new C2MApiV2AuthOverlay.ErrorResponse();
+      //var instance = new C2MApiV2.ErrorResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property errorMessage (base name: "errorMessage")', function() {
       // uncomment below and update the code to test the property errorMessage
-      //var instance = new C2MApiV2AuthOverlay.ErrorResponse();
+      //var instance = new C2MApiV2.ErrorResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property errorCode (base name: "errorCode")', function() {
       // uncomment below and update the code to test the property errorCode
-      //var instance = new C2MApiV2AuthOverlay.ErrorResponse();
+      //var instance = new C2MApiV2.ErrorResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property errorDetails (base name: "errorDetails")', function() {
       // uncomment below and update the code to test the property errorDetails
-      //var instance = new C2MApiV2AuthOverlay.ErrorResponse();
+      //var instance = new C2MApiV2.ErrorResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property errorTrackingId (base name: "errorTrackingId")', function() {
       // uncomment below and update the code to test the property errorTrackingId
-      //var instance = new C2MApiV2AuthOverlay.ErrorResponse();
+      //var instance = new C2MApiV2.ErrorResponse();
       //expect(instance).to.be();
     });
 

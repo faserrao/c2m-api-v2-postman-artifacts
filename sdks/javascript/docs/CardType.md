@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.CardType
+# C2MApiV2.CardType
 
 ## Enum
 

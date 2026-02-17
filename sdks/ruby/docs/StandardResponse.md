@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **status** | **String** |  | [optional] |
 | **message** | **String** |  | [optional] |
-| **job_id** | **String** |  | [optional] |
+| **request_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -16,7 +16,7 @@ require 'openapi_client'
 instance = OpenapiClient::StandardResponse.new(
   status: null,
   message: null,
-  job_id: null
+  request_id: null
 )
 ```
 

@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.ShortTokenResponse
+# C2MApiV2.ShortTokenResponse
 
 ## Properties
 

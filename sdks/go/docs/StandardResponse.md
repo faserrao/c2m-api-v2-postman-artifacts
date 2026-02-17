@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Status** | Pointer to **string** |  | [optional] 
 **Message** | Pointer to **string** |  | [optional] 
-**JobId** | Pointer to **string** |  | [optional] 
+**RequestId** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -77,30 +77,30 @@ SetMessage sets Message field to given value.
 
 HasMessage returns a boolean if a field has been set.
 
-### GetJobId
+### GetRequestId
 
-`func (o *StandardResponse) GetJobId() string`
+`func (o *StandardResponse) GetRequestId() string`
 
-GetJobId returns the JobId field if non-nil, zero value otherwise.
+GetRequestId returns the RequestId field if non-nil, zero value otherwise.
 
-### GetJobIdOk
+### GetRequestIdOk
 
-`func (o *StandardResponse) GetJobIdOk() (*string, bool)`
+`func (o *StandardResponse) GetRequestIdOk() (*string, bool)`
 
-GetJobIdOk returns a tuple with the JobId field if it's non-nil, zero value otherwise
+GetRequestIdOk returns a tuple with the RequestId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetJobId
+### SetRequestId
 
-`func (o *StandardResponse) SetJobId(v string)`
+`func (o *StandardResponse) SetRequestId(v string)`
 
-SetJobId sets JobId field to given value.
+SetRequestId sets RequestId field to given value.
 
-### HasJobId
+### HasRequestId
 
-`func (o *StandardResponse) HasJobId() bool`
+`func (o *StandardResponse) HasRequestId() bool`
 
-HasJobId returns a boolean if a field has been set.
+HasRequestId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

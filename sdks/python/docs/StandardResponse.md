@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **str** |  | [optional] 
 **message** | **str** |  | [optional] 
-**job_id** | **str** |  | [optional] 
+**request_id** | **str** |  | [optional] 
 
 ## Example
 

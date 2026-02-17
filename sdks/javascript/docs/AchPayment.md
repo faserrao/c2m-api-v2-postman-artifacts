@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.AchPayment
+# C2MApiV2.AchPayment
 
 ## Properties
 

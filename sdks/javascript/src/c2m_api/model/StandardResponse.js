@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -53,8 +53,8 @@ class StandardResponse {
             if (data.hasOwnProperty('message')) {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
-            if (data.hasOwnProperty('jobId')) {
-                obj['jobId'] = ApiClient.convertToType(data['jobId'], 'String');
+            if (data.hasOwnProperty('requestId')) {
+                obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
             }
         }
         return obj;
@@ -75,8 +75,8 @@ class StandardResponse {
             throw new Error("Expected the field `message` to be a primitive type in the JSON string but got " + data['message']);
         }
         // ensure the json data is a string
-        if (data['jobId'] && !(typeof data['jobId'] === 'string' || data['jobId'] instanceof String)) {
-            throw new Error("Expected the field `jobId` to be a primitive type in the JSON string but got " + data['jobId']);
+        if (data['requestId'] && !(typeof data['requestId'] === 'string' || data['requestId'] instanceof String)) {
+            throw new Error("Expected the field `requestId` to be a primitive type in the JSON string but got " + data['requestId']);
         }
 
         return true;
@@ -98,9 +98,9 @@ StandardResponse.prototype['status'] = undefined;
 StandardResponse.prototype['message'] = undefined;
 
 /**
- * @member {String} jobId
+ * @member {String} requestId
  */
-StandardResponse.prototype['jobId'] = undefined;
+StandardResponse.prototype['requestId'] = undefined;
 
 
 

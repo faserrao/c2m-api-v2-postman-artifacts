@@ -3,7 +3,7 @@
     "name": "C2M API v2 \u2013 Real World Use Cases",
     "description": "Real-world use cases for the C2M API v2. Each folder contains pre-populated requests for specific business scenarios.\n\n**Getting Started:**\n1. **Select Environment** (top-right dropdown) \u2192 Choose 'C2M Mock Server'\n2. **Find this collection** \u2192 In the Collections sidebar, locate 'C2M API v2 \u2013 Real World Use Cases'\n3. **Expand the collection** \u2192 Click the arrow next to 'C2M API v2 \u2013 Real World Use Cases'\n4. **Choose a use case folder** \u2192 Click arrow next to a folder (e.g., 'Legal Firm')\n5. **Expand the POST request** \u2192 Click arrow next to 'POST [single-doc-job-template]'\n6. **Select an example** \u2192 Click one of the pre-filled examples (e.g., 'legal_firm - Document ID + Credit Card + New Address')\n7. **Review the Body tab** \u2192 See the pre-populated request data for this scenario\n8. **Click Send** \u2192 Response includes jobId for the submitted job\n\n**Use Case Scenarios:**\n\n**Legal Firm** - We have letters that we need to send all day. Each letter is sent to a specific recipient via Certified Mail. A copy is sent to their legal representative via First Class mail. Our system generates the PDF of the letter.\n`[single-doc-job-template]`\n\n**Company #1** - We send invoices at the end of the month. Each invoice is in its own PDF. The address of the recipient is in the invoice.\n`[multi-pdf-address-capture]`\n\n**Company #2** - We send invoices at the end of the month. All the invoices are in a single big PDF. The addresses of the recipients are in the invoices.\n`[single-pdf-split-addressCapture]`\n\n**Real Estate Agent** - We send postcards as part of our campaign. The postcards have a specific template and use mail merge.\n`[single-doc-job-template]`\n\n**Medical Agency** - We send medical reports to patients. Each report is a custom PDF. In addition, a few boiler-plate pages of generic medical information are sent with each report.\n`[multi-doc-merge-job-template]`\n\n**Monthly Newsletters** - We are an organization that sends out flyers at the beginning of each month to our subscribers. The flyer is a static document and we have a mailing list it has to go out to.\n`[single-doc-job-template]`\n\n**Reseller #1** - We receive PDFs from our customers. Each PDF is unique. We want to batch the PDFs into a single big PDF and send them in one go.\n`[single-pdf-split]`\n\n**Reseller #2** - We receive PDFs from our customers. Each PDF is unique. We want to zip the PDFs and send them in one go.\n`[multi-doc]`\n\n**Note:** JWT tokens are handled automatically - no manual auth needed!",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_postman_id": "ecdbd1a7-4080-4c61-8df6-cb6c1dac53e8",
+    "_postman_id": "2ab8a2cb-da60-4ea1-b5c4-36373f290e88",
     "version": {
       "major": 1,
       "minor": 0,
@@ -22,11 +22,11 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "// Save jobId for follow-up requests",
+                  "// Save requestId for follow-up requests",
                   "const response = pm.response.json();",
-                  "if (response.jobId) {",
-                  "    pm.collectionVariables.set('jobId', response.jobId);",
-                  "    console.log('Job ID saved:', response.jobId);",
+                  "if (response.requestId) {",
+                  "    pm.collectionVariables.set('requestId', response.requestId);",
+                  "    console.log('Request ID saved:', response.requestId);",
                   "}",
                   "",
                   "// Basic tests",
@@ -34,8 +34,8 @@
                   "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
                   "});",
                   "",
-                  "pm.test('Response has jobId', function () {",
-                  "    pm.expect(response).to.have.property('jobId');",
+                  "pm.test('Response has requestId', function () {",
+                  "    pm.expect(response).to.have.property('requestId');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -112,7 +112,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "legal_firm - External URL + Invoice + Address List ID",
@@ -154,7 +154,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "legal_firm - Upload Request + ACH + Address ID",
@@ -196,7 +196,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "legal_firm - Upload + Zip + User Credit + New Address",
@@ -238,7 +238,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "legal_firm - Zip Only + Apple Pay + Address List ID",
@@ -280,7 +280,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             }
           ]
         }
@@ -297,11 +297,11 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "// Save jobId for follow-up requests",
+                  "// Save requestId for follow-up requests",
                   "const response = pm.response.json();",
-                  "if (response.jobId) {",
-                  "    pm.collectionVariables.set('jobId', response.jobId);",
-                  "    console.log('Job ID saved:', response.jobId);",
+                  "if (response.requestId) {",
+                  "    pm.collectionVariables.set('requestId', response.requestId);",
+                  "    console.log('Request ID saved:', response.requestId);",
                   "}",
                   "",
                   "// Basic tests",
@@ -309,8 +309,8 @@
                   "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
                   "});",
                   "",
-                  "pm.test('Response has jobId', function () {",
-                  "    pm.expect(response).to.have.property('jobId');",
+                  "pm.test('Response has requestId', function () {",
+                  "    pm.expect(response).to.have.property('requestId');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -387,7 +387,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "company_invoice_batch - External URL + Invoice",
@@ -429,7 +429,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "company_invoice_batch - Upload Request + ACH",
@@ -471,7 +471,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "company_invoice_batch - Upload + Zip + User Credit",
@@ -513,7 +513,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "company_invoice_batch - Zip Only + Apple Pay",
@@ -555,7 +555,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             }
           ]
         }
@@ -572,11 +572,11 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "// Save jobId for follow-up requests",
+                  "// Save requestId for follow-up requests",
                   "const response = pm.response.json();",
-                  "if (response.jobId) {",
-                  "    pm.collectionVariables.set('jobId', response.jobId);",
-                  "    console.log('Job ID saved:', response.jobId);",
+                  "if (response.requestId) {",
+                  "    pm.collectionVariables.set('requestId', response.requestId);",
+                  "    console.log('Request ID saved:', response.requestId);",
                   "}",
                   "",
                   "// Basic tests",
@@ -584,8 +584,8 @@
                   "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
                   "});",
                   "",
-                  "pm.test('Response has jobId', function () {",
-                  "    pm.expect(response).to.have.property('jobId');",
+                  "pm.test('Response has requestId', function () {",
+                  "    pm.expect(response).to.have.property('requestId');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -662,7 +662,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "company_split_invoices - External URL + Invoice",
@@ -704,7 +704,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "company_split_invoices - Upload Request + ACH",
@@ -746,7 +746,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "company_split_invoices - Upload + Zip + User Credit",
@@ -788,7 +788,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "company_split_invoices - Zip Only + Apple Pay",
@@ -830,7 +830,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             }
           ]
         }
@@ -847,11 +847,11 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "// Save jobId for follow-up requests",
+                  "// Save requestId for follow-up requests",
                   "const response = pm.response.json();",
-                  "if (response.jobId) {",
-                  "    pm.collectionVariables.set('jobId', response.jobId);",
-                  "    console.log('Job ID saved:', response.jobId);",
+                  "if (response.requestId) {",
+                  "    pm.collectionVariables.set('requestId', response.requestId);",
+                  "    console.log('Request ID saved:', response.requestId);",
                   "}",
                   "",
                   "// Basic tests",
@@ -859,8 +859,8 @@
                   "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
                   "});",
                   "",
-                  "pm.test('Response has jobId', function () {",
-                  "    pm.expect(response).to.have.property('jobId');",
+                  "pm.test('Response has requestId', function () {",
+                  "    pm.expect(response).to.have.property('requestId');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -937,7 +937,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "real_estate_agent - External URL + Invoice + Address List ID",
@@ -979,7 +979,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "real_estate_agent - Upload Request + ACH + Address ID",
@@ -1021,7 +1021,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "real_estate_agent - Upload + Zip + User Credit + New Address",
@@ -1063,7 +1063,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "real_estate_agent - Zip Only + Apple Pay + Address List ID",
@@ -1105,7 +1105,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             }
           ]
         }
@@ -1122,11 +1122,11 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "// Save jobId for follow-up requests",
+                  "// Save requestId for follow-up requests",
                   "const response = pm.response.json();",
-                  "if (response.jobId) {",
-                  "    pm.collectionVariables.set('jobId', response.jobId);",
-                  "    console.log('Job ID saved:', response.jobId);",
+                  "if (response.requestId) {",
+                  "    pm.collectionVariables.set('requestId', response.requestId);",
+                  "    console.log('Request ID saved:', response.requestId);",
                   "}",
                   "",
                   "// Basic tests",
@@ -1134,8 +1134,8 @@
                   "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
                   "});",
                   "",
-                  "pm.test('Response has jobId', function () {",
-                  "    pm.expect(response).to.have.property('jobId');",
+                  "pm.test('Response has requestId', function () {",
+                  "    pm.expect(response).to.have.property('requestId');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -1212,7 +1212,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "medical_agency - External URL + Invoice + Address List ID",
@@ -1254,7 +1254,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "medical_agency - Upload Request + ACH + Address ID",
@@ -1296,7 +1296,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "medical_agency - Upload + Zip + User Credit + New Address",
@@ -1338,7 +1338,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "medical_agency - Zip Only + Apple Pay + Address List ID",
@@ -1380,7 +1380,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             }
           ]
         }
@@ -1397,11 +1397,11 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "// Save jobId for follow-up requests",
+                  "// Save requestId for follow-up requests",
                   "const response = pm.response.json();",
-                  "if (response.jobId) {",
-                  "    pm.collectionVariables.set('jobId', response.jobId);",
-                  "    console.log('Job ID saved:', response.jobId);",
+                  "if (response.requestId) {",
+                  "    pm.collectionVariables.set('requestId', response.requestId);",
+                  "    console.log('Request ID saved:', response.requestId);",
                   "}",
                   "",
                   "// Basic tests",
@@ -1409,8 +1409,8 @@
                   "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
                   "});",
                   "",
-                  "pm.test('Response has jobId', function () {",
-                  "    pm.expect(response).to.have.property('jobId');",
+                  "pm.test('Response has requestId', function () {",
+                  "    pm.expect(response).to.have.property('requestId');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -1487,7 +1487,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "monthly_newsletters - External URL + Invoice + Address List ID",
@@ -1529,7 +1529,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "monthly_newsletters - Upload Request + ACH + Address ID",
@@ -1571,7 +1571,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "monthly_newsletters - Upload + Zip + User Credit + New Address",
@@ -1613,7 +1613,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "monthly_newsletters - Zip Only + Apple Pay + Address List ID",
@@ -1655,7 +1655,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             }
           ]
         }
@@ -1672,11 +1672,11 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "// Save jobId for follow-up requests",
+                  "// Save requestId for follow-up requests",
                   "const response = pm.response.json();",
-                  "if (response.jobId) {",
-                  "    pm.collectionVariables.set('jobId', response.jobId);",
-                  "    console.log('Job ID saved:', response.jobId);",
+                  "if (response.requestId) {",
+                  "    pm.collectionVariables.set('requestId', response.requestId);",
+                  "    console.log('Request ID saved:', response.requestId);",
                   "}",
                   "",
                   "// Basic tests",
@@ -1684,8 +1684,8 @@
                   "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
                   "});",
                   "",
-                  "pm.test('Response has jobId', function () {",
-                  "    pm.expect(response).to.have.property('jobId');",
+                  "pm.test('Response has requestId', function () {",
+                  "    pm.expect(response).to.have.property('requestId');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -1762,7 +1762,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "reseller_merge_pdfs - External URL + Invoice",
@@ -1804,7 +1804,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "reseller_merge_pdfs - Upload Request + ACH",
@@ -1846,7 +1846,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "reseller_merge_pdfs - Upload + Zip + User Credit",
@@ -1888,7 +1888,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "reseller_merge_pdfs - Zip Only + Apple Pay",
@@ -1930,7 +1930,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             }
           ]
         }
@@ -1947,11 +1947,11 @@
               "listen": "test",
               "script": {
                 "exec": [
-                  "// Save jobId for follow-up requests",
+                  "// Save requestId for follow-up requests",
                   "const response = pm.response.json();",
-                  "if (response.jobId) {",
-                  "    pm.collectionVariables.set('jobId', response.jobId);",
-                  "    console.log('Job ID saved:', response.jobId);",
+                  "if (response.requestId) {",
+                  "    pm.collectionVariables.set('requestId', response.requestId);",
+                  "    console.log('Request ID saved:', response.requestId);",
                   "}",
                   "",
                   "// Basic tests",
@@ -1959,8 +1959,8 @@
                   "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
                   "});",
                   "",
-                  "pm.test('Response has jobId', function () {",
-                  "    pm.expect(response).to.have.property('jobId');",
+                  "pm.test('Response has requestId', function () {",
+                  "    pm.expect(response).to.have.property('requestId');",
                   "});"
                 ],
                 "type": "text/javascript"
@@ -2037,7 +2037,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "reseller_zip_pdfs - External URL + Invoice",
@@ -2079,7 +2079,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "reseller_zip_pdfs - Upload Request + ACH",
@@ -2121,7 +2121,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "reseller_zip_pdfs - Upload + Zip + User Credit",
@@ -2163,7 +2163,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             },
             {
               "name": "reseller_zip_pdfs - Zip Only + Apple Pay",
@@ -2205,7 +2205,7 @@
                 }
               ],
               "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"jobId\": 123456\n}"
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
             }
           ]
         }

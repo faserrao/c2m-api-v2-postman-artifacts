@@ -14,18 +14,18 @@ public struct StandardResponse: Codable, JSONEncodable, Hashable {
 
     public var status: String?
     public var message: String?
-    public var jobId: String?
+    public var requestId: String?
 
-    public init(status: String? = nil, message: String? = nil, jobId: String? = nil) {
+    public init(status: String? = nil, message: String? = nil, requestId: String? = nil) {
         self.status = status
         self.message = message
-        self.jobId = jobId
+        self.requestId = requestId
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case status
         case message
-        case jobId
+        case requestId
     }
 
     // Encodable protocol methods
@@ -34,7 +34,7 @@ public struct StandardResponse: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(status, forKey: .status)
         try container.encodeIfPresent(message, forKey: .message)
-        try container.encodeIfPresent(jobId, forKey: .jobId)
+        try container.encodeIfPresent(requestId, forKey: .requestId)
     }
 }
 

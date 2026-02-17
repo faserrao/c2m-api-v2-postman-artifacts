@@ -21,11 +21,8 @@ import io.kotlintest.specs.ShouldSpec
 import com.c2m.api.apis.JobsApi
 import com.c2m.api.models.ErrorResponse
 import com.c2m.api.models.StandardResponse
-import com.c2m.api.models.SubmitMultiDocMergeParams
-import com.c2m.api.models.SubmitMultiDocParams
 import com.c2m.api.models.SubmitMultiZipAddressCaptureParams
 import com.c2m.api.models.SubmitMultiZipParams
-import com.c2m.api.models.SubmitSingleDocParams
 import com.c2m.api.models.SubmitSinglePdfAddressCaptureParams
 import com.c2m.api.models.SubmitSinglePdfSplitAddressCaptureParams
 import com.c2m.api.models.SubmitSinglePdfSplitParams
@@ -34,22 +31,6 @@ class JobsApiTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of JobsApi
         //val apiInstance = JobsApi()
-
-        // to test submitMultiDocMergeParams
-        should("test submitMultiDocMergeParams") {
-            // uncomment below to test submitMultiDocMergeParams
-            //val submitMultiDocMergeParams : SubmitMultiDocMergeParams =  // SubmitMultiDocMergeParams | 
-            //val result : StandardResponse = apiInstance.submitMultiDocMergeParams(submitMultiDocMergeParams)
-            //result shouldBe ("TODO")
-        }
-
-        // to test submitMultiDocParams
-        should("test submitMultiDocParams") {
-            // uncomment below to test submitMultiDocParams
-            //val submitMultiDocParams : SubmitMultiDocParams =  // SubmitMultiDocParams | 
-            //val result : StandardResponse = apiInstance.submitMultiDocParams(submitMultiDocParams)
-            //result shouldBe ("TODO")
-        }
 
         // to test submitMultiZipAddressCaptureParams
         should("test submitMultiZipAddressCaptureParams") {
@@ -64,14 +45,6 @@ class JobsApiTest : ShouldSpec() {
             // uncomment below to test submitMultiZipParams
             //val submitMultiZipParams : SubmitMultiZipParams =  // SubmitMultiZipParams | 
             //val result : StandardResponse = apiInstance.submitMultiZipParams(submitMultiZipParams)
-            //result shouldBe ("TODO")
-        }
-
-        // to test submitSingleDocParams
-        should("test submitSingleDocParams") {
-            // uncomment below to test submitSingleDocParams
-            //val submitSingleDocParams : SubmitSingleDocParams =  // SubmitSingleDocParams | 
-            //val result : StandardResponse = apiInstance.submitSingleDocParams(submitSingleDocParams)
             //result shouldBe ("TODO")
         }
 

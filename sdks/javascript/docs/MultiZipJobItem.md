@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.MultiZipJobItem
+# C2MApiV2.MultiZipJobItem
 
 ## Properties
 

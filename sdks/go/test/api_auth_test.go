@@ -1,5 +1,5 @@
 /*
-C2M API v2 - Auth Overlay
+C2M API v2
 
 Testing AuthAPIService
 

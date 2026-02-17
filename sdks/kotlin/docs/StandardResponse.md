@@ -6,7 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **status** | **kotlin.String** |  |  [optional] |
 | **message** | **kotlin.String** |  |  [optional] |
-| **jobId** | **kotlin.String** |  |  [optional] |
+| **requestId** | **kotlin.String** |  |  [optional] |
 
 
 

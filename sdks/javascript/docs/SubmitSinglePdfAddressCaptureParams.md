@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.SubmitSinglePdfAddressCaptureParams
+# C2MApiV2.SubmitSinglePdfAddressCaptureParams
 
 ## Properties
 

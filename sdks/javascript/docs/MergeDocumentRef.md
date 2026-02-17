@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.MergeDocumentRef
+# C2MApiV2.MergeDocumentRef
 
 ## Properties
 

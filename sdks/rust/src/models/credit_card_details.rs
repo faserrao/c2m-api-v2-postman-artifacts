@@ -1,7 +1,7 @@
 /*
- * C2M API v2 - Auth Overlay
+ * C2M API v2
  *
- * API for submitting documents with various routing options
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 

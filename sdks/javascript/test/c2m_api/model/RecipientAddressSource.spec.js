@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
+    instance = new C2MApiV2.RecipientAddressSource();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,43 +50,43 @@
   describe('RecipientAddressSource', function() {
     it('should create an instance of RecipientAddressSource', function() {
       // uncomment below and update the code to test RecipientAddressSource
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.RecipientAddressSource);
+      //var instance = new C2MApiV2.RecipientAddressSource();
+      //expect(instance).to.be.a(C2MApiV2.RecipientAddressSource);
     });
 
     it('should have the property mappingId (base name: "mappingId")', function() {
       // uncomment below and update the code to test the property mappingId
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
+      //var instance = new C2MApiV2.RecipientAddressSource();
       //expect(instance).to.be();
     });
 
     it('should have the property singleAddress (base name: "singleAddress")', function() {
       // uncomment below and update the code to test the property singleAddress
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
+      //var instance = new C2MApiV2.RecipientAddressSource();
       //expect(instance).to.be();
     });
 
     it('should have the property addressName (base name: "addressName")', function() {
       // uncomment below and update the code to test the property addressName
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
+      //var instance = new C2MApiV2.RecipientAddressSource();
       //expect(instance).to.be();
     });
 
     it('should have the property addressList (base name: "addressList")', function() {
       // uncomment below and update the code to test the property addressList
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
+      //var instance = new C2MApiV2.RecipientAddressSource();
       //expect(instance).to.be();
     });
 
     it('should have the property addressListName (base name: "addressListName")', function() {
       // uncomment below and update the code to test the property addressListName
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
+      //var instance = new C2MApiV2.RecipientAddressSource();
       //expect(instance).to.be();
     });
 
     it('should have the property addressListId (base name: "addressListId")', function() {
       // uncomment below and update the code to test the property addressListId
-      //var instance = new C2MApiV2AuthOverlay.RecipientAddressSource();
+      //var instance = new C2MApiV2.RecipientAddressSource();
       //expect(instance).to.be();
     });
 

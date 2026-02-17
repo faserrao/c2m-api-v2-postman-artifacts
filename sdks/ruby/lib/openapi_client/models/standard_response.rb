@@ -1,7 +1,7 @@
 =begin
-#C2M API v2 - Auth Overlay
+#C2M API v2
 
-#API for submitting documents with various routing options
+#API for submitting mailing jobs with various document routing options
 
 The version of the OpenAPI document: 2.0.0
 
@@ -19,14 +19,14 @@ module OpenapiClient
 
     attr_accessor :message
 
-    attr_accessor :job_id
+    attr_accessor :request_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'status' => :'status',
         :'message' => :'message',
-        :'job_id' => :'jobId'
+        :'request_id' => :'requestId'
       }
     end
 
@@ -45,7 +45,7 @@ module OpenapiClient
       {
         :'status' => :'String',
         :'message' => :'String',
-        :'job_id' => :'String'
+        :'request_id' => :'String'
       }
     end
 
@@ -79,8 +79,8 @@ module OpenapiClient
         self.message = attributes[:'message']
       end
 
-      if attributes.key?(:'job_id')
-        self.job_id = attributes[:'job_id']
+      if attributes.key?(:'request_id')
+        self.request_id = attributes[:'request_id']
       end
     end
 
@@ -106,7 +106,7 @@ module OpenapiClient
       self.class == o.class &&
           status == o.status &&
           message == o.message &&
-          job_id == o.job_id
+          request_id == o.request_id
     end
 
     # @see the `==` method
@@ -118,7 +118,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [status, message, job_id].hash
+      [status, message, request_id].hash
     end
 
     # Builds the object from hash

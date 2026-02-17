@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.SubmitMultiZipAddressCaptureParams
+# C2MApiV2.SubmitMultiZipAddressCaptureParams
 
 ## Properties
 

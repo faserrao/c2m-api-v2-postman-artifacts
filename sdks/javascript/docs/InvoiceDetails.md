@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.InvoiceDetails
+# C2MApiV2.InvoiceDetails
 
 ## Properties
 

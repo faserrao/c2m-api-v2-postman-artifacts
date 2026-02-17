@@ -1,16 +1,18 @@
 openapi: 3.0.3
 info:
-  title: C2M API v2 - Auth Overlay
+  title: C2M API v2
   version: 2.0.0
-  description: API for submitting documents with various routing options
+  description: API for submitting mailing jobs with various document routing options
 servers:
 - url: https://api.example.com/v1
   description: Production server
 - url: http://localhost:4010
   description: Mock server
 tags:
+- name: templates
+  description: Recommended endpoints - use a saved Job Template to define mailing settings once and reuse across submissions
 - name: jobs
-  description: Job submission endpoints for mailing documents
+  description: Specialized job submission endpoints for PDF, ZIP, and address-capture workflows
 - name: auth
   description: Authentication and token management endpoints
 components:
@@ -707,12 +709,12 @@ components:
           type: string
         message:
           type: string
-        jobId:
+        requestId:
           type: string
       example:
         status: success
         message: Job created successfully
-        jobId: job_20241227_123456
+        requestId: job_20241227_123456
     RecipientaddresssourceVariant1:
       type: object
       properties:
@@ -968,7 +970,7 @@ paths:
   /jobs/submit/single/doc:
     post:
       tags:
-      - jobs
+      - templates
       summary: Submit a single doc job
       description: Submits a mailing job with a single document to be sent to one or more recipients. The request body contains
         job parameters including document source, recipient address information, and payment details.
@@ -992,13 +994,13 @@ paths:
                   value:
                     status: success
                     message: doc job created successfully
-                    jobId: doc_job_123456
+                    requestId: doc_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: doc job queued for processing
-                    jobId: doc_job_789012
+                    requestId: doc_job_789012
         '400':
           description: Bad Request - Invalid request parameters
           content:
@@ -1167,13 +1169,13 @@ paths:
                   value:
                     status: success
                     message: addressCapture job created successfully
-                    jobId: addressCapture_job_123456
+                    requestId: addressCapture_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: addressCapture job queued for processing
-                    jobId: addressCapture_job_789012
+                    requestId: addressCapture_job_789012
         '400':
           description: Bad Request - Invalid request parameters
           content:
@@ -1285,13 +1287,13 @@ paths:
                   value:
                     status: success
                     message: split job created successfully
-                    jobId: split_job_123456
+                    requestId: split_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: split job queued for processing
-                    jobId: split_job_789012
+                    requestId: split_job_789012
         '400':
           description: Bad Request - Invalid request parameters
           content:
@@ -1403,13 +1405,13 @@ paths:
                   value:
                     status: success
                     message: addressCapture job created successfully
-                    jobId: addressCapture_job_123456
+                    requestId: addressCapture_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: addressCapture job queued for processing
-                    jobId: addressCapture_job_789012
+                    requestId: addressCapture_job_789012
         '400':
           description: Bad Request - Invalid request parameters
           content:
@@ -1497,7 +1499,7 @@ paths:
   /jobs/submit/multi/doc:
     post:
       tags:
-      - jobs
+      - templates
       summary: Submit a multi doc job
       description: Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters
         including document source, recipient address information, and payment details.
@@ -1521,13 +1523,13 @@ paths:
                   value:
                     status: success
                     message: doc job created successfully
-                    jobId: doc_job_123456
+                    requestId: doc_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: doc job queued for processing
-                    jobId: doc_job_789012
+                    requestId: doc_job_789012
         '400':
           description: Bad Request - Invalid request parameters
           content:
@@ -1615,7 +1617,7 @@ paths:
   /jobs/submit/multi/doc/merge:
     post:
       tags:
-      - jobs
+      - templates
       summary: Submit a multi doc merge job
       description: Submits a multi doc merge mailing job. The request body contains job parameters including document source,
         recipient address information, and payment details.
@@ -1639,13 +1641,13 @@ paths:
                   value:
                     status: success
                     message: merge job created successfully
-                    jobId: merge_job_123456
+                    requestId: merge_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: merge job queued for processing
-                    jobId: merge_job_789012
+                    requestId: merge_job_789012
         '400':
           description: Bad Request - Invalid request parameters
           content:
@@ -1757,13 +1759,13 @@ paths:
                   value:
                     status: success
                     message: zip job created successfully
-                    jobId: zip_job_123456
+                    requestId: zip_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: zip job queued for processing
-                    jobId: zip_job_789012
+                    requestId: zip_job_789012
         '400':
           description: Bad Request - Invalid request parameters
           content:
@@ -1875,13 +1877,13 @@ paths:
                   value:
                     status: success
                     message: addressCapture job created successfully
-                    jobId: addressCapture_job_123456
+                    requestId: addressCapture_job_123456
                 queued:
                   summary: Job queued for processing
                   value:
                     status: queued
                     message: addressCapture job queued for processing
-                    jobId: addressCapture_job_789012
+                    requestId: addressCapture_job_789012
         '400':
           description: Bad Request - Invalid request parameters
           content:

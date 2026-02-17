@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.JobOptions();
+    instance = new C2MApiV2.JobOptions();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,55 +50,55 @@
   describe('JobOptions', function() {
     it('should create an instance of JobOptions', function() {
       // uncomment below and update the code to test JobOptions
-      //var instance = new C2MApiV2AuthOverlay.JobOptions();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.JobOptions);
+      //var instance = new C2MApiV2.JobOptions();
+      //expect(instance).to.be.a(C2MApiV2.JobOptions);
     });
 
     it('should have the property documentClass (base name: "documentClass")', function() {
       // uncomment below and update the code to test the property documentClass
-      //var instance = new C2MApiV2AuthOverlay.JobOptions();
+      //var instance = new C2MApiV2.JobOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property layout (base name: "layout")', function() {
       // uncomment below and update the code to test the property layout
-      //var instance = new C2MApiV2AuthOverlay.JobOptions();
+      //var instance = new C2MApiV2.JobOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property productionTime (base name: "productionTime")', function() {
       // uncomment below and update the code to test the property productionTime
-      //var instance = new C2MApiV2AuthOverlay.JobOptions();
+      //var instance = new C2MApiV2.JobOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property envelope (base name: "envelope")', function() {
       // uncomment below and update the code to test the property envelope
-      //var instance = new C2MApiV2AuthOverlay.JobOptions();
+      //var instance = new C2MApiV2.JobOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property color (base name: "color")', function() {
       // uncomment below and update the code to test the property color
-      //var instance = new C2MApiV2AuthOverlay.JobOptions();
+      //var instance = new C2MApiV2.JobOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property paperType (base name: "paperType")', function() {
       // uncomment below and update the code to test the property paperType
-      //var instance = new C2MApiV2AuthOverlay.JobOptions();
+      //var instance = new C2MApiV2.JobOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property printOption (base name: "printOption")', function() {
       // uncomment below and update the code to test the property printOption
-      //var instance = new C2MApiV2AuthOverlay.JobOptions();
+      //var instance = new C2MApiV2.JobOptions();
       //expect(instance).to.be();
     });
 
     it('should have the property mailClass (base name: "mailClass")', function() {
       // uncomment below and update the code to test the property mailClass
-      //var instance = new C2MApiV2AuthOverlay.JobOptions();
+      //var instance = new C2MApiV2.JobOptions();
       //expect(instance).to.be();
     });
 

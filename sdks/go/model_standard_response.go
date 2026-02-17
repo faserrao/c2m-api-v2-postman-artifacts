@@ -1,7 +1,7 @@
 /*
-C2M API v2 - Auth Overlay
+C2M API v2
 
-API for submitting documents with various routing options
+API for submitting mailing jobs with various document routing options
 
 API version: 2.0.0
 */
@@ -21,7 +21,7 @@ var _ MappedNullable = &StandardResponse{}
 type StandardResponse struct {
 	Status *string `json:"status,omitempty"`
 	Message *string `json:"message,omitempty"`
-	JobId *string `json:"jobId,omitempty"`
+	RequestId *string `json:"requestId,omitempty"`
 }
 
 // NewStandardResponse instantiates a new StandardResponse object
@@ -105,36 +105,36 @@ func (o *StandardResponse) SetMessage(v string) {
 	o.Message = &v
 }
 
-// GetJobId returns the JobId field value if set, zero value otherwise.
-func (o *StandardResponse) GetJobId() string {
-	if o == nil || IsNil(o.JobId) {
+// GetRequestId returns the RequestId field value if set, zero value otherwise.
+func (o *StandardResponse) GetRequestId() string {
+	if o == nil || IsNil(o.RequestId) {
 		var ret string
 		return ret
 	}
-	return *o.JobId
+	return *o.RequestId
 }
 
-// GetJobIdOk returns a tuple with the JobId field value if set, nil otherwise
+// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *StandardResponse) GetJobIdOk() (*string, bool) {
-	if o == nil || IsNil(o.JobId) {
+func (o *StandardResponse) GetRequestIdOk() (*string, bool) {
+	if o == nil || IsNil(o.RequestId) {
 		return nil, false
 	}
-	return o.JobId, true
+	return o.RequestId, true
 }
 
-// HasJobId returns a boolean if a field has been set.
-func (o *StandardResponse) HasJobId() bool {
-	if o != nil && !IsNil(o.JobId) {
+// HasRequestId returns a boolean if a field has been set.
+func (o *StandardResponse) HasRequestId() bool {
+	if o != nil && !IsNil(o.RequestId) {
 		return true
 	}
 
 	return false
 }
 
-// SetJobId gets a reference to the given string and assigns it to the JobId field.
-func (o *StandardResponse) SetJobId(v string) {
-	o.JobId = &v
+// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
+func (o *StandardResponse) SetRequestId(v string) {
+	o.RequestId = &v
 }
 
 func (o StandardResponse) MarshalJSON() ([]byte, error) {
@@ -153,8 +153,8 @@ func (o StandardResponse) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Message) {
 		toSerialize["message"] = o.Message
 	}
-	if !IsNil(o.JobId) {
-		toSerialize["jobId"] = o.JobId
+	if !IsNil(o.RequestId) {
+		toSerialize["requestId"] = o.RequestId
 	}
 	return toSerialize, nil
 }

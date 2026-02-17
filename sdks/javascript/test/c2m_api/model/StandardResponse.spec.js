@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.StandardResponse();
+    instance = new C2MApiV2.StandardResponse();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('StandardResponse', function() {
     it('should create an instance of StandardResponse', function() {
       // uncomment below and update the code to test StandardResponse
-      //var instance = new C2MApiV2AuthOverlay.StandardResponse();
-      //expect(instance).to.be.a(C2MApiV2AuthOverlay.StandardResponse);
+      //var instance = new C2MApiV2.StandardResponse();
+      //expect(instance).to.be.a(C2MApiV2.StandardResponse);
     });
 
     it('should have the property status (base name: "status")', function() {
       // uncomment below and update the code to test the property status
-      //var instance = new C2MApiV2AuthOverlay.StandardResponse();
+      //var instance = new C2MApiV2.StandardResponse();
       //expect(instance).to.be();
     });
 
     it('should have the property message (base name: "message")', function() {
       // uncomment below and update the code to test the property message
-      //var instance = new C2MApiV2AuthOverlay.StandardResponse();
+      //var instance = new C2MApiV2.StandardResponse();
       //expect(instance).to.be();
     });
 
-    it('should have the property jobId (base name: "jobId")', function() {
-      // uncomment below and update the code to test the property jobId
-      //var instance = new C2MApiV2AuthOverlay.StandardResponse();
+    it('should have the property requestId (base name: "requestId")', function() {
+      // uncomment below and update the code to test the property requestId
+      //var instance = new C2MApiV2.StandardResponse();
       //expect(instance).to.be();
     });
 

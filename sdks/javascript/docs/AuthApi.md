@@ -1,4 +1,4 @@
-# C2MApiV2AuthOverlay.AuthApi
+# C2MApiV2.AuthApi
 
 All URIs are relative to *https://api.example.com/v1*
 
@@ -21,8 +21,8 @@ Issues a long-term token (e.g., 30-90 days) for automation or server-to-server u
 ### Example
 
 ```javascript
-import C2MApiV2AuthOverlay from 'c2_m_api_v2_auth_overlay';
-let defaultClient = C2MApiV2AuthOverlay.ApiClient.instance;
+import C2MApiV2 from 'c2_m_api_v2';
+let defaultClient = C2MApiV2.ApiClient.instance;
 // Configure OAuth2 access token for authorization: ShortTokenAuth
 let ShortTokenAuth = defaultClient.authentications['ShortTokenAuth'];
 ShortTokenAuth.accessToken = 'YOUR ACCESS TOKEN';
@@ -32,7 +32,7 @@ ClientKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ClientKey.apiKeyPrefix = 'Token';
 
-let apiInstance = new C2MApiV2AuthOverlay.AuthApi();
+let apiInstance = new C2MApiV2.AuthApi();
 let longTokenRequest = {"grant_type":"client_credentials","client_id":"c2m_abc123","client_secret":"supersecret123","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000}; // LongTokenRequest | 
 apiInstance.issueLongTermToken(longTokenRequest, (error, data, response) => {
   if (error) {
@@ -75,13 +75,13 @@ Exchange a valid long-term token for a short-lived JWT (e.g., 15 minutes). The l
 ### Example
 
 ```javascript
-import C2MApiV2AuthOverlay from 'c2_m_api_v2_auth_overlay';
-let defaultClient = C2MApiV2AuthOverlay.ApiClient.instance;
+import C2MApiV2 from 'c2_m_api_v2';
+let defaultClient = C2MApiV2.ApiClient.instance;
 // Configure OAuth2 access token for authorization: LongTokenAuth
 let LongTokenAuth = defaultClient.authentications['LongTokenAuth'];
 LongTokenAuth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new C2MApiV2AuthOverlay.AuthApi();
+let apiInstance = new C2MApiV2.AuthApi();
 let opts = {
   'shortTokenRequest': {"scopes":["jobs:submit","templates:read"]} // ShortTokenRequest | 
 };
@@ -126,8 +126,8 @@ Revokes a short- or long-term token by its &#x60;tokenId&#x60;. Idempotent.
 ### Example
 
 ```javascript
-import C2MApiV2AuthOverlay from 'c2_m_api_v2_auth_overlay';
-let defaultClient = C2MApiV2AuthOverlay.ApiClient.instance;
+import C2MApiV2 from 'c2_m_api_v2';
+let defaultClient = C2MApiV2.ApiClient.instance;
 // Configure OAuth2 access token for authorization: LongTokenAuth
 let LongTokenAuth = defaultClient.authentications['LongTokenAuth'];
 LongTokenAuth.accessToken = 'YOUR ACCESS TOKEN';
@@ -135,7 +135,7 @@ LongTokenAuth.accessToken = 'YOUR ACCESS TOKEN';
 let ShortTokenAuth = defaultClient.authentications['ShortTokenAuth'];
 ShortTokenAuth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new C2MApiV2AuthOverlay.AuthApi();
+let apiInstance = new C2MApiV2.AuthApi();
 let tokenId = "tokenId_example"; // String | The token ID to revoke
 apiInstance.revokeToken(tokenId, (error, data, response) => {
   if (error) {

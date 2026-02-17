@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/c2m_api/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.C2MApiV2AuthOverlay);
+    factory(root.expect, root.C2MApiV2);
   }
-}(this, function(expect, C2MApiV2AuthOverlay) {
+}(this, function(expect, C2MApiV2) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new C2MApiV2AuthOverlay.JobsApi();
+    instance = new C2MApiV2.JobsApi();
   });
 
   var getProperty = function(object, getter, property) {
@@ -48,26 +48,6 @@
   }
 
   describe('JobsApi', function() {
-    describe('submitMultiDocMergeParams', function() {
-      it('should call submitMultiDocMergeParams successfully', function(done) {
-        //uncomment below and update the code to test submitMultiDocMergeParams
-        //instance.submitMultiDocMergeParams(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('submitMultiDocParams', function() {
-      it('should call submitMultiDocParams successfully', function(done) {
-        //uncomment below and update the code to test submitMultiDocParams
-        //instance.submitMultiDocParams(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('submitMultiZipAddressCaptureParams', function() {
       it('should call submitMultiZipAddressCaptureParams successfully', function(done) {
         //uncomment below and update the code to test submitMultiZipAddressCaptureParams
@@ -82,16 +62,6 @@
       it('should call submitMultiZipParams successfully', function(done) {
         //uncomment below and update the code to test submitMultiZipParams
         //instance.submitMultiZipParams(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('submitSingleDocParams', function() {
-      it('should call submitSingleDocParams successfully', function(done) {
-        //uncomment below and update the code to test submitSingleDocParams
-        //instance.submitSingleDocParams(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});
