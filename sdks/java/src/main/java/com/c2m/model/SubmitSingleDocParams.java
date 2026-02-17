@@ -55,7 +55,7 @@ import com.c2m.JSON;
 /**
  * SubmitSingleDocParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T04:52:17.947100257Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T05:38:20.234554134Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class SubmitSingleDocParams {
   public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
   @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)
