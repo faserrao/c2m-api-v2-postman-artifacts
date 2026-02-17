@@ -92,14 +92,14 @@ Class | Method | HTTP request | Description
 *OpenapiClient::AuthApi* | [**issue_long_term_token**](docs/AuthApi.md#issue_long_term_token) | **POST** /auth/tokens/long | Issue or rotate a long-term token
 *OpenapiClient::AuthApi* | [**issue_short_term_token**](docs/AuthApi.md#issue_short_term_token) | **POST** /auth/tokens/short | Issue a short-term access token
 *OpenapiClient::AuthApi* | [**revoke_token**](docs/AuthApi.md#revoke_token) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
+*OpenapiClient::JobsApi* | [**submit_multi_doc_merge_params**](docs/JobsApi.md#submit_multi_doc_merge_params) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
+*OpenapiClient::JobsApi* | [**submit_multi_doc_params**](docs/JobsApi.md#submit_multi_doc_params) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
 *OpenapiClient::JobsApi* | [**submit_multi_zip_address_capture_params**](docs/JobsApi.md#submit_multi_zip_address_capture_params) | **POST** /jobs/submit/multi/zip/addressCapture | Submit a multi zip addressCapture job
 *OpenapiClient::JobsApi* | [**submit_multi_zip_params**](docs/JobsApi.md#submit_multi_zip_params) | **POST** /jobs/submit/multi/zip | Submit a multi zip job
+*OpenapiClient::JobsApi* | [**submit_single_doc_params**](docs/JobsApi.md#submit_single_doc_params) | **POST** /jobs/submit/single/doc | Submit a single doc job
 *OpenapiClient::JobsApi* | [**submit_single_pdf_address_capture_params**](docs/JobsApi.md#submit_single_pdf_address_capture_params) | **POST** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job
 *OpenapiClient::JobsApi* | [**submit_single_pdf_split_address_capture_params**](docs/JobsApi.md#submit_single_pdf_split_address_capture_params) | **POST** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job
 *OpenapiClient::JobsApi* | [**submit_single_pdf_split_params**](docs/JobsApi.md#submit_single_pdf_split_params) | **POST** /jobs/submit/single/pdf/split | Submit a single pdf split job
-*OpenapiClient::MostCommonApi* | [**submit_multi_doc_merge_params**](docs/MostCommonApi.md#submit_multi_doc_merge_params) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
-*OpenapiClient::MostCommonApi* | [**submit_multi_doc_params**](docs/MostCommonApi.md#submit_multi_doc_params) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
-*OpenapiClient::MostCommonApi* | [**submit_single_doc_params**](docs/MostCommonApi.md#submit_single_doc_params) | **POST** /jobs/submit/single/doc | Submit a single doc job
 
 
 ## Documentation for Models

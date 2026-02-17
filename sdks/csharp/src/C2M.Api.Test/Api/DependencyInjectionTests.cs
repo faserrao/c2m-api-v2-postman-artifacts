@@ -111,9 +111,6 @@ namespace C2M.Api.Test.Api
 
             var jobsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IJobsApi>();
             Assert.True(jobsApi.HttpClient.BaseAddress != null);
-
-            var mostCommonApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IMostCommonApi>();
-            Assert.True(mostCommonApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -127,9 +124,6 @@ namespace C2M.Api.Test.Api
 
             var jobsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IJobsApi>();
             Assert.True(jobsApi.HttpClient.BaseAddress != null);
-
-            var mostCommonApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IMostCommonApi>();
-            Assert.True(mostCommonApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -143,9 +137,6 @@ namespace C2M.Api.Test.Api
             
             var jobsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IJobsApi>();
             Assert.True(jobsApi.HttpClient.BaseAddress != null);
-            
-            var mostCommonApi = _hostUsingAddWithAClient.Services.GetRequiredService<IMostCommonApi>();
-            Assert.True(mostCommonApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -159,9 +150,6 @@ namespace C2M.Api.Test.Api
 
             var jobsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IJobsApi>();
             Assert.True(jobsApi.HttpClient.BaseAddress != null);
-
-            var mostCommonApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IMostCommonApi>();
-            Assert.True(mostCommonApi.HttpClient.BaseAddress != null);
         }
     }
 }

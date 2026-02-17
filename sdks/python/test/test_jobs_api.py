@@ -26,6 +26,20 @@ class TestJobsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_submit_multi_doc_merge_params(self) -> None:
+        """Test case for submit_multi_doc_merge_params
+
+        Submit a multi doc merge job
+        """
+        pass
+
+    def test_submit_multi_doc_params(self) -> None:
+        """Test case for submit_multi_doc_params
+
+        Submit a multi doc job
+        """
+        pass
+
     def test_submit_multi_zip_address_capture_params(self) -> None:
         """Test case for submit_multi_zip_address_capture_params
 
@@ -37,6 +51,13 @@ class TestJobsApi(unittest.TestCase):
         """Test case for submit_multi_zip_params
 
         Submit a multi zip job
+        """
+        pass
+
+    def test_submit_single_doc_params(self) -> None:
+        """Test case for submit_single_doc_params
+
+        Submit a single doc job
         """
         pass
 

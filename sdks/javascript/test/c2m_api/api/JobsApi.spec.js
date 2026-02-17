@@ -48,6 +48,26 @@
   }
 
   describe('JobsApi', function() {
+    describe('submitMultiDocMergeParams', function() {
+      it('should call submitMultiDocMergeParams successfully', function(done) {
+        //uncomment below and update the code to test submitMultiDocMergeParams
+        //instance.submitMultiDocMergeParams(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('submitMultiDocParams', function() {
+      it('should call submitMultiDocParams successfully', function(done) {
+        //uncomment below and update the code to test submitMultiDocParams
+        //instance.submitMultiDocParams(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('submitMultiZipAddressCaptureParams', function() {
       it('should call submitMultiZipAddressCaptureParams successfully', function(done) {
         //uncomment below and update the code to test submitMultiZipAddressCaptureParams
@@ -62,6 +82,16 @@
       it('should call submitMultiZipParams successfully', function(done) {
         //uncomment below and update the code to test submitMultiZipParams
         //instance.submitMultiZipParams(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
+    describe('submitSingleDocParams', function() {
+      it('should call submitSingleDocParams successfully', function(done) {
+        //uncomment below and update the code to test submitSingleDocParams
+        //instance.submitSingleDocParams(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

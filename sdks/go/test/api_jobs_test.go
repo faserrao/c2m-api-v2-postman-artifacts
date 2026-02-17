@@ -22,6 +22,30 @@ func Test_c2mapi_JobsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test JobsAPIService SubmitMultiDocMergeParams", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.JobsAPI.SubmitMultiDocMergeParams(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test JobsAPIService SubmitMultiDocParams", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.JobsAPI.SubmitMultiDocParams(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test JobsAPIService SubmitMultiZipAddressCaptureParams", func(t *testing.T) {
 
 		t.Skip("skip test")  // remove to run test
@@ -39,6 +63,18 @@ func Test_c2mapi_JobsAPIService(t *testing.T) {
 		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.JobsAPI.SubmitMultiZipParams(context.Background()).Execute()
+
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test JobsAPIService SubmitSingleDocParams", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		resp, httpRes, err := apiClient.JobsAPI.SubmitSingleDocParams(context.Background()).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

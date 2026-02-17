@@ -32,6 +32,30 @@ describe 'JobsApi' do
     end
   end
 
+  # unit tests for submit_multi_doc_merge_params
+  # Submit a multi doc merge job
+  # Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+  # @param submit_multi_doc_merge_params 
+  # @param [Hash] opts the optional parameters
+  # @return [StandardResponse]
+  describe 'submit_multi_doc_merge_params test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for submit_multi_doc_params
+  # Submit a multi doc job
+  # Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+  # @param submit_multi_doc_params 
+  # @param [Hash] opts the optional parameters
+  # @return [StandardResponse]
+  describe 'submit_multi_doc_params test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for submit_multi_zip_address_capture_params
   # Submit a multi zip addressCapture job
   # Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
@@ -51,6 +75,18 @@ describe 'JobsApi' do
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
   describe 'submit_multi_zip_params test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  # unit tests for submit_single_doc_params
+  # Submit a single doc job
+  # Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+  # @param submit_single_doc_params 
+  # @param [Hash] opts the optional parameters
+  # @return [StandardResponse]
+  describe 'submit_single_doc_params test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

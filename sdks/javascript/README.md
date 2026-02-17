@@ -133,14 +133,14 @@ Class | Method | HTTP request | Description
 *C2MApiV2.AuthApi* | [**issueLongTermToken**](docs/AuthApi.md#issueLongTermToken) | **POST** /auth/tokens/long | Issue or rotate a long-term token
 *C2MApiV2.AuthApi* | [**issueShortTermToken**](docs/AuthApi.md#issueShortTermToken) | **POST** /auth/tokens/short | Issue a short-term access token
 *C2MApiV2.AuthApi* | [**revokeToken**](docs/AuthApi.md#revokeToken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
+*C2MApiV2.JobsApi* | [**submitMultiDocMergeParams**](docs/JobsApi.md#submitMultiDocMergeParams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
+*C2MApiV2.JobsApi* | [**submitMultiDocParams**](docs/JobsApi.md#submitMultiDocParams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
 *C2MApiV2.JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /jobs/submit/multi/zip/addressCapture | Submit a multi zip addressCapture job
 *C2MApiV2.JobsApi* | [**submitMultiZipParams**](docs/JobsApi.md#submitMultiZipParams) | **POST** /jobs/submit/multi/zip | Submit a multi zip job
+*C2MApiV2.JobsApi* | [**submitSingleDocParams**](docs/JobsApi.md#submitSingleDocParams) | **POST** /jobs/submit/single/doc | Submit a single doc job
 *C2MApiV2.JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfAddressCaptureParams) | **POST** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job
 *C2MApiV2.JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfSplitAddressCaptureParams) | **POST** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job
 *C2MApiV2.JobsApi* | [**submitSinglePdfSplitParams**](docs/JobsApi.md#submitSinglePdfSplitParams) | **POST** /jobs/submit/single/pdf/split | Submit a single pdf split job
-*C2MApiV2.MostCommonApi* | [**submitMultiDocMergeParams**](docs/MostCommonApi.md#submitMultiDocMergeParams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
-*C2MApiV2.MostCommonApi* | [**submitMultiDocParams**](docs/MostCommonApi.md#submitMultiDocParams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
-*C2MApiV2.MostCommonApi* | [**submitSingleDocParams**](docs/MostCommonApi.md#submitSingleDocParams) | **POST** /jobs/submit/single/doc | Submit a single doc job
 
 
 ## Documentation for Models

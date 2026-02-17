@@ -2,7 +2,7 @@
 
 C2M API v2
 - API version: 2.0.0
-  - Build date: 2026-02-17T06:15:21.204417708Z[Etc/UTC]
+  - Build date: 2026-02-17T06:18:25.358787894Z[Etc/UTC]
   - Generator version: 7.15.0
 
 API for submitting mailing jobs with various document routing options
@@ -129,14 +129,14 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**issueLongTermToken**](docs/AuthApi.md#issueLongTermToken) | **POST** /auth/tokens/long | Issue or rotate a long-term token
 *AuthApi* | [**issueShortTermToken**](docs/AuthApi.md#issueShortTermToken) | **POST** /auth/tokens/short | Issue a short-term access token
 *AuthApi* | [**revokeToken**](docs/AuthApi.md#revokeToken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
+*JobsApi* | [**submitMultiDocMergeParams**](docs/JobsApi.md#submitMultiDocMergeParams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
+*JobsApi* | [**submitMultiDocParams**](docs/JobsApi.md#submitMultiDocParams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
 *JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /jobs/submit/multi/zip/addressCapture | Submit a multi zip addressCapture job
 *JobsApi* | [**submitMultiZipParams**](docs/JobsApi.md#submitMultiZipParams) | **POST** /jobs/submit/multi/zip | Submit a multi zip job
+*JobsApi* | [**submitSingleDocParams**](docs/JobsApi.md#submitSingleDocParams) | **POST** /jobs/submit/single/doc | Submit a single doc job
 *JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfAddressCaptureParams) | **POST** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job
 *JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfSplitAddressCaptureParams) | **POST** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job
 *JobsApi* | [**submitSinglePdfSplitParams**](docs/JobsApi.md#submitSinglePdfSplitParams) | **POST** /jobs/submit/single/pdf/split | Submit a single pdf split job
-*MostCommonApi* | [**submitMultiDocMergeParams**](docs/MostCommonApi.md#submitMultiDocMergeParams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
-*MostCommonApi* | [**submitMultiDocParams**](docs/MostCommonApi.md#submitMultiDocParams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
-*MostCommonApi* | [**submitSingleDocParams**](docs/MostCommonApi.md#submitSingleDocParams) | **POST** /jobs/submit/single/doc | Submit a single doc job
 
 
 ## Documentation for Models

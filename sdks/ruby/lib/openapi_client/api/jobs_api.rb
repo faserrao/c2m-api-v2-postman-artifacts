@@ -19,6 +19,142 @@ module OpenapiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
+    # Submit a multi doc merge job
+    # Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+    # @param submit_multi_doc_merge_params [SubmitMultiDocMergeParams] 
+    # @param [Hash] opts the optional parameters
+    # @return [StandardResponse]
+    def submit_multi_doc_merge_params(submit_multi_doc_merge_params, opts = {})
+      data, _status_code, _headers = submit_multi_doc_merge_params_with_http_info(submit_multi_doc_merge_params, opts)
+      data
+    end
+
+    # Submit a multi doc merge job
+    # Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+    # @param submit_multi_doc_merge_params [SubmitMultiDocMergeParams] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
+    def submit_multi_doc_merge_params_with_http_info(submit_multi_doc_merge_params, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: JobsApi.submit_multi_doc_merge_params ...'
+      end
+      # verify the required parameter 'submit_multi_doc_merge_params' is set
+      if @api_client.config.client_side_validation && submit_multi_doc_merge_params.nil?
+        fail ArgumentError, "Missing the required parameter 'submit_multi_doc_merge_params' when calling JobsApi.submit_multi_doc_merge_params"
+      end
+      # resource path
+      local_var_path = '/jobs/submit/multi/doc/merge'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(submit_multi_doc_merge_params)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'StandardResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"JobsApi.submit_multi_doc_merge_params",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: JobsApi#submit_multi_doc_merge_params\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Submit a multi doc job
+    # Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+    # @param submit_multi_doc_params [SubmitMultiDocParams] 
+    # @param [Hash] opts the optional parameters
+    # @return [StandardResponse]
+    def submit_multi_doc_params(submit_multi_doc_params, opts = {})
+      data, _status_code, _headers = submit_multi_doc_params_with_http_info(submit_multi_doc_params, opts)
+      data
+    end
+
+    # Submit a multi doc job
+    # Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+    # @param submit_multi_doc_params [SubmitMultiDocParams] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
+    def submit_multi_doc_params_with_http_info(submit_multi_doc_params, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: JobsApi.submit_multi_doc_params ...'
+      end
+      # verify the required parameter 'submit_multi_doc_params' is set
+      if @api_client.config.client_side_validation && submit_multi_doc_params.nil?
+        fail ArgumentError, "Missing the required parameter 'submit_multi_doc_params' when calling JobsApi.submit_multi_doc_params"
+      end
+      # resource path
+      local_var_path = '/jobs/submit/multi/doc'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(submit_multi_doc_params)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'StandardResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"JobsApi.submit_multi_doc_params",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: JobsApi#submit_multi_doc_params\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Submit a multi zip addressCapture job
     # Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
     # @param submit_multi_zip_address_capture_params [SubmitMultiZipAddressCaptureParams] 
@@ -151,6 +287,74 @@ module OpenapiClient
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: JobsApi#submit_multi_zip_params\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Submit a single doc job
+    # Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+    # @param submit_single_doc_params [SubmitSingleDocParams] 
+    # @param [Hash] opts the optional parameters
+    # @return [StandardResponse]
+    def submit_single_doc_params(submit_single_doc_params, opts = {})
+      data, _status_code, _headers = submit_single_doc_params_with_http_info(submit_single_doc_params, opts)
+      data
+    end
+
+    # Submit a single doc job
+    # Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+    # @param submit_single_doc_params [SubmitSingleDocParams] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
+    def submit_single_doc_params_with_http_info(submit_single_doc_params, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: JobsApi.submit_single_doc_params ...'
+      end
+      # verify the required parameter 'submit_single_doc_params' is set
+      if @api_client.config.client_side_validation && submit_single_doc_params.nil?
+        fail ArgumentError, "Missing the required parameter 'submit_single_doc_params' when calling JobsApi.submit_single_doc_params"
+      end
+      # resource path
+      local_var_path = '/jobs/submit/single/doc'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(submit_single_doc_params)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'StandardResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"JobsApi.submit_single_doc_params",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: JobsApi#submit_single_doc_params\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

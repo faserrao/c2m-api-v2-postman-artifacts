@@ -72,6 +72,30 @@ class JobsApiTest extends TestCase
     }
 
     /**
+     * Test case for submitMultiDocMergeParams
+     *
+     * Submit a multi doc merge job.
+     *
+     */
+    public function testSubmitMultiDocMergeParams()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for submitMultiDocParams
+     *
+     * Submit a multi doc job.
+     *
+     */
+    public function testSubmitMultiDocParams()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for submitMultiZipAddressCaptureParams
      *
      * Submit a multi zip addressCapture job.
@@ -90,6 +114,18 @@ class JobsApiTest extends TestCase
      *
      */
     public function testSubmitMultiZipParams()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for submitSingleDocParams
+     *
+     * Submit a single doc job.
+     *
+     */
+    public function testSubmitSingleDocParams()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -20,7 +20,6 @@ __version__ = "1.0.0"
 __all__ = [
     "AuthApi",
     "JobsApi",
-    "MostCommonApi",
     "ApiResponse",
     "ApiClient",
     "Configuration",
@@ -85,7 +84,6 @@ if __import__("typing").TYPE_CHECKING:
     # import apis into sdk package
     from c2m_api.api.auth_api import AuthApi as AuthApi
     from c2m_api.api.jobs_api import JobsApi as JobsApi
-    from c2m_api.api.most_common_api import MostCommonApi as MostCommonApi
     
     # import ApiClient
     from c2m_api.api_response import ApiResponse as ApiResponse
@@ -160,7 +158,6 @@ else:
             """# import apis into sdk package
 from c2m_api.api.auth_api import AuthApi as AuthApi
 from c2m_api.api.jobs_api import JobsApi as JobsApi
-from c2m_api.api.most_common_api import MostCommonApi as MostCommonApi
 
 # import ApiClient
 from c2m_api.api_response import ApiResponse as ApiResponse

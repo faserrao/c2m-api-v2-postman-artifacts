@@ -82,14 +82,14 @@ Class | Method | HTTP request | Description
 *AuthAPI* | [**IssueLongTermToken**](docs/AuthAPI.md#issuelongtermtoken) | **Post** /auth/tokens/long | Issue or rotate a long-term token
 *AuthAPI* | [**IssueShortTermToken**](docs/AuthAPI.md#issueshorttermtoken) | **Post** /auth/tokens/short | Issue a short-term access token
 *AuthAPI* | [**RevokeToken**](docs/AuthAPI.md#revoketoken) | **Post** /auth/tokens/{tokenId}/revoke | Revoke a token
+*JobsAPI* | [**SubmitMultiDocMergeParams**](docs/JobsAPI.md#submitmultidocmergeparams) | **Post** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
+*JobsAPI* | [**SubmitMultiDocParams**](docs/JobsAPI.md#submitmultidocparams) | **Post** /jobs/submit/multi/doc | Submit a multi doc job
 *JobsAPI* | [**SubmitMultiZipAddressCaptureParams**](docs/JobsAPI.md#submitmultizipaddresscaptureparams) | **Post** /jobs/submit/multi/zip/addressCapture | Submit a multi zip addressCapture job
 *JobsAPI* | [**SubmitMultiZipParams**](docs/JobsAPI.md#submitmultizipparams) | **Post** /jobs/submit/multi/zip | Submit a multi zip job
+*JobsAPI* | [**SubmitSingleDocParams**](docs/JobsAPI.md#submitsingledocparams) | **Post** /jobs/submit/single/doc | Submit a single doc job
 *JobsAPI* | [**SubmitSinglePdfAddressCaptureParams**](docs/JobsAPI.md#submitsinglepdfaddresscaptureparams) | **Post** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job
 *JobsAPI* | [**SubmitSinglePdfSplitAddressCaptureParams**](docs/JobsAPI.md#submitsinglepdfsplitaddresscaptureparams) | **Post** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job
 *JobsAPI* | [**SubmitSinglePdfSplitParams**](docs/JobsAPI.md#submitsinglepdfsplitparams) | **Post** /jobs/submit/single/pdf/split | Submit a single pdf split job
-*MostCommonAPI* | [**SubmitMultiDocMergeParams**](docs/MostCommonAPI.md#submitmultidocmergeparams) | **Post** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
-*MostCommonAPI* | [**SubmitMultiDocParams**](docs/MostCommonAPI.md#submitmultidocparams) | **Post** /jobs/submit/multi/doc | Submit a multi doc job
-*MostCommonAPI* | [**SubmitSingleDocParams**](docs/MostCommonAPI.md#submitsingledocparams) | **Post** /jobs/submit/single/doc | Submit a single doc job
 
 
 ## Documentation For Models

@@ -64,7 +64,6 @@ import ZipDocumentSource from './model/ZipDocumentSource';
 import ZipRequestIdSource from './model/ZipRequestIdSource';
 import AuthApi from './api/AuthApi';
 import JobsApi from './api/JobsApi';
-import MostCommonApi from './api/MostCommonApi';
 
 
 /**
@@ -409,11 +408,5 @@ export {
     * The JobsApi service constructor.
     * @property {module:c2m_api/api/JobsApi}
     */
-    JobsApi,
-
-    /**
-    * The MostCommonApi service constructor.
-    * @property {module:c2m_api/api/MostCommonApi}
-    */
-    MostCommonApi
+    JobsApi
 };

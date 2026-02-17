@@ -51,6 +51,30 @@ namespace C2M.Api.Test.Api
         }
 
         /// <summary>
+        /// Test SubmitMultiDocMergeParams
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task SubmitMultiDocMergeParamsAsyncTest()
+        {
+            SubmitMultiDocMergeParams submitMultiDocMergeParams = default!;
+            var response = await _instance.SubmitMultiDocMergeParamsAsync(submitMultiDocMergeParams);
+            var model = response.Ok();
+            Assert.IsType<StandardResponse>(model);
+        }
+
+        /// <summary>
+        /// Test SubmitMultiDocParams
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task SubmitMultiDocParamsAsyncTest()
+        {
+            SubmitMultiDocParams submitMultiDocParams = default!;
+            var response = await _instance.SubmitMultiDocParamsAsync(submitMultiDocParams);
+            var model = response.Ok();
+            Assert.IsType<StandardResponse>(model);
+        }
+
+        /// <summary>
         /// Test SubmitMultiZipAddressCaptureParams
         /// </summary>
         [Fact (Skip = "not implemented")]
@@ -70,6 +94,18 @@ namespace C2M.Api.Test.Api
         {
             SubmitMultiZipParams submitMultiZipParams = default!;
             var response = await _instance.SubmitMultiZipParamsAsync(submitMultiZipParams);
+            var model = response.Ok();
+            Assert.IsType<StandardResponse>(model);
+        }
+
+        /// <summary>
+        /// Test SubmitSingleDocParams
+        /// </summary>
+        [Fact (Skip = "not implemented")]
+        public async Task SubmitSingleDocParamsAsyncTest()
+        {
+            SubmitSingleDocParams submitSingleDocParams = default!;
+            var response = await _instance.SubmitSingleDocParamsAsync(submitSingleDocParams);
             var model = response.Ok();
             Assert.IsType<StandardResponse>(model);
         }
