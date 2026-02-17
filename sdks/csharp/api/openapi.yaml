@@ -11,10 +11,10 @@ servers:
 security:
 - bearerAuth: []
 tags:
-- description: Recommended endpoints - use a saved Job Template to define mailing
-    settings once and reuse across submissions
-  name: templates
-- description: "Specialized job submission endpoints for PDF, ZIP, and address-capture\
+- description: Recommended starting points - the most commonly used job submission
+    endpoints. All endpoints support Job Templates.
+  name: recommended
+- description: "Additional job submission endpoints for PDF split, ZIP, and address-capture\
     \ workflows"
   name: jobs
 - description: Authentication and token management endpoints
@@ -162,7 +162,7 @@ paths:
           description: Internal Server Error - Server encountered an error
       summary: Submit a single doc job
       tags:
-      - templates
+      - recommended
   /jobs/submit/single/pdf/addressCapture:
     post:
       description: "Submits a single pdf addressCapture mailing job. The request body\
@@ -734,7 +734,7 @@ paths:
           description: Internal Server Error - Server encountered an error
       summary: Submit a multi doc job
       tags:
-      - templates
+      - recommended
   /jobs/submit/multi/doc/merge:
     post:
       description: "Submits a multi doc merge mailing job. The request body contains\
@@ -877,7 +877,7 @@ paths:
           description: Internal Server Error - Server encountered an error
       summary: Submit a multi doc merge job
       tags:
-      - templates
+      - recommended
   /jobs/submit/multi/zip:
     post:
       description: "Submits a multi zip mailing job. The request body contains job\

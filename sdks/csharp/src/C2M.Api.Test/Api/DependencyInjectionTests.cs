@@ -112,8 +112,8 @@ namespace C2M.Api.Test.Api
             var jobsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IJobsApi>();
             Assert.True(jobsApi.HttpClient.BaseAddress != null);
 
-            var templatesApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<ITemplatesApi>();
-            Assert.True(templatesApi.HttpClient.BaseAddress != null);
+            var recommendedApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IRecommendedApi>();
+            Assert.True(recommendedApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -128,8 +128,8 @@ namespace C2M.Api.Test.Api
             var jobsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IJobsApi>();
             Assert.True(jobsApi.HttpClient.BaseAddress != null);
 
-            var templatesApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<ITemplatesApi>();
-            Assert.True(templatesApi.HttpClient.BaseAddress != null);
+            var recommendedApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IRecommendedApi>();
+            Assert.True(recommendedApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -144,8 +144,8 @@ namespace C2M.Api.Test.Api
             var jobsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IJobsApi>();
             Assert.True(jobsApi.HttpClient.BaseAddress != null);
             
-            var templatesApi = _hostUsingAddWithAClient.Services.GetRequiredService<ITemplatesApi>();
-            Assert.True(templatesApi.HttpClient.BaseAddress != null);
+            var recommendedApi = _hostUsingAddWithAClient.Services.GetRequiredService<IRecommendedApi>();
+            Assert.True(recommendedApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -160,8 +160,8 @@ namespace C2M.Api.Test.Api
             var jobsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IJobsApi>();
             Assert.True(jobsApi.HttpClient.BaseAddress != null);
 
-            var templatesApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<ITemplatesApi>();
-            Assert.True(templatesApi.HttpClient.BaseAddress != null);
+            var recommendedApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IRecommendedApi>();
+            Assert.True(recommendedApi.HttpClient.BaseAddress != null);
         }
     }
 }

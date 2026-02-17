@@ -97,9 +97,9 @@ Class | Method | HTTP request | Description
 *OpenapiClient::JobsApi* | [**submit_single_pdf_address_capture_params**](docs/JobsApi.md#submit_single_pdf_address_capture_params) | **POST** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job
 *OpenapiClient::JobsApi* | [**submit_single_pdf_split_address_capture_params**](docs/JobsApi.md#submit_single_pdf_split_address_capture_params) | **POST** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job
 *OpenapiClient::JobsApi* | [**submit_single_pdf_split_params**](docs/JobsApi.md#submit_single_pdf_split_params) | **POST** /jobs/submit/single/pdf/split | Submit a single pdf split job
-*OpenapiClient::TemplatesApi* | [**submit_multi_doc_merge_params**](docs/TemplatesApi.md#submit_multi_doc_merge_params) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
-*OpenapiClient::TemplatesApi* | [**submit_multi_doc_params**](docs/TemplatesApi.md#submit_multi_doc_params) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
-*OpenapiClient::TemplatesApi* | [**submit_single_doc_params**](docs/TemplatesApi.md#submit_single_doc_params) | **POST** /jobs/submit/single/doc | Submit a single doc job
+*OpenapiClient::RecommendedApi* | [**submit_multi_doc_merge_params**](docs/RecommendedApi.md#submit_multi_doc_merge_params) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
+*OpenapiClient::RecommendedApi* | [**submit_multi_doc_params**](docs/RecommendedApi.md#submit_multi_doc_params) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
+*OpenapiClient::RecommendedApi* | [**submit_single_doc_params**](docs/RecommendedApi.md#submit_single_doc_params) | **POST** /jobs/submit/single/doc | Submit a single doc job
 
 
 ## Documentation for Models

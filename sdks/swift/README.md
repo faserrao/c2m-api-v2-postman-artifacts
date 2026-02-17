@@ -34,9 +34,9 @@ Class | Method | HTTP request | Description
 *JobsAPI* | [**submitSinglePdfAddressCaptureParams**](docs/JobsAPI.md#submitsinglepdfaddresscaptureparams) | **POST** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job
 *JobsAPI* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsAPI.md#submitsinglepdfsplitaddresscaptureparams) | **POST** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job
 *JobsAPI* | [**submitSinglePdfSplitParams**](docs/JobsAPI.md#submitsinglepdfsplitparams) | **POST** /jobs/submit/single/pdf/split | Submit a single pdf split job
-*TemplatesAPI* | [**submitMultiDocMergeParams**](docs/TemplatesAPI.md#submitmultidocmergeparams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
-*TemplatesAPI* | [**submitMultiDocParams**](docs/TemplatesAPI.md#submitmultidocparams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
-*TemplatesAPI* | [**submitSingleDocParams**](docs/TemplatesAPI.md#submitsingledocparams) | **POST** /jobs/submit/single/doc | Submit a single doc job
+*RecommendedAPI* | [**submitMultiDocMergeParams**](docs/RecommendedAPI.md#submitmultidocmergeparams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
+*RecommendedAPI* | [**submitMultiDocParams**](docs/RecommendedAPI.md#submitmultidocparams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
+*RecommendedAPI* | [**submitSingleDocParams**](docs/RecommendedAPI.md#submitsingledocparams) | **POST** /jobs/submit/single/doc | Submit a single doc job
 
 
 ## Documentation For Models

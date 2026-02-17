@@ -9,10 +9,10 @@ servers:
 - url: http://localhost:4010
   description: Mock server
 tags:
-- name: templates
-  description: Recommended endpoints - use a saved Job Template to define mailing settings once and reuse across submissions
+- name: recommended
+  description: Recommended starting points - the most commonly used job submission endpoints. All endpoints support Job Templates.
 - name: jobs
-  description: Specialized job submission endpoints for PDF, ZIP, and address-capture workflows
+  description: Additional job submission endpoints for PDF split, ZIP, and address-capture workflows
 - name: auth
   description: Authentication and token management endpoints
 components:
@@ -970,7 +970,7 @@ paths:
   /jobs/submit/single/doc:
     post:
       tags:
-      - templates
+      - recommended
       summary: Submit a single doc job
       description: Submits a mailing job with a single document to be sent to one or more recipients. The request body contains
         job parameters including document source, recipient address information, and payment details.
@@ -1499,7 +1499,7 @@ paths:
   /jobs/submit/multi/doc:
     post:
       tags:
-      - templates
+      - recommended
       summary: Submit a multi doc job
       description: Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters
         including document source, recipient address information, and payment details.
@@ -1617,7 +1617,7 @@ paths:
   /jobs/submit/multi/doc/merge:
     post:
       tags:
-      - templates
+      - recommended
       summary: Submit a multi doc merge job
       description: Submits a multi doc merge mailing job. The request body contains job parameters including document source,
         recipient address information, and payment details.

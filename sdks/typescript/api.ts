@@ -1154,9 +1154,9 @@ export class JobsApi extends BaseAPI {
 
 
 /**
- * TemplatesApi - axios parameter creator
+ * RecommendedApi - axios parameter creator
  */
-export const TemplatesApiAxiosParamCreator = function (configuration?: Configuration) {
+export const RecommendedApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
@@ -1282,10 +1282,10 @@ export const TemplatesApiAxiosParamCreator = function (configuration?: Configura
 };
 
 /**
- * TemplatesApi - functional programming interface
+ * RecommendedApi - functional programming interface
  */
-export const TemplatesApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = TemplatesApiAxiosParamCreator(configuration)
+export const RecommendedApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = RecommendedApiAxiosParamCreator(configuration)
     return {
         /**
          * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
@@ -1297,7 +1297,7 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
         async submitMultiDocMergeParams(submitMultiDocMergeParams: SubmitMultiDocMergeParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.submitMultiDocMergeParams(submitMultiDocMergeParams, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TemplatesApi.submitMultiDocMergeParams']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RecommendedApi.submitMultiDocMergeParams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1310,7 +1310,7 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
         async submitMultiDocParams(submitMultiDocParams: SubmitMultiDocParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.submitMultiDocParams(submitMultiDocParams, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TemplatesApi.submitMultiDocParams']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RecommendedApi.submitMultiDocParams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1323,17 +1323,17 @@ export const TemplatesApiFp = function(configuration?: Configuration) {
         async submitSingleDocParams(submitSingleDocParams: SubmitSingleDocParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.submitSingleDocParams(submitSingleDocParams, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TemplatesApi.submitSingleDocParams']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['RecommendedApi.submitSingleDocParams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
 
 /**
- * TemplatesApi - factory interface
+ * RecommendedApi - factory interface
  */
-export const TemplatesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = TemplatesApiFp(configuration)
+export const RecommendedApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = RecommendedApiFp(configuration)
     return {
         /**
          * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
@@ -1369,9 +1369,9 @@ export const TemplatesApiFactory = function (configuration?: Configuration, base
 };
 
 /**
- * TemplatesApi - object-oriented interface
+ * RecommendedApi - object-oriented interface
  */
-export class TemplatesApi extends BaseAPI {
+export class RecommendedApi extends BaseAPI {
     /**
      * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
      * @summary Submit a multi doc merge job
@@ -1380,7 +1380,7 @@ export class TemplatesApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public submitMultiDocMergeParams(submitMultiDocMergeParams: SubmitMultiDocMergeParams, options?: RawAxiosRequestConfig) {
-        return TemplatesApiFp(this.configuration).submitMultiDocMergeParams(submitMultiDocMergeParams, options).then((request) => request(this.axios, this.basePath));
+        return RecommendedApiFp(this.configuration).submitMultiDocMergeParams(submitMultiDocMergeParams, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1391,7 +1391,7 @@ export class TemplatesApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public submitMultiDocParams(submitMultiDocParams: SubmitMultiDocParams, options?: RawAxiosRequestConfig) {
-        return TemplatesApiFp(this.configuration).submitMultiDocParams(submitMultiDocParams, options).then((request) => request(this.axios, this.basePath));
+        return RecommendedApiFp(this.configuration).submitMultiDocParams(submitMultiDocParams, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1402,7 +1402,7 @@ export class TemplatesApi extends BaseAPI {
      * @throws {RequiredError}
      */
     public submitSingleDocParams(submitSingleDocParams: SubmitSingleDocParams, options?: RawAxiosRequestConfig) {
-        return TemplatesApiFp(this.configuration).submitSingleDocParams(submitSingleDocParams, options).then((request) => request(this.axios, this.basePath));
+        return RecommendedApiFp(this.configuration).submitSingleDocParams(submitSingleDocParams, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -64,7 +64,7 @@ import ZipDocumentSource from './model/ZipDocumentSource';
 import ZipRequestIdSource from './model/ZipRequestIdSource';
 import AuthApi from './api/AuthApi';
 import JobsApi from './api/JobsApi';
-import TemplatesApi from './api/TemplatesApi';
+import RecommendedApi from './api/RecommendedApi';
 
 
 /**
@@ -412,8 +412,8 @@ export {
     JobsApi,
 
     /**
-    * The TemplatesApi service constructor.
-    * @property {module:c2m_api/api/TemplatesApi}
+    * The RecommendedApi service constructor.
+    * @property {module:c2m_api/api/RecommendedApi}
     */
-    TemplatesApi
+    RecommendedApi
 };

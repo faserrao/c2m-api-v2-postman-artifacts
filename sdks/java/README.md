@@ -2,7 +2,7 @@
 
 C2M API v2
 - API version: 2.0.0
-  - Build date: 2026-02-17T05:38:20.234554134Z[Etc/UTC]
+  - Build date: 2026-02-17T05:52:53.870510973Z[Etc/UTC]
   - Generator version: 7.15.0
 
 API for submitting mailing jobs with various document routing options
@@ -134,9 +134,9 @@ Class | Method | HTTP request | Description
 *JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfAddressCaptureParams) | **POST** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job
 *JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfSplitAddressCaptureParams) | **POST** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job
 *JobsApi* | [**submitSinglePdfSplitParams**](docs/JobsApi.md#submitSinglePdfSplitParams) | **POST** /jobs/submit/single/pdf/split | Submit a single pdf split job
-*TemplatesApi* | [**submitMultiDocMergeParams**](docs/TemplatesApi.md#submitMultiDocMergeParams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
-*TemplatesApi* | [**submitMultiDocParams**](docs/TemplatesApi.md#submitMultiDocParams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
-*TemplatesApi* | [**submitSingleDocParams**](docs/TemplatesApi.md#submitSingleDocParams) | **POST** /jobs/submit/single/doc | Submit a single doc job
+*RecommendedApi* | [**submitMultiDocMergeParams**](docs/RecommendedApi.md#submitMultiDocMergeParams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
+*RecommendedApi* | [**submitMultiDocParams**](docs/RecommendedApi.md#submitMultiDocParams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
+*RecommendedApi* | [**submitSingleDocParams**](docs/RecommendedApi.md#submitSingleDocParams) | **POST** /jobs/submit/single/doc | Submit a single doc job
 
 
 ## Documentation for Models

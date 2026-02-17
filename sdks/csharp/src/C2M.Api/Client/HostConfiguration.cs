@@ -101,7 +101,7 @@ namespace C2M.Api.Client
             _services.AddSingleton<IApiFactory, ApiFactory>();
             _services.AddSingleton<AuthApiEvents>();
             _services.AddSingleton<JobsApiEvents>();
-            _services.AddSingleton<TemplatesApiEvents>();
+            _services.AddSingleton<RecommendedApiEvents>();
         }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace C2M.Api.Client
 
             builders.Add(_services.AddHttpClient<IAuthApi, AuthApi>(client));
             builders.Add(_services.AddHttpClient<IJobsApi, JobsApi>(client));
-            builders.Add(_services.AddHttpClient<ITemplatesApi, TemplatesApi>(client));
+            builders.Add(_services.AddHttpClient<IRecommendedApi, RecommendedApi>(client));
             
             if (builder != null)
                 foreach (IHttpClientBuilder instance in builders)
