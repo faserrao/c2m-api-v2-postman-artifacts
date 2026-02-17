@@ -112,8 +112,8 @@ namespace C2M.Api.Test.Api
             var jobsApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IJobsApi>();
             Assert.True(jobsApi.HttpClient.BaseAddress != null);
 
-            var recommendedApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IRecommendedApi>();
-            Assert.True(recommendedApi.HttpClient.BaseAddress != null);
+            var mostCommonApi = _hostUsingConfigureWithAClient.Services.GetRequiredService<IMostCommonApi>();
+            Assert.True(mostCommonApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -128,8 +128,8 @@ namespace C2M.Api.Test.Api
             var jobsApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IJobsApi>();
             Assert.True(jobsApi.HttpClient.BaseAddress != null);
 
-            var recommendedApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IRecommendedApi>();
-            Assert.True(recommendedApi.HttpClient.BaseAddress != null);
+            var mostCommonApi = _hostUsingConfigureWithoutAClient.Services.GetRequiredService<IMostCommonApi>();
+            Assert.True(mostCommonApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -144,8 +144,8 @@ namespace C2M.Api.Test.Api
             var jobsApi = _hostUsingAddWithAClient.Services.GetRequiredService<IJobsApi>();
             Assert.True(jobsApi.HttpClient.BaseAddress != null);
             
-            var recommendedApi = _hostUsingAddWithAClient.Services.GetRequiredService<IRecommendedApi>();
-            Assert.True(recommendedApi.HttpClient.BaseAddress != null);
+            var mostCommonApi = _hostUsingAddWithAClient.Services.GetRequiredService<IMostCommonApi>();
+            Assert.True(mostCommonApi.HttpClient.BaseAddress != null);
         }
 
         /// <summary>
@@ -160,8 +160,8 @@ namespace C2M.Api.Test.Api
             var jobsApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IJobsApi>();
             Assert.True(jobsApi.HttpClient.BaseAddress != null);
 
-            var recommendedApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IRecommendedApi>();
-            Assert.True(recommendedApi.HttpClient.BaseAddress != null);
+            var mostCommonApi = _hostUsingAddWithoutAClient.Services.GetRequiredService<IMostCommonApi>();
+            Assert.True(mostCommonApi.HttpClient.BaseAddress != null);
         }
     }
 }

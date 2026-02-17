@@ -113,6 +113,6 @@ impl From<&str> for ContentType {
 
 pub mod auth_api;
 pub mod jobs_api;
-pub mod recommended_api;
+pub mod most_common_api;
 
 pub mod configuration;

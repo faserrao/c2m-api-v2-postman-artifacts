@@ -138,9 +138,9 @@ Class | Method | HTTP request | Description
 *C2MApiV2.JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfAddressCaptureParams) | **POST** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job
 *C2MApiV2.JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfSplitAddressCaptureParams) | **POST** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job
 *C2MApiV2.JobsApi* | [**submitSinglePdfSplitParams**](docs/JobsApi.md#submitSinglePdfSplitParams) | **POST** /jobs/submit/single/pdf/split | Submit a single pdf split job
-*C2MApiV2.RecommendedApi* | [**submitMultiDocMergeParams**](docs/RecommendedApi.md#submitMultiDocMergeParams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
-*C2MApiV2.RecommendedApi* | [**submitMultiDocParams**](docs/RecommendedApi.md#submitMultiDocParams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
-*C2MApiV2.RecommendedApi* | [**submitSingleDocParams**](docs/RecommendedApi.md#submitSingleDocParams) | **POST** /jobs/submit/single/doc | Submit a single doc job
+*C2MApiV2.MostCommonApi* | [**submitMultiDocMergeParams**](docs/MostCommonApi.md#submitMultiDocMergeParams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
+*C2MApiV2.MostCommonApi* | [**submitMultiDocParams**](docs/MostCommonApi.md#submitMultiDocParams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job
+*C2MApiV2.MostCommonApi* | [**submitSingleDocParams**](docs/MostCommonApi.md#submitSingleDocParams) | **POST** /jobs/submit/single/doc | Submit a single doc job
 
 
 ## Documentation for Models

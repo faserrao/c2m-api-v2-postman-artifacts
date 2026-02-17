@@ -54,7 +54,7 @@ type APIClient struct {
 
 	JobsAPI *JobsAPIService
 
-	RecommendedAPI *RecommendedAPIService
+	MostCommonAPI *MostCommonAPIService
 }
 
 type service struct {
@@ -75,7 +75,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	// API Services
 	c.AuthAPI = (*AuthAPIService)(&c.common)
 	c.JobsAPI = (*JobsAPIService)(&c.common)
-	c.RecommendedAPI = (*RecommendedAPIService)(&c.common)
+	c.MostCommonAPI = (*MostCommonAPIService)(&c.common)
 
 	return c
 }

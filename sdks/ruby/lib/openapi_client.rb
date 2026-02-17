@@ -70,7 +70,7 @@ require 'openapi_client/models/zip_request_id_source'
 # APIs
 require 'openapi_client/api/auth_api'
 require 'openapi_client/api/jobs_api'
-require 'openapi_client/api/recommended_api'
+require 'openapi_client/api/most_common_api'
 
 module OpenapiClient
   class << self

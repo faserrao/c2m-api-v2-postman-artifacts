@@ -53,9 +53,9 @@ All URIs are relative to *https://api.example.com/v1*
 | *JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/JobsApi.md#submitsinglepdfaddresscaptureparams) | **POST** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job |
 | *JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsApi.md#submitsinglepdfsplitaddresscaptureparams) | **POST** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job |
 | *JobsApi* | [**submitSinglePdfSplitParams**](docs/JobsApi.md#submitsinglepdfsplitparams) | **POST** /jobs/submit/single/pdf/split | Submit a single pdf split job |
-| *RecommendedApi* | [**submitMultiDocMergeParams**](docs/RecommendedApi.md#submitmultidocmergeparams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job |
-| *RecommendedApi* | [**submitMultiDocParams**](docs/RecommendedApi.md#submitmultidocparams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job |
-| *RecommendedApi* | [**submitSingleDocParams**](docs/RecommendedApi.md#submitsingledocparams) | **POST** /jobs/submit/single/doc | Submit a single doc job |
+| *MostCommonApi* | [**submitMultiDocMergeParams**](docs/MostCommonApi.md#submitmultidocmergeparams) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job |
+| *MostCommonApi* | [**submitMultiDocParams**](docs/MostCommonApi.md#submitmultidocparams) | **POST** /jobs/submit/multi/doc | Submit a multi doc job |
+| *MostCommonApi* | [**submitSingleDocParams**](docs/MostCommonApi.md#submitsingledocparams) | **POST** /jobs/submit/single/doc | Submit a single doc job |
 
 
 <a id="documentation-for-models"></a>

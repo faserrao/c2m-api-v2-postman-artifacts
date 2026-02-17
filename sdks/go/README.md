@@ -87,9 +87,9 @@ Class | Method | HTTP request | Description
 *JobsAPI* | [**SubmitSinglePdfAddressCaptureParams**](docs/JobsAPI.md#submitsinglepdfaddresscaptureparams) | **Post** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job
 *JobsAPI* | [**SubmitSinglePdfSplitAddressCaptureParams**](docs/JobsAPI.md#submitsinglepdfsplitaddresscaptureparams) | **Post** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job
 *JobsAPI* | [**SubmitSinglePdfSplitParams**](docs/JobsAPI.md#submitsinglepdfsplitparams) | **Post** /jobs/submit/single/pdf/split | Submit a single pdf split job
-*RecommendedAPI* | [**SubmitMultiDocMergeParams**](docs/RecommendedAPI.md#submitmultidocmergeparams) | **Post** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
-*RecommendedAPI* | [**SubmitMultiDocParams**](docs/RecommendedAPI.md#submitmultidocparams) | **Post** /jobs/submit/multi/doc | Submit a multi doc job
-*RecommendedAPI* | [**SubmitSingleDocParams**](docs/RecommendedAPI.md#submitsingledocparams) | **Post** /jobs/submit/single/doc | Submit a single doc job
+*MostCommonAPI* | [**SubmitMultiDocMergeParams**](docs/MostCommonAPI.md#submitmultidocmergeparams) | **Post** /jobs/submit/multi/doc/merge | Submit a multi doc merge job
+*MostCommonAPI* | [**SubmitMultiDocParams**](docs/MostCommonAPI.md#submitmultidocparams) | **Post** /jobs/submit/multi/doc | Submit a multi doc job
+*MostCommonAPI* | [**SubmitSingleDocParams**](docs/MostCommonAPI.md#submitsingledocparams) | **Post** /jobs/submit/single/doc | Submit a single doc job
 
 
 ## Documentation For Models
