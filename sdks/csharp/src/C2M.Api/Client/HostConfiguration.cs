@@ -57,6 +57,11 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new DocSourceAllJsonConverter());
             _jsonOptions.Converters.Add(new DocSourceStandardJsonConverter());
             _jsonOptions.Converters.Add(new DocSourceZipFileJsonConverter());
+            _jsonOptions.Converters.Add(new ErrorCodeJsonConverter());
+            _jsonOptions.Converters.Add(new ErrorCodeNullableJsonConverter());
+            _jsonOptions.Converters.Add(new ErrorResponseJsonConverter());
+            _jsonOptions.Converters.Add(new ErrorTypeJsonConverter());
+            _jsonOptions.Converters.Add(new ErrorTypeNullableJsonConverter());
             _jsonOptions.Converters.Add(new ExpirationDateJsonConverter());
             _jsonOptions.Converters.Add(new InvoiceDetailsJsonConverter());
             _jsonOptions.Converters.Add(new InvoicePaymentJsonConverter());

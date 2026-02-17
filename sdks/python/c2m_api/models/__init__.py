@@ -27,6 +27,9 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.doc_source_all import DocSourceAll
     from c2m_api.models.doc_source_standard import DocSourceStandard
     from c2m_api.models.doc_source_zip_file import DocSourceZipFile
+    from c2m_api.models.error_code import ErrorCode
+    from c2m_api.models.error_response import ErrorResponse
+    from c2m_api.models.error_type import ErrorType
     from c2m_api.models.expiration_date import ExpirationDate
     from c2m_api.models.invoice_details import InvoiceDetails
     from c2m_api.models.invoice_payment import InvoicePayment
@@ -81,6 +84,9 @@ from c2m_api.models.currency import Currency
 from c2m_api.models.doc_source_all import DocSourceAll
 from c2m_api.models.doc_source_standard import DocSourceStandard
 from c2m_api.models.doc_source_zip_file import DocSourceZipFile
+from c2m_api.models.error_code import ErrorCode
+from c2m_api.models.error_response import ErrorResponse
+from c2m_api.models.error_type import ErrorType
 from c2m_api.models.expiration_date import ExpirationDate
 from c2m_api.models.invoice_details import InvoiceDetails
 from c2m_api.models.invoice_payment import InvoicePayment

@@ -21,7 +21,7 @@
                   "description": "",
                   "item": [
                     {
-                      "id": "e0ae4e8d-6376-45cb-828c-089c4b5c6e99",
+                      "id": "403b3c89-2e56-4e33-ab9e-76403200b89b",
                       "name": "Submit a single doc job",
                       "request": {
                         "name": "Submit a single doc job",
@@ -67,7 +67,7 @@
                       },
                       "response": [
                         {
-                          "id": "cae39bf2-2482-4096-8613-b185c5dc3337",
+                          "id": "9bdd3fb5-7ad1-4a62-af69-3c69e4f87bc5",
                           "name": "Success",
                           "originalRequest": {
                             "url": {
@@ -126,8 +126,8 @@
                           "_postman_previewlanguage": "json"
                         },
                         {
-                          "id": "f12360b7-3f60-47cc-ac16-bb0d31c115bf",
-                          "name": "Invalid request",
+                          "id": "b7877932-9776-4d00-a6ed-e997db811c9b",
+                          "name": "Bad Request - Invalid request parameters",
                           "originalRequest": {
                             "url": {
                               "path": [
@@ -145,6 +145,10 @@
                             "header": [
                               {
                                 "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
                                 "value": "application/json"
                               },
                               {
@@ -170,13 +174,19 @@
                           },
                           "status": "Bad Request",
                           "code": 400,
-                          "header": [],
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                           "cookie": [],
-                          "_postman_previewlanguage": "text"
+                          "_postman_previewlanguage": "json"
                         },
                         {
-                          "id": "4b598fb6-b2c5-4a65-8b6d-9a4b105e84d9",
-                          "name": "Unauthorized",
+                          "id": "c31c40da-45f4-46e7-8876-0a9b4742f7ce",
+                          "name": "Unauthorized - Missing or invalid authentication",
                           "originalRequest": {
                             "url": {
                               "path": [
@@ -194,6 +204,10 @@
                             "header": [
                               {
                                 "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
                                 "value": "application/json"
                               },
                               {
@@ -219,9 +233,251 @@
                           },
                           "status": "Unauthorized",
                           "code": 401,
-                          "header": [],
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                           "cookie": [],
-                          "_postman_previewlanguage": "text"
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "6149ea05-dca9-4079-9009-81aa0b8f4731",
+                          "name": "Forbidden - Insufficient permissions",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "jobs",
+                                "submit",
+                                "single",
+                                "doc"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": []
+                            },
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": {
+                                  "content": "Added as a part of security scheme: bearer",
+                                  "type": "text/plain"
+                                },
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "e9b1b03a-2cfb-4b20-8aec-6ae1d1d990f0",
+                          "name": "Not Found - Resource not found",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "jobs",
+                                "submit",
+                                "single",
+                                "doc"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": []
+                            },
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": {
+                                  "content": "Added as a part of security scheme: bearer",
+                                  "type": "text/plain"
+                                },
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "0b18dabf-92fb-4bc7-bf26-320e378a50b7",
+                          "name": "Unprocessable Entity - Validation failed",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "jobs",
+                                "submit",
+                                "single",
+                                "doc"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": []
+                            },
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": {
+                                  "content": "Added as a part of security scheme: bearer",
+                                  "type": "text/plain"
+                                },
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "390fac42-448b-4752-b81a-74aa61aed528",
+                          "name": "Internal Server Error - Server encountered an error",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "jobs",
+                                "submit",
+                                "single",
+                                "doc"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": []
+                            },
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": {
+                                  "content": "Added as a part of security scheme: bearer",
+                                  "type": "text/plain"
+                                },
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"docSourceAll\": \"<oneOf>\",\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
                         }
                       ],
                       "event": [],
@@ -240,7 +496,7 @@
                       "description": "",
                       "item": [
                         {
-                          "id": "c2d3e221-3015-4b2b-b0ac-5dd4ff0e406b",
+                          "id": "b3bab675-7aac-4179-81d5-47671344485f",
                           "name": "Submit a single pdf addressCapture job",
                           "request": {
                             "name": "Submit a single pdf addressCapture job",
@@ -287,7 +543,7 @@
                           },
                           "response": [
                             {
-                              "id": "54ab8b67-bc49-4a0a-90d1-55fdbb663b71",
+                              "id": "457adbe9-620e-4e6e-86c3-b6fd9179812e",
                               "name": "Success",
                               "originalRequest": {
                                 "url": {
@@ -347,8 +603,8 @@
                               "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "9e0b9b77-0a1a-48ff-99c1-f899475a1da7",
-                              "name": "Invalid request",
+                              "id": "f04d744c-92ea-41b5-99ab-f4154fdc637d",
+                              "name": "Bad Request - Invalid request parameters",
                               "originalRequest": {
                                 "url": {
                                   "path": [
@@ -367,6 +623,10 @@
                                 "header": [
                                   {
                                     "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
                                     "value": "application/json"
                                   },
                                   {
@@ -392,13 +652,19 @@
                               },
                               "status": "Bad Request",
                               "code": 400,
-                              "header": [],
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                               "cookie": [],
-                              "_postman_previewlanguage": "text"
+                              "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "19c417d7-4187-47c1-9a3c-a2190235ab6f",
-                              "name": "Unauthorized",
+                              "id": "fe5ee940-6d30-44ac-917f-bfadf37bfa85",
+                              "name": "Unauthorized - Missing or invalid authentication",
                               "originalRequest": {
                                 "url": {
                                   "path": [
@@ -417,6 +683,10 @@
                                 "header": [
                                   {
                                     "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
                                     "value": "application/json"
                                   },
                                   {
@@ -442,9 +712,255 @@
                               },
                               "status": "Unauthorized",
                               "code": 401,
-                              "header": [],
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                               "cookie": [],
-                              "_postman_previewlanguage": "text"
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "1dcfaae9-ca97-47d7-b0b9-744bba3a2667",
+                              "name": "Forbidden - Insufficient permissions",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "single",
+                                    "pdf",
+                                    "addressCapture"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "4af2a390-6685-4afe-8499-0a8ab00e2a92",
+                              "name": "Not Found - Resource not found",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "single",
+                                    "pdf",
+                                    "addressCapture"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "7133a09a-1a4d-4af7-9f19-0e22832a73f7",
+                              "name": "Unprocessable Entity - Validation failed",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "single",
+                                    "pdf",
+                                    "addressCapture"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                              "code": 422,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "a214c971-1026-4807-9d5c-a699a8d7c2eb",
+                              "name": "Internal Server Error - Server encountered an error",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "single",
+                                    "pdf",
+                                    "addressCapture"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
                             }
                           ],
                           "event": [],
@@ -459,7 +975,7 @@
                       "description": "",
                       "item": [
                         {
-                          "id": "39d8c39c-162f-465d-8a23-9bb38f06db08",
+                          "id": "c8501b0e-e677-4203-a6cd-d6cc725509b2",
                           "name": "Submit a single pdf split job",
                           "request": {
                             "name": "Submit a single pdf split job",
@@ -506,7 +1022,7 @@
                           },
                           "response": [
                             {
-                              "id": "9ec47edf-193e-44f6-ab49-3530116424d6",
+                              "id": "1a2a1e66-b905-425a-8cc3-b076f47cf707",
                               "name": "Success",
                               "originalRequest": {
                                 "url": {
@@ -566,8 +1082,8 @@
                               "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "4958d480-00d7-47ef-b379-7ddff6fcd6c4",
-                              "name": "Invalid request",
+                              "id": "4cc74594-b923-4134-83b3-9d1bdd1b16a2",
+                              "name": "Bad Request - Invalid request parameters",
                               "originalRequest": {
                                 "url": {
                                   "path": [
@@ -586,6 +1102,10 @@
                                 "header": [
                                   {
                                     "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
                                     "value": "application/json"
                                   },
                                   {
@@ -611,13 +1131,19 @@
                               },
                               "status": "Bad Request",
                               "code": 400,
-                              "header": [],
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                               "cookie": [],
-                              "_postman_previewlanguage": "text"
+                              "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "3c97a890-3a5b-420c-8ec7-5c82bbd14454",
-                              "name": "Unauthorized",
+                              "id": "108c3b8e-dbbb-46ab-a524-3fe34f73bc7e",
+                              "name": "Unauthorized - Missing or invalid authentication",
                               "originalRequest": {
                                 "url": {
                                   "path": [
@@ -636,6 +1162,10 @@
                                 "header": [
                                   {
                                     "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
                                     "value": "application/json"
                                   },
                                   {
@@ -661,9 +1191,255 @@
                               },
                               "status": "Unauthorized",
                               "code": 401,
-                              "header": [],
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                               "cookie": [],
-                              "_postman_previewlanguage": "text"
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "1acbac4f-8317-4b5f-a892-e468dae308a3",
+                              "name": "Forbidden - Insufficient permissions",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "single",
+                                    "pdf",
+                                    "split"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsWithAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "d8b4f457-3a2a-4c02-b4f3-7dcf7ec9a899",
+                              "name": "Not Found - Resource not found",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "single",
+                                    "pdf",
+                                    "split"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsWithAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "4b44c5a2-10db-468c-a2bc-3380205ee219",
+                              "name": "Unprocessable Entity - Validation failed",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "single",
+                                    "pdf",
+                                    "split"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsWithAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                              "code": 422,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "1ab1aab2-6600-43b9-af4f-cb7192a9093d",
+                              "name": "Internal Server Error - Server encountered an error",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "single",
+                                    "pdf",
+                                    "split"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsWithAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\",\n      \"recipientAddressSource\": \"<oneOf>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
                             }
                           ],
                           "event": [],
@@ -676,7 +1452,7 @@
                           "description": "",
                           "item": [
                             {
-                              "id": "2a30c2ed-52de-4153-9613-5379bc95e644",
+                              "id": "a15765e8-e84a-472f-9907-d60a37388abb",
                               "name": "Submit a single pdf split addressCapture job",
                               "request": {
                                 "name": "Submit a single pdf split addressCapture job",
@@ -724,7 +1500,7 @@
                               },
                               "response": [
                                 {
-                                  "id": "003dc62f-5ad1-4bd1-9936-aa522faec849",
+                                  "id": "be248da6-76b7-40a1-b562-beb69eec3543",
                                   "name": "Success",
                                   "originalRequest": {
                                     "url": {
@@ -785,8 +1561,8 @@
                                   "_postman_previewlanguage": "json"
                                 },
                                 {
-                                  "id": "aebd24e4-af73-4bc4-a1e8-220b0db0f503",
-                                  "name": "Invalid request",
+                                  "id": "6590fb35-a78a-496c-a91e-79259a71556c",
+                                  "name": "Bad Request - Invalid request parameters",
                                   "originalRequest": {
                                     "url": {
                                       "path": [
@@ -806,6 +1582,10 @@
                                     "header": [
                                       {
                                         "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
                                         "value": "application/json"
                                       },
                                       {
@@ -831,13 +1611,19 @@
                                   },
                                   "status": "Bad Request",
                                   "code": 400,
-                                  "header": [],
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                                   "cookie": [],
-                                  "_postman_previewlanguage": "text"
+                                  "_postman_previewlanguage": "json"
                                 },
                                 {
-                                  "id": "68850718-faa5-4222-813e-01f2d2f535bf",
-                                  "name": "Unauthorized",
+                                  "id": "1398439c-0d17-4a25-b798-960bb9eb674c",
+                                  "name": "Unauthorized - Missing or invalid authentication",
                                   "originalRequest": {
                                     "url": {
                                       "path": [
@@ -857,6 +1643,10 @@
                                     "header": [
                                       {
                                         "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
                                         "value": "application/json"
                                       },
                                       {
@@ -882,9 +1672,259 @@
                                   },
                                   "status": "Unauthorized",
                                   "code": 401,
-                                  "header": [],
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                                   "cookie": [],
-                                  "_postman_previewlanguage": "text"
+                                  "_postman_previewlanguage": "json"
+                                },
+                                {
+                                  "id": "368ef371-8091-4978-bdc3-ee746b58f72e",
+                                  "name": "Forbidden - Insufficient permissions",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "jobs",
+                                        "submit",
+                                        "single",
+                                        "pdf",
+                                        "split",
+                                        "addressCapture"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": {
+                                          "content": "Added as a part of security scheme: bearer",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "method": "POST",
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsNoAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                },
+                                {
+                                  "id": "3760b35a-4643-4446-bb66-b71f83706b7b",
+                                  "name": "Not Found - Resource not found",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "jobs",
+                                        "submit",
+                                        "single",
+                                        "pdf",
+                                        "split",
+                                        "addressCapture"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": {
+                                          "content": "Added as a part of security scheme: bearer",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "method": "POST",
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsNoAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                },
+                                {
+                                  "id": "5d27f597-6347-4a7e-aeec-f0c7e0f9cf2a",
+                                  "name": "Unprocessable Entity - Validation failed",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "jobs",
+                                        "submit",
+                                        "single",
+                                        "pdf",
+                                        "split",
+                                        "addressCapture"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": {
+                                          "content": "Added as a part of security scheme: bearer",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "method": "POST",
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsNoAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                  "code": 422,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
+                                },
+                                {
+                                  "id": "c1ed8723-0ceb-47b6-80f1-f248fd578bda",
+                                  "name": "Internal Server Error - Server encountered an error",
+                                  "originalRequest": {
+                                    "url": {
+                                      "path": [
+                                        "jobs",
+                                        "submit",
+                                        "single",
+                                        "pdf",
+                                        "split",
+                                        "addressCapture"
+                                      ],
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "query": [],
+                                      "variable": []
+                                    },
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": {
+                                          "content": "Added as a part of security scheme: bearer",
+                                          "type": "text/plain"
+                                        },
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "method": "POST",
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"docSourceStandard\": \"<oneOf>\",\n  \"pdfSplitJobsNoAddress\": [\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    },\n    {\n      \"startPage\": \"<integer>\",\n      \"endPage\": \"<integer>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                                  "cookie": [],
+                                  "_postman_previewlanguage": "json"
                                 }
                               ],
                               "event": [],
@@ -909,7 +1949,7 @@
                   "description": "",
                   "item": [
                     {
-                      "id": "31848d98-b42a-450c-b1af-80b3d8ee3dcd",
+                      "id": "c14dfd99-0448-4c82-a064-751ab6d7b2cd",
                       "name": "Submit a multi doc job",
                       "request": {
                         "name": "Submit a multi doc job",
@@ -955,7 +1995,7 @@
                       },
                       "response": [
                         {
-                          "id": "3dbc987d-0f04-4878-a9d5-6dcb06d125cc",
+                          "id": "b24716e6-d4d4-49dd-acfc-e5600e1f4860",
                           "name": "Success",
                           "originalRequest": {
                             "url": {
@@ -1014,8 +2054,8 @@
                           "_postman_previewlanguage": "json"
                         },
                         {
-                          "id": "c5a37d78-82fc-477c-85ed-835c01b22a20",
-                          "name": "Invalid request",
+                          "id": "eaf216a0-b147-4f29-8fd7-319e4ca44dea",
+                          "name": "Bad Request - Invalid request parameters",
                           "originalRequest": {
                             "url": {
                               "path": [
@@ -1033,6 +2073,10 @@
                             "header": [
                               {
                                 "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
                                 "value": "application/json"
                               },
                               {
@@ -1058,13 +2102,19 @@
                           },
                           "status": "Bad Request",
                           "code": 400,
-                          "header": [],
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                           "cookie": [],
-                          "_postman_previewlanguage": "text"
+                          "_postman_previewlanguage": "json"
                         },
                         {
-                          "id": "2f298de6-94da-4664-a5b1-a1b42b1a00aa",
-                          "name": "Unauthorized",
+                          "id": "59a7db32-df9c-4385-957e-4c5f2e0f67a3",
+                          "name": "Unauthorized - Missing or invalid authentication",
                           "originalRequest": {
                             "url": {
                               "path": [
@@ -1082,6 +2132,10 @@
                             "header": [
                               {
                                 "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
                                 "value": "application/json"
                               },
                               {
@@ -1107,9 +2161,251 @@
                           },
                           "status": "Unauthorized",
                           "code": 401,
-                          "header": [],
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                           "cookie": [],
-                          "_postman_previewlanguage": "text"
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "523b1fb6-0325-4adb-9f1d-7ec655761606",
+                          "name": "Forbidden - Insufficient permissions",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "jobs",
+                                "submit",
+                                "multi",
+                                "doc"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": []
+                            },
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": {
+                                  "content": "Added as a part of security scheme: bearer",
+                                  "type": "text/plain"
+                                },
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"multiDocJobs\": [\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "199f88a4-457a-4d34-9693-2d48d858e75b",
+                          "name": "Not Found - Resource not found",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "jobs",
+                                "submit",
+                                "multi",
+                                "doc"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": []
+                            },
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": {
+                                  "content": "Added as a part of security scheme: bearer",
+                                  "type": "text/plain"
+                                },
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"multiDocJobs\": [\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "c58fa38c-4918-4bc0-804e-d71468b2ee17",
+                          "name": "Unprocessable Entity - Validation failed",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "jobs",
+                                "submit",
+                                "multi",
+                                "doc"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": []
+                            },
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": {
+                                  "content": "Added as a part of security scheme: bearer",
+                                  "type": "text/plain"
+                                },
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"multiDocJobs\": [\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "b052df0a-9782-4d4c-b000-9d2673b7e5c3",
+                          "name": "Internal Server Error - Server encountered an error",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "jobs",
+                                "submit",
+                                "multi",
+                                "doc"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": []
+                            },
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": {
+                                  "content": "Added as a part of security scheme: bearer",
+                                  "type": "text/plain"
+                                },
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"multiDocJobs\": [\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceAll\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
                         }
                       ],
                       "event": [],
@@ -1122,7 +2418,7 @@
                       "description": "",
                       "item": [
                         {
-                          "id": "a47d2ac6-0478-4063-b6b2-54963cf48192",
+                          "id": "01cd3602-c06e-4a08-b93b-a349d23b83bc",
                           "name": "Submit a multi doc merge job",
                           "request": {
                             "name": "Submit a multi doc merge job",
@@ -1169,7 +2465,7 @@
                           },
                           "response": [
                             {
-                              "id": "48348da9-626a-481d-a25b-c99d7b740844",
+                              "id": "e1c1cb63-0e43-4c2e-9fe5-bde0ba9efdc6",
                               "name": "Success",
                               "originalRequest": {
                                 "url": {
@@ -1229,8 +2525,8 @@
                               "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "2679b80c-907a-487c-af71-e27fa382d05c",
-                              "name": "Invalid request",
+                              "id": "1feaef4f-518c-46d4-af12-d8a2771c99c4",
+                              "name": "Bad Request - Invalid request parameters",
                               "originalRequest": {
                                 "url": {
                                   "path": [
@@ -1249,6 +2545,10 @@
                                 "header": [
                                   {
                                     "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
                                     "value": "application/json"
                                   },
                                   {
@@ -1274,13 +2574,19 @@
                               },
                               "status": "Bad Request",
                               "code": 400,
-                              "header": [],
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                               "cookie": [],
-                              "_postman_previewlanguage": "text"
+                              "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "279b74eb-25b5-4f62-9a8a-1fd5be5666f4",
-                              "name": "Unauthorized",
+                              "id": "acc574b5-6af9-47b3-aebc-9c8eb6f53655",
+                              "name": "Unauthorized - Missing or invalid authentication",
                               "originalRequest": {
                                 "url": {
                                   "path": [
@@ -1299,6 +2605,10 @@
                                 "header": [
                                   {
                                     "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
                                     "value": "application/json"
                                   },
                                   {
@@ -1324,9 +2634,255 @@
                               },
                               "status": "Unauthorized",
                               "code": 401,
-                              "header": [],
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                               "cookie": [],
-                              "_postman_previewlanguage": "text"
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "f50fef91-99f3-435e-b52c-07c421d92fa1",
+                              "name": "Forbidden - Insufficient permissions",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "multi",
+                                    "doc",
+                                    "merge"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"mergeDocumentSource\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "fa946ca7-a220-4d40-93a3-92396b0f095f",
+                              "name": "Not Found - Resource not found",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "multi",
+                                    "doc",
+                                    "merge"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"mergeDocumentSource\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "0e0ea01a-13ae-4cf7-9d79-b7a74e9f865c",
+                              "name": "Unprocessable Entity - Validation failed",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "multi",
+                                    "doc",
+                                    "merge"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"mergeDocumentSource\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                              "code": 422,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "0d7d5ef6-fc34-4c3a-b1a3-56ea83fc5d47",
+                              "name": "Internal Server Error - Server encountered an error",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "multi",
+                                    "doc",
+                                    "merge"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"mergeDocumentSource\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"recipientAddressSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
                             }
                           ],
                           "event": [],
@@ -1343,7 +2899,7 @@
                   "description": "",
                   "item": [
                     {
-                      "id": "615045df-6d68-48d7-bcd6-3390226c0f85",
+                      "id": "331cd100-b061-4830-9f2c-7a3af552855d",
                       "name": "Submit a multi zip job",
                       "request": {
                         "name": "Submit a multi zip job",
@@ -1389,7 +2945,7 @@
                       },
                       "response": [
                         {
-                          "id": "f97e7c21-95e1-4142-88a5-64c5ab1710ab",
+                          "id": "b535ba8e-815f-470e-9cc4-5eb55e7e48ee",
                           "name": "Success",
                           "originalRequest": {
                             "url": {
@@ -1448,8 +3004,8 @@
                           "_postman_previewlanguage": "json"
                         },
                         {
-                          "id": "9d976daa-6007-4f0b-98a6-821963f05602",
-                          "name": "Invalid request",
+                          "id": "e4039c26-0d2d-4462-8805-a0fd544be510",
+                          "name": "Bad Request - Invalid request parameters",
                           "originalRequest": {
                             "url": {
                               "path": [
@@ -1467,6 +3023,10 @@
                             "header": [
                               {
                                 "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
                                 "value": "application/json"
                               },
                               {
@@ -1492,13 +3052,19 @@
                           },
                           "status": "Bad Request",
                           "code": 400,
-                          "header": [],
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                           "cookie": [],
-                          "_postman_previewlanguage": "text"
+                          "_postman_previewlanguage": "json"
                         },
                         {
-                          "id": "4d87cd35-ccd7-4ffc-b42a-5a63af3d8690",
-                          "name": "Unauthorized",
+                          "id": "1594ec8c-cd26-4d2d-8e81-eda4afa76cae",
+                          "name": "Unauthorized - Missing or invalid authentication",
                           "originalRequest": {
                             "url": {
                               "path": [
@@ -1516,6 +3082,10 @@
                             "header": [
                               {
                                 "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
                                 "value": "application/json"
                               },
                               {
@@ -1541,9 +3111,251 @@
                           },
                           "status": "Unauthorized",
                           "code": 401,
-                          "header": [],
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                           "cookie": [],
-                          "_postman_previewlanguage": "text"
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "ba14e7e9-5cfa-4cd4-8cba-297d5b02d4ce",
+                          "name": "Forbidden - Insufficient permissions",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "jobs",
+                                "submit",
+                                "multi",
+                                "zip"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": []
+                            },
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": {
+                                  "content": "Added as a part of security scheme: bearer",
+                                  "type": "text/plain"
+                                },
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"multiZipJobs\": [\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "54b59eb3-e8dd-4e26-8c09-7f90203f5bd7",
+                          "name": "Not Found - Resource not found",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "jobs",
+                                "submit",
+                                "multi",
+                                "zip"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": []
+                            },
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": {
+                                  "content": "Added as a part of security scheme: bearer",
+                                  "type": "text/plain"
+                                },
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"multiZipJobs\": [\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "507eda17-e294-4efb-a6e5-a7188cf364c8",
+                          "name": "Unprocessable Entity - Validation failed",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "jobs",
+                                "submit",
+                                "multi",
+                                "zip"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": []
+                            },
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": {
+                                  "content": "Added as a part of security scheme: bearer",
+                                  "type": "text/plain"
+                                },
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"multiZipJobs\": [\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            }
+                          },
+                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                          "code": 422,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
+                        },
+                        {
+                          "id": "9b3992a5-07d0-4b2d-ae5f-42d7246b7e2a",
+                          "name": "Internal Server Error - Server encountered an error",
+                          "originalRequest": {
+                            "url": {
+                              "path": [
+                                "jobs",
+                                "submit",
+                                "multi",
+                                "zip"
+                              ],
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "query": [],
+                              "variable": []
+                            },
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": {
+                                  "content": "Added as a part of security scheme: bearer",
+                                  "type": "text/plain"
+                                },
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "method": "POST",
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"multiZipJobs\": [\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    },\n    {\n      \"docSourceZipFile\": \"<oneOf>\",\n      \"recipientAddressSource\": \"<oneOf>\",\n      \"jobTemplate\": \"<string>\"\n    }\n  ],\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                          "cookie": [],
+                          "_postman_previewlanguage": "json"
                         }
                       ],
                       "event": [],
@@ -1556,7 +3368,7 @@
                       "description": "",
                       "item": [
                         {
-                          "id": "39a2d869-8e7c-433b-bde5-e8e05833456e",
+                          "id": "f53f81b2-9bb0-4542-b3be-af33b9256c6e",
                           "name": "Submit a multi zip addressCapture job",
                           "request": {
                             "name": "Submit a multi zip addressCapture job",
@@ -1603,7 +3415,7 @@
                           },
                           "response": [
                             {
-                              "id": "0ff41089-e3ac-4d2b-8d57-9d140ed41f06",
+                              "id": "c9151956-ddcf-47b1-b340-c14b595a364a",
                               "name": "Success",
                               "originalRequest": {
                                 "url": {
@@ -1663,8 +3475,8 @@
                               "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "77173cc5-0471-415b-8b13-5898c916b600",
-                              "name": "Invalid request",
+                              "id": "cfb3ac0b-8cc5-4f29-88fa-9180df04d111",
+                              "name": "Bad Request - Invalid request parameters",
                               "originalRequest": {
                                 "url": {
                                   "path": [
@@ -1683,6 +3495,10 @@
                                 "header": [
                                   {
                                     "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
                                     "value": "application/json"
                                   },
                                   {
@@ -1708,13 +3524,19 @@
                               },
                               "status": "Bad Request",
                               "code": 400,
-                              "header": [],
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                               "cookie": [],
-                              "_postman_previewlanguage": "text"
+                              "_postman_previewlanguage": "json"
                             },
                             {
-                              "id": "504b0eb2-b484-4b3e-b882-2879269557e3",
-                              "name": "Unauthorized",
+                              "id": "0e48015d-c0a0-49c8-babd-cdc64655aa47",
+                              "name": "Unauthorized - Missing or invalid authentication",
                               "originalRequest": {
                                 "url": {
                                   "path": [
@@ -1733,6 +3555,10 @@
                                 "header": [
                                   {
                                     "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
                                     "value": "application/json"
                                   },
                                   {
@@ -1758,9 +3584,255 @@
                               },
                               "status": "Unauthorized",
                               "code": 401,
-                              "header": [],
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
                               "cookie": [],
-                              "_postman_previewlanguage": "text"
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "bde3811d-dd5d-47f6-97b4-b28533b21fe7",
+                              "name": "Forbidden - Insufficient permissions",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "multi",
+                                    "zip",
+                                    "addressCapture"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"zipDocumentSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "b98c06d1-ac52-4abc-9121-026201442e9e",
+                              "name": "Not Found - Resource not found",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "multi",
+                                    "zip",
+                                    "addressCapture"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"zipDocumentSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "7d7f261d-7fbc-4167-aec1-bb5b2a4f998f",
+                              "name": "Unprocessable Entity - Validation failed",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "multi",
+                                    "zip",
+                                    "addressCapture"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"zipDocumentSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                              "code": 422,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
+                            },
+                            {
+                              "id": "e9e43a47-56ca-4ba1-8535-f78120a80ed0",
+                              "name": "Internal Server Error - Server encountered an error",
+                              "originalRequest": {
+                                "url": {
+                                  "path": [
+                                    "jobs",
+                                    "submit",
+                                    "multi",
+                                    "zip",
+                                    "addressCapture"
+                                  ],
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "query": [],
+                                  "variable": []
+                                },
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": {
+                                      "content": "Added as a part of security scheme: bearer",
+                                      "type": "text/plain"
+                                    },
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"zipDocumentSource\": \"<oneOf>\",\n  \"jobTemplate\": \"<string>\",\n  \"paymentDetails\": \"<oneOf>\",\n  \"returnAddress\": {\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"address1\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\",\n    \"address2\": \"<string>\",\n    \"address3\": \"<string>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<string>\",\n    \"layout\": \"<string>\",\n    \"productionTime\": \"<string>\",\n    \"envelope\": \"<string>\",\n    \"color\": \"<string>\",\n    \"paperType\": \"<string>\",\n    \"printOption\": \"<string>\",\n    \"mailClass\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "body": "{\n  \"errorType\": \"ValidationError\",\n  \"errorMessage\": \"<string>\",\n  \"errorCode\": \"INVALID_FORMAT\",\n  \"errorDetails\": \"<string>\",\n  \"errorTrackingId\": \"<string>\"\n}",
+                              "cookie": [],
+                              "_postman_previewlanguage": "json"
                             }
                           ],
                           "event": [],
@@ -1791,7 +3863,7 @@
               "description": "",
               "item": [
                 {
-                  "id": "7f0f81f4-30e2-4001-9b1f-feb6ba1b7fb1",
+                  "id": "f4c888b1-db08-4caf-b93e-dba87fbc1982",
                   "name": "Issue a short-term access token",
                   "request": {
                     "name": "Issue a short-term access token",
@@ -1852,7 +3924,7 @@
                   },
                   "response": [
                     {
-                      "id": "f059cced-ad81-4cff-bea0-a5bd8054729c",
+                      "id": "8e249b80-dd96-4ef7-948e-abc6cc8f2159",
                       "name": "Short-term token issued",
                       "originalRequest": {
                         "url": {
@@ -1910,7 +3982,7 @@
                       "_postman_previewlanguage": "json"
                     },
                     {
-                      "id": "eff000ba-d314-49e2-8396-d3544cc8d626",
+                      "id": "3b80080e-45a6-473d-bcd9-485fe46479d4",
                       "name": "Bad request",
                       "originalRequest": {
                         "url": {
@@ -1968,7 +4040,7 @@
                       "_postman_previewlanguage": "json"
                     },
                     {
-                      "id": "0828d6bf-814a-4112-8521-e196a3e1969b",
+                      "id": "f9f487f1-ef64-44b4-938f-b96d4a77e16e",
                       "name": "Unauthorized",
                       "originalRequest": {
                         "url": {
@@ -2026,7 +4098,7 @@
                       "_postman_previewlanguage": "json"
                     },
                     {
-                      "id": "6c557070-7893-4f23-b925-16fe6c2e1f6e",
+                      "id": "ea50af34-a1e8-4c46-b1e4-10684d007275",
                       "name": "Too Many Requests",
                       "originalRequest": {
                         "url": {
@@ -2096,7 +4168,7 @@
               "description": "",
               "item": [
                 {
-                  "id": "054ef13b-8509-47d4-bbd2-bf9039b71de1",
+                  "id": "5b16a2dc-a329-421f-8cd7-a69e21a035a7",
                   "name": "Issue or rotate a long-term token",
                   "request": {
                     "name": "Issue or rotate a long-term token",
@@ -2157,7 +4229,7 @@
                   },
                   "response": [
                     {
-                      "id": "086e3e46-6b3a-4917-8ad5-9c52e20459b6",
+                      "id": "b9276078-dd5d-45f0-b980-e8274e4d0e93",
                       "name": "Long-term token issued",
                       "originalRequest": {
                         "url": {
@@ -2224,7 +4296,7 @@
                       "_postman_previewlanguage": "json"
                     },
                     {
-                      "id": "12e95a7f-ebb6-4b55-b3af-990b5712dcf0",
+                      "id": "318c0257-9c0c-40a7-bfcf-fab9d36e8d5a",
                       "name": "Bad request",
                       "originalRequest": {
                         "url": {
@@ -2282,7 +4354,7 @@
                       "_postman_previewlanguage": "json"
                     },
                     {
-                      "id": "74ca471e-3a15-4a8d-b7ec-5312b2981dcd",
+                      "id": "ac07fa7a-217c-4f9c-9cbf-93fcd7675b9f",
                       "name": "Unauthorized",
                       "originalRequest": {
                         "url": {
@@ -2340,7 +4412,7 @@
                       "_postman_previewlanguage": "json"
                     },
                     {
-                      "id": "ccc695a1-fa89-4b40-80d0-1cdd57ef5d9c",
+                      "id": "0b36abaf-7d2f-4f7c-b558-517eda035795",
                       "name": "Forbidden",
                       "originalRequest": {
                         "url": {
@@ -2398,7 +4470,7 @@
                       "_postman_previewlanguage": "json"
                     },
                     {
-                      "id": "c03ea2ce-0a21-4649-accf-4fd5ed4fa918",
+                      "id": "2d4a52f7-1074-45f8-a86e-1d236e9d9891",
                       "name": "Too Many Requests",
                       "originalRequest": {
                         "url": {
@@ -2472,7 +4544,7 @@
                   "description": "",
                   "item": [
                     {
-                      "id": "658d34cc-37ea-4319-9396-01f59d6386fe",
+                      "id": "ea4ec14a-10bf-4abd-9499-efa078baf9df",
                       "name": "Revoke a token",
                       "request": {
                         "name": "Revoke a token",
@@ -2532,7 +4604,7 @@
                       },
                       "response": [
                         {
-                          "id": "1afc4d25-acfb-408d-bdb9-501eed52491d",
+                          "id": "21982331-9720-4dfc-89d0-02facbef857b",
                           "name": "Revoked (idempotent)",
                           "originalRequest": {
                             "url": {
@@ -2579,7 +4651,7 @@
                           "_postman_previewlanguage": "text"
                         },
                         {
-                          "id": "6ddebb54-f401-429e-ae17-ed18958a83c5",
+                          "id": "c4a7690c-2bd6-4c9c-8b64-03726f10a084",
                           "name": "Unauthorized",
                           "originalRequest": {
                             "url": {
@@ -2636,7 +4708,7 @@
                           "_postman_previewlanguage": "json"
                         },
                         {
-                          "id": "6bbb6d39-b1d7-4ce9-aabe-745759913ab4",
+                          "id": "cae2d684-eff2-42e5-a22d-f18094b12f01",
                           "name": "Not found",
                           "originalRequest": {
                             "url": {

@@ -46,8 +46,12 @@ Submits a multi doc merge mailing job. The request body contains job parameters 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -84,8 +88,12 @@ Submits a mailing job with multiple documents to be sent to recipients. The requ
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -122,8 +130,12 @@ Submits a multi zip addressCapture mailing job. The request body contains job pa
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -160,8 +172,12 @@ Submits a multi zip mailing job. The request body contains job parameters includ
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -198,8 +214,12 @@ Submits a mailing job with a single document to be sent to one or more recipient
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -236,8 +256,12 @@ Submits a single pdf addressCapture mailing job. The request body contains job p
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -274,8 +298,12 @@ Submits a single pdf split addressCapture mailing job. The request body contains
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -312,8 +340,12 @@ Submits a single pdf split mailing job. The request body contains job parameters
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid request |  -  |
-| **401** | Unauthorized |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

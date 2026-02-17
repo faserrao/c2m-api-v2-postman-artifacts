@@ -90,8 +90,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** | Invalid request |  -  |
-**401** | Unauthorized |  -  |
+**400** | Bad Request - Invalid request parameters |  -  |
+**401** | Unauthorized - Missing or invalid authentication |  -  |
+**403** | Forbidden - Insufficient permissions |  -  |
+**404** | Not Found - Resource not found |  -  |
+**422** | Unprocessable Entity - Validation failed |  -  |
+**500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -171,8 +175,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** | Invalid request |  -  |
-**401** | Unauthorized |  -  |
+**400** | Bad Request - Invalid request parameters |  -  |
+**401** | Unauthorized - Missing or invalid authentication |  -  |
+**403** | Forbidden - Insufficient permissions |  -  |
+**404** | Not Found - Resource not found |  -  |
+**422** | Unprocessable Entity - Validation failed |  -  |
+**500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -252,8 +260,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** | Invalid request |  -  |
-**401** | Unauthorized |  -  |
+**400** | Bad Request - Invalid request parameters |  -  |
+**401** | Unauthorized - Missing or invalid authentication |  -  |
+**403** | Forbidden - Insufficient permissions |  -  |
+**404** | Not Found - Resource not found |  -  |
+**422** | Unprocessable Entity - Validation failed |  -  |
+**500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -333,8 +345,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** | Invalid request |  -  |
-**401** | Unauthorized |  -  |
+**400** | Bad Request - Invalid request parameters |  -  |
+**401** | Unauthorized - Missing or invalid authentication |  -  |
+**403** | Forbidden - Insufficient permissions |  -  |
+**404** | Not Found - Resource not found |  -  |
+**422** | Unprocessable Entity - Validation failed |  -  |
+**500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -414,8 +430,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** | Invalid request |  -  |
-**401** | Unauthorized |  -  |
+**400** | Bad Request - Invalid request parameters |  -  |
+**401** | Unauthorized - Missing or invalid authentication |  -  |
+**403** | Forbidden - Insufficient permissions |  -  |
+**404** | Not Found - Resource not found |  -  |
+**422** | Unprocessable Entity - Validation failed |  -  |
+**500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -495,8 +515,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** | Invalid request |  -  |
-**401** | Unauthorized |  -  |
+**400** | Bad Request - Invalid request parameters |  -  |
+**401** | Unauthorized - Missing or invalid authentication |  -  |
+**403** | Forbidden - Insufficient permissions |  -  |
+**404** | Not Found - Resource not found |  -  |
+**422** | Unprocessable Entity - Validation failed |  -  |
+**500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -576,8 +600,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** | Invalid request |  -  |
-**401** | Unauthorized |  -  |
+**400** | Bad Request - Invalid request parameters |  -  |
+**401** | Unauthorized - Missing or invalid authentication |  -  |
+**403** | Forbidden - Insufficient permissions |  -  |
+**404** | Not Found - Resource not found |  -  |
+**422** | Unprocessable Entity - Validation failed |  -  |
+**500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -657,8 +685,12 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Success |  -  |
-**400** | Invalid request |  -  |
-**401** | Unauthorized |  -  |
+**400** | Bad Request - Invalid request parameters |  -  |
+**401** | Unauthorized - Missing or invalid authentication |  -  |
+**403** | Forbidden - Insufficient permissions |  -  |
+**404** | Not Found - Resource not found |  -  |
+**422** | Unprocessable Entity - Validation failed |  -  |
+**500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

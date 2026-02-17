@@ -288,6 +288,46 @@ namespace C2M.Api.Client
     /// An interface for responses of type 
     /// </summary>
     /// <typeparam name="TType"></typeparam>
+    public interface IUnprocessableContent<TType> : IApiResponse
+    {
+        /// <summary>
+        /// Deserializes the response if the response is UnprocessableContent
+        /// </summary>
+        /// <returns></returns>
+        TType UnprocessableContent();
+
+        /// <summary>
+        /// Returns true if the response is UnprocessableContent and the deserialized response is not null
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        bool TryUnprocessableContent([NotNullWhen(true)]out TType? result);
+    }
+
+    /// <summary>
+    /// An interface for responses of type 
+    /// </summary>
+    /// <typeparam name="TType"></typeparam>
+    public interface IInternalServerError<TType> : IApiResponse
+    {
+        /// <summary>
+        /// Deserializes the response if the response is InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        TType InternalServerError();
+
+        /// <summary>
+        /// Returns true if the response is InternalServerError and the deserialized response is not null
+        /// </summary>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        bool TryInternalServerError([NotNullWhen(true)]out TType? result);
+    }
+
+    /// <summary>
+    /// An interface for responses of type 
+    /// </summary>
+    /// <typeparam name="TType"></typeparam>
     public interface ICreated<TType> : IApiResponse
     {
         /// <summary>

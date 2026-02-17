@@ -615,6 +615,91 @@ components:
       - mastercard
       - discover
       - americanExpress
+    errorResponse:
+      type: object
+      properties:
+        errorType:
+          type: string
+          enum:
+          - ValidationError
+          - AuthenticationError
+          - AuthorizationError
+          - ResourceNotFoundError
+          - ServerError
+        errorMessage:
+          type: string
+        errorCode:
+          type: string
+          enum:
+          - MISSING_REQUIRED_FIELD
+          - INVALID_ONEOF
+          - INVALID_JSON
+          - MISSING_AUTH_HEADER
+          - INVALID_TOKEN
+          - EXPIRED_TOKEN
+          - INSUFFICIENT_PERMISSIONS
+          - ACCOUNT_SUSPENDED
+          - JOB_NOT_FOUND
+          - RESOURCE_NOT_FOUND
+          - INVALID_ENUM_VALUE
+          - MUTUAL_EXCLUSION_VIOLATION
+          - INVALID_FORMAT
+          - SERVER_ERROR
+          - DATABASE_ERROR
+          - EXTERNAL_SERVICE_ERROR
+        errorDetails:
+          type: string
+        errorTrackingId:
+          type: string
+      required:
+      - errorType
+      - errorMessage
+      - errorCode
+    errorType:
+      type: string
+      enum:
+      - ValidationError
+      - AuthenticationError
+      - AuthorizationError
+      - ResourceNotFoundError
+      - ServerError
+    errorMessage:
+      type: string
+    errorCode:
+      type: string
+      enum:
+      - MISSING_REQUIRED_FIELD
+      - INVALID_ONEOF
+      - INVALID_JSON
+      - MISSING_AUTH_HEADER
+      - INVALID_TOKEN
+      - EXPIRED_TOKEN
+      - INSUFFICIENT_PERMISSIONS
+      - ACCOUNT_SUSPENDED
+      - JOB_NOT_FOUND
+      - RESOURCE_NOT_FOUND
+      - INVALID_ENUM_VALUE
+      - MUTUAL_EXCLUSION_VIOLATION
+      - INVALID_FORMAT
+      - SERVER_ERROR
+      - DATABASE_ERROR
+      - EXTERNAL_SERVICE_ERROR
+    errorDetails:
+      type: string
+    errorTrackingId:
+      type: string
+    HTTP_400_BAD_REQUEST:
+      $ref: '#/components/schemas/errorResponse'
+    HTTP_401_UNAUTHORIZED:
+      $ref: '#/components/schemas/errorResponse'
+    HTTP_403_FORBIDDEN:
+      $ref: '#/components/schemas/errorResponse'
+    HTTP_404_NOT_FOUND:
+      $ref: '#/components/schemas/errorResponse'
+    HTTP_422_UNPROCESSABLE_ENTITY:
+      $ref: '#/components/schemas/errorResponse'
+    HTTP_500_INTERNAL_SERVER_ERROR:
+      $ref: '#/components/schemas/errorResponse'
     StandardResponse:
       type: object
       properties:
@@ -914,9 +999,103 @@ paths:
                     message: doc job queued for processing
                     jobId: doc_job_789012
         '400':
-          description: Invalid request
+          description: Bad Request - Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: &id001
+                missing_field:
+                  summary: Missing required field
+                  value:
+                    errorType: ValidationError
+                    errorMessage: Required field is missing from request body
+                    errorCode: MISSING_REQUIRED_FIELD
+                    errorDetails: '{"field": "documentId", "location": "requestBody"}'
+                    errorTrackingId: TRK-20260216-ABC123
+                invalid_format:
+                  summary: Invalid field format
+                  value:
+                    errorType: ValidationError
+                    errorMessage: Field contains invalid format or value
+                    errorCode: INVALID_FORMAT
+                    errorDetails: '{"field": "postalCode", "provided": "1234", "expected": "5 or 9 digits"}'
+                    errorTrackingId: TRK-20260216-DEF456
         '401':
-          description: Unauthorized
+          description: Unauthorized - Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: &id002
+                missing_token:
+                  summary: Missing authentication
+                  value:
+                    errorType: AuthenticationError
+                    errorMessage: Authorization header is missing or invalid
+                    errorCode: MISSING_AUTH_HEADER
+                    errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
+                    errorTrackingId: TRK-20260216-GHI789
+        '403':
+          description: Forbidden - Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: &id003
+                insufficient_permissions:
+                  summary: Insufficient permissions
+                  value:
+                    errorType: AuthorizationError
+                    errorMessage: User does not have required permissions for this operation
+                    errorCode: INSUFFICIENT_PERMISSIONS
+                    errorDetails: '{"required": "jobs:write", "user": "read-only-user"}'
+                    errorTrackingId: TRK-20260216-JKL012
+        '404':
+          description: Not Found - Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: &id004
+                resource_not_found:
+                  summary: Resource not found
+                  value:
+                    errorType: ResourceNotFoundError
+                    errorMessage: Requested resource does not exist
+                    errorCode: RESOURCE_NOT_FOUND
+                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-12345"}'
+                    errorTrackingId: TRK-20260216-MNO345
+        '422':
+          description: Unprocessable Entity - Validation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: &id005
+                validation_failed:
+                  summary: Validation failed
+                  value:
+                    errorType: ValidationError
+                    errorMessage: Request validation failed for multiple fields
+                    errorCode: INVALID_FORMAT
+                    errorDetails: '{"errors": [{"field": "documentId", "issue": "not found"}, {"field": "recipientAddress.postalCode", "issue": "invalid format"}]}'
+                    errorTrackingId: TRK-20260216-PQR678
+        '500':
+          description: Internal Server Error - Server encountered an error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: &id006
+                server_error:
+                  summary: Internal server error
+                  value:
+                    errorType: ServerError
+                    errorMessage: An unexpected error occurred while processing the request
+                    errorCode: SERVER_ERROR
+                    errorDetails: '{"timestamp": "2026-02-16T18:30:45Z", "requestId": "req-abc123"}'
+                    errorTrackingId: TRK-20260216-STU901
   /jobs/submit/single/pdf/addressCapture:
     post:
       tags:
@@ -951,9 +1130,47 @@ paths:
                     message: addressCapture job queued for processing
                     jobId: addressCapture_job_789012
         '400':
-          description: Invalid request
+          description: Bad Request - Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id001
         '401':
-          description: Unauthorized
+          description: Unauthorized - Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id002
+        '403':
+          description: Forbidden - Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id003
+        '404':
+          description: Not Found - Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id004
+        '422':
+          description: Unprocessable Entity - Validation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id005
+        '500':
+          description: Internal Server Error - Server encountered an error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id006
   /jobs/submit/single/pdf/split:
     post:
       tags:
@@ -988,9 +1205,47 @@ paths:
                     message: split job queued for processing
                     jobId: split_job_789012
         '400':
-          description: Invalid request
+          description: Bad Request - Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id001
         '401':
-          description: Unauthorized
+          description: Unauthorized - Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id002
+        '403':
+          description: Forbidden - Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id003
+        '404':
+          description: Not Found - Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id004
+        '422':
+          description: Unprocessable Entity - Validation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id005
+        '500':
+          description: Internal Server Error - Server encountered an error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id006
   /jobs/submit/single/pdf/split/addressCapture:
     post:
       tags:
@@ -1025,9 +1280,47 @@ paths:
                     message: addressCapture job queued for processing
                     jobId: addressCapture_job_789012
         '400':
-          description: Invalid request
+          description: Bad Request - Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id001
         '401':
-          description: Unauthorized
+          description: Unauthorized - Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id002
+        '403':
+          description: Forbidden - Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id003
+        '404':
+          description: Not Found - Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id004
+        '422':
+          description: Unprocessable Entity - Validation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id005
+        '500':
+          description: Internal Server Error - Server encountered an error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id006
   /jobs/submit/multi/doc:
     post:
       tags:
@@ -1062,9 +1355,47 @@ paths:
                     message: doc job queued for processing
                     jobId: doc_job_789012
         '400':
-          description: Invalid request
+          description: Bad Request - Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id001
         '401':
-          description: Unauthorized
+          description: Unauthorized - Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id002
+        '403':
+          description: Forbidden - Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id003
+        '404':
+          description: Not Found - Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id004
+        '422':
+          description: Unprocessable Entity - Validation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id005
+        '500':
+          description: Internal Server Error - Server encountered an error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id006
   /jobs/submit/multi/doc/merge:
     post:
       tags:
@@ -1099,9 +1430,47 @@ paths:
                     message: merge job queued for processing
                     jobId: merge_job_789012
         '400':
-          description: Invalid request
+          description: Bad Request - Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id001
         '401':
-          description: Unauthorized
+          description: Unauthorized - Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id002
+        '403':
+          description: Forbidden - Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id003
+        '404':
+          description: Not Found - Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id004
+        '422':
+          description: Unprocessable Entity - Validation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id005
+        '500':
+          description: Internal Server Error - Server encountered an error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id006
   /jobs/submit/multi/zip:
     post:
       tags:
@@ -1136,9 +1505,47 @@ paths:
                     message: zip job queued for processing
                     jobId: zip_job_789012
         '400':
-          description: Invalid request
+          description: Bad Request - Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id001
         '401':
-          description: Unauthorized
+          description: Unauthorized - Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id002
+        '403':
+          description: Forbidden - Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id003
+        '404':
+          description: Not Found - Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id004
+        '422':
+          description: Unprocessable Entity - Validation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id005
+        '500':
+          description: Internal Server Error - Server encountered an error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id006
   /jobs/submit/multi/zip/addressCapture:
     post:
       tags:
@@ -1173,9 +1580,47 @@ paths:
                     message: addressCapture job queued for processing
                     jobId: addressCapture_job_789012
         '400':
-          description: Invalid request
+          description: Bad Request - Invalid request parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id001
         '401':
-          description: Unauthorized
+          description: Unauthorized - Missing or invalid authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id002
+        '403':
+          description: Forbidden - Insufficient permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id003
+        '404':
+          description: Not Found - Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id004
+        '422':
+          description: Unprocessable Entity - Validation failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id005
+        '500':
+          description: Internal Server Error - Server encountered an error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorResponse'
+              examples: *id006
   /auth/tokens/short:
     post:
       tags:

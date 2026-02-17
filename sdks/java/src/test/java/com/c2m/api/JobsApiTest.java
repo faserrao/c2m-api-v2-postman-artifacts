@@ -14,6 +14,7 @@
 package com.c2m.api;
 
 import com.c2m.ApiException;
+import com.c2m.model.ErrorResponse;
 import com.c2m.model.StandardResponse;
 import com.c2m.model.SubmitMultiDocMergeParams;
 import com.c2m.model.SubmitMultiDocParams;
