@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * ErrorResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T06:18:25.358787894Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T06:21:39.789508067Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ErrorResponse {
   /**
    * Gets or Sets errorType
