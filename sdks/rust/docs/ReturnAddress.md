@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **first_name** | **String** |  | 
 **last_name** | **String** |  | 
+**company** | Option<**String**> |  | [optional]
 **address1** | **String** |  | 
 **city** | **String** |  | 
 **state** | **String** |  | 

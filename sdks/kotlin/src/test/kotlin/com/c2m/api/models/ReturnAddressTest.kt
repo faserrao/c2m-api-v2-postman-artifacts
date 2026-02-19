@@ -67,6 +67,12 @@ class ReturnAddressTest : ShouldSpec() {
             //modelInstance.country shouldBe ("TODO")
         }
 
+        // to test the property `company`
+        should("test company") {
+            // uncomment below to test the property
+            //modelInstance.company shouldBe ("TODO")
+        }
+
         // to test the property `address2`
         should("test address2") {
             // uncomment below to test the property

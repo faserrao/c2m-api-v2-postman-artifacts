@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **first_name** | **string** |  |
 **last_name** | **string** |  |
+**company** | **string** |  | [optional]
 **address1** | **string** |  |
 **city** | **string** |  |
 **state** | **string** |  |

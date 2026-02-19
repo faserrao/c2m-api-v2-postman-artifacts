@@ -17,6 +17,8 @@ pub struct ReturnAddress {
     pub first_name: String,
     #[serde(rename = "lastName")]
     pub last_name: String,
+    #[serde(rename = "company", skip_serializing_if = "Option::is_none")]
+    pub company: Option<String>,
     #[serde(rename = "address1")]
     pub address1: String,
     #[serde(rename = "city")]
@@ -38,6 +40,7 @@ impl ReturnAddress {
         ReturnAddress {
             first_name,
             last_name,
+            company: None,
             address1,
             city,
             state,

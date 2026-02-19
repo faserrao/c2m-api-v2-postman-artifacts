@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **first_name** | **String** |  |  |
 | **last_name** | **String** |  |  |
+| **company** | **String** |  | [optional] |
 | **address1** | **String** |  |  |
 | **city** | **String** |  |  |
 | **state** | **String** |  |  |
@@ -22,6 +23,7 @@ require 'openapi_client'
 instance = OpenapiClient::ReturnAddress.new(
   first_name: null,
   last_name: null,
+  company: null,
   address1: null,
   city: null,
   state: null,

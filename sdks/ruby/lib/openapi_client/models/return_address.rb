@@ -19,6 +19,8 @@ module OpenapiClient
 
     attr_accessor :last_name
 
+    attr_accessor :company
+
     attr_accessor :address1
 
     attr_accessor :city
@@ -38,6 +40,7 @@ module OpenapiClient
       {
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
+        :'company' => :'company',
         :'address1' => :'address1',
         :'city' => :'city',
         :'state' => :'state',
@@ -63,6 +66,7 @@ module OpenapiClient
       {
         :'first_name' => :'String',
         :'last_name' => :'String',
+        :'company' => :'String',
         :'address1' => :'String',
         :'city' => :'String',
         :'state' => :'String',
@@ -105,6 +109,10 @@ module OpenapiClient
         self.last_name = attributes[:'last_name']
       else
         self.last_name = nil
+      end
+
+      if attributes.key?(:'company')
+        self.company = attributes[:'company']
       end
 
       if attributes.key?(:'address1')
@@ -273,6 +281,7 @@ module OpenapiClient
       self.class == o.class &&
           first_name == o.first_name &&
           last_name == o.last_name &&
+          company == o.company &&
           address1 == o.address1 &&
           city == o.city &&
           state == o.state &&
@@ -291,7 +300,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [first_name, last_name, address1, city, state, zip, country, address2, address3].hash
+      [first_name, last_name, company, address1, city, state, zip, country, address2, address3].hash
     end
 
     # Builds the object from hash

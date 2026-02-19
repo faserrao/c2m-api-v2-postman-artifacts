@@ -29,6 +29,7 @@ import com.squareup.moshi.JsonClass
  * @param state 
  * @param zip 
  * @param country 
+ * @param company 
  * @param address2 
  * @param address3 
  */
@@ -56,6 +57,9 @@ data class ReturnAddress (
 
     @Json(name = "country")
     val country: kotlin.String,
+
+    @Json(name = "company")
+    val company: kotlin.String? = null,
 
     @Json(name = "address2")
     val address2: kotlin.String? = null,

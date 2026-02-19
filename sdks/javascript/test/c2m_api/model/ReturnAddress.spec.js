@@ -66,6 +66,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property company (base name: "company")', function() {
+      // uncomment below and update the code to test the property company
+      //var instance = new C2MApiV2.ReturnAddress();
+      //expect(instance).to.be();
+    });
+
     it('should have the property address1 (base name: "address1")', function() {
       // uncomment below and update the code to test the property address1
       //var instance = new C2MApiV2.ReturnAddress();

@@ -98,6 +98,15 @@ class ReturnAddressTest extends TestCase
     }
 
     /**
+     * Test attribute "company"
+     */
+    public function testPropertyCompany()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "address1"
      */
     public function testPropertyAddress1()

@@ -41,6 +41,7 @@ class TestSubmitSinglePdfAddressCaptureParams(unittest.TestCase):
                 return_address = c2m_api.models.return_address.returnAddress(
                     first_name = '', 
                     last_name = '', 
+                    company = '', 
                     address1 = '', 
                     city = '', 
                     state = '', 

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **firstName** | **string** |  | [default to undefined]
 **lastName** | **string** |  | [default to undefined]
+**company** | **string** |  | [optional] [default to undefined]
 **address1** | **string** |  | [default to undefined]
 **city** | **string** |  | [default to undefined]
 **state** | **string** |  | [default to undefined]
@@ -23,6 +24,7 @@ import { ReturnAddress } from './api';
 const instance: ReturnAddress = {
     firstName,
     lastName,
+    company,
     address1,
     city,
     state,

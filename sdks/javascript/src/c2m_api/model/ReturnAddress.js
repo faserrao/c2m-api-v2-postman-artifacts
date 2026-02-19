@@ -67,6 +67,9 @@ class ReturnAddress {
             if (data.hasOwnProperty('lastName')) {
                 obj['lastName'] = ApiClient.convertToType(data['lastName'], 'String');
             }
+            if (data.hasOwnProperty('company')) {
+                obj['company'] = ApiClient.convertToType(data['company'], 'String');
+            }
             if (data.hasOwnProperty('address1')) {
                 obj['address1'] = ApiClient.convertToType(data['address1'], 'String');
             }
@@ -111,6 +114,10 @@ class ReturnAddress {
         // ensure the json data is a string
         if (data['lastName'] && !(typeof data['lastName'] === 'string' || data['lastName'] instanceof String)) {
             throw new Error("Expected the field `lastName` to be a primitive type in the JSON string but got " + data['lastName']);
+        }
+        // ensure the json data is a string
+        if (data['company'] && !(typeof data['company'] === 'string' || data['company'] instanceof String)) {
+            throw new Error("Expected the field `company` to be a primitive type in the JSON string but got " + data['company']);
         }
         // ensure the json data is a string
         if (data['address1'] && !(typeof data['address1'] === 'string' || data['address1'] instanceof String)) {
@@ -158,6 +165,11 @@ ReturnAddress.prototype['firstName'] = undefined;
  * @member {String} lastName
  */
 ReturnAddress.prototype['lastName'] = undefined;
+
+/**
+ * @member {String} company
+ */
+ReturnAddress.prototype['company'] = undefined;
 
 /**
  * @member {String} address1

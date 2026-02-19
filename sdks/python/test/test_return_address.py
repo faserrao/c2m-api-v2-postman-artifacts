@@ -37,6 +37,7 @@ class TestReturnAddress(unittest.TestCase):
             return ReturnAddress(
                 first_name = '',
                 last_name = '',
+                company = '',
                 address1 = '',
                 city = '',
                 state = '',

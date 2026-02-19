@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FirstName** | **string** |  | 
 **LastName** | **string** |  | 
+**Company** | Pointer to **string** |  | [optional] 
 **Address1** | **string** |  | 
 **City** | **string** |  | 
 **State** | **string** |  | 
@@ -72,6 +73,31 @@ and a boolean to check if the value has been set.
 
 SetLastName sets LastName field to given value.
 
+
+### GetCompany
+
+`func (o *ReturnAddress) GetCompany() string`
+
+GetCompany returns the Company field if non-nil, zero value otherwise.
+
+### GetCompanyOk
+
+`func (o *ReturnAddress) GetCompanyOk() (*string, bool)`
+
+GetCompanyOk returns a tuple with the Company field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCompany
+
+`func (o *ReturnAddress) SetCompany(v string)`
+
+SetCompany sets Company field to given value.
+
+### HasCompany
+
+`func (o *ReturnAddress) HasCompany() bool`
+
+HasCompany returns a boolean if a field has been set.
 
 ### GetAddress1
 

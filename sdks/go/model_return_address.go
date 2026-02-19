@@ -23,6 +23,7 @@ var _ MappedNullable = &ReturnAddress{}
 type ReturnAddress struct {
 	FirstName string `json:"firstName"`
 	LastName string `json:"lastName"`
+	Company *string `json:"company,omitempty"`
 	Address1 string `json:"address1"`
 	City string `json:"city"`
 	State string `json:"state"`
@@ -104,6 +105,38 @@ func (o *ReturnAddress) GetLastNameOk() (*string, bool) {
 // SetLastName sets field value
 func (o *ReturnAddress) SetLastName(v string) {
 	o.LastName = v
+}
+
+// GetCompany returns the Company field value if set, zero value otherwise.
+func (o *ReturnAddress) GetCompany() string {
+	if o == nil || IsNil(o.Company) {
+		var ret string
+		return ret
+	}
+	return *o.Company
+}
+
+// GetCompanyOk returns a tuple with the Company field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ReturnAddress) GetCompanyOk() (*string, bool) {
+	if o == nil || IsNil(o.Company) {
+		return nil, false
+	}
+	return o.Company, true
+}
+
+// HasCompany returns a boolean if a field has been set.
+func (o *ReturnAddress) HasCompany() bool {
+	if o != nil && !IsNil(o.Company) {
+		return true
+	}
+
+	return false
+}
+
+// SetCompany gets a reference to the given string and assigns it to the Company field.
+func (o *ReturnAddress) SetCompany(v string) {
+	o.Company = &v
 }
 
 // GetAddress1 returns the Address1 field value
@@ -302,6 +335,9 @@ func (o ReturnAddress) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["firstName"] = o.FirstName
 	toSerialize["lastName"] = o.LastName
+	if !IsNil(o.Company) {
+		toSerialize["company"] = o.Company
+	}
 	toSerialize["address1"] = o.Address1
 	toSerialize["city"] = o.City
 	toSerialize["state"] = o.State

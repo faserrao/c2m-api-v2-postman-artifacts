@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **first_name** | **str** |  | 
 **last_name** | **str** |  | 
+**company** | **str** |  | [optional] 
 **address1** | **str** |  | 
 **city** | **str** |  | 
 **state** | **str** |  | 

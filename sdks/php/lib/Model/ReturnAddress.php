@@ -59,6 +59,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'first_name' => 'string',
         'last_name' => 'string',
+        'company' => 'string',
         'address1' => 'string',
         'city' => 'string',
         'state' => 'string',
@@ -78,6 +79,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'first_name' => null,
         'last_name' => null,
+        'company' => null,
         'address1' => null,
         'city' => null,
         'state' => null,
@@ -95,6 +97,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'first_name' => false,
         'last_name' => false,
+        'company' => false,
         'address1' => false,
         'city' => false,
         'state' => false,
@@ -192,6 +195,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'first_name' => 'firstName',
         'last_name' => 'lastName',
+        'company' => 'company',
         'address1' => 'address1',
         'city' => 'city',
         'state' => 'state',
@@ -209,6 +213,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'first_name' => 'setFirstName',
         'last_name' => 'setLastName',
+        'company' => 'setCompany',
         'address1' => 'setAddress1',
         'city' => 'setCity',
         'state' => 'setState',
@@ -226,6 +231,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'first_name' => 'getFirstName',
         'last_name' => 'getLastName',
+        'company' => 'getCompany',
         'address1' => 'getAddress1',
         'city' => 'getCity',
         'state' => 'getState',
@@ -294,6 +300,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('first_name', $data ?? [], null);
         $this->setIfExists('last_name', $data ?? [], null);
+        $this->setIfExists('company', $data ?? [], null);
         $this->setIfExists('address1', $data ?? [], null);
         $this->setIfExists('city', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
@@ -416,6 +423,33 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable last_name cannot be null');
         }
         $this->container['last_name'] = $last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets company
+     *
+     * @return string|null
+     */
+    public function getCompany()
+    {
+        return $this->container['company'];
+    }
+
+    /**
+     * Sets company
+     *
+     * @param string|null $company company
+     *
+     * @return self
+     */
+    public function setCompany($company)
+    {
+        if (is_null($company)) {
+            throw new \InvalidArgumentException('non-nullable company cannot be null');
+        }
+        $this->container['company'] = $company;
 
         return $this;
     }

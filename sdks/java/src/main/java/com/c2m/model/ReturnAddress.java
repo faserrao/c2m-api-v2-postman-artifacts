@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * ReturnAddress
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-19T01:06:39.591945299Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-19T01:47:14.737260810Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ReturnAddress {
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
@@ -59,6 +59,11 @@ public class ReturnAddress {
   @SerializedName(SERIALIZED_NAME_LAST_NAME)
   @javax.annotation.Nonnull
   private String lastName;
+
+  public static final String SERIALIZED_NAME_COMPANY = "company";
+  @SerializedName(SERIALIZED_NAME_COMPANY)
+  @javax.annotation.Nullable
+  private String company;
 
   public static final String SERIALIZED_NAME_ADDRESS1 = "address1";
   @SerializedName(SERIALIZED_NAME_ADDRESS1)
@@ -133,6 +138,25 @@ public class ReturnAddress {
 
   public void setLastName(@javax.annotation.Nonnull String lastName) {
     this.lastName = lastName;
+  }
+
+
+  public ReturnAddress company(@javax.annotation.Nullable String company) {
+    this.company = company;
+    return this;
+  }
+
+  /**
+   * Get company
+   * @return company
+   */
+  @javax.annotation.Nullable
+  public String getCompany() {
+    return company;
+  }
+
+  public void setCompany(@javax.annotation.Nullable String company) {
+    this.company = company;
   }
 
 
@@ -281,6 +305,7 @@ public class ReturnAddress {
     ReturnAddress returnAddress = (ReturnAddress) o;
     return Objects.equals(this.firstName, returnAddress.firstName) &&
         Objects.equals(this.lastName, returnAddress.lastName) &&
+        Objects.equals(this.company, returnAddress.company) &&
         Objects.equals(this.address1, returnAddress.address1) &&
         Objects.equals(this.city, returnAddress.city) &&
         Objects.equals(this.state, returnAddress.state) &&
@@ -292,7 +317,7 @@ public class ReturnAddress {
 
   @Override
   public int hashCode() {
-    return Objects.hash(firstName, lastName, address1, city, state, zip, country, address2, address3);
+    return Objects.hash(firstName, lastName, company, address1, city, state, zip, country, address2, address3);
   }
 
   @Override
@@ -301,6 +326,7 @@ public class ReturnAddress {
     sb.append("class ReturnAddress {\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("    company: ").append(toIndentedString(company)).append("\n");
     sb.append("    address1: ").append(toIndentedString(address1)).append("\n");
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
@@ -329,7 +355,7 @@ public class ReturnAddress {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("firstName", "lastName", "address1", "city", "state", "zip", "country", "address2", "address3"));
+    openapiFields = new HashSet<String>(Arrays.asList("firstName", "lastName", "company", "address1", "city", "state", "zip", "country", "address2", "address3"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("firstName", "lastName", "address1", "city", "state", "zip", "country"));
@@ -368,6 +394,9 @@ public class ReturnAddress {
       }
       if (!jsonObj.get("lastName").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `lastName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("lastName").toString()));
+      }
+      if ((jsonObj.get("company") != null && !jsonObj.get("company").isJsonNull()) && !jsonObj.get("company").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `company` to be a primitive type in the JSON string but got `%s`", jsonObj.get("company").toString()));
       }
       if (!jsonObj.get("address1").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address1` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address1").toString()));

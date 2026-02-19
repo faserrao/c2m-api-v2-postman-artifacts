@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **State** | **string** |  | 
 **Zip** | **string** |  | 
 **Country** | **string** |  | 
+**Company** | **string** |  | [optional] 
 **Address2** | **string** |  | [optional] 
 **Address3** | **string** |  | [optional] 
 

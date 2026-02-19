@@ -28,6 +28,7 @@ class ReturnAddress(BaseModel):
     """ # noqa: E501
     first_name: StrictStr = Field(alias="firstName")
     last_name: StrictStr = Field(alias="lastName")
+    company: Optional[StrictStr] = None
     address1: StrictStr
     city: StrictStr
     state: StrictStr
@@ -35,7 +36,7 @@ class ReturnAddress(BaseModel):
     country: StrictStr
     address2: Optional[StrictStr] = None
     address3: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["firstName", "lastName", "address1", "city", "state", "zip", "country", "address2", "address3"]
+    __properties: ClassVar[List[str]] = ["firstName", "lastName", "company", "address1", "city", "state", "zip", "country", "address2", "address3"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,6 +91,7 @@ class ReturnAddress(BaseModel):
         _obj = cls.model_validate({
             "firstName": obj.get("firstName"),
             "lastName": obj.get("lastName"),
+            "company": obj.get("company"),
             "address1": obj.get("address1"),
             "city": obj.get("city"),
             "state": obj.get("state"),

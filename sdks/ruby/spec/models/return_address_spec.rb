@@ -39,6 +39,12 @@ describe OpenapiClient::ReturnAddress do
     end
   end
 
+  describe 'test attribute "company"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   describe 'test attribute "address1"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

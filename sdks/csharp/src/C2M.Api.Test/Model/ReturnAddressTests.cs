@@ -117,6 +117,15 @@ namespace C2M.Api.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'Company'
+        /// </summary>
+        [Fact]
+        public void CompanyTest()
+        {
+            // TODO unit test for the property 'Company'
+        }
+
+        /// <summary>
         /// Test the property 'Address2'
         /// </summary>
         [Fact]

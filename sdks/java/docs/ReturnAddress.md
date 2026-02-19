@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**firstName** | **String** |  |  |
 |**lastName** | **String** |  |  |
+|**company** | **String** |  |  [optional] |
 |**address1** | **String** |  |  |
 |**city** | **String** |  |  |
 |**state** | **String** |  |  |

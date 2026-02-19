@@ -40,10 +40,11 @@ namespace C2M.Api.Model
         /// <param name="state">state</param>
         /// <param name="zip">zip</param>
         /// <param name="country">country</param>
+        /// <param name="company">company</param>
         /// <param name="address2">address2</param>
         /// <param name="address3">address3</param>
         [JsonConstructor]
-        public ReturnAddress(string firstName, string lastName, string address1, string city, string state, string zip, string country, Option<string?> address2 = default, Option<string?> address3 = default)
+        public ReturnAddress(string firstName, string lastName, string address1, string city, string state, string zip, string country, Option<string?> company = default, Option<string?> address2 = default, Option<string?> address3 = default)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -52,6 +53,7 @@ namespace C2M.Api.Model
             State = state;
             Zip = zip;
             Country = country;
+            CompanyOption = company;
             Address2Option = address2;
             Address3Option = address3;
             OnCreated();
@@ -102,6 +104,19 @@ namespace C2M.Api.Model
         public string Country { get; set; }
 
         /// <summary>
+        /// Used to track the state of Company
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> CompanyOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets Company
+        /// </summary>
+        [JsonPropertyName("company")]
+        public string? Company { get { return this.CompanyOption; } set { this.CompanyOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of Address2
         /// </summary>
         [JsonIgnore]
@@ -142,6 +157,7 @@ namespace C2M.Api.Model
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Zip: ").Append(Zip).Append("\n");
             sb.Append("  Country: ").Append(Country).Append("\n");
+            sb.Append("  Company: ").Append(Company).Append("\n");
             sb.Append("  Address2: ").Append(Address2).Append("\n");
             sb.Append("  Address3: ").Append(Address3).Append("\n");
             sb.Append("}\n");
@@ -188,6 +204,7 @@ namespace C2M.Api.Model
             Option<string?> state = default;
             Option<string?> zip = default;
             Option<string?> country = default;
+            Option<string?> company = default;
             Option<string?> address2 = default;
             Option<string?> address3 = default;
 
@@ -226,6 +243,9 @@ namespace C2M.Api.Model
                             break;
                         case "country":
                             country = new Option<string?>(utf8JsonReader.GetString()!);
+                            break;
+                        case "company":
+                            company = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "address2":
                             address2 = new Option<string?>(utf8JsonReader.GetString()!);
@@ -281,13 +301,16 @@ namespace C2M.Api.Model
             if (country.IsSet && country.Value == null)
                 throw new ArgumentNullException(nameof(country), "Property is not nullable for class ReturnAddress.");
 
+            if (company.IsSet && company.Value == null)
+                throw new ArgumentNullException(nameof(company), "Property is not nullable for class ReturnAddress.");
+
             if (address2.IsSet && address2.Value == null)
                 throw new ArgumentNullException(nameof(address2), "Property is not nullable for class ReturnAddress.");
 
             if (address3.IsSet && address3.Value == null)
                 throw new ArgumentNullException(nameof(address3), "Property is not nullable for class ReturnAddress.");
 
-            return new ReturnAddress(firstName.Value!, lastName.Value!, address1.Value!, city.Value!, state.Value!, zip.Value!, country.Value!, address2, address3);
+            return new ReturnAddress(firstName.Value!, lastName.Value!, address1.Value!, city.Value!, state.Value!, zip.Value!, country.Value!, company, address2, address3);
         }
 
         /// <summary>
@@ -335,6 +358,9 @@ namespace C2M.Api.Model
             if (returnAddress.Country == null)
                 throw new ArgumentNullException(nameof(returnAddress.Country), "Property is required for class ReturnAddress.");
 
+            if (returnAddress.CompanyOption.IsSet && returnAddress.Company == null)
+                throw new ArgumentNullException(nameof(returnAddress.Company), "Property is required for class ReturnAddress.");
+
             if (returnAddress.Address2Option.IsSet && returnAddress.Address2 == null)
                 throw new ArgumentNullException(nameof(returnAddress.Address2), "Property is required for class ReturnAddress.");
 
@@ -354,6 +380,9 @@ namespace C2M.Api.Model
             writer.WriteString("zip", returnAddress.Zip);
 
             writer.WriteString("country", returnAddress.Country);
+
+            if (returnAddress.CompanyOption.IsSet)
+                writer.WriteString("company", returnAddress.Company);
 
             if (returnAddress.Address2Option.IsSet)
                 writer.WriteString("address2", returnAddress.Address2);

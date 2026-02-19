@@ -14,6 +14,7 @@ public struct ReturnAddress: Codable, JSONEncodable, Hashable {
 
     public var firstName: String
     public var lastName: String
+    public var company: String?
     public var address1: String
     public var city: String
     public var state: String
@@ -22,9 +23,10 @@ public struct ReturnAddress: Codable, JSONEncodable, Hashable {
     public var address2: String?
     public var address3: String?
 
-    public init(firstName: String, lastName: String, address1: String, city: String, state: String, zip: String, country: String, address2: String? = nil, address3: String? = nil) {
+    public init(firstName: String, lastName: String, company: String? = nil, address1: String, city: String, state: String, zip: String, country: String, address2: String? = nil, address3: String? = nil) {
         self.firstName = firstName
         self.lastName = lastName
+        self.company = company
         self.address1 = address1
         self.city = city
         self.state = state
@@ -37,6 +39,7 @@ public struct ReturnAddress: Codable, JSONEncodable, Hashable {
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case firstName
         case lastName
+        case company
         case address1
         case city
         case state
@@ -52,6 +55,7 @@ public struct ReturnAddress: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(firstName, forKey: .firstName)
         try container.encode(lastName, forKey: .lastName)
+        try container.encodeIfPresent(company, forKey: .company)
         try container.encode(address1, forKey: .address1)
         try container.encode(city, forKey: .city)
         try container.encode(state, forKey: .state)

@@ -54,6 +54,14 @@ public class ReturnAddressTest {
     }
 
     /**
+     * Test the property 'company'
+     */
+    @Test
+    public void companyTest() {
+        // TODO: test company
+    }
+
+    /**
      * Test the property 'address1'
      */
     @Test

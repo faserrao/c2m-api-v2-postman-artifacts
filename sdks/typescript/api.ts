@@ -354,6 +354,7 @@ export interface RequestIdSource {
 export interface ReturnAddress {
     'firstName': string;
     'lastName': string;
+    'company'?: string;
     'address1': string;
     'city': string;
     'state': string;
