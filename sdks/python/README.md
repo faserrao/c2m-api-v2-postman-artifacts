@@ -55,10 +55,10 @@ import c2m_api
 from c2m_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.example.com/v1
+# Defining the host is optional and defaults to https://api.click2mail.com/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = c2m_api.Configuration(
-    host = "https://api.example.com/v1"
+    host = "https://api.click2mail.com/v2"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -93,7 +93,7 @@ with c2m_api.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.example.com/v1*
+All URIs are relative to *https://api.click2mail.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -140,10 +140,9 @@ Class | Method | HTTP request | Description
  - [PaymentDetails](docs/PaymentDetails.md)
  - [PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
+ - [RecipientAddressByList](docs/RecipientAddressByList.md)
+ - [RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [RecipientAddressSource](docs/RecipientAddressSource.md)
- - [RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
- - [RecipientaddresssourceVariant1](docs/RecipientaddresssourceVariant1.md)
- - [RecipientaddresssourceVariant2](docs/RecipientaddresssourceVariant2.md)
  - [RequestIdSource](docs/RequestIdSource.md)
  - [ReturnAddress](docs/ReturnAddress.md)
  - [ShortTokenRequest](docs/ShortTokenRequest.md)

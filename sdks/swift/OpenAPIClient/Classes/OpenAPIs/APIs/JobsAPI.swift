@@ -34,7 +34,7 @@ open class JobsAPI {
     /**
      Submit a multi doc merge job
      - POST /jobs/submit/multi/doc/merge
-     - Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     - Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -81,7 +81,7 @@ open class JobsAPI {
     /**
      Submit a multi doc job
      - POST /jobs/submit/multi/doc
-     - Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+     - Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -128,7 +128,7 @@ open class JobsAPI {
     /**
      Submit a multi zip addressCapture job
      - POST /jobs/submit/multi/zip/addressCapture
-     - Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     - Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -175,7 +175,7 @@ open class JobsAPI {
     /**
      Submit a multi zip job
      - POST /jobs/submit/multi/zip
-     - Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     - Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -222,7 +222,7 @@ open class JobsAPI {
     /**
      Submit a single doc job
      - POST /jobs/submit/single/doc
-     - Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+     - Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -269,7 +269,7 @@ open class JobsAPI {
     /**
      Submit a single pdf addressCapture job
      - POST /jobs/submit/single/pdf/addressCapture
-     - Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     - Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -316,7 +316,7 @@ open class JobsAPI {
     /**
      Submit a single pdf split addressCapture job
      - POST /jobs/submit/single/pdf/split/addressCapture
-     - Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     - Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -363,7 +363,7 @@ open class JobsAPI {
     /**
      Submit a single pdf split job
      - POST /jobs/submit/single/pdf/split
-     - Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     - Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
      - Bearer Token:
        - type: http
        - name: bearerAuth

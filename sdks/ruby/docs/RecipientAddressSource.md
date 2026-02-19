@@ -14,9 +14,9 @@ require 'openapi_client'
 OpenapiClient::RecipientAddressSource.openapi_one_of
 # =>
 # [
-#   :'RecipientAddressSourceOneOf',
-#   :'RecipientaddresssourceVariant1',
-#   :'RecipientaddresssourceVariant2'
+#   :'Integer',
+#   :'RecipientAddressByList',
+#   :'RecipientAddressBySingle'
 # ]
 ```
 
@@ -30,7 +30,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'openapi_client'
 
 OpenapiClient::RecipientAddressSource.build(data)
-# => #<RecipientAddressSourceOneOf:0x00007fdd4aab02a0>
+# => #<Integer:0x00007fdd4aab02a0>
 
 OpenapiClient::RecipientAddressSource.build(data_that_doesnt_match)
 # => nil
@@ -44,8 +44,8 @@ OpenapiClient::RecipientAddressSource.build(data_that_doesnt_match)
 
 #### Return type
 
-- `RecipientAddressSourceOneOf`
-- `RecipientaddresssourceVariant1`
-- `RecipientaddresssourceVariant2`
+- `Integer`
+- `RecipientAddressByList`
+- `RecipientAddressBySingle`
 - `nil` (if no type matches)
 

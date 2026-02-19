@@ -1,6 +1,6 @@
 # C2MApiV2.AuthApi
 
-All URIs are relative to *https://api.example.com/v1*
+All URIs are relative to *https://api.click2mail.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

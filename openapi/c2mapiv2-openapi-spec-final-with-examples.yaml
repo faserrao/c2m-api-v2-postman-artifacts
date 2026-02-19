@@ -4,10 +4,8 @@ info:
   version: 2.0.0
   description: API for submitting mailing jobs with various document routing options
 servers:
-- url: https://api.example.com/v1
+- url: https://api.click2mail.com/v2
   description: Production server
-- url: http://localhost:4010
-  description: Mock server
 tags:
 - name: jobs
   description: Job submission endpoints
@@ -15,62 +13,10 @@ tags:
   description: Authentication and token management endpoints
 components:
   schemas:
-    firstName:
-      type: string
-    lastName:
-      type: string
-    address1:
-      type: string
-    address2:
-      type: string
-    address3:
-      type: string
-    city:
-      type: string
-    state:
-      type: string
-    country:
-      type: string
-    zip:
-      type: string
-    phoneNumber:
-      type: string
-    tags:
-      type: array
-      items:
-        type: string
-    jobTemplate:
-      type: string
-    invoiceNumber:
-      type: string
-    routingNumber:
-      type: string
-    accountNumber:
-      type: string
-    cardNumber:
-      type: string
-    documentId:
-      type: integer
-    addressListId:
-      type: integer
-    startPage:
-      type: integer
-    endPage:
-      type: integer
     month:
       type: integer
       minimum: 1
       maximum: 12
-    year:
-      type: integer
-    cvv:
-      type: integer
-    checkDigit:
-      type: integer
-    amountDue:
-      type: number
-    amount:
-      type: number
     submitSingleDocParams:
       type: object
       properties:
@@ -211,6 +157,8 @@ components:
           $ref: '#/components/schemas/tags'
       required:
       - zipDocumentSource
+    jobTemplate:
+      type: string
     returnAddress:
       type: object
       properties:
@@ -284,10 +232,30 @@ components:
       type: string
     mailClass:
       type: string
+    tags:
+      $ref: '#/components/schemas/tagsList'
     tagsList:
       type: array
       items:
         type: string
+    firstName:
+      type: string
+    lastName:
+      type: string
+    address1:
+      type: string
+    address2:
+      type: string
+    address3:
+      type: string
+    city:
+      type: string
+    state:
+      type: string
+    zip:
+      type: string
+    country:
+      type: string
     foo1:
       type: string
     foo2:
@@ -327,20 +295,41 @@ components:
       - country
     recipientAddressSource:
       oneOf:
-      - $ref: '#/components/schemas/RecipientaddresssourceVariant1'
-      - $ref: '#/components/schemas/RecipientaddresssourceVariant2'
-      - type: object
-        properties:
-          addressListId:
-            $ref: '#/components/schemas/addressListId'
-        required:
-        - addressListId
+      - $ref: '#/components/schemas/recipientAddressBySingle'
+      - $ref: '#/components/schemas/recipientAddressByList'
+      - $ref: '#/components/schemas/recipientAddressByListId'
+    recipientAddressBySingle:
+      type: object
+      properties:
+        mappingId:
+          type: integer
+        singleAddress:
+          $ref: '#/components/schemas/singleAddress'
+        addressName:
+          type: string
+      required:
+      - singleAddress
+    recipientAddressByList:
+      type: object
+      properties:
+        mappingId:
+          type: integer
+        addressList:
+          $ref: '#/components/schemas/addressList'
+        addressListName:
+          type: string
+      required:
+      - addressList
+    recipientAddressByListId:
+      $ref: '#/components/schemas/addressListId'
     mappingId:
       $ref: '#/components/schemas/id'
     addressName:
       type: string
     addressListName:
       type: string
+    addressListId:
+      $ref: '#/components/schemas/id'
     singleAddress:
       $ref: '#/components/schemas/address'
     addressList:
@@ -349,6 +338,8 @@ components:
         $ref: '#/components/schemas/address'
     documentIdSource:
       $ref: '#/components/schemas/documentId'
+    documentId:
+      $ref: '#/components/schemas/id'
     requestIdSource:
       type: object
       properties:
@@ -478,6 +469,10 @@ components:
       required:
       - startPage
       - endPage
+    startPage:
+      type: integer
+    endPage:
+      type: integer
     multiZipJobs:
       type: array
       items:
@@ -598,6 +593,10 @@ components:
       - GBP
       - CAD
       - AUD
+    amount:
+      type: number
+    cardNumber:
+      type: string
     expirationDate:
       type: object
       properties:
@@ -608,6 +607,20 @@ components:
       required:
       - month
       - year
+    year:
+      type: integer
+    cvv:
+      type: integer
+    routingNumber:
+      type: string
+    accountNumber:
+      type: string
+    checkDigit:
+      type: integer
+    invoiceNumber:
+      type: string
+    amountDue:
+      type: number
     cardType:
       type: string
       enum:
@@ -713,28 +726,6 @@ components:
         status: success
         message: Job created successfully
         requestId: job_20241227_123456
-    RecipientaddresssourceVariant1:
-      type: object
-      properties:
-        mappingId:
-          type: integer
-        singleAddress:
-          $ref: '#/components/schemas/singleAddress'
-        addressName:
-          type: string
-      required:
-      - singleAddress
-    RecipientaddresssourceVariant2:
-      type: object
-      properties:
-        mappingId:
-          type: integer
-        addressList:
-          $ref: '#/components/schemas/addressList'
-        addressListName:
-          type: string
-      required:
-      - addressList
     ShortTokenRequest:
       type: object
       properties:
@@ -970,8 +961,8 @@ paths:
       tags:
       - jobs
       summary: Submit a single doc job
-      description: Submits a mailing job with a single document to be sent to one or more recipients. The request body contains
-        job parameters including document source, recipient address information, and payment details.
+      description: Submits a mailing job (single doc). The request body contains job parameters including document source,
+        recipient address information, and payment details.
       operationId: submitSingleDocParams
       requestBody:
         required: true
@@ -1145,7 +1136,7 @@ paths:
       tags:
       - jobs
       summary: Submit a single pdf addressCapture job
-      description: Submits a single pdf addressCapture mailing job. The request body contains job parameters including document
+      description: Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document
         source, recipient address information, and payment details.
       operationId: submitSinglePdfAddressCaptureParams
       requestBody:
@@ -1263,7 +1254,7 @@ paths:
       tags:
       - jobs
       summary: Submit a single pdf split job
-      description: Submits a single pdf split mailing job. The request body contains job parameters including document source,
+      description: Submits a mailing job (single pdf split). The request body contains job parameters including document source,
         recipient address information, and payment details.
       operationId: submitSinglePdfSplitParams
       requestBody:
@@ -1381,7 +1372,7 @@ paths:
       tags:
       - jobs
       summary: Submit a single pdf split addressCapture job
-      description: Submits a single pdf split addressCapture mailing job. The request body contains job parameters including
+      description: Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including
         document source, recipient address information, and payment details.
       operationId: submitSinglePdfSplitAddressCaptureParams
       requestBody:
@@ -1499,8 +1490,8 @@ paths:
       tags:
       - jobs
       summary: Submit a multi doc job
-      description: Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters
-        including document source, recipient address information, and payment details.
+      description: Submits a mailing job (multi doc). The request body contains job parameters including document source,
+        recipient address information, and payment details.
       operationId: submitMultiDocParams
       requestBody:
         required: true
@@ -1617,7 +1608,7 @@ paths:
       tags:
       - jobs
       summary: Submit a multi doc merge job
-      description: Submits a multi doc merge mailing job. The request body contains job parameters including document source,
+      description: Submits a mailing job (multi doc merge). The request body contains job parameters including document source,
         recipient address information, and payment details.
       operationId: submitMultiDocMergeParams
       requestBody:
@@ -1735,8 +1726,8 @@ paths:
       tags:
       - jobs
       summary: Submit a multi zip job
-      description: Submits a multi zip mailing job. The request body contains job parameters including document source, recipient
-        address information, and payment details.
+      description: Submits a mailing job (multi zip). The request body contains job parameters including document source,
+        recipient address information, and payment details.
       operationId: submitMultiZipParams
       requestBody:
         required: true
@@ -1853,7 +1844,7 @@ paths:
       tags:
       - jobs
       summary: Submit a multi zip addressCapture job
-      description: Submits a multi zip addressCapture mailing job. The request body contains job parameters including document
+      description: Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document
         source, recipient address information, and payment details.
       operationId: submitMultiZipAddressCaptureParams
       requestBody:

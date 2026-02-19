@@ -50,14 +50,14 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     companion object {
         @JvmStatic
         val defaultBasePath: String by lazy {
-            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://api.example.com/v1")
+            System.getProperties().getProperty(ApiClient.baseUrlKey, "https://api.click2mail.com/v2")
         }
     }
 
     /**
      * POST /jobs/submit/multi/doc/merge
      * Submit a multi doc merge job
-     * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitMultiDocMergeParams 
      * @return StandardResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -89,7 +89,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/multi/doc/merge
      * Submit a multi doc merge job
-     * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitMultiDocMergeParams 
      * @return ApiResponse<StandardResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -131,7 +131,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/multi/doc
      * Submit a multi doc job
-     * Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitMultiDocParams 
      * @return StandardResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -163,7 +163,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/multi/doc
      * Submit a multi doc job
-     * Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitMultiDocParams 
      * @return ApiResponse<StandardResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -205,7 +205,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/multi/zip/addressCapture
      * Submit a multi zip addressCapture job
-     * Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitMultiZipAddressCaptureParams 
      * @return StandardResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -237,7 +237,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/multi/zip/addressCapture
      * Submit a multi zip addressCapture job
-     * Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitMultiZipAddressCaptureParams 
      * @return ApiResponse<StandardResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -279,7 +279,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/multi/zip
      * Submit a multi zip job
-     * Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitMultiZipParams 
      * @return StandardResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -311,7 +311,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/multi/zip
      * Submit a multi zip job
-     * Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitMultiZipParams 
      * @return ApiResponse<StandardResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -353,7 +353,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/single/doc
      * Submit a single doc job
-     * Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitSingleDocParams 
      * @return StandardResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -385,7 +385,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/single/doc
      * Submit a single doc job
-     * Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitSingleDocParams 
      * @return ApiResponse<StandardResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -427,7 +427,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/single/pdf/addressCapture
      * Submit a single pdf addressCapture job
-     * Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitSinglePdfAddressCaptureParams 
      * @return StandardResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -459,7 +459,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/single/pdf/addressCapture
      * Submit a single pdf addressCapture job
-     * Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitSinglePdfAddressCaptureParams 
      * @return ApiResponse<StandardResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -501,7 +501,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/single/pdf/split/addressCapture
      * Submit a single pdf split addressCapture job
-     * Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitSinglePdfSplitAddressCaptureParams 
      * @return StandardResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -533,7 +533,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/single/pdf/split/addressCapture
      * Submit a single pdf split addressCapture job
-     * Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitSinglePdfSplitAddressCaptureParams 
      * @return ApiResponse<StandardResponse?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -575,7 +575,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/single/pdf/split
      * Submit a single pdf split job
-     * Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitSinglePdfSplitParams 
      * @return StandardResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -607,7 +607,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /jobs/submit/single/pdf/split
      * Submit a single pdf split job
-     * Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param submitSinglePdfSplitParams 
      * @return ApiResponse<StandardResponse?>
      * @throws IllegalStateException If the request is not correctly configured

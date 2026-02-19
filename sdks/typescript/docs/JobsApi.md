@@ -1,6 +1,6 @@
 # JobsApi
 
-All URIs are relative to *https://api.example.com/v1*
+All URIs are relative to *https://api.click2mail.com/v2*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
@@ -16,7 +16,7 @@ All URIs are relative to *https://api.example.com/v1*
 # **submitMultiDocMergeParams**
 > StandardResponse submitMultiDocMergeParams(submitMultiDocMergeParams)
 
-Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -74,7 +74,7 @@ const { status, data } = await apiInstance.submitMultiDocMergeParams(
 # **submitMultiDocParams**
 > StandardResponse submitMultiDocParams(submitMultiDocParams)
 
-Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -132,7 +132,7 @@ const { status, data } = await apiInstance.submitMultiDocParams(
 # **submitMultiZipAddressCaptureParams**
 > StandardResponse submitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams)
 
-Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -190,7 +190,7 @@ const { status, data } = await apiInstance.submitMultiZipAddressCaptureParams(
 # **submitMultiZipParams**
 > StandardResponse submitMultiZipParams(submitMultiZipParams)
 
-Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -248,7 +248,7 @@ const { status, data } = await apiInstance.submitMultiZipParams(
 # **submitSingleDocParams**
 > StandardResponse submitSingleDocParams(submitSingleDocParams)
 
-Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -306,7 +306,7 @@ const { status, data } = await apiInstance.submitSingleDocParams(
 # **submitSinglePdfAddressCaptureParams**
 > StandardResponse submitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams)
 
-Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -364,7 +364,7 @@ const { status, data } = await apiInstance.submitSinglePdfAddressCaptureParams(
 # **submitSinglePdfSplitAddressCaptureParams**
 > StandardResponse submitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams)
 
-Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -422,7 +422,7 @@ const { status, data } = await apiInstance.submitSinglePdfSplitAddressCapturePar
 # **submitSinglePdfSplitParams**
 > StandardResponse submitSinglePdfSplitParams(submitSinglePdfSplitParams)
 
-Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 

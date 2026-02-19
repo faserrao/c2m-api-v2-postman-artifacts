@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **addressName** | **string** |  | [optional] [default to undefined]
 **addressList** | [**Array&lt;Address&gt;**](Address.md) |  | [default to undefined]
 **addressListName** | **string** |  | [optional] [default to undefined]
-**addressListId** | **number** |  | [default to undefined]
 
 ## Example
 
@@ -23,7 +22,6 @@ const instance: RecipientAddressSource = {
     addressName,
     addressList,
     addressListName,
-    addressListId,
 };
 ```
 

@@ -331,7 +331,7 @@ namespace C2M.Api.Client
         /// <summary>
         /// The base path of the API
         /// </summary>
-        public const string BASE_ADDRESS = "https://api.example.com/v1";
+        public const string BASE_ADDRESS = "https://api.click2mail.com/v2";
 
         /// <summary>
         /// The scheme of the API
@@ -341,12 +341,12 @@ namespace C2M.Api.Client
         /// <summary>
         /// The context path of the API
         /// </summary>
-        public const string CONTEXT_PATH = "/v1";
+        public const string CONTEXT_PATH = "/v2";
 
         /// <summary>
         /// The host of the API
         /// </summary>
-        public const string HOST = "api.example.com";
+        public const string HOST = "api.click2mail.com";
 
         /// <summary>
         /// The format to use for DateTime serialization

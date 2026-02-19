@@ -76,7 +76,7 @@ try {
 
 ## API Endpoints
 
-All URIs are relative to *https://api.example.com/v1*
+All URIs are relative to *https://api.click2mail.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -122,10 +122,9 @@ Class | Method | HTTP request | Description
 - [PaymentDetails](docs/Model/PaymentDetails.md)
 - [PdfSplitJobItemNoAddress](docs/Model/PdfSplitJobItemNoAddress.md)
 - [PdfSplitJobItemWithAddress](docs/Model/PdfSplitJobItemWithAddress.md)
+- [RecipientAddressByList](docs/Model/RecipientAddressByList.md)
+- [RecipientAddressBySingle](docs/Model/RecipientAddressBySingle.md)
 - [RecipientAddressSource](docs/Model/RecipientAddressSource.md)
-- [RecipientAddressSourceOneOf](docs/Model/RecipientAddressSourceOneOf.md)
-- [RecipientaddresssourceVariant1](docs/Model/RecipientaddresssourceVariant1.md)
-- [RecipientaddresssourceVariant2](docs/Model/RecipientaddresssourceVariant2.md)
 - [RequestIdSource](docs/Model/RequestIdSource.md)
 - [ReturnAddress](docs/Model/ReturnAddress.md)
 - [ShortTokenRequest](docs/Model/ShortTokenRequest.md)

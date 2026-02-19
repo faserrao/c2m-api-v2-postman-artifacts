@@ -39,7 +39,7 @@ namespace C2M.Api.Api
         /// Submit a multi doc merge job
         /// </summary>
         /// <remarks>
-        /// Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocMergeParams"></param>
@@ -51,7 +51,7 @@ namespace C2M.Api.Api
         /// Submit a multi doc merge job
         /// </summary>
         /// <remarks>
-        /// Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <param name="submitMultiDocMergeParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -62,7 +62,7 @@ namespace C2M.Api.Api
         /// Submit a multi doc job
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocParams"></param>
@@ -74,7 +74,7 @@ namespace C2M.Api.Api
         /// Submit a multi doc job
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <param name="submitMultiDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -85,7 +85,7 @@ namespace C2M.Api.Api
         /// Submit a multi zip addressCapture job
         /// </summary>
         /// <remarks>
-        /// Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiZipAddressCaptureParams"></param>
@@ -97,7 +97,7 @@ namespace C2M.Api.Api
         /// Submit a multi zip addressCapture job
         /// </summary>
         /// <remarks>
-        /// Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <param name="submitMultiZipAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -108,7 +108,7 @@ namespace C2M.Api.Api
         /// Submit a multi zip job
         /// </summary>
         /// <remarks>
-        /// Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiZipParams"></param>
@@ -120,7 +120,7 @@ namespace C2M.Api.Api
         /// Submit a multi zip job
         /// </summary>
         /// <remarks>
-        /// Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <param name="submitMultiZipParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -131,7 +131,7 @@ namespace C2M.Api.Api
         /// Submit a single doc job
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSingleDocParams"></param>
@@ -143,7 +143,7 @@ namespace C2M.Api.Api
         /// Submit a single doc job
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <param name="submitSingleDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -154,7 +154,7 @@ namespace C2M.Api.Api
         /// Submit a single pdf addressCapture job
         /// </summary>
         /// <remarks>
-        /// Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfAddressCaptureParams"></param>
@@ -166,7 +166,7 @@ namespace C2M.Api.Api
         /// Submit a single pdf addressCapture job
         /// </summary>
         /// <remarks>
-        /// Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <param name="submitSinglePdfAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -177,7 +177,7 @@ namespace C2M.Api.Api
         /// Submit a single pdf split addressCapture job
         /// </summary>
         /// <remarks>
-        /// Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfSplitAddressCaptureParams"></param>
@@ -189,7 +189,7 @@ namespace C2M.Api.Api
         /// Submit a single pdf split addressCapture job
         /// </summary>
         /// <remarks>
-        /// Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <param name="submitSinglePdfSplitAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -200,7 +200,7 @@ namespace C2M.Api.Api
         /// Submit a single pdf split job
         /// </summary>
         /// <remarks>
-        /// Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfSplitParams"></param>
@@ -212,7 +212,7 @@ namespace C2M.Api.Api
         /// Submit a single pdf split job
         /// </summary>
         /// <remarks>
-        /// Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </remarks>
         /// <param name="submitSinglePdfSplitParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -891,7 +891,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitMultiDocMergeParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitMultiDocMergeParams submitMultiDocMergeParams);
 
         /// <summary>
-        /// Submit a multi doc merge job Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a multi doc merge job Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <param name="submitMultiDocMergeParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -909,7 +909,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a multi doc merge job Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a multi doc merge job Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocMergeParams"></param>
@@ -1384,7 +1384,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitMultiDocParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitMultiDocParams submitMultiDocParams);
 
         /// <summary>
-        /// Submit a multi doc job Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a multi doc job Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <param name="submitMultiDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1402,7 +1402,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a multi doc job Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a multi doc job Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocParams"></param>
@@ -1877,7 +1877,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitMultiZipAddressCaptureParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitMultiZipAddressCaptureParams submitMultiZipAddressCaptureParams);
 
         /// <summary>
-        /// Submit a multi zip addressCapture job Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a multi zip addressCapture job Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <param name="submitMultiZipAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1895,7 +1895,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a multi zip addressCapture job Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a multi zip addressCapture job Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiZipAddressCaptureParams"></param>
@@ -2370,7 +2370,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitMultiZipParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitMultiZipParams submitMultiZipParams);
 
         /// <summary>
-        /// Submit a multi zip job Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a multi zip job Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <param name="submitMultiZipParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2388,7 +2388,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a multi zip job Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a multi zip job Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiZipParams"></param>
@@ -2863,7 +2863,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitSingleDocParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitSingleDocParams submitSingleDocParams);
 
         /// <summary>
-        /// Submit a single doc job Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a single doc job Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <param name="submitSingleDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2881,7 +2881,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a single doc job Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a single doc job Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSingleDocParams"></param>
@@ -3356,7 +3356,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitSinglePdfAddressCaptureParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitSinglePdfAddressCaptureParams submitSinglePdfAddressCaptureParams);
 
         /// <summary>
-        /// Submit a single pdf addressCapture job Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a single pdf addressCapture job Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <param name="submitSinglePdfAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3374,7 +3374,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a single pdf addressCapture job Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a single pdf addressCapture job Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfAddressCaptureParams"></param>
@@ -3849,7 +3849,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitSinglePdfSplitAddressCaptureParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitSinglePdfSplitAddressCaptureParams submitSinglePdfSplitAddressCaptureParams);
 
         /// <summary>
-        /// Submit a single pdf split addressCapture job Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a single pdf split addressCapture job Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <param name="submitSinglePdfSplitAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3867,7 +3867,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a single pdf split addressCapture job Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a single pdf split addressCapture job Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfSplitAddressCaptureParams"></param>
@@ -4342,7 +4342,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitSinglePdfSplitParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitSinglePdfSplitParams submitSinglePdfSplitParams);
 
         /// <summary>
-        /// Submit a single pdf split job Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a single pdf split job Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <param name="submitSinglePdfSplitParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4360,7 +4360,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a single pdf split job Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submit a single pdf split job Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfSplitParams"></param>

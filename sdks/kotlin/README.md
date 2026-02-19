@@ -41,7 +41,7 @@ This runs all tests and packages the library.
 <a id="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.example.com/v1*
+All URIs are relative to *https://api.click2mail.com/v2*
 
 | Class | Method | HTTP request | Description |
 | ------------ | ------------- | ------------- | ------------- |
@@ -89,10 +89,9 @@ All URIs are relative to *https://api.example.com/v1*
  - [com.c2m.api.models.PaymentDetails](docs/PaymentDetails.md)
  - [com.c2m.api.models.PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [com.c2m.api.models.PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
+ - [com.c2m.api.models.RecipientAddressByList](docs/RecipientAddressByList.md)
+ - [com.c2m.api.models.RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [com.c2m.api.models.RecipientAddressSource](docs/RecipientAddressSource.md)
- - [com.c2m.api.models.RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
- - [com.c2m.api.models.RecipientaddresssourceVariant1](docs/RecipientaddresssourceVariant1.md)
- - [com.c2m.api.models.RecipientaddresssourceVariant2](docs/RecipientaddresssourceVariant2.md)
  - [com.c2m.api.models.RequestIdSource](docs/RequestIdSource.md)
  - [com.c2m.api.models.ReturnAddress](docs/ReturnAddress.md)
  - [com.c2m.api.models.ShortTokenRequest](docs/ShortTokenRequest.md)

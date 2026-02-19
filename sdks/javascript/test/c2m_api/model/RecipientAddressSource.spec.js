@@ -84,12 +84,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property addressListId (base name: "addressListId")', function() {
-      // uncomment below and update the code to test the property addressListId
-      //var instance = new C2MApiV2.RecipientAddressSource();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

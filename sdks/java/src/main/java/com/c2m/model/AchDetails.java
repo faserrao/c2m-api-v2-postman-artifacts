@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * AchDetails
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T06:30:30.813627398Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-19T00:15:44.475409135Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class AchDetails {
   public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routingNumber";
   @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)

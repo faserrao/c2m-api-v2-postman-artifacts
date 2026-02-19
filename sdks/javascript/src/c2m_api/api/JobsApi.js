@@ -53,7 +53,7 @@ export default class JobsApi {
 
     /**
      * Submit a multi doc merge job
-     * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param {module:c2m_api/model/SubmitMultiDocMergeParams} submitMultiDocMergeParams 
      * @param {module:c2m_api/api/JobsApi~submitMultiDocMergeParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -95,7 +95,7 @@ export default class JobsApi {
 
     /**
      * Submit a multi doc job
-     * Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param {module:c2m_api/model/SubmitMultiDocParams} submitMultiDocParams 
      * @param {module:c2m_api/api/JobsApi~submitMultiDocParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -137,7 +137,7 @@ export default class JobsApi {
 
     /**
      * Submit a multi zip addressCapture job
-     * Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param {module:c2m_api/model/SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
      * @param {module:c2m_api/api/JobsApi~submitMultiZipAddressCaptureParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -179,7 +179,7 @@ export default class JobsApi {
 
     /**
      * Submit a multi zip job
-     * Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param {module:c2m_api/model/SubmitMultiZipParams} submitMultiZipParams 
      * @param {module:c2m_api/api/JobsApi~submitMultiZipParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -221,7 +221,7 @@ export default class JobsApi {
 
     /**
      * Submit a single doc job
-     * Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param {module:c2m_api/model/SubmitSingleDocParams} submitSingleDocParams 
      * @param {module:c2m_api/api/JobsApi~submitSingleDocParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -263,7 +263,7 @@ export default class JobsApi {
 
     /**
      * Submit a single pdf addressCapture job
-     * Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param {module:c2m_api/model/SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
      * @param {module:c2m_api/api/JobsApi~submitSinglePdfAddressCaptureParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -305,7 +305,7 @@ export default class JobsApi {
 
     /**
      * Submit a single pdf split addressCapture job
-     * Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param {module:c2m_api/model/SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
      * @param {module:c2m_api/api/JobsApi~submitSinglePdfSplitAddressCaptureParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -347,7 +347,7 @@ export default class JobsApi {
 
     /**
      * Submit a single pdf split job
-     * Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
      * @param {module:c2m_api/model/SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
      * @param {module:c2m_api/api/JobsApi~submitSinglePdfSplitParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}

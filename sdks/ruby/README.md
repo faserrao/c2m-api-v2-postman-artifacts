@@ -85,7 +85,7 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.example.com/v1*
+All URIs are relative to *https://api.click2mail.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -132,10 +132,9 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::PaymentDetails](docs/PaymentDetails.md)
  - [OpenapiClient::PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [OpenapiClient::PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
+ - [OpenapiClient::RecipientAddressByList](docs/RecipientAddressByList.md)
+ - [OpenapiClient::RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [OpenapiClient::RecipientAddressSource](docs/RecipientAddressSource.md)
- - [OpenapiClient::RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
- - [OpenapiClient::RecipientaddresssourceVariant1](docs/RecipientaddresssourceVariant1.md)
- - [OpenapiClient::RecipientaddresssourceVariant2](docs/RecipientaddresssourceVariant2.md)
  - [OpenapiClient::RequestIdSource](docs/RequestIdSource.md)
  - [OpenapiClient::ReturnAddress](docs/ReturnAddress.md)
  - [OpenapiClient::ShortTokenRequest](docs/ShortTokenRequest.md)

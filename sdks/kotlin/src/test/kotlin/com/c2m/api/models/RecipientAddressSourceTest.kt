@@ -20,9 +20,8 @@ import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.RecipientAddressSource
 import com.c2m.api.models.Address
-import com.c2m.api.models.RecipientAddressSourceOneOf
-import com.c2m.api.models.RecipientaddresssourceVariant1
-import com.c2m.api.models.RecipientaddresssourceVariant2
+import com.c2m.api.models.RecipientAddressByList
+import com.c2m.api.models.RecipientAddressBySingle
 
 class RecipientAddressSourceTest : ShouldSpec() {
     init {
@@ -39,12 +38,6 @@ class RecipientAddressSourceTest : ShouldSpec() {
         should("test addressList") {
             // uncomment below to test the property
             //modelInstance.addressList shouldBe ("TODO")
-        }
-
-        // to test the property `addressListId`
-        should("test addressListId") {
-            // uncomment below to test the property
-            //modelInstance.addressListId shouldBe ("TODO")
         }
 
         // to test the property `mappingId`

@@ -9,6 +9,5 @@ Name | Type | Description | Notes
 **addressName** | **String** |  | [optional] 
 **addressList** | [**[Address]**](Address.md) |  | 
 **addressListName** | **String** |  | [optional] 
-**addressListId** | **Number** |  | 
 
 

@@ -158,8 +158,8 @@ module OpenapiClient
 
     def initialize
       @scheme = 'https'
-      @host = 'api.example.com'
-      @base_path = '/v1'
+      @host = 'api.click2mail.com'
+      @base_path = '/v2'
       @server_index = nil
       @server_operation_index = {}
       @server_variables = {}
@@ -280,12 +280,8 @@ module OpenapiClient
     def server_settings
       [
         {
-          url: "https://api.example.com/v1",
+          url: "https://api.click2mail.com/v2",
           description: "Production server",
-        },
-        {
-          url: "http://localhost:4010",
-          description: "Mock server",
         }
       ]
     end

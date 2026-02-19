@@ -2,7 +2,7 @@
 
 C2M API v2
 - API version: 2.0.0
-  - Build date: 2026-02-17T06:30:30.813627398Z[Etc/UTC]
+  - Build date: 2026-02-19T00:15:44.475409135Z[Etc/UTC]
   - Generator version: 7.15.0
 
 API for submitting mailing jobs with various document routing options
@@ -91,7 +91,7 @@ import com.c2m.api.AuthApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.example.com/v1");
+    defaultClient.setBasePath("https://api.click2mail.com/v2");
     
     // Configure OAuth2 access token for authorization: ShortTokenAuth
     OAuth ShortTokenAuth = (OAuth) defaultClient.getAuthentication("ShortTokenAuth");
@@ -122,7 +122,7 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.example.com/v1*
+All URIs are relative to *https://api.click2mail.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -169,10 +169,9 @@ Class | Method | HTTP request | Description
  - [PaymentDetails](docs/PaymentDetails.md)
  - [PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
+ - [RecipientAddressByList](docs/RecipientAddressByList.md)
+ - [RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [RecipientAddressSource](docs/RecipientAddressSource.md)
- - [RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
- - [RecipientaddresssourceVariant1](docs/RecipientaddresssourceVariant1.md)
- - [RecipientaddresssourceVariant2](docs/RecipientaddresssourceVariant2.md)
  - [RequestIdSource](docs/RequestIdSource.md)
  - [ReturnAddress](docs/ReturnAddress.md)
  - [ShortTokenRequest](docs/ShortTokenRequest.md)

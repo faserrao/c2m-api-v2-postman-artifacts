@@ -61,8 +61,7 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
         'single_address' => '\C2MApi\Model\Address',
         'address_name' => 'string',
         'address_list' => '\C2MApi\Model\Address[]',
-        'address_list_name' => 'string',
-        'address_list_id' => 'int'
+        'address_list_name' => 'string'
     ];
 
     /**
@@ -77,8 +76,7 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
         'single_address' => null,
         'address_name' => null,
         'address_list' => null,
-        'address_list_name' => null,
-        'address_list_id' => null
+        'address_list_name' => null
     ];
 
     /**
@@ -91,8 +89,7 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
         'single_address' => false,
         'address_name' => false,
         'address_list' => false,
-        'address_list_name' => false,
-        'address_list_id' => false
+        'address_list_name' => false
     ];
 
     /**
@@ -185,8 +182,7 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
         'single_address' => 'singleAddress',
         'address_name' => 'addressName',
         'address_list' => 'addressList',
-        'address_list_name' => 'addressListName',
-        'address_list_id' => 'addressListId'
+        'address_list_name' => 'addressListName'
     ];
 
     /**
@@ -199,8 +195,7 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
         'single_address' => 'setSingleAddress',
         'address_name' => 'setAddressName',
         'address_list' => 'setAddressList',
-        'address_list_name' => 'setAddressListName',
-        'address_list_id' => 'setAddressListId'
+        'address_list_name' => 'setAddressListName'
     ];
 
     /**
@@ -213,8 +208,7 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
         'single_address' => 'getSingleAddress',
         'address_name' => 'getAddressName',
         'address_list' => 'getAddressList',
-        'address_list_name' => 'getAddressListName',
-        'address_list_id' => 'getAddressListId'
+        'address_list_name' => 'getAddressListName'
     ];
 
     /**
@@ -279,7 +273,6 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('address_name', $data ?? [], null);
         $this->setIfExists('address_list', $data ?? [], null);
         $this->setIfExists('address_list_name', $data ?? [], null);
-        $this->setIfExists('address_list_id', $data ?? [], null);
     }
 
     /**
@@ -314,9 +307,6 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
         }
         if ($this->container['address_list'] === null) {
             $invalidProperties[] = "'address_list' can't be null";
-        }
-        if ($this->container['address_list_id'] === null) {
-            $invalidProperties[] = "'address_list_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -464,33 +454,6 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
             throw new \InvalidArgumentException('non-nullable address_list_name cannot be null');
         }
         $this->container['address_list_name'] = $address_list_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets address_list_id
-     *
-     * @return int
-     */
-    public function getAddressListId()
-    {
-        return $this->container['address_list_id'];
-    }
-
-    /**
-     * Sets address_list_id
-     *
-     * @param int $address_list_id address_list_id
-     *
-     * @return self
-     */
-    public function setAddressListId($address_list_id)
-    {
-        if (is_null($address_list_id)) {
-            throw new \InvalidArgumentException('non-nullable address_list_id cannot be null');
-        }
-        $this->container['address_list_id'] = $address_list_id;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 # OpenapiClient::JobsApi
 
-All URIs are relative to *https://api.example.com/v1*
+All URIs are relative to *https://api.click2mail.com/v2*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
@@ -20,7 +20,7 @@ All URIs are relative to *https://api.example.com/v1*
 
 Submit a multi doc merge job
 
-Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Examples
 
@@ -34,7 +34,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::JobsApi.new
-submit_multi_doc_merge_params = OpenapiClient::SubmitMultiDocMergeParams.new({merge_document_source: [nil], recipient_address_source: OpenapiClient::RecipientAddressSourceOneOf.new({address_list_id: 37})}) # SubmitMultiDocMergeParams | 
+submit_multi_doc_merge_params = OpenapiClient::SubmitMultiDocMergeParams.new({merge_document_source: [nil], recipient_address_source: nil}) # SubmitMultiDocMergeParams | 
 
 begin
   # Submit a multi doc merge job
@@ -89,7 +89,7 @@ end
 
 Submit a multi doc job
 
-Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Examples
 
@@ -103,7 +103,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::JobsApi.new
-submit_multi_doc_params = OpenapiClient::SubmitMultiDocParams.new({multi_doc_jobs: [OpenapiClient::MultiDocJobItem.new({doc_source_all: nil, recipient_address_source: OpenapiClient::RecipientAddressSourceOneOf.new({address_list_id: 37})})]}) # SubmitMultiDocParams | 
+submit_multi_doc_params = OpenapiClient::SubmitMultiDocParams.new({multi_doc_jobs: [OpenapiClient::MultiDocJobItem.new({doc_source_all: nil, recipient_address_source: nil})]}) # SubmitMultiDocParams | 
 
 begin
   # Submit a multi doc job
@@ -158,7 +158,7 @@ end
 
 Submit a multi zip addressCapture job
 
-Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Examples
 
@@ -227,7 +227,7 @@ end
 
 Submit a multi zip job
 
-Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Examples
 
@@ -241,7 +241,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::JobsApi.new
-submit_multi_zip_params = OpenapiClient::SubmitMultiZipParams.new({multi_zip_jobs: [OpenapiClient::MultiZipJobItem.new({doc_source_zip_file: OpenapiClient::ZipDocumentIdSource.new({zip_document_id: 37, filename: 'filename_example'}), recipient_address_source: OpenapiClient::RecipientAddressSourceOneOf.new({address_list_id: 37})})]}) # SubmitMultiZipParams | 
+submit_multi_zip_params = OpenapiClient::SubmitMultiZipParams.new({multi_zip_jobs: [OpenapiClient::MultiZipJobItem.new({doc_source_zip_file: OpenapiClient::ZipDocumentIdSource.new({zip_document_id: 37, filename: 'filename_example'}), recipient_address_source: nil})]}) # SubmitMultiZipParams | 
 
 begin
   # Submit a multi zip job
@@ -296,7 +296,7 @@ end
 
 Submit a single doc job
 
-Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Examples
 
@@ -310,7 +310,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::JobsApi.new
-submit_single_doc_params = OpenapiClient::SubmitSingleDocParams.new({doc_source_all: nil, recipient_address_source: OpenapiClient::RecipientAddressSourceOneOf.new({address_list_id: 37})}) # SubmitSingleDocParams | 
+submit_single_doc_params = OpenapiClient::SubmitSingleDocParams.new({doc_source_all: nil, recipient_address_source: nil}) # SubmitSingleDocParams | 
 
 begin
   # Submit a single doc job
@@ -365,7 +365,7 @@ end
 
 Submit a single pdf addressCapture job
 
-Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Examples
 
@@ -434,7 +434,7 @@ end
 
 Submit a single pdf split addressCapture job
 
-Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Examples
 
@@ -503,7 +503,7 @@ end
 
 Submit a single pdf split job
 
-Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Examples
 
@@ -517,7 +517,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::JobsApi.new
-submit_single_pdf_split_params = OpenapiClient::SubmitSinglePdfSplitParams.new({doc_source_standard: nil, pdf_split_jobs_with_address: [OpenapiClient::PdfSplitJobItemWithAddress.new({start_page: 37, end_page: 37, recipient_address_source: OpenapiClient::RecipientAddressSourceOneOf.new({address_list_id: 37})})]}) # SubmitSinglePdfSplitParams | 
+submit_single_pdf_split_params = OpenapiClient::SubmitSinglePdfSplitParams.new({doc_source_standard: nil, pdf_split_jobs_with_address: [OpenapiClient::PdfSplitJobItemWithAddress.new({start_page: 37, end_page: 37, recipient_address_source: nil})]}) # SubmitSinglePdfSplitParams | 
 
 begin
   # Submit a single pdf split job

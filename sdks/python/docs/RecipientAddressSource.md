@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **address_name** | **str** |  | [optional] 
 **address_list** | [**List[Address]**](Address.md) |  | 
 **address_list_name** | **str** |  | [optional] 
-**address_list_id** | **int** |  | 
 
 ## Example
 

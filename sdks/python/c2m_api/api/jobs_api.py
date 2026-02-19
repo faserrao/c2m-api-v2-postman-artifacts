@@ -63,7 +63,7 @@ class JobsApi:
     ) -> StandardResponse:
         """Submit a multi doc merge job
 
-        Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_multi_doc_merge_params: (required)
         :type submit_multi_doc_merge_params: SubmitMultiDocMergeParams
@@ -136,7 +136,7 @@ class JobsApi:
     ) -> ApiResponse[StandardResponse]:
         """Submit a multi doc merge job
 
-        Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_multi_doc_merge_params: (required)
         :type submit_multi_doc_merge_params: SubmitMultiDocMergeParams
@@ -209,7 +209,7 @@ class JobsApi:
     ) -> RESTResponseType:
         """Submit a multi doc merge job
 
-        Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_multi_doc_merge_params: (required)
         :type submit_multi_doc_merge_params: SubmitMultiDocMergeParams
@@ -355,7 +355,7 @@ class JobsApi:
     ) -> StandardResponse:
         """Submit a multi doc job
 
-        Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_multi_doc_params: (required)
         :type submit_multi_doc_params: SubmitMultiDocParams
@@ -428,7 +428,7 @@ class JobsApi:
     ) -> ApiResponse[StandardResponse]:
         """Submit a multi doc job
 
-        Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_multi_doc_params: (required)
         :type submit_multi_doc_params: SubmitMultiDocParams
@@ -501,7 +501,7 @@ class JobsApi:
     ) -> RESTResponseType:
         """Submit a multi doc job
 
-        Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_multi_doc_params: (required)
         :type submit_multi_doc_params: SubmitMultiDocParams
@@ -647,7 +647,7 @@ class JobsApi:
     ) -> StandardResponse:
         """Submit a multi zip addressCapture job
 
-        Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_multi_zip_address_capture_params: (required)
         :type submit_multi_zip_address_capture_params: SubmitMultiZipAddressCaptureParams
@@ -720,7 +720,7 @@ class JobsApi:
     ) -> ApiResponse[StandardResponse]:
         """Submit a multi zip addressCapture job
 
-        Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_multi_zip_address_capture_params: (required)
         :type submit_multi_zip_address_capture_params: SubmitMultiZipAddressCaptureParams
@@ -793,7 +793,7 @@ class JobsApi:
     ) -> RESTResponseType:
         """Submit a multi zip addressCapture job
 
-        Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_multi_zip_address_capture_params: (required)
         :type submit_multi_zip_address_capture_params: SubmitMultiZipAddressCaptureParams
@@ -939,7 +939,7 @@ class JobsApi:
     ) -> StandardResponse:
         """Submit a multi zip job
 
-        Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_multi_zip_params: (required)
         :type submit_multi_zip_params: SubmitMultiZipParams
@@ -1012,7 +1012,7 @@ class JobsApi:
     ) -> ApiResponse[StandardResponse]:
         """Submit a multi zip job
 
-        Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_multi_zip_params: (required)
         :type submit_multi_zip_params: SubmitMultiZipParams
@@ -1085,7 +1085,7 @@ class JobsApi:
     ) -> RESTResponseType:
         """Submit a multi zip job
 
-        Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_multi_zip_params: (required)
         :type submit_multi_zip_params: SubmitMultiZipParams
@@ -1231,7 +1231,7 @@ class JobsApi:
     ) -> StandardResponse:
         """Submit a single doc job
 
-        Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_single_doc_params: (required)
         :type submit_single_doc_params: SubmitSingleDocParams
@@ -1304,7 +1304,7 @@ class JobsApi:
     ) -> ApiResponse[StandardResponse]:
         """Submit a single doc job
 
-        Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_single_doc_params: (required)
         :type submit_single_doc_params: SubmitSingleDocParams
@@ -1377,7 +1377,7 @@ class JobsApi:
     ) -> RESTResponseType:
         """Submit a single doc job
 
-        Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_single_doc_params: (required)
         :type submit_single_doc_params: SubmitSingleDocParams
@@ -1523,7 +1523,7 @@ class JobsApi:
     ) -> StandardResponse:
         """Submit a single pdf addressCapture job
 
-        Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_single_pdf_address_capture_params: (required)
         :type submit_single_pdf_address_capture_params: SubmitSinglePdfAddressCaptureParams
@@ -1596,7 +1596,7 @@ class JobsApi:
     ) -> ApiResponse[StandardResponse]:
         """Submit a single pdf addressCapture job
 
-        Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_single_pdf_address_capture_params: (required)
         :type submit_single_pdf_address_capture_params: SubmitSinglePdfAddressCaptureParams
@@ -1669,7 +1669,7 @@ class JobsApi:
     ) -> RESTResponseType:
         """Submit a single pdf addressCapture job
 
-        Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_single_pdf_address_capture_params: (required)
         :type submit_single_pdf_address_capture_params: SubmitSinglePdfAddressCaptureParams
@@ -1815,7 +1815,7 @@ class JobsApi:
     ) -> StandardResponse:
         """Submit a single pdf split addressCapture job
 
-        Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_single_pdf_split_address_capture_params: (required)
         :type submit_single_pdf_split_address_capture_params: SubmitSinglePdfSplitAddressCaptureParams
@@ -1888,7 +1888,7 @@ class JobsApi:
     ) -> ApiResponse[StandardResponse]:
         """Submit a single pdf split addressCapture job
 
-        Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_single_pdf_split_address_capture_params: (required)
         :type submit_single_pdf_split_address_capture_params: SubmitSinglePdfSplitAddressCaptureParams
@@ -1961,7 +1961,7 @@ class JobsApi:
     ) -> RESTResponseType:
         """Submit a single pdf split addressCapture job
 
-        Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_single_pdf_split_address_capture_params: (required)
         :type submit_single_pdf_split_address_capture_params: SubmitSinglePdfSplitAddressCaptureParams
@@ -2107,7 +2107,7 @@ class JobsApi:
     ) -> StandardResponse:
         """Submit a single pdf split job
 
-        Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_single_pdf_split_params: (required)
         :type submit_single_pdf_split_params: SubmitSinglePdfSplitParams
@@ -2180,7 +2180,7 @@ class JobsApi:
     ) -> ApiResponse[StandardResponse]:
         """Submit a single pdf split job
 
-        Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_single_pdf_split_params: (required)
         :type submit_single_pdf_split_params: SubmitSinglePdfSplitParams
@@ -2253,7 +2253,7 @@ class JobsApi:
     ) -> RESTResponseType:
         """Submit a single pdf split job
 
-        Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+        Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
 
         :param submit_single_pdf_split_params: (required)
         :type submit_single_pdf_split_params: SubmitSinglePdfSplitParams

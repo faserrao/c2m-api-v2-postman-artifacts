@@ -99,12 +99,8 @@ func NewConfiguration() *Configuration {
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
-				URL: "https://api.example.com/v1",
+				URL: "https://api.click2mail.com/v2",
 				Description: "Production server",
-			},
-			{
-				URL: "http://localhost:4010",
-				Description: "Mock server",
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{

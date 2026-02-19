@@ -22,7 +22,7 @@ Run `pod install`
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.example.com/v1*
+All URIs are relative to *https://api.click2mail.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -69,10 +69,9 @@ Class | Method | HTTP request | Description
  - [PaymentDetails](docs/PaymentDetails.md)
  - [PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
+ - [RecipientAddressByList](docs/RecipientAddressByList.md)
+ - [RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [RecipientAddressSource](docs/RecipientAddressSource.md)
- - [RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
- - [RecipientaddresssourceVariant1](docs/RecipientaddresssourceVariant1.md)
- - [RecipientaddresssourceVariant2](docs/RecipientaddresssourceVariant2.md)
  - [RequestIdSource](docs/RequestIdSource.md)
  - [ReturnAddress](docs/ReturnAddress.md)
  - [ShortTokenRequest](docs/ShortTokenRequest.md)

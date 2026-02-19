@@ -32,11 +32,11 @@ class ApiClient {
      * Overrides the default value set in spec file if present
      * @param {String} basePath
      */
-    constructor(basePath = 'https://api.example.com/v1') {
+    constructor(basePath = 'https://api.click2mail.com/v2') {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default https://api.example.com/v1
+         * @default https://api.click2mail.com/v2
          */
         this.basePath = basePath.replace(/\/+$/, '');
 
@@ -598,12 +598,8 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "https://api.example.com/v1",
+              'url': "https://api.click2mail.com/v2",
               'description': "Production server",
-            },
-            {
-              'url': "http://localhost:4010",
-              'description': "Mock server",
             }
       ];
     }

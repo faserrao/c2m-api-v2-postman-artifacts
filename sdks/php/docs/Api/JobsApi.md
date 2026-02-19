@@ -1,6 +1,6 @@
 # C2MApi\JobsApi
 
-All URIs are relative to https://api.example.com/v1, except if the operation defines another base path.
+All URIs are relative to https://api.click2mail.com/v2, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -22,7 +22,7 @@ submitMultiDocMergeParams($submit_multi_doc_merge_params): \C2MApi\Model\Standar
 
 Submit a multi doc merge job
 
-Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -82,7 +82,7 @@ submitMultiDocParams($submit_multi_doc_params): \C2MApi\Model\StandardResponse
 
 Submit a multi doc job
 
-Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -142,7 +142,7 @@ submitMultiZipAddressCaptureParams($submit_multi_zip_address_capture_params): \C
 
 Submit a multi zip addressCapture job
 
-Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -202,7 +202,7 @@ submitMultiZipParams($submit_multi_zip_params): \C2MApi\Model\StandardResponse
 
 Submit a multi zip job
 
-Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -262,7 +262,7 @@ submitSingleDocParams($submit_single_doc_params): \C2MApi\Model\StandardResponse
 
 Submit a single doc job
 
-Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -322,7 +322,7 @@ submitSinglePdfAddressCaptureParams($submit_single_pdf_address_capture_params): 
 
 Submit a single pdf addressCapture job
 
-Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -382,7 +382,7 @@ submitSinglePdfSplitAddressCaptureParams($submit_single_pdf_split_address_captur
 
 Submit a single pdf split addressCapture job
 
-Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -442,7 +442,7 @@ submitSinglePdfSplitParams($submit_single_pdf_split_params): \C2MApi\Model\Stand
 
 Submit a single pdf split job
 
-Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 

@@ -41,10 +41,9 @@ import MultiZipJobItem from './model/MultiZipJobItem';
 import PaymentDetails from './model/PaymentDetails';
 import PdfSplitJobItemNoAddress from './model/PdfSplitJobItemNoAddress';
 import PdfSplitJobItemWithAddress from './model/PdfSplitJobItemWithAddress';
+import RecipientAddressByList from './model/RecipientAddressByList';
+import RecipientAddressBySingle from './model/RecipientAddressBySingle';
 import RecipientAddressSource from './model/RecipientAddressSource';
-import RecipientAddressSourceOneOf from './model/RecipientAddressSourceOneOf';
-import RecipientaddresssourceVariant1 from './model/RecipientaddresssourceVariant1';
-import RecipientaddresssourceVariant2 from './model/RecipientaddresssourceVariant2';
 import RequestIdSource from './model/RequestIdSource';
 import ReturnAddress from './model/ReturnAddress';
 import ShortTokenRequest from './model/ShortTokenRequest';
@@ -273,28 +272,22 @@ export {
     PdfSplitJobItemWithAddress,
 
     /**
+     * The RecipientAddressByList model constructor.
+     * @property {module:c2m_api/model/RecipientAddressByList}
+     */
+    RecipientAddressByList,
+
+    /**
+     * The RecipientAddressBySingle model constructor.
+     * @property {module:c2m_api/model/RecipientAddressBySingle}
+     */
+    RecipientAddressBySingle,
+
+    /**
      * The RecipientAddressSource model constructor.
      * @property {module:c2m_api/model/RecipientAddressSource}
      */
     RecipientAddressSource,
-
-    /**
-     * The RecipientAddressSourceOneOf model constructor.
-     * @property {module:c2m_api/model/RecipientAddressSourceOneOf}
-     */
-    RecipientAddressSourceOneOf,
-
-    /**
-     * The RecipientaddresssourceVariant1 model constructor.
-     * @property {module:c2m_api/model/RecipientaddresssourceVariant1}
-     */
-    RecipientaddresssourceVariant1,
-
-    /**
-     * The RecipientaddresssourceVariant2 model constructor.
-     * @property {module:c2m_api/model/RecipientaddresssourceVariant2}
-     */
-    RecipientaddresssourceVariant2,
 
     /**
      * The RequestIdSource model constructor.

@@ -1,6 +1,6 @@
 # AuthApi
 
-All URIs are relative to *https://api.example.com/v1*
+All URIs are relative to *https://api.click2mail.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -30,7 +30,7 @@ import com.c2m.api.AuthApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.example.com/v1");
+    defaultClient.setBasePath("https://api.click2mail.com/v2");
     
     // Configure OAuth2 access token for authorization: ShortTokenAuth
     OAuth ShortTokenAuth = (OAuth) defaultClient.getAuthentication("ShortTokenAuth");
@@ -107,7 +107,7 @@ import com.c2m.api.AuthApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.example.com/v1");
+    defaultClient.setBasePath("https://api.click2mail.com/v2");
     
     // Configure OAuth2 access token for authorization: LongTokenAuth
     OAuth LongTokenAuth = (OAuth) defaultClient.getAuthentication("LongTokenAuth");
@@ -177,7 +177,7 @@ import com.c2m.api.AuthApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.example.com/v1");
+    defaultClient.setBasePath("https://api.click2mail.com/v2");
     
     // Configure OAuth2 access token for authorization: LongTokenAuth
     OAuth LongTokenAuth = (OAuth) defaultClient.getAuthentication("LongTokenAuth");

@@ -120,7 +120,7 @@ pub enum SubmitSinglePdfSplitParamsError {
 }
 
 
-/// Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+/// Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
 pub async fn submit_multi_doc_merge_params(configuration: &configuration::Configuration, submit_multi_doc_merge_params: models::SubmitMultiDocMergeParams) -> Result<models::StandardResponse, Error<SubmitMultiDocMergeParamsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_submit_multi_doc_merge_params = submit_multi_doc_merge_params;
@@ -161,7 +161,7 @@ pub async fn submit_multi_doc_merge_params(configuration: &configuration::Config
     }
 }
 
-/// Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+/// Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
 pub async fn submit_multi_doc_params(configuration: &configuration::Configuration, submit_multi_doc_params: models::SubmitMultiDocParams) -> Result<models::StandardResponse, Error<SubmitMultiDocParamsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_submit_multi_doc_params = submit_multi_doc_params;
@@ -202,7 +202,7 @@ pub async fn submit_multi_doc_params(configuration: &configuration::Configuratio
     }
 }
 
-/// Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+/// Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 pub async fn submit_multi_zip_address_capture_params(configuration: &configuration::Configuration, submit_multi_zip_address_capture_params: models::SubmitMultiZipAddressCaptureParams) -> Result<models::StandardResponse, Error<SubmitMultiZipAddressCaptureParamsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_submit_multi_zip_address_capture_params = submit_multi_zip_address_capture_params;
@@ -243,7 +243,7 @@ pub async fn submit_multi_zip_address_capture_params(configuration: &configurati
     }
 }
 
-/// Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+/// Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
 pub async fn submit_multi_zip_params(configuration: &configuration::Configuration, submit_multi_zip_params: models::SubmitMultiZipParams) -> Result<models::StandardResponse, Error<SubmitMultiZipParamsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_submit_multi_zip_params = submit_multi_zip_params;
@@ -284,7 +284,7 @@ pub async fn submit_multi_zip_params(configuration: &configuration::Configuratio
     }
 }
 
-/// Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+/// Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
 pub async fn submit_single_doc_params(configuration: &configuration::Configuration, submit_single_doc_params: models::SubmitSingleDocParams) -> Result<models::StandardResponse, Error<SubmitSingleDocParamsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_submit_single_doc_params = submit_single_doc_params;
@@ -325,7 +325,7 @@ pub async fn submit_single_doc_params(configuration: &configuration::Configurati
     }
 }
 
-/// Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+/// Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 pub async fn submit_single_pdf_address_capture_params(configuration: &configuration::Configuration, submit_single_pdf_address_capture_params: models::SubmitSinglePdfAddressCaptureParams) -> Result<models::StandardResponse, Error<SubmitSinglePdfAddressCaptureParamsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_submit_single_pdf_address_capture_params = submit_single_pdf_address_capture_params;
@@ -366,7 +366,7 @@ pub async fn submit_single_pdf_address_capture_params(configuration: &configurat
     }
 }
 
-/// Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+/// Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 pub async fn submit_single_pdf_split_address_capture_params(configuration: &configuration::Configuration, submit_single_pdf_split_address_capture_params: models::SubmitSinglePdfSplitAddressCaptureParams) -> Result<models::StandardResponse, Error<SubmitSinglePdfSplitAddressCaptureParamsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_submit_single_pdf_split_address_capture_params = submit_single_pdf_split_address_capture_params;
@@ -407,7 +407,7 @@ pub async fn submit_single_pdf_split_address_capture_params(configuration: &conf
     }
 }
 
-/// Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+/// Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
 pub async fn submit_single_pdf_split_params(configuration: &configuration::Configuration, submit_single_pdf_split_params: models::SubmitSinglePdfSplitParams) -> Result<models::StandardResponse, Error<SubmitSinglePdfSplitParamsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_submit_single_pdf_split_params = submit_single_pdf_split_params;

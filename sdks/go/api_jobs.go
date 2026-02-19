@@ -40,7 +40,7 @@ func (r ApiSubmitMultiDocMergeParamsRequest) Execute() (*StandardResponse, *http
 /*
 SubmitMultiDocMergeParams Submit a multi doc merge job
 
-Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitMultiDocMergeParamsRequest
@@ -215,7 +215,7 @@ func (r ApiSubmitMultiDocParamsRequest) Execute() (*StandardResponse, *http.Resp
 /*
 SubmitMultiDocParams Submit a multi doc job
 
-Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitMultiDocParamsRequest
@@ -390,7 +390,7 @@ func (r ApiSubmitMultiZipAddressCaptureParamsRequest) Execute() (*StandardRespon
 /*
 SubmitMultiZipAddressCaptureParams Submit a multi zip addressCapture job
 
-Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitMultiZipAddressCaptureParamsRequest
@@ -565,7 +565,7 @@ func (r ApiSubmitMultiZipParamsRequest) Execute() (*StandardResponse, *http.Resp
 /*
 SubmitMultiZipParams Submit a multi zip job
 
-Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitMultiZipParamsRequest
@@ -740,7 +740,7 @@ func (r ApiSubmitSingleDocParamsRequest) Execute() (*StandardResponse, *http.Res
 /*
 SubmitSingleDocParams Submit a single doc job
 
-Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitSingleDocParamsRequest
@@ -915,7 +915,7 @@ func (r ApiSubmitSinglePdfAddressCaptureParamsRequest) Execute() (*StandardRespo
 /*
 SubmitSinglePdfAddressCaptureParams Submit a single pdf addressCapture job
 
-Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitSinglePdfAddressCaptureParamsRequest
@@ -1090,7 +1090,7 @@ func (r ApiSubmitSinglePdfSplitAddressCaptureParamsRequest) Execute() (*Standard
 /*
 SubmitSinglePdfSplitAddressCaptureParams Submit a single pdf split addressCapture job
 
-Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitSinglePdfSplitAddressCaptureParamsRequest
@@ -1265,7 +1265,7 @@ func (r ApiSubmitSinglePdfSplitParamsRequest) Execute() (*StandardResponse, *htt
 /*
 SubmitSinglePdfSplitParams Submit a single pdf split job
 
-Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitSinglePdfSplitParamsRequest

@@ -126,7 +126,7 @@ api.issueLongTermToken(longTokenRequest, callback);
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.example.com/v1*
+All URIs are relative to *https://api.click2mail.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -173,10 +173,9 @@ Class | Method | HTTP request | Description
  - [C2MApiV2.PaymentDetails](docs/PaymentDetails.md)
  - [C2MApiV2.PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [C2MApiV2.PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
+ - [C2MApiV2.RecipientAddressByList](docs/RecipientAddressByList.md)
+ - [C2MApiV2.RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [C2MApiV2.RecipientAddressSource](docs/RecipientAddressSource.md)
- - [C2MApiV2.RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
- - [C2MApiV2.RecipientaddresssourceVariant1](docs/RecipientaddresssourceVariant1.md)
- - [C2MApiV2.RecipientaddresssourceVariant2](docs/RecipientaddresssourceVariant2.md)
  - [C2MApiV2.RequestIdSource](docs/RequestIdSource.md)
  - [C2MApiV2.ReturnAddress](docs/ReturnAddress.md)
  - [C2MApiV2.ShortTokenRequest](docs/ShortTokenRequest.md)

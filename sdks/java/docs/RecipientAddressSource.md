@@ -12,7 +12,6 @@
 |**addressName** | **String** |  |  [optional] |
 |**addressList** | [**List&lt;Address&gt;**](Address.md) |  |  |
 |**addressListName** | **String** |  |  [optional] |
-|**addressListId** | **Integer** |  |  |
 
 
 

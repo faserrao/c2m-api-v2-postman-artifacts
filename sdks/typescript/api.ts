@@ -332,24 +332,21 @@ export interface PdfSplitJobItemWithAddress {
     'endPage': number;
     'recipientAddressSource': RecipientAddressSource;
 }
-/**
- * @type RecipientAddressSource
- */
-export type RecipientAddressSource = RecipientAddressSourceOneOf | RecipientaddresssourceVariant1 | RecipientaddresssourceVariant2;
-
-export interface RecipientAddressSourceOneOf {
-    'addressListId': number;
-}
-export interface RecipientaddresssourceVariant1 {
-    'mappingId'?: number;
-    'singleAddress': Address;
-    'addressName'?: string;
-}
-export interface RecipientaddresssourceVariant2 {
+export interface RecipientAddressByList {
     'mappingId'?: number;
     'addressList': Array<Address>;
     'addressListName'?: string;
 }
+export interface RecipientAddressBySingle {
+    'mappingId'?: number;
+    'singleAddress': Address;
+    'addressName'?: string;
+}
+/**
+ * @type RecipientAddressSource
+ */
+export type RecipientAddressSource = RecipientAddressByList | RecipientAddressBySingle | number;
+
 export interface RequestIdSource {
     'requestId': number;
     'filename'?: string;
@@ -756,7 +753,7 @@ export class AuthApi extends BaseAPI {
 export const JobsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a multi doc merge job
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
@@ -796,7 +793,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a multi doc job
          * @param {SubmitMultiDocParams} submitMultiDocParams 
          * @param {*} [options] Override http request option.
@@ -836,7 +833,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a multi zip addressCapture job
          * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
          * @param {*} [options] Override http request option.
@@ -876,7 +873,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a multi zip job
          * @param {SubmitMultiZipParams} submitMultiZipParams 
          * @param {*} [options] Override http request option.
@@ -916,7 +913,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a single doc job
          * @param {SubmitSingleDocParams} submitSingleDocParams 
          * @param {*} [options] Override http request option.
@@ -956,7 +953,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a single pdf addressCapture job
          * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
          * @param {*} [options] Override http request option.
@@ -996,7 +993,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a single pdf split addressCapture job
          * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
          * @param {*} [options] Override http request option.
@@ -1036,7 +1033,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a single pdf split job
          * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
          * @param {*} [options] Override http request option.
@@ -1085,7 +1082,7 @@ export const JobsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = JobsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a multi doc merge job
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
@@ -1098,7 +1095,7 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a multi doc job
          * @param {SubmitMultiDocParams} submitMultiDocParams 
          * @param {*} [options] Override http request option.
@@ -1111,7 +1108,7 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a multi zip addressCapture job
          * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
          * @param {*} [options] Override http request option.
@@ -1124,7 +1121,7 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a multi zip job
          * @param {SubmitMultiZipParams} submitMultiZipParams 
          * @param {*} [options] Override http request option.
@@ -1137,7 +1134,7 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a single doc job
          * @param {SubmitSingleDocParams} submitSingleDocParams 
          * @param {*} [options] Override http request option.
@@ -1150,7 +1147,7 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a single pdf addressCapture job
          * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
          * @param {*} [options] Override http request option.
@@ -1163,7 +1160,7 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a single pdf split addressCapture job
          * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
          * @param {*} [options] Override http request option.
@@ -1176,7 +1173,7 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a single pdf split job
          * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
          * @param {*} [options] Override http request option.
@@ -1198,7 +1195,7 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
     const localVarFp = JobsApiFp(configuration)
     return {
         /**
-         * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a multi doc merge job
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
@@ -1208,7 +1205,7 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitMultiDocMergeParams(submitMultiDocMergeParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a multi doc job
          * @param {SubmitMultiDocParams} submitMultiDocParams 
          * @param {*} [options] Override http request option.
@@ -1218,7 +1215,7 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitMultiDocParams(submitMultiDocParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a multi zip addressCapture job
          * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
          * @param {*} [options] Override http request option.
@@ -1228,7 +1225,7 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a multi zip job
          * @param {SubmitMultiZipParams} submitMultiZipParams 
          * @param {*} [options] Override http request option.
@@ -1238,7 +1235,7 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitMultiZipParams(submitMultiZipParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a single doc job
          * @param {SubmitSingleDocParams} submitSingleDocParams 
          * @param {*} [options] Override http request option.
@@ -1248,7 +1245,7 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitSingleDocParams(submitSingleDocParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a single pdf addressCapture job
          * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
          * @param {*} [options] Override http request option.
@@ -1258,7 +1255,7 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a single pdf split addressCapture job
          * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
          * @param {*} [options] Override http request option.
@@ -1268,7 +1265,7 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+         * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
          * @summary Submit a single pdf split job
          * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
          * @param {*} [options] Override http request option.
@@ -1285,7 +1282,7 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
  */
 export class JobsApi extends BaseAPI {
     /**
-     * Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
      * @summary Submit a multi doc merge job
      * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
      * @param {*} [options] Override http request option.
@@ -1296,7 +1293,7 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
      * @summary Submit a multi doc job
      * @param {SubmitMultiDocParams} submitMultiDocParams 
      * @param {*} [options] Override http request option.
@@ -1307,7 +1304,7 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      * @summary Submit a multi zip addressCapture job
      * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
      * @param {*} [options] Override http request option.
@@ -1318,7 +1315,7 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
      * @summary Submit a multi zip job
      * @param {SubmitMultiZipParams} submitMultiZipParams 
      * @param {*} [options] Override http request option.
@@ -1329,7 +1326,7 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
      * @summary Submit a single doc job
      * @param {SubmitSingleDocParams} submitSingleDocParams 
      * @param {*} [options] Override http request option.
@@ -1340,7 +1337,7 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      * @summary Submit a single pdf addressCapture job
      * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
      * @param {*} [options] Override http request option.
@@ -1351,7 +1348,7 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
      * @summary Submit a single pdf split addressCapture job
      * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
      * @param {*} [options] Override http request option.
@@ -1362,7 +1359,7 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
      * @summary Submit a single pdf split job
      * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
      * @param {*} [options] Override http request option.

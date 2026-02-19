@@ -1,6 +1,6 @@
 # c2m_api.JobsApi
 
-All URIs are relative to *https://api.example.com/v1*
+All URIs are relative to *https://api.click2mail.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 Submit a multi doc merge job
 
-Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -32,10 +32,10 @@ from c2m_api.models.submit_multi_doc_merge_params import SubmitMultiDocMergePara
 from c2m_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.example.com/v1
+# Defining the host is optional and defaults to https://api.click2mail.com/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = c2m_api.Configuration(
-    host = "https://api.example.com/v1"
+    host = "https://api.click2mail.com/v2"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 Submit a multi doc job
 
-Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -117,10 +117,10 @@ from c2m_api.models.submit_multi_doc_params import SubmitMultiDocParams
 from c2m_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.example.com/v1
+# Defining the host is optional and defaults to https://api.click2mail.com/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = c2m_api.Configuration(
-    host = "https://api.example.com/v1"
+    host = "https://api.click2mail.com/v2"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -189,7 +189,7 @@ Name | Type | Description  | Notes
 
 Submit a multi zip addressCapture job
 
-Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -202,10 +202,10 @@ from c2m_api.models.submit_multi_zip_address_capture_params import SubmitMultiZi
 from c2m_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.example.com/v1
+# Defining the host is optional and defaults to https://api.click2mail.com/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = c2m_api.Configuration(
-    host = "https://api.example.com/v1"
+    host = "https://api.click2mail.com/v2"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 Submit a multi zip job
 
-Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -287,10 +287,10 @@ from c2m_api.models.submit_multi_zip_params import SubmitMultiZipParams
 from c2m_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.example.com/v1
+# Defining the host is optional and defaults to https://api.click2mail.com/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = c2m_api.Configuration(
-    host = "https://api.example.com/v1"
+    host = "https://api.click2mail.com/v2"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -359,7 +359,7 @@ Name | Type | Description  | Notes
 
 Submit a single doc job
 
-Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -372,10 +372,10 @@ from c2m_api.models.submit_single_doc_params import SubmitSingleDocParams
 from c2m_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.example.com/v1
+# Defining the host is optional and defaults to https://api.click2mail.com/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = c2m_api.Configuration(
-    host = "https://api.example.com/v1"
+    host = "https://api.click2mail.com/v2"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 
 Submit a single pdf addressCapture job
 
-Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -457,10 +457,10 @@ from c2m_api.models.submit_single_pdf_address_capture_params import SubmitSingle
 from c2m_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.example.com/v1
+# Defining the host is optional and defaults to https://api.click2mail.com/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = c2m_api.Configuration(
-    host = "https://api.example.com/v1"
+    host = "https://api.click2mail.com/v2"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
 
 Submit a single pdf split addressCapture job
 
-Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -542,10 +542,10 @@ from c2m_api.models.submit_single_pdf_split_address_capture_params import Submit
 from c2m_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.example.com/v1
+# Defining the host is optional and defaults to https://api.click2mail.com/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = c2m_api.Configuration(
-    host = "https://api.example.com/v1"
+    host = "https://api.click2mail.com/v2"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -614,7 +614,7 @@ Name | Type | Description  | Notes
 
 Submit a single pdf split job
 
-Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
 
 ### Example
 
@@ -627,10 +627,10 @@ from c2m_api.models.submit_single_pdf_split_params import SubmitSinglePdfSplitPa
 from c2m_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://api.example.com/v1
+# Defining the host is optional and defaults to https://api.click2mail.com/v2
 # See configuration.py for a list of all supported configuration parameters.
 configuration = c2m_api.Configuration(
-    host = "https://api.example.com/v1"
+    host = "https://api.click2mail.com/v2"
 )
 
 # The client must configure the authentication and authorization parameters

@@ -19,9 +19,9 @@ module OpenapiClient
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'RecipientAddressSourceOneOf',
-          :'RecipientaddresssourceVariant1',
-          :'RecipientaddresssourceVariant2'
+          :'Integer',
+          :'RecipientAddressByList',
+          :'RecipientAddressBySingle'
         ]
       end
 

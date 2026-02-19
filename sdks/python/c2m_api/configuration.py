@@ -212,7 +212,7 @@ conf = c2m_api.Configuration(
     ) -> None:
         """Constructor
         """
-        self._base_path = "https://api.example.com/v1" if host is None else host
+        self._base_path = "https://api.click2mail.com/v2" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -566,12 +566,8 @@ conf = c2m_api.Configuration(
         """
         return [
             {
-                'url': "https://api.example.com/v1",
+                'url': "https://api.click2mail.com/v2",
                 'description': "Production server",
-            },
-            {
-                'url': "http://localhost:4010",
-                'description': "Mock server",
             }
         ]
 

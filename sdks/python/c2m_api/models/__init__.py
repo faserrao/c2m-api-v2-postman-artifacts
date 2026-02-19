@@ -43,10 +43,9 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.payment_details import PaymentDetails
     from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress
     from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress
+    from c2m_api.models.recipient_address_by_list import RecipientAddressByList
+    from c2m_api.models.recipient_address_by_single import RecipientAddressBySingle
     from c2m_api.models.recipient_address_source import RecipientAddressSource
-    from c2m_api.models.recipient_address_source_one_of import RecipientAddressSourceOneOf
-    from c2m_api.models.recipientaddresssource_variant1 import RecipientaddresssourceVariant1
-    from c2m_api.models.recipientaddresssource_variant2 import RecipientaddresssourceVariant2
     from c2m_api.models.request_id_source import RequestIdSource
     from c2m_api.models.return_address import ReturnAddress
     from c2m_api.models.short_token_request import ShortTokenRequest
@@ -100,10 +99,9 @@ from c2m_api.models.multi_zip_job_item import MultiZipJobItem
 from c2m_api.models.payment_details import PaymentDetails
 from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress
 from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress
+from c2m_api.models.recipient_address_by_list import RecipientAddressByList
+from c2m_api.models.recipient_address_by_single import RecipientAddressBySingle
 from c2m_api.models.recipient_address_source import RecipientAddressSource
-from c2m_api.models.recipient_address_source_one_of import RecipientAddressSourceOneOf
-from c2m_api.models.recipientaddresssource_variant1 import RecipientaddresssourceVariant1
-from c2m_api.models.recipientaddresssource_variant2 import RecipientaddresssourceVariant2
 from c2m_api.models.request_id_source import RequestIdSource
 from c2m_api.models.return_address import ReturnAddress
 from c2m_api.models.short_token_request import ShortTokenRequest

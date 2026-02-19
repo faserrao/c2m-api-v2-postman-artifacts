@@ -1,6 +1,6 @@
 # C2M.Api.Api.JobsApi
 
-All URIs are relative to *https://api.example.com/v1*
+All URIs are relative to *https://api.click2mail.com/v2*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -19,7 +19,7 @@ All URIs are relative to *https://api.example.com/v1*
 
 Submit a multi doc merge job
 
-Submits a multi doc merge mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
 
 
 ### Parameters
@@ -61,7 +61,7 @@ Submits a multi doc merge mailing job. The request body contains job parameters 
 
 Submit a multi doc job
 
-Submits a mailing job with multiple documents to be sent to recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
 
 ### Parameters
@@ -103,7 +103,7 @@ Submits a mailing job with multiple documents to be sent to recipients. The requ
 
 Submit a multi zip addressCapture job
 
-Submits a multi zip addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 
 ### Parameters
@@ -145,7 +145,7 @@ Submits a multi zip addressCapture mailing job. The request body contains job pa
 
 Submit a multi zip job
 
-Submits a multi zip mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
 
 
 ### Parameters
@@ -187,7 +187,7 @@ Submits a multi zip mailing job. The request body contains job parameters includ
 
 Submit a single doc job
 
-Submits a mailing job with a single document to be sent to one or more recipients. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
 
 
 ### Parameters
@@ -229,7 +229,7 @@ Submits a mailing job with a single document to be sent to one or more recipient
 
 Submit a single pdf addressCapture job
 
-Submits a single pdf addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 
 ### Parameters
@@ -271,7 +271,7 @@ Submits a single pdf addressCapture mailing job. The request body contains job p
 
 Submit a single pdf split addressCapture job
 
-Submits a single pdf split addressCapture mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
 
 
 ### Parameters
@@ -313,7 +313,7 @@ Submits a single pdf split addressCapture mailing job. The request body contains
 
 Submit a single pdf split job
 
-Submits a single pdf split mailing job. The request body contains job parameters including document source, recipient address information, and payment details.
+Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
 
 
 ### Parameters

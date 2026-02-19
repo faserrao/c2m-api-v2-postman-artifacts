@@ -66,16 +66,11 @@ import com.c2m.auth.OAuthFlow;
  */
 public class ApiClient {
 
-    protected String basePath = "https://api.example.com/v1";
+    protected String basePath = "https://api.click2mail.com/v2";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://api.example.com/v1",
+      "https://api.click2mail.com/v2",
       "Production server",
-      new HashMap<String, ServerVariable>()
-    ),
-    new ServerConfiguration(
-      "http://localhost:4010",
-      "Mock server",
       new HashMap<String, ServerVariable>()
     )
   ));
@@ -242,7 +237,7 @@ public class ApiClient {
     /**
      * Set base path
      *
-     * @param basePath Base path of the URL (e.g https://api.example.com/v1
+     * @param basePath Base path of the URL (e.g https://api.click2mail.com/v2
      * @return An instance of OkHttpClient
      */
     public ApiClient setBasePath(String basePath) {
