@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * ZipRequestIdSource
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-19T19:29:51.678639104Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-19T20:20:19.713516657Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ZipRequestIdSource {
   public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
