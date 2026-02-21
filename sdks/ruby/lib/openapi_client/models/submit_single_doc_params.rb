@@ -23,11 +23,35 @@ module OpenapiClient
 
     attr_accessor :payment_details
 
+    attr_accessor :priority
+
     attr_accessor :return_address
 
     attr_accessor :job_options
 
     attr_accessor :tags
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -36,6 +60,7 @@ module OpenapiClient
         :'doc_source_all' => :'docSourceAll',
         :'recipient_address_source' => :'recipientAddressSource',
         :'payment_details' => :'paymentDetails',
+        :'priority' => :'priority',
         :'return_address' => :'returnAddress',
         :'job_options' => :'jobOptions',
         :'tags' => :'tags'
@@ -59,6 +84,7 @@ module OpenapiClient
         :'doc_source_all' => :'DocSourceAll',
         :'recipient_address_source' => :'RecipientAddressSource',
         :'payment_details' => :'PaymentDetails',
+        :'priority' => :'String',
         :'return_address' => :'ReturnAddress',
         :'job_options' => :'JobOptions',
         :'tags' => :'Array<String>'
@@ -107,6 +133,10 @@ module OpenapiClient
         self.payment_details = attributes[:'payment_details']
       end
 
+      if attributes.key?(:'priority')
+        self.priority = attributes[:'priority']
+      end
+
       if attributes.key?(:'return_address')
         self.return_address = attributes[:'return_address']
       end
@@ -144,6 +174,8 @@ module OpenapiClient
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @doc_source_all.nil?
       return false if @recipient_address_source.nil?
+      priority_validator = EnumAttributeValidator.new('String', ["standard", "rush", "overnight"])
+      return false unless priority_validator.valid?(@priority)
       true
     end
 
@@ -167,6 +199,16 @@ module OpenapiClient
       @recipient_address_source = recipient_address_source
     end
 
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] priority Object to be assigned
+    def priority=(priority)
+      validator = EnumAttributeValidator.new('String', ["standard", "rush", "overnight"])
+      unless validator.valid?(priority)
+        fail ArgumentError, "invalid value for \"priority\", must be one of #{validator.allowable_values}."
+      end
+      @priority = priority
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -176,6 +218,7 @@ module OpenapiClient
           doc_source_all == o.doc_source_all &&
           recipient_address_source == o.recipient_address_source &&
           payment_details == o.payment_details &&
+          priority == o.priority &&
           return_address == o.return_address &&
           job_options == o.job_options &&
           tags == o.tags
@@ -190,7 +233,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [job_template, doc_source_all, recipient_address_source, payment_details, return_address, job_options, tags].hash
+      [job_template, doc_source_all, recipient_address_source, payment_details, priority, return_address, job_options, tags].hash
     end
 
     # Builds the object from hash

@@ -39,6 +39,7 @@ class TestSubmitSingleDocParams(unittest.TestCase):
                 doc_source_all = None,
                 recipient_address_source = None,
                 payment_details = None,
+                priority = 'standard',
                 return_address = c2m_api.models.return_address.returnAddress(
                     first_name = '', 
                     last_name = '', 

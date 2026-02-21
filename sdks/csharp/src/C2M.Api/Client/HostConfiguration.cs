@@ -75,6 +75,8 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new PaymentDetailsJsonConverter());
             _jsonOptions.Converters.Add(new PdfSplitJobItemNoAddressJsonConverter());
             _jsonOptions.Converters.Add(new PdfSplitJobItemWithAddressJsonConverter());
+            _jsonOptions.Converters.Add(new PriorityJsonConverter());
+            _jsonOptions.Converters.Add(new PriorityNullableJsonConverter());
             _jsonOptions.Converters.Add(new RecipientAddressByListJsonConverter());
             _jsonOptions.Converters.Add(new RecipientAddressBySingleJsonConverter());
             _jsonOptions.Converters.Add(new RecipientAddressSourceJsonConverter());

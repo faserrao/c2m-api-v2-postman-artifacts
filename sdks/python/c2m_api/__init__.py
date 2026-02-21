@@ -57,6 +57,7 @@ __all__ = [
     "PaymentDetails",
     "PdfSplitJobItemNoAddress",
     "PdfSplitJobItemWithAddress",
+    "Priority",
     "RecipientAddressByList",
     "RecipientAddressBySingle",
     "RecipientAddressSource",
@@ -124,6 +125,7 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.payment_details import PaymentDetails as PaymentDetails
     from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress as PdfSplitJobItemNoAddress
     from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress as PdfSplitJobItemWithAddress
+    from c2m_api.models.priority import Priority as Priority
     from c2m_api.models.recipient_address_by_list import RecipientAddressByList as RecipientAddressByList
     from c2m_api.models.recipient_address_by_single import RecipientAddressBySingle as RecipientAddressBySingle
     from c2m_api.models.recipient_address_source import RecipientAddressSource as RecipientAddressSource
@@ -197,6 +199,7 @@ from c2m_api.models.multi_zip_job_item import MultiZipJobItem as MultiZipJobItem
 from c2m_api.models.payment_details import PaymentDetails as PaymentDetails
 from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress as PdfSplitJobItemNoAddress
 from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress as PdfSplitJobItemWithAddress
+from c2m_api.models.priority import Priority as Priority
 from c2m_api.models.recipient_address_by_list import RecipientAddressByList as RecipientAddressByList
 from c2m_api.models.recipient_address_by_single import RecipientAddressBySingle as RecipientAddressBySingle
 from c2m_api.models.recipient_address_source import RecipientAddressSource as RecipientAddressSource

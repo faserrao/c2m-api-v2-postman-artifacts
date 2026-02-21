@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from c2m_api.models.doc_source_all import DocSourceAll
 from c2m_api.models.job_options import JobOptions
@@ -35,10 +35,21 @@ class SubmitSingleDocParams(BaseModel):
     doc_source_all: DocSourceAll = Field(alias="docSourceAll")
     recipient_address_source: RecipientAddressSource = Field(alias="recipientAddressSource")
     payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
+    priority: Optional[StrictStr] = None
     return_address: Optional[ReturnAddress] = Field(default=None, alias="returnAddress")
     job_options: Optional[JobOptions] = Field(default=None, alias="jobOptions")
     tags: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["jobTemplate", "docSourceAll", "recipientAddressSource", "paymentDetails", "returnAddress", "jobOptions", "tags"]
+    __properties: ClassVar[List[str]] = ["jobTemplate", "docSourceAll", "recipientAddressSource", "paymentDetails", "priority", "returnAddress", "jobOptions", "tags"]
+
+    @field_validator('priority')
+    def priority_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['standard', 'rush', 'overnight']):
+            raise ValueError("must be one of enum values ('standard', 'rush', 'overnight')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -110,6 +121,7 @@ class SubmitSingleDocParams(BaseModel):
             "docSourceAll": DocSourceAll.from_dict(obj["docSourceAll"]) if obj.get("docSourceAll") is not None else None,
             "recipientAddressSource": RecipientAddressSource.from_dict(obj["recipientAddressSource"]) if obj.get("recipientAddressSource") is not None else None,
             "paymentDetails": PaymentDetails.from_dict(obj["paymentDetails"]) if obj.get("paymentDetails") is not None else None,
+            "priority": obj.get("priority"),
             "returnAddress": ReturnAddress.from_dict(obj["returnAddress"]) if obj.get("returnAddress") is not None else None,
             "jobOptions": JobOptions.from_dict(obj["jobOptions"]) if obj.get("jobOptions") is not None else None,
             "tags": obj.get("tags")

@@ -132,6 +132,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::PaymentDetails](docs/PaymentDetails.md)
  - [OpenapiClient::PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [OpenapiClient::PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
+ - [OpenapiClient::Priority](docs/Priority.md)
  - [OpenapiClient::RecipientAddressByList](docs/RecipientAddressByList.md)
  - [OpenapiClient::RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [OpenapiClient::RecipientAddressSource](docs/RecipientAddressSource.md)

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **RecipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 **JobTemplate** | **string** |  | [optional] 
 **PaymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
+**Priority** | **string** |  | [optional] 
 **ReturnAddress** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
 **JobOptions** | [**JobOptions**](JobOptions.md) |  | [optional] 
 **Tags** | **List&lt;string&gt;** |  | [optional] 

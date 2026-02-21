@@ -116,6 +116,15 @@ class SubmitSingleDocParamsTest extends TestCase
     }
 
     /**
+     * Test attribute "priority"
+     */
+    public function testPropertyPriority()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "return_address"
      */
     public function testPropertyReturnAddress()

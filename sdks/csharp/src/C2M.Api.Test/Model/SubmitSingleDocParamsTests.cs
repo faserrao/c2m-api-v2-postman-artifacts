@@ -90,6 +90,15 @@ namespace C2M.Api.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'Priority'
+        /// </summary>
+        [Fact]
+        public void PriorityTest()
+        {
+            // TODO unit test for the property 'Priority'
+        }
+
+        /// <summary>
         /// Test the property 'ReturnAddress'
         /// </summary>
         [Fact]

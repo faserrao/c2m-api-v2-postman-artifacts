@@ -122,6 +122,7 @@ Class | Method | HTTP request | Description
  - [PaymentDetails](docs/PaymentDetails.md)
  - [PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
+ - [Priority](docs/Priority.md)
  - [RecipientAddressByList](docs/RecipientAddressByList.md)
  - [RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [RecipientAddressSource](docs/RecipientAddressSource.md)

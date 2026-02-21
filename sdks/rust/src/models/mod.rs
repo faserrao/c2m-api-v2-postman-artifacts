@@ -54,6 +54,8 @@ pub mod pdf_split_job_item_no_address;
 pub use self::pdf_split_job_item_no_address::PdfSplitJobItemNoAddress;
 pub mod pdf_split_job_item_with_address;
 pub use self::pdf_split_job_item_with_address::PdfSplitJobItemWithAddress;
+pub mod priority;
+pub use self::priority::Priority;
 pub mod recipient_address_by_list;
 pub use self::recipient_address_by_list::RecipientAddressByList;
 pub mod recipient_address_by_single;

@@ -173,6 +173,7 @@ Class | Method | HTTP request | Description
  - [C2MApiV2.PaymentDetails](docs/PaymentDetails.md)
  - [C2MApiV2.PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [C2MApiV2.PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
+ - [C2MApiV2.Priority](docs/Priority.md)
  - [C2MApiV2.RecipientAddressByList](docs/RecipientAddressByList.md)
  - [C2MApiV2.RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [C2MApiV2.RecipientAddressSource](docs/RecipientAddressSource.md)

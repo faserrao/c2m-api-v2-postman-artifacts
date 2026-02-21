@@ -61,6 +61,7 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'doc_source_all' => '\C2MApi\Model\DocSourceAll',
         'recipient_address_source' => '\C2MApi\Model\RecipientAddressSource',
         'payment_details' => '\C2MApi\Model\PaymentDetails',
+        'priority' => 'string',
         'return_address' => '\C2MApi\Model\ReturnAddress',
         'job_options' => '\C2MApi\Model\JobOptions',
         'tags' => 'string[]'
@@ -78,6 +79,7 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'doc_source_all' => null,
         'recipient_address_source' => null,
         'payment_details' => null,
+        'priority' => null,
         'return_address' => null,
         'job_options' => null,
         'tags' => null
@@ -93,6 +95,7 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'doc_source_all' => false,
         'recipient_address_source' => false,
         'payment_details' => false,
+        'priority' => false,
         'return_address' => false,
         'job_options' => false,
         'tags' => false
@@ -188,6 +191,7 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'doc_source_all' => 'docSourceAll',
         'recipient_address_source' => 'recipientAddressSource',
         'payment_details' => 'paymentDetails',
+        'priority' => 'priority',
         'return_address' => 'returnAddress',
         'job_options' => 'jobOptions',
         'tags' => 'tags'
@@ -203,6 +207,7 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'doc_source_all' => 'setDocSourceAll',
         'recipient_address_source' => 'setRecipientAddressSource',
         'payment_details' => 'setPaymentDetails',
+        'priority' => 'setPriority',
         'return_address' => 'setReturnAddress',
         'job_options' => 'setJobOptions',
         'tags' => 'setTags'
@@ -218,6 +223,7 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'doc_source_all' => 'getDocSourceAll',
         'recipient_address_source' => 'getRecipientAddressSource',
         'payment_details' => 'getPaymentDetails',
+        'priority' => 'getPriority',
         'return_address' => 'getReturnAddress',
         'job_options' => 'getJobOptions',
         'tags' => 'getTags'
@@ -264,6 +270,23 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
+    public const PRIORITY_STANDARD = 'standard';
+    public const PRIORITY_RUSH = 'rush';
+    public const PRIORITY_OVERNIGHT = 'overnight';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPriorityAllowableValues()
+    {
+        return [
+            self::PRIORITY_STANDARD,
+            self::PRIORITY_RUSH,
+            self::PRIORITY_OVERNIGHT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -284,6 +307,7 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('doc_source_all', $data ?? [], null);
         $this->setIfExists('recipient_address_source', $data ?? [], null);
         $this->setIfExists('payment_details', $data ?? [], null);
+        $this->setIfExists('priority', $data ?? [], null);
         $this->setIfExists('return_address', $data ?? [], null);
         $this->setIfExists('job_options', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
@@ -322,6 +346,15 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['recipient_address_source'] === null) {
             $invalidProperties[] = "'recipient_address_source' can't be null";
         }
+        $allowedValues = $this->getPriorityAllowableValues();
+        if (!is_null($this->container['priority']) && !in_array($this->container['priority'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'priority', must be one of '%s'",
+                $this->container['priority'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -441,6 +474,43 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable payment_details cannot be null');
         }
         $this->container['payment_details'] = $payment_details;
+
+        return $this;
+    }
+
+    /**
+     * Gets priority
+     *
+     * @return string|null
+     */
+    public function getPriority()
+    {
+        return $this->container['priority'];
+    }
+
+    /**
+     * Sets priority
+     *
+     * @param string|null $priority priority
+     *
+     * @return self
+     */
+    public function setPriority($priority)
+    {
+        if (is_null($priority)) {
+            throw new \InvalidArgumentException('non-nullable priority cannot be null');
+        }
+        $allowedValues = $this->getPriorityAllowableValues();
+        if (!in_array($priority, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'priority', must be one of '%s'",
+                    $priority,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['priority'] = $priority;
 
         return $this;
     }

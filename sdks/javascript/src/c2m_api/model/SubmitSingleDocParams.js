@@ -68,6 +68,9 @@ class SubmitSingleDocParams {
             if (data.hasOwnProperty('paymentDetails')) {
                 obj['paymentDetails'] = PaymentDetails.constructFromObject(data['paymentDetails']);
             }
+            if (data.hasOwnProperty('priority')) {
+                obj['priority'] = ApiClient.convertToType(data['priority'], 'String');
+            }
             if (data.hasOwnProperty('returnAddress')) {
                 obj['returnAddress'] = ReturnAddress.constructFromObject(data['returnAddress']);
             }
@@ -108,6 +111,10 @@ class SubmitSingleDocParams {
         // validate the optional field `paymentDetails`
         if (data['paymentDetails']) { // data not null
           PaymentDetails.validateJSON(data['paymentDetails']);
+        }
+        // ensure the json data is a string
+        if (data['priority'] && !(typeof data['priority'] === 'string' || data['priority'] instanceof String)) {
+            throw new Error("Expected the field `priority` to be a primitive type in the JSON string but got " + data['priority']);
         }
         // validate the optional field `returnAddress`
         if (data['returnAddress']) { // data not null
@@ -151,6 +158,11 @@ SubmitSingleDocParams.prototype['recipientAddressSource'] = undefined;
 SubmitSingleDocParams.prototype['paymentDetails'] = undefined;
 
 /**
+ * @member {module:c2m_api/model/SubmitSingleDocParams.PriorityEnum} priority
+ */
+SubmitSingleDocParams.prototype['priority'] = undefined;
+
+/**
  * @member {module:c2m_api/model/ReturnAddress} returnAddress
  */
 SubmitSingleDocParams.prototype['returnAddress'] = undefined;
@@ -167,6 +179,33 @@ SubmitSingleDocParams.prototype['tags'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>priority</code> property.
+ * @enum {String}
+ * @readonly
+ */
+SubmitSingleDocParams['PriorityEnum'] = {
+
+    /**
+     * value: "standard"
+     * @const
+     */
+    "standard": "standard",
+
+    /**
+     * value: "rush"
+     * @const
+     */
+    "rush": "rush",
+
+    /**
+     * value: "overnight"
+     * @const
+     */
+    "overnight": "overnight"
+};
 
 
 

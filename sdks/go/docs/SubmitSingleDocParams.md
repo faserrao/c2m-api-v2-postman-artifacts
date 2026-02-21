@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **DocSourceAll** | [**DocSourceAll**](DocSourceAll.md) |  | 
 **RecipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 **PaymentDetails** | Pointer to [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
+**Priority** | Pointer to **string** |  | [optional] 
 **ReturnAddress** | Pointer to [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
 **JobOptions** | Pointer to [**JobOptions**](JobOptions.md) |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
@@ -120,6 +121,31 @@ SetPaymentDetails sets PaymentDetails field to given value.
 `func (o *SubmitSingleDocParams) HasPaymentDetails() bool`
 
 HasPaymentDetails returns a boolean if a field has been set.
+
+### GetPriority
+
+`func (o *SubmitSingleDocParams) GetPriority() string`
+
+GetPriority returns the Priority field if non-nil, zero value otherwise.
+
+### GetPriorityOk
+
+`func (o *SubmitSingleDocParams) GetPriorityOk() (*string, bool)`
+
+GetPriorityOk returns a tuple with the Priority field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPriority
+
+`func (o *SubmitSingleDocParams) SetPriority(v string)`
+
+SetPriority sets Priority field to given value.
+
+### HasPriority
+
+`func (o *SubmitSingleDocParams) HasPriority() bool`
+
+HasPriority returns a boolean if a field has been set.
 
 ### GetReturnAddress
 

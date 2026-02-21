@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **docSourceAll** | [**DocSourceAll**](DocSourceAll.md) |  | 
 **recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
+**priority** | **String** |  | [optional] 
 **returnAddress** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
 **jobOptions** | [**JobOptions**](JobOptions.md) |  | [optional] 
 **tags** | **[String]** |  | [optional] 

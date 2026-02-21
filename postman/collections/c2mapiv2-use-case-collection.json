@@ -1,2369 +1,472 @@
 {
   "info": {
     "name": "C2M API v2 \u2013 Real World Use Cases",
-    "description": "Real-world use cases for the C2M API v2. Each folder contains pre-populated requests for specific business scenarios.\n\n**Getting Started:**\n1. **Select Environment** (top-right dropdown) \u2192 Choose 'C2M Mock Server'\n2. **Find this collection** \u2192 In the Collections sidebar, locate 'C2M API v2 \u2013 Real World Use Cases'\n3. **Expand the collection** \u2192 Click the arrow next to 'C2M API v2 \u2013 Real World Use Cases'\n4. **Choose a use case folder** \u2192 Click arrow next to a folder (e.g., 'Legal Firm')\n5. **Expand the POST request** \u2192 Click arrow next to 'POST [single-doc-job-template]'\n6. **Select an example** \u2192 Click one of the pre-filled examples (e.g., 'legal_firm - Document ID + Credit Card + New Address')\n7. **Review the Body tab** \u2192 See the pre-populated request data for this scenario\n8. **Click Send** \u2192 Response includes jobId for the submitted job\n\n**Use Case Scenarios:**\n\n**Legal Firm** - We have letters that we need to send all day. Each letter is sent to a specific recipient via Certified Mail. A copy is sent to their legal representative via First Class mail. Our system generates the PDF of the letter.\n`[single-doc-job-template]`\n\n**Company #1** - We send invoices at the end of the month. Each invoice is in its own PDF. The address of the recipient is in the invoice.\n`[multi-pdf-address-capture]`\n\n**Company #2** - We send invoices at the end of the month. All the invoices are in a single big PDF. The addresses of the recipients are in the invoices.\n`[single-pdf-split-addressCapture]`\n\n**Real Estate Agent** - We send postcards as part of our campaign. The postcards have a specific template and use mail merge.\n`[single-doc-job-template]`\n\n**Medical Agency** - We send medical reports to patients. Each report is a custom PDF. In addition, a few boiler-plate pages of generic medical information are sent with each report.\n`[multi-doc-merge-job-template]`\n\n**Monthly Newsletters** - We are an organization that sends out flyers at the beginning of each month to our subscribers. The flyer is a static document and we have a mailing list it has to go out to.\n`[single-doc-job-template]`\n\n**Reseller #1** - We receive PDFs from our customers. Each PDF is unique. We want to batch the PDFs into a single big PDF and send them in one go.\n`[single-pdf-split]`\n\n**Reseller #2** - We receive PDFs from our customers. Each PDF is unique. We want to zip the PDFs and send them in one go.\n`[multi-doc]`\n\n**Note:** JWT tokens are handled automatically - no manual auth needed!",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_postman_id": "791dc954-de6b-44de-9dd3-af359f9b5c0e",
-    "version": {
-      "major": 1,
-      "minor": 0,
-      "patch": 0
-    }
+    "description": {
+      "content": "This collection contains pre-populated real-world use cases to help you understand how different types of customers use the Click2Mail API.\n\nEach folder represents a different business scenario with realistic request examples.\n\n**How to Use This Collection:**\n1. Select a use case that matches your scenario\n2. Expand the folder to see the pre-configured request\n3. Click the request name to open it\n4. Review the request body to see how the API call is structured\n5. Click Send to test the API (requires authentication)\n\n**Use Case Categories:**\n- Legal Firm: Certified mail with attorney copies\n- Company #1: Monthly invoice batch with address capture\n- Company #2: Split PDF invoices with address capture\n- Real Estate Agent: Monthly client statements\n- Medical Agency: Merged patient statement documents\n- Monthly Newsletters: Mass mailing to subscriber list\n- Reseller #1: Split PDF for batch mailing\n- Reseller #2: Multi-document batch submission\n\n**Important:** These examples use the production API structure. Request bodies are automatically synchronized with the current API specification.",
+      "type": "text/plain"
+    },
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
       "name": "Legal Firm",
-      "description": "We have letters that we need to send all day. Each letter is sent to a specific recipient via Certified Mail. A copy is sent to their legal representative via First Class mail. Our system generates the PDF of the letter.",
+      "description": {
+        "content": "We have letters that we need to send all day. Each letter is sent to a specific recipient via Certified Mail. A copy is sent to their legal representative via First Class mail. Our system generates the PDF of the letter.",
+        "type": "text/plain"
+      },
       "item": [
         {
-          "name": "[single-doc-job-template]",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "// Save requestId for follow-up requests",
-                  "const response = pm.response.json();",
-                  "if (response.requestId) {",
-                  "    pm.collectionVariables.set('requestId', response.requestId);",
-                  "    console.log('Request ID saved:', response.requestId);",
-                  "}",
-                  "",
-                  "// Basic tests",
-                  "pm.test('Status code is 200 or 201', function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  "",
-                  "pm.test('Response has requestId', function () {",
-                  "    pm.expect(response).to.have.property('requestId');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
+          "id": "5046e7c2-86e9-4822-aa6b-202d62cc5b79",
+          "name": "POST /jobs/submit/single/doc",
           "request": {
-            "method": "POST",
+            "name": "POST /jobs/submit/single/doc",
+            "description": {
+              "content": "We have letters that we need to send all day. Each letter is sent to a specific recipient via Certified Mail. A copy is sent to their legal representative via First Class mail. Our system generates the PDF of the letter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "doc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               },
               {
-                "key": "Authorization",
-                "value": "Bearer {{authToken}}",
-                "description": "JWT authentication token"
+                "key": "Accept",
+                "value": "application/json"
               }
             ],
+            "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"documentSourceIdentifier\": {\n    \"documentId\": 1234\n  },\n  \"recipientAddressSources\": [\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"address1\": \"123 Main Street\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip\": \"10001\",\n      \"country\": \"USA\"\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith (Attorney)\",\n      \"address1\": \"456 Legal Avenue\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip\": \"10002\",\n      \"country\": \"USA\",\n      \"nickName\": \"Attorney Copy\"\n    }\n  ],\n  \"jobTemplate\": \"legal_certified_mail\",\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"visa\",\n      \"cardNumber\": \"4111111111111111\",\n      \"expirationDate\": {\n        \"month\": 12,\n        \"year\": 2025\n      },\n      \"cvv\": 123\n    }\n  },\n  \"tags\": [\n    \"legal\",\n    \"certified\",\n    \"client-correspondence\"\n  ]\n}"
+              "raw": "{\n  \"docSourceAll\": {\n    \"documentId\": 1234\n  },\n  \"recipientAddressSource\": {\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"address1\": \"123 Main Street\",\n    \"city\": \"New York\",\n    \"state\": \"NY\",\n    \"zip\": \"10001\",\n    \"country\": \"USA\"\n  },\n  \"jobTemplate\": \"legal_certified_mail\",\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"visa\",\n      \"cardNumber\": \"4111111111111111\",\n      \"expirationDate\": {\n        \"month\": 12,\n        \"year\": 2025\n      },\n      \"cvv\": 123\n    }\n  },\n  \"tags\": [\n    \"legal\",\n    \"certified\",\n    \"client-correspondence\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
             },
-            "url": {
-              "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "jobs",
-                "single-doc-job-template"
-              ]
-            },
-            "description": "Submit a job for Legal Firm.\n\nWe have letters that we need to send all day. Each letter is sent to a specific recipient via Certified Mail. A copy is sent to their legal representative via First Class mail. Our system generates the PDF of the letter."
+            "auth": null
           },
-          "response": [
-            {
-              "name": "legal_firm - Document ID + Credit Card + New Address",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"documentId\": 1234\n  },\n  \"recipientAddressSources\": [\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"address1\": \"123 Main Street\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip\": \"10001\",\n      \"country\": \"USA\"\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"legal_certified_mail\",\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"visa\",\n      \"cardNumber\": \"4111111111111111\",\n      \"expirationDate\": {\n        \"month\": 12,\n        \"year\": 2025\n      },\n      \"cvv\": 123\n    }\n  },\n  \"tags\": [\n    \"legal\",\n    \"certified\",\n    \"client-correspondence\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "legal_firm - External URL + Invoice + Address List ID",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"externalUrl\": \"https://api.example.com/v1/documents/5678\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"addressListId\": 42\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"legal_certified_mail\",\n  \"paymentDetails\": {\n    \"invoiceDetails\": {\n      \"invoiceNumber\": \"LEGAL_FIRM-2024-001\",\n      \"amountDue\": 150.0\n    }\n  },\n  \"tags\": [\n    \"legal\",\n    \"certified\",\n    \"client-correspondence\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "legal_firm - Upload Request + ACH + Address ID",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"uploadRequestId\": 100,\n    \"documentName\": \"legal_firm_document.pdf\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"addressId\": 12345\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"legal_certified_mail\",\n  \"paymentDetails\": {\n    \"achDetails\": {\n      \"routingNumber\": \"021000021\",\n      \"accountNumber\": \"1234567890\",\n      \"checkDigit\": 7\n    }\n  },\n  \"tags\": [\n    \"legal\",\n    \"certified\",\n    \"client-correspondence\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "legal_firm - Upload + Zip + User Credit + New Address",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"uploadRequestId\": 200,\n    \"zipId\": 10,\n    \"documentName\": \"legal_firm_doc.pdf\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"address1\": \"123 Main Street\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip\": \"10001\",\n      \"country\": \"USA\"\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"legal_certified_mail\",\n  \"paymentDetails\": {\n    \"userCreditDetails\": {\n      \"creditAmount\": 50.0\n    }\n  },\n  \"tags\": [\n    \"legal\",\n    \"certified\",\n    \"client-correspondence\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "legal_firm - Zip Only + Apple Pay + Address List ID",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"zipId\": 20,\n    \"documentName\": \"legal_firm_file.pdf\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"addressListId\": 42\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"legal_certified_mail\",\n  \"paymentDetails\": {\n    \"applePayDetails\": {\n      \"applePaymentDetails\": {}\n    }\n  },\n  \"tags\": [\n    \"legal\",\n    \"certified\",\n    \"client-correspondence\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            }
-          ]
+          "response": []
         }
       ]
     },
     {
       "name": "Company #1",
-      "description": "We send invoices at the end of the month. Each invoice is in its own PDF. The address of the recipient is in the invoice.",
+      "description": {
+        "content": "We send invoices at the end of the month. Each invoice is in its own PDF. The address of the recipient is in the invoice.",
+        "type": "text/plain"
+      },
       "item": [
         {
-          "name": "[multi-pdf-address-capture]",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "// Save requestId for follow-up requests",
-                  "const response = pm.response.json();",
-                  "if (response.requestId) {",
-                  "    pm.collectionVariables.set('requestId', response.requestId);",
-                  "    console.log('Request ID saved:', response.requestId);",
-                  "}",
-                  "",
-                  "// Basic tests",
-                  "pm.test('Status code is 200 or 201', function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  "",
-                  "pm.test('Response has requestId', function () {",
-                  "    pm.expect(response).to.have.property('requestId');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
+          "id": "3bbee924-a45c-48b8-8be1-c185d4c8cb18",
+          "name": "POST /jobs/submit/single/pdf/addressCapture",
           "request": {
-            "method": "POST",
+            "name": "POST /jobs/submit/single/pdf/addressCapture",
+            "description": {
+              "content": "We send invoices at the end of the month. Each invoice is in its own PDF. The address of the recipient is in the invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "pdf",
+                "addressCapture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               },
               {
-                "key": "Authorization",
-                "value": "Bearer {{authToken}}",
-                "description": "JWT authentication token"
+                "key": "Accept",
+                "value": "application/json"
               }
             ],
+            "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"addressCapturePdfs\": [\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_001.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_002.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_003.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    }\n  ],\n  \"jobOptions\": {\n    \"documentClass\": \"businessLetter\",\n    \"layout\": \"portrait\",\n    \"mailclass\": \"firstClassMail\",\n    \"paperType\": \"letter\",\n    \"printOption\": \"color\",\n    \"envelope\": \"windowedFlat\"\n  },\n  \"paymentDetails\": {\n    \"invoiceDetails\": {\n      \"invoiceNumber\": \"BATCH-2024-001\",\n      \"amountDue\": 450.0\n    }\n  },\n  \"tags\": [\n    \"invoices\",\n    \"monthly-batch\",\n    \"accounts-receivable\"\n  ]\n}"
+              "raw": "{\n  \"addressCapturePdfs\": [\n    {\n      \"docSourceAll\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_001.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    }\n  ],\n  \"jobTemplate\": \"invoice_template\",\n  \"tags\": [\n    \"invoices\",\n    \"end-of-month\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
             },
-            "url": {
-              "raw": "{{baseUrl}}/jobs/multi-pdf-address-capture",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "jobs",
-                "multi-pdf-address-capture"
-              ]
-            },
-            "description": "Submit a job for Company #1.\n\nWe send invoices at the end of the month. Each invoice is in its own PDF. The address of the recipient is in the invoice."
+            "auth": null
           },
-          "response": [
-            {
-              "name": "company_invoice_batch - Document ID + Credit Card",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"addressCapturePdfs\": [\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_001.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_002.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_003.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    }\n  ],\n  \"jobOptions\": {\n    \"documentClass\": \"businessLetter\",\n    \"layout\": \"portrait\",\n    \"mailclass\": \"firstClassMail\",\n    \"paperType\": \"letter\",\n    \"printOption\": \"color\",\n    \"envelope\": \"windowedFlat\"\n  },\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"visa\",\n      \"cardNumber\": \"4111111111111111\",\n      \"expirationDate\": {\n        \"month\": 12,\n        \"year\": 2025\n      },\n      \"cvv\": 123\n    }\n  },\n  \"tags\": [\n    \"invoices\",\n    \"monthly-batch\",\n    \"accounts-receivable\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-pdf-address-capture",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-pdf-address-capture"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "company_invoice_batch - External URL + Invoice",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"addressCapturePdfs\": [\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_001.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_002.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_003.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    }\n  ],\n  \"jobOptions\": {\n    \"documentClass\": \"businessLetter\",\n    \"layout\": \"portrait\",\n    \"mailclass\": \"firstClassMail\",\n    \"paperType\": \"letter\",\n    \"printOption\": \"color\",\n    \"envelope\": \"windowedFlat\"\n  },\n  \"paymentDetails\": {\n    \"invoiceDetails\": {\n      \"invoiceNumber\": \"COMPANY_INVOICE_BATCH-2024-001\",\n      \"amountDue\": 150.0\n    }\n  },\n  \"tags\": [\n    \"invoices\",\n    \"monthly-batch\",\n    \"accounts-receivable\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-pdf-address-capture",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-pdf-address-capture"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "company_invoice_batch - Upload Request + ACH",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"addressCapturePdfs\": [\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_001.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_002.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_003.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    }\n  ],\n  \"jobOptions\": {\n    \"documentClass\": \"businessLetter\",\n    \"layout\": \"portrait\",\n    \"mailclass\": \"firstClassMail\",\n    \"paperType\": \"letter\",\n    \"printOption\": \"color\",\n    \"envelope\": \"windowedFlat\"\n  },\n  \"paymentDetails\": {\n    \"achDetails\": {\n      \"routingNumber\": \"021000021\",\n      \"accountNumber\": \"1234567890\",\n      \"checkDigit\": 7\n    }\n  },\n  \"tags\": [\n    \"invoices\",\n    \"monthly-batch\",\n    \"accounts-receivable\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-pdf-address-capture",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-pdf-address-capture"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "company_invoice_batch - Upload + Zip + User Credit",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"addressCapturePdfs\": [\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_001.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_002.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_003.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    }\n  ],\n  \"jobOptions\": {\n    \"documentClass\": \"businessLetter\",\n    \"layout\": \"portrait\",\n    \"mailclass\": \"firstClassMail\",\n    \"paperType\": \"letter\",\n    \"printOption\": \"color\",\n    \"envelope\": \"windowedFlat\"\n  },\n  \"paymentDetails\": {\n    \"userCreditDetails\": {\n      \"creditAmount\": 50.0\n    }\n  },\n  \"tags\": [\n    \"invoices\",\n    \"monthly-batch\",\n    \"accounts-receivable\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-pdf-address-capture",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-pdf-address-capture"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "company_invoice_batch - Zip Only + Apple Pay",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"addressCapturePdfs\": [\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_001.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_002.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"invoice_003.pdf\"\n      },\n      \"addressRegion\": {\n        \"x\": 300,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    }\n  ],\n  \"jobOptions\": {\n    \"documentClass\": \"businessLetter\",\n    \"layout\": \"portrait\",\n    \"mailclass\": \"firstClassMail\",\n    \"paperType\": \"letter\",\n    \"printOption\": \"color\",\n    \"envelope\": \"windowedFlat\"\n  },\n  \"paymentDetails\": {\n    \"applePayDetails\": {\n      \"applePaymentDetails\": {}\n    }\n  },\n  \"tags\": [\n    \"invoices\",\n    \"monthly-batch\",\n    \"accounts-receivable\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-pdf-address-capture",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-pdf-address-capture"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            }
-          ]
+          "response": []
         }
       ]
     },
     {
       "name": "Company #2",
-      "description": "We send invoices at the end of the month. All the invoices are in a single big PDF. The addresses of the recipients are in the invoices.",
+      "description": {
+        "content": "At the end of the month we have one big PDF file with all the invoices. We need to split the invoices and grab the addresses from each invoice.",
+        "type": "text/plain"
+      },
       "item": [
         {
-          "name": "[single-pdf-split-addressCapture]",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "// Save requestId for follow-up requests",
-                  "const response = pm.response.json();",
-                  "if (response.requestId) {",
-                  "    pm.collectionVariables.set('requestId', response.requestId);",
-                  "    console.log('Request ID saved:', response.requestId);",
-                  "}",
-                  "",
-                  "// Basic tests",
-                  "pm.test('Status code is 200 or 201', function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  "",
-                  "pm.test('Response has requestId', function () {",
-                  "    pm.expect(response).to.have.property('requestId');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
+          "id": "73cc326b-a754-400c-b3f8-c74aa1e02898",
+          "name": "POST /jobs/submit/single/pdf/split/addressCapture",
           "request": {
-            "method": "POST",
+            "name": "POST /jobs/submit/single/pdf/split/addressCapture",
+            "description": {
+              "content": "At the end of the month we have one big PDF file with all the invoices. We need to split the invoices and grab the addresses from each invoice.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "pdf",
+                "split",
+                "addressCapture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               },
               {
-                "key": "Authorization",
-                "value": "Bearer {{authToken}}",
-                "description": "JWT authentication token"
+                "key": "Accept",
+                "value": "application/json"
               }
             ],
+            "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"documentSourceIdentifier\": {\n    \"uploadRequestId\": 200,\n    \"zipId\": 10,\n    \"documentName\": \"combined_invoices.pdf\"\n  },\n  \"embeddedExtractionSpecs\": [\n    {\n      \"startPage\": 1,\n      \"endPage\": 1,\n      \"addressRegion\": {\n        \"x\": 50,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"startPage\": 2,\n      \"endPage\": 2,\n      \"addressRegion\": {\n        \"x\": 50,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    }\n  ],\n  \"paymentDetails\": {\n    \"achDetails\": {\n      \"routingNumber\": \"021000021\",\n      \"accountNumber\": \"1234567890\",\n      \"checkDigit\": 7\n    }\n  },\n  \"tags\": [\n    \"split-pdf\",\n    \"address-capture\",\n    \"automated\"\n  ]\n}"
+              "raw": "{\n  \"docSourceAll\": {\n    \"uploadRequestId\": 200\n  },\n  \"splitRules\": {\n    \"splitBy\": \"pageRange\",\n    \"pageRanges\": [\n      {\n        \"start\": 1,\n        \"end\": 5\n      },\n      {\n        \"start\": 6,\n        \"end\": 10\n      }\n    ]\n  },\n  \"addressRegion\": {\n    \"x\": 300,\n    \"y\": 100,\n    \"width\": 200,\n    \"height\": 100,\n    \"pageOffset\": 0\n  },\n  \"jobTemplate\": \"monthly_statements\",\n  \"tags\": [\n    \"invoices\",\n    \"split\",\n    \"batch\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
             },
-            "url": {
-              "raw": "{{baseUrl}}/jobs/single-pdf-split-addressCapture",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "jobs",
-                "single-pdf-split-addressCapture"
-              ]
-            },
-            "description": "Submit a job for Company #2.\n\nWe send invoices at the end of the month. All the invoices are in a single big PDF. The addresses of the recipients are in the invoices."
+            "auth": null
           },
-          "response": [
-            {
-              "name": "company_split_invoices - Document ID + Credit Card",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"documentId\": 1234\n  },\n  \"embeddedExtractionSpecs\": [\n    {\n      \"startPage\": 1,\n      \"endPage\": 1,\n      \"addressRegion\": {\n        \"x\": 50,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"startPage\": 2,\n      \"endPage\": 2,\n      \"addressRegion\": {\n        \"x\": 50,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    }\n  ],\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"visa\",\n      \"cardNumber\": \"4111111111111111\",\n      \"expirationDate\": {\n        \"month\": 12,\n        \"year\": 2025\n      },\n      \"cvv\": 123\n    }\n  },\n  \"tags\": [\n    \"split-pdf\",\n    \"address-capture\",\n    \"automated\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-pdf-split-addressCapture",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-pdf-split-addressCapture"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "company_split_invoices - External URL + Invoice",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"externalUrl\": \"https://api.example.com/v1/documents/5678\"\n  },\n  \"embeddedExtractionSpecs\": [\n    {\n      \"startPage\": 1,\n      \"endPage\": 1,\n      \"addressRegion\": {\n        \"x\": 50,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"startPage\": 2,\n      \"endPage\": 2,\n      \"addressRegion\": {\n        \"x\": 50,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    }\n  ],\n  \"paymentDetails\": {\n    \"invoiceDetails\": {\n      \"invoiceNumber\": \"COMPANY_SPLIT_INVOICES-2024-001\",\n      \"amountDue\": 150.0\n    }\n  },\n  \"tags\": [\n    \"split-pdf\",\n    \"address-capture\",\n    \"automated\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-pdf-split-addressCapture",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-pdf-split-addressCapture"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "company_split_invoices - Upload Request + ACH",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"uploadRequestId\": 100,\n    \"documentName\": \"company_split_invoices_document.pdf\"\n  },\n  \"embeddedExtractionSpecs\": [\n    {\n      \"startPage\": 1,\n      \"endPage\": 1,\n      \"addressRegion\": {\n        \"x\": 50,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"startPage\": 2,\n      \"endPage\": 2,\n      \"addressRegion\": {\n        \"x\": 50,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    }\n  ],\n  \"paymentDetails\": {\n    \"achDetails\": {\n      \"routingNumber\": \"021000021\",\n      \"accountNumber\": \"1234567890\",\n      \"checkDigit\": 7\n    }\n  },\n  \"tags\": [\n    \"split-pdf\",\n    \"address-capture\",\n    \"automated\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-pdf-split-addressCapture",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-pdf-split-addressCapture"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "company_split_invoices - Upload + Zip + User Credit",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"uploadRequestId\": 200,\n    \"zipId\": 10,\n    \"documentName\": \"company_split_invoices_doc.pdf\"\n  },\n  \"embeddedExtractionSpecs\": [\n    {\n      \"startPage\": 1,\n      \"endPage\": 1,\n      \"addressRegion\": {\n        \"x\": 50,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"startPage\": 2,\n      \"endPage\": 2,\n      \"addressRegion\": {\n        \"x\": 50,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    }\n  ],\n  \"paymentDetails\": {\n    \"userCreditDetails\": {\n      \"creditAmount\": 50.0\n    }\n  },\n  \"tags\": [\n    \"split-pdf\",\n    \"address-capture\",\n    \"automated\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-pdf-split-addressCapture",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-pdf-split-addressCapture"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "company_split_invoices - Zip Only + Apple Pay",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"zipId\": 20,\n    \"documentName\": \"company_split_invoices_file.pdf\"\n  },\n  \"embeddedExtractionSpecs\": [\n    {\n      \"startPage\": 1,\n      \"endPage\": 1,\n      \"addressRegion\": {\n        \"x\": 50,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    },\n    {\n      \"startPage\": 2,\n      \"endPage\": 2,\n      \"addressRegion\": {\n        \"x\": 50,\n        \"y\": 100,\n        \"width\": 200,\n        \"height\": 100,\n        \"pageOffset\": 0\n      }\n    }\n  ],\n  \"paymentDetails\": {\n    \"applePayDetails\": {\n      \"applePaymentDetails\": {}\n    }\n  },\n  \"tags\": [\n    \"split-pdf\",\n    \"address-capture\",\n    \"automated\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-pdf-split-addressCapture",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-pdf-split-addressCapture"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            }
-          ]
+          "response": []
         }
       ]
     },
     {
       "name": "Real Estate Agent",
-      "description": "We send postcards as part of our campaign. The postcards have a specific template and use mail merge.",
+      "description": {
+        "content": "We send out statements every month to our clients.",
+        "type": "text/plain"
+      },
       "item": [
         {
-          "name": "[single-doc-job-template]",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "// Save requestId for follow-up requests",
-                  "const response = pm.response.json();",
-                  "if (response.requestId) {",
-                  "    pm.collectionVariables.set('requestId', response.requestId);",
-                  "    console.log('Request ID saved:', response.requestId);",
-                  "}",
-                  "",
-                  "// Basic tests",
-                  "pm.test('Status code is 200 or 201', function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  "",
-                  "pm.test('Response has requestId', function () {",
-                  "    pm.expect(response).to.have.property('requestId');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
+          "id": "cf1c1e77-0cc8-4d55-bbb2-3a92498df4fd",
+          "name": "POST /jobs/submit/single/doc",
           "request": {
-            "method": "POST",
+            "name": "POST /jobs/submit/single/doc",
+            "description": {
+              "content": "We send out statements every month to our clients.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "doc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               },
               {
-                "key": "Authorization",
-                "value": "Bearer {{authToken}}",
-                "description": "JWT authentication token"
+                "key": "Accept",
+                "value": "application/json"
               }
             ],
+            "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"documentSourceIdentifier\": {\n    \"externalUrl\": \"https://api.example.com/v1/marketing/postcards/luxury-homes\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"addressListId\": 100\n    },\n    {\n      \"addressListId\": 101\n    },\n    {\n      \"addressListId\": 102\n    }\n  ],\n  \"jobTemplate\": \"postcard_luxury_homes\",\n  \"paymentDetails\": {\n    \"userCreditDetails\": {\n      \"creditAmount\": 500.0\n    }\n  },\n  \"tags\": [\n    \"marketing\",\n    \"postcards\",\n    \"real-estate\",\n    \"bulk-mail\"\n  ]\n}"
+              "raw": "{\n  \"docSourceAll\": {\n    \"documentId\": 5678\n  },\n  \"recipientAddressSource\": {\n    \"addressListId\": \"monthly_clients\"\n  },\n  \"jobTemplate\": \"monthly_statement\",\n  \"tags\": [\n    \"real-estate\",\n    \"monthly\",\n    \"statements\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
             },
-            "url": {
-              "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "jobs",
-                "single-doc-job-template"
-              ]
-            },
-            "description": "Submit a job for Real Estate Agent.\n\nWe send postcards as part of our campaign. The postcards have a specific template and use mail merge."
+            "auth": null
           },
-          "response": [
-            {
-              "name": "real_estate_agent - Document ID + Credit Card + New Address",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"documentId\": 1234\n  },\n  \"recipientAddressSources\": [\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"address1\": \"123 Main Street\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip\": \"10001\",\n      \"country\": \"USA\"\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"postcard_luxury_homes\",\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"visa\",\n      \"cardNumber\": \"4111111111111111\",\n      \"expirationDate\": {\n        \"month\": 12,\n        \"year\": 2025\n      },\n      \"cvv\": 123\n    }\n  },\n  \"tags\": [\n    \"marketing\",\n    \"postcards\",\n    \"real-estate\",\n    \"bulk-mail\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "real_estate_agent - External URL + Invoice + Address List ID",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"externalUrl\": \"https://api.example.com/v1/documents/5678\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"addressListId\": 42\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"postcard_luxury_homes\",\n  \"paymentDetails\": {\n    \"invoiceDetails\": {\n      \"invoiceNumber\": \"REAL_ESTATE_AGENT-2024-001\",\n      \"amountDue\": 150.0\n    }\n  },\n  \"tags\": [\n    \"marketing\",\n    \"postcards\",\n    \"real-estate\",\n    \"bulk-mail\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "real_estate_agent - Upload Request + ACH + Address ID",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"uploadRequestId\": 100,\n    \"documentName\": \"real_estate_agent_document.pdf\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"addressId\": 12345\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"postcard_luxury_homes\",\n  \"paymentDetails\": {\n    \"achDetails\": {\n      \"routingNumber\": \"021000021\",\n      \"accountNumber\": \"1234567890\",\n      \"checkDigit\": 7\n    }\n  },\n  \"tags\": [\n    \"marketing\",\n    \"postcards\",\n    \"real-estate\",\n    \"bulk-mail\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "real_estate_agent - Upload + Zip + User Credit + New Address",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"uploadRequestId\": 200,\n    \"zipId\": 10,\n    \"documentName\": \"real_estate_agent_doc.pdf\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"address1\": \"123 Main Street\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip\": \"10001\",\n      \"country\": \"USA\"\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"postcard_luxury_homes\",\n  \"paymentDetails\": {\n    \"userCreditDetails\": {\n      \"creditAmount\": 50.0\n    }\n  },\n  \"tags\": [\n    \"marketing\",\n    \"postcards\",\n    \"real-estate\",\n    \"bulk-mail\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "real_estate_agent - Zip Only + Apple Pay + Address List ID",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"zipId\": 20,\n    \"documentName\": \"real_estate_agent_file.pdf\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"addressListId\": 42\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"postcard_luxury_homes\",\n  \"paymentDetails\": {\n    \"applePayDetails\": {\n      \"applePaymentDetails\": {}\n    }\n  },\n  \"tags\": [\n    \"marketing\",\n    \"postcards\",\n    \"real-estate\",\n    \"bulk-mail\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            }
-          ]
+          "response": []
         }
       ]
     },
     {
       "name": "Medical Agency",
-      "description": "We send medical reports to patients. Each report is a custom PDF. In addition, a few boiler-plate pages of generic medical information are sent with each report.",
+      "description": {
+        "content": "We have patient statements that need to be mailed. Each statement consists of multiple documents that need to be merged.",
+        "type": "text/plain"
+      },
       "item": [
         {
-          "name": "[multi-doc-merge-job-template]",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "// Save requestId for follow-up requests",
-                  "const response = pm.response.json();",
-                  "if (response.requestId) {",
-                  "    pm.collectionVariables.set('requestId', response.requestId);",
-                  "    console.log('Request ID saved:', response.requestId);",
-                  "}",
-                  "",
-                  "// Basic tests",
-                  "pm.test('Status code is 200 or 201', function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  "",
-                  "pm.test('Response has requestId', function () {",
-                  "    pm.expect(response).to.have.property('requestId');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
+          "id": "9fb327b4-e134-4086-b867-b6f0d4e4bfc9",
+          "name": "POST /jobs/submit/multi/doc/merge",
           "request": {
-            "method": "POST",
+            "name": "POST /jobs/submit/multi/doc/merge",
+            "description": {
+              "content": "We have patient statements that need to be mailed. Each statement consists of multiple documents that need to be merged.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "submit",
+                "multi",
+                "doc",
+                "merge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               },
               {
-                "key": "Authorization",
-                "value": "Bearer {{authToken}}",
-                "description": "JWT authentication token"
+                "key": "Accept",
+                "value": "application/json"
               }
             ],
+            "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"documentsToMerge\": [\n    {\n      \"documentId\": 1001\n    },\n    {\n      \"uploadRequestId\": 300,\n      \"documentName\": \"patient_report.pdf\"\n    },\n    {\n      \"documentId\": 1002\n    }\n  ],\n  \"recipientAddressSource\": {\n    \"firstName\": \"Patient\",\n    \"lastName\": \"Name\",\n    \"address1\": \"789 Health Street\",\n    \"address2\": \"Suite 200\",\n    \"city\": \"Chicago\",\n    \"state\": \"IL\",\n    \"zip\": \"60601\",\n    \"country\": \"USA\"\n  },\n  \"paymentDetails\": {\n    \"invoiceDetails\": {\n      \"invoiceNumber\": \"MED-2024-567\",\n      \"amountDue\": 75.0\n    }\n  },\n  \"tags\": [\n    \"medical\",\n    \"compliance\",\n    \"patient-reports\"\n  ]\n}"
+              "raw": "{\n  \"documentsToMerge\": [\n    {\n      \"documentId\": 101\n    },\n    {\n      \"documentId\": 102\n    },\n    {\n      \"documentId\": 103\n    }\n  ],\n  \"recipientAddressSource\": {\n    \"firstName\": \"Jane\",\n    \"lastName\": \"Smith\",\n    \"address1\": \"456 Oak Avenue\",\n    \"city\": \"Chicago\",\n    \"state\": \"IL\",\n    \"zip\": \"60601\",\n    \"country\": \"USA\"\n  },\n  \"jobTemplate\": \"patient_statement\",\n  \"tags\": [\n    \"medical\",\n    \"patient-statements\",\n    \"merge\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
             },
-            "url": {
-              "raw": "{{baseUrl}}/jobs/multi-doc-merge-job-template",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "jobs",
-                "multi-doc-merge-job-template"
-              ]
-            },
-            "description": "Submit a job for Medical Agency.\n\nWe send medical reports to patients. Each report is a custom PDF. In addition, a few boiler-plate pages of generic medical information are sent with each report."
+            "auth": null
           },
-          "response": [
-            {
-              "name": "medical_agency - Document ID + Credit Card + New Address",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentsToMerge\": [\n    {\n      \"documentId\": 1001\n    },\n    {\n      \"documentId\": 1234\n    },\n    {\n      \"documentId\": 1002\n    }\n  ],\n  \"recipientAddressSource\": {\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"address1\": \"123 Main Street\",\n    \"city\": \"New York\",\n    \"state\": \"NY\",\n    \"zip\": \"10001\",\n    \"country\": \"USA\"\n  },\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"visa\",\n      \"cardNumber\": \"4111111111111111\",\n      \"expirationDate\": {\n        \"month\": 12,\n        \"year\": 2025\n      },\n      \"cvv\": 123\n    }\n  },\n  \"tags\": [\n    \"medical\",\n    \"compliance\",\n    \"patient-reports\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-doc-merge-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-doc-merge-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "medical_agency - External URL + Invoice + Address List ID",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentsToMerge\": [\n    {\n      \"documentId\": 1001\n    },\n    {\n      \"externalUrl\": \"https://api.example.com/v1/documents/5678\"\n    },\n    {\n      \"documentId\": 1002\n    }\n  ],\n  \"recipientAddressSource\": {\n    \"addressListId\": 42\n  },\n  \"paymentDetails\": {\n    \"invoiceDetails\": {\n      \"invoiceNumber\": \"MEDICAL_AGENCY-2024-001\",\n      \"amountDue\": 150.0\n    }\n  },\n  \"tags\": [\n    \"medical\",\n    \"compliance\",\n    \"patient-reports\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-doc-merge-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-doc-merge-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "medical_agency - Upload Request + ACH + Address ID",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentsToMerge\": [\n    {\n      \"documentId\": 1001\n    },\n    {\n      \"uploadRequestId\": 100,\n      \"documentName\": \"medical_agency_document.pdf\"\n    },\n    {\n      \"documentId\": 1002\n    }\n  ],\n  \"recipientAddressSource\": {\n    \"addressId\": 12345\n  },\n  \"paymentDetails\": {\n    \"achDetails\": {\n      \"routingNumber\": \"021000021\",\n      \"accountNumber\": \"1234567890\",\n      \"checkDigit\": 7\n    }\n  },\n  \"tags\": [\n    \"medical\",\n    \"compliance\",\n    \"patient-reports\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-doc-merge-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-doc-merge-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "medical_agency - Upload + Zip + User Credit + New Address",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentsToMerge\": [\n    {\n      \"documentId\": 1001\n    },\n    {\n      \"uploadRequestId\": 200,\n      \"zipId\": 10,\n      \"documentName\": \"medical_agency_doc.pdf\"\n    },\n    {\n      \"documentId\": 1002\n    }\n  ],\n  \"recipientAddressSource\": {\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"address1\": \"123 Main Street\",\n    \"city\": \"New York\",\n    \"state\": \"NY\",\n    \"zip\": \"10001\",\n    \"country\": \"USA\"\n  },\n  \"paymentDetails\": {\n    \"userCreditDetails\": {\n      \"creditAmount\": 50.0\n    }\n  },\n  \"tags\": [\n    \"medical\",\n    \"compliance\",\n    \"patient-reports\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-doc-merge-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-doc-merge-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "medical_agency - Zip Only + Apple Pay + Address List ID",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentsToMerge\": [\n    {\n      \"documentId\": 1001\n    },\n    {\n      \"zipId\": 20,\n      \"documentName\": \"medical_agency_file.pdf\"\n    },\n    {\n      \"documentId\": 1002\n    }\n  ],\n  \"recipientAddressSource\": {\n    \"addressListId\": 42\n  },\n  \"paymentDetails\": {\n    \"applePayDetails\": {\n      \"applePaymentDetails\": {}\n    }\n  },\n  \"tags\": [\n    \"medical\",\n    \"compliance\",\n    \"patient-reports\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-doc-merge-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-doc-merge-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            }
-          ]
+          "response": []
         }
       ]
     },
     {
       "name": "Monthly Newsletters",
-      "description": "We are an organization that sends out flyers at the beginning of each month to our subscribers. The flyer is a static document and we have a mailing list it has to go out to.",
+      "description": {
+        "content": "We send newsletters to our mailing list every month.",
+        "type": "text/plain"
+      },
       "item": [
         {
-          "name": "[single-doc-job-template]",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "// Save requestId for follow-up requests",
-                  "const response = pm.response.json();",
-                  "if (response.requestId) {",
-                  "    pm.collectionVariables.set('requestId', response.requestId);",
-                  "    console.log('Request ID saved:', response.requestId);",
-                  "}",
-                  "",
-                  "// Basic tests",
-                  "pm.test('Status code is 200 or 201', function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  "",
-                  "pm.test('Response has requestId', function () {",
-                  "    pm.expect(response).to.have.property('requestId');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
+          "id": "200aeb8d-4a5d-4c4a-8290-69c9c0457b9d",
+          "name": "POST /jobs/submit/single/doc",
           "request": {
-            "method": "POST",
+            "name": "POST /jobs/submit/single/doc",
+            "description": {
+              "content": "We send newsletters to our mailing list every month.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "doc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               },
               {
-                "key": "Authorization",
-                "value": "Bearer {{authToken}}",
-                "description": "JWT authentication token"
+                "key": "Accept",
+                "value": "application/json"
               }
             ],
+            "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"documentSourceIdentifier\": {\n    \"zipId\": 50,\n    \"documentName\": \"newsletter_december_2024.pdf\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"addressListId\": 200\n    },\n    {\n      \"addressListId\": 201\n    },\n    {\n      \"addressListId\": 202\n    }\n  ],\n  \"jobTemplate\": \"monthly_newsletter_standard\",\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"mastercard\",\n      \"cardNumber\": \"5555555555554444\",\n      \"expirationDate\": {\n        \"month\": 6,\n        \"year\": 2026\n      },\n      \"cvv\": 456\n    }\n  },\n  \"tags\": [\n    \"newsletter\",\n    \"monthly\",\n    \"subscribers\",\n    \"marketing\"\n  ]\n}"
+              "raw": "{\n  \"docSourceAll\": {\n    \"documentId\": 9012\n  },\n  \"recipientAddressSource\": {\n    \"addressListId\": \"newsletter_subscribers\"\n  },\n  \"jobTemplate\": \"newsletter_template\",\n  \"tags\": [\n    \"newsletter\",\n    \"monthly\",\n    \"marketing\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
             },
-            "url": {
-              "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "jobs",
-                "single-doc-job-template"
-              ]
-            },
-            "description": "Submit a job for Monthly Newsletters.\n\nWe are an organization that sends out flyers at the beginning of each month to our subscribers. The flyer is a static document and we have a mailing list it has to go out to."
+            "auth": null
           },
-          "response": [
-            {
-              "name": "monthly_newsletters - Document ID + Credit Card + New Address",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"documentId\": 1234\n  },\n  \"recipientAddressSources\": [\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"address1\": \"123 Main Street\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip\": \"10001\",\n      \"country\": \"USA\"\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"monthly_newsletter_standard\",\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"visa\",\n      \"cardNumber\": \"4111111111111111\",\n      \"expirationDate\": {\n        \"month\": 12,\n        \"year\": 2025\n      },\n      \"cvv\": 123\n    }\n  },\n  \"tags\": [\n    \"newsletter\",\n    \"monthly\",\n    \"subscribers\",\n    \"marketing\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "monthly_newsletters - External URL + Invoice + Address List ID",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"externalUrl\": \"https://api.example.com/v1/documents/5678\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"addressListId\": 42\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"monthly_newsletter_standard\",\n  \"paymentDetails\": {\n    \"invoiceDetails\": {\n      \"invoiceNumber\": \"MONTHLY_NEWSLETTERS-2024-001\",\n      \"amountDue\": 150.0\n    }\n  },\n  \"tags\": [\n    \"newsletter\",\n    \"monthly\",\n    \"subscribers\",\n    \"marketing\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "monthly_newsletters - Upload Request + ACH + Address ID",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"uploadRequestId\": 100,\n    \"documentName\": \"monthly_newsletters_document.pdf\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"addressId\": 12345\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"monthly_newsletter_standard\",\n  \"paymentDetails\": {\n    \"achDetails\": {\n      \"routingNumber\": \"021000021\",\n      \"accountNumber\": \"1234567890\",\n      \"checkDigit\": 7\n    }\n  },\n  \"tags\": [\n    \"newsletter\",\n    \"monthly\",\n    \"subscribers\",\n    \"marketing\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "monthly_newsletters - Upload + Zip + User Credit + New Address",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"uploadRequestId\": 200,\n    \"zipId\": 10,\n    \"documentName\": \"monthly_newsletters_doc.pdf\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"address1\": \"123 Main Street\",\n      \"city\": \"New York\",\n      \"state\": \"NY\",\n      \"zip\": \"10001\",\n      \"country\": \"USA\"\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"monthly_newsletter_standard\",\n  \"paymentDetails\": {\n    \"userCreditDetails\": {\n      \"creditAmount\": 50.0\n    }\n  },\n  \"tags\": [\n    \"newsletter\",\n    \"monthly\",\n    \"subscribers\",\n    \"marketing\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "monthly_newsletters - Zip Only + Apple Pay + Address List ID",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"zipId\": 20,\n    \"documentName\": \"monthly_newsletters_file.pdf\"\n  },\n  \"recipientAddressSources\": [\n    {\n      \"addressListId\": 42\n    },\n    {\n      \"firstName\": \"Jane\",\n      \"lastName\": \"Smith\",\n      \"address1\": \"456 Oak Avenue\",\n      \"city\": \"Boston\",\n      \"state\": \"MA\",\n      \"zip\": \"02101\",\n      \"country\": \"USA\"\n    }\n  ],\n  \"jobTemplate\": \"monthly_newsletter_standard\",\n  \"paymentDetails\": {\n    \"applePayDetails\": {\n      \"applePaymentDetails\": {}\n    }\n  },\n  \"tags\": [\n    \"newsletter\",\n    \"monthly\",\n    \"subscribers\",\n    \"marketing\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-doc-job-template",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-doc-job-template"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            }
-          ]
+          "response": []
         }
       ]
     },
     {
       "name": "Reseller #1",
-      "description": "We receive PDFs from our customers. Each PDF is unique. We want to batch the PDFs into a single big PDF and send them in one go.",
+      "description": {
+        "content": "We receive a single PDF from our customers with multiple documents. We need to split the PDF and mail each document separately.",
+        "type": "text/plain"
+      },
       "item": [
         {
-          "name": "[single-pdf-split]",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "// Save requestId for follow-up requests",
-                  "const response = pm.response.json();",
-                  "if (response.requestId) {",
-                  "    pm.collectionVariables.set('requestId', response.requestId);",
-                  "    console.log('Request ID saved:', response.requestId);",
-                  "}",
-                  "",
-                  "// Basic tests",
-                  "pm.test('Status code is 200 or 201', function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  "",
-                  "pm.test('Response has requestId', function () {",
-                  "    pm.expect(response).to.have.property('requestId');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
+          "id": "fbbdf3b9-b207-4d42-ad83-d4f67ac027a8",
+          "name": "POST /jobs/submit/single/pdf/split",
           "request": {
-            "method": "POST",
+            "name": "POST /jobs/submit/single/pdf/split",
+            "description": {
+              "content": "We receive a single PDF from our customers with multiple documents. We need to split the PDF and mail each document separately.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "submit",
+                "single",
+                "pdf",
+                "split"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               },
               {
-                "key": "Authorization",
-                "value": "Bearer {{authToken}}",
-                "description": "JWT authentication token"
+                "key": "Accept",
+                "value": "application/json"
               }
             ],
+            "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"documentSourceIdentifier\": {\n    \"uploadRequestId\": 400,\n    \"documentName\": \"batched_pdfs.pdf\"\n  },\n  \"items\": [\n    {\n      \"pageRange\": {\n        \"startPage\": 1,\n        \"endPage\": 5\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 301\n        }\n      ]\n    },\n    {\n      \"pageRange\": {\n        \"startPage\": 6,\n        \"endPage\": 10\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 302\n        }\n      ]\n    },\n    {\n      \"pageRange\": {\n        \"startPage\": 11,\n        \"endPage\": 15\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 303\n        }\n      ]\n    }\n  ],\n  \"paymentDetails\": {\n    \"applePayDetails\": {\n      \"applePaymentDetails\": {}\n    }\n  },\n  \"tags\": [\n    \"reseller\",\n    \"pdf-merge\",\n    \"b2b\"\n  ]\n}"
+              "raw": "{\n  \"docSourceAll\": {\n    \"uploadRequestId\": 300\n  },\n  \"splitRules\": {\n    \"splitBy\": \"pageRange\",\n    \"pageRanges\": [\n      {\n        \"start\": 1,\n        \"end\": 2\n      },\n      {\n        \"start\": 3,\n        \"end\": 4\n      }\n    ]\n  },\n  \"recipientAddressSource\": {\n    \"addressListId\": \"customer_list\"\n  },\n  \"tags\": [\n    \"reseller\",\n    \"split\",\n    \"batch\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
             },
-            "url": {
-              "raw": "{{baseUrl}}/jobs/single-pdf-split",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "jobs",
-                "single-pdf-split"
-              ]
-            },
-            "description": "Submit a job for Reseller #1.\n\nWe receive PDFs from our customers. Each PDF is unique. We want to batch the PDFs into a single big PDF and send them in one go."
+            "auth": null
           },
-          "response": [
-            {
-              "name": "reseller_merge_pdfs - Document ID + Credit Card",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"documentId\": 1234\n  },\n  \"items\": [\n    {\n      \"pageRange\": {\n        \"startPage\": 1,\n        \"endPage\": 5\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 301\n        }\n      ]\n    },\n    {\n      \"pageRange\": {\n        \"startPage\": 6,\n        \"endPage\": 10\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 302\n        }\n      ]\n    },\n    {\n      \"pageRange\": {\n        \"startPage\": 11,\n        \"endPage\": 15\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 303\n        }\n      ]\n    }\n  ],\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"visa\",\n      \"cardNumber\": \"4111111111111111\",\n      \"expirationDate\": {\n        \"month\": 12,\n        \"year\": 2025\n      },\n      \"cvv\": 123\n    }\n  },\n  \"tags\": [\n    \"reseller\",\n    \"pdf-merge\",\n    \"b2b\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-pdf-split",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-pdf-split"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "reseller_merge_pdfs - External URL + Invoice",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"externalUrl\": \"https://api.example.com/v1/documents/5678\"\n  },\n  \"items\": [\n    {\n      \"pageRange\": {\n        \"startPage\": 1,\n        \"endPage\": 5\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 301\n        }\n      ]\n    },\n    {\n      \"pageRange\": {\n        \"startPage\": 6,\n        \"endPage\": 10\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 302\n        }\n      ]\n    },\n    {\n      \"pageRange\": {\n        \"startPage\": 11,\n        \"endPage\": 15\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 303\n        }\n      ]\n    }\n  ],\n  \"paymentDetails\": {\n    \"invoiceDetails\": {\n      \"invoiceNumber\": \"RESELLER_MERGE_PDFS-2024-001\",\n      \"amountDue\": 150.0\n    }\n  },\n  \"tags\": [\n    \"reseller\",\n    \"pdf-merge\",\n    \"b2b\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-pdf-split",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-pdf-split"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "reseller_merge_pdfs - Upload Request + ACH",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"uploadRequestId\": 100,\n    \"documentName\": \"reseller_merge_pdfs_document.pdf\"\n  },\n  \"items\": [\n    {\n      \"pageRange\": {\n        \"startPage\": 1,\n        \"endPage\": 5\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 301\n        }\n      ]\n    },\n    {\n      \"pageRange\": {\n        \"startPage\": 6,\n        \"endPage\": 10\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 302\n        }\n      ]\n    },\n    {\n      \"pageRange\": {\n        \"startPage\": 11,\n        \"endPage\": 15\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 303\n        }\n      ]\n    }\n  ],\n  \"paymentDetails\": {\n    \"achDetails\": {\n      \"routingNumber\": \"021000021\",\n      \"accountNumber\": \"1234567890\",\n      \"checkDigit\": 7\n    }\n  },\n  \"tags\": [\n    \"reseller\",\n    \"pdf-merge\",\n    \"b2b\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-pdf-split",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-pdf-split"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "reseller_merge_pdfs - Upload + Zip + User Credit",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"uploadRequestId\": 200,\n    \"zipId\": 10,\n    \"documentName\": \"reseller_merge_pdfs_doc.pdf\"\n  },\n  \"items\": [\n    {\n      \"pageRange\": {\n        \"startPage\": 1,\n        \"endPage\": 5\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 301\n        }\n      ]\n    },\n    {\n      \"pageRange\": {\n        \"startPage\": 6,\n        \"endPage\": 10\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 302\n        }\n      ]\n    },\n    {\n      \"pageRange\": {\n        \"startPage\": 11,\n        \"endPage\": 15\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 303\n        }\n      ]\n    }\n  ],\n  \"paymentDetails\": {\n    \"userCreditDetails\": {\n      \"creditAmount\": 50.0\n    }\n  },\n  \"tags\": [\n    \"reseller\",\n    \"pdf-merge\",\n    \"b2b\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-pdf-split",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-pdf-split"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "reseller_merge_pdfs - Zip Only + Apple Pay",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentSourceIdentifier\": {\n    \"zipId\": 20,\n    \"documentName\": \"reseller_merge_pdfs_file.pdf\"\n  },\n  \"items\": [\n    {\n      \"pageRange\": {\n        \"startPage\": 1,\n        \"endPage\": 5\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 301\n        }\n      ]\n    },\n    {\n      \"pageRange\": {\n        \"startPage\": 6,\n        \"endPage\": 10\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 302\n        }\n      ]\n    },\n    {\n      \"pageRange\": {\n        \"startPage\": 11,\n        \"endPage\": 15\n      },\n      \"recipientAddressSources\": [\n        {\n          \"addressListId\": 303\n        }\n      ]\n    }\n  ],\n  \"paymentDetails\": {\n    \"applePayDetails\": {\n      \"applePaymentDetails\": {}\n    }\n  },\n  \"tags\": [\n    \"reseller\",\n    \"pdf-merge\",\n    \"b2b\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/single-pdf-split",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "single-pdf-split"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            }
-          ]
+          "response": []
         }
       ]
     },
     {
       "name": "Reseller #2",
-      "description": "We receive PDFs from our customers. Each PDF is unique. We want to zip the PDFs and send them in one go.",
+      "description": {
+        "content": "We receive PDFs from our customers. Each PDF is unique. We want to zip the PDFs and send them in one go.",
+        "type": "text/plain"
+      },
       "item": [
         {
-          "name": "[multi-doc]",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "exec": [
-                  "// Save requestId for follow-up requests",
-                  "const response = pm.response.json();",
-                  "if (response.requestId) {",
-                  "    pm.collectionVariables.set('requestId', response.requestId);",
-                  "    console.log('Request ID saved:', response.requestId);",
-                  "}",
-                  "",
-                  "// Basic tests",
-                  "pm.test('Status code is 200 or 201', function () {",
-                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-                  "});",
-                  "",
-                  "pm.test('Response has requestId', function () {",
-                  "    pm.expect(response).to.have.property('requestId');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
+          "id": "f517478b-4936-4a57-8f3f-bc4b3c7511d4",
+          "name": "POST /jobs/submit/multi/doc",
           "request": {
-            "method": "POST",
+            "name": "POST /jobs/submit/multi/doc",
+            "description": {
+              "content": "We receive PDFs from our customers. Each PDF is unique. We want to zip the PDFs and send them in one go.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "jobs",
+                "submit",
+                "multi",
+                "doc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
             "header": [
               {
                 "key": "Content-Type",
                 "value": "application/json"
               },
               {
-                "key": "Authorization",
-                "value": "Bearer {{authToken}}",
-                "description": "JWT authentication token"
+                "key": "Accept",
+                "value": "application/json"
               }
             ],
+            "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"documentsWithRecipients\": [\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 500,\n        \"zipId\": 20,\n        \"documentName\": \"document_01.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6001\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 500,\n        \"zipId\": 20,\n        \"documentName\": \"document_02.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6002\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 500,\n        \"zipId\": 20,\n        \"documentName\": \"document_03.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6003\n      }\n    }\n  ],\n  \"jobOptions\": {\n    \"documentClass\": \"businessLetter\",\n    \"layout\": \"portrait\",\n    \"mailclass\": \"priorityMail\",\n    \"paperType\": \"letter\",\n    \"printOption\": \"grayscale\",\n    \"envelope\": \"letter\"\n  },\n  \"paymentDetails\": {\n    \"googlePayDetails\": {\n      \"googlePaymentDetails\": {}\n    }\n  },\n  \"tags\": [\n    \"reseller\",\n    \"zip-processing\",\n    \"batch\",\n    \"b2b\"\n  ]\n}"
+              "raw": "{\n  \"jobs\": [\n    {\n      \"docSourceAll\": {\n        \"uploadRequestId\": 400,\n        \"documentName\": \"doc1.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"firstName\": \"Customer\",\n        \"lastName\": \"One\",\n        \"address1\": \"123 Business St\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"78701\",\n        \"country\": \"USA\"\n      }\n    },\n    {\n      \"docSourceAll\": {\n        \"uploadRequestId\": 400,\n        \"documentName\": \"doc2.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"firstName\": \"Customer\",\n        \"lastName\": \"Two\",\n        \"address1\": \"456 Commerce Rd\",\n        \"city\": \"Austin\",\n        \"state\": \"TX\",\n        \"zip\": \"78702\",\n        \"country\": \"USA\"\n      }\n    }\n  ],\n  \"tags\": [\n    \"reseller\",\n    \"multi-doc\",\n    \"batch\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
             },
-            "url": {
-              "raw": "{{baseUrl}}/jobs/multi-doc",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "jobs",
-                "multi-doc"
-              ]
-            },
-            "description": "Submit a job for Reseller #2.\n\nWe receive PDFs from our customers. Each PDF is unique. We want to zip the PDFs and send them in one go."
+            "auth": null
           },
-          "response": [
-            {
-              "name": "reseller_zip_pdfs - Document ID + Credit Card",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentsWithRecipients\": [\n    {\n      \"documentSourceIdentifier\": {\n        \"documentId\": 1234\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6001\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"documentId\": 1234\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6002\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"documentId\": 1234\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6003\n      }\n    }\n  ],\n  \"jobOptions\": {\n    \"documentClass\": \"businessLetter\",\n    \"layout\": \"portrait\",\n    \"mailclass\": \"priorityMail\",\n    \"paperType\": \"letter\",\n    \"printOption\": \"grayscale\",\n    \"envelope\": \"letter\"\n  },\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"visa\",\n      \"cardNumber\": \"4111111111111111\",\n      \"expirationDate\": {\n        \"month\": 12,\n        \"year\": 2025\n      },\n      \"cvv\": 123\n    }\n  },\n  \"tags\": [\n    \"reseller\",\n    \"zip-processing\",\n    \"batch\",\n    \"b2b\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-doc",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-doc"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "reseller_zip_pdfs - External URL + Invoice",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentsWithRecipients\": [\n    {\n      \"documentSourceIdentifier\": {\n        \"externalUrl\": \"https://api.example.com/v1/documents/5678\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6001\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"externalUrl\": \"https://api.example.com/v1/documents/5678\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6002\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"externalUrl\": \"https://api.example.com/v1/documents/5678\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6003\n      }\n    }\n  ],\n  \"jobOptions\": {\n    \"documentClass\": \"businessLetter\",\n    \"layout\": \"portrait\",\n    \"mailclass\": \"priorityMail\",\n    \"paperType\": \"letter\",\n    \"printOption\": \"grayscale\",\n    \"envelope\": \"letter\"\n  },\n  \"paymentDetails\": {\n    \"invoiceDetails\": {\n      \"invoiceNumber\": \"RESELLER_ZIP_PDFS-2024-001\",\n      \"amountDue\": 150.0\n    }\n  },\n  \"tags\": [\n    \"reseller\",\n    \"zip-processing\",\n    \"batch\",\n    \"b2b\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-doc",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-doc"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "reseller_zip_pdfs - Upload Request + ACH",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentsWithRecipients\": [\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"reseller_zip_pdfs_document.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6001\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"reseller_zip_pdfs_document.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6002\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 100,\n        \"documentName\": \"reseller_zip_pdfs_document.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6003\n      }\n    }\n  ],\n  \"jobOptions\": {\n    \"documentClass\": \"businessLetter\",\n    \"layout\": \"portrait\",\n    \"mailclass\": \"priorityMail\",\n    \"paperType\": \"letter\",\n    \"printOption\": \"grayscale\",\n    \"envelope\": \"letter\"\n  },\n  \"paymentDetails\": {\n    \"achDetails\": {\n      \"routingNumber\": \"021000021\",\n      \"accountNumber\": \"1234567890\",\n      \"checkDigit\": 7\n    }\n  },\n  \"tags\": [\n    \"reseller\",\n    \"zip-processing\",\n    \"batch\",\n    \"b2b\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-doc",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-doc"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "reseller_zip_pdfs - Upload + Zip + User Credit",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentsWithRecipients\": [\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 200,\n        \"zipId\": 10,\n        \"documentName\": \"reseller_zip_pdfs_doc.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6001\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 200,\n        \"zipId\": 10,\n        \"documentName\": \"reseller_zip_pdfs_doc.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6002\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"uploadRequestId\": 200,\n        \"zipId\": 10,\n        \"documentName\": \"reseller_zip_pdfs_doc.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6003\n      }\n    }\n  ],\n  \"jobOptions\": {\n    \"documentClass\": \"businessLetter\",\n    \"layout\": \"portrait\",\n    \"mailclass\": \"priorityMail\",\n    \"paperType\": \"letter\",\n    \"printOption\": \"grayscale\",\n    \"envelope\": \"letter\"\n  },\n  \"paymentDetails\": {\n    \"userCreditDetails\": {\n      \"creditAmount\": 50.0\n    }\n  },\n  \"tags\": [\n    \"reseller\",\n    \"zip-processing\",\n    \"batch\",\n    \"b2b\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-doc",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-doc"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            },
-            {
-              "name": "reseller_zip_pdfs - Zip Only + Apple Pay",
-              "originalRequest": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Authorization",
-                    "value": "Bearer {{authToken}}",
-                    "description": "JWT authentication token"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"documentsWithRecipients\": [\n    {\n      \"documentSourceIdentifier\": {\n        \"zipId\": 20,\n        \"documentName\": \"reseller_zip_pdfs_file.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6001\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"zipId\": 20,\n        \"documentName\": \"reseller_zip_pdfs_file.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6002\n      }\n    },\n    {\n      \"documentSourceIdentifier\": {\n        \"zipId\": 20,\n        \"documentName\": \"reseller_zip_pdfs_file.pdf\"\n      },\n      \"recipientAddressSource\": {\n        \"addressId\": 6003\n      }\n    }\n  ],\n  \"jobOptions\": {\n    \"documentClass\": \"businessLetter\",\n    \"layout\": \"portrait\",\n    \"mailclass\": \"priorityMail\",\n    \"paperType\": \"letter\",\n    \"printOption\": \"grayscale\",\n    \"envelope\": \"letter\"\n  },\n  \"paymentDetails\": {\n    \"applePayDetails\": {\n      \"applePaymentDetails\": {}\n    }\n  },\n  \"tags\": [\n    \"reseller\",\n    \"zip-processing\",\n    \"batch\",\n    \"b2b\"\n  ]\n}"
-                },
-                "url": {
-                  "raw": "{{baseUrl}}/jobs/multi-doc",
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "path": [
-                    "jobs",
-                    "multi-doc"
-                  ]
-                }
-              },
-              "status": "Success",
-              "code": 200,
-              "_postman_previewlanguage": "json",
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "cookie": [],
-              "body": "{\n  \"status\": \"success\",\n  \"message\": \"Job created successfully\",\n  \"requestId\": 123456\n}"
-            }
-          ]
+          "response": []
         }
       ]
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "type": "text/javascript",
-        "exec": [
-          "// JWT Authentication Pre-request Script",
-          "// This script automatically handles JWT token acquisition and refresh",
-          "",
-          "// Skip auth for token endpoints themselves",
-          "if (pm.request.url.path.includes('auth/tokens')) {",
-          "    console.log('Skipping auth for token endpoint');",
-          "    return;",
-          "}",
-          "",
-          "// Check if we have client credentials",
-          "const clientId = pm.environment.get('clientId') || pm.collectionVariables.get('clientId');",
-          "const clientSecret = pm.environment.get('clientSecret') || pm.collectionVariables.get('clientSecret');",
-          "",
-          "if (!clientId || !clientSecret) {",
-          "    console.warn('Client credentials not configured. Set clientId and clientSecret in environment.');",
-          "    return;",
-          "}",
-          "",
-          "// Function to get a new token",
-          "async function getNewToken() {",
-          "    const authUrl = pm.environment.get('authUrl') || pm.collectionVariables.get('authUrl');",
-          "    if (!authUrl) {",
-          "        console.error('authUrl not configured');",
-          "        return null;",
-          "    }",
-          "",
-          "    const tokenRequest = {",
-          "        url: authUrl + '/auth/tokens/long',",
-          "        method: 'POST',",
-          "        header: {",
-          "            'Content-Type': 'application/json'",
-          "        },",
-          "        body: {",
-          "            mode: 'raw',",
-          "            raw: JSON.stringify({",
-          "                grant_type: 'client_credentials',",
-          "                client_id: clientId,",
-          "                client_secret: clientSecret",
-          "            })",
-          "        }",
-          "    };",
-          "",
-          "    try {",
-          "        const response = await pm.sendRequest(tokenRequest);",
-          "        if (response.code === 200 || response.code === 201) {",
-          "            const tokenData = response.json();",
-          "            return tokenData.access_token;",
-          "        } else {",
-          "            console.error('Failed to get token:', response.code, response.status);",
-          "            return null;",
-          "        }",
-          "    } catch (error) {",
-          "        console.error('Error getting token:', error);",
-          "        return null;",
-          "    }",
-          "}",
-          "",
-          "// Main authentication logic",
-          "(async function() {",
-          "    let token = pm.environment.get('authToken') || pm.collectionVariables.get('authToken');",
-          "    ",
-          "    // If no token, get a new one",
-          "    if (!token) {",
-          "        console.log('No token found, acquiring new token...');",
-          "        token = await getNewToken();",
-          "        if (token) {",
-          "            pm.environment.set('authToken', token);",
-          "            pm.collectionVariables.set('authToken', token);",
-          "        }",
-          "    }",
-          "    ",
-          "    // Add token to request if we have one",
-          "    if (token) {",
-          "        // FIX: Check URL host (resolved) OR baseUrl variable (for templates)",
-          "        const requestUrl = pm.request.url.toString();",
-          "        const urlHost = Array.isArray(pm.request.url.host) ? pm.request.url.host.join('.') : (pm.request.url.host || '');",
-          "        const baseUrlVar = pm.environment.get('baseUrl') || pm.collectionVariables.get('baseUrl') || '';",
-          "        ",
-          "        // Check both the resolved host AND the baseUrl variable",
-          "        const isMockServer = urlHost.includes('mock.pstmn.io') ||",
-          "                           urlHost.includes('localhost') ||",
-          "                           baseUrlVar.includes('mock.pstmn.io') ||",
-          "                           baseUrlVar.includes('localhost:4010');",
-          "        ",
-          "        // Enhanced logging for debugging",
-          "        console.log('=== JWT AUTH DEBUG ===');",
-          "        console.log('Request URL:', requestUrl);",
-          "        console.log('URL Host (resolved):', urlHost);",
-          "        console.log('BaseUrl variable:', baseUrlVar);",
-          "        console.log('Is mock server:', isMockServer);",
-          "        console.log('Long-term token (last 20 chars):', token ? '...' + token.slice(-20) : 'NONE');",
-          "        ",
-          "        if (!isMockServer) {",
-          "            pm.request.headers.add({",
-          "                key: 'Authorization',",
-          "                value: 'Bearer ' + token",
-          "            });",
-          "            console.log('\u2705 JWT token obtained and Authorization header ADDED (real API detected)');",
-          "        } else {",
-          "            console.log('\u23ed\ufe0f  JWT token obtained and saved, but Authorization header SKIPPED (mock server detected)');",
-          "        }",
-          "        console.log('=== END DEBUG ===');",
-          "    } else {",
-          "        console.warn('No token available - request may fail with 401');",
-          "    }",
-          "})();"
-        ]
-      }
     }
   ],
   "variable": [
     {
       "key": "baseUrl",
-      "value": "https://api.example.com/v1",
-      "type": "string",
-      "description": "Base URL for the C2M API"
-    },
-    {
-      "key": "authUrl",
-      "value": "https://j0dos52r5e.execute-api.us-east-1.amazonaws.com/dev",
-      "type": "string",
-      "description": "Authentication server URL"
-    },
-    {
-      "key": "clientId",
-      "value": "",
-      "type": "string",
-      "description": "Client ID for authentication"
-    },
-    {
-      "key": "clientSecret",
-      "value": "",
-      "type": "string",
-      "description": "Client secret for authentication (keep secure!)"
-    },
-    {
-      "key": "authToken",
-      "value": "",
-      "type": "string",
-      "description": "JWT authentication token (auto-populated)"
-    },
-    {
-      "key": "jobId",
-      "value": "",
-      "type": "string",
-      "description": "Current job ID (automatically set by Submit Job requests)"
+      "value": "https://api.click2mail.com/v2",
+      "type": "string"
     }
   ]
 }

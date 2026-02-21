@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **doc_source_all** | [**models::DocSourceAll**](docSourceAll.md) |  | 
 **recipient_address_source** | [**models::RecipientAddressSource**](recipientAddressSource.md) |  | 
 **payment_details** | Option<[**models::PaymentDetails**](paymentDetails.md)> |  | [optional]
+**priority** | Option<**String**> |  | [optional]
 **return_address** | Option<[**models::ReturnAddress**](returnAddress.md)> |  | [optional]
 **job_options** | Option<[**models::JobOptions**](jobOptions.md)> |  | [optional]
 **tags** | Option<**Vec<String>**> |  | [optional]
