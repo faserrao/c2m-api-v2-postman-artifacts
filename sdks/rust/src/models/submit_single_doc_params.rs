@@ -21,10 +21,12 @@ pub struct SubmitSingleDocParams {
     pub recipient_address_source: Box<models::RecipientAddressSource>,
     #[serde(rename = "paymentDetails", skip_serializing_if = "Option::is_none")]
     pub payment_details: Option<Box<models::PaymentDetails>>,
-    #[serde(rename = "priority", skip_serializing_if = "Option::is_none")]
-    pub priority: Option<Priority>,
+    #[serde(rename = "prioritySpec", skip_serializing_if = "Option::is_none")]
+    pub priority_spec: Option<PrioritySpec>,
     #[serde(rename = "returnAddress", skip_serializing_if = "Option::is_none")]
     pub return_address: Option<Box<models::ReturnAddress>>,
+    #[serde(rename = "priority", skip_serializing_if = "Option::is_none")]
+    pub priority: Option<String>,
     #[serde(rename = "jobOptions", skip_serializing_if = "Option::is_none")]
     pub job_options: Option<Box<models::JobOptions>>,
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
@@ -38,8 +40,9 @@ impl SubmitSingleDocParams {
             doc_source_all: Box::new(doc_source_all),
             recipient_address_source: Box::new(recipient_address_source),
             payment_details: None,
-            priority: None,
+            priority_spec: None,
             return_address: None,
+            priority: None,
             job_options: None,
             tags: None,
         }
@@ -47,7 +50,7 @@ impl SubmitSingleDocParams {
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Priority {
+pub enum PrioritySpec {
     #[serde(rename = "standard")]
     Standard,
     #[serde(rename = "rush")]
@@ -56,8 +59,8 @@ pub enum Priority {
     Overnight,
 }
 
-impl Default for Priority {
-    fn default() -> Priority {
+impl Default for PrioritySpec {
+    fn default() -> PrioritySpec {
         Self::Standard
     }
 }

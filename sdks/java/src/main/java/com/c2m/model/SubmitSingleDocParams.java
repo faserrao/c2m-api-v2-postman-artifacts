@@ -55,7 +55,7 @@ import com.c2m.JSON;
 /**
  * SubmitSingleDocParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-21T21:20:32.505754885Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-01T03:27:29.206301853Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class SubmitSingleDocParams {
   public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
   @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)
@@ -78,10 +78,10 @@ public class SubmitSingleDocParams {
   private PaymentDetails paymentDetails;
 
   /**
-   * Gets or Sets priority
+   * Gets or Sets prioritySpec
    */
-  @JsonAdapter(PriorityEnum.Adapter.class)
-  public enum PriorityEnum {
+  @JsonAdapter(PrioritySpecEnum.Adapter.class)
+  public enum PrioritySpecEnum {
     STANDARD("standard"),
     
     RUSH("rush"),
@@ -90,7 +90,7 @@ public class SubmitSingleDocParams {
 
     private String value;
 
-    PriorityEnum(String value) {
+    PrioritySpecEnum(String value) {
       this.value = value;
     }
 
@@ -103,8 +103,8 @@ public class SubmitSingleDocParams {
       return String.valueOf(value);
     }
 
-    public static PriorityEnum fromValue(String value) {
-      for (PriorityEnum b : PriorityEnum.values()) {
+    public static PrioritySpecEnum fromValue(String value) {
+      for (PrioritySpecEnum b : PrioritySpecEnum.values()) {
         if (b.value.equals(value)) {
           return b;
         }
@@ -112,34 +112,39 @@ public class SubmitSingleDocParams {
       throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 
-    public static class Adapter extends TypeAdapter<PriorityEnum> {
+    public static class Adapter extends TypeAdapter<PrioritySpecEnum> {
       @Override
-      public void write(final JsonWriter jsonWriter, final PriorityEnum enumeration) throws IOException {
+      public void write(final JsonWriter jsonWriter, final PrioritySpecEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
 
       @Override
-      public PriorityEnum read(final JsonReader jsonReader) throws IOException {
+      public PrioritySpecEnum read(final JsonReader jsonReader) throws IOException {
         String value =  jsonReader.nextString();
-        return PriorityEnum.fromValue(value);
+        return PrioritySpecEnum.fromValue(value);
       }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       String value = jsonElement.getAsString();
-      PriorityEnum.fromValue(value);
+      PrioritySpecEnum.fromValue(value);
     }
   }
 
-  public static final String SERIALIZED_NAME_PRIORITY = "priority";
-  @SerializedName(SERIALIZED_NAME_PRIORITY)
+  public static final String SERIALIZED_NAME_PRIORITY_SPEC = "prioritySpec";
+  @SerializedName(SERIALIZED_NAME_PRIORITY_SPEC)
   @javax.annotation.Nullable
-  private PriorityEnum priority;
+  private PrioritySpecEnum prioritySpec;
 
   public static final String SERIALIZED_NAME_RETURN_ADDRESS = "returnAddress";
   @SerializedName(SERIALIZED_NAME_RETURN_ADDRESS)
   @javax.annotation.Nullable
   private ReturnAddress returnAddress;
+
+  public static final String SERIALIZED_NAME_PRIORITY = "priority";
+  @SerializedName(SERIALIZED_NAME_PRIORITY)
+  @javax.annotation.Nullable
+  private String priority;
 
   public static final String SERIALIZED_NAME_JOB_OPTIONS = "jobOptions";
   @SerializedName(SERIALIZED_NAME_JOB_OPTIONS)
@@ -230,22 +235,22 @@ public class SubmitSingleDocParams {
   }
 
 
-  public SubmitSingleDocParams priority(@javax.annotation.Nullable PriorityEnum priority) {
-    this.priority = priority;
+  public SubmitSingleDocParams prioritySpec(@javax.annotation.Nullable PrioritySpecEnum prioritySpec) {
+    this.prioritySpec = prioritySpec;
     return this;
   }
 
   /**
-   * Get priority
-   * @return priority
+   * Get prioritySpec
+   * @return prioritySpec
    */
   @javax.annotation.Nullable
-  public PriorityEnum getPriority() {
-    return priority;
+  public PrioritySpecEnum getPrioritySpec() {
+    return prioritySpec;
   }
 
-  public void setPriority(@javax.annotation.Nullable PriorityEnum priority) {
-    this.priority = priority;
+  public void setPrioritySpec(@javax.annotation.Nullable PrioritySpecEnum prioritySpec) {
+    this.prioritySpec = prioritySpec;
   }
 
 
@@ -265,6 +270,25 @@ public class SubmitSingleDocParams {
 
   public void setReturnAddress(@javax.annotation.Nullable ReturnAddress returnAddress) {
     this.returnAddress = returnAddress;
+  }
+
+
+  public SubmitSingleDocParams priority(@javax.annotation.Nullable String priority) {
+    this.priority = priority;
+    return this;
+  }
+
+  /**
+   * Get priority
+   * @return priority
+   */
+  @javax.annotation.Nullable
+  public String getPriority() {
+    return priority;
+  }
+
+  public void setPriority(@javax.annotation.Nullable String priority) {
+    this.priority = priority;
   }
 
 
@@ -328,15 +352,16 @@ public class SubmitSingleDocParams {
         Objects.equals(this.docSourceAll, submitSingleDocParams.docSourceAll) &&
         Objects.equals(this.recipientAddressSource, submitSingleDocParams.recipientAddressSource) &&
         Objects.equals(this.paymentDetails, submitSingleDocParams.paymentDetails) &&
-        Objects.equals(this.priority, submitSingleDocParams.priority) &&
+        Objects.equals(this.prioritySpec, submitSingleDocParams.prioritySpec) &&
         Objects.equals(this.returnAddress, submitSingleDocParams.returnAddress) &&
+        Objects.equals(this.priority, submitSingleDocParams.priority) &&
         Objects.equals(this.jobOptions, submitSingleDocParams.jobOptions) &&
         Objects.equals(this.tags, submitSingleDocParams.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(jobTemplate, docSourceAll, recipientAddressSource, paymentDetails, priority, returnAddress, jobOptions, tags);
+    return Objects.hash(jobTemplate, docSourceAll, recipientAddressSource, paymentDetails, prioritySpec, returnAddress, priority, jobOptions, tags);
   }
 
   @Override
@@ -347,8 +372,9 @@ public class SubmitSingleDocParams {
     sb.append("    docSourceAll: ").append(toIndentedString(docSourceAll)).append("\n");
     sb.append("    recipientAddressSource: ").append(toIndentedString(recipientAddressSource)).append("\n");
     sb.append("    paymentDetails: ").append(toIndentedString(paymentDetails)).append("\n");
-    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
+    sb.append("    prioritySpec: ").append(toIndentedString(prioritySpec)).append("\n");
     sb.append("    returnAddress: ").append(toIndentedString(returnAddress)).append("\n");
+    sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    jobOptions: ").append(toIndentedString(jobOptions)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
@@ -372,7 +398,7 @@ public class SubmitSingleDocParams {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("jobTemplate", "docSourceAll", "recipientAddressSource", "paymentDetails", "priority", "returnAddress", "jobOptions", "tags"));
+    openapiFields = new HashSet<String>(Arrays.asList("jobTemplate", "docSourceAll", "recipientAddressSource", "paymentDetails", "prioritySpec", "returnAddress", "priority", "jobOptions", "tags"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("docSourceAll", "recipientAddressSource"));
@@ -417,16 +443,19 @@ public class SubmitSingleDocParams {
       if (jsonObj.get("paymentDetails") != null && !jsonObj.get("paymentDetails").isJsonNull()) {
         PaymentDetails.validateJsonElement(jsonObj.get("paymentDetails"));
       }
-      if ((jsonObj.get("priority") != null && !jsonObj.get("priority").isJsonNull()) && !jsonObj.get("priority").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `priority` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priority").toString()));
+      if ((jsonObj.get("prioritySpec") != null && !jsonObj.get("prioritySpec").isJsonNull()) && !jsonObj.get("prioritySpec").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `prioritySpec` to be a primitive type in the JSON string but got `%s`", jsonObj.get("prioritySpec").toString()));
       }
-      // validate the optional field `priority`
-      if (jsonObj.get("priority") != null && !jsonObj.get("priority").isJsonNull()) {
-        PriorityEnum.validateJsonElement(jsonObj.get("priority"));
+      // validate the optional field `prioritySpec`
+      if (jsonObj.get("prioritySpec") != null && !jsonObj.get("prioritySpec").isJsonNull()) {
+        PrioritySpecEnum.validateJsonElement(jsonObj.get("prioritySpec"));
       }
       // validate the optional field `returnAddress`
       if (jsonObj.get("returnAddress") != null && !jsonObj.get("returnAddress").isJsonNull()) {
         ReturnAddress.validateJsonElement(jsonObj.get("returnAddress"));
+      }
+      if ((jsonObj.get("priority") != null && !jsonObj.get("priority").isJsonNull()) && !jsonObj.get("priority").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `priority` to be a primitive type in the JSON string but got `%s`", jsonObj.get("priority").toString()));
       }
       // validate the optional field `jobOptions`
       if (jsonObj.get("jobOptions") != null && !jsonObj.get("jobOptions").isJsonNull()) {

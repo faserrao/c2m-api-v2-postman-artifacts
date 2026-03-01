@@ -68,11 +68,14 @@ class SubmitSingleDocParams {
             if (data.hasOwnProperty('paymentDetails')) {
                 obj['paymentDetails'] = PaymentDetails.constructFromObject(data['paymentDetails']);
             }
-            if (data.hasOwnProperty('priority')) {
-                obj['priority'] = ApiClient.convertToType(data['priority'], 'String');
+            if (data.hasOwnProperty('prioritySpec')) {
+                obj['prioritySpec'] = ApiClient.convertToType(data['prioritySpec'], 'String');
             }
             if (data.hasOwnProperty('returnAddress')) {
                 obj['returnAddress'] = ReturnAddress.constructFromObject(data['returnAddress']);
+            }
+            if (data.hasOwnProperty('priority')) {
+                obj['priority'] = ApiClient.convertToType(data['priority'], 'String');
             }
             if (data.hasOwnProperty('jobOptions')) {
                 obj['jobOptions'] = JobOptions.constructFromObject(data['jobOptions']);
@@ -113,12 +116,16 @@ class SubmitSingleDocParams {
           PaymentDetails.validateJSON(data['paymentDetails']);
         }
         // ensure the json data is a string
-        if (data['priority'] && !(typeof data['priority'] === 'string' || data['priority'] instanceof String)) {
-            throw new Error("Expected the field `priority` to be a primitive type in the JSON string but got " + data['priority']);
+        if (data['prioritySpec'] && !(typeof data['prioritySpec'] === 'string' || data['prioritySpec'] instanceof String)) {
+            throw new Error("Expected the field `prioritySpec` to be a primitive type in the JSON string but got " + data['prioritySpec']);
         }
         // validate the optional field `returnAddress`
         if (data['returnAddress']) { // data not null
           ReturnAddress.validateJSON(data['returnAddress']);
+        }
+        // ensure the json data is a string
+        if (data['priority'] && !(typeof data['priority'] === 'string' || data['priority'] instanceof String)) {
+            throw new Error("Expected the field `priority` to be a primitive type in the JSON string but got " + data['priority']);
         }
         // validate the optional field `jobOptions`
         if (data['jobOptions']) { // data not null
@@ -158,14 +165,19 @@ SubmitSingleDocParams.prototype['recipientAddressSource'] = undefined;
 SubmitSingleDocParams.prototype['paymentDetails'] = undefined;
 
 /**
- * @member {module:c2m_api/model/SubmitSingleDocParams.PriorityEnum} priority
+ * @member {module:c2m_api/model/SubmitSingleDocParams.PrioritySpecEnum} prioritySpec
  */
-SubmitSingleDocParams.prototype['priority'] = undefined;
+SubmitSingleDocParams.prototype['prioritySpec'] = undefined;
 
 /**
  * @member {module:c2m_api/model/ReturnAddress} returnAddress
  */
 SubmitSingleDocParams.prototype['returnAddress'] = undefined;
+
+/**
+ * @member {String} priority
+ */
+SubmitSingleDocParams.prototype['priority'] = undefined;
 
 /**
  * @member {module:c2m_api/model/JobOptions} jobOptions
@@ -182,11 +194,11 @@ SubmitSingleDocParams.prototype['tags'] = undefined;
 
 
 /**
- * Allowed values for the <code>priority</code> property.
+ * Allowed values for the <code>prioritySpec</code> property.
  * @enum {String}
  * @readonly
  */
-SubmitSingleDocParams['PriorityEnum'] = {
+SubmitSingleDocParams['PrioritySpecEnum'] = {
 
     /**
      * value: "standard"

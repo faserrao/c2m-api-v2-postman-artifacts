@@ -51,17 +51,23 @@ describe OpenapiClient::SubmitSingleDocParams do
     end
   end
 
-  describe 'test attribute "priority"' do
+  describe 'test attribute "priority_spec"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
       # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["standard", "rush", "overnight"])
       # validator.allowable_values.each do |value|
-      #   expect { instance.priority = value }.not_to raise_error
+      #   expect { instance.priority_spec = value }.not_to raise_error
       # end
     end
   end
 
   describe 'test attribute "return_address"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
+  describe 'test attribute "priority"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

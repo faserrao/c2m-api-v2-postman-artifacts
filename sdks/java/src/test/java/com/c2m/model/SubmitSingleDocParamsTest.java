@@ -77,11 +77,11 @@ public class SubmitSingleDocParamsTest {
     }
 
     /**
-     * Test the property 'priority'
+     * Test the property 'prioritySpec'
      */
     @Test
-    public void priorityTest() {
-        // TODO: test priority
+    public void prioritySpecTest() {
+        // TODO: test prioritySpec
     }
 
     /**
@@ -90,6 +90,14 @@ public class SubmitSingleDocParamsTest {
     @Test
     public void returnAddressTest() {
         // TODO: test returnAddress
+    }
+
+    /**
+     * Test the property 'priority'
+     */
+    @Test
+    public void priorityTest() {
+        // TODO: test priority
     }
 
     /**

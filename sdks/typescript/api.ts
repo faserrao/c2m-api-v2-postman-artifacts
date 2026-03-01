@@ -333,13 +333,13 @@ export interface PdfSplitJobItemWithAddress {
     'recipientAddressSource': RecipientAddressSource;
 }
 
-export const Priority = {
+export const PrioritySpec = {
     Standard: 'standard',
     Rush: 'rush',
     Overnight: 'overnight'
 } as const;
 
-export type Priority = typeof Priority[keyof typeof Priority];
+export type PrioritySpec = typeof PrioritySpec[keyof typeof PrioritySpec];
 
 
 export interface RecipientAddressByList {
@@ -452,19 +452,20 @@ export interface SubmitSingleDocParams {
     'docSourceAll': DocSourceAll;
     'recipientAddressSource': RecipientAddressSource;
     'paymentDetails'?: PaymentDetails;
-    'priority'?: SubmitSingleDocParamsPriorityEnum;
+    'prioritySpec'?: SubmitSingleDocParamsPrioritySpecEnum;
     'returnAddress'?: ReturnAddress;
+    'priority'?: string;
     'jobOptions'?: JobOptions;
     'tags'?: Array<string>;
 }
 
-export const SubmitSingleDocParamsPriorityEnum = {
+export const SubmitSingleDocParamsPrioritySpecEnum = {
     Standard: 'standard',
     Rush: 'rush',
     Overnight: 'overnight'
 } as const;
 
-export type SubmitSingleDocParamsPriorityEnum = typeof SubmitSingleDocParamsPriorityEnum[keyof typeof SubmitSingleDocParamsPriorityEnum];
+export type SubmitSingleDocParamsPrioritySpecEnum = typeof SubmitSingleDocParamsPrioritySpecEnum[keyof typeof SubmitSingleDocParamsPrioritySpecEnum];
 
 export interface SubmitSinglePdfAddressCaptureParams {
     'jobTemplate'?: string;

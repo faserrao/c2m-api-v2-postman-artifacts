@@ -11,14 +11,15 @@
 |**docSourceAll** | [**DocSourceAll**](DocSourceAll.md) |  |  |
 |**recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  |  |
 |**paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  |  [optional] |
-|**priority** | [**PriorityEnum**](#PriorityEnum) |  |  [optional] |
+|**prioritySpec** | [**PrioritySpecEnum**](#PrioritySpecEnum) |  |  [optional] |
 |**returnAddress** | [**ReturnAddress**](ReturnAddress.md) |  |  [optional] |
+|**priority** | **String** |  |  [optional] |
 |**jobOptions** | [**JobOptions**](JobOptions.md) |  |  [optional] |
 |**tags** | **List&lt;String&gt;** |  |  [optional] |
 
 
 
-## Enum: PriorityEnum
+## Enum: PrioritySpecEnum
 
 | Name | Value |
 |---- | -----|

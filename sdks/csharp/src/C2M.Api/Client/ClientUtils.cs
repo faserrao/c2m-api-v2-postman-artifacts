@@ -157,12 +157,12 @@ namespace C2M.Api.Client
                 return LongTokenRequest.GrantTypeEnumToJsonValue(longTokenRequestGrantTypeEnum);
             if (obj is LongTokenResponse.TokenTypeEnum longTokenResponseTokenTypeEnum)
                 return LongTokenResponse.TokenTypeEnumToJsonValue(longTokenResponseTokenTypeEnum);
-            if (obj is Priority priority)
-                return PriorityValueConverter.ToJsonValue(priority);
+            if (obj is PrioritySpec prioritySpec)
+                return PrioritySpecValueConverter.ToJsonValue(prioritySpec);
             if (obj is ShortTokenResponse.TokenTypeEnum shortTokenResponseTokenTypeEnum)
                 return ShortTokenResponse.TokenTypeEnumToJsonValue(shortTokenResponseTokenTypeEnum);
-            if (obj is SubmitSingleDocParams.PriorityEnum submitSingleDocParamsPriorityEnum)
-                return SubmitSingleDocParams.PriorityEnumToJsonValue(submitSingleDocParamsPriorityEnum);
+            if (obj is SubmitSingleDocParams.PrioritySpecEnum submitSingleDocParamsPrioritySpecEnum)
+                return SubmitSingleDocParams.PrioritySpecEnumToJsonValue(submitSingleDocParamsPrioritySpecEnum);
             if (obj is ICollection collection)
             {
                 List<string?> entries = new();

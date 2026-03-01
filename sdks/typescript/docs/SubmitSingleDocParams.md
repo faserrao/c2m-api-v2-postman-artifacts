@@ -9,8 +9,9 @@ Name | Type | Description | Notes
 **docSourceAll** | [**DocSourceAll**](DocSourceAll.md) |  | [default to undefined]
 **recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | [default to undefined]
 **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] [default to undefined]
-**priority** | **string** |  | [optional] [default to undefined]
+**prioritySpec** | **string** |  | [optional] [default to undefined]
 **returnAddress** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] [default to undefined]
+**priority** | **string** |  | [optional] [default to undefined]
 **jobOptions** | [**JobOptions**](JobOptions.md) |  | [optional] [default to undefined]
 **tags** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 
@@ -24,8 +25,9 @@ const instance: SubmitSingleDocParams = {
     docSourceAll,
     recipientAddressSource,
     paymentDetails,
-    priority,
+    prioritySpec,
     returnAddress,
+    priority,
     jobOptions,
     tags,
 };

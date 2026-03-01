@@ -61,8 +61,9 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'doc_source_all' => '\C2MApi\Model\DocSourceAll',
         'recipient_address_source' => '\C2MApi\Model\RecipientAddressSource',
         'payment_details' => '\C2MApi\Model\PaymentDetails',
-        'priority' => 'string',
+        'priority_spec' => 'string',
         'return_address' => '\C2MApi\Model\ReturnAddress',
+        'priority' => 'string',
         'job_options' => '\C2MApi\Model\JobOptions',
         'tags' => 'string[]'
     ];
@@ -79,8 +80,9 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'doc_source_all' => null,
         'recipient_address_source' => null,
         'payment_details' => null,
-        'priority' => null,
+        'priority_spec' => null,
         'return_address' => null,
+        'priority' => null,
         'job_options' => null,
         'tags' => null
     ];
@@ -95,8 +97,9 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'doc_source_all' => false,
         'recipient_address_source' => false,
         'payment_details' => false,
-        'priority' => false,
+        'priority_spec' => false,
         'return_address' => false,
+        'priority' => false,
         'job_options' => false,
         'tags' => false
     ];
@@ -191,8 +194,9 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'doc_source_all' => 'docSourceAll',
         'recipient_address_source' => 'recipientAddressSource',
         'payment_details' => 'paymentDetails',
-        'priority' => 'priority',
+        'priority_spec' => 'prioritySpec',
         'return_address' => 'returnAddress',
+        'priority' => 'priority',
         'job_options' => 'jobOptions',
         'tags' => 'tags'
     ];
@@ -207,8 +211,9 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'doc_source_all' => 'setDocSourceAll',
         'recipient_address_source' => 'setRecipientAddressSource',
         'payment_details' => 'setPaymentDetails',
-        'priority' => 'setPriority',
+        'priority_spec' => 'setPrioritySpec',
         'return_address' => 'setReturnAddress',
+        'priority' => 'setPriority',
         'job_options' => 'setJobOptions',
         'tags' => 'setTags'
     ];
@@ -223,8 +228,9 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'doc_source_all' => 'getDocSourceAll',
         'recipient_address_source' => 'getRecipientAddressSource',
         'payment_details' => 'getPaymentDetails',
-        'priority' => 'getPriority',
+        'priority_spec' => 'getPrioritySpec',
         'return_address' => 'getReturnAddress',
+        'priority' => 'getPriority',
         'job_options' => 'getJobOptions',
         'tags' => 'getTags'
     ];
@@ -270,21 +276,21 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-    public const PRIORITY_STANDARD = 'standard';
-    public const PRIORITY_RUSH = 'rush';
-    public const PRIORITY_OVERNIGHT = 'overnight';
+    public const PRIORITY_SPEC_STANDARD = 'standard';
+    public const PRIORITY_SPEC_RUSH = 'rush';
+    public const PRIORITY_SPEC_OVERNIGHT = 'overnight';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getPriorityAllowableValues()
+    public function getPrioritySpecAllowableValues()
     {
         return [
-            self::PRIORITY_STANDARD,
-            self::PRIORITY_RUSH,
-            self::PRIORITY_OVERNIGHT,
+            self::PRIORITY_SPEC_STANDARD,
+            self::PRIORITY_SPEC_RUSH,
+            self::PRIORITY_SPEC_OVERNIGHT,
         ];
     }
 
@@ -307,8 +313,9 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('doc_source_all', $data ?? [], null);
         $this->setIfExists('recipient_address_source', $data ?? [], null);
         $this->setIfExists('payment_details', $data ?? [], null);
-        $this->setIfExists('priority', $data ?? [], null);
+        $this->setIfExists('priority_spec', $data ?? [], null);
         $this->setIfExists('return_address', $data ?? [], null);
+        $this->setIfExists('priority', $data ?? [], null);
         $this->setIfExists('job_options', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
     }
@@ -346,11 +353,11 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['recipient_address_source'] === null) {
             $invalidProperties[] = "'recipient_address_source' can't be null";
         }
-        $allowedValues = $this->getPriorityAllowableValues();
-        if (!is_null($this->container['priority']) && !in_array($this->container['priority'], $allowedValues, true)) {
+        $allowedValues = $this->getPrioritySpecAllowableValues();
+        if (!is_null($this->container['priority_spec']) && !in_array($this->container['priority_spec'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'priority', must be one of '%s'",
-                $this->container['priority'],
+                "invalid value '%s' for 'priority_spec', must be one of '%s'",
+                $this->container['priority_spec'],
                 implode("', '", $allowedValues)
             );
         }
@@ -479,38 +486,38 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets priority
+     * Gets priority_spec
      *
      * @return string|null
      */
-    public function getPriority()
+    public function getPrioritySpec()
     {
-        return $this->container['priority'];
+        return $this->container['priority_spec'];
     }
 
     /**
-     * Sets priority
+     * Sets priority_spec
      *
-     * @param string|null $priority priority
+     * @param string|null $priority_spec priority_spec
      *
      * @return self
      */
-    public function setPriority($priority)
+    public function setPrioritySpec($priority_spec)
     {
-        if (is_null($priority)) {
-            throw new \InvalidArgumentException('non-nullable priority cannot be null');
+        if (is_null($priority_spec)) {
+            throw new \InvalidArgumentException('non-nullable priority_spec cannot be null');
         }
-        $allowedValues = $this->getPriorityAllowableValues();
-        if (!in_array($priority, $allowedValues, true)) {
+        $allowedValues = $this->getPrioritySpecAllowableValues();
+        if (!in_array($priority_spec, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'priority', must be one of '%s'",
-                    $priority,
+                    "Invalid value '%s' for 'priority_spec', must be one of '%s'",
+                    $priority_spec,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['priority'] = $priority;
+        $this->container['priority_spec'] = $priority_spec;
 
         return $this;
     }
@@ -538,6 +545,33 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable return_address cannot be null');
         }
         $this->container['return_address'] = $return_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets priority
+     *
+     * @return string|null
+     */
+    public function getPriority()
+    {
+        return $this->container['priority'];
+    }
+
+    /**
+     * Sets priority
+     *
+     * @param string|null $priority priority
+     *
+     * @return self
+     */
+    public function setPriority($priority)
+    {
+        if (is_null($priority)) {
+            throw new \InvalidArgumentException('non-nullable priority cannot be null');
+        }
+        $this->container['priority'] = $priority;
 
         return $this;
     }

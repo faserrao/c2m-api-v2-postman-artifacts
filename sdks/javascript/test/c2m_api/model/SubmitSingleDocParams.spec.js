@@ -78,14 +78,20 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property priority (base name: "priority")', function() {
-      // uncomment below and update the code to test the property priority
+    it('should have the property prioritySpec (base name: "prioritySpec")', function() {
+      // uncomment below and update the code to test the property prioritySpec
       //var instance = new C2MApiV2.SubmitSingleDocParams();
       //expect(instance).to.be();
     });
 
     it('should have the property returnAddress (base name: "returnAddress")', function() {
       // uncomment below and update the code to test the property returnAddress
+      //var instance = new C2MApiV2.SubmitSingleDocParams();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property priority (base name: "priority")', function() {
+      // uncomment below and update the code to test the property priority
       //var instance = new C2MApiV2.SubmitSingleDocParams();
       //expect(instance).to.be();
     });

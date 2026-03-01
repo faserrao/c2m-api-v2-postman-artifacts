@@ -31,8 +31,9 @@ import com.squareup.moshi.JsonClass
  * @param recipientAddressSource 
  * @param jobTemplate 
  * @param paymentDetails 
- * @param priority 
+ * @param prioritySpec 
  * @param returnAddress 
+ * @param priority 
  * @param jobOptions 
  * @param tags 
  */
@@ -52,11 +53,14 @@ data class SubmitSingleDocParams (
     @Json(name = "paymentDetails")
     val paymentDetails: PaymentDetails? = null,
 
-    @Json(name = "priority")
-    val priority: SubmitSingleDocParams.Priority? = null,
+    @Json(name = "prioritySpec")
+    val prioritySpec: SubmitSingleDocParams.PrioritySpec? = null,
 
     @Json(name = "returnAddress")
     val returnAddress: ReturnAddress? = null,
+
+    @Json(name = "priority")
+    val priority: kotlin.String? = null,
 
     @Json(name = "jobOptions")
     val jobOptions: JobOptions? = null,
@@ -72,7 +76,7 @@ data class SubmitSingleDocParams (
      * Values: standard,rush,overnight
      */
     @JsonClass(generateAdapter = false)
-    enum class Priority(val value: kotlin.String) {
+    enum class PrioritySpec(val value: kotlin.String) {
         @Json(name = "standard") standard("standard"),
         @Json(name = "rush") rush("rush"),
         @Json(name = "overnight") overnight("overnight");

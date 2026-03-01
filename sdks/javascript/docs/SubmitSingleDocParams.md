@@ -8,14 +8,15 @@ Name | Type | Description | Notes
 **docSourceAll** | [**DocSourceAll**](DocSourceAll.md) |  | 
 **recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
-**priority** | **String** |  | [optional] 
+**prioritySpec** | **String** |  | [optional] 
 **returnAddress** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
+**priority** | **String** |  | [optional] 
 **jobOptions** | [**JobOptions**](JobOptions.md) |  | [optional] 
 **tags** | **[String]** |  | [optional] 
 
 
 
-## Enum: PriorityEnum
+## Enum: PrioritySpecEnum
 
 
 * `standard` (value: `"standard"`)

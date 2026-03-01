@@ -9,8 +9,9 @@ Name | Type | Description | Notes
 **doc_source_all** | [**DocSourceAll**](DocSourceAll.md) |  | 
 **recipient_address_source** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 **payment_details** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
-**priority** | **str** |  | [optional] 
+**priority_spec** | **str** |  | [optional] 
 **return_address** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
+**priority** | **str** |  | [optional] 
 **job_options** | [**JobOptions**](JobOptions.md) |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 

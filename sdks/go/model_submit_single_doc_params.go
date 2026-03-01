@@ -25,8 +25,9 @@ type SubmitSingleDocParams struct {
 	DocSourceAll DocSourceAll `json:"docSourceAll"`
 	RecipientAddressSource RecipientAddressSource `json:"recipientAddressSource"`
 	PaymentDetails *PaymentDetails `json:"paymentDetails,omitempty"`
-	Priority *string `json:"priority,omitempty"`
+	PrioritySpec *string `json:"prioritySpec,omitempty"`
 	ReturnAddress *ReturnAddress `json:"returnAddress,omitempty"`
+	Priority *string `json:"priority,omitempty"`
 	JobOptions *JobOptions `json:"jobOptions,omitempty"`
 	Tags []string `json:"tags,omitempty"`
 }
@@ -164,36 +165,36 @@ func (o *SubmitSingleDocParams) SetPaymentDetails(v PaymentDetails) {
 	o.PaymentDetails = &v
 }
 
-// GetPriority returns the Priority field value if set, zero value otherwise.
-func (o *SubmitSingleDocParams) GetPriority() string {
-	if o == nil || IsNil(o.Priority) {
+// GetPrioritySpec returns the PrioritySpec field value if set, zero value otherwise.
+func (o *SubmitSingleDocParams) GetPrioritySpec() string {
+	if o == nil || IsNil(o.PrioritySpec) {
 		var ret string
 		return ret
 	}
-	return *o.Priority
+	return *o.PrioritySpec
 }
 
-// GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
+// GetPrioritySpecOk returns a tuple with the PrioritySpec field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubmitSingleDocParams) GetPriorityOk() (*string, bool) {
-	if o == nil || IsNil(o.Priority) {
+func (o *SubmitSingleDocParams) GetPrioritySpecOk() (*string, bool) {
+	if o == nil || IsNil(o.PrioritySpec) {
 		return nil, false
 	}
-	return o.Priority, true
+	return o.PrioritySpec, true
 }
 
-// HasPriority returns a boolean if a field has been set.
-func (o *SubmitSingleDocParams) HasPriority() bool {
-	if o != nil && !IsNil(o.Priority) {
+// HasPrioritySpec returns a boolean if a field has been set.
+func (o *SubmitSingleDocParams) HasPrioritySpec() bool {
+	if o != nil && !IsNil(o.PrioritySpec) {
 		return true
 	}
 
 	return false
 }
 
-// SetPriority gets a reference to the given string and assigns it to the Priority field.
-func (o *SubmitSingleDocParams) SetPriority(v string) {
-	o.Priority = &v
+// SetPrioritySpec gets a reference to the given string and assigns it to the PrioritySpec field.
+func (o *SubmitSingleDocParams) SetPrioritySpec(v string) {
+	o.PrioritySpec = &v
 }
 
 // GetReturnAddress returns the ReturnAddress field value if set, zero value otherwise.
@@ -226,6 +227,38 @@ func (o *SubmitSingleDocParams) HasReturnAddress() bool {
 // SetReturnAddress gets a reference to the given ReturnAddress and assigns it to the ReturnAddress field.
 func (o *SubmitSingleDocParams) SetReturnAddress(v ReturnAddress) {
 	o.ReturnAddress = &v
+}
+
+// GetPriority returns the Priority field value if set, zero value otherwise.
+func (o *SubmitSingleDocParams) GetPriority() string {
+	if o == nil || IsNil(o.Priority) {
+		var ret string
+		return ret
+	}
+	return *o.Priority
+}
+
+// GetPriorityOk returns a tuple with the Priority field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SubmitSingleDocParams) GetPriorityOk() (*string, bool) {
+	if o == nil || IsNil(o.Priority) {
+		return nil, false
+	}
+	return o.Priority, true
+}
+
+// HasPriority returns a boolean if a field has been set.
+func (o *SubmitSingleDocParams) HasPriority() bool {
+	if o != nil && !IsNil(o.Priority) {
+		return true
+	}
+
+	return false
+}
+
+// SetPriority gets a reference to the given string and assigns it to the Priority field.
+func (o *SubmitSingleDocParams) SetPriority(v string) {
+	o.Priority = &v
 }
 
 // GetJobOptions returns the JobOptions field value if set, zero value otherwise.
@@ -310,11 +343,14 @@ func (o SubmitSingleDocParams) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PaymentDetails) {
 		toSerialize["paymentDetails"] = o.PaymentDetails
 	}
-	if !IsNil(o.Priority) {
-		toSerialize["priority"] = o.Priority
+	if !IsNil(o.PrioritySpec) {
+		toSerialize["prioritySpec"] = o.PrioritySpec
 	}
 	if !IsNil(o.ReturnAddress) {
 		toSerialize["returnAddress"] = o.ReturnAddress
+	}
+	if !IsNil(o.Priority) {
+		toSerialize["priority"] = o.Priority
 	}
 	if !IsNil(o.JobOptions) {
 		toSerialize["jobOptions"] = o.JobOptions
