@@ -22,7 +22,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: standard,rush,overnight
+ * Values: standard,rush,overnight,Bobbu_Priority
  */
 
 @JsonClass(generateAdapter = false)
@@ -35,7 +35,10 @@ enum class Priority(val value: kotlin.String) {
     rush("rush"),
 
     @Json(name = "overnight")
-    overnight("overnight");
+    overnight("overnight"),
+
+    @Json(name = "Bobbu Priority")
+    Bobbu_Priority("Bobbu Priority");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

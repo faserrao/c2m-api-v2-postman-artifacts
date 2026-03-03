@@ -29,6 +29,7 @@ class Priority(str, Enum):
     STANDARD = 'standard'
     RUSH = 'rush'
     OVERNIGHT = 'overnight'
+    BOBBU_PRIORITY = 'Bobbu Priority'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

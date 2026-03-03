@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **docSourceAll** | [**DocSourceAll**](DocSourceAll.md) |  | 
 **recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
-**prioritySpec** | **String** |  | [optional] 
 **returnAddress** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
-**priority** | **String** |  | [optional] 
 **jobOptions** | [**JobOptions**](JobOptions.md) |  | [optional] 
+**priority** | **String** |  | [optional] 
+**color** | **String** |  | [optional] 
 **tags** | **[String]** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

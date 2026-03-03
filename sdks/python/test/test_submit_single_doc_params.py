@@ -39,7 +39,6 @@ class TestSubmitSingleDocParams(unittest.TestCase):
                 doc_source_all = None,
                 recipient_address_source = None,
                 payment_details = None,
-                priority_spec = 'standard',
                 return_address = c2m_api.models.return_address.returnAddress(
                     first_name = '', 
                     last_name = '', 
@@ -51,7 +50,6 @@ class TestSubmitSingleDocParams(unittest.TestCase):
                     country = '', 
                     address2 = '', 
                     address3 = '', ),
-                priority = '',
                 job_options = c2m_api.models.job_options.jobOptions(
                     document_class = '', 
                     layout = '', 
@@ -61,6 +59,8 @@ class TestSubmitSingleDocParams(unittest.TestCase):
                     paper_type = '', 
                     print_option = '', 
                     mail_class = '', ),
+                priority = 'standard',
+                color = '',
                 tags = [
                     ''
                     ]

@@ -54,16 +54,16 @@ class SubmitSingleDocParamsTest : ShouldSpec() {
             //modelInstance.paymentDetails shouldBe ("TODO")
         }
 
-        // to test the property `prioritySpec`
-        should("test prioritySpec") {
-            // uncomment below to test the property
-            //modelInstance.prioritySpec shouldBe ("TODO")
-        }
-
         // to test the property `returnAddress`
         should("test returnAddress") {
             // uncomment below to test the property
             //modelInstance.returnAddress shouldBe ("TODO")
+        }
+
+        // to test the property `jobOptions`
+        should("test jobOptions") {
+            // uncomment below to test the property
+            //modelInstance.jobOptions shouldBe ("TODO")
         }
 
         // to test the property `priority`
@@ -72,10 +72,10 @@ class SubmitSingleDocParamsTest : ShouldSpec() {
             //modelInstance.priority shouldBe ("TODO")
         }
 
-        // to test the property `jobOptions`
-        should("test jobOptions") {
+        // to test the property `color`
+        should("test color") {
             // uncomment below to test the property
-            //modelInstance.jobOptions shouldBe ("TODO")
+            //modelInstance.color shouldBe ("TODO")
         }
 
         // to test the property `tags`

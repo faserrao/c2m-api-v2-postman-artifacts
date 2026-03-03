@@ -14,4 +14,5 @@ public enum Priority: String, Codable, CaseIterable {
     case standard = "standard"
     case rush = "rush"
     case overnight = "overnight"
+    case bobbuPriority = "Bobbu Priority"
 }

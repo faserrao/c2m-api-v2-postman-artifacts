@@ -8,18 +8,18 @@
 | **recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  |  |
 | **jobTemplate** | **kotlin.String** |  |  [optional] |
 | **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  |  [optional] |
-| **prioritySpec** | [**inline**](#PrioritySpec) |  |  [optional] |
 | **returnAddress** | [**ReturnAddress**](ReturnAddress.md) |  |  [optional] |
-| **priority** | **kotlin.String** |  |  [optional] |
 | **jobOptions** | [**JobOptions**](JobOptions.md) |  |  [optional] |
+| **priority** | [**inline**](#Priority) |  |  [optional] |
+| **color** | **kotlin.String** |  |  [optional] |
 | **tags** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
 
 
-<a id="PrioritySpec"></a>
-## Enum: prioritySpec
+<a id="Priority"></a>
+## Enum: priority
 | Name | Value |
 | ---- | ----- |
-| prioritySpec | standard, rush, overnight |
+| priority | standard, rush, overnight, Bobbu Priority |
 
 
 

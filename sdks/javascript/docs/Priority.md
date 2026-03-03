@@ -9,4 +9,6 @@
 
 * `overnight` (value: `"overnight"`)
 
+* `Bobbu Priority` (value: `"Bobbu Priority"`)
+
 

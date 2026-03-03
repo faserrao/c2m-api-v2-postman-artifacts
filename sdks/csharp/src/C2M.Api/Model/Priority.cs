@@ -43,7 +43,12 @@ namespace C2M.Api.Model
         /// <summary>
         /// Enum Overnight for value: overnight
         /// </summary>
-        Overnight = 3
+        Overnight = 3,
+
+        /// <summary>
+        /// Enum BobbuPriority for value: Bobbu Priority
+        /// </summary>
+        BobbuPriority = 4
     }
 
     /// <summary>
@@ -67,6 +72,9 @@ namespace C2M.Api.Model
             if (value.Equals("overnight"))
                 return Priority.Overnight;
 
+            if (value.Equals("Bobbu Priority"))
+                return Priority.BobbuPriority;
+
             throw new NotImplementedException($"Could not convert value to type Priority: '{value}'");
         }
 
@@ -85,6 +93,9 @@ namespace C2M.Api.Model
 
             if (value.Equals("overnight"))
                 return Priority.Overnight;
+
+            if (value.Equals("Bobbu Priority"))
+                return Priority.BobbuPriority;
 
             return null;
         }
@@ -105,6 +116,9 @@ namespace C2M.Api.Model
 
             if (value == Priority.Overnight)
                 return "overnight";
+
+            if (value == Priority.BobbuPriority)
+                return "Bobbu Priority";
 
             throw new NotImplementedException($"Value could not be handled: '{value}'");
         }

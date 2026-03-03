@@ -23,6 +23,7 @@ const (
 	STANDARD Priority = "standard"
 	RUSH Priority = "rush"
 	OVERNIGHT Priority = "overnight"
+	BOBBU_PRIORITY Priority = "Bobbu Priority"
 )
 
 // All allowed values of Priority enum
@@ -30,6 +31,7 @@ var AllowedPriorityEnumValues = []Priority{
 	"standard",
 	"rush",
 	"overnight",
+	"Bobbu Priority",
 }
 
 func (v *Priority) UnmarshalJSON(src []byte) error {

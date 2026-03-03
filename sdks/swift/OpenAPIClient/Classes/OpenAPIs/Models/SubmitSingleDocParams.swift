@@ -12,30 +12,31 @@ import AnyCodable
 
 public struct SubmitSingleDocParams: Codable, JSONEncodable, Hashable {
 
-    public enum PrioritySpec: String, Codable, CaseIterable {
+    public enum Priority: String, Codable, CaseIterable {
         case standard = "standard"
         case rush = "rush"
         case overnight = "overnight"
+        case bobbuPriority = "Bobbu Priority"
     }
     public var jobTemplate: String?
     public var docSourceAll: DocSourceAll
     public var recipientAddressSource: RecipientAddressSource
     public var paymentDetails: PaymentDetails?
-    public var prioritySpec: PrioritySpec?
     public var returnAddress: ReturnAddress?
-    public var priority: String?
     public var jobOptions: JobOptions?
+    public var priority: Priority?
+    public var color: String?
     public var tags: [String]?
 
-    public init(jobTemplate: String? = nil, docSourceAll: DocSourceAll, recipientAddressSource: RecipientAddressSource, paymentDetails: PaymentDetails? = nil, prioritySpec: PrioritySpec? = nil, returnAddress: ReturnAddress? = nil, priority: String? = nil, jobOptions: JobOptions? = nil, tags: [String]? = nil) {
+    public init(jobTemplate: String? = nil, docSourceAll: DocSourceAll, recipientAddressSource: RecipientAddressSource, paymentDetails: PaymentDetails? = nil, returnAddress: ReturnAddress? = nil, jobOptions: JobOptions? = nil, priority: Priority? = nil, color: String? = nil, tags: [String]? = nil) {
         self.jobTemplate = jobTemplate
         self.docSourceAll = docSourceAll
         self.recipientAddressSource = recipientAddressSource
         self.paymentDetails = paymentDetails
-        self.prioritySpec = prioritySpec
         self.returnAddress = returnAddress
-        self.priority = priority
         self.jobOptions = jobOptions
+        self.priority = priority
+        self.color = color
         self.tags = tags
     }
 
@@ -44,10 +45,10 @@ public struct SubmitSingleDocParams: Codable, JSONEncodable, Hashable {
         case docSourceAll
         case recipientAddressSource
         case paymentDetails
-        case prioritySpec
         case returnAddress
-        case priority
         case jobOptions
+        case priority
+        case color
         case tags
     }
 
@@ -59,10 +60,10 @@ public struct SubmitSingleDocParams: Codable, JSONEncodable, Hashable {
         try container.encode(docSourceAll, forKey: .docSourceAll)
         try container.encode(recipientAddressSource, forKey: .recipientAddressSource)
         try container.encodeIfPresent(paymentDetails, forKey: .paymentDetails)
-        try container.encodeIfPresent(prioritySpec, forKey: .prioritySpec)
         try container.encodeIfPresent(returnAddress, forKey: .returnAddress)
-        try container.encodeIfPresent(priority, forKey: .priority)
         try container.encodeIfPresent(jobOptions, forKey: .jobOptions)
+        try container.encodeIfPresent(priority, forKey: .priority)
+        try container.encodeIfPresent(color, forKey: .color)
         try container.encodeIfPresent(tags, forKey: .tags)
     }
 }

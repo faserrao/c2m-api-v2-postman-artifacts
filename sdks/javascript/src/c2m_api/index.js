@@ -41,7 +41,7 @@ import MultiZipJobItem from './model/MultiZipJobItem';
 import PaymentDetails from './model/PaymentDetails';
 import PdfSplitJobItemNoAddress from './model/PdfSplitJobItemNoAddress';
 import PdfSplitJobItemWithAddress from './model/PdfSplitJobItemWithAddress';
-import PrioritySpec from './model/PrioritySpec';
+import Priority from './model/Priority';
 import RecipientAddressByList from './model/RecipientAddressByList';
 import RecipientAddressBySingle from './model/RecipientAddressBySingle';
 import RecipientAddressSource from './model/RecipientAddressSource';
@@ -273,10 +273,10 @@ export {
     PdfSplitJobItemWithAddress,
 
     /**
-     * The PrioritySpec model constructor.
-     * @property {module:c2m_api/model/PrioritySpec}
+     * The Priority model constructor.
+     * @property {module:c2m_api/model/Priority}
      */
-    PrioritySpec,
+    Priority,
 
     /**
      * The RecipientAddressByList model constructor.

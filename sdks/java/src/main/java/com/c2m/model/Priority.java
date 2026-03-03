@@ -33,7 +33,9 @@ public enum Priority {
   
   RUSH("rush"),
   
-  OVERNIGHT("overnight");
+  OVERNIGHT("overnight"),
+  
+  BOBBU_PRIORITY("Bobbu Priority");
 
   private String value;
 

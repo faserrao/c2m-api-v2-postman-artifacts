@@ -8,15 +8,15 @@ Name | Type | Description | Notes
 **docSourceAll** | [**DocSourceAll**](DocSourceAll.md) |  | 
 **recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
-**prioritySpec** | **String** |  | [optional] 
 **returnAddress** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
-**priority** | **String** |  | [optional] 
 **jobOptions** | [**JobOptions**](JobOptions.md) |  | [optional] 
+**priority** | **String** |  | [optional] 
+**color** | **String** |  | [optional] 
 **tags** | **[String]** |  | [optional] 
 
 
 
-## Enum: PrioritySpecEnum
+## Enum: PriorityEnum
 
 
 * `standard` (value: `"standard"`)
@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 * `rush` (value: `"rush"`)
 
 * `overnight` (value: `"overnight"`)
+
+* `Bobbu Priority` (value: `"Bobbu Priority"`)
 
 
 

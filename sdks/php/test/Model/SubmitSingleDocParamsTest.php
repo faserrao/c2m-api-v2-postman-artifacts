@@ -116,18 +116,18 @@ class SubmitSingleDocParamsTest extends TestCase
     }
 
     /**
-     * Test attribute "priority_spec"
+     * Test attribute "return_address"
      */
-    public function testPropertyPrioritySpec()
+    public function testPropertyReturnAddress()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "return_address"
+     * Test attribute "job_options"
      */
-    public function testPropertyReturnAddress()
+    public function testPropertyJobOptions()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -143,9 +143,9 @@ class SubmitSingleDocParamsTest extends TestCase
     }
 
     /**
-     * Test attribute "job_options"
+     * Test attribute "color"
      */
-    public function testPropertyJobOptions()
+    public function testPropertyColor()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

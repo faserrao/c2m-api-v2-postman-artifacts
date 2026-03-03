@@ -25,10 +25,10 @@ type SubmitSingleDocParams struct {
 	DocSourceAll DocSourceAll `json:"docSourceAll"`
 	RecipientAddressSource RecipientAddressSource `json:"recipientAddressSource"`
 	PaymentDetails *PaymentDetails `json:"paymentDetails,omitempty"`
-	PrioritySpec *string `json:"prioritySpec,omitempty"`
 	ReturnAddress *ReturnAddress `json:"returnAddress,omitempty"`
-	Priority *string `json:"priority,omitempty"`
 	JobOptions *JobOptions `json:"jobOptions,omitempty"`
+	Priority *string `json:"priority,omitempty"`
+	Color *string `json:"color,omitempty"`
 	Tags []string `json:"tags,omitempty"`
 }
 
@@ -165,38 +165,6 @@ func (o *SubmitSingleDocParams) SetPaymentDetails(v PaymentDetails) {
 	o.PaymentDetails = &v
 }
 
-// GetPrioritySpec returns the PrioritySpec field value if set, zero value otherwise.
-func (o *SubmitSingleDocParams) GetPrioritySpec() string {
-	if o == nil || IsNil(o.PrioritySpec) {
-		var ret string
-		return ret
-	}
-	return *o.PrioritySpec
-}
-
-// GetPrioritySpecOk returns a tuple with the PrioritySpec field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SubmitSingleDocParams) GetPrioritySpecOk() (*string, bool) {
-	if o == nil || IsNil(o.PrioritySpec) {
-		return nil, false
-	}
-	return o.PrioritySpec, true
-}
-
-// HasPrioritySpec returns a boolean if a field has been set.
-func (o *SubmitSingleDocParams) HasPrioritySpec() bool {
-	if o != nil && !IsNil(o.PrioritySpec) {
-		return true
-	}
-
-	return false
-}
-
-// SetPrioritySpec gets a reference to the given string and assigns it to the PrioritySpec field.
-func (o *SubmitSingleDocParams) SetPrioritySpec(v string) {
-	o.PrioritySpec = &v
-}
-
 // GetReturnAddress returns the ReturnAddress field value if set, zero value otherwise.
 func (o *SubmitSingleDocParams) GetReturnAddress() ReturnAddress {
 	if o == nil || IsNil(o.ReturnAddress) {
@@ -227,6 +195,38 @@ func (o *SubmitSingleDocParams) HasReturnAddress() bool {
 // SetReturnAddress gets a reference to the given ReturnAddress and assigns it to the ReturnAddress field.
 func (o *SubmitSingleDocParams) SetReturnAddress(v ReturnAddress) {
 	o.ReturnAddress = &v
+}
+
+// GetJobOptions returns the JobOptions field value if set, zero value otherwise.
+func (o *SubmitSingleDocParams) GetJobOptions() JobOptions {
+	if o == nil || IsNil(o.JobOptions) {
+		var ret JobOptions
+		return ret
+	}
+	return *o.JobOptions
+}
+
+// GetJobOptionsOk returns a tuple with the JobOptions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SubmitSingleDocParams) GetJobOptionsOk() (*JobOptions, bool) {
+	if o == nil || IsNil(o.JobOptions) {
+		return nil, false
+	}
+	return o.JobOptions, true
+}
+
+// HasJobOptions returns a boolean if a field has been set.
+func (o *SubmitSingleDocParams) HasJobOptions() bool {
+	if o != nil && !IsNil(o.JobOptions) {
+		return true
+	}
+
+	return false
+}
+
+// SetJobOptions gets a reference to the given JobOptions and assigns it to the JobOptions field.
+func (o *SubmitSingleDocParams) SetJobOptions(v JobOptions) {
+	o.JobOptions = &v
 }
 
 // GetPriority returns the Priority field value if set, zero value otherwise.
@@ -261,36 +261,36 @@ func (o *SubmitSingleDocParams) SetPriority(v string) {
 	o.Priority = &v
 }
 
-// GetJobOptions returns the JobOptions field value if set, zero value otherwise.
-func (o *SubmitSingleDocParams) GetJobOptions() JobOptions {
-	if o == nil || IsNil(o.JobOptions) {
-		var ret JobOptions
+// GetColor returns the Color field value if set, zero value otherwise.
+func (o *SubmitSingleDocParams) GetColor() string {
+	if o == nil || IsNil(o.Color) {
+		var ret string
 		return ret
 	}
-	return *o.JobOptions
+	return *o.Color
 }
 
-// GetJobOptionsOk returns a tuple with the JobOptions field value if set, nil otherwise
+// GetColorOk returns a tuple with the Color field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SubmitSingleDocParams) GetJobOptionsOk() (*JobOptions, bool) {
-	if o == nil || IsNil(o.JobOptions) {
+func (o *SubmitSingleDocParams) GetColorOk() (*string, bool) {
+	if o == nil || IsNil(o.Color) {
 		return nil, false
 	}
-	return o.JobOptions, true
+	return o.Color, true
 }
 
-// HasJobOptions returns a boolean if a field has been set.
-func (o *SubmitSingleDocParams) HasJobOptions() bool {
-	if o != nil && !IsNil(o.JobOptions) {
+// HasColor returns a boolean if a field has been set.
+func (o *SubmitSingleDocParams) HasColor() bool {
+	if o != nil && !IsNil(o.Color) {
 		return true
 	}
 
 	return false
 }
 
-// SetJobOptions gets a reference to the given JobOptions and assigns it to the JobOptions field.
-func (o *SubmitSingleDocParams) SetJobOptions(v JobOptions) {
-	o.JobOptions = &v
+// SetColor gets a reference to the given string and assigns it to the Color field.
+func (o *SubmitSingleDocParams) SetColor(v string) {
+	o.Color = &v
 }
 
 // GetTags returns the Tags field value if set, zero value otherwise.
@@ -343,17 +343,17 @@ func (o SubmitSingleDocParams) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.PaymentDetails) {
 		toSerialize["paymentDetails"] = o.PaymentDetails
 	}
-	if !IsNil(o.PrioritySpec) {
-		toSerialize["prioritySpec"] = o.PrioritySpec
-	}
 	if !IsNil(o.ReturnAddress) {
 		toSerialize["returnAddress"] = o.ReturnAddress
+	}
+	if !IsNil(o.JobOptions) {
+		toSerialize["jobOptions"] = o.JobOptions
 	}
 	if !IsNil(o.Priority) {
 		toSerialize["priority"] = o.Priority
 	}
-	if !IsNil(o.JobOptions) {
-		toSerialize["jobOptions"] = o.JobOptions
+	if !IsNil(o.Color) {
+		toSerialize["color"] = o.Color
 	}
 	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags

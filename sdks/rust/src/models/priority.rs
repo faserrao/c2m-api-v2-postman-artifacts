@@ -20,6 +20,8 @@ pub enum Priority {
     Rush,
     #[serde(rename = "overnight")]
     Overnight,
+    #[serde(rename = "Bobbu Priority")]
+    BobbuPriority,
 
 }
 
@@ -29,6 +31,7 @@ impl std::fmt::Display for Priority {
             Self::Standard => write!(f, "standard"),
             Self::Rush => write!(f, "rush"),
             Self::Overnight => write!(f, "overnight"),
+            Self::BobbuPriority => write!(f, "Bobbu Priority"),
         }
     }
 }

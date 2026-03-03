@@ -11,21 +11,22 @@
 |**docSourceAll** | [**DocSourceAll**](DocSourceAll.md) |  |  |
 |**recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  |  |
 |**paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  |  [optional] |
-|**prioritySpec** | [**PrioritySpecEnum**](#PrioritySpecEnum) |  |  [optional] |
 |**returnAddress** | [**ReturnAddress**](ReturnAddress.md) |  |  [optional] |
-|**priority** | **String** |  |  [optional] |
 |**jobOptions** | [**JobOptions**](JobOptions.md) |  |  [optional] |
+|**priority** | [**PriorityEnum**](#PriorityEnum) |  |  [optional] |
+|**color** | **String** |  |  [optional] |
 |**tags** | **List&lt;String&gt;** |  |  [optional] |
 
 
 
-## Enum: PrioritySpecEnum
+## Enum: PriorityEnum
 
 | Name | Value |
 |---- | -----|
 | STANDARD | &quot;standard&quot; |
 | RUSH | &quot;rush&quot; |
 | OVERNIGHT | &quot;overnight&quot; |
+| BOBBU_PRIORITY | &quot;Bobbu Priority&quot; |
 
 
 

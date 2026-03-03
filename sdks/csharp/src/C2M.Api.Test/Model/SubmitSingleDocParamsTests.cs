@@ -90,21 +90,21 @@ namespace C2M.Api.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'PrioritySpec'
-        /// </summary>
-        [Fact]
-        public void PrioritySpecTest()
-        {
-            // TODO unit test for the property 'PrioritySpec'
-        }
-
-        /// <summary>
         /// Test the property 'ReturnAddress'
         /// </summary>
         [Fact]
         public void ReturnAddressTest()
         {
             // TODO unit test for the property 'ReturnAddress'
+        }
+
+        /// <summary>
+        /// Test the property 'JobOptions'
+        /// </summary>
+        [Fact]
+        public void JobOptionsTest()
+        {
+            // TODO unit test for the property 'JobOptions'
         }
 
         /// <summary>
@@ -117,12 +117,12 @@ namespace C2M.Api.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'JobOptions'
+        /// Test the property 'Color'
         /// </summary>
         [Fact]
-        public void JobOptionsTest()
+        public void ColorTest()
         {
-            // TODO unit test for the property 'JobOptions'
+            // TODO unit test for the property 'Color'
         }
 
         /// <summary>

@@ -18,9 +18,10 @@ module OpenapiClient
     STANDARD = "standard".freeze
     RUSH = "rush".freeze
     OVERNIGHT = "overnight".freeze
+    BOBBU_PRIORITY = "Bobbu Priority".freeze
 
     def self.all_vars
-      @all_vars ||= [STANDARD, RUSH, OVERNIGHT].freeze
+      @all_vars ||= [STANDARD, RUSH, OVERNIGHT, BOBBU_PRIORITY].freeze
     end
 
     # Builds the enum from string

@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **DocSourceAll** | [**DocSourceAll**](DocSourceAll.md) |  | 
 **RecipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 **PaymentDetails** | Pointer to [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
-**PrioritySpec** | Pointer to **string** |  | [optional] 
 **ReturnAddress** | Pointer to [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
-**Priority** | Pointer to **string** |  | [optional] 
 **JobOptions** | Pointer to [**JobOptions**](JobOptions.md) |  | [optional] 
+**Priority** | Pointer to **string** |  | [optional] 
+**Color** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
@@ -123,31 +123,6 @@ SetPaymentDetails sets PaymentDetails field to given value.
 
 HasPaymentDetails returns a boolean if a field has been set.
 
-### GetPrioritySpec
-
-`func (o *SubmitSingleDocParams) GetPrioritySpec() string`
-
-GetPrioritySpec returns the PrioritySpec field if non-nil, zero value otherwise.
-
-### GetPrioritySpecOk
-
-`func (o *SubmitSingleDocParams) GetPrioritySpecOk() (*string, bool)`
-
-GetPrioritySpecOk returns a tuple with the PrioritySpec field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPrioritySpec
-
-`func (o *SubmitSingleDocParams) SetPrioritySpec(v string)`
-
-SetPrioritySpec sets PrioritySpec field to given value.
-
-### HasPrioritySpec
-
-`func (o *SubmitSingleDocParams) HasPrioritySpec() bool`
-
-HasPrioritySpec returns a boolean if a field has been set.
-
 ### GetReturnAddress
 
 `func (o *SubmitSingleDocParams) GetReturnAddress() ReturnAddress`
@@ -172,6 +147,31 @@ SetReturnAddress sets ReturnAddress field to given value.
 `func (o *SubmitSingleDocParams) HasReturnAddress() bool`
 
 HasReturnAddress returns a boolean if a field has been set.
+
+### GetJobOptions
+
+`func (o *SubmitSingleDocParams) GetJobOptions() JobOptions`
+
+GetJobOptions returns the JobOptions field if non-nil, zero value otherwise.
+
+### GetJobOptionsOk
+
+`func (o *SubmitSingleDocParams) GetJobOptionsOk() (*JobOptions, bool)`
+
+GetJobOptionsOk returns a tuple with the JobOptions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetJobOptions
+
+`func (o *SubmitSingleDocParams) SetJobOptions(v JobOptions)`
+
+SetJobOptions sets JobOptions field to given value.
+
+### HasJobOptions
+
+`func (o *SubmitSingleDocParams) HasJobOptions() bool`
+
+HasJobOptions returns a boolean if a field has been set.
 
 ### GetPriority
 
@@ -198,30 +198,30 @@ SetPriority sets Priority field to given value.
 
 HasPriority returns a boolean if a field has been set.
 
-### GetJobOptions
+### GetColor
 
-`func (o *SubmitSingleDocParams) GetJobOptions() JobOptions`
+`func (o *SubmitSingleDocParams) GetColor() string`
 
-GetJobOptions returns the JobOptions field if non-nil, zero value otherwise.
+GetColor returns the Color field if non-nil, zero value otherwise.
 
-### GetJobOptionsOk
+### GetColorOk
 
-`func (o *SubmitSingleDocParams) GetJobOptionsOk() (*JobOptions, bool)`
+`func (o *SubmitSingleDocParams) GetColorOk() (*string, bool)`
 
-GetJobOptionsOk returns a tuple with the JobOptions field if it's non-nil, zero value otherwise
+GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetJobOptions
+### SetColor
 
-`func (o *SubmitSingleDocParams) SetJobOptions(v JobOptions)`
+`func (o *SubmitSingleDocParams) SetColor(v string)`
 
-SetJobOptions sets JobOptions field to given value.
+SetColor sets Color field to given value.
 
-### HasJobOptions
+### HasColor
 
-`func (o *SubmitSingleDocParams) HasJobOptions() bool`
+`func (o *SubmitSingleDocParams) HasColor() bool`
 
-HasJobOptions returns a boolean if a field has been set.
+HasColor returns a boolean if a field has been set.
 
 ### GetTags
 

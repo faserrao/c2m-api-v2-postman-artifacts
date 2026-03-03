@@ -1522,18 +1522,19 @@ components:
           $ref: "#/components/schemas/recipientAddressSource"
         paymentDetails:
           $ref: "#/components/schemas/paymentDetails"
-        prioritySpec:
+        returnAddress:
+          $ref: "#/components/schemas/returnAddress"
+        jobOptions:
+          $ref: "#/components/schemas/jobOptions"
+        priority:
           enum:
           - standard
           - rush
           - overnight
+          - Bobbu Priority
           type: string
-        returnAddress:
-          $ref: "#/components/schemas/returnAddress"
-        priority:
+        color:
           type: string
-        jobOptions:
-          $ref: "#/components/schemas/jobOptions"
         tags:
           items:
             type: string
@@ -1542,11 +1543,14 @@ components:
       - docSourceAll
       - recipientAddressSource
       type: object
-    prioritySpec:
+    priority:
       enum:
       - standard
       - rush
       - overnight
+      - Bobbu Priority
+      type: string
+    color:
       type: string
     submitSinglePdfAddressCaptureParams:
       properties:
@@ -1760,8 +1764,6 @@ components:
     productionTime:
       type: string
     envelope:
-      type: string
-    color:
       type: string
     paperType:
       type: string

@@ -48,6 +48,8 @@ class Priority
 
     public const OVERNIGHT = 'overnight';
 
+    public const BOBBU_PRIORITY = 'Bobbu Priority';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -57,7 +59,8 @@ class Priority
         return [
             self::STANDARD,
             self::RUSH,
-            self::OVERNIGHT
+            self::OVERNIGHT,
+            self::BOBBU_PRIORITY
         ];
     }
 }

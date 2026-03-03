@@ -40,6 +40,13 @@ export default class Priority {
         "overnight" = "overnight";
 
     
+        /**
+         * value: "Bobbu Priority"
+         * @const
+         */
+        "Bobbu Priority" = "Bobbu Priority";
+
+    
 
     /**
     * Returns a <code>Priority</code> enum value from a Javascript object name.

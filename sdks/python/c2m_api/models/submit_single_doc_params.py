@@ -35,21 +35,21 @@ class SubmitSingleDocParams(BaseModel):
     doc_source_all: DocSourceAll = Field(alias="docSourceAll")
     recipient_address_source: RecipientAddressSource = Field(alias="recipientAddressSource")
     payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
-    priority_spec: Optional[StrictStr] = Field(default=None, alias="prioritySpec")
     return_address: Optional[ReturnAddress] = Field(default=None, alias="returnAddress")
-    priority: Optional[StrictStr] = None
     job_options: Optional[JobOptions] = Field(default=None, alias="jobOptions")
+    priority: Optional[StrictStr] = None
+    color: Optional[StrictStr] = None
     tags: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["jobTemplate", "docSourceAll", "recipientAddressSource", "paymentDetails", "prioritySpec", "returnAddress", "priority", "jobOptions", "tags"]
+    __properties: ClassVar[List[str]] = ["jobTemplate", "docSourceAll", "recipientAddressSource", "paymentDetails", "returnAddress", "jobOptions", "priority", "color", "tags"]
 
-    @field_validator('priority_spec')
-    def priority_spec_validate_enum(cls, value):
+    @field_validator('priority')
+    def priority_validate_enum(cls, value):
         """Validates the enum"""
         if value is None:
             return value
 
-        if value not in set(['standard', 'rush', 'overnight']):
-            raise ValueError("must be one of enum values ('standard', 'rush', 'overnight')")
+        if value not in set(['standard', 'rush', 'overnight', 'Bobbu Priority']):
+            raise ValueError("must be one of enum values ('standard', 'rush', 'overnight', 'Bobbu Priority')")
         return value
 
     model_config = ConfigDict(
@@ -122,10 +122,10 @@ class SubmitSingleDocParams(BaseModel):
             "docSourceAll": DocSourceAll.from_dict(obj["docSourceAll"]) if obj.get("docSourceAll") is not None else None,
             "recipientAddressSource": RecipientAddressSource.from_dict(obj["recipientAddressSource"]) if obj.get("recipientAddressSource") is not None else None,
             "paymentDetails": PaymentDetails.from_dict(obj["paymentDetails"]) if obj.get("paymentDetails") is not None else None,
-            "prioritySpec": obj.get("prioritySpec"),
             "returnAddress": ReturnAddress.from_dict(obj["returnAddress"]) if obj.get("returnAddress") is not None else None,
-            "priority": obj.get("priority"),
             "jobOptions": JobOptions.from_dict(obj["jobOptions"]) if obj.get("jobOptions") is not None else None,
+            "priority": obj.get("priority"),
+            "color": obj.get("color"),
             "tags": obj.get("tags")
         })
         return _obj

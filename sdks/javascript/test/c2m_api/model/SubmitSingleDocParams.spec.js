@@ -78,14 +78,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property prioritySpec (base name: "prioritySpec")', function() {
-      // uncomment below and update the code to test the property prioritySpec
+    it('should have the property returnAddress (base name: "returnAddress")', function() {
+      // uncomment below and update the code to test the property returnAddress
       //var instance = new C2MApiV2.SubmitSingleDocParams();
       //expect(instance).to.be();
     });
 
-    it('should have the property returnAddress (base name: "returnAddress")', function() {
-      // uncomment below and update the code to test the property returnAddress
+    it('should have the property jobOptions (base name: "jobOptions")', function() {
+      // uncomment below and update the code to test the property jobOptions
       //var instance = new C2MApiV2.SubmitSingleDocParams();
       //expect(instance).to.be();
     });
@@ -96,8 +96,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property jobOptions (base name: "jobOptions")', function() {
-      // uncomment below and update the code to test the property jobOptions
+    it('should have the property color (base name: "color")', function() {
+      // uncomment below and update the code to test the property color
       //var instance = new C2MApiV2.SubmitSingleDocParams();
       //expect(instance).to.be();
     });

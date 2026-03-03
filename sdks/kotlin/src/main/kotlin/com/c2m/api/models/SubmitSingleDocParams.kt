@@ -31,10 +31,10 @@ import com.squareup.moshi.JsonClass
  * @param recipientAddressSource 
  * @param jobTemplate 
  * @param paymentDetails 
- * @param prioritySpec 
  * @param returnAddress 
- * @param priority 
  * @param jobOptions 
+ * @param priority 
+ * @param color 
  * @param tags 
  */
 
@@ -53,17 +53,17 @@ data class SubmitSingleDocParams (
     @Json(name = "paymentDetails")
     val paymentDetails: PaymentDetails? = null,
 
-    @Json(name = "prioritySpec")
-    val prioritySpec: SubmitSingleDocParams.PrioritySpec? = null,
-
     @Json(name = "returnAddress")
     val returnAddress: ReturnAddress? = null,
 
-    @Json(name = "priority")
-    val priority: kotlin.String? = null,
-
     @Json(name = "jobOptions")
     val jobOptions: JobOptions? = null,
+
+    @Json(name = "priority")
+    val priority: SubmitSingleDocParams.Priority? = null,
+
+    @Json(name = "color")
+    val color: kotlin.String? = null,
 
     @Json(name = "tags")
     val tags: kotlin.collections.List<kotlin.String>? = null
@@ -73,13 +73,14 @@ data class SubmitSingleDocParams (
     /**
      * 
      *
-     * Values: standard,rush,overnight
+     * Values: standard,rush,overnight,Bobbu_Priority
      */
     @JsonClass(generateAdapter = false)
-    enum class PrioritySpec(val value: kotlin.String) {
+    enum class Priority(val value: kotlin.String) {
         @Json(name = "standard") standard("standard"),
         @Json(name = "rush") rush("rush"),
-        @Json(name = "overnight") overnight("overnight");
+        @Json(name = "overnight") overnight("overnight"),
+        @Json(name = "Bobbu Priority") Bobbu_Priority("Bobbu Priority");
     }
 
 }

@@ -8,10 +8,10 @@ Name | Type | Description | Notes
 **doc_source_all** | [**models::DocSourceAll**](docSourceAll.md) |  | 
 **recipient_address_source** | [**models::RecipientAddressSource**](recipientAddressSource.md) |  | 
 **payment_details** | Option<[**models::PaymentDetails**](paymentDetails.md)> |  | [optional]
-**priority_spec** | Option<**String**> |  | [optional]
 **return_address** | Option<[**models::ReturnAddress**](returnAddress.md)> |  | [optional]
-**priority** | Option<**String**> |  | [optional]
 **job_options** | Option<[**models::JobOptions**](jobOptions.md)> |  | [optional]
+**priority** | Option<**String**> |  | [optional]
+**color** | Option<**String**> |  | [optional]
 **tags** | Option<**Vec<String>**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
