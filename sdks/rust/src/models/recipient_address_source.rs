@@ -16,6 +16,7 @@ use serde::{Deserialize, Serialize};
 pub enum RecipientAddressSource {
     RecipientAddressBySingle(Box<models::RecipientAddressBySingle>),
     RecipientAddressByList(Box<models::RecipientAddressByList>),
+    RecipientAddressByAddressId(i32),
     RecipientAddressByListId(i32),
 }
 

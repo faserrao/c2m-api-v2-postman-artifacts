@@ -93,22 +93,6 @@ public class SubmitSingleDocParamsTest {
     }
 
     /**
-     * Test the property 'priority'
-     */
-    @Test
-    public void priorityTest() {
-        // TODO: test priority
-    }
-
-    /**
-     * Test the property 'color'
-     */
-    @Test
-    public void colorTest() {
-        // TODO: test color
-    }
-
-    /**
      * Test the property 'tags'
      */
     @Test

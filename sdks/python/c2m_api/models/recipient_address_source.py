@@ -35,6 +35,8 @@ class RecipientAddressSource(BaseModel):
     oneof_schema_2_validator: Optional[RecipientAddressByList] = None
     # data type: int
     oneof_schema_3_validator: Optional[StrictInt] = None
+    # data type: int
+    oneof_schema_4_validator: Optional[StrictInt] = None
     actual_instance: Optional[Union[RecipientAddressByList, RecipientAddressBySingle, int]] = None
     one_of_schemas: Set[str] = { "RecipientAddressByList", "RecipientAddressBySingle", "int" }
 
@@ -72,6 +74,12 @@ class RecipientAddressSource(BaseModel):
         # validate data type: int
         try:
             instance.oneof_schema_3_validator = v
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # validate data type: int
+        try:
+            instance.oneof_schema_4_validator = v
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
@@ -113,6 +121,15 @@ class RecipientAddressSource(BaseModel):
             instance.oneof_schema_3_validator = json.loads(json_str)
             # assign value to actual_instance
             instance.actual_instance = instance.oneof_schema_3_validator
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into int
+        try:
+            # validation
+            instance.oneof_schema_4_validator = json.loads(json_str)
+            # assign value to actual_instance
+            instance.actual_instance = instance.oneof_schema_4_validator
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))

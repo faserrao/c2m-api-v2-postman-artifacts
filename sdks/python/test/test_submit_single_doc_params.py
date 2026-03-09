@@ -59,8 +59,6 @@ class TestSubmitSingleDocParams(unittest.TestCase):
                     paper_type = '', 
                     print_option = '', 
                     mail_class = '', ),
-                priority = 'standard',
-                color = '',
                 tags = [
                     ''
                     ]

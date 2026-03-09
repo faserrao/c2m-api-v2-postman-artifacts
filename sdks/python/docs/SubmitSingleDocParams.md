@@ -11,8 +11,6 @@ Name | Type | Description | Notes
 **payment_details** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **return_address** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
 **job_options** | [**JobOptions**](JobOptions.md) |  | [optional] 
-**priority** | **str** |  | [optional] 
-**color** | **str** |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 
 ## Example

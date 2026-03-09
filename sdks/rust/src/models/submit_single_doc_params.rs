@@ -25,10 +25,6 @@ pub struct SubmitSingleDocParams {
     pub return_address: Option<Box<models::ReturnAddress>>,
     #[serde(rename = "jobOptions", skip_serializing_if = "Option::is_none")]
     pub job_options: Option<Box<models::JobOptions>>,
-    #[serde(rename = "priority", skip_serializing_if = "Option::is_none")]
-    pub priority: Option<Priority>,
-    #[serde(rename = "color", skip_serializing_if = "Option::is_none")]
-    pub color: Option<String>,
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<String>>,
 }
@@ -42,28 +38,8 @@ impl SubmitSingleDocParams {
             payment_details: None,
             return_address: None,
             job_options: None,
-            priority: None,
-            color: None,
             tags: None,
         }
-    }
-}
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum Priority {
-    #[serde(rename = "standard")]
-    Standard,
-    #[serde(rename = "rush")]
-    Rush,
-    #[serde(rename = "overnight")]
-    Overnight,
-    #[serde(rename = "Bobbu Priority")]
-    BobbuPriority,
-}
-
-impl Default for Priority {
-    fn default() -> Priority {
-        Self::Standard
     }
 }
 

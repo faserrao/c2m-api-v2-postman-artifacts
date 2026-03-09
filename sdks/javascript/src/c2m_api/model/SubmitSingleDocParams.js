@@ -74,12 +74,6 @@ class SubmitSingleDocParams {
             if (data.hasOwnProperty('jobOptions')) {
                 obj['jobOptions'] = JobOptions.constructFromObject(data['jobOptions']);
             }
-            if (data.hasOwnProperty('priority')) {
-                obj['priority'] = ApiClient.convertToType(data['priority'], 'String');
-            }
-            if (data.hasOwnProperty('color')) {
-                obj['color'] = ApiClient.convertToType(data['color'], 'String');
-            }
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
@@ -122,14 +116,6 @@ class SubmitSingleDocParams {
         // validate the optional field `jobOptions`
         if (data['jobOptions']) { // data not null
           JobOptions.validateJSON(data['jobOptions']);
-        }
-        // ensure the json data is a string
-        if (data['priority'] && !(typeof data['priority'] === 'string' || data['priority'] instanceof String)) {
-            throw new Error("Expected the field `priority` to be a primitive type in the JSON string but got " + data['priority']);
-        }
-        // ensure the json data is a string
-        if (data['color'] && !(typeof data['color'] === 'string' || data['color'] instanceof String)) {
-            throw new Error("Expected the field `color` to be a primitive type in the JSON string but got " + data['color']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['tags'])) {
@@ -175,55 +161,12 @@ SubmitSingleDocParams.prototype['returnAddress'] = undefined;
 SubmitSingleDocParams.prototype['jobOptions'] = undefined;
 
 /**
- * @member {module:c2m_api/model/SubmitSingleDocParams.PriorityEnum} priority
- */
-SubmitSingleDocParams.prototype['priority'] = undefined;
-
-/**
- * @member {String} color
- */
-SubmitSingleDocParams.prototype['color'] = undefined;
-
-/**
  * @member {Array.<String>} tags
  */
 SubmitSingleDocParams.prototype['tags'] = undefined;
 
 
 
-
-
-/**
- * Allowed values for the <code>priority</code> property.
- * @enum {String}
- * @readonly
- */
-SubmitSingleDocParams['PriorityEnum'] = {
-
-    /**
-     * value: "standard"
-     * @const
-     */
-    "standard": "standard",
-
-    /**
-     * value: "rush"
-     * @const
-     */
-    "rush": "rush",
-
-    /**
-     * value: "overnight"
-     * @const
-     */
-    "overnight": "overnight",
-
-    /**
-     * value: "Bobbu Priority"
-     * @const
-     */
-    "Bobbu Priority": "Bobbu Priority"
-};
 
 
 

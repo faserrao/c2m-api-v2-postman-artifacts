@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from c2m_api.models.doc_source_all import DocSourceAll
 from c2m_api.models.job_options import JobOptions
@@ -37,20 +37,8 @@ class SubmitSingleDocParams(BaseModel):
     payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
     return_address: Optional[ReturnAddress] = Field(default=None, alias="returnAddress")
     job_options: Optional[JobOptions] = Field(default=None, alias="jobOptions")
-    priority: Optional[StrictStr] = None
-    color: Optional[StrictStr] = None
     tags: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["jobTemplate", "docSourceAll", "recipientAddressSource", "paymentDetails", "returnAddress", "jobOptions", "priority", "color", "tags"]
-
-    @field_validator('priority')
-    def priority_validate_enum(cls, value):
-        """Validates the enum"""
-        if value is None:
-            return value
-
-        if value not in set(['standard', 'rush', 'overnight', 'Bobbu Priority']):
-            raise ValueError("must be one of enum values ('standard', 'rush', 'overnight', 'Bobbu Priority')")
-        return value
+    __properties: ClassVar[List[str]] = ["jobTemplate", "docSourceAll", "recipientAddressSource", "paymentDetails", "returnAddress", "jobOptions", "tags"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -124,8 +112,6 @@ class SubmitSingleDocParams(BaseModel):
             "paymentDetails": PaymentDetails.from_dict(obj["paymentDetails"]) if obj.get("paymentDetails") is not None else None,
             "returnAddress": ReturnAddress.from_dict(obj["returnAddress"]) if obj.get("returnAddress") is not None else None,
             "jobOptions": JobOptions.from_dict(obj["jobOptions"]) if obj.get("jobOptions") is not None else None,
-            "priority": obj.get("priority"),
-            "color": obj.get("color"),
             "tags": obj.get("tags")
         })
         return _obj

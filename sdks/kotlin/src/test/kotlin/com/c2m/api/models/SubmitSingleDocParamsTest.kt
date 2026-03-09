@@ -66,18 +66,6 @@ class SubmitSingleDocParamsTest : ShouldSpec() {
             //modelInstance.jobOptions shouldBe ("TODO")
         }
 
-        // to test the property `priority`
-        should("test priority") {
-            // uncomment below to test the property
-            //modelInstance.priority shouldBe ("TODO")
-        }
-
-        // to test the property `color`
-        should("test color") {
-            // uncomment below to test the property
-            //modelInstance.color shouldBe ("TODO")
-        }
-
         // to test the property `tags`
         should("test tags") {
             // uncomment below to test the property

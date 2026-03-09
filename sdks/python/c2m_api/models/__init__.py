@@ -43,7 +43,6 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.payment_details import PaymentDetails
     from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress
     from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress
-    from c2m_api.models.priority import Priority
     from c2m_api.models.recipient_address_by_list import RecipientAddressByList
     from c2m_api.models.recipient_address_by_single import RecipientAddressBySingle
     from c2m_api.models.recipient_address_source import RecipientAddressSource
@@ -100,7 +99,6 @@ from c2m_api.models.multi_zip_job_item import MultiZipJobItem
 from c2m_api.models.payment_details import PaymentDetails
 from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress
 from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress
-from c2m_api.models.priority import Priority
 from c2m_api.models.recipient_address_by_list import RecipientAddressByList
 from c2m_api.models.recipient_address_by_single import RecipientAddressBySingle
 from c2m_api.models.recipient_address_source import RecipientAddressSource

@@ -63,8 +63,6 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'payment_details' => '\C2MApi\Model\PaymentDetails',
         'return_address' => '\C2MApi\Model\ReturnAddress',
         'job_options' => '\C2MApi\Model\JobOptions',
-        'priority' => 'string',
-        'color' => 'string',
         'tags' => 'string[]'
     ];
 
@@ -82,8 +80,6 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'payment_details' => null,
         'return_address' => null,
         'job_options' => null,
-        'priority' => null,
-        'color' => null,
         'tags' => null
     ];
 
@@ -99,8 +95,6 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'payment_details' => false,
         'return_address' => false,
         'job_options' => false,
-        'priority' => false,
-        'color' => false,
         'tags' => false
     ];
 
@@ -196,8 +190,6 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'payment_details' => 'paymentDetails',
         'return_address' => 'returnAddress',
         'job_options' => 'jobOptions',
-        'priority' => 'priority',
-        'color' => 'color',
         'tags' => 'tags'
     ];
 
@@ -213,8 +205,6 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'payment_details' => 'setPaymentDetails',
         'return_address' => 'setReturnAddress',
         'job_options' => 'setJobOptions',
-        'priority' => 'setPriority',
-        'color' => 'setColor',
         'tags' => 'setTags'
     ];
 
@@ -230,8 +220,6 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         'payment_details' => 'getPaymentDetails',
         'return_address' => 'getReturnAddress',
         'job_options' => 'getJobOptions',
-        'priority' => 'getPriority',
-        'color' => 'getColor',
         'tags' => 'getTags'
     ];
 
@@ -276,25 +264,6 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-    public const PRIORITY_STANDARD = 'standard';
-    public const PRIORITY_RUSH = 'rush';
-    public const PRIORITY_OVERNIGHT = 'overnight';
-    public const PRIORITY_BOBBU_PRIORITY = 'Bobbu Priority';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getPriorityAllowableValues()
-    {
-        return [
-            self::PRIORITY_STANDARD,
-            self::PRIORITY_RUSH,
-            self::PRIORITY_OVERNIGHT,
-            self::PRIORITY_BOBBU_PRIORITY,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -317,8 +286,6 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('payment_details', $data ?? [], null);
         $this->setIfExists('return_address', $data ?? [], null);
         $this->setIfExists('job_options', $data ?? [], null);
-        $this->setIfExists('priority', $data ?? [], null);
-        $this->setIfExists('color', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
     }
 
@@ -355,15 +322,6 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
         if ($this->container['recipient_address_source'] === null) {
             $invalidProperties[] = "'recipient_address_source' can't be null";
         }
-        $allowedValues = $this->getPriorityAllowableValues();
-        if (!is_null($this->container['priority']) && !in_array($this->container['priority'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'priority', must be one of '%s'",
-                $this->container['priority'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -537,70 +495,6 @@ class SubmitSingleDocParams implements ModelInterface, ArrayAccess, \JsonSeriali
             throw new \InvalidArgumentException('non-nullable job_options cannot be null');
         }
         $this->container['job_options'] = $job_options;
-
-        return $this;
-    }
-
-    /**
-     * Gets priority
-     *
-     * @return string|null
-     */
-    public function getPriority()
-    {
-        return $this->container['priority'];
-    }
-
-    /**
-     * Sets priority
-     *
-     * @param string|null $priority priority
-     *
-     * @return self
-     */
-    public function setPriority($priority)
-    {
-        if (is_null($priority)) {
-            throw new \InvalidArgumentException('non-nullable priority cannot be null');
-        }
-        $allowedValues = $this->getPriorityAllowableValues();
-        if (!in_array($priority, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'priority', must be one of '%s'",
-                    $priority,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['priority'] = $priority;
-
-        return $this;
-    }
-
-    /**
-     * Gets color
-     *
-     * @return string|null
-     */
-    public function getColor()
-    {
-        return $this->container['color'];
-    }
-
-    /**
-     * Sets color
-     *
-     * @param string|null $color color
-     *
-     * @return self
-     */
-    public function setColor($color)
-    {
-        if (is_null($color)) {
-            throw new \InvalidArgumentException('non-nullable color cannot be null');
-        }
-        $this->container['color'] = $color;
 
         return $this;
     }

@@ -134,24 +134,6 @@ class SubmitSingleDocParamsTest extends TestCase
     }
 
     /**
-     * Test attribute "priority"
-     */
-    public function testPropertyPriority()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "color"
-     */
-    public function testPropertyColor()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "tags"
      */
     public function testPropertyTags()

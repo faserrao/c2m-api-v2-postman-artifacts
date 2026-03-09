@@ -78,6 +78,18 @@ class RecipientAddressSource {
             errorMessages.push("Failed to construct Number: " + err)
         }
 
+        try {
+            // validate integer
+            if (!(typeof instance === 'number' && instance % 1 === 0)) {
+                throw new Error("Invalid value. Must be integer. Input: " + JSON.stringify(instance));
+            }
+            this.actualInstance = instance;
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into Number
+            errorMessages.push("Failed to construct Number: " + err)
+        }
+
         if (match > 1) {
             throw new Error("Multiple matches found constructing `RecipientAddressSource` with oneOf schemas Number, RecipientAddressByList, RecipientAddressBySingle. Input: " + JSON.stringify(instance));
         } else if (match === 0) {

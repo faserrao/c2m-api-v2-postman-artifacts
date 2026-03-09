@@ -39,11 +39,9 @@ namespace C2M.Api.Model
         /// <param name="paymentDetails">paymentDetails</param>
         /// <param name="returnAddress">returnAddress</param>
         /// <param name="jobOptions">jobOptions</param>
-        /// <param name="priority">priority</param>
-        /// <param name="color">color</param>
         /// <param name="tags">tags</param>
         [JsonConstructor]
-        public SubmitSingleDocParams(DocSourceAll docSourceAll, RecipientAddressSource recipientAddressSource, Option<string?> jobTemplate = default, Option<PaymentDetails?> paymentDetails = default, Option<ReturnAddress?> returnAddress = default, Option<JobOptions?> jobOptions = default, Option<PriorityEnum?> priority = default, Option<string?> color = default, Option<List<string>?> tags = default)
+        public SubmitSingleDocParams(DocSourceAll docSourceAll, RecipientAddressSource recipientAddressSource, Option<string?> jobTemplate = default, Option<PaymentDetails?> paymentDetails = default, Option<ReturnAddress?> returnAddress = default, Option<JobOptions?> jobOptions = default, Option<List<string>?> tags = default)
         {
             DocSourceAll = docSourceAll;
             RecipientAddressSource = recipientAddressSource;
@@ -51,120 +49,11 @@ namespace C2M.Api.Model
             PaymentDetailsOption = paymentDetails;
             ReturnAddressOption = returnAddress;
             JobOptionsOption = jobOptions;
-            PriorityOption = priority;
-            ColorOption = color;
             TagsOption = tags;
             OnCreated();
         }
 
         partial void OnCreated();
-
-        /// <summary>
-        /// Defines Priority
-        /// </summary>
-        public enum PriorityEnum
-        {
-            /// <summary>
-            /// Enum Standard for value: standard
-            /// </summary>
-            Standard = 1,
-
-            /// <summary>
-            /// Enum Rush for value: rush
-            /// </summary>
-            Rush = 2,
-
-            /// <summary>
-            /// Enum Overnight for value: overnight
-            /// </summary>
-            Overnight = 3,
-
-            /// <summary>
-            /// Enum BobbuPriority for value: Bobbu Priority
-            /// </summary>
-            BobbuPriority = 4
-        }
-
-        /// <summary>
-        /// Returns a <see cref="PriorityEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static PriorityEnum PriorityEnumFromString(string value)
-        {
-            if (value.Equals("standard"))
-                return PriorityEnum.Standard;
-
-            if (value.Equals("rush"))
-                return PriorityEnum.Rush;
-
-            if (value.Equals("overnight"))
-                return PriorityEnum.Overnight;
-
-            if (value.Equals("Bobbu Priority"))
-                return PriorityEnum.BobbuPriority;
-
-            throw new NotImplementedException($"Could not convert value to type PriorityEnum: '{value}'");
-        }
-
-        /// <summary>
-        /// Returns a <see cref="PriorityEnum"/>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static PriorityEnum? PriorityEnumFromStringOrDefault(string value)
-        {
-            if (value.Equals("standard"))
-                return PriorityEnum.Standard;
-
-            if (value.Equals("rush"))
-                return PriorityEnum.Rush;
-
-            if (value.Equals("overnight"))
-                return PriorityEnum.Overnight;
-
-            if (value.Equals("Bobbu Priority"))
-                return PriorityEnum.BobbuPriority;
-
-            return null;
-        }
-
-        /// <summary>
-        /// Converts the <see cref="PriorityEnum"/> to the json value
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public static string PriorityEnumToJsonValue(PriorityEnum? value)
-        {
-            if (value == PriorityEnum.Standard)
-                return "standard";
-
-            if (value == PriorityEnum.Rush)
-                return "rush";
-
-            if (value == PriorityEnum.Overnight)
-                return "overnight";
-
-            if (value == PriorityEnum.BobbuPriority)
-                return "Bobbu Priority";
-
-            throw new NotImplementedException($"Value could not be handled: '{value}'");
-        }
-
-        /// <summary>
-        /// Used to track the state of Priority
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<PriorityEnum?> PriorityOption { get; private set; }
-
-        /// <summary>
-        /// Gets or Sets Priority
-        /// </summary>
-        [JsonPropertyName("priority")]
-        public PriorityEnum? Priority { get { return this.PriorityOption; } set { this.PriorityOption = new(value); } }
 
         /// <summary>
         /// Gets or Sets DocSourceAll
@@ -231,19 +120,6 @@ namespace C2M.Api.Model
         public JobOptions? JobOptions { get { return this.JobOptionsOption; } set { this.JobOptionsOption = new(value); } }
 
         /// <summary>
-        /// Used to track the state of Color
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<string?> ColorOption { get; private set; }
-
-        /// <summary>
-        /// Gets or Sets Color
-        /// </summary>
-        [JsonPropertyName("color")]
-        public string? Color { get { return this.ColorOption; } set { this.ColorOption = new(value); } }
-
-        /// <summary>
         /// Used to track the state of Tags
         /// </summary>
         [JsonIgnore]
@@ -270,8 +146,6 @@ namespace C2M.Api.Model
             sb.Append("  PaymentDetails: ").Append(PaymentDetails).Append("\n");
             sb.Append("  ReturnAddress: ").Append(ReturnAddress).Append("\n");
             sb.Append("  JobOptions: ").Append(JobOptions).Append("\n");
-            sb.Append("  Priority: ").Append(Priority).Append("\n");
-            sb.Append("  Color: ").Append(Color).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -316,8 +190,6 @@ namespace C2M.Api.Model
             Option<PaymentDetails?> paymentDetails = default;
             Option<ReturnAddress?> returnAddress = default;
             Option<JobOptions?> jobOptions = default;
-            Option<SubmitSingleDocParams.PriorityEnum?> priority = default;
-            Option<string?> color = default;
             Option<List<string>?> tags = default;
 
             while (utf8JsonReader.Read())
@@ -353,14 +225,6 @@ namespace C2M.Api.Model
                         case "jobOptions":
                             jobOptions = new Option<JobOptions?>(JsonSerializer.Deserialize<JobOptions>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
-                        case "priority":
-                            string? priorityRawValue = utf8JsonReader.GetString();
-                            if (priorityRawValue != null)
-                                priority = new Option<SubmitSingleDocParams.PriorityEnum?>(SubmitSingleDocParams.PriorityEnumFromStringOrDefault(priorityRawValue));
-                            break;
-                        case "color":
-                            color = new Option<string?>(utf8JsonReader.GetString()!);
-                            break;
                         case "tags":
                             tags = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
@@ -394,16 +258,10 @@ namespace C2M.Api.Model
             if (jobOptions.IsSet && jobOptions.Value == null)
                 throw new ArgumentNullException(nameof(jobOptions), "Property is not nullable for class SubmitSingleDocParams.");
 
-            if (priority.IsSet && priority.Value == null)
-                throw new ArgumentNullException(nameof(priority), "Property is not nullable for class SubmitSingleDocParams.");
-
-            if (color.IsSet && color.Value == null)
-                throw new ArgumentNullException(nameof(color), "Property is not nullable for class SubmitSingleDocParams.");
-
             if (tags.IsSet && tags.Value == null)
                 throw new ArgumentNullException(nameof(tags), "Property is not nullable for class SubmitSingleDocParams.");
 
-            return new SubmitSingleDocParams(docSourceAll.Value!, recipientAddressSource.Value!, jobTemplate, paymentDetails, returnAddress, jobOptions, priority, color, tags);
+            return new SubmitSingleDocParams(docSourceAll.Value!, recipientAddressSource.Value!, jobTemplate, paymentDetails, returnAddress, jobOptions, tags);
         }
 
         /// <summary>
@@ -448,9 +306,6 @@ namespace C2M.Api.Model
             if (submitSingleDocParams.JobOptionsOption.IsSet && submitSingleDocParams.JobOptions == null)
                 throw new ArgumentNullException(nameof(submitSingleDocParams.JobOptions), "Property is required for class SubmitSingleDocParams.");
 
-            if (submitSingleDocParams.ColorOption.IsSet && submitSingleDocParams.Color == null)
-                throw new ArgumentNullException(nameof(submitSingleDocParams.Color), "Property is required for class SubmitSingleDocParams.");
-
             if (submitSingleDocParams.TagsOption.IsSet && submitSingleDocParams.Tags == null)
                 throw new ArgumentNullException(nameof(submitSingleDocParams.Tags), "Property is required for class SubmitSingleDocParams.");
 
@@ -476,11 +331,6 @@ namespace C2M.Api.Model
                 writer.WritePropertyName("jobOptions");
                 JsonSerializer.Serialize(writer, submitSingleDocParams.JobOptions, jsonSerializerOptions);
             }
-            var priorityRawValue = SubmitSingleDocParams.PriorityEnumToJsonValue(submitSingleDocParams.PriorityOption.Value!.Value);
-            writer.WriteString("priority", priorityRawValue);
-            if (submitSingleDocParams.ColorOption.IsSet)
-                writer.WriteString("color", submitSingleDocParams.Color);
-
             if (submitSingleDocParams.TagsOption.IsSet)
             {
                 writer.WritePropertyName("tags");

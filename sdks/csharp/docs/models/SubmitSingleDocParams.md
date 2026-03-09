@@ -10,8 +10,6 @@ Name | Type | Description | Notes
 **PaymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **ReturnAddress** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
 **JobOptions** | [**JobOptions**](JobOptions.md) |  | [optional] 
-**Priority** | **string** |  | [optional] 
-**Color** | **string** |  | [optional] 
 **Tags** | **List&lt;string&gt;** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

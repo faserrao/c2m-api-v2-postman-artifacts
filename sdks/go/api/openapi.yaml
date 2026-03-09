@@ -1494,15 +1494,6 @@ components:
           $ref: "#/components/schemas/returnAddress"
         jobOptions:
           $ref: "#/components/schemas/jobOptions"
-        priority:
-          enum:
-          - standard
-          - rush
-          - overnight
-          - Bobbu Priority
-          type: string
-        color:
-          type: string
         tags:
           items:
             type: string
@@ -1511,15 +1502,6 @@ components:
       - docSourceAll
       - recipientAddressSource
       type: object
-    priority:
-      enum:
-      - standard
-      - rush
-      - overnight
-      - Bobbu Priority
-      type: string
-    color:
-      type: string
     submitSinglePdfAddressCaptureParams:
       properties:
         jobTemplate:
@@ -1733,6 +1715,8 @@ components:
       type: string
     envelope:
       type: string
+    color:
+      type: string
     paperType:
       type: string
     printOption:
@@ -1804,6 +1788,7 @@ components:
       oneOf:
       - $ref: "#/components/schemas/recipientAddressBySingle"
       - $ref: "#/components/schemas/recipientAddressByList"
+      - $ref: "#/components/schemas/recipientAddressByAddressId"
       - $ref: "#/components/schemas/recipientAddressByListId"
     recipientAddressBySingle:
       properties:
@@ -1831,6 +1816,8 @@ components:
       type: object
     recipientAddressByListId:
       $ref: "#/components/schemas/addressListId"
+    recipientAddressByAddressId:
+      $ref: "#/components/schemas/addressId"
     mappingId:
       $ref: "#/components/schemas/id"
     addressName:
@@ -1838,6 +1825,8 @@ components:
     addressListName:
       type: string
     addressListId:
+      $ref: "#/components/schemas/id"
+    addressId:
       $ref: "#/components/schemas/id"
     singleAddress:
       $ref: "#/components/schemas/address"

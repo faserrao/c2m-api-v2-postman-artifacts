@@ -11,8 +11,6 @@ Name | Type | Description | Notes
 **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] [default to undefined]
 **returnAddress** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] [default to undefined]
 **jobOptions** | [**JobOptions**](JobOptions.md) |  | [optional] [default to undefined]
-**priority** | **string** |  | [optional] [default to undefined]
-**color** | **string** |  | [optional] [default to undefined]
 **tags** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
 
 ## Example
@@ -27,8 +25,6 @@ const instance: SubmitSingleDocParams = {
     paymentDetails,
     returnAddress,
     jobOptions,
-    priority,
-    color,
     tags,
 };
 ```

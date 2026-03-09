@@ -10,8 +10,6 @@
 | **payment_details** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] |
 | **return_address** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] |
 | **job_options** | [**JobOptions**](JobOptions.md) |  | [optional] |
-| **priority** | **String** |  | [optional] |
-| **color** | **String** |  | [optional] |
 | **tags** | **Array&lt;String&gt;** |  | [optional] |
 
 ## Example
@@ -26,8 +24,6 @@ instance = OpenapiClient::SubmitSingleDocParams.new(
   payment_details: null,
   return_address: null,
   job_options: null,
-  priority: null,
-  color: null,
   tags: null
 )
 ```

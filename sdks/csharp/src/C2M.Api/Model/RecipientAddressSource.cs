@@ -126,28 +126,6 @@ namespace C2M.Api.Model
             RecipientAddressByList? recipientAddressByList = default;
             int? varInt = default;
 
-            Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
-            while (utf8JsonReaderOneOf.Read())
-            {
-                if (startingTokenType == JsonTokenType.StartObject && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
-                    break;
-
-                if (startingTokenType == JsonTokenType.StartArray && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndArray && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
-                    break;
-
-                if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
-                {
-                    Utf8JsonReader utf8JsonReaderRecipientAddressBySingle = utf8JsonReader;
-                    ClientUtils.TryDeserialize<RecipientAddressBySingle?>(ref utf8JsonReaderRecipientAddressBySingle, jsonSerializerOptions, out recipientAddressBySingle);
-
-                    Utf8JsonReader utf8JsonReaderRecipientAddressByList = utf8JsonReader;
-                    ClientUtils.TryDeserialize<RecipientAddressByList?>(ref utf8JsonReaderRecipientAddressByList, jsonSerializerOptions, out recipientAddressByList);
-
-                    Utf8JsonReader utf8JsonReaderInt = utf8JsonReader;
-                    ClientUtils.TryDeserialize<int?>(ref utf8JsonReaderInt, jsonSerializerOptions, out varInt);
-                }
-            }
-
             while (utf8JsonReader.Read())
             {
                 if (startingTokenType == JsonTokenType.StartObject && utf8JsonReader.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReader.CurrentDepth)

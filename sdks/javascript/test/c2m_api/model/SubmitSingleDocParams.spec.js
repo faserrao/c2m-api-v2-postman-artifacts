@@ -90,18 +90,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property priority (base name: "priority")', function() {
-      // uncomment below and update the code to test the property priority
-      //var instance = new C2MApiV2.SubmitSingleDocParams();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property color (base name: "color")', function() {
-      // uncomment below and update the code to test the property color
-      //var instance = new C2MApiV2.SubmitSingleDocParams();
-      //expect(instance).to.be();
-    });
-
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
       //var instance = new C2MApiV2.SubmitSingleDocParams();
