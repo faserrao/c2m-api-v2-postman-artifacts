@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**job_template** | **string** |  | [optional]
 **start_page** | **int** |  |
 **end_page** | **int** |  |
 **recipient_address_source** | [**\C2MApi\Model\RecipientAddressSource**](RecipientAddressSource.md) |  |

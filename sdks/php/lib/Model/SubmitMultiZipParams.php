@@ -57,7 +57,7 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'job_template' => 'string',
+        'doc_source_zip_file_ref' => '\C2MApi\Model\DocSourceZipFileRef',
         'multi_zip_jobs' => '\C2MApi\Model\MultiZipJobItem[]',
         'payment_details' => '\C2MApi\Model\PaymentDetails',
         'tags' => 'string[]'
@@ -71,7 +71,7 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'job_template' => null,
+        'doc_source_zip_file_ref' => null,
         'multi_zip_jobs' => null,
         'payment_details' => null,
         'tags' => null
@@ -83,7 +83,7 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'job_template' => false,
+        'doc_source_zip_file_ref' => false,
         'multi_zip_jobs' => false,
         'payment_details' => false,
         'tags' => false
@@ -175,7 +175,7 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'job_template' => 'jobTemplate',
+        'doc_source_zip_file_ref' => 'docSourceZipFileRef',
         'multi_zip_jobs' => 'multiZipJobs',
         'payment_details' => 'paymentDetails',
         'tags' => 'tags'
@@ -187,7 +187,7 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'job_template' => 'setJobTemplate',
+        'doc_source_zip_file_ref' => 'setDocSourceZipFileRef',
         'multi_zip_jobs' => 'setMultiZipJobs',
         'payment_details' => 'setPaymentDetails',
         'tags' => 'setTags'
@@ -199,7 +199,7 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'job_template' => 'getJobTemplate',
+        'doc_source_zip_file_ref' => 'getDocSourceZipFileRef',
         'multi_zip_jobs' => 'getMultiZipJobs',
         'payment_details' => 'getPaymentDetails',
         'tags' => 'getTags'
@@ -262,7 +262,7 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('job_template', $data ?? [], null);
+        $this->setIfExists('doc_source_zip_file_ref', $data ?? [], null);
         $this->setIfExists('multi_zip_jobs', $data ?? [], null);
         $this->setIfExists('payment_details', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
@@ -295,6 +295,9 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
+        if ($this->container['doc_source_zip_file_ref'] === null) {
+            $invalidProperties[] = "'doc_source_zip_file_ref' can't be null";
+        }
         if ($this->container['multi_zip_jobs'] === null) {
             $invalidProperties[] = "'multi_zip_jobs' can't be null";
         }
@@ -314,28 +317,28 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets job_template
+     * Gets doc_source_zip_file_ref
      *
-     * @return string|null
+     * @return \C2MApi\Model\DocSourceZipFileRef
      */
-    public function getJobTemplate()
+    public function getDocSourceZipFileRef()
     {
-        return $this->container['job_template'];
+        return $this->container['doc_source_zip_file_ref'];
     }
 
     /**
-     * Sets job_template
+     * Sets doc_source_zip_file_ref
      *
-     * @param string|null $job_template job_template
+     * @param \C2MApi\Model\DocSourceZipFileRef $doc_source_zip_file_ref doc_source_zip_file_ref
      *
      * @return self
      */
-    public function setJobTemplate($job_template)
+    public function setDocSourceZipFileRef($doc_source_zip_file_ref)
     {
-        if (is_null($job_template)) {
-            throw new \InvalidArgumentException('non-nullable job_template cannot be null');
+        if (is_null($doc_source_zip_file_ref)) {
+            throw new \InvalidArgumentException('non-nullable doc_source_zip_file_ref cannot be null');
         }
-        $this->container['job_template'] = $job_template;
+        $this->container['doc_source_zip_file_ref'] = $doc_source_zip_file_ref;
 
         return $this;
     }

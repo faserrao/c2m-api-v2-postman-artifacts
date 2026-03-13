@@ -7,6 +7,7 @@
 | **startPage** | **kotlin.Int** |  |  |
 | **endPage** | **kotlin.Int** |  |  |
 | **recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  |  |
+| **jobTemplate** | **kotlin.String** |  |  [optional] |
 
 
 

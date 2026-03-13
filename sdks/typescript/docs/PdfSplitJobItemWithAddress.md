@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**jobTemplate** | **string** |  | [optional] [default to undefined]
 **startPage** | **number** |  | [default to undefined]
 **endPage** | **number** |  | [default to undefined]
 **recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | [default to undefined]
@@ -15,6 +16,7 @@ Name | Type | Description | Notes
 import { PdfSplitJobItemWithAddress } from './api';
 
 const instance: PdfSplitJobItemWithAddress = {
+    jobTemplate,
     startPage,
     endPage,
     recipientAddressSource,

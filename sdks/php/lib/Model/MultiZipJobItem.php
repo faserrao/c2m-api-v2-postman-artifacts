@@ -58,7 +58,7 @@ class MultiZipJobItem implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'job_template' => 'string',
-        'doc_source_zip_file' => '\C2MApi\Model\DocSourceZipFile',
+        'filename' => 'string',
         'recipient_address_source' => '\C2MApi\Model\RecipientAddressSource'
     ];
 
@@ -71,7 +71,7 @@ class MultiZipJobItem implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'job_template' => null,
-        'doc_source_zip_file' => null,
+        'filename' => null,
         'recipient_address_source' => null
     ];
 
@@ -82,7 +82,7 @@ class MultiZipJobItem implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'job_template' => false,
-        'doc_source_zip_file' => false,
+        'filename' => false,
         'recipient_address_source' => false
     ];
 
@@ -173,7 +173,7 @@ class MultiZipJobItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'job_template' => 'jobTemplate',
-        'doc_source_zip_file' => 'docSourceZipFile',
+        'filename' => 'filename',
         'recipient_address_source' => 'recipientAddressSource'
     ];
 
@@ -184,7 +184,7 @@ class MultiZipJobItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'job_template' => 'setJobTemplate',
-        'doc_source_zip_file' => 'setDocSourceZipFile',
+        'filename' => 'setFilename',
         'recipient_address_source' => 'setRecipientAddressSource'
     ];
 
@@ -195,7 +195,7 @@ class MultiZipJobItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'job_template' => 'getJobTemplate',
-        'doc_source_zip_file' => 'getDocSourceZipFile',
+        'filename' => 'getFilename',
         'recipient_address_source' => 'getRecipientAddressSource'
     ];
 
@@ -257,7 +257,7 @@ class MultiZipJobItem implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('job_template', $data ?? [], null);
-        $this->setIfExists('doc_source_zip_file', $data ?? [], null);
+        $this->setIfExists('filename', $data ?? [], null);
         $this->setIfExists('recipient_address_source', $data ?? [], null);
     }
 
@@ -288,8 +288,8 @@ class MultiZipJobItem implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['doc_source_zip_file'] === null) {
-            $invalidProperties[] = "'doc_source_zip_file' can't be null";
+        if ($this->container['filename'] === null) {
+            $invalidProperties[] = "'filename' can't be null";
         }
         if ($this->container['recipient_address_source'] === null) {
             $invalidProperties[] = "'recipient_address_source' can't be null";
@@ -337,28 +337,28 @@ class MultiZipJobItem implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets doc_source_zip_file
+     * Gets filename
      *
-     * @return \C2MApi\Model\DocSourceZipFile
+     * @return string
      */
-    public function getDocSourceZipFile()
+    public function getFilename()
     {
-        return $this->container['doc_source_zip_file'];
+        return $this->container['filename'];
     }
 
     /**
-     * Sets doc_source_zip_file
+     * Sets filename
      *
-     * @param \C2MApi\Model\DocSourceZipFile $doc_source_zip_file doc_source_zip_file
+     * @param string $filename filename
      *
      * @return self
      */
-    public function setDocSourceZipFile($doc_source_zip_file)
+    public function setFilename($filename)
     {
-        if (is_null($doc_source_zip_file)) {
-            throw new \InvalidArgumentException('non-nullable doc_source_zip_file cannot be null');
+        if (is_null($filename)) {
+            throw new \InvalidArgumentException('non-nullable filename cannot be null');
         }
-        $this->container['doc_source_zip_file'] = $doc_source_zip_file;
+        $this->container['filename'] = $filename;
 
         return $this;
     }

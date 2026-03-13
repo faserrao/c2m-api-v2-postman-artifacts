@@ -13,18 +13,18 @@ import AnyCodable
 public struct MultiZipJobItem: Codable, JSONEncodable, Hashable {
 
     public var jobTemplate: String?
-    public var docSourceZipFile: DocSourceZipFile
+    public var filename: String
     public var recipientAddressSource: RecipientAddressSource
 
-    public init(jobTemplate: String? = nil, docSourceZipFile: DocSourceZipFile, recipientAddressSource: RecipientAddressSource) {
+    public init(jobTemplate: String? = nil, filename: String, recipientAddressSource: RecipientAddressSource) {
         self.jobTemplate = jobTemplate
-        self.docSourceZipFile = docSourceZipFile
+        self.filename = filename
         self.recipientAddressSource = recipientAddressSource
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case jobTemplate
-        case docSourceZipFile
+        case filename
         case recipientAddressSource
     }
 
@@ -33,7 +33,7 @@ public struct MultiZipJobItem: Codable, JSONEncodable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(jobTemplate, forKey: .jobTemplate)
-        try container.encode(docSourceZipFile, forKey: .docSourceZipFile)
+        try container.encode(filename, forKey: .filename)
         try container.encode(recipientAddressSource, forKey: .recipientAddressSource)
     }
 }

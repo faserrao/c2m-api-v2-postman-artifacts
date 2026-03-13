@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SubmitSinglePdfSplitParams {
-    #[serde(rename = "jobTemplate", skip_serializing_if = "Option::is_none")]
-    pub job_template: Option<String>,
     #[serde(rename = "docSourceStandard")]
     pub doc_source_standard: Box<models::DocSourceStandard>,
     #[serde(rename = "pdfSplitJobsWithAddress")]
@@ -32,7 +30,6 @@ pub struct SubmitSinglePdfSplitParams {
 impl SubmitSinglePdfSplitParams {
     pub fn new(doc_source_standard: models::DocSourceStandard, pdf_split_jobs_with_address: Vec<models::PdfSplitJobItemWithAddress>) -> SubmitSinglePdfSplitParams {
         SubmitSinglePdfSplitParams {
-            job_template: None,
             doc_source_standard: Box::new(doc_source_standard),
             pdf_split_jobs_with_address,
             payment_details: None,

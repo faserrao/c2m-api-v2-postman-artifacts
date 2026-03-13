@@ -33,15 +33,15 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubmitMultiZipParams" /> class.
         /// </summary>
+        /// <param name="docSourceZipFileRef">docSourceZipFileRef</param>
         /// <param name="multiZipJobs">multiZipJobs</param>
-        /// <param name="jobTemplate">jobTemplate</param>
         /// <param name="paymentDetails">paymentDetails</param>
         /// <param name="tags">tags</param>
         [JsonConstructor]
-        public SubmitMultiZipParams(List<MultiZipJobItem> multiZipJobs, Option<string?> jobTemplate = default, Option<PaymentDetails?> paymentDetails = default, Option<List<string>?> tags = default)
+        public SubmitMultiZipParams(DocSourceZipFileRef docSourceZipFileRef, List<MultiZipJobItem> multiZipJobs, Option<PaymentDetails?> paymentDetails = default, Option<List<string>?> tags = default)
         {
+            DocSourceZipFileRef = docSourceZipFileRef;
             MultiZipJobs = multiZipJobs;
-            JobTemplateOption = jobTemplate;
             PaymentDetailsOption = paymentDetails;
             TagsOption = tags;
             OnCreated();
@@ -50,23 +50,16 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
+        /// Gets or Sets DocSourceZipFileRef
+        /// </summary>
+        [JsonPropertyName("docSourceZipFileRef")]
+        public DocSourceZipFileRef DocSourceZipFileRef { get; set; }
+
+        /// <summary>
         /// Gets or Sets MultiZipJobs
         /// </summary>
         [JsonPropertyName("multiZipJobs")]
         public List<MultiZipJobItem> MultiZipJobs { get; set; }
-
-        /// <summary>
-        /// Used to track the state of JobTemplate
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<string?> JobTemplateOption { get; private set; }
-
-        /// <summary>
-        /// Gets or Sets JobTemplate
-        /// </summary>
-        [JsonPropertyName("jobTemplate")]
-        public string? JobTemplate { get { return this.JobTemplateOption; } set { this.JobTemplateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PaymentDetails
@@ -102,8 +95,8 @@ namespace C2M.Api.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SubmitMultiZipParams {\n");
+            sb.Append("  DocSourceZipFileRef: ").Append(DocSourceZipFileRef).Append("\n");
             sb.Append("  MultiZipJobs: ").Append(MultiZipJobs).Append("\n");
-            sb.Append("  JobTemplate: ").Append(JobTemplate).Append("\n");
             sb.Append("  PaymentDetails: ").Append(PaymentDetails).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("}\n");
@@ -143,8 +136,8 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
+            Option<DocSourceZipFileRef?> docSourceZipFileRef = default;
             Option<List<MultiZipJobItem>?> multiZipJobs = default;
-            Option<string?> jobTemplate = default;
             Option<PaymentDetails?> paymentDetails = default;
             Option<List<string>?> tags = default;
 
@@ -163,11 +156,11 @@ namespace C2M.Api.Model
 
                     switch (localVarJsonPropertyName)
                     {
+                        case "docSourceZipFileRef":
+                            docSourceZipFileRef = new Option<DocSourceZipFileRef?>(JsonSerializer.Deserialize<DocSourceZipFileRef>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
                         case "multiZipJobs":
                             multiZipJobs = new Option<List<MultiZipJobItem>?>(JsonSerializer.Deserialize<List<MultiZipJobItem>>(ref utf8JsonReader, jsonSerializerOptions)!);
-                            break;
-                        case "jobTemplate":
-                            jobTemplate = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "paymentDetails":
                             paymentDetails = new Option<PaymentDetails?>(JsonSerializer.Deserialize<PaymentDetails>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -181,14 +174,17 @@ namespace C2M.Api.Model
                 }
             }
 
+            if (!docSourceZipFileRef.IsSet)
+                throw new ArgumentException("Property is required for class SubmitMultiZipParams.", nameof(docSourceZipFileRef));
+
             if (!multiZipJobs.IsSet)
                 throw new ArgumentException("Property is required for class SubmitMultiZipParams.", nameof(multiZipJobs));
 
+            if (docSourceZipFileRef.IsSet && docSourceZipFileRef.Value == null)
+                throw new ArgumentNullException(nameof(docSourceZipFileRef), "Property is not nullable for class SubmitMultiZipParams.");
+
             if (multiZipJobs.IsSet && multiZipJobs.Value == null)
                 throw new ArgumentNullException(nameof(multiZipJobs), "Property is not nullable for class SubmitMultiZipParams.");
-
-            if (jobTemplate.IsSet && jobTemplate.Value == null)
-                throw new ArgumentNullException(nameof(jobTemplate), "Property is not nullable for class SubmitMultiZipParams.");
 
             if (paymentDetails.IsSet && paymentDetails.Value == null)
                 throw new ArgumentNullException(nameof(paymentDetails), "Property is not nullable for class SubmitMultiZipParams.");
@@ -196,7 +192,7 @@ namespace C2M.Api.Model
             if (tags.IsSet && tags.Value == null)
                 throw new ArgumentNullException(nameof(tags), "Property is not nullable for class SubmitMultiZipParams.");
 
-            return new SubmitMultiZipParams(multiZipJobs.Value!, jobTemplate, paymentDetails, tags);
+            return new SubmitMultiZipParams(docSourceZipFileRef.Value!, multiZipJobs.Value!, paymentDetails, tags);
         }
 
         /// <summary>
@@ -223,11 +219,11 @@ namespace C2M.Api.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, SubmitMultiZipParams submitMultiZipParams, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (submitMultiZipParams.DocSourceZipFileRef == null)
+                throw new ArgumentNullException(nameof(submitMultiZipParams.DocSourceZipFileRef), "Property is required for class SubmitMultiZipParams.");
+
             if (submitMultiZipParams.MultiZipJobs == null)
                 throw new ArgumentNullException(nameof(submitMultiZipParams.MultiZipJobs), "Property is required for class SubmitMultiZipParams.");
-
-            if (submitMultiZipParams.JobTemplateOption.IsSet && submitMultiZipParams.JobTemplate == null)
-                throw new ArgumentNullException(nameof(submitMultiZipParams.JobTemplate), "Property is required for class SubmitMultiZipParams.");
 
             if (submitMultiZipParams.PaymentDetailsOption.IsSet && submitMultiZipParams.PaymentDetails == null)
                 throw new ArgumentNullException(nameof(submitMultiZipParams.PaymentDetails), "Property is required for class SubmitMultiZipParams.");
@@ -235,11 +231,10 @@ namespace C2M.Api.Model
             if (submitMultiZipParams.TagsOption.IsSet && submitMultiZipParams.Tags == null)
                 throw new ArgumentNullException(nameof(submitMultiZipParams.Tags), "Property is required for class SubmitMultiZipParams.");
 
+            writer.WritePropertyName("docSourceZipFileRef");
+            JsonSerializer.Serialize(writer, submitMultiZipParams.DocSourceZipFileRef, jsonSerializerOptions);
             writer.WritePropertyName("multiZipJobs");
             JsonSerializer.Serialize(writer, submitMultiZipParams.MultiZipJobs, jsonSerializerOptions);
-            if (submitMultiZipParams.JobTemplateOption.IsSet)
-                writer.WriteString("jobTemplate", submitMultiZipParams.JobTemplate);
-
             if (submitMultiZipParams.PaymentDetailsOption.IsSet)
             {
                 writer.WritePropertyName("paymentDetails");

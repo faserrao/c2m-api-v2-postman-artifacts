@@ -41,6 +41,7 @@ __all__ = [
     "DocSourceAll",
     "DocSourceStandard",
     "DocSourceZipFile",
+    "DocSourceZipFileRef",
     "ErrorCode",
     "ErrorResponse",
     "ErrorType",
@@ -108,6 +109,7 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.doc_source_all import DocSourceAll as DocSourceAll
     from c2m_api.models.doc_source_standard import DocSourceStandard as DocSourceStandard
     from c2m_api.models.doc_source_zip_file import DocSourceZipFile as DocSourceZipFile
+    from c2m_api.models.doc_source_zip_file_ref import DocSourceZipFileRef as DocSourceZipFileRef
     from c2m_api.models.error_code import ErrorCode as ErrorCode
     from c2m_api.models.error_response import ErrorResponse as ErrorResponse
     from c2m_api.models.error_type import ErrorType as ErrorType
@@ -181,6 +183,7 @@ from c2m_api.models.currency import Currency as Currency
 from c2m_api.models.doc_source_all import DocSourceAll as DocSourceAll
 from c2m_api.models.doc_source_standard import DocSourceStandard as DocSourceStandard
 from c2m_api.models.doc_source_zip_file import DocSourceZipFile as DocSourceZipFile
+from c2m_api.models.doc_source_zip_file_ref import DocSourceZipFileRef as DocSourceZipFileRef
 from c2m_api.models.error_code import ErrorCode as ErrorCode
 from c2m_api.models.error_response import ErrorResponse as ErrorResponse
 from c2m_api.models.error_type import ErrorType as ErrorType

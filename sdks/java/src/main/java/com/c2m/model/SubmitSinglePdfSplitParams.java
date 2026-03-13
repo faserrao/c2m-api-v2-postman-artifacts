@@ -55,13 +55,8 @@ import com.c2m.JSON;
 /**
  * SubmitSinglePdfSplitParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T04:24:52.999886442Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T09:08:02.663411638Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class SubmitSinglePdfSplitParams {
-  public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
-  @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)
-  @javax.annotation.Nullable
-  private String jobTemplate;
-
   public static final String SERIALIZED_NAME_DOC_SOURCE_STANDARD = "docSourceStandard";
   @SerializedName(SERIALIZED_NAME_DOC_SOURCE_STANDARD)
   @javax.annotation.Nonnull
@@ -94,25 +89,6 @@ public class SubmitSinglePdfSplitParams {
 
   public SubmitSinglePdfSplitParams() {
   }
-
-  public SubmitSinglePdfSplitParams jobTemplate(@javax.annotation.Nullable String jobTemplate) {
-    this.jobTemplate = jobTemplate;
-    return this;
-  }
-
-  /**
-   * Get jobTemplate
-   * @return jobTemplate
-   */
-  @javax.annotation.Nullable
-  public String getJobTemplate() {
-    return jobTemplate;
-  }
-
-  public void setJobTemplate(@javax.annotation.Nullable String jobTemplate) {
-    this.jobTemplate = jobTemplate;
-  }
-
 
   public SubmitSinglePdfSplitParams docSourceStandard(@javax.annotation.Nonnull DocSourceStandard docSourceStandard) {
     this.docSourceStandard = docSourceStandard;
@@ -254,8 +230,7 @@ public class SubmitSinglePdfSplitParams {
       return false;
     }
     SubmitSinglePdfSplitParams submitSinglePdfSplitParams = (SubmitSinglePdfSplitParams) o;
-    return Objects.equals(this.jobTemplate, submitSinglePdfSplitParams.jobTemplate) &&
-        Objects.equals(this.docSourceStandard, submitSinglePdfSplitParams.docSourceStandard) &&
+    return Objects.equals(this.docSourceStandard, submitSinglePdfSplitParams.docSourceStandard) &&
         Objects.equals(this.pdfSplitJobsWithAddress, submitSinglePdfSplitParams.pdfSplitJobsWithAddress) &&
         Objects.equals(this.paymentDetails, submitSinglePdfSplitParams.paymentDetails) &&
         Objects.equals(this.returnAddress, submitSinglePdfSplitParams.returnAddress) &&
@@ -265,14 +240,13 @@ public class SubmitSinglePdfSplitParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(jobTemplate, docSourceStandard, pdfSplitJobsWithAddress, paymentDetails, returnAddress, jobOptions, tags);
+    return Objects.hash(docSourceStandard, pdfSplitJobsWithAddress, paymentDetails, returnAddress, jobOptions, tags);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubmitSinglePdfSplitParams {\n");
-    sb.append("    jobTemplate: ").append(toIndentedString(jobTemplate)).append("\n");
     sb.append("    docSourceStandard: ").append(toIndentedString(docSourceStandard)).append("\n");
     sb.append("    pdfSplitJobsWithAddress: ").append(toIndentedString(pdfSplitJobsWithAddress)).append("\n");
     sb.append("    paymentDetails: ").append(toIndentedString(paymentDetails)).append("\n");
@@ -300,7 +274,7 @@ public class SubmitSinglePdfSplitParams {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("jobTemplate", "docSourceStandard", "pdfSplitJobsWithAddress", "paymentDetails", "returnAddress", "jobOptions", "tags"));
+    openapiFields = new HashSet<String>(Arrays.asList("docSourceStandard", "pdfSplitJobsWithAddress", "paymentDetails", "returnAddress", "jobOptions", "tags"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("docSourceStandard", "pdfSplitJobsWithAddress"));
@@ -334,9 +308,6 @@ public class SubmitSinglePdfSplitParams {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("jobTemplate") != null && !jsonObj.get("jobTemplate").isJsonNull()) && !jsonObj.get("jobTemplate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `jobTemplate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jobTemplate").toString()));
-      }
       // validate the required field `docSourceStandard`
       DocSourceStandard.validateJsonElement(jsonObj.get("docSourceStandard"));
       // ensure the json data is an array

@@ -33,13 +33,13 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiZipJobItem" /> class.
         /// </summary>
-        /// <param name="docSourceZipFile">docSourceZipFile</param>
+        /// <param name="filename">filename</param>
         /// <param name="recipientAddressSource">recipientAddressSource</param>
         /// <param name="jobTemplate">jobTemplate</param>
         [JsonConstructor]
-        public MultiZipJobItem(DocSourceZipFile docSourceZipFile, RecipientAddressSource recipientAddressSource, Option<string?> jobTemplate = default)
+        public MultiZipJobItem(string filename, RecipientAddressSource recipientAddressSource, Option<string?> jobTemplate = default)
         {
-            DocSourceZipFile = docSourceZipFile;
+            Filename = filename;
             RecipientAddressSource = recipientAddressSource;
             JobTemplateOption = jobTemplate;
             OnCreated();
@@ -48,10 +48,10 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets DocSourceZipFile
+        /// Gets or Sets Filename
         /// </summary>
-        [JsonPropertyName("docSourceZipFile")]
-        public DocSourceZipFile DocSourceZipFile { get; set; }
+        [JsonPropertyName("filename")]
+        public string Filename { get; set; }
 
         /// <summary>
         /// Gets or Sets RecipientAddressSource
@@ -80,7 +80,7 @@ namespace C2M.Api.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class MultiZipJobItem {\n");
-            sb.Append("  DocSourceZipFile: ").Append(DocSourceZipFile).Append("\n");
+            sb.Append("  Filename: ").Append(Filename).Append("\n");
             sb.Append("  RecipientAddressSource: ").Append(RecipientAddressSource).Append("\n");
             sb.Append("  JobTemplate: ").Append(JobTemplate).Append("\n");
             sb.Append("}\n");
@@ -120,7 +120,7 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<DocSourceZipFile?> docSourceZipFile = default;
+            Option<string?> filename = default;
             Option<RecipientAddressSource?> recipientAddressSource = default;
             Option<string?> jobTemplate = default;
 
@@ -139,8 +139,8 @@ namespace C2M.Api.Model
 
                     switch (localVarJsonPropertyName)
                     {
-                        case "docSourceZipFile":
-                            docSourceZipFile = new Option<DocSourceZipFile?>(JsonSerializer.Deserialize<DocSourceZipFile>(ref utf8JsonReader, jsonSerializerOptions)!);
+                        case "filename":
+                            filename = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "recipientAddressSource":
                             recipientAddressSource = new Option<RecipientAddressSource?>(JsonSerializer.Deserialize<RecipientAddressSource>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -154,14 +154,14 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (!docSourceZipFile.IsSet)
-                throw new ArgumentException("Property is required for class MultiZipJobItem.", nameof(docSourceZipFile));
+            if (!filename.IsSet)
+                throw new ArgumentException("Property is required for class MultiZipJobItem.", nameof(filename));
 
             if (!recipientAddressSource.IsSet)
                 throw new ArgumentException("Property is required for class MultiZipJobItem.", nameof(recipientAddressSource));
 
-            if (docSourceZipFile.IsSet && docSourceZipFile.Value == null)
-                throw new ArgumentNullException(nameof(docSourceZipFile), "Property is not nullable for class MultiZipJobItem.");
+            if (filename.IsSet && filename.Value == null)
+                throw new ArgumentNullException(nameof(filename), "Property is not nullable for class MultiZipJobItem.");
 
             if (recipientAddressSource.IsSet && recipientAddressSource.Value == null)
                 throw new ArgumentNullException(nameof(recipientAddressSource), "Property is not nullable for class MultiZipJobItem.");
@@ -169,7 +169,7 @@ namespace C2M.Api.Model
             if (jobTemplate.IsSet && jobTemplate.Value == null)
                 throw new ArgumentNullException(nameof(jobTemplate), "Property is not nullable for class MultiZipJobItem.");
 
-            return new MultiZipJobItem(docSourceZipFile.Value!, recipientAddressSource.Value!, jobTemplate);
+            return new MultiZipJobItem(filename.Value!, recipientAddressSource.Value!, jobTemplate);
         }
 
         /// <summary>
@@ -196,8 +196,8 @@ namespace C2M.Api.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, MultiZipJobItem multiZipJobItem, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (multiZipJobItem.DocSourceZipFile == null)
-                throw new ArgumentNullException(nameof(multiZipJobItem.DocSourceZipFile), "Property is required for class MultiZipJobItem.");
+            if (multiZipJobItem.Filename == null)
+                throw new ArgumentNullException(nameof(multiZipJobItem.Filename), "Property is required for class MultiZipJobItem.");
 
             if (multiZipJobItem.RecipientAddressSource == null)
                 throw new ArgumentNullException(nameof(multiZipJobItem.RecipientAddressSource), "Property is required for class MultiZipJobItem.");
@@ -205,8 +205,8 @@ namespace C2M.Api.Model
             if (multiZipJobItem.JobTemplateOption.IsSet && multiZipJobItem.JobTemplate == null)
                 throw new ArgumentNullException(nameof(multiZipJobItem.JobTemplate), "Property is required for class MultiZipJobItem.");
 
-            writer.WritePropertyName("docSourceZipFile");
-            JsonSerializer.Serialize(writer, multiZipJobItem.DocSourceZipFile, jsonSerializerOptions);
+            writer.WriteString("filename", multiZipJobItem.Filename);
+
             writer.WritePropertyName("recipientAddressSource");
             JsonSerializer.Serialize(writer, multiZipJobItem.RecipientAddressSource, jsonSerializerOptions);
             if (multiZipJobItem.JobTemplateOption.IsSet)

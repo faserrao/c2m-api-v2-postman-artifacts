@@ -35,17 +35,15 @@ namespace C2M.Api.Model
         /// </summary>
         /// <param name="docSourceStandard">docSourceStandard</param>
         /// <param name="pdfSplitJobsWithAddress">pdfSplitJobsWithAddress</param>
-        /// <param name="jobTemplate">jobTemplate</param>
         /// <param name="paymentDetails">paymentDetails</param>
         /// <param name="returnAddress">returnAddress</param>
         /// <param name="jobOptions">jobOptions</param>
         /// <param name="tags">tags</param>
         [JsonConstructor]
-        public SubmitSinglePdfSplitParams(DocSourceStandard docSourceStandard, List<PdfSplitJobItemWithAddress> pdfSplitJobsWithAddress, Option<string?> jobTemplate = default, Option<PaymentDetails?> paymentDetails = default, Option<ReturnAddress?> returnAddress = default, Option<JobOptions?> jobOptions = default, Option<List<string>?> tags = default)
+        public SubmitSinglePdfSplitParams(DocSourceStandard docSourceStandard, List<PdfSplitJobItemWithAddress> pdfSplitJobsWithAddress, Option<PaymentDetails?> paymentDetails = default, Option<ReturnAddress?> returnAddress = default, Option<JobOptions?> jobOptions = default, Option<List<string>?> tags = default)
         {
             DocSourceStandard = docSourceStandard;
             PdfSplitJobsWithAddress = pdfSplitJobsWithAddress;
-            JobTemplateOption = jobTemplate;
             PaymentDetailsOption = paymentDetails;
             ReturnAddressOption = returnAddress;
             JobOptionsOption = jobOptions;
@@ -66,19 +64,6 @@ namespace C2M.Api.Model
         /// </summary>
         [JsonPropertyName("pdfSplitJobsWithAddress")]
         public List<PdfSplitJobItemWithAddress> PdfSplitJobsWithAddress { get; set; }
-
-        /// <summary>
-        /// Used to track the state of JobTemplate
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<string?> JobTemplateOption { get; private set; }
-
-        /// <summary>
-        /// Gets or Sets JobTemplate
-        /// </summary>
-        [JsonPropertyName("jobTemplate")]
-        public string? JobTemplate { get { return this.JobTemplateOption; } set { this.JobTemplateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PaymentDetails
@@ -142,7 +127,6 @@ namespace C2M.Api.Model
             sb.Append("class SubmitSinglePdfSplitParams {\n");
             sb.Append("  DocSourceStandard: ").Append(DocSourceStandard).Append("\n");
             sb.Append("  PdfSplitJobsWithAddress: ").Append(PdfSplitJobsWithAddress).Append("\n");
-            sb.Append("  JobTemplate: ").Append(JobTemplate).Append("\n");
             sb.Append("  PaymentDetails: ").Append(PaymentDetails).Append("\n");
             sb.Append("  ReturnAddress: ").Append(ReturnAddress).Append("\n");
             sb.Append("  JobOptions: ").Append(JobOptions).Append("\n");
@@ -186,7 +170,6 @@ namespace C2M.Api.Model
 
             Option<DocSourceStandard?> docSourceStandard = default;
             Option<List<PdfSplitJobItemWithAddress>?> pdfSplitJobsWithAddress = default;
-            Option<string?> jobTemplate = default;
             Option<PaymentDetails?> paymentDetails = default;
             Option<ReturnAddress?> returnAddress = default;
             Option<JobOptions?> jobOptions = default;
@@ -212,9 +195,6 @@ namespace C2M.Api.Model
                             break;
                         case "pdfSplitJobsWithAddress":
                             pdfSplitJobsWithAddress = new Option<List<PdfSplitJobItemWithAddress>?>(JsonSerializer.Deserialize<List<PdfSplitJobItemWithAddress>>(ref utf8JsonReader, jsonSerializerOptions)!);
-                            break;
-                        case "jobTemplate":
-                            jobTemplate = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "paymentDetails":
                             paymentDetails = new Option<PaymentDetails?>(JsonSerializer.Deserialize<PaymentDetails>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -246,9 +226,6 @@ namespace C2M.Api.Model
             if (pdfSplitJobsWithAddress.IsSet && pdfSplitJobsWithAddress.Value == null)
                 throw new ArgumentNullException(nameof(pdfSplitJobsWithAddress), "Property is not nullable for class SubmitSinglePdfSplitParams.");
 
-            if (jobTemplate.IsSet && jobTemplate.Value == null)
-                throw new ArgumentNullException(nameof(jobTemplate), "Property is not nullable for class SubmitSinglePdfSplitParams.");
-
             if (paymentDetails.IsSet && paymentDetails.Value == null)
                 throw new ArgumentNullException(nameof(paymentDetails), "Property is not nullable for class SubmitSinglePdfSplitParams.");
 
@@ -261,7 +238,7 @@ namespace C2M.Api.Model
             if (tags.IsSet && tags.Value == null)
                 throw new ArgumentNullException(nameof(tags), "Property is not nullable for class SubmitSinglePdfSplitParams.");
 
-            return new SubmitSinglePdfSplitParams(docSourceStandard.Value!, pdfSplitJobsWithAddress.Value!, jobTemplate, paymentDetails, returnAddress, jobOptions, tags);
+            return new SubmitSinglePdfSplitParams(docSourceStandard.Value!, pdfSplitJobsWithAddress.Value!, paymentDetails, returnAddress, jobOptions, tags);
         }
 
         /// <summary>
@@ -294,9 +271,6 @@ namespace C2M.Api.Model
             if (submitSinglePdfSplitParams.PdfSplitJobsWithAddress == null)
                 throw new ArgumentNullException(nameof(submitSinglePdfSplitParams.PdfSplitJobsWithAddress), "Property is required for class SubmitSinglePdfSplitParams.");
 
-            if (submitSinglePdfSplitParams.JobTemplateOption.IsSet && submitSinglePdfSplitParams.JobTemplate == null)
-                throw new ArgumentNullException(nameof(submitSinglePdfSplitParams.JobTemplate), "Property is required for class SubmitSinglePdfSplitParams.");
-
             if (submitSinglePdfSplitParams.PaymentDetailsOption.IsSet && submitSinglePdfSplitParams.PaymentDetails == null)
                 throw new ArgumentNullException(nameof(submitSinglePdfSplitParams.PaymentDetails), "Property is required for class SubmitSinglePdfSplitParams.");
 
@@ -313,9 +287,6 @@ namespace C2M.Api.Model
             JsonSerializer.Serialize(writer, submitSinglePdfSplitParams.DocSourceStandard, jsonSerializerOptions);
             writer.WritePropertyName("pdfSplitJobsWithAddress");
             JsonSerializer.Serialize(writer, submitSinglePdfSplitParams.PdfSplitJobsWithAddress, jsonSerializerOptions);
-            if (submitSinglePdfSplitParams.JobTemplateOption.IsSet)
-                writer.WriteString("jobTemplate", submitSinglePdfSplitParams.JobTemplate);
-
             if (submitSinglePdfSplitParams.PaymentDetailsOption.IsSet)
             {
                 writer.WritePropertyName("paymentDetails");

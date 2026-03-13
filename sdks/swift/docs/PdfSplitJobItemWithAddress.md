@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**jobTemplate** | **String** |  | [optional] 
 **startPage** | **Int** |  | 
 **endPage** | **Int** |  | 
 **recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 

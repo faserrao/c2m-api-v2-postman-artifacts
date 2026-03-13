@@ -33,7 +33,7 @@ describe OpenapiClient::MultiZipJobItem do
     end
   end
 
-  describe 'test attribute "doc_source_zip_file"' do
+  describe 'test attribute "filename"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

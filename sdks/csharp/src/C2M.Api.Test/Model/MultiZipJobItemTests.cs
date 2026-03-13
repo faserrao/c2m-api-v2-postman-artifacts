@@ -54,12 +54,12 @@ namespace C2M.Api.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'DocSourceZipFile'
+        /// Test the property 'Filename'
         /// </summary>
         [Fact]
-        public void DocSourceZipFileTest()
+        public void FilenameTest()
         {
-            // TODO unit test for the property 'DocSourceZipFile'
+            // TODO unit test for the property 'Filename'
         }
 
         /// <summary>

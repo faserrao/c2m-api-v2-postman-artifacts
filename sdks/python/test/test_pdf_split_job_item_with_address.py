@@ -35,6 +35,7 @@ class TestPdfSplitJobItemWithAddress(unittest.TestCase):
         model = PdfSplitJobItemWithAddress()
         if include_optional:
             return PdfSplitJobItemWithAddress(
+                job_template = '',
                 start_page = 56,
                 end_page = 56,
                 recipient_address_source = None

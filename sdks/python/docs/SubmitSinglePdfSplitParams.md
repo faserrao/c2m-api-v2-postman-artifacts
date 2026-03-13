@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**job_template** | **str** |  | [optional] 
 **doc_source_standard** | [**DocSourceStandard**](DocSourceStandard.md) |  | 
 **pdf_split_jobs_with_address** | [**List[PdfSplitJobItemWithAddress]**](PdfSplitJobItemWithAddress.md) |  | 
 **payment_details** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 

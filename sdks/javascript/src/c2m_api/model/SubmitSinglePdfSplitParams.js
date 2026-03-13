@@ -56,9 +56,6 @@ class SubmitSinglePdfSplitParams {
         if (data) {
             obj = obj || new SubmitSinglePdfSplitParams();
 
-            if (data.hasOwnProperty('jobTemplate')) {
-                obj['jobTemplate'] = ApiClient.convertToType(data['jobTemplate'], 'String');
-            }
             if (data.hasOwnProperty('docSourceStandard')) {
                 obj['docSourceStandard'] = DocSourceStandard.constructFromObject(data['docSourceStandard']);
             }
@@ -92,10 +89,6 @@ class SubmitSinglePdfSplitParams {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
-        }
-        // ensure the json data is a string
-        if (data['jobTemplate'] && !(typeof data['jobTemplate'] === 'string' || data['jobTemplate'] instanceof String)) {
-            throw new Error("Expected the field `jobTemplate` to be a primitive type in the JSON string but got " + data['jobTemplate']);
         }
         // validate the optional field `docSourceStandard`
         if (data['docSourceStandard']) { // data not null
@@ -135,11 +128,6 @@ class SubmitSinglePdfSplitParams {
 }
 
 SubmitSinglePdfSplitParams.RequiredProperties = ["docSourceStandard", "pdfSplitJobsWithAddress"];
-
-/**
- * @member {String} jobTemplate
- */
-SubmitSinglePdfSplitParams.prototype['jobTemplate'] = undefined;
 
 /**
  * @member {module:c2m_api/model/DocSourceStandard} docSourceStandard

@@ -80,9 +80,9 @@ class SubmitMultiZipParamsTest extends TestCase
     }
 
     /**
-     * Test attribute "job_template"
+     * Test attribute "doc_source_zip_file_ref"
      */
-    public function testPropertyJobTemplate()
+    public function testPropertyDocSourceZipFileRef()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

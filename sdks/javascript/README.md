@@ -157,6 +157,7 @@ Class | Method | HTTP request | Description
  - [C2MApiV2.DocSourceAll](docs/DocSourceAll.md)
  - [C2MApiV2.DocSourceStandard](docs/DocSourceStandard.md)
  - [C2MApiV2.DocSourceZipFile](docs/DocSourceZipFile.md)
+ - [C2MApiV2.DocSourceZipFileRef](docs/DocSourceZipFileRef.md)
  - [C2MApiV2.ErrorCode](docs/ErrorCode.md)
  - [C2MApiV2.ErrorResponse](docs/ErrorResponse.md)
  - [C2MApiV2.ErrorType](docs/ErrorType.md)

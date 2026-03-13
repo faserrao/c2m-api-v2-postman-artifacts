@@ -36,12 +36,12 @@ class TestMultiZipJobItem(unittest.TestCase):
         if include_optional:
             return MultiZipJobItem(
                 job_template = '',
-                doc_source_zip_file = None,
+                filename = '',
                 recipient_address_source = None
             )
         else:
             return MultiZipJobItem(
-                doc_source_zip_file = None,
+                filename = '',
                 recipient_address_source = None,
         )
         """

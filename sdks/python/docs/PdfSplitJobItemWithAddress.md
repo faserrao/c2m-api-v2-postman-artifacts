@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**job_template** | **str** |  | [optional] 
 **start_page** | **int** |  | 
 **end_page** | **int** |  | 
 **recipient_address_source** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 

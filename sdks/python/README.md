@@ -124,6 +124,7 @@ Class | Method | HTTP request | Description
  - [DocSourceAll](docs/DocSourceAll.md)
  - [DocSourceStandard](docs/DocSourceStandard.md)
  - [DocSourceZipFile](docs/DocSourceZipFile.md)
+ - [DocSourceZipFileRef](docs/DocSourceZipFileRef.md)
  - [ErrorCode](docs/ErrorCode.md)
  - [ErrorResponse](docs/ErrorResponse.md)
  - [ErrorType](docs/ErrorType.md)

@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **JobTemplate** | Pointer to **string** |  | [optional] 
-**DocSourceZipFile** | [**DocSourceZipFile**](DocSourceZipFile.md) |  | 
+**Filename** | **string** |  | 
 **RecipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 
 ## Methods
 
 ### NewMultiZipJobItem
 
-`func NewMultiZipJobItem(docSourceZipFile DocSourceZipFile, recipientAddressSource RecipientAddressSource, ) *MultiZipJobItem`
+`func NewMultiZipJobItem(filename string, recipientAddressSource RecipientAddressSource, ) *MultiZipJobItem`
 
 NewMultiZipJobItem instantiates a new MultiZipJobItem object
 This constructor will assign default values to properties that have it defined,
@@ -52,24 +52,24 @@ SetJobTemplate sets JobTemplate field to given value.
 
 HasJobTemplate returns a boolean if a field has been set.
 
-### GetDocSourceZipFile
+### GetFilename
 
-`func (o *MultiZipJobItem) GetDocSourceZipFile() DocSourceZipFile`
+`func (o *MultiZipJobItem) GetFilename() string`
 
-GetDocSourceZipFile returns the DocSourceZipFile field if non-nil, zero value otherwise.
+GetFilename returns the Filename field if non-nil, zero value otherwise.
 
-### GetDocSourceZipFileOk
+### GetFilenameOk
 
-`func (o *MultiZipJobItem) GetDocSourceZipFileOk() (*DocSourceZipFile, bool)`
+`func (o *MultiZipJobItem) GetFilenameOk() (*string, bool)`
 
-GetDocSourceZipFileOk returns a tuple with the DocSourceZipFile field if it's non-nil, zero value otherwise
+GetFilenameOk returns a tuple with the Filename field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDocSourceZipFile
+### SetFilename
 
-`func (o *MultiZipJobItem) SetDocSourceZipFile(v DocSourceZipFile)`
+`func (o *MultiZipJobItem) SetFilename(v string)`
 
-SetDocSourceZipFile sets DocSourceZipFile field to given value.
+SetFilename sets Filename field to given value.
 
 
 ### GetRecipientAddressSource

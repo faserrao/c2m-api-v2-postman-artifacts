@@ -116,6 +116,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::DocSourceAll](docs/DocSourceAll.md)
  - [OpenapiClient::DocSourceStandard](docs/DocSourceStandard.md)
  - [OpenapiClient::DocSourceZipFile](docs/DocSourceZipFile.md)
+ - [OpenapiClient::DocSourceZipFileRef](docs/DocSourceZipFileRef.md)
  - [OpenapiClient::ErrorCode](docs/ErrorCode.md)
  - [OpenapiClient::ErrorResponse](docs/ErrorResponse.md)
  - [OpenapiClient::ErrorType](docs/ErrorType.md)

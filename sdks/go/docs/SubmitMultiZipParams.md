@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**JobTemplate** | Pointer to **string** |  | [optional] 
+**DocSourceZipFileRef** | [**DocSourceZipFileRef**](DocSourceZipFileRef.md) |  | 
 **MultiZipJobs** | [**[]MultiZipJobItem**](MultiZipJobItem.md) |  | 
 **PaymentDetails** | Pointer to [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewSubmitMultiZipParams
 
-`func NewSubmitMultiZipParams(multiZipJobs []MultiZipJobItem, ) *SubmitMultiZipParams`
+`func NewSubmitMultiZipParams(docSourceZipFileRef DocSourceZipFileRef, multiZipJobs []MultiZipJobItem, ) *SubmitMultiZipParams`
 
 NewSubmitMultiZipParams instantiates a new SubmitMultiZipParams object
 This constructor will assign default values to properties that have it defined,
@@ -28,30 +28,25 @@ NewSubmitMultiZipParamsWithDefaults instantiates a new SubmitMultiZipParams obje
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetJobTemplate
+### GetDocSourceZipFileRef
 
-`func (o *SubmitMultiZipParams) GetJobTemplate() string`
+`func (o *SubmitMultiZipParams) GetDocSourceZipFileRef() DocSourceZipFileRef`
 
-GetJobTemplate returns the JobTemplate field if non-nil, zero value otherwise.
+GetDocSourceZipFileRef returns the DocSourceZipFileRef field if non-nil, zero value otherwise.
 
-### GetJobTemplateOk
+### GetDocSourceZipFileRefOk
 
-`func (o *SubmitMultiZipParams) GetJobTemplateOk() (*string, bool)`
+`func (o *SubmitMultiZipParams) GetDocSourceZipFileRefOk() (*DocSourceZipFileRef, bool)`
 
-GetJobTemplateOk returns a tuple with the JobTemplate field if it's non-nil, zero value otherwise
+GetDocSourceZipFileRefOk returns a tuple with the DocSourceZipFileRef field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetJobTemplate
+### SetDocSourceZipFileRef
 
-`func (o *SubmitMultiZipParams) SetJobTemplate(v string)`
+`func (o *SubmitMultiZipParams) SetDocSourceZipFileRef(v DocSourceZipFileRef)`
 
-SetJobTemplate sets JobTemplate field to given value.
+SetDocSourceZipFileRef sets DocSourceZipFileRef field to given value.
 
-### HasJobTemplate
-
-`func (o *SubmitMultiZipParams) HasJobTemplate() bool`
-
-HasJobTemplate returns a boolean if a field has been set.
 
 ### GetMultiZipJobs
 

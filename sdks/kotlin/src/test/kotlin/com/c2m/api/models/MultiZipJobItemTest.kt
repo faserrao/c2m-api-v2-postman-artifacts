@@ -19,7 +19,6 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.MultiZipJobItem
-import com.c2m.api.models.DocSourceZipFile
 import com.c2m.api.models.RecipientAddressSource
 
 class MultiZipJobItemTest : ShouldSpec() {
@@ -27,10 +26,10 @@ class MultiZipJobItemTest : ShouldSpec() {
         // uncomment below to create an instance of MultiZipJobItem
         //val modelInstance = MultiZipJobItem()
 
-        // to test the property `docSourceZipFile`
-        should("test docSourceZipFile") {
+        // to test the property `filename`
+        should("test filename") {
             // uncomment below to test the property
-            //modelInstance.docSourceZipFile shouldBe ("TODO")
+            //modelInstance.filename shouldBe ("TODO")
         }
 
         // to test the property `recipientAddressSource`

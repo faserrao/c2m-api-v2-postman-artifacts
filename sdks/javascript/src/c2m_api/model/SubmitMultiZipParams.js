@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import DocSourceZipFileRef from './DocSourceZipFileRef';
 import MultiZipJobItem from './MultiZipJobItem';
 import PaymentDetails from './PaymentDetails';
 
@@ -24,11 +25,12 @@ class SubmitMultiZipParams {
     /**
      * Constructs a new <code>SubmitMultiZipParams</code>.
      * @alias module:c2m_api/model/SubmitMultiZipParams
+     * @param docSourceZipFileRef {module:c2m_api/model/DocSourceZipFileRef} 
      * @param multiZipJobs {Array.<module:c2m_api/model/MultiZipJobItem>} 
      */
-    constructor(multiZipJobs) { 
+    constructor(docSourceZipFileRef, multiZipJobs) { 
         
-        SubmitMultiZipParams.initialize(this, multiZipJobs);
+        SubmitMultiZipParams.initialize(this, docSourceZipFileRef, multiZipJobs);
     }
 
     /**
@@ -36,7 +38,8 @@ class SubmitMultiZipParams {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, multiZipJobs) { 
+    static initialize(obj, docSourceZipFileRef, multiZipJobs) { 
+        obj['docSourceZipFileRef'] = docSourceZipFileRef;
         obj['multiZipJobs'] = multiZipJobs;
     }
 
@@ -51,8 +54,8 @@ class SubmitMultiZipParams {
         if (data) {
             obj = obj || new SubmitMultiZipParams();
 
-            if (data.hasOwnProperty('jobTemplate')) {
-                obj['jobTemplate'] = ApiClient.convertToType(data['jobTemplate'], 'String');
+            if (data.hasOwnProperty('docSourceZipFileRef')) {
+                obj['docSourceZipFileRef'] = DocSourceZipFileRef.constructFromObject(data['docSourceZipFileRef']);
             }
             if (data.hasOwnProperty('multiZipJobs')) {
                 obj['multiZipJobs'] = ApiClient.convertToType(data['multiZipJobs'], [MultiZipJobItem]);
@@ -79,9 +82,9 @@ class SubmitMultiZipParams {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
-        // ensure the json data is a string
-        if (data['jobTemplate'] && !(typeof data['jobTemplate'] === 'string' || data['jobTemplate'] instanceof String)) {
-            throw new Error("Expected the field `jobTemplate` to be a primitive type in the JSON string but got " + data['jobTemplate']);
+        // validate the optional field `docSourceZipFileRef`
+        if (data['docSourceZipFileRef']) { // data not null
+          DocSourceZipFileRef.validateJSON(data['docSourceZipFileRef']);
         }
         if (data['multiZipJobs']) { // data not null
             // ensure the json data is an array
@@ -108,12 +111,12 @@ class SubmitMultiZipParams {
 
 }
 
-SubmitMultiZipParams.RequiredProperties = ["multiZipJobs"];
+SubmitMultiZipParams.RequiredProperties = ["docSourceZipFileRef", "multiZipJobs"];
 
 /**
- * @member {String} jobTemplate
+ * @member {module:c2m_api/model/DocSourceZipFileRef} docSourceZipFileRef
  */
-SubmitMultiZipParams.prototype['jobTemplate'] = undefined;
+SubmitMultiZipParams.prototype['docSourceZipFileRef'] = undefined;
 
 /**
  * @member {Array.<module:c2m_api/model/MultiZipJobItem>} multiZipJobs

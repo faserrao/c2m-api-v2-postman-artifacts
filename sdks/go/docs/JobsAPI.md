@@ -234,7 +234,7 @@ import (
 )
 
 func main() {
-	submitMultiZipParams := *openapiclient.NewSubmitMultiZipParams([]openapiclient.MultiZipJobItem{*openapiclient.NewMultiZipJobItem(openapiclient.docSourceZipFile{ZipDocumentIdSource: openapiclient.NewZipDocumentIdSource(int32(123), "Filename_example")}, openapiclient.recipientAddressSource{RecipientAddressByList: openapiclient.NewRecipientAddressByList([]openapiclient.Address{*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")})})}) // SubmitMultiZipParams | 
+	submitMultiZipParams := *openapiclient.NewSubmitMultiZipParams(openapiclient.docSourceZipFileRef{Int32: new(int32)}, []openapiclient.MultiZipJobItem{*openapiclient.NewMultiZipJobItem("Filename_example", openapiclient.recipientAddressSource{RecipientAddressByList: openapiclient.NewRecipientAddressByList([]openapiclient.Address{*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")})})}) // SubmitMultiZipParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

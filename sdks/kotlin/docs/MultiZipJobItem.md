@@ -4,7 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **docSourceZipFile** | [**DocSourceZipFile**](DocSourceZipFile.md) |  |  |
+| **filename** | **kotlin.String** |  |  |
 | **recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  |  |
 | **jobTemplate** | **kotlin.String** |  |  [optional] |
 

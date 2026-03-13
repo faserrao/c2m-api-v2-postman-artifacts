@@ -36,12 +36,14 @@ namespace C2M.Api.Model
         /// <param name="startPage">startPage</param>
         /// <param name="endPage">endPage</param>
         /// <param name="recipientAddressSource">recipientAddressSource</param>
+        /// <param name="jobTemplate">jobTemplate</param>
         [JsonConstructor]
-        public PdfSplitJobItemWithAddress(int startPage, int endPage, RecipientAddressSource recipientAddressSource)
+        public PdfSplitJobItemWithAddress(int startPage, int endPage, RecipientAddressSource recipientAddressSource, Option<string?> jobTemplate = default)
         {
             StartPage = startPage;
             EndPage = endPage;
             RecipientAddressSource = recipientAddressSource;
+            JobTemplateOption = jobTemplate;
             OnCreated();
         }
 
@@ -66,6 +68,19 @@ namespace C2M.Api.Model
         public RecipientAddressSource RecipientAddressSource { get; set; }
 
         /// <summary>
+        /// Used to track the state of JobTemplate
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> JobTemplateOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets JobTemplate
+        /// </summary>
+        [JsonPropertyName("jobTemplate")]
+        public string? JobTemplate { get { return this.JobTemplateOption; } set { this.JobTemplateOption = new(value); } }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +91,7 @@ namespace C2M.Api.Model
             sb.Append("  StartPage: ").Append(StartPage).Append("\n");
             sb.Append("  EndPage: ").Append(EndPage).Append("\n");
             sb.Append("  RecipientAddressSource: ").Append(RecipientAddressSource).Append("\n");
+            sb.Append("  JobTemplate: ").Append(JobTemplate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -116,6 +132,7 @@ namespace C2M.Api.Model
             Option<int?> startPage = default;
             Option<int?> endPage = default;
             Option<RecipientAddressSource?> recipientAddressSource = default;
+            Option<string?> jobTemplate = default;
 
             while (utf8JsonReader.Read())
             {
@@ -141,6 +158,9 @@ namespace C2M.Api.Model
                         case "recipientAddressSource":
                             recipientAddressSource = new Option<RecipientAddressSource?>(JsonSerializer.Deserialize<RecipientAddressSource>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
+                        case "jobTemplate":
+                            jobTemplate = new Option<string?>(utf8JsonReader.GetString()!);
+                            break;
                         default:
                             break;
                     }
@@ -165,7 +185,10 @@ namespace C2M.Api.Model
             if (recipientAddressSource.IsSet && recipientAddressSource.Value == null)
                 throw new ArgumentNullException(nameof(recipientAddressSource), "Property is not nullable for class PdfSplitJobItemWithAddress.");
 
-            return new PdfSplitJobItemWithAddress(startPage.Value!.Value!, endPage.Value!.Value!, recipientAddressSource.Value!);
+            if (jobTemplate.IsSet && jobTemplate.Value == null)
+                throw new ArgumentNullException(nameof(jobTemplate), "Property is not nullable for class PdfSplitJobItemWithAddress.");
+
+            return new PdfSplitJobItemWithAddress(startPage.Value!.Value!, endPage.Value!.Value!, recipientAddressSource.Value!, jobTemplate);
         }
 
         /// <summary>
@@ -195,12 +218,17 @@ namespace C2M.Api.Model
             if (pdfSplitJobItemWithAddress.RecipientAddressSource == null)
                 throw new ArgumentNullException(nameof(pdfSplitJobItemWithAddress.RecipientAddressSource), "Property is required for class PdfSplitJobItemWithAddress.");
 
+            if (pdfSplitJobItemWithAddress.JobTemplateOption.IsSet && pdfSplitJobItemWithAddress.JobTemplate == null)
+                throw new ArgumentNullException(nameof(pdfSplitJobItemWithAddress.JobTemplate), "Property is required for class PdfSplitJobItemWithAddress.");
+
             writer.WriteNumber("startPage", pdfSplitJobItemWithAddress.StartPage);
 
             writer.WriteNumber("endPage", pdfSplitJobItemWithAddress.EndPage);
 
             writer.WritePropertyName("recipientAddressSource");
             JsonSerializer.Serialize(writer, pdfSplitJobItemWithAddress.RecipientAddressSource, jsonSerializerOptions);
+            if (pdfSplitJobItemWithAddress.JobTemplateOption.IsSet)
+                writer.WriteString("jobTemplate", pdfSplitJobItemWithAddress.JobTemplate);
         }
     }
 }

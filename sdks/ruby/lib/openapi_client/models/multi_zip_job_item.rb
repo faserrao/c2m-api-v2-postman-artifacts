@@ -17,7 +17,7 @@ module OpenapiClient
   class MultiZipJobItem
     attr_accessor :job_template
 
-    attr_accessor :doc_source_zip_file
+    attr_accessor :filename
 
     attr_accessor :recipient_address_source
 
@@ -25,7 +25,7 @@ module OpenapiClient
     def self.attribute_map
       {
         :'job_template' => :'jobTemplate',
-        :'doc_source_zip_file' => :'docSourceZipFile',
+        :'filename' => :'filename',
         :'recipient_address_source' => :'recipientAddressSource'
       }
     end
@@ -44,7 +44,7 @@ module OpenapiClient
     def self.openapi_types
       {
         :'job_template' => :'String',
-        :'doc_source_zip_file' => :'DocSourceZipFile',
+        :'filename' => :'String',
         :'recipient_address_source' => :'RecipientAddressSource'
       }
     end
@@ -75,10 +75,10 @@ module OpenapiClient
         self.job_template = attributes[:'job_template']
       end
 
-      if attributes.key?(:'doc_source_zip_file')
-        self.doc_source_zip_file = attributes[:'doc_source_zip_file']
+      if attributes.key?(:'filename')
+        self.filename = attributes[:'filename']
       else
-        self.doc_source_zip_file = nil
+        self.filename = nil
       end
 
       if attributes.key?(:'recipient_address_source')
@@ -93,8 +93,8 @@ module OpenapiClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @doc_source_zip_file.nil?
-        invalid_properties.push('invalid value for "doc_source_zip_file", doc_source_zip_file cannot be nil.')
+      if @filename.nil?
+        invalid_properties.push('invalid value for "filename", filename cannot be nil.')
       end
 
       if @recipient_address_source.nil?
@@ -108,19 +108,19 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @doc_source_zip_file.nil?
+      return false if @filename.nil?
       return false if @recipient_address_source.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] doc_source_zip_file Value to be assigned
-    def doc_source_zip_file=(doc_source_zip_file)
-      if doc_source_zip_file.nil?
-        fail ArgumentError, 'doc_source_zip_file cannot be nil'
+    # @param [Object] filename Value to be assigned
+    def filename=(filename)
+      if filename.nil?
+        fail ArgumentError, 'filename cannot be nil'
       end
 
-      @doc_source_zip_file = doc_source_zip_file
+      @filename = filename
     end
 
     # Custom attribute writer method with validation
@@ -139,7 +139,7 @@ module OpenapiClient
       return true if self.equal?(o)
       self.class == o.class &&
           job_template == o.job_template &&
-          doc_source_zip_file == o.doc_source_zip_file &&
+          filename == o.filename &&
           recipient_address_source == o.recipient_address_source
     end
 
@@ -152,7 +152,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [job_template, doc_source_zip_file, recipient_address_source].hash
+      [job_template, filename, recipient_address_source].hash
     end
 
     # Builds the object from hash

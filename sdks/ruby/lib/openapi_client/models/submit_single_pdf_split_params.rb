@@ -15,8 +15,6 @@ require 'time'
 
 module OpenapiClient
   class SubmitSinglePdfSplitParams
-    attr_accessor :job_template
-
     attr_accessor :doc_source_standard
 
     attr_accessor :pdf_split_jobs_with_address
@@ -32,7 +30,6 @@ module OpenapiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'job_template' => :'jobTemplate',
         :'doc_source_standard' => :'docSourceStandard',
         :'pdf_split_jobs_with_address' => :'pdfSplitJobsWithAddress',
         :'payment_details' => :'paymentDetails',
@@ -55,7 +52,6 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'job_template' => :'String',
         :'doc_source_standard' => :'DocSourceStandard',
         :'pdf_split_jobs_with_address' => :'Array<PdfSplitJobItemWithAddress>',
         :'payment_details' => :'PaymentDetails',
@@ -86,10 +82,6 @@ module OpenapiClient
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'job_template')
-        self.job_template = attributes[:'job_template']
-      end
 
       if attributes.key?(:'doc_source_standard')
         self.doc_source_standard = attributes[:'doc_source_standard']
@@ -174,7 +166,6 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          job_template == o.job_template &&
           doc_source_standard == o.doc_source_standard &&
           pdf_split_jobs_with_address == o.pdf_split_jobs_with_address &&
           payment_details == o.payment_details &&
@@ -192,7 +183,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [job_template, doc_source_standard, pdf_split_jobs_with_address, payment_details, return_address, job_options, tags].hash
+      [doc_source_standard, pdf_split_jobs_with_address, payment_details, return_address, job_options, tags].hash
     end
 
     # Builds the object from hash

@@ -241,7 +241,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::JobsApi.new
-submit_multi_zip_params = OpenapiClient::SubmitMultiZipParams.new({multi_zip_jobs: [OpenapiClient::MultiZipJobItem.new({doc_source_zip_file: OpenapiClient::ZipDocumentIdSource.new({zip_document_id: 37, filename: 'filename_example'}), recipient_address_source: nil})]}) # SubmitMultiZipParams | 
+submit_multi_zip_params = OpenapiClient::SubmitMultiZipParams.new({doc_source_zip_file_ref: nil, multi_zip_jobs: [OpenapiClient::MultiZipJobItem.new({filename: 'filename_example', recipient_address_source: nil})]}) # SubmitMultiZipParams | 
 
 begin
   # Submit a multi zip job

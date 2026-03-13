@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**job_template** | Option<**String**> |  | [optional]
 **start_page** | **i32** |  | 
 **end_page** | **i32** |  | 
 **recipient_address_source** | [**models::RecipientAddressSource**](recipientAddressSource.md) |  | 

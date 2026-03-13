@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**JobTemplate** | Pointer to **string** |  | [optional] 
 **DocSourceStandard** | [**DocSourceStandard**](DocSourceStandard.md) |  | 
 **PdfSplitJobsWithAddress** | [**[]PdfSplitJobItemWithAddress**](PdfSplitJobItemWithAddress.md) |  | 
 **PaymentDetails** | Pointer to [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
@@ -30,31 +29,6 @@ will change when the set of required properties is changed
 NewSubmitSinglePdfSplitParamsWithDefaults instantiates a new SubmitSinglePdfSplitParams object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetJobTemplate
-
-`func (o *SubmitSinglePdfSplitParams) GetJobTemplate() string`
-
-GetJobTemplate returns the JobTemplate field if non-nil, zero value otherwise.
-
-### GetJobTemplateOk
-
-`func (o *SubmitSinglePdfSplitParams) GetJobTemplateOk() (*string, bool)`
-
-GetJobTemplateOk returns a tuple with the JobTemplate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetJobTemplate
-
-`func (o *SubmitSinglePdfSplitParams) SetJobTemplate(v string)`
-
-SetJobTemplate sets JobTemplate field to given value.
-
-### HasJobTemplate
-
-`func (o *SubmitSinglePdfSplitParams) HasJobTemplate() bool`
-
-HasJobTemplate returns a boolean if a field has been set.
 
 ### GetDocSourceStandard
 

@@ -44,5 +44,11 @@ class PdfSplitJobItemWithAddressTest : ShouldSpec() {
             //modelInstance.recipientAddressSource shouldBe ("TODO")
         }
 
+        // to test the property `jobTemplate`
+        should("test jobTemplate") {
+            // uncomment below to test the property
+            //modelInstance.jobTemplate shouldBe ("TODO")
+        }
+
     }
 }

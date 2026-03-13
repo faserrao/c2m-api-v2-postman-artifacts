@@ -4,7 +4,7 @@ info:
   version: 2.0.0
   description: API for submitting mailing jobs with various document routing options
 servers:
-  - url: https://03242bbc-0b76-415a-b6c2-ad0559c4933e.mock.pstmn.io
+  - url: https://755dd353-2a53-451a-b2b4-3c9dee2b4f05.mock.pstmn.io
     description: Postman Mock Server
   - url: 'https://api.click2mail.com/v2'
     description: Production server
@@ -59,8 +59,6 @@ components:
     submitSinglePdfSplitParams:
       type: object
       properties:
-        jobTemplate:
-          type: string
         docSourceStandard:
           $ref: '#/components/schemas/docSourceStandard'
         pdfSplitJobsWithAddress:
@@ -130,8 +128,8 @@ components:
     submitMultiZipParams:
       type: object
       properties:
-        jobTemplate:
-          type: string
+        docSourceZipFileRef:
+          $ref: '#/components/schemas/docSourceZipFileRef'
         multiZipJobs:
           $ref: '#/components/schemas/multiZipJobs'
         paymentDetails:
@@ -139,6 +137,7 @@ components:
         tags:
           $ref: '#/components/schemas/tagsList'
       required:
+        - docSourceZipFileRef
         - multiZipJobs
     submitMultiZipAddressCaptureParams:
       type: object
@@ -391,6 +390,10 @@ components:
         - filename
     zipFilename:
       type: string
+    zipDocumentIdOnly:
+      $ref: '#/components/schemas/id'
+    zipRequestIdOnly:
+      $ref: '#/components/schemas/id'
     zipDocumentSource:
       oneOf:
         - $ref: '#/components/schemas/zipDocumentIdSource'
@@ -404,6 +407,10 @@ components:
       oneOf:
         - $ref: '#/components/schemas/zipDocumentIdSource'
         - $ref: '#/components/schemas/zipRequestIdSource'
+    docSourceZipFileRef:
+      oneOf:
+        - $ref: '#/components/schemas/id'
+        - $ref: '#/components/schemas/id'
     docSourceAll:
       oneOf:
         - $ref: '#/components/schemas/docSourceStandard'
@@ -456,6 +463,8 @@ components:
     pdfSplitJobItemWithAddress:
       type: object
       properties:
+        jobTemplate:
+          type: string
         startPage:
           type: integer
         endPage:
@@ -489,12 +498,12 @@ components:
       properties:
         jobTemplate:
           type: string
-        docSourceZipFile:
-          $ref: '#/components/schemas/docSourceZipFile'
+        filename:
+          type: string
         recipientAddressSource:
           $ref: '#/components/schemas/recipientAddressSource'
       required:
-        - docSourceZipFile
+        - filename
         - recipientAddressSource
     id:
       type: integer

@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**job_template** | Option<**String**> |  | [optional]
 **doc_source_standard** | [**models::DocSourceStandard**](docSourceStandard.md) |  | 
 **pdf_split_jobs_with_address** | [**Vec<models::PdfSplitJobItemWithAddress>**](pdfSplitJobItemWithAddress.md) |  | 
 **payment_details** | Option<[**models::PaymentDetails**](paymentDetails.md)> |  | [optional]

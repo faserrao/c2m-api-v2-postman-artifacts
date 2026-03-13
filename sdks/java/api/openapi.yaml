@@ -1507,8 +1507,6 @@ components:
       type: object
     submitSinglePdfSplitParams:
       properties:
-        jobTemplate:
-          type: string
         docSourceStandard:
           $ref: "#/components/schemas/docSourceStandard"
         pdfSplitJobsWithAddress:
@@ -1594,8 +1592,8 @@ components:
       type: object
     submitMultiZipParams:
       properties:
-        jobTemplate:
-          type: string
+        docSourceZipFileRef:
+          $ref: "#/components/schemas/docSourceZipFileRef"
         multiZipJobs:
           items:
             $ref: "#/components/schemas/multiZipJobItem"
@@ -1607,6 +1605,7 @@ components:
             type: string
           type: array
       required:
+      - docSourceZipFileRef
       - multiZipJobs
       type: object
     submitMultiZipAddressCaptureParams:
@@ -1864,6 +1863,10 @@ components:
       type: object
     zipFilename:
       type: string
+    zipDocumentIdOnly:
+      $ref: "#/components/schemas/zipDocumentId"
+    zipRequestIdOnly:
+      $ref: "#/components/schemas/requestId"
     zipDocumentSource:
       oneOf:
       - $ref: "#/components/schemas/zipDocumentIdSource"
@@ -1877,6 +1880,10 @@ components:
       oneOf:
       - $ref: "#/components/schemas/zipDocumentIdSource"
       - $ref: "#/components/schemas/zipRequestIdSource"
+    docSourceZipFileRef:
+      oneOf:
+      - $ref: "#/components/schemas/zipDocumentIdOnly"
+      - $ref: "#/components/schemas/zipRequestIdOnly"
     docSourceAll:
       oneOf:
       - $ref: "#/components/schemas/docSourceStandard"
@@ -1928,6 +1935,8 @@ components:
       type: array
     pdfSplitJobItemWithAddress:
       properties:
+        jobTemplate:
+          type: string
         startPage:
           type: integer
         endPage:
@@ -1961,12 +1970,12 @@ components:
       properties:
         jobTemplate:
           type: string
-        docSourceZipFile:
-          $ref: "#/components/schemas/docSourceZipFile"
+        filename:
+          type: string
         recipientAddressSource:
           $ref: "#/components/schemas/recipientAddressSource"
       required:
-      - docSourceZipFile
+      - filename
       - recipientAddressSource
       type: object
     id:

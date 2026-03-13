@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **jobTemplate** | **string** |  | [optional] [default to undefined]
-**docSourceZipFile** | [**DocSourceZipFile**](DocSourceZipFile.md) |  | [default to undefined]
+**filename** | **string** |  | [default to undefined]
 **recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | [default to undefined]
 
 ## Example
@@ -16,7 +16,7 @@ import { MultiZipJobItem } from './api';
 
 const instance: MultiZipJobItem = {
     jobTemplate,
-    docSourceZipFile,
+    filename,
     recipientAddressSource,
 };
 ```

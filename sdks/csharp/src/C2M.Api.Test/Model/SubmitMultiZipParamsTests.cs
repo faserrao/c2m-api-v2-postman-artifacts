@@ -54,21 +54,21 @@ namespace C2M.Api.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'DocSourceZipFileRef'
+        /// </summary>
+        [Fact]
+        public void DocSourceZipFileRefTest()
+        {
+            // TODO unit test for the property 'DocSourceZipFileRef'
+        }
+
+        /// <summary>
         /// Test the property 'MultiZipJobs'
         /// </summary>
         [Fact]
         public void MultiZipJobsTest()
         {
             // TODO unit test for the property 'MultiZipJobs'
-        }
-
-        /// <summary>
-        /// Test the property 'JobTemplate'
-        /// </summary>
-        [Fact]
-        public void JobTemplateTest()
-        {
-            // TODO unit test for the property 'JobTemplate'
         }
 
         /// <summary>

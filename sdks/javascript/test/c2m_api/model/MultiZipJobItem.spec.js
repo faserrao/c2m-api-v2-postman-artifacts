@@ -60,8 +60,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property docSourceZipFile (base name: "docSourceZipFile")', function() {
-      // uncomment below and update the code to test the property docSourceZipFile
+    it('should have the property filename (base name: "filename")', function() {
+      // uncomment below and update the code to test the property filename
       //var instance = new C2MApiV2.MultiZipJobItem();
       //expect(instance).to.be();
     });

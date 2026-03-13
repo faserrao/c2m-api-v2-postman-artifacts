@@ -35,11 +35,11 @@ class TestSubmitMultiZipParams(unittest.TestCase):
         model = SubmitMultiZipParams()
         if include_optional:
             return SubmitMultiZipParams(
-                job_template = '',
+                doc_source_zip_file_ref = None,
                 multi_zip_jobs = [
                     c2m_api.models.multi_zip_job_item.multiZipJobItem(
                         job_template = '', 
-                        doc_source_zip_file = null, 
+                        filename = '', 
                         recipient_address_source = null, )
                     ],
                 payment_details = None,
@@ -49,10 +49,11 @@ class TestSubmitMultiZipParams(unittest.TestCase):
             )
         else:
             return SubmitMultiZipParams(
+                doc_source_zip_file_ref = None,
                 multi_zip_jobs = [
                     c2m_api.models.multi_zip_job_item.multiZipJobItem(
                         job_template = '', 
-                        doc_source_zip_file = null, 
+                        filename = '', 
                         recipient_address_source = null, )
                     ],
         )

@@ -19,7 +19,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from c2m_api.models.doc_source_zip_file import DocSourceZipFile
 from c2m_api.models.recipient_address_source import RecipientAddressSource
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,9 +28,9 @@ class MultiZipJobItem(BaseModel):
     MultiZipJobItem
     """ # noqa: E501
     job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
-    doc_source_zip_file: DocSourceZipFile = Field(alias="docSourceZipFile")
+    filename: StrictStr
     recipient_address_source: RecipientAddressSource = Field(alias="recipientAddressSource")
-    __properties: ClassVar[List[str]] = ["jobTemplate", "docSourceZipFile", "recipientAddressSource"]
+    __properties: ClassVar[List[str]] = ["jobTemplate", "filename", "recipientAddressSource"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,9 +71,6 @@ class MultiZipJobItem(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of doc_source_zip_file
-        if self.doc_source_zip_file:
-            _dict['docSourceZipFile'] = self.doc_source_zip_file.to_dict()
         # override the default output from pydantic by calling `to_dict()` of recipient_address_source
         if self.recipient_address_source:
             _dict['recipientAddressSource'] = self.recipient_address_source.to_dict()
@@ -91,7 +87,7 @@ class MultiZipJobItem(BaseModel):
 
         _obj = cls.model_validate({
             "jobTemplate": obj.get("jobTemplate"),
-            "docSourceZipFile": DocSourceZipFile.from_dict(obj["docSourceZipFile"]) if obj.get("docSourceZipFile") is not None else None,
+            "filename": obj.get("filename"),
             "recipientAddressSource": RecipientAddressSource.from_dict(obj["recipientAddressSource"]) if obj.get("recipientAddressSource") is not None else None
         })
         return _obj

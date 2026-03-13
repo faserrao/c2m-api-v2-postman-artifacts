@@ -130,6 +130,11 @@ export type DocSourceStandard = RequestIdSource | number | string;
  */
 export type DocSourceZipFile = ZipDocumentIdSource | ZipRequestIdSource;
 
+/**
+ * @type DocSourceZipFileRef
+ */
+export type DocSourceZipFileRef = number;
+
 
 export const ErrorCode = {
     MissingRequiredField: 'MISSING_REQUIRED_FIELD',
@@ -315,7 +320,7 @@ export interface MultiDocJobItem {
 }
 export interface MultiZipJobItem {
     'jobTemplate'?: string;
-    'docSourceZipFile': DocSourceZipFile;
+    'filename': string;
     'recipientAddressSource': RecipientAddressSource;
 }
 /**
@@ -328,6 +333,7 @@ export interface PdfSplitJobItemNoAddress {
     'endPage': number;
 }
 export interface PdfSplitJobItemWithAddress {
+    'jobTemplate'?: string;
     'startPage': number;
     'endPage': number;
     'recipientAddressSource': RecipientAddressSource;
@@ -431,7 +437,7 @@ export interface SubmitMultiZipAddressCaptureParams {
     'tags'?: Array<string>;
 }
 export interface SubmitMultiZipParams {
-    'jobTemplate'?: string;
+    'docSourceZipFileRef': DocSourceZipFileRef;
     'multiZipJobs': Array<MultiZipJobItem>;
     'paymentDetails'?: PaymentDetails;
     'tags'?: Array<string>;
@@ -463,7 +469,6 @@ export interface SubmitSinglePdfSplitAddressCaptureParams {
     'tags'?: Array<string>;
 }
 export interface SubmitSinglePdfSplitParams {
-    'jobTemplate'?: string;
     'docSourceStandard': DocSourceStandard;
     'pdfSplitJobsWithAddress': Array<PdfSplitJobItemWithAddress>;
     'paymentDetails'?: PaymentDetails;

@@ -19,6 +19,7 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.SubmitMultiZipParams
+import com.c2m.api.models.DocSourceZipFileRef
 import com.c2m.api.models.MultiZipJobItem
 import com.c2m.api.models.PaymentDetails
 
@@ -27,16 +28,16 @@ class SubmitMultiZipParamsTest : ShouldSpec() {
         // uncomment below to create an instance of SubmitMultiZipParams
         //val modelInstance = SubmitMultiZipParams()
 
+        // to test the property `docSourceZipFileRef`
+        should("test docSourceZipFileRef") {
+            // uncomment below to test the property
+            //modelInstance.docSourceZipFileRef shouldBe ("TODO")
+        }
+
         // to test the property `multiZipJobs`
         should("test multiZipJobs") {
             // uncomment below to test the property
             //modelInstance.multiZipJobs shouldBe ("TODO")
-        }
-
-        // to test the property `jobTemplate`
-        should("test jobTemplate") {
-            // uncomment below to test the property
-            //modelInstance.jobTemplate shouldBe ("TODO")
         }
 
         // to test the property `paymentDetails`

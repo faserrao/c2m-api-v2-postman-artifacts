@@ -39,6 +39,14 @@ public class PdfSplitJobItemWithAddressTest {
     }
 
     /**
+     * Test the property 'jobTemplate'
+     */
+    @Test
+    public void jobTemplateTest() {
+        // TODO: test jobTemplate
+    }
+
+    /**
      * Test the property 'startPage'
      */
     @Test

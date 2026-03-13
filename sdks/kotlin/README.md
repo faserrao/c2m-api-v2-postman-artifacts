@@ -73,6 +73,7 @@ All URIs are relative to *https://api.click2mail.com/v2*
  - [com.c2m.api.models.DocSourceAll](docs/DocSourceAll.md)
  - [com.c2m.api.models.DocSourceStandard](docs/DocSourceStandard.md)
  - [com.c2m.api.models.DocSourceZipFile](docs/DocSourceZipFile.md)
+ - [com.c2m.api.models.DocSourceZipFileRef](docs/DocSourceZipFileRef.md)
  - [com.c2m.api.models.ErrorCode](docs/ErrorCode.md)
  - [com.c2m.api.models.ErrorResponse](docs/ErrorResponse.md)
  - [com.c2m.api.models.ErrorType](docs/ErrorType.md)

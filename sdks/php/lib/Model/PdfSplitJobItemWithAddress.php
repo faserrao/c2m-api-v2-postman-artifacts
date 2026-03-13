@@ -57,6 +57,7 @@ class PdfSplitJobItemWithAddress implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
+        'job_template' => 'string',
         'start_page' => 'int',
         'end_page' => 'int',
         'recipient_address_source' => '\C2MApi\Model\RecipientAddressSource'
@@ -70,6 +71,7 @@ class PdfSplitJobItemWithAddress implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'job_template' => null,
         'start_page' => null,
         'end_page' => null,
         'recipient_address_source' => null
@@ -81,6 +83,7 @@ class PdfSplitJobItemWithAddress implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'job_template' => false,
         'start_page' => false,
         'end_page' => false,
         'recipient_address_source' => false
@@ -172,6 +175,7 @@ class PdfSplitJobItemWithAddress implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
+        'job_template' => 'jobTemplate',
         'start_page' => 'startPage',
         'end_page' => 'endPage',
         'recipient_address_source' => 'recipientAddressSource'
@@ -183,6 +187,7 @@ class PdfSplitJobItemWithAddress implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
+        'job_template' => 'setJobTemplate',
         'start_page' => 'setStartPage',
         'end_page' => 'setEndPage',
         'recipient_address_source' => 'setRecipientAddressSource'
@@ -194,6 +199,7 @@ class PdfSplitJobItemWithAddress implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
+        'job_template' => 'getJobTemplate',
         'start_page' => 'getStartPage',
         'end_page' => 'getEndPage',
         'recipient_address_source' => 'getRecipientAddressSource'
@@ -256,6 +262,7 @@ class PdfSplitJobItemWithAddress implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('job_template', $data ?? [], null);
         $this->setIfExists('start_page', $data ?? [], null);
         $this->setIfExists('end_page', $data ?? [], null);
         $this->setIfExists('recipient_address_source', $data ?? [], null);
@@ -311,6 +318,33 @@ class PdfSplitJobItemWithAddress implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets job_template
+     *
+     * @return string|null
+     */
+    public function getJobTemplate()
+    {
+        return $this->container['job_template'];
+    }
+
+    /**
+     * Sets job_template
+     *
+     * @param string|null $job_template job_template
+     *
+     * @return self
+     */
+    public function setJobTemplate($job_template)
+    {
+        if (is_null($job_template)) {
+            throw new \InvalidArgumentException('non-nullable job_template cannot be null');
+        }
+        $this->container['job_template'] = $job_template;
+
+        return $this;
+    }
 
     /**
      * Gets start_page

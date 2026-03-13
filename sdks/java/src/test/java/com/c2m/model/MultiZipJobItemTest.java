@@ -13,7 +13,6 @@
 
 package com.c2m.model;
 
-import com.c2m.model.DocSourceZipFile;
 import com.c2m.model.RecipientAddressSource;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -48,11 +47,11 @@ public class MultiZipJobItemTest {
     }
 
     /**
-     * Test the property 'docSourceZipFile'
+     * Test the property 'filename'
      */
     @Test
-    public void docSourceZipFileTest() {
-        // TODO: test docSourceZipFile
+    public void filenameTest() {
+        // TODO: test filename
     }
 
     /**

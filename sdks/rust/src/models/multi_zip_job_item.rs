@@ -15,17 +15,17 @@ use serde::{Deserialize, Serialize};
 pub struct MultiZipJobItem {
     #[serde(rename = "jobTemplate", skip_serializing_if = "Option::is_none")]
     pub job_template: Option<String>,
-    #[serde(rename = "docSourceZipFile")]
-    pub doc_source_zip_file: Box<models::DocSourceZipFile>,
+    #[serde(rename = "filename")]
+    pub filename: String,
     #[serde(rename = "recipientAddressSource")]
     pub recipient_address_source: Box<models::RecipientAddressSource>,
 }
 
 impl MultiZipJobItem {
-    pub fn new(doc_source_zip_file: models::DocSourceZipFile, recipient_address_source: models::RecipientAddressSource) -> MultiZipJobItem {
+    pub fn new(filename: String, recipient_address_source: models::RecipientAddressSource) -> MultiZipJobItem {
         MultiZipJobItem {
             job_template: None,
-            doc_source_zip_file: Box::new(doc_source_zip_file),
+            filename,
             recipient_address_source: Box::new(recipient_address_source),
         }
     }

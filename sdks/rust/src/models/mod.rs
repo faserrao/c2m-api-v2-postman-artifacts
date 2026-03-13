@@ -22,6 +22,8 @@ pub mod doc_source_standard;
 pub use self::doc_source_standard::DocSourceStandard;
 pub mod doc_source_zip_file;
 pub use self::doc_source_zip_file::DocSourceZipFile;
+pub mod doc_source_zip_file_ref;
+pub use self::doc_source_zip_file_ref::DocSourceZipFileRef;
 pub mod error_code;
 pub use self::error_code::ErrorCode;
 pub mod error_response;

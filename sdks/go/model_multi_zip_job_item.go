@@ -22,7 +22,7 @@ var _ MappedNullable = &MultiZipJobItem{}
 // MultiZipJobItem struct for MultiZipJobItem
 type MultiZipJobItem struct {
 	JobTemplate *string `json:"jobTemplate,omitempty"`
-	DocSourceZipFile DocSourceZipFile `json:"docSourceZipFile"`
+	Filename string `json:"filename"`
 	RecipientAddressSource RecipientAddressSource `json:"recipientAddressSource"`
 }
 
@@ -32,9 +32,9 @@ type _MultiZipJobItem MultiZipJobItem
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMultiZipJobItem(docSourceZipFile DocSourceZipFile, recipientAddressSource RecipientAddressSource) *MultiZipJobItem {
+func NewMultiZipJobItem(filename string, recipientAddressSource RecipientAddressSource) *MultiZipJobItem {
 	this := MultiZipJobItem{}
-	this.DocSourceZipFile = docSourceZipFile
+	this.Filename = filename
 	this.RecipientAddressSource = recipientAddressSource
 	return &this
 }
@@ -79,28 +79,28 @@ func (o *MultiZipJobItem) SetJobTemplate(v string) {
 	o.JobTemplate = &v
 }
 
-// GetDocSourceZipFile returns the DocSourceZipFile field value
-func (o *MultiZipJobItem) GetDocSourceZipFile() DocSourceZipFile {
+// GetFilename returns the Filename field value
+func (o *MultiZipJobItem) GetFilename() string {
 	if o == nil {
-		var ret DocSourceZipFile
+		var ret string
 		return ret
 	}
 
-	return o.DocSourceZipFile
+	return o.Filename
 }
 
-// GetDocSourceZipFileOk returns a tuple with the DocSourceZipFile field value
+// GetFilenameOk returns a tuple with the Filename field value
 // and a boolean to check if the value has been set.
-func (o *MultiZipJobItem) GetDocSourceZipFileOk() (*DocSourceZipFile, bool) {
+func (o *MultiZipJobItem) GetFilenameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.DocSourceZipFile, true
+	return &o.Filename, true
 }
 
-// SetDocSourceZipFile sets field value
-func (o *MultiZipJobItem) SetDocSourceZipFile(v DocSourceZipFile) {
-	o.DocSourceZipFile = v
+// SetFilename sets field value
+func (o *MultiZipJobItem) SetFilename(v string) {
+	o.Filename = v
 }
 
 // GetRecipientAddressSource returns the RecipientAddressSource field value
@@ -140,7 +140,7 @@ func (o MultiZipJobItem) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.JobTemplate) {
 		toSerialize["jobTemplate"] = o.JobTemplate
 	}
-	toSerialize["docSourceZipFile"] = o.DocSourceZipFile
+	toSerialize["filename"] = o.Filename
 	toSerialize["recipientAddressSource"] = o.RecipientAddressSource
 	return toSerialize, nil
 }
@@ -150,7 +150,7 @@ func (o *MultiZipJobItem) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"docSourceZipFile",
+		"filename",
 		"recipientAddressSource",
 	}
 

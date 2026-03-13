@@ -80,6 +80,15 @@ class PdfSplitJobItemWithAddressTest extends TestCase
     }
 
     /**
+     * Test attribute "job_template"
+     */
+    public function testPropertyJobTemplate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "start_page"
      */
     public function testPropertyStartPage()

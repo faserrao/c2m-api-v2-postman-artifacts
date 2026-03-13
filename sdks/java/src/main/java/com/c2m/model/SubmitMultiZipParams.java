@@ -14,6 +14,7 @@
 package com.c2m.model;
 
 import java.util.Objects;
+import com.c2m.model.DocSourceZipFileRef;
 import com.c2m.model.MultiZipJobItem;
 import com.c2m.model.PaymentDetails;
 import com.google.gson.TypeAdapter;
@@ -52,12 +53,12 @@ import com.c2m.JSON;
 /**
  * SubmitMultiZipParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T04:24:52.999886442Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T09:08:02.663411638Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class SubmitMultiZipParams {
-  public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
-  @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)
-  @javax.annotation.Nullable
-  private String jobTemplate;
+  public static final String SERIALIZED_NAME_DOC_SOURCE_ZIP_FILE_REF = "docSourceZipFileRef";
+  @SerializedName(SERIALIZED_NAME_DOC_SOURCE_ZIP_FILE_REF)
+  @javax.annotation.Nonnull
+  private DocSourceZipFileRef docSourceZipFileRef;
 
   public static final String SERIALIZED_NAME_MULTI_ZIP_JOBS = "multiZipJobs";
   @SerializedName(SERIALIZED_NAME_MULTI_ZIP_JOBS)
@@ -77,22 +78,22 @@ public class SubmitMultiZipParams {
   public SubmitMultiZipParams() {
   }
 
-  public SubmitMultiZipParams jobTemplate(@javax.annotation.Nullable String jobTemplate) {
-    this.jobTemplate = jobTemplate;
+  public SubmitMultiZipParams docSourceZipFileRef(@javax.annotation.Nonnull DocSourceZipFileRef docSourceZipFileRef) {
+    this.docSourceZipFileRef = docSourceZipFileRef;
     return this;
   }
 
   /**
-   * Get jobTemplate
-   * @return jobTemplate
+   * Get docSourceZipFileRef
+   * @return docSourceZipFileRef
    */
-  @javax.annotation.Nullable
-  public String getJobTemplate() {
-    return jobTemplate;
+  @javax.annotation.Nonnull
+  public DocSourceZipFileRef getDocSourceZipFileRef() {
+    return docSourceZipFileRef;
   }
 
-  public void setJobTemplate(@javax.annotation.Nullable String jobTemplate) {
-    this.jobTemplate = jobTemplate;
+  public void setDocSourceZipFileRef(@javax.annotation.Nonnull DocSourceZipFileRef docSourceZipFileRef) {
+    this.docSourceZipFileRef = docSourceZipFileRef;
   }
 
 
@@ -179,7 +180,7 @@ public class SubmitMultiZipParams {
       return false;
     }
     SubmitMultiZipParams submitMultiZipParams = (SubmitMultiZipParams) o;
-    return Objects.equals(this.jobTemplate, submitMultiZipParams.jobTemplate) &&
+    return Objects.equals(this.docSourceZipFileRef, submitMultiZipParams.docSourceZipFileRef) &&
         Objects.equals(this.multiZipJobs, submitMultiZipParams.multiZipJobs) &&
         Objects.equals(this.paymentDetails, submitMultiZipParams.paymentDetails) &&
         Objects.equals(this.tags, submitMultiZipParams.tags);
@@ -187,14 +188,14 @@ public class SubmitMultiZipParams {
 
   @Override
   public int hashCode() {
-    return Objects.hash(jobTemplate, multiZipJobs, paymentDetails, tags);
+    return Objects.hash(docSourceZipFileRef, multiZipJobs, paymentDetails, tags);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubmitMultiZipParams {\n");
-    sb.append("    jobTemplate: ").append(toIndentedString(jobTemplate)).append("\n");
+    sb.append("    docSourceZipFileRef: ").append(toIndentedString(docSourceZipFileRef)).append("\n");
     sb.append("    multiZipJobs: ").append(toIndentedString(multiZipJobs)).append("\n");
     sb.append("    paymentDetails: ").append(toIndentedString(paymentDetails)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -219,10 +220,10 @@ public class SubmitMultiZipParams {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("jobTemplate", "multiZipJobs", "paymentDetails", "tags"));
+    openapiFields = new HashSet<String>(Arrays.asList("docSourceZipFileRef", "multiZipJobs", "paymentDetails", "tags"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("multiZipJobs"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("docSourceZipFileRef", "multiZipJobs"));
   }
 
   /**
@@ -253,9 +254,8 @@ public class SubmitMultiZipParams {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("jobTemplate") != null && !jsonObj.get("jobTemplate").isJsonNull()) && !jsonObj.get("jobTemplate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `jobTemplate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jobTemplate").toString()));
-      }
+      // validate the required field `docSourceZipFileRef`
+      DocSourceZipFileRef.validateJsonElement(jsonObj.get("docSourceZipFileRef"));
       // ensure the json data is an array
       if (!jsonObj.get("multiZipJobs").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `multiZipJobs` to be an array in the JSON string but got `%s`", jsonObj.get("multiZipJobs").toString()));

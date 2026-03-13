@@ -49,8 +49,13 @@ import com.c2m.JSON;
 /**
  * PdfSplitJobItemWithAddress
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T04:24:52.999886442Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T09:08:02.663411638Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class PdfSplitJobItemWithAddress {
+  public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
+  @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)
+  @javax.annotation.Nullable
+  private String jobTemplate;
+
   public static final String SERIALIZED_NAME_START_PAGE = "startPage";
   @SerializedName(SERIALIZED_NAME_START_PAGE)
   @javax.annotation.Nonnull
@@ -68,6 +73,25 @@ public class PdfSplitJobItemWithAddress {
 
   public PdfSplitJobItemWithAddress() {
   }
+
+  public PdfSplitJobItemWithAddress jobTemplate(@javax.annotation.Nullable String jobTemplate) {
+    this.jobTemplate = jobTemplate;
+    return this;
+  }
+
+  /**
+   * Get jobTemplate
+   * @return jobTemplate
+   */
+  @javax.annotation.Nullable
+  public String getJobTemplate() {
+    return jobTemplate;
+  }
+
+  public void setJobTemplate(@javax.annotation.Nullable String jobTemplate) {
+    this.jobTemplate = jobTemplate;
+  }
+
 
   public PdfSplitJobItemWithAddress startPage(@javax.annotation.Nonnull Integer startPage) {
     this.startPage = startPage;
@@ -136,20 +160,22 @@ public class PdfSplitJobItemWithAddress {
       return false;
     }
     PdfSplitJobItemWithAddress pdfSplitJobItemWithAddress = (PdfSplitJobItemWithAddress) o;
-    return Objects.equals(this.startPage, pdfSplitJobItemWithAddress.startPage) &&
+    return Objects.equals(this.jobTemplate, pdfSplitJobItemWithAddress.jobTemplate) &&
+        Objects.equals(this.startPage, pdfSplitJobItemWithAddress.startPage) &&
         Objects.equals(this.endPage, pdfSplitJobItemWithAddress.endPage) &&
         Objects.equals(this.recipientAddressSource, pdfSplitJobItemWithAddress.recipientAddressSource);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(startPage, endPage, recipientAddressSource);
+    return Objects.hash(jobTemplate, startPage, endPage, recipientAddressSource);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PdfSplitJobItemWithAddress {\n");
+    sb.append("    jobTemplate: ").append(toIndentedString(jobTemplate)).append("\n");
     sb.append("    startPage: ").append(toIndentedString(startPage)).append("\n");
     sb.append("    endPage: ").append(toIndentedString(endPage)).append("\n");
     sb.append("    recipientAddressSource: ").append(toIndentedString(recipientAddressSource)).append("\n");
@@ -174,7 +200,7 @@ public class PdfSplitJobItemWithAddress {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("startPage", "endPage", "recipientAddressSource"));
+    openapiFields = new HashSet<String>(Arrays.asList("jobTemplate", "startPage", "endPage", "recipientAddressSource"));
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>(Arrays.asList("startPage", "endPage", "recipientAddressSource"));
@@ -208,6 +234,9 @@ public class PdfSplitJobItemWithAddress {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("jobTemplate") != null && !jsonObj.get("jobTemplate").isJsonNull()) && !jsonObj.get("jobTemplate").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `jobTemplate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("jobTemplate").toString()));
+      }
       // validate the required field `recipientAddressSource`
       RecipientAddressSource.validateJsonElement(jsonObj.get("recipientAddressSource"));
   }

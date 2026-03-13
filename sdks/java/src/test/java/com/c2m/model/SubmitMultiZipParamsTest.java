@@ -13,6 +13,7 @@
 
 package com.c2m.model;
 
+import com.c2m.model.DocSourceZipFileRef;
 import com.c2m.model.MultiZipJobItem;
 import com.c2m.model.PaymentDetails;
 import com.google.gson.TypeAdapter;
@@ -42,11 +43,11 @@ public class SubmitMultiZipParamsTest {
     }
 
     /**
-     * Test the property 'jobTemplate'
+     * Test the property 'docSourceZipFileRef'
      */
     @Test
-    public void jobTemplateTest() {
-        // TODO: test jobTemplate
+    public void docSourceZipFileRefTest() {
+        // TODO: test docSourceZipFileRef
     }
 
     /**

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DocSourceZipFileRef** | [**DocSourceZipFileRef**](DocSourceZipFileRef.md) |  | 
 **MultiZipJobs** | [**List&lt;MultiZipJobItem&gt;**](MultiZipJobItem.md) |  | 
-**JobTemplate** | **string** |  | [optional] 
 **PaymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **Tags** | **List&lt;string&gt;** |  | [optional] 
 

@@ -57,7 +57,6 @@ class SubmitSinglePdfSplitParams implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'job_template' => 'string',
         'doc_source_standard' => '\C2MApi\Model\DocSourceStandard',
         'pdf_split_jobs_with_address' => '\C2MApi\Model\PdfSplitJobItemWithAddress[]',
         'payment_details' => '\C2MApi\Model\PaymentDetails',
@@ -74,7 +73,6 @@ class SubmitSinglePdfSplitParams implements ModelInterface, ArrayAccess, \JsonSe
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'job_template' => null,
         'doc_source_standard' => null,
         'pdf_split_jobs_with_address' => null,
         'payment_details' => null,
@@ -89,7 +87,6 @@ class SubmitSinglePdfSplitParams implements ModelInterface, ArrayAccess, \JsonSe
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'job_template' => false,
         'doc_source_standard' => false,
         'pdf_split_jobs_with_address' => false,
         'payment_details' => false,
@@ -184,7 +181,6 @@ class SubmitSinglePdfSplitParams implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'job_template' => 'jobTemplate',
         'doc_source_standard' => 'docSourceStandard',
         'pdf_split_jobs_with_address' => 'pdfSplitJobsWithAddress',
         'payment_details' => 'paymentDetails',
@@ -199,7 +195,6 @@ class SubmitSinglePdfSplitParams implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'job_template' => 'setJobTemplate',
         'doc_source_standard' => 'setDocSourceStandard',
         'pdf_split_jobs_with_address' => 'setPdfSplitJobsWithAddress',
         'payment_details' => 'setPaymentDetails',
@@ -214,7 +209,6 @@ class SubmitSinglePdfSplitParams implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'job_template' => 'getJobTemplate',
         'doc_source_standard' => 'getDocSourceStandard',
         'pdf_split_jobs_with_address' => 'getPdfSplitJobsWithAddress',
         'payment_details' => 'getPaymentDetails',
@@ -280,7 +274,6 @@ class SubmitSinglePdfSplitParams implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('job_template', $data ?? [], null);
         $this->setIfExists('doc_source_standard', $data ?? [], null);
         $this->setIfExists('pdf_split_jobs_with_address', $data ?? [], null);
         $this->setIfExists('payment_details', $data ?? [], null);
@@ -336,33 +329,6 @@ class SubmitSinglePdfSplitParams implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets job_template
-     *
-     * @return string|null
-     */
-    public function getJobTemplate()
-    {
-        return $this->container['job_template'];
-    }
-
-    /**
-     * Sets job_template
-     *
-     * @param string|null $job_template job_template
-     *
-     * @return self
-     */
-    public function setJobTemplate($job_template)
-    {
-        if (is_null($job_template)) {
-            throw new \InvalidArgumentException('non-nullable job_template cannot be null');
-        }
-        $this->container['job_template'] = $job_template;
-
-        return $this;
-    }
 
     /**
      * Gets doc_source_standard

@@ -54,8 +54,8 @@
       //expect(instance).to.be.a(C2MApiV2.SubmitMultiZipParams);
     });
 
-    it('should have the property jobTemplate (base name: "jobTemplate")', function() {
-      // uncomment below and update the code to test the property jobTemplate
+    it('should have the property docSourceZipFileRef (base name: "docSourceZipFileRef")', function() {
+      // uncomment below and update the code to test the property docSourceZipFileRef
       //var instance = new C2MApiV2.SubmitMultiZipParams();
       //expect(instance).to.be();
     });

@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from c2m_api.models.doc_source_zip_file_ref import DocSourceZipFileRef
 from c2m_api.models.multi_zip_job_item import MultiZipJobItem
 from c2m_api.models.payment_details import PaymentDetails
 from typing import Optional, Set
@@ -28,11 +29,11 @@ class SubmitMultiZipParams(BaseModel):
     """
     SubmitMultiZipParams
     """ # noqa: E501
-    job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
+    doc_source_zip_file_ref: DocSourceZipFileRef = Field(alias="docSourceZipFileRef")
     multi_zip_jobs: List[MultiZipJobItem] = Field(alias="multiZipJobs")
     payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
     tags: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["jobTemplate", "multiZipJobs", "paymentDetails", "tags"]
+    __properties: ClassVar[List[str]] = ["docSourceZipFileRef", "multiZipJobs", "paymentDetails", "tags"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,6 +74,9 @@ class SubmitMultiZipParams(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of doc_source_zip_file_ref
+        if self.doc_source_zip_file_ref:
+            _dict['docSourceZipFileRef'] = self.doc_source_zip_file_ref.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in multi_zip_jobs (list)
         _items = []
         if self.multi_zip_jobs:
@@ -95,7 +99,7 @@ class SubmitMultiZipParams(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "jobTemplate": obj.get("jobTemplate"),
+            "docSourceZipFileRef": DocSourceZipFileRef.from_dict(obj["docSourceZipFileRef"]) if obj.get("docSourceZipFileRef") is not None else None,
             "multiZipJobs": [MultiZipJobItem.from_dict(_item) for _item in obj["multiZipJobs"]] if obj.get("multiZipJobs") is not None else None,
             "paymentDetails": PaymentDetails.from_dict(obj["paymentDetails"]) if obj.get("paymentDetails") is not None else None,
             "tags": obj.get("tags")

@@ -25,6 +25,7 @@ import Currency from './model/Currency';
 import DocSourceAll from './model/DocSourceAll';
 import DocSourceStandard from './model/DocSourceStandard';
 import DocSourceZipFile from './model/DocSourceZipFile';
+import DocSourceZipFileRef from './model/DocSourceZipFileRef';
 import ErrorCode from './model/ErrorCode';
 import ErrorResponse from './model/ErrorResponse';
 import ErrorType from './model/ErrorType';
@@ -174,6 +175,12 @@ export {
      * @property {module:c2m_api/model/DocSourceZipFile}
      */
     DocSourceZipFile,
+
+    /**
+     * The DocSourceZipFileRef model constructor.
+     * @property {module:c2m_api/model/DocSourceZipFileRef}
+     */
+    DocSourceZipFileRef,
 
     /**
      * The ErrorCode model constructor.

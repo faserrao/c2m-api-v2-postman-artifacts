@@ -21,6 +21,7 @@ var _ MappedNullable = &PdfSplitJobItemWithAddress{}
 
 // PdfSplitJobItemWithAddress struct for PdfSplitJobItemWithAddress
 type PdfSplitJobItemWithAddress struct {
+	JobTemplate *string `json:"jobTemplate,omitempty"`
 	StartPage int32 `json:"startPage"`
 	EndPage int32 `json:"endPage"`
 	RecipientAddressSource RecipientAddressSource `json:"recipientAddressSource"`
@@ -46,6 +47,38 @@ func NewPdfSplitJobItemWithAddress(startPage int32, endPage int32, recipientAddr
 func NewPdfSplitJobItemWithAddressWithDefaults() *PdfSplitJobItemWithAddress {
 	this := PdfSplitJobItemWithAddress{}
 	return &this
+}
+
+// GetJobTemplate returns the JobTemplate field value if set, zero value otherwise.
+func (o *PdfSplitJobItemWithAddress) GetJobTemplate() string {
+	if o == nil || IsNil(o.JobTemplate) {
+		var ret string
+		return ret
+	}
+	return *o.JobTemplate
+}
+
+// GetJobTemplateOk returns a tuple with the JobTemplate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PdfSplitJobItemWithAddress) GetJobTemplateOk() (*string, bool) {
+	if o == nil || IsNil(o.JobTemplate) {
+		return nil, false
+	}
+	return o.JobTemplate, true
+}
+
+// HasJobTemplate returns a boolean if a field has been set.
+func (o *PdfSplitJobItemWithAddress) HasJobTemplate() bool {
+	if o != nil && !IsNil(o.JobTemplate) {
+		return true
+	}
+
+	return false
+}
+
+// SetJobTemplate gets a reference to the given string and assigns it to the JobTemplate field.
+func (o *PdfSplitJobItemWithAddress) SetJobTemplate(v string) {
+	o.JobTemplate = &v
 }
 
 // GetStartPage returns the StartPage field value
@@ -130,6 +163,9 @@ func (o PdfSplitJobItemWithAddress) MarshalJSON() ([]byte, error) {
 
 func (o PdfSplitJobItemWithAddress) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.JobTemplate) {
+		toSerialize["jobTemplate"] = o.JobTemplate
+	}
 	toSerialize["startPage"] = o.StartPage
 	toSerialize["endPage"] = o.EndPage
 	toSerialize["recipientAddressSource"] = o.RecipientAddressSource

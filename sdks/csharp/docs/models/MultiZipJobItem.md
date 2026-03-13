@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DocSourceZipFile** | [**DocSourceZipFile**](DocSourceZipFile.md) |  | 
+**Filename** | **string** |  | 
 **RecipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 **JobTemplate** | **string** |  | [optional] 
 

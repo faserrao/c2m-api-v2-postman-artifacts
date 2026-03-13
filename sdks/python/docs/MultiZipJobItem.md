@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **job_template** | **str** |  | [optional] 
-**doc_source_zip_file** | [**DocSourceZipFile**](DocSourceZipFile.md) |  | 
+**filename** | **str** |  | 
 **recipient_address_source** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 
 ## Example

@@ -53,6 +53,7 @@ Class | Method | HTTP request | Description
  - [DocSourceAll](docs/DocSourceAll.md)
  - [DocSourceStandard](docs/DocSourceStandard.md)
  - [DocSourceZipFile](docs/DocSourceZipFile.md)
+ - [DocSourceZipFileRef](docs/DocSourceZipFileRef.md)
  - [ErrorCode](docs/ErrorCode.md)
  - [ErrorType](docs/ErrorType.md)
  - [ExpirationDate](docs/ExpirationDate.md)

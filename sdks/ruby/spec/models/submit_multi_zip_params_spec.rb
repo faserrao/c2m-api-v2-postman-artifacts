@@ -27,7 +27,7 @@ describe OpenapiClient::SubmitMultiZipParams do
     end
   end
 
-  describe 'test attribute "job_template"' do
+  describe 'test attribute "doc_source_zip_file_ref"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

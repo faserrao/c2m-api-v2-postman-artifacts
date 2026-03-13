@@ -13,8 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SubmitMultiZipParams {
-    #[serde(rename = "jobTemplate", skip_serializing_if = "Option::is_none")]
-    pub job_template: Option<String>,
+    #[serde(rename = "docSourceZipFileRef")]
+    pub doc_source_zip_file_ref: Box<models::DocSourceZipFileRef>,
     #[serde(rename = "multiZipJobs")]
     pub multi_zip_jobs: Vec<models::MultiZipJobItem>,
     #[serde(rename = "paymentDetails", skip_serializing_if = "Option::is_none")]
@@ -24,9 +24,9 @@ pub struct SubmitMultiZipParams {
 }
 
 impl SubmitMultiZipParams {
-    pub fn new(multi_zip_jobs: Vec<models::MultiZipJobItem>) -> SubmitMultiZipParams {
+    pub fn new(doc_source_zip_file_ref: models::DocSourceZipFileRef, multi_zip_jobs: Vec<models::MultiZipJobItem>) -> SubmitMultiZipParams {
         SubmitMultiZipParams {
-            job_template: None,
+            doc_source_zip_file_ref: Box::new(doc_source_zip_file_ref),
             multi_zip_jobs,
             payment_details: None,
             tags: None,

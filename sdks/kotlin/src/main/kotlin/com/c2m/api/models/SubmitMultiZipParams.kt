@@ -15,6 +15,7 @@
 
 package com.c2m.api.models
 
+import com.c2m.api.models.DocSourceZipFileRef
 import com.c2m.api.models.MultiZipJobItem
 import com.c2m.api.models.PaymentDetails
 
@@ -24,8 +25,8 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param docSourceZipFileRef 
  * @param multiZipJobs 
- * @param jobTemplate 
  * @param paymentDetails 
  * @param tags 
  */
@@ -33,11 +34,11 @@ import com.squareup.moshi.JsonClass
 
 data class SubmitMultiZipParams (
 
+    @Json(name = "docSourceZipFileRef")
+    val docSourceZipFileRef: DocSourceZipFileRef,
+
     @Json(name = "multiZipJobs")
     val multiZipJobs: kotlin.collections.List<MultiZipJobItem>,
-
-    @Json(name = "jobTemplate")
-    val jobTemplate: kotlin.String? = null,
 
     @Json(name = "paymentDetails")
     val paymentDetails: PaymentDetails? = null,

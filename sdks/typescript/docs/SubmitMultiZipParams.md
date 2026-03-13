@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**jobTemplate** | **string** |  | [optional] [default to undefined]
+**docSourceZipFileRef** | [**DocSourceZipFileRef**](DocSourceZipFileRef.md) |  | [default to undefined]
 **multiZipJobs** | [**Array&lt;MultiZipJobItem&gt;**](MultiZipJobItem.md) |  | [default to undefined]
 **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] [default to undefined]
 **tags** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 import { SubmitMultiZipParams } from './api';
 
 const instance: SubmitMultiZipParams = {
-    jobTemplate,
+    docSourceZipFileRef,
     multiZipJobs,
     paymentDetails,
     tags,

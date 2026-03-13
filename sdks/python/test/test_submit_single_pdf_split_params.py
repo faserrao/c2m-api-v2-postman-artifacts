@@ -35,10 +35,10 @@ class TestSubmitSinglePdfSplitParams(unittest.TestCase):
         model = SubmitSinglePdfSplitParams()
         if include_optional:
             return SubmitSinglePdfSplitParams(
-                job_template = '',
                 doc_source_standard = None,
                 pdf_split_jobs_with_address = [
                     c2m_api.models.pdf_split_job_item_with_address.pdfSplitJobItemWithAddress(
+                        job_template = '', 
                         start_page = 56, 
                         end_page = 56, 
                         recipient_address_source = null, )
@@ -73,6 +73,7 @@ class TestSubmitSinglePdfSplitParams(unittest.TestCase):
                 doc_source_standard = None,
                 pdf_split_jobs_with_address = [
                     c2m_api.models.pdf_split_job_item_with_address.pdfSplitJobItemWithAddress(
+                        job_template = '', 
                         start_page = 56, 
                         end_page = 56, 
                         recipient_address_source = null, )

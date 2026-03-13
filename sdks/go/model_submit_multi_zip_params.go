@@ -21,7 +21,7 @@ var _ MappedNullable = &SubmitMultiZipParams{}
 
 // SubmitMultiZipParams struct for SubmitMultiZipParams
 type SubmitMultiZipParams struct {
-	JobTemplate *string `json:"jobTemplate,omitempty"`
+	DocSourceZipFileRef DocSourceZipFileRef `json:"docSourceZipFileRef"`
 	MultiZipJobs []MultiZipJobItem `json:"multiZipJobs"`
 	PaymentDetails *PaymentDetails `json:"paymentDetails,omitempty"`
 	Tags []string `json:"tags,omitempty"`
@@ -33,8 +33,9 @@ type _SubmitMultiZipParams SubmitMultiZipParams
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSubmitMultiZipParams(multiZipJobs []MultiZipJobItem) *SubmitMultiZipParams {
+func NewSubmitMultiZipParams(docSourceZipFileRef DocSourceZipFileRef, multiZipJobs []MultiZipJobItem) *SubmitMultiZipParams {
 	this := SubmitMultiZipParams{}
+	this.DocSourceZipFileRef = docSourceZipFileRef
 	this.MultiZipJobs = multiZipJobs
 	return &this
 }
@@ -47,36 +48,28 @@ func NewSubmitMultiZipParamsWithDefaults() *SubmitMultiZipParams {
 	return &this
 }
 
-// GetJobTemplate returns the JobTemplate field value if set, zero value otherwise.
-func (o *SubmitMultiZipParams) GetJobTemplate() string {
-	if o == nil || IsNil(o.JobTemplate) {
-		var ret string
+// GetDocSourceZipFileRef returns the DocSourceZipFileRef field value
+func (o *SubmitMultiZipParams) GetDocSourceZipFileRef() DocSourceZipFileRef {
+	if o == nil {
+		var ret DocSourceZipFileRef
 		return ret
 	}
-	return *o.JobTemplate
+
+	return o.DocSourceZipFileRef
 }
 
-// GetJobTemplateOk returns a tuple with the JobTemplate field value if set, nil otherwise
+// GetDocSourceZipFileRefOk returns a tuple with the DocSourceZipFileRef field value
 // and a boolean to check if the value has been set.
-func (o *SubmitMultiZipParams) GetJobTemplateOk() (*string, bool) {
-	if o == nil || IsNil(o.JobTemplate) {
+func (o *SubmitMultiZipParams) GetDocSourceZipFileRefOk() (*DocSourceZipFileRef, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.JobTemplate, true
+	return &o.DocSourceZipFileRef, true
 }
 
-// HasJobTemplate returns a boolean if a field has been set.
-func (o *SubmitMultiZipParams) HasJobTemplate() bool {
-	if o != nil && !IsNil(o.JobTemplate) {
-		return true
-	}
-
-	return false
-}
-
-// SetJobTemplate gets a reference to the given string and assigns it to the JobTemplate field.
-func (o *SubmitMultiZipParams) SetJobTemplate(v string) {
-	o.JobTemplate = &v
+// SetDocSourceZipFileRef sets field value
+func (o *SubmitMultiZipParams) SetDocSourceZipFileRef(v DocSourceZipFileRef) {
+	o.DocSourceZipFileRef = v
 }
 
 // GetMultiZipJobs returns the MultiZipJobs field value
@@ -177,9 +170,7 @@ func (o SubmitMultiZipParams) MarshalJSON() ([]byte, error) {
 
 func (o SubmitMultiZipParams) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.JobTemplate) {
-		toSerialize["jobTemplate"] = o.JobTemplate
-	}
+	toSerialize["docSourceZipFileRef"] = o.DocSourceZipFileRef
 	toSerialize["multiZipJobs"] = o.MultiZipJobs
 	if !IsNil(o.PaymentDetails) {
 		toSerialize["paymentDetails"] = o.PaymentDetails
@@ -195,6 +186,7 @@ func (o *SubmitMultiZipParams) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"docSourceZipFileRef",
 		"multiZipJobs",
 	}
 

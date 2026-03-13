@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import DocSourceZipFile from './DocSourceZipFile';
 import RecipientAddressSource from './RecipientAddressSource';
 
 /**
@@ -24,12 +23,12 @@ class MultiZipJobItem {
     /**
      * Constructs a new <code>MultiZipJobItem</code>.
      * @alias module:c2m_api/model/MultiZipJobItem
-     * @param docSourceZipFile {module:c2m_api/model/DocSourceZipFile} 
+     * @param filename {String} 
      * @param recipientAddressSource {module:c2m_api/model/RecipientAddressSource} 
      */
-    constructor(docSourceZipFile, recipientAddressSource) { 
+    constructor(filename, recipientAddressSource) { 
         
-        MultiZipJobItem.initialize(this, docSourceZipFile, recipientAddressSource);
+        MultiZipJobItem.initialize(this, filename, recipientAddressSource);
     }
 
     /**
@@ -37,8 +36,8 @@ class MultiZipJobItem {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, docSourceZipFile, recipientAddressSource) { 
-        obj['docSourceZipFile'] = docSourceZipFile;
+    static initialize(obj, filename, recipientAddressSource) { 
+        obj['filename'] = filename;
         obj['recipientAddressSource'] = recipientAddressSource;
     }
 
@@ -56,8 +55,8 @@ class MultiZipJobItem {
             if (data.hasOwnProperty('jobTemplate')) {
                 obj['jobTemplate'] = ApiClient.convertToType(data['jobTemplate'], 'String');
             }
-            if (data.hasOwnProperty('docSourceZipFile')) {
-                obj['docSourceZipFile'] = DocSourceZipFile.constructFromObject(data['docSourceZipFile']);
+            if (data.hasOwnProperty('filename')) {
+                obj['filename'] = ApiClient.convertToType(data['filename'], 'String');
             }
             if (data.hasOwnProperty('recipientAddressSource')) {
                 obj['recipientAddressSource'] = RecipientAddressSource.constructFromObject(data['recipientAddressSource']);
@@ -82,9 +81,9 @@ class MultiZipJobItem {
         if (data['jobTemplate'] && !(typeof data['jobTemplate'] === 'string' || data['jobTemplate'] instanceof String)) {
             throw new Error("Expected the field `jobTemplate` to be a primitive type in the JSON string but got " + data['jobTemplate']);
         }
-        // validate the optional field `docSourceZipFile`
-        if (data['docSourceZipFile']) { // data not null
-          DocSourceZipFile.validateJSON(data['docSourceZipFile']);
+        // ensure the json data is a string
+        if (data['filename'] && !(typeof data['filename'] === 'string' || data['filename'] instanceof String)) {
+            throw new Error("Expected the field `filename` to be a primitive type in the JSON string but got " + data['filename']);
         }
         // validate the optional field `recipientAddressSource`
         if (data['recipientAddressSource']) { // data not null
@@ -97,7 +96,7 @@ class MultiZipJobItem {
 
 }
 
-MultiZipJobItem.RequiredProperties = ["docSourceZipFile", "recipientAddressSource"];
+MultiZipJobItem.RequiredProperties = ["filename", "recipientAddressSource"];
 
 /**
  * @member {String} jobTemplate
@@ -105,9 +104,9 @@ MultiZipJobItem.RequiredProperties = ["docSourceZipFile", "recipientAddressSourc
 MultiZipJobItem.prototype['jobTemplate'] = undefined;
 
 /**
- * @member {module:c2m_api/model/DocSourceZipFile} docSourceZipFile
+ * @member {String} filename
  */
-MultiZipJobItem.prototype['docSourceZipFile'] = undefined;
+MultiZipJobItem.prototype['filename'] = undefined;
 
 /**
  * @member {module:c2m_api/model/RecipientAddressSource} recipientAddressSource

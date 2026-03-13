@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**job_template** | **str** |  | [optional] 
+**doc_source_zip_file_ref** | [**DocSourceZipFileRef**](DocSourceZipFileRef.md) |  | 
 **multi_zip_jobs** | [**List[MultiZipJobItem]**](MultiZipJobItem.md) |  | 
 **payment_details** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
