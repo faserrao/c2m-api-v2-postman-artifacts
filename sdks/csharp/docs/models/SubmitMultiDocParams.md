@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **MultiDocJobs** | [**List&lt;MultiDocJobItem&gt;**](MultiDocJobItem.md) |  | 
-**JobTemplate** | **string** |  | [optional] 
 **PaymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **Tags** | **List&lt;string&gt;** |  | [optional] 
 

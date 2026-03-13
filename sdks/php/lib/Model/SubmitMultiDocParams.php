@@ -57,7 +57,6 @@ class SubmitMultiDocParams implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'job_template' => 'string',
         'multi_doc_jobs' => '\C2MApi\Model\MultiDocJobItem[]',
         'payment_details' => '\C2MApi\Model\PaymentDetails',
         'tags' => 'string[]'
@@ -71,7 +70,6 @@ class SubmitMultiDocParams implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'job_template' => null,
         'multi_doc_jobs' => null,
         'payment_details' => null,
         'tags' => null
@@ -83,7 +81,6 @@ class SubmitMultiDocParams implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'job_template' => false,
         'multi_doc_jobs' => false,
         'payment_details' => false,
         'tags' => false
@@ -175,7 +172,6 @@ class SubmitMultiDocParams implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'job_template' => 'jobTemplate',
         'multi_doc_jobs' => 'multiDocJobs',
         'payment_details' => 'paymentDetails',
         'tags' => 'tags'
@@ -187,7 +183,6 @@ class SubmitMultiDocParams implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'job_template' => 'setJobTemplate',
         'multi_doc_jobs' => 'setMultiDocJobs',
         'payment_details' => 'setPaymentDetails',
         'tags' => 'setTags'
@@ -199,7 +194,6 @@ class SubmitMultiDocParams implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'job_template' => 'getJobTemplate',
         'multi_doc_jobs' => 'getMultiDocJobs',
         'payment_details' => 'getPaymentDetails',
         'tags' => 'getTags'
@@ -262,7 +256,6 @@ class SubmitMultiDocParams implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('job_template', $data ?? [], null);
         $this->setIfExists('multi_doc_jobs', $data ?? [], null);
         $this->setIfExists('payment_details', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
@@ -312,33 +305,6 @@ class SubmitMultiDocParams implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets job_template
-     *
-     * @return string|null
-     */
-    public function getJobTemplate()
-    {
-        return $this->container['job_template'];
-    }
-
-    /**
-     * Sets job_template
-     *
-     * @param string|null $job_template job_template
-     *
-     * @return self
-     */
-    public function setJobTemplate($job_template)
-    {
-        if (is_null($job_template)) {
-            throw new \InvalidArgumentException('non-nullable job_template cannot be null');
-        }
-        $this->container['job_template'] = $job_template;
-
-        return $this;
-    }
 
     /**
      * Gets multi_doc_jobs

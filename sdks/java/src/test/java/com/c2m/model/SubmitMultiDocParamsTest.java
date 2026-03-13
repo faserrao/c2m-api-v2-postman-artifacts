@@ -42,14 +42,6 @@ public class SubmitMultiDocParamsTest {
     }
 
     /**
-     * Test the property 'jobTemplate'
-     */
-    @Test
-    public void jobTemplateTest() {
-        // TODO: test jobTemplate
-    }
-
-    /**
      * Test the property 'multiDocJobs'
      */
     @Test

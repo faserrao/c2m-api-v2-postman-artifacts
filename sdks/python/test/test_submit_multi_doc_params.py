@@ -35,7 +35,6 @@ class TestSubmitMultiDocParams(unittest.TestCase):
         model = SubmitMultiDocParams()
         if include_optional:
             return SubmitMultiDocParams(
-                job_template = '',
                 multi_doc_jobs = [
                     c2m_api.models.multi_doc_job_item.multiDocJobItem(
                         job_template = '', 

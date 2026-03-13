@@ -50,7 +50,7 @@ import com.c2m.JSON;
 /**
  * MultiZipJobItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-12T19:10:16.787144854Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-13T04:06:39.696210800Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class MultiZipJobItem {
   public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
   @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)

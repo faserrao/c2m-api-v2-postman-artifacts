@@ -418,7 +418,6 @@ export interface SubmitMultiDocMergeParams {
     'tags'?: Array<string>;
 }
 export interface SubmitMultiDocParams {
-    'jobTemplate'?: string;
     'multiDocJobs': Array<MultiDocJobItem>;
     'paymentDetails'?: PaymentDetails;
     'tags'?: Array<string>;

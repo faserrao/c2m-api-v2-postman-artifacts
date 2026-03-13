@@ -51,9 +51,6 @@ class SubmitMultiDocParams {
         if (data) {
             obj = obj || new SubmitMultiDocParams();
 
-            if (data.hasOwnProperty('jobTemplate')) {
-                obj['jobTemplate'] = ApiClient.convertToType(data['jobTemplate'], 'String');
-            }
             if (data.hasOwnProperty('multiDocJobs')) {
                 obj['multiDocJobs'] = ApiClient.convertToType(data['multiDocJobs'], [MultiDocJobItem]);
             }
@@ -78,10 +75,6 @@ class SubmitMultiDocParams {
             if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
-        }
-        // ensure the json data is a string
-        if (data['jobTemplate'] && !(typeof data['jobTemplate'] === 'string' || data['jobTemplate'] instanceof String)) {
-            throw new Error("Expected the field `jobTemplate` to be a primitive type in the JSON string but got " + data['jobTemplate']);
         }
         if (data['multiDocJobs']) { // data not null
             // ensure the json data is an array
@@ -109,11 +102,6 @@ class SubmitMultiDocParams {
 }
 
 SubmitMultiDocParams.RequiredProperties = ["multiDocJobs"];
-
-/**
- * @member {String} jobTemplate
- */
-SubmitMultiDocParams.prototype['jobTemplate'] = undefined;
 
 /**
  * @member {Array.<module:c2m_api/model/MultiDocJobItem>} multiDocJobs

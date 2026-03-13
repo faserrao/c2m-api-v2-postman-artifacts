@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**jobTemplate** | **string** |  | [optional] [default to undefined]
 **multiDocJobs** | [**Array&lt;MultiDocJobItem&gt;**](MultiDocJobItem.md) |  | [default to undefined]
 **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] [default to undefined]
 **tags** | **Array&lt;string&gt;** |  | [optional] [default to undefined]
@@ -16,7 +15,6 @@ Name | Type | Description | Notes
 import { SubmitMultiDocParams } from './api';
 
 const instance: SubmitMultiDocParams = {
-    jobTemplate,
     multiDocJobs,
     paymentDetails,
     tags,

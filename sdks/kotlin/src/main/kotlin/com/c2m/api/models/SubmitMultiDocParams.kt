@@ -25,7 +25,6 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param multiDocJobs 
- * @param jobTemplate 
  * @param paymentDetails 
  * @param tags 
  */
@@ -35,9 +34,6 @@ data class SubmitMultiDocParams (
 
     @Json(name = "multiDocJobs")
     val multiDocJobs: kotlin.collections.List<MultiDocJobItem>,
-
-    @Json(name = "jobTemplate")
-    val jobTemplate: kotlin.String? = null,
 
     @Json(name = "paymentDetails")
     val paymentDetails: PaymentDetails? = null,

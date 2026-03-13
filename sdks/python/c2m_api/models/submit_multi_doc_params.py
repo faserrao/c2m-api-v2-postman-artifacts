@@ -28,11 +28,10 @@ class SubmitMultiDocParams(BaseModel):
     """
     SubmitMultiDocParams
     """ # noqa: E501
-    job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
     multi_doc_jobs: List[MultiDocJobItem] = Field(alias="multiDocJobs")
     payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
     tags: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["jobTemplate", "multiDocJobs", "paymentDetails", "tags"]
+    __properties: ClassVar[List[str]] = ["multiDocJobs", "paymentDetails", "tags"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -95,7 +94,6 @@ class SubmitMultiDocParams(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "jobTemplate": obj.get("jobTemplate"),
             "multiDocJobs": [MultiDocJobItem.from_dict(_item) for _item in obj["multiDocJobs"]] if obj.get("multiDocJobs") is not None else None,
             "paymentDetails": PaymentDetails.from_dict(obj["paymentDetails"]) if obj.get("paymentDetails") is not None else None,
             "tags": obj.get("tags")

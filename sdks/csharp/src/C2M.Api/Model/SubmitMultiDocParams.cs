@@ -34,14 +34,12 @@ namespace C2M.Api.Model
         /// Initializes a new instance of the <see cref="SubmitMultiDocParams" /> class.
         /// </summary>
         /// <param name="multiDocJobs">multiDocJobs</param>
-        /// <param name="jobTemplate">jobTemplate</param>
         /// <param name="paymentDetails">paymentDetails</param>
         /// <param name="tags">tags</param>
         [JsonConstructor]
-        public SubmitMultiDocParams(List<MultiDocJobItem> multiDocJobs, Option<string?> jobTemplate = default, Option<PaymentDetails?> paymentDetails = default, Option<List<string>?> tags = default)
+        public SubmitMultiDocParams(List<MultiDocJobItem> multiDocJobs, Option<PaymentDetails?> paymentDetails = default, Option<List<string>?> tags = default)
         {
             MultiDocJobs = multiDocJobs;
-            JobTemplateOption = jobTemplate;
             PaymentDetailsOption = paymentDetails;
             TagsOption = tags;
             OnCreated();
@@ -54,19 +52,6 @@ namespace C2M.Api.Model
         /// </summary>
         [JsonPropertyName("multiDocJobs")]
         public List<MultiDocJobItem> MultiDocJobs { get; set; }
-
-        /// <summary>
-        /// Used to track the state of JobTemplate
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<string?> JobTemplateOption { get; private set; }
-
-        /// <summary>
-        /// Gets or Sets JobTemplate
-        /// </summary>
-        [JsonPropertyName("jobTemplate")]
-        public string? JobTemplate { get { return this.JobTemplateOption; } set { this.JobTemplateOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of PaymentDetails
@@ -103,7 +88,6 @@ namespace C2M.Api.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class SubmitMultiDocParams {\n");
             sb.Append("  MultiDocJobs: ").Append(MultiDocJobs).Append("\n");
-            sb.Append("  JobTemplate: ").Append(JobTemplate).Append("\n");
             sb.Append("  PaymentDetails: ").Append(PaymentDetails).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("}\n");
@@ -144,7 +128,6 @@ namespace C2M.Api.Model
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
             Option<List<MultiDocJobItem>?> multiDocJobs = default;
-            Option<string?> jobTemplate = default;
             Option<PaymentDetails?> paymentDetails = default;
             Option<List<string>?> tags = default;
 
@@ -166,9 +149,6 @@ namespace C2M.Api.Model
                         case "multiDocJobs":
                             multiDocJobs = new Option<List<MultiDocJobItem>?>(JsonSerializer.Deserialize<List<MultiDocJobItem>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
-                        case "jobTemplate":
-                            jobTemplate = new Option<string?>(utf8JsonReader.GetString()!);
-                            break;
                         case "paymentDetails":
                             paymentDetails = new Option<PaymentDetails?>(JsonSerializer.Deserialize<PaymentDetails>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
@@ -187,16 +167,13 @@ namespace C2M.Api.Model
             if (multiDocJobs.IsSet && multiDocJobs.Value == null)
                 throw new ArgumentNullException(nameof(multiDocJobs), "Property is not nullable for class SubmitMultiDocParams.");
 
-            if (jobTemplate.IsSet && jobTemplate.Value == null)
-                throw new ArgumentNullException(nameof(jobTemplate), "Property is not nullable for class SubmitMultiDocParams.");
-
             if (paymentDetails.IsSet && paymentDetails.Value == null)
                 throw new ArgumentNullException(nameof(paymentDetails), "Property is not nullable for class SubmitMultiDocParams.");
 
             if (tags.IsSet && tags.Value == null)
                 throw new ArgumentNullException(nameof(tags), "Property is not nullable for class SubmitMultiDocParams.");
 
-            return new SubmitMultiDocParams(multiDocJobs.Value!, jobTemplate, paymentDetails, tags);
+            return new SubmitMultiDocParams(multiDocJobs.Value!, paymentDetails, tags);
         }
 
         /// <summary>
@@ -226,9 +203,6 @@ namespace C2M.Api.Model
             if (submitMultiDocParams.MultiDocJobs == null)
                 throw new ArgumentNullException(nameof(submitMultiDocParams.MultiDocJobs), "Property is required for class SubmitMultiDocParams.");
 
-            if (submitMultiDocParams.JobTemplateOption.IsSet && submitMultiDocParams.JobTemplate == null)
-                throw new ArgumentNullException(nameof(submitMultiDocParams.JobTemplate), "Property is required for class SubmitMultiDocParams.");
-
             if (submitMultiDocParams.PaymentDetailsOption.IsSet && submitMultiDocParams.PaymentDetails == null)
                 throw new ArgumentNullException(nameof(submitMultiDocParams.PaymentDetails), "Property is required for class SubmitMultiDocParams.");
 
@@ -237,9 +211,6 @@ namespace C2M.Api.Model
 
             writer.WritePropertyName("multiDocJobs");
             JsonSerializer.Serialize(writer, submitMultiDocParams.MultiDocJobs, jsonSerializerOptions);
-            if (submitMultiDocParams.JobTemplateOption.IsSet)
-                writer.WriteString("jobTemplate", submitMultiDocParams.JobTemplate);
-
             if (submitMultiDocParams.PaymentDetailsOption.IsSet)
             {
                 writer.WritePropertyName("paymentDetails");

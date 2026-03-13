@@ -54,12 +54,6 @@
       //expect(instance).to.be.a(C2MApiV2.SubmitMultiDocParams);
     });
 
-    it('should have the property jobTemplate (base name: "jobTemplate")', function() {
-      // uncomment below and update the code to test the property jobTemplate
-      //var instance = new C2MApiV2.SubmitMultiDocParams();
-      //expect(instance).to.be();
-    });
-
     it('should have the property multiDocJobs (base name: "multiDocJobs")', function() {
       // uncomment below and update the code to test the property multiDocJobs
       //var instance = new C2MApiV2.SubmitMultiDocParams();

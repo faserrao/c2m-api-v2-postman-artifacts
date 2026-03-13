@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SubmitMultiDocParams {
-    #[serde(rename = "jobTemplate", skip_serializing_if = "Option::is_none")]
-    pub job_template: Option<String>,
     #[serde(rename = "multiDocJobs")]
     pub multi_doc_jobs: Vec<models::MultiDocJobItem>,
     #[serde(rename = "paymentDetails", skip_serializing_if = "Option::is_none")]
@@ -26,7 +24,6 @@ pub struct SubmitMultiDocParams {
 impl SubmitMultiDocParams {
     pub fn new(multi_doc_jobs: Vec<models::MultiDocJobItem>) -> SubmitMultiDocParams {
         SubmitMultiDocParams {
-            job_template: None,
             multi_doc_jobs,
             payment_details: None,
             tags: None,

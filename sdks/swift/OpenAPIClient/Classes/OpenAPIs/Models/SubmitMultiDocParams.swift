@@ -12,20 +12,17 @@ import AnyCodable
 
 public struct SubmitMultiDocParams: Codable, JSONEncodable, Hashable {
 
-    public var jobTemplate: String?
     public var multiDocJobs: [MultiDocJobItem]
     public var paymentDetails: PaymentDetails?
     public var tags: [String]?
 
-    public init(jobTemplate: String? = nil, multiDocJobs: [MultiDocJobItem], paymentDetails: PaymentDetails? = nil, tags: [String]? = nil) {
-        self.jobTemplate = jobTemplate
+    public init(multiDocJobs: [MultiDocJobItem], paymentDetails: PaymentDetails? = nil, tags: [String]? = nil) {
         self.multiDocJobs = multiDocJobs
         self.paymentDetails = paymentDetails
         self.tags = tags
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case jobTemplate
         case multiDocJobs
         case paymentDetails
         case tags
@@ -35,7 +32,6 @@ public struct SubmitMultiDocParams: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(jobTemplate, forKey: .jobTemplate)
         try container.encode(multiDocJobs, forKey: .multiDocJobs)
         try container.encodeIfPresent(paymentDetails, forKey: .paymentDetails)
         try container.encodeIfPresent(tags, forKey: .tags)

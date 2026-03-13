@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**job_template** | **string** |  | [optional]
 **multi_doc_jobs** | [**\C2MApi\Model\MultiDocJobItem[]**](MultiDocJobItem.md) |  |
 **payment_details** | [**\C2MApi\Model\PaymentDetails**](PaymentDetails.md) |  | [optional]
 **tags** | **string[]** |  | [optional]

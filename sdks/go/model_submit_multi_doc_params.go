@@ -21,7 +21,6 @@ var _ MappedNullable = &SubmitMultiDocParams{}
 
 // SubmitMultiDocParams struct for SubmitMultiDocParams
 type SubmitMultiDocParams struct {
-	JobTemplate *string `json:"jobTemplate,omitempty"`
 	MultiDocJobs []MultiDocJobItem `json:"multiDocJobs"`
 	PaymentDetails *PaymentDetails `json:"paymentDetails,omitempty"`
 	Tags []string `json:"tags,omitempty"`
@@ -45,38 +44,6 @@ func NewSubmitMultiDocParams(multiDocJobs []MultiDocJobItem) *SubmitMultiDocPara
 func NewSubmitMultiDocParamsWithDefaults() *SubmitMultiDocParams {
 	this := SubmitMultiDocParams{}
 	return &this
-}
-
-// GetJobTemplate returns the JobTemplate field value if set, zero value otherwise.
-func (o *SubmitMultiDocParams) GetJobTemplate() string {
-	if o == nil || IsNil(o.JobTemplate) {
-		var ret string
-		return ret
-	}
-	return *o.JobTemplate
-}
-
-// GetJobTemplateOk returns a tuple with the JobTemplate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SubmitMultiDocParams) GetJobTemplateOk() (*string, bool) {
-	if o == nil || IsNil(o.JobTemplate) {
-		return nil, false
-	}
-	return o.JobTemplate, true
-}
-
-// HasJobTemplate returns a boolean if a field has been set.
-func (o *SubmitMultiDocParams) HasJobTemplate() bool {
-	if o != nil && !IsNil(o.JobTemplate) {
-		return true
-	}
-
-	return false
-}
-
-// SetJobTemplate gets a reference to the given string and assigns it to the JobTemplate field.
-func (o *SubmitMultiDocParams) SetJobTemplate(v string) {
-	o.JobTemplate = &v
 }
 
 // GetMultiDocJobs returns the MultiDocJobs field value
@@ -177,9 +144,6 @@ func (o SubmitMultiDocParams) MarshalJSON() ([]byte, error) {
 
 func (o SubmitMultiDocParams) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.JobTemplate) {
-		toSerialize["jobTemplate"] = o.JobTemplate
-	}
 	toSerialize["multiDocJobs"] = o.MultiDocJobs
 	if !IsNil(o.PaymentDetails) {
 		toSerialize["paymentDetails"] = o.PaymentDetails

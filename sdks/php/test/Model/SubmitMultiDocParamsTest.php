@@ -80,15 +80,6 @@ class SubmitMultiDocParamsTest extends TestCase
     }
 
     /**
-     * Test attribute "job_template"
-     */
-    public function testPropertyJobTemplate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "multi_doc_jobs"
      */
     public function testPropertyMultiDocJobs()

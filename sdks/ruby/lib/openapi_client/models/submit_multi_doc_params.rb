@@ -15,8 +15,6 @@ require 'time'
 
 module OpenapiClient
   class SubmitMultiDocParams
-    attr_accessor :job_template
-
     attr_accessor :multi_doc_jobs
 
     attr_accessor :payment_details
@@ -26,7 +24,6 @@ module OpenapiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'job_template' => :'jobTemplate',
         :'multi_doc_jobs' => :'multiDocJobs',
         :'payment_details' => :'paymentDetails',
         :'tags' => :'tags'
@@ -46,7 +43,6 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'job_template' => :'String',
         :'multi_doc_jobs' => :'Array<MultiDocJobItem>',
         :'payment_details' => :'PaymentDetails',
         :'tags' => :'Array<String>'
@@ -74,10 +70,6 @@ module OpenapiClient
         end
         h[k.to_sym] = v
       }
-
-      if attributes.key?(:'job_template')
-        self.job_template = attributes[:'job_template']
-      end
 
       if attributes.key?(:'multi_doc_jobs')
         if (value = attributes[:'multi_doc_jobs']).is_a?(Array)
@@ -133,7 +125,6 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          job_template == o.job_template &&
           multi_doc_jobs == o.multi_doc_jobs &&
           payment_details == o.payment_details &&
           tags == o.tags
@@ -148,7 +139,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [job_template, multi_doc_jobs, payment_details, tags].hash
+      [multi_doc_jobs, payment_details, tags].hash
     end
 
     # Builds the object from hash

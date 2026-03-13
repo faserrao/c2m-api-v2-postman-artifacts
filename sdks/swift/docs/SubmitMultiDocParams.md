@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**jobTemplate** | **String** |  | [optional] 
 **multiDocJobs** | [MultiDocJobItem] |  | 
 **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **tags** | **[String]** |  | [optional] 

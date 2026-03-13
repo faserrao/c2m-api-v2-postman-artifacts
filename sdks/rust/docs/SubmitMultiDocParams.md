@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**job_template** | Option<**String**> |  | [optional]
 **multi_doc_jobs** | [**Vec<models::MultiDocJobItem>**](multiDocJobItem.md) |  | 
 **payment_details** | Option<[**models::PaymentDetails**](paymentDetails.md)> |  | [optional]
 **tags** | Option<**Vec<String>**> |  | [optional]
