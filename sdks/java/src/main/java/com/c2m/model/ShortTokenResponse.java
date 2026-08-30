@@ -51,7 +51,7 @@ import com.c2m.JSON;
 /**
  * ShortTokenResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T20:33:23.898184499Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-30T20:55:47.514682448Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ShortTokenResponse {
   /**
    * Gets or Sets tokenType
