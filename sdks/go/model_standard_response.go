@@ -12,6 +12,8 @@ package c2mapi
 
 import (
 	"encoding/json"
+	"bytes"
+	"fmt"
 )
 
 // checks if the StandardResponse type satisfies the MappedNullable interface at compile time
@@ -19,17 +21,22 @@ var _ MappedNullable = &StandardResponse{}
 
 // StandardResponse struct for StandardResponse
 type StandardResponse struct {
-	Status *string `json:"status,omitempty"`
-	Message *string `json:"message,omitempty"`
-	RequestId *string `json:"requestId,omitempty"`
+	Status string `json:"status"`
+	Message string `json:"message"`
+	RequestId int32 `json:"requestId"`
 }
+
+type _StandardResponse StandardResponse
 
 // NewStandardResponse instantiates a new StandardResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewStandardResponse() *StandardResponse {
+func NewStandardResponse(status string, message string, requestId int32) *StandardResponse {
 	this := StandardResponse{}
+	this.Status = status
+	this.Message = message
+	this.RequestId = requestId
 	return &this
 }
 
@@ -41,100 +48,76 @@ func NewStandardResponseWithDefaults() *StandardResponse {
 	return &this
 }
 
-// GetStatus returns the Status field value if set, zero value otherwise.
+// GetStatus returns the Status field value
 func (o *StandardResponse) GetStatus() string {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Status
+
+	return o.Status
 }
 
-// GetStatusOk returns a tuple with the Status field value if set, nil otherwise
+// GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *StandardResponse) GetStatusOk() (*string, bool) {
-	if o == nil || IsNil(o.Status) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Status, true
+	return &o.Status, true
 }
 
-// HasStatus returns a boolean if a field has been set.
-func (o *StandardResponse) HasStatus() bool {
-	if o != nil && !IsNil(o.Status) {
-		return true
-	}
-
-	return false
-}
-
-// SetStatus gets a reference to the given string and assigns it to the Status field.
+// SetStatus sets field value
 func (o *StandardResponse) SetStatus(v string) {
-	o.Status = &v
+	o.Status = v
 }
 
-// GetMessage returns the Message field value if set, zero value otherwise.
+// GetMessage returns the Message field value
 func (o *StandardResponse) GetMessage() string {
-	if o == nil || IsNil(o.Message) {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Message
+
+	return o.Message
 }
 
-// GetMessageOk returns a tuple with the Message field value if set, nil otherwise
+// GetMessageOk returns a tuple with the Message field value
 // and a boolean to check if the value has been set.
 func (o *StandardResponse) GetMessageOk() (*string, bool) {
-	if o == nil || IsNil(o.Message) {
+	if o == nil {
 		return nil, false
 	}
-	return o.Message, true
+	return &o.Message, true
 }
 
-// HasMessage returns a boolean if a field has been set.
-func (o *StandardResponse) HasMessage() bool {
-	if o != nil && !IsNil(o.Message) {
-		return true
-	}
-
-	return false
-}
-
-// SetMessage gets a reference to the given string and assigns it to the Message field.
+// SetMessage sets field value
 func (o *StandardResponse) SetMessage(v string) {
-	o.Message = &v
+	o.Message = v
 }
 
-// GetRequestId returns the RequestId field value if set, zero value otherwise.
-func (o *StandardResponse) GetRequestId() string {
-	if o == nil || IsNil(o.RequestId) {
-		var ret string
+// GetRequestId returns the RequestId field value
+func (o *StandardResponse) GetRequestId() int32 {
+	if o == nil {
+		var ret int32
 		return ret
 	}
-	return *o.RequestId
+
+	return o.RequestId
 }
 
-// GetRequestIdOk returns a tuple with the RequestId field value if set, nil otherwise
+// GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
-func (o *StandardResponse) GetRequestIdOk() (*string, bool) {
-	if o == nil || IsNil(o.RequestId) {
+func (o *StandardResponse) GetRequestIdOk() (*int32, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return o.RequestId, true
+	return &o.RequestId, true
 }
 
-// HasRequestId returns a boolean if a field has been set.
-func (o *StandardResponse) HasRequestId() bool {
-	if o != nil && !IsNil(o.RequestId) {
-		return true
-	}
-
-	return false
-}
-
-// SetRequestId gets a reference to the given string and assigns it to the RequestId field.
-func (o *StandardResponse) SetRequestId(v string) {
-	o.RequestId = &v
+// SetRequestId sets field value
+func (o *StandardResponse) SetRequestId(v int32) {
+	o.RequestId = v
 }
 
 func (o StandardResponse) MarshalJSON() ([]byte, error) {
@@ -147,16 +130,49 @@ func (o StandardResponse) MarshalJSON() ([]byte, error) {
 
 func (o StandardResponse) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.Status) {
-		toSerialize["status"] = o.Status
-	}
-	if !IsNil(o.Message) {
-		toSerialize["message"] = o.Message
-	}
-	if !IsNil(o.RequestId) {
-		toSerialize["requestId"] = o.RequestId
-	}
+	toSerialize["status"] = o.Status
+	toSerialize["message"] = o.Message
+	toSerialize["requestId"] = o.RequestId
 	return toSerialize, nil
+}
+
+func (o *StandardResponse) UnmarshalJSON(data []byte) (err error) {
+	// This validates that all required properties are included in the JSON object
+	// by unmarshalling the object into a generic map with string keys and checking
+	// that every required field exists as a key in the generic map.
+	requiredProperties := []string{
+		"status",
+		"message",
+		"requestId",
+	}
+
+	allProperties := make(map[string]interface{})
+
+	err = json.Unmarshal(data, &allProperties)
+
+	if err != nil {
+		return err;
+	}
+
+	for _, requiredProperty := range(requiredProperties) {
+		if _, exists := allProperties[requiredProperty]; !exists {
+			return fmt.Errorf("no value given for required property %v", requiredProperty)
+		}
+	}
+
+	varStandardResponse := _StandardResponse{}
+
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varStandardResponse)
+
+	if err != nil {
+		return err
+	}
+
+	*o = StandardResponse(varStandardResponse)
+
+	return err
 }
 
 type NullableStandardResponse struct {

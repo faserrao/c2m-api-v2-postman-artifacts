@@ -4,9 +4,9 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **status** | **kotlin.String** |  |  [optional] |
-| **message** | **kotlin.String** |  |  [optional] |
-| **requestId** | **kotlin.String** |  |  [optional] |
+| **status** | **kotlin.String** |  |  |
+| **message** | **kotlin.String** |  |  |
+| **requestId** | **kotlin.Int** |  |  |
 
 
 

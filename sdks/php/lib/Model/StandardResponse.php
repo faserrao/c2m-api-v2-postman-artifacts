@@ -49,7 +49,7 @@ class StandardResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'StandardResponse';
+    protected static $openAPIModelName = 'standardResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,7 @@ class StandardResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'status' => 'string',
         'message' => 'string',
-        'request_id' => 'string'
+        'request_id' => 'int'
     ];
 
     /**
@@ -288,6 +288,15 @@ class StandardResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
+        }
+        if ($this->container['request_id'] === null) {
+            $invalidProperties[] = "'request_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -306,7 +315,7 @@ class StandardResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return string|null
+     * @return string
      */
     public function getStatus()
     {
@@ -316,7 +325,7 @@ class StandardResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string|null $status status
+     * @param string $status status
      *
      * @return self
      */
@@ -333,7 +342,7 @@ class StandardResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets message
      *
-     * @return string|null
+     * @return string
      */
     public function getMessage()
     {
@@ -343,7 +352,7 @@ class StandardResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets message
      *
-     * @param string|null $message message
+     * @param string $message message
      *
      * @return self
      */
@@ -360,7 +369,7 @@ class StandardResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets request_id
      *
-     * @return string|null
+     * @return int
      */
     public function getRequestId()
     {
@@ -370,7 +379,7 @@ class StandardResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets request_id
      *
-     * @param string|null $request_id request_id
+     * @param int $request_id request_id
      *
      * @return self
      */

@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **status** | **String** |  | [optional] |
-| **message** | **String** |  | [optional] |
-| **request_id** | **String** |  | [optional] |
+| **status** | **String** |  |  |
+| **message** | **String** |  |  |
+| **request_id** | **Integer** |  |  |
 
 ## Example
 

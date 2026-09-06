@@ -4,15 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **string** |  | [optional] 
-**Message** | Pointer to **string** |  | [optional] 
-**RequestId** | Pointer to **string** |  | [optional] 
+**Status** | **string** |  | 
+**Message** | **string** |  | 
+**RequestId** | **int32** |  | 
 
 ## Methods
 
 ### NewStandardResponse
 
-`func NewStandardResponse() *StandardResponse`
+`func NewStandardResponse(status string, message string, requestId int32, ) *StandardResponse`
 
 NewStandardResponse instantiates a new StandardResponse object
 This constructor will assign default values to properties that have it defined,
@@ -46,11 +46,6 @@ and a boolean to check if the value has been set.
 
 SetStatus sets Status field to given value.
 
-### HasStatus
-
-`func (o *StandardResponse) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
 
 ### GetMessage
 
@@ -71,36 +66,26 @@ and a boolean to check if the value has been set.
 
 SetMessage sets Message field to given value.
 
-### HasMessage
-
-`func (o *StandardResponse) HasMessage() bool`
-
-HasMessage returns a boolean if a field has been set.
 
 ### GetRequestId
 
-`func (o *StandardResponse) GetRequestId() string`
+`func (o *StandardResponse) GetRequestId() int32`
 
 GetRequestId returns the RequestId field if non-nil, zero value otherwise.
 
 ### GetRequestIdOk
 
-`func (o *StandardResponse) GetRequestIdOk() (*string, bool)`
+`func (o *StandardResponse) GetRequestIdOk() (*int32, bool)`
 
 GetRequestIdOk returns a tuple with the RequestId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRequestId
 
-`func (o *StandardResponse) SetRequestId(v string)`
+`func (o *StandardResponse) SetRequestId(v int32)`
 
 SetRequestId sets RequestId field to given value.
 
-### HasRequestId
-
-`func (o *StandardResponse) HasRequestId() bool`
-
-HasRequestId returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

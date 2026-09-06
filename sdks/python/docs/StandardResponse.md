@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **str** |  | [optional] 
-**message** | **str** |  | [optional] 
-**request_id** | **str** |  | [optional] 
+**status** | **str** |  | 
+**message** | **str** |  | 
+**request_id** | **int** |  | 
 
 ## Example
 

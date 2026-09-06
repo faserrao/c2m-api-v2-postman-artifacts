@@ -31,13 +31,13 @@ import com.squareup.moshi.JsonClass
 data class StandardResponse (
 
     @Json(name = "status")
-    val status: kotlin.String? = null,
+    val status: kotlin.String,
 
     @Json(name = "message")
-    val message: kotlin.String? = null,
+    val message: kotlin.String,
 
     @Json(name = "requestId")
-    val requestId: kotlin.String? = null
+    val requestId: kotlin.Int
 
 ) {
 

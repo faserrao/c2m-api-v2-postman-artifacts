@@ -37,54 +37,33 @@ namespace C2M.Api.Model
         /// <param name="message">message</param>
         /// <param name="requestId">requestId</param>
         [JsonConstructor]
-        public StandardResponse(Option<string?> status = default, Option<string?> message = default, Option<string?> requestId = default)
+        public StandardResponse(string status, string message, int requestId)
         {
-            StatusOption = status;
-            MessageOption = message;
-            RequestIdOption = requestId;
+            Status = status;
+            Message = message;
+            RequestId = requestId;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Used to track the state of Status
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<string?> StatusOption { get; private set; }
-
-        /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [JsonPropertyName("status")]
-        public string? Status { get { return this.StatusOption; } set { this.StatusOption = new(value); } }
-
-        /// <summary>
-        /// Used to track the state of Message
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<string?> MessageOption { get; private set; }
+        public string Status { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
         [JsonPropertyName("message")]
-        public string? Message { get { return this.MessageOption; } set { this.MessageOption = new(value); } }
-
-        /// <summary>
-        /// Used to track the state of RequestId
-        /// </summary>
-        [JsonIgnore]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<string?> RequestIdOption { get; private set; }
+        public string Message { get; set; }
 
         /// <summary>
         /// Gets or Sets RequestId
         /// </summary>
         [JsonPropertyName("requestId")]
-        public string? RequestId { get { return this.RequestIdOption; } set { this.RequestIdOption = new(value); } }
+        public int RequestId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -136,7 +115,7 @@ namespace C2M.Api.Model
 
             Option<string?> status = default;
             Option<string?> message = default;
-            Option<string?> requestId = default;
+            Option<int?> requestId = default;
 
             while (utf8JsonReader.Read())
             {
@@ -160,13 +139,22 @@ namespace C2M.Api.Model
                             message = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "requestId":
-                            requestId = new Option<string?>(utf8JsonReader.GetString()!);
+                            requestId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         default:
                             break;
                     }
                 }
             }
+
+            if (!status.IsSet)
+                throw new ArgumentException("Property is required for class StandardResponse.", nameof(status));
+
+            if (!message.IsSet)
+                throw new ArgumentException("Property is required for class StandardResponse.", nameof(message));
+
+            if (!requestId.IsSet)
+                throw new ArgumentException("Property is required for class StandardResponse.", nameof(requestId));
 
             if (status.IsSet && status.Value == null)
                 throw new ArgumentNullException(nameof(status), "Property is not nullable for class StandardResponse.");
@@ -177,7 +165,7 @@ namespace C2M.Api.Model
             if (requestId.IsSet && requestId.Value == null)
                 throw new ArgumentNullException(nameof(requestId), "Property is not nullable for class StandardResponse.");
 
-            return new StandardResponse(status, message, requestId);
+            return new StandardResponse(status.Value!, message.Value!, requestId.Value!.Value!);
         }
 
         /// <summary>
@@ -204,23 +192,17 @@ namespace C2M.Api.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, StandardResponse standardResponse, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (standardResponse.StatusOption.IsSet && standardResponse.Status == null)
+            if (standardResponse.Status == null)
                 throw new ArgumentNullException(nameof(standardResponse.Status), "Property is required for class StandardResponse.");
 
-            if (standardResponse.MessageOption.IsSet && standardResponse.Message == null)
+            if (standardResponse.Message == null)
                 throw new ArgumentNullException(nameof(standardResponse.Message), "Property is required for class StandardResponse.");
 
-            if (standardResponse.RequestIdOption.IsSet && standardResponse.RequestId == null)
-                throw new ArgumentNullException(nameof(standardResponse.RequestId), "Property is required for class StandardResponse.");
+            writer.WriteString("status", standardResponse.Status);
 
-            if (standardResponse.StatusOption.IsSet)
-                writer.WriteString("status", standardResponse.Status);
+            writer.WriteString("message", standardResponse.Message);
 
-            if (standardResponse.MessageOption.IsSet)
-                writer.WriteString("message", standardResponse.Message);
-
-            if (standardResponse.RequestIdOption.IsSet)
-                writer.WriteString("requestId", standardResponse.RequestId);
+            writer.WriteNumber("requestId", standardResponse.RequestId);
         }
     }
 }

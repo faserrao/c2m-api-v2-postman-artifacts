@@ -13,20 +13,20 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StandardResponse {
-    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<String>,
-    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
-    pub message: Option<String>,
-    #[serde(rename = "requestId", skip_serializing_if = "Option::is_none")]
-    pub request_id: Option<String>,
+    #[serde(rename = "status")]
+    pub status: String,
+    #[serde(rename = "message")]
+    pub message: String,
+    #[serde(rename = "requestId")]
+    pub request_id: i32,
 }
 
 impl StandardResponse {
-    pub fn new() -> StandardResponse {
+    pub fn new(status: String, message: String, request_id: i32) -> StandardResponse {
         StandardResponse {
-            status: None,
-            message: None,
-            request_id: None,
+            status,
+            message,
+            request_id,
         }
     }
 }

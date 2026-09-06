@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **String** |  | [optional] 
-**message** | **String** |  | [optional] 
-**requestId** | **String** |  | [optional] 
+**status** | **String** |  | 
+**message** | **String** |  | 
+**requestId** | **Number** |  | 
 
 

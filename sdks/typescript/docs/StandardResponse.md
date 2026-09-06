@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **string** |  | [optional] [default to undefined]
-**message** | **string** |  | [optional] [default to undefined]
-**requestId** | **string** |  | [optional] [default to undefined]
+**status** | **string** |  | [default to undefined]
+**message** | **string** |  | [default to undefined]
+**requestId** | **number** |  | [default to undefined]
 
 ## Example
 

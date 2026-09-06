@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | Option<**String**> |  | [optional]
-**message** | Option<**String**> |  | [optional]
-**request_id** | Option<**String**> |  | [optional]
+**status** | **String** |  | 
+**message** | **String** |  | 
+**request_id** | **i32** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

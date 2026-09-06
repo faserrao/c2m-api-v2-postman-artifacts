@@ -410,9 +410,9 @@ export const ShortTokenResponseTokenTypeEnum = {
 export type ShortTokenResponseTokenTypeEnum = typeof ShortTokenResponseTokenTypeEnum[keyof typeof ShortTokenResponseTokenTypeEnum];
 
 export interface StandardResponse {
-    'status'?: string;
-    'message'?: string;
-    'requestId'?: string;
+    'status': string;
+    'message': string;
+    'requestId': number;
 }
 export interface SubmitMultiDocMergeParams {
     'jobTemplate'?: string;

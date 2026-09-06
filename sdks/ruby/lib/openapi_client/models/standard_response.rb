@@ -45,7 +45,7 @@ module OpenapiClient
       {
         :'status' => :'String',
         :'message' => :'String',
-        :'request_id' => :'String'
+        :'request_id' => :'Integer'
       }
     end
 
@@ -73,14 +73,20 @@ module OpenapiClient
 
       if attributes.key?(:'status')
         self.status = attributes[:'status']
+      else
+        self.status = nil
       end
 
       if attributes.key?(:'message')
         self.message = attributes[:'message']
+      else
+        self.message = nil
       end
 
       if attributes.key?(:'request_id')
         self.request_id = attributes[:'request_id']
+      else
+        self.request_id = nil
       end
     end
 
@@ -89,6 +95,18 @@ module OpenapiClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @status.nil?
+        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      end
+
+      if @message.nil?
+        invalid_properties.push('invalid value for "message", message cannot be nil.')
+      end
+
+      if @request_id.nil?
+        invalid_properties.push('invalid value for "request_id", request_id cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -96,7 +114,40 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @status.nil?
+      return false if @message.nil?
+      return false if @request_id.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] status Value to be assigned
+    def status=(status)
+      if status.nil?
+        fail ArgumentError, 'status cannot be nil'
+      end
+
+      @status = status
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] message Value to be assigned
+    def message=(message)
+      if message.nil?
+        fail ArgumentError, 'message cannot be nil'
+      end
+
+      @message = message
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] request_id Value to be assigned
+    def request_id=(request_id)
+      if request_id.nil?
+        fail ArgumentError, 'request_id cannot be nil'
+      end
+
+      @request_id = request_id
     end
 
     # Checks equality by comparing each attribute.

@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,9 +26,9 @@ class StandardResponse(BaseModel):
     """
     StandardResponse
     """ # noqa: E501
-    status: Optional[StrictStr] = None
-    message: Optional[StrictStr] = None
-    request_id: Optional[StrictStr] = Field(default=None, alias="requestId")
+    status: StrictStr
+    message: StrictStr
+    request_id: StrictInt = Field(alias="requestId")
     __properties: ClassVar[List[str]] = ["status", "message", "requestId"]
 
     model_config = ConfigDict(

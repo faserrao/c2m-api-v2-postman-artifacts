@@ -12,11 +12,11 @@ import AnyCodable
 
 public struct StandardResponse: Codable, JSONEncodable, Hashable {
 
-    public var status: String?
-    public var message: String?
-    public var requestId: String?
+    public var status: String
+    public var message: String
+    public var requestId: Int
 
-    public init(status: String? = nil, message: String? = nil, requestId: String? = nil) {
+    public init(status: String, message: String, requestId: Int) {
         self.status = status
         self.message = message
         self.requestId = requestId
@@ -32,9 +32,9 @@ public struct StandardResponse: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(status, forKey: .status)
-        try container.encodeIfPresent(message, forKey: .message)
-        try container.encodeIfPresent(requestId, forKey: .requestId)
+        try container.encode(status, forKey: .status)
+        try container.encode(message, forKey: .message)
+        try container.encode(requestId, forKey: .requestId)
     }
 }
 

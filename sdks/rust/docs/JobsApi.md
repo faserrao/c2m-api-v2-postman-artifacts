@@ -31,7 +31,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::StandardResponse**](StandardResponse.md)
+[**models::StandardResponse**](standardResponse.md)
 
 ### Authorization
 
@@ -61,7 +61,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::StandardResponse**](StandardResponse.md)
+[**models::StandardResponse**](standardResponse.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::StandardResponse**](StandardResponse.md)
+[**models::StandardResponse**](standardResponse.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::StandardResponse**](StandardResponse.md)
+[**models::StandardResponse**](standardResponse.md)
 
 ### Authorization
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::StandardResponse**](StandardResponse.md)
+[**models::StandardResponse**](standardResponse.md)
 
 ### Authorization
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::StandardResponse**](StandardResponse.md)
+[**models::StandardResponse**](standardResponse.md)
 
 ### Authorization
 
@@ -211,7 +211,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::StandardResponse**](StandardResponse.md)
+[**models::StandardResponse**](standardResponse.md)
 
 ### Authorization
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::StandardResponse**](StandardResponse.md)
+[**models::StandardResponse**](standardResponse.md)
 
 ### Authorization
 

@@ -48,27 +48,27 @@ import com.c2m.JSON;
 /**
  * StandardResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-06T20:52:01.413105780Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-06T21:30:45.165930946Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class StandardResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String status;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   private String message;
 
   public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-  @javax.annotation.Nullable
-  private String requestId;
+  @javax.annotation.Nonnull
+  private Integer requestId;
 
   public StandardResponse() {
   }
 
-  public StandardResponse status(@javax.annotation.Nullable String status) {
+  public StandardResponse status(@javax.annotation.Nonnull String status) {
     this.status = status;
     return this;
   }
@@ -77,17 +77,17 @@ public class StandardResponse {
    * Get status
    * @return status
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nullable String status) {
+  public void setStatus(@javax.annotation.Nonnull String status) {
     this.status = status;
   }
 
 
-  public StandardResponse message(@javax.annotation.Nullable String message) {
+  public StandardResponse message(@javax.annotation.Nonnull String message) {
     this.message = message;
     return this;
   }
@@ -96,17 +96,17 @@ public class StandardResponse {
    * Get message
    * @return message
    */
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getMessage() {
     return message;
   }
 
-  public void setMessage(@javax.annotation.Nullable String message) {
+  public void setMessage(@javax.annotation.Nonnull String message) {
     this.message = message;
   }
 
 
-  public StandardResponse requestId(@javax.annotation.Nullable String requestId) {
+  public StandardResponse requestId(@javax.annotation.Nonnull Integer requestId) {
     this.requestId = requestId;
     return this;
   }
@@ -115,12 +115,12 @@ public class StandardResponse {
    * Get requestId
    * @return requestId
    */
-  @javax.annotation.Nullable
-  public String getRequestId() {
+  @javax.annotation.Nonnull
+  public Integer getRequestId() {
     return requestId;
   }
 
-  public void setRequestId(@javax.annotation.Nullable String requestId) {
+  public void setRequestId(@javax.annotation.Nonnull Integer requestId) {
     this.requestId = requestId;
   }
 
@@ -176,7 +176,7 @@ public class StandardResponse {
     openapiFields = new HashSet<String>(Arrays.asList("status", "message", "requestId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "message", "requestId"));
   }
 
   /**
@@ -199,15 +199,19 @@ public class StandardResponse {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StandardResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : StandardResponse.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
+      if (!jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
       }
-      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+      if (!jsonObj.get("message").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
-      }
-      if ((jsonObj.get("requestId") != null && !jsonObj.get("requestId").isJsonNull()) && !jsonObj.get("requestId").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `requestId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("requestId").toString()));
       }
   }
 

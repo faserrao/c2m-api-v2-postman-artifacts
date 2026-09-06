@@ -37,10 +37,13 @@ class TestStandardResponse(unittest.TestCase):
             return StandardResponse(
                 status = '',
                 message = '',
-                request_id = ''
+                request_id = 56
             )
         else:
             return StandardResponse(
+                status = '',
+                message = '',
+                request_id = 56,
         )
         """
 

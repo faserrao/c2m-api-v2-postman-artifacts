@@ -22,10 +22,13 @@ class StandardResponse {
     /**
      * Constructs a new <code>StandardResponse</code>.
      * @alias module:c2m_api/model/StandardResponse
+     * @param status {String} 
+     * @param message {String} 
+     * @param requestId {Number} 
      */
-    constructor() { 
+    constructor(status, message, requestId) { 
         
-        StandardResponse.initialize(this);
+        StandardResponse.initialize(this, status, message, requestId);
     }
 
     /**
@@ -33,7 +36,10 @@ class StandardResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, status, message, requestId) { 
+        obj['status'] = status;
+        obj['message'] = message;
+        obj['requestId'] = requestId;
     }
 
     /**
@@ -54,7 +60,7 @@ class StandardResponse {
                 obj['message'] = ApiClient.convertToType(data['message'], 'String');
             }
             if (data.hasOwnProperty('requestId')) {
-                obj['requestId'] = ApiClient.convertToType(data['requestId'], 'String');
+                obj['requestId'] = ApiClient.convertToType(data['requestId'], 'Number');
             }
         }
         return obj;
@@ -66,6 +72,12 @@ class StandardResponse {
      * @return {boolean} to indicate whether the JSON data is valid with respect to <code>StandardResponse</code>.
      */
     static validateJSON(data) {
+        // check to make sure all required properties are present in the JSON string
+        for (const property of StandardResponse.RequiredProperties) {
+            if (!data.hasOwnProperty(property)) {
+                throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
+            }
+        }
         // ensure the json data is a string
         if (data['status'] && !(typeof data['status'] === 'string' || data['status'] instanceof String)) {
             throw new Error("Expected the field `status` to be a primitive type in the JSON string but got " + data['status']);
@@ -74,10 +86,6 @@ class StandardResponse {
         if (data['message'] && !(typeof data['message'] === 'string' || data['message'] instanceof String)) {
             throw new Error("Expected the field `message` to be a primitive type in the JSON string but got " + data['message']);
         }
-        // ensure the json data is a string
-        if (data['requestId'] && !(typeof data['requestId'] === 'string' || data['requestId'] instanceof String)) {
-            throw new Error("Expected the field `requestId` to be a primitive type in the JSON string but got " + data['requestId']);
-        }
 
         return true;
     }
@@ -85,7 +93,7 @@ class StandardResponse {
 
 }
 
-
+StandardResponse.RequiredProperties = ["status", "message", "requestId"];
 
 /**
  * @member {String} status
@@ -98,7 +106,7 @@ StandardResponse.prototype['status'] = undefined;
 StandardResponse.prototype['message'] = undefined;
 
 /**
- * @member {String} requestId
+ * @member {Number} requestId
  */
 StandardResponse.prototype['requestId'] = undefined;
 
