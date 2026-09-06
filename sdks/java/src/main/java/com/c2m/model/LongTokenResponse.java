@@ -51,7 +51,7 @@ import com.c2m.JSON;
 /**
  * LongTokenResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-06T19:02:36.461500245Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-06T20:52:01.413105780Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class LongTokenResponse {
   /**
    * Gets or Sets tokenType
