@@ -52,7 +52,7 @@ import com.c2m.JSON;
 /**
  * SubmitMultiDocParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-07T06:08:56.978859128Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-07T07:10:52.283465381Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class SubmitMultiDocParams {
   public static final String SERIALIZED_NAME_MULTI_DOC_JOBS = "multiDocJobs";
   @SerializedName(SERIALIZED_NAME_MULTI_DOC_JOBS)
