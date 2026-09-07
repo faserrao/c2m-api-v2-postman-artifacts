@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * ExpirationDate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-07T00:44:15.241140722Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-07T01:17:15.662227840Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ExpirationDate {
   public static final String SERIALIZED_NAME_MONTH = "month";
   @SerializedName(SERIALIZED_NAME_MONTH)
