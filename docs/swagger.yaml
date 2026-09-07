@@ -3,8 +3,43 @@ info:
   title: C2M API v2
   version: 2.0.0
   description: API for submitting mailing jobs with various document routing options
+  x-http-error-map:
+    '400':
+      errorType: ValidationError
+      errorCodes:
+        - MISSING_REQUIRED_FIELD
+        - INVALID_ONEOF
+        - INVALID_JSON
+    '401':
+      errorType: AuthenticationError
+      errorCodes:
+        - MISSING_AUTH_HEADER
+        - INVALID_TOKEN
+        - EXPIRED_TOKEN
+    '403':
+      errorType: AuthorizationError
+      errorCodes:
+        - INSUFFICIENT_PERMISSIONS
+        - ACCOUNT_SUSPENDED
+    '404':
+      errorType: ResourceNotFoundError
+      errorCodes:
+        - JOB_NOT_FOUND
+        - RESOURCE_NOT_FOUND
+    '422':
+      errorType: ValidationError
+      errorCodes:
+        - INVALID_ENUM_VALUE
+        - MUTUAL_EXCLUSION_VIOLATION
+        - INVALID_FORMAT
+    '500':
+      errorType: ServerError
+      errorCodes:
+        - SERVER_ERROR
+        - DATABASE_ERROR
+        - EXTERNAL_SERVICE_ERROR
 servers:
-  - url: https://ceb491fc-aa47-444b-a7cf-b3bb97a251f9.mock.pstmn.io
+  - url: https://123839d9-416b-470f-aad4-827fa90ea0ca.mock.pstmn.io
     description: Postman Mock Server
   - url: 'https://api.click2mail.com/v2'
     description: Production server

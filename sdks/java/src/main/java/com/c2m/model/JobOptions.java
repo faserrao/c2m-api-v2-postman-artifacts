@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * JobOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-07T07:39:47.152969674Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-07T08:03:29.034970807Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class JobOptions {
   public static final String SERIALIZED_NAME_DOCUMENT_CLASS = "documentClass";
   @SerializedName(SERIALIZED_NAME_DOCUMENT_CLASS)

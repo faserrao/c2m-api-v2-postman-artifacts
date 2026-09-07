@@ -3,6 +3,41 @@ info:
   title: C2M API v2
   version: 2.0.0
   description: API for submitting mailing jobs with various document routing options
+  x-http-error-map:
+    '400':
+      errorType: ValidationError
+      errorCodes:
+      - MISSING_REQUIRED_FIELD
+      - INVALID_ONEOF
+      - INVALID_JSON
+    '401':
+      errorType: AuthenticationError
+      errorCodes:
+      - MISSING_AUTH_HEADER
+      - INVALID_TOKEN
+      - EXPIRED_TOKEN
+    '403':
+      errorType: AuthorizationError
+      errorCodes:
+      - INSUFFICIENT_PERMISSIONS
+      - ACCOUNT_SUSPENDED
+    '404':
+      errorType: ResourceNotFoundError
+      errorCodes:
+      - JOB_NOT_FOUND
+      - RESOURCE_NOT_FOUND
+    '422':
+      errorType: ValidationError
+      errorCodes:
+      - INVALID_ENUM_VALUE
+      - MUTUAL_EXCLUSION_VIOLATION
+      - INVALID_FORMAT
+    '500':
+      errorType: ServerError
+      errorCodes:
+      - SERVER_ERROR
+      - DATABASE_ERROR
+      - EXTERNAL_SERVICE_ERROR
 servers:
 - url: https://api.click2mail.com/v2
   description: Production server
@@ -798,21 +833,21 @@ paths:
                     errorMessage: Missing required field in request
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "docSourceAll", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260907-58Q5TL
+                    errorTrackingId: TRK-20260907-TGWM2C
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Invalid oneOf field value
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "docSourceAll", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260907-E7ZTIT
+                    errorTrackingId: TRK-20260907-DFUKPM
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Malformed JSON in request body
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260907-CZOTHL
+                    errorTrackingId: TRK-20260907-UNJLID
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -826,21 +861,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260907-HSFVJ0
+                    errorTrackingId: TRK-20260907-7J3GWO
                 example-2:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token is invalid
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260907-427YER
+                    errorTrackingId: TRK-20260907-9ELUK3
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
                     errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260907-7W6I3A
+                    errorTrackingId: TRK-20260907-FK9E0A
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -854,14 +889,14 @@ paths:
                     errorMessage: Insufficient permissions to access this resource
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260907-1BB8DK
+                    errorTrackingId: TRK-20260907-1C13IM
                 example-2:
                   value:
                     errorType: AuthorizationError
                     errorMessage: Account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260907-RITS10
+                    errorTrackingId: TRK-20260907-SV7V7S
         '404':
           description: Not Found - Resource not found
           content:
@@ -875,14 +910,14 @@ paths:
                     errorMessage: Job not found
                     errorCode: JOB_NOT_FOUND
                     errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260907-1ZMLNH
+                    errorTrackingId: TRK-20260907-I6A6V0
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260907-3TGA9D
+                    errorTrackingId: TRK-20260907-3MSP1O
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -896,21 +931,21 @@ paths:
                     errorMessage: Invalid enum value provided
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: '{"field": "docSourceAll", "value": "invalid_value", "allowedValues": ["pdf", "doc", "docx"]}'
-                    errorTrackingId: TRK-20260907-IE1SNP
+                    errorTrackingId: TRK-20260907-QCZB3S
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Mutually exclusive fields both present
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260907-JA4JZL
+                    errorTrackingId: TRK-20260907-BFSJVW
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Field format validation failed
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "docSourceAll", "issue": "not found in document library"}, {"field": "recipientAddressSource.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260907-7W7V4P
+                    errorTrackingId: TRK-20260907-4LI0MG
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -924,21 +959,21 @@ paths:
                     errorMessage: Internal server error occurred
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260907-1G4VI8
+                    errorTrackingId: TRK-20260907-3XGAJC
                 example-2:
                   value:
                     errorType: ServerError
                     errorMessage: Database error occurred
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260907-4AX2GI
+                    errorTrackingId: TRK-20260907-YDP56S
                 example-3:
                   value:
                     errorType: ServerError
                     errorMessage: External service error
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260907-ZHP2IN
+                    errorTrackingId: TRK-20260907-2QPMUC
   /jobs/submit/single/pdf/addressCapture:
     post:
       tags:
@@ -972,21 +1007,21 @@ paths:
                     errorMessage: Missing required field in request
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "docSourceStandard", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260907-T7C7SN
+                    errorTrackingId: TRK-20260907-N1AOAK
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Invalid oneOf field value
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "docSourceStandard", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260907-XMW53Q
+                    errorTrackingId: TRK-20260907-9KCWS8
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Malformed JSON in request body
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260907-W10S6R
+                    errorTrackingId: TRK-20260907-6W1I1U
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -1000,21 +1035,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260907-PZTYSJ
+                    errorTrackingId: TRK-20260907-3BCT70
                 example-2:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token is invalid
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260907-0R340I
+                    errorTrackingId: TRK-20260907-SCJXNI
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
                     errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260907-YBMDGO
+                    errorTrackingId: TRK-20260907-JX24J3
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -1028,14 +1063,14 @@ paths:
                     errorMessage: Insufficient permissions to access this resource
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260907-BONPS2
+                    errorTrackingId: TRK-20260907-3S7K1M
                 example-2:
                   value:
                     errorType: AuthorizationError
                     errorMessage: Account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260907-WIZTWZ
+                    errorTrackingId: TRK-20260907-609ZMS
         '404':
           description: Not Found - Resource not found
           content:
@@ -1049,14 +1084,14 @@ paths:
                     errorMessage: Job not found
                     errorCode: JOB_NOT_FOUND
                     errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260907-7BUP1A
+                    errorTrackingId: TRK-20260907-7VMHT6
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260907-L78GVU
+                    errorTrackingId: TRK-20260907-13HV1A
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -1070,21 +1105,21 @@ paths:
                     errorMessage: Invalid enum value provided
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: '{"field": "docSourceStandard", "value": "invalid_value", "allowedValues": ["pdf", "doc", "docx"]}'
-                    errorTrackingId: TRK-20260907-RI6SEE
+                    errorTrackingId: TRK-20260907-GCX8MZ
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Mutually exclusive fields both present
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260907-VITOQX
+                    errorTrackingId: TRK-20260907-LOAQ41
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Field format validation failed
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "docSourceStandard", "issue": "not found in document library"}, {"field": "returnAddress.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260907-7Z6XXT
+                    errorTrackingId: TRK-20260907-XF45OJ
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -1098,21 +1133,21 @@ paths:
                     errorMessage: Internal server error occurred
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260907-JWFVO7
+                    errorTrackingId: TRK-20260907-25FDU6
                 example-2:
                   value:
                     errorType: ServerError
                     errorMessage: Database error occurred
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260907-A8XFNG
+                    errorTrackingId: TRK-20260907-KJ9COC
                 example-3:
                   value:
                     errorType: ServerError
                     errorMessage: External service error
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260907-X51U5Q
+                    errorTrackingId: TRK-20260907-AT0QVQ
   /jobs/submit/single/pdf/split:
     post:
       tags:
@@ -1146,21 +1181,21 @@ paths:
                     errorMessage: Missing required field in request
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "docSourceStandard", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260907-LWR6PU
+                    errorTrackingId: TRK-20260907-X2T7RX
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Invalid oneOf field value
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "docSourceStandard", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260907-EMHYWN
+                    errorTrackingId: TRK-20260907-5UFNTZ
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Malformed JSON in request body
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260907-O59ECE
+                    errorTrackingId: TRK-20260907-A82FR3
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -1174,21 +1209,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260907-6XJNQ1
+                    errorTrackingId: TRK-20260907-GXYWFP
                 example-2:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token is invalid
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260907-2EN3WV
+                    errorTrackingId: TRK-20260907-1SHTAZ
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
                     errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260907-URA17Q
+                    errorTrackingId: TRK-20260907-N320SZ
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -1202,14 +1237,14 @@ paths:
                     errorMessage: Insufficient permissions to access this resource
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260907-ZWF43C
+                    errorTrackingId: TRK-20260907-QBV0A0
                 example-2:
                   value:
                     errorType: AuthorizationError
                     errorMessage: Account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260907-ONU95W
+                    errorTrackingId: TRK-20260907-IIIOSQ
         '404':
           description: Not Found - Resource not found
           content:
@@ -1223,14 +1258,14 @@ paths:
                     errorMessage: Job not found
                     errorCode: JOB_NOT_FOUND
                     errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260907-15Y6K4
+                    errorTrackingId: TRK-20260907-KAIN4R
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260907-S9YHB6
+                    errorTrackingId: TRK-20260907-V066KU
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -1244,21 +1279,21 @@ paths:
                     errorMessage: Invalid enum value provided
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: '{"field": "docSourceStandard", "value": "invalid_value", "allowedValues": ["pdf", "doc", "docx"]}'
-                    errorTrackingId: TRK-20260907-792AK9
+                    errorTrackingId: TRK-20260907-B1JHWY
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Mutually exclusive fields both present
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260907-UKZGSD
+                    errorTrackingId: TRK-20260907-8GHGE9
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Field format validation failed
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "docSourceStandard", "issue": "not found in document library"}, {"field": "pdfSplitJobsWithAddress.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260907-00N6W9
+                    errorTrackingId: TRK-20260907-4KW48I
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -1272,21 +1307,21 @@ paths:
                     errorMessage: Internal server error occurred
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260907-NRKU3I
+                    errorTrackingId: TRK-20260907-H2ENKW
                 example-2:
                   value:
                     errorType: ServerError
                     errorMessage: Database error occurred
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260907-UHF63E
+                    errorTrackingId: TRK-20260907-4HM3VA
                 example-3:
                   value:
                     errorType: ServerError
                     errorMessage: External service error
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260907-75QQK0
+                    errorTrackingId: TRK-20260907-7BR78F
   /jobs/submit/single/pdf/split/addressCapture:
     post:
       tags:
@@ -1320,21 +1355,21 @@ paths:
                     errorMessage: Missing required field in request
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "docSourceStandard", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260907-VZ8JWH
+                    errorTrackingId: TRK-20260907-6WP5HZ
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Invalid oneOf field value
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "docSourceStandard", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260907-9EODEF
+                    errorTrackingId: TRK-20260907-U18XCX
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Malformed JSON in request body
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260907-T4SO1G
+                    errorTrackingId: TRK-20260907-5W0FJ1
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -1348,21 +1383,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260907-22W8G9
+                    errorTrackingId: TRK-20260907-BTHHF9
                 example-2:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token is invalid
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260907-7YMGYX
+                    errorTrackingId: TRK-20260907-JL63WP
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
                     errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260907-OE9D93
+                    errorTrackingId: TRK-20260907-V51Y42
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -1376,14 +1411,14 @@ paths:
                     errorMessage: Insufficient permissions to access this resource
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260907-51WL73
+                    errorTrackingId: TRK-20260907-NR3OZY
                 example-2:
                   value:
                     errorType: AuthorizationError
                     errorMessage: Account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260907-ZQI0AS
+                    errorTrackingId: TRK-20260907-IKRABN
         '404':
           description: Not Found - Resource not found
           content:
@@ -1397,14 +1432,14 @@ paths:
                     errorMessage: Job not found
                     errorCode: JOB_NOT_FOUND
                     errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260907-ERQA4M
+                    errorTrackingId: TRK-20260907-655ROH
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260907-P12IAC
+                    errorTrackingId: TRK-20260907-B0ASL3
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -1418,21 +1453,21 @@ paths:
                     errorMessage: Invalid enum value provided
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: '{"field": "docSourceStandard", "value": "invalid_value", "allowedValues": ["pdf", "doc", "docx"]}'
-                    errorTrackingId: TRK-20260907-1UTSJB
+                    errorTrackingId: TRK-20260907-5P3A8W
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Mutually exclusive fields both present
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260907-ZO4IWJ
+                    errorTrackingId: TRK-20260907-1SBOLD
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Field format validation failed
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "docSourceStandard", "issue": "not found in document library"}, {"field": "pdfSplitJobsNoAddress.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260907-8EWCGR
+                    errorTrackingId: TRK-20260907-EPITMG
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -1446,21 +1481,21 @@ paths:
                     errorMessage: Internal server error occurred
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260907-DGRU8M
+                    errorTrackingId: TRK-20260907-CJM9PO
                 example-2:
                   value:
                     errorType: ServerError
                     errorMessage: Database error occurred
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260907-P71ILH
+                    errorTrackingId: TRK-20260907-CVG4XW
                 example-3:
                   value:
                     errorType: ServerError
                     errorMessage: External service error
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260907-6FXI8M
+                    errorTrackingId: TRK-20260907-MXFCA2
   /jobs/submit/multi/doc:
     post:
       tags:
@@ -1494,21 +1529,21 @@ paths:
                     errorMessage: Missing required field in request
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "documentId", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260907-ZDUQ6G
+                    errorTrackingId: TRK-20260907-26ZJV9
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Invalid oneOf field value
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "documentId", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260907-F6JU3F
+                    errorTrackingId: TRK-20260907-4790GY
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Malformed JSON in request body
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260907-XFN3K0
+                    errorTrackingId: TRK-20260907-N8NY9F
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -1522,21 +1557,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260907-8G1VKR
+                    errorTrackingId: TRK-20260907-K1JCZY
                 example-2:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token is invalid
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260907-BYG3XQ
+                    errorTrackingId: TRK-20260907-JM43DV
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
                     errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260907-M9FS61
+                    errorTrackingId: TRK-20260907-GK0AWB
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -1550,14 +1585,14 @@ paths:
                     errorMessage: Insufficient permissions to access this resource
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260907-AYMAT9
+                    errorTrackingId: TRK-20260907-AQ6HJR
                 example-2:
                   value:
                     errorType: AuthorizationError
                     errorMessage: Account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260907-40SXEL
+                    errorTrackingId: TRK-20260907-XKN8NQ
         '404':
           description: Not Found - Resource not found
           content:
@@ -1571,14 +1606,14 @@ paths:
                     errorMessage: Job not found
                     errorCode: JOB_NOT_FOUND
                     errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260907-BIIDTP
+                    errorTrackingId: TRK-20260907-QV0LY8
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260907-MO0RRT
+                    errorTrackingId: TRK-20260907-67O5VH
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -1592,21 +1627,21 @@ paths:
                     errorMessage: Invalid enum value provided
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: '{"field": "documentId", "value": "invalid_value", "allowedValues": ["pdf", "doc", "docx"]}'
-                    errorTrackingId: TRK-20260907-6POIBM
+                    errorTrackingId: TRK-20260907-8QS4I7
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Mutually exclusive fields both present
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260907-0YLYX7
+                    errorTrackingId: TRK-20260907-7C4F98
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Field format validation failed
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "documentId", "issue": "not found in document library"}, {"field": "recipientAddress.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260907-VGOG81
+                    errorTrackingId: TRK-20260907-TAZP8Z
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -1620,21 +1655,21 @@ paths:
                     errorMessage: Internal server error occurred
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260907-64W1V3
+                    errorTrackingId: TRK-20260907-79D7XH
                 example-2:
                   value:
                     errorType: ServerError
                     errorMessage: Database error occurred
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260907-GEAV1F
+                    errorTrackingId: TRK-20260907-6UBIIS
                 example-3:
                   value:
                     errorType: ServerError
                     errorMessage: External service error
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260907-L65L69
+                    errorTrackingId: TRK-20260907-YHZS75
   /jobs/submit/multi/doc/merge:
     post:
       tags:
@@ -1668,21 +1703,21 @@ paths:
                     errorMessage: Missing required field in request
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "mergeDocumentSource", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260907-CBW4O5
+                    errorTrackingId: TRK-20260907-Z1TABK
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Invalid oneOf field value
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "mergeDocumentSource", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260907-3ICHPE
+                    errorTrackingId: TRK-20260907-V35HKP
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Malformed JSON in request body
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260907-CXXXXV
+                    errorTrackingId: TRK-20260907-QOLYZY
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -1696,21 +1731,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260907-QQCTRN
+                    errorTrackingId: TRK-20260907-CSDLAZ
                 example-2:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token is invalid
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260907-RURRQ5
+                    errorTrackingId: TRK-20260907-3P9RBF
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
                     errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260907-5B0C5U
+                    errorTrackingId: TRK-20260907-YYMICA
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -1724,14 +1759,14 @@ paths:
                     errorMessage: Insufficient permissions to access this resource
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260907-V1ZG10
+                    errorTrackingId: TRK-20260907-RYU8KX
                 example-2:
                   value:
                     errorType: AuthorizationError
                     errorMessage: Account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260907-A9ZAGP
+                    errorTrackingId: TRK-20260907-K9LW0D
         '404':
           description: Not Found - Resource not found
           content:
@@ -1745,14 +1780,14 @@ paths:
                     errorMessage: Job not found
                     errorCode: JOB_NOT_FOUND
                     errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260907-MCWUEV
+                    errorTrackingId: TRK-20260907-XV6ESE
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260907-ZPUB0A
+                    errorTrackingId: TRK-20260907-7CY9BX
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -1766,21 +1801,21 @@ paths:
                     errorMessage: Invalid enum value provided
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: '{"field": "mergeDocumentSource", "value": "invalid_value", "allowedValues": ["pdf", "doc", "docx"]}'
-                    errorTrackingId: TRK-20260907-1P2L3Y
+                    errorTrackingId: TRK-20260907-R2VH4X
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Mutually exclusive fields both present
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260907-GJPB6N
+                    errorTrackingId: TRK-20260907-DZ8L8I
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Field format validation failed
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "mergeDocumentSource", "issue": "not found in document library"}, {"field": "recipientAddressSource.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260907-NMOBH3
+                    errorTrackingId: TRK-20260907-K9MN99
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -1794,21 +1829,21 @@ paths:
                     errorMessage: Internal server error occurred
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260907-JNHP9B
+                    errorTrackingId: TRK-20260907-71CSEN
                 example-2:
                   value:
                     errorType: ServerError
                     errorMessage: Database error occurred
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260907-R3EEFA
+                    errorTrackingId: TRK-20260907-I6LC3J
                 example-3:
                   value:
                     errorType: ServerError
                     errorMessage: External service error
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260907-1RB5MB
+                    errorTrackingId: TRK-20260907-T1CDE0
   /jobs/submit/multi/zip:
     post:
       tags:
@@ -1842,21 +1877,21 @@ paths:
                     errorMessage: Missing required field in request
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "docSourceZipFileRef", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260907-TKTCIA
+                    errorTrackingId: TRK-20260907-9MSUGW
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Invalid oneOf field value
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "docSourceZipFileRef", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260907-0TAQDI
+                    errorTrackingId: TRK-20260907-ALQW4P
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Malformed JSON in request body
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260907-JRVFRC
+                    errorTrackingId: TRK-20260907-7JONSW
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -1870,21 +1905,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260907-NEU7JD
+                    errorTrackingId: TRK-20260907-Q09UJA
                 example-2:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token is invalid
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260907-B6B5BV
+                    errorTrackingId: TRK-20260907-J3QEQ0
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
                     errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260907-8GFR7D
+                    errorTrackingId: TRK-20260907-XLHDQI
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -1898,14 +1933,14 @@ paths:
                     errorMessage: Insufficient permissions to access this resource
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260907-NRMC30
+                    errorTrackingId: TRK-20260907-H8I89D
                 example-2:
                   value:
                     errorType: AuthorizationError
                     errorMessage: Account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260907-T9VKM4
+                    errorTrackingId: TRK-20260907-ZQB5P4
         '404':
           description: Not Found - Resource not found
           content:
@@ -1919,14 +1954,14 @@ paths:
                     errorMessage: Job not found
                     errorCode: JOB_NOT_FOUND
                     errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260907-CVXN29
+                    errorTrackingId: TRK-20260907-K7EEM3
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260907-TJXJY6
+                    errorTrackingId: TRK-20260907-4B6B3I
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -1940,21 +1975,21 @@ paths:
                     errorMessage: Invalid enum value provided
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: '{"field": "docSourceZipFileRef", "value": "invalid_value", "allowedValues": ["pdf", "doc", "docx"]}'
-                    errorTrackingId: TRK-20260907-COWDWY
+                    errorTrackingId: TRK-20260907-8UD57I
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Mutually exclusive fields both present
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260907-4CFX7V
+                    errorTrackingId: TRK-20260907-D8TBL7
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Field format validation failed
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "docSourceZipFileRef", "issue": "not found in document library"}, {"field": "recipientAddress.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260907-SZLNHX
+                    errorTrackingId: TRK-20260907-4W7B7A
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -1968,21 +2003,21 @@ paths:
                     errorMessage: Internal server error occurred
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260907-IM6EM3
+                    errorTrackingId: TRK-20260907-UP38VZ
                 example-2:
                   value:
                     errorType: ServerError
                     errorMessage: Database error occurred
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260907-N3W9TH
+                    errorTrackingId: TRK-20260907-XXAI22
                 example-3:
                   value:
                     errorType: ServerError
                     errorMessage: External service error
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260907-QJYCDN
+                    errorTrackingId: TRK-20260907-X0VEZV
   /jobs/submit/multi/zip/addressCapture:
     post:
       tags:
@@ -2016,21 +2051,21 @@ paths:
                     errorMessage: Missing required field in request
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "zipDocumentSource", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260907-X1O92N
+                    errorTrackingId: TRK-20260907-9F6FA5
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Invalid oneOf field value
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "zipDocumentSource", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260907-U2GR5W
+                    errorTrackingId: TRK-20260907-WSYRIQ
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Malformed JSON in request body
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260907-KMT2PN
+                    errorTrackingId: TRK-20260907-O1E8W0
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -2044,21 +2079,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260907-3SSZDR
+                    errorTrackingId: TRK-20260907-O0J5XJ
                 example-2:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token is invalid
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260907-75YYFA
+                    errorTrackingId: TRK-20260907-WC5773
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
                     errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260907-YNTYXZ
+                    errorTrackingId: TRK-20260907-KOAOT5
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -2072,14 +2107,14 @@ paths:
                     errorMessage: Insufficient permissions to access this resource
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260907-8555O4
+                    errorTrackingId: TRK-20260907-BOBZO6
                 example-2:
                   value:
                     errorType: AuthorizationError
                     errorMessage: Account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260907-1N773J
+                    errorTrackingId: TRK-20260907-39DS1W
         '404':
           description: Not Found - Resource not found
           content:
@@ -2093,14 +2128,14 @@ paths:
                     errorMessage: Job not found
                     errorCode: JOB_NOT_FOUND
                     errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260907-RDC2SY
+                    errorTrackingId: TRK-20260907-1LM9IF
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260907-B4MGJ8
+                    errorTrackingId: TRK-20260907-1OF3FJ
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -2114,21 +2149,21 @@ paths:
                     errorMessage: Invalid enum value provided
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: '{"field": "zipDocumentSource", "value": "invalid_value", "allowedValues": ["pdf", "doc", "docx"]}'
-                    errorTrackingId: TRK-20260907-W4Q9PX
+                    errorTrackingId: TRK-20260907-4ABPYN
                 example-2:
                   value:
                     errorType: ValidationError
                     errorMessage: Mutually exclusive fields both present
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260907-OSOWIU
+                    errorTrackingId: TRK-20260907-XEXTEM
                 example-3:
                   value:
                     errorType: ValidationError
                     errorMessage: Field format validation failed
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "zipDocumentSource", "issue": "not found in document library"}, {"field": "returnAddress.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260907-RPABJI
+                    errorTrackingId: TRK-20260907-FB6L74
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -2142,18 +2177,18 @@ paths:
                     errorMessage: Internal server error occurred
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260907-Z0BMHP
+                    errorTrackingId: TRK-20260907-WORVIA
                 example-2:
                   value:
                     errorType: ServerError
                     errorMessage: Database error occurred
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260907-E60BEL
+                    errorTrackingId: TRK-20260907-2SI51F
                 example-3:
                   value:
                     errorType: ServerError
                     errorMessage: External service error
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260907-MR9ZF2
+                    errorTrackingId: TRK-20260907-WR178R
