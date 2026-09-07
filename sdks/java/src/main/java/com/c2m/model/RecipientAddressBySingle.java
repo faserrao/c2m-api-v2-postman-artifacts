@@ -49,7 +49,7 @@ import com.c2m.JSON;
 /**
  * RecipientAddressBySingle
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-07T03:26:46.063741504Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-07T03:36:31.939982994Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class RecipientAddressBySingle {
   public static final String SERIALIZED_NAME_MAPPING_ID = "mappingId";
   @SerializedName(SERIALIZED_NAME_MAPPING_ID)
