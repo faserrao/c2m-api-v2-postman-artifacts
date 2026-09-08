@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**jobTemplate** | **String** |  | [optional] 
 **docSourceStandard** | [**DocSourceStandard**](DocSourceStandard.md) |  | 
 **pdfSplitJobsWithAddress** | [**[PdfSplitJobItemWithAddress]**](PdfSplitJobItemWithAddress.md) |  | 
 **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 

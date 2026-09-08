@@ -29,6 +29,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param docSourceStandard 
  * @param pdfSplitJobsWithAddress 
+ * @param jobTemplate 
  * @param paymentDetails 
  * @param returnAddress 
  * @param jobOptions 
@@ -43,6 +44,9 @@ data class SubmitSinglePdfSplitParams (
 
     @Json(name = "pdfSplitJobsWithAddress")
     val pdfSplitJobsWithAddress: kotlin.collections.List<PdfSplitJobItemWithAddress>,
+
+    @Json(name = "jobTemplate")
+    val jobTemplate: kotlin.String? = null,
 
     @Json(name = "paymentDetails")
     val paymentDetails: PaymentDetails? = null,

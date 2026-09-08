@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **job_template** | **String** |  | [optional] |
 | **doc_source_standard** | [**DocSourceStandard**](DocSourceStandard.md) |  |  |
 | **pdf_split_jobs_with_address** | [**Array&lt;PdfSplitJobItemWithAddress&gt;**](PdfSplitJobItemWithAddress.md) |  |  |
 | **payment_details** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] |
@@ -17,6 +18,7 @@
 require 'openapi_client'
 
 instance = OpenapiClient::SubmitSinglePdfSplitParams.new(
+  job_template: null,
   doc_source_standard: null,
   pdf_split_jobs_with_address: null,
   payment_details: null,
