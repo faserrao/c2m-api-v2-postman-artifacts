@@ -54,12 +54,6 @@
       //expect(instance).to.be.a(C2MApiV2.SubmitSinglePdfSplitParams);
     });
 
-    it('should have the property jobTemplate (base name: "jobTemplate")', function() {
-      // uncomment below and update the code to test the property jobTemplate
-      //var instance = new C2MApiV2.SubmitSinglePdfSplitParams();
-      //expect(instance).to.be();
-    });
-
     it('should have the property docSourceStandard (base name: "docSourceStandard")', function() {
       // uncomment below and update the code to test the property docSourceStandard
       //var instance = new C2MApiV2.SubmitSinglePdfSplitParams();

@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**jobTemplate** | **String** |  | [optional] 
 **docSourceStandard** | [**DocSourceStandard**](DocSourceStandard.md) |  | 
 **pdfSplitJobsWithAddress** | [PdfSplitJobItemWithAddress] |  | 
 **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 

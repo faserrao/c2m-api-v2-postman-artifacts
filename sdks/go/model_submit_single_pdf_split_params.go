@@ -21,7 +21,6 @@ var _ MappedNullable = &SubmitSinglePdfSplitParams{}
 
 // SubmitSinglePdfSplitParams struct for SubmitSinglePdfSplitParams
 type SubmitSinglePdfSplitParams struct {
-	JobTemplate *string `json:"jobTemplate,omitempty"`
 	DocSourceStandard DocSourceStandard `json:"docSourceStandard"`
 	PdfSplitJobsWithAddress []PdfSplitJobItemWithAddress `json:"pdfSplitJobsWithAddress"`
 	PaymentDetails *PaymentDetails `json:"paymentDetails,omitempty"`
@@ -49,38 +48,6 @@ func NewSubmitSinglePdfSplitParams(docSourceStandard DocSourceStandard, pdfSplit
 func NewSubmitSinglePdfSplitParamsWithDefaults() *SubmitSinglePdfSplitParams {
 	this := SubmitSinglePdfSplitParams{}
 	return &this
-}
-
-// GetJobTemplate returns the JobTemplate field value if set, zero value otherwise.
-func (o *SubmitSinglePdfSplitParams) GetJobTemplate() string {
-	if o == nil || IsNil(o.JobTemplate) {
-		var ret string
-		return ret
-	}
-	return *o.JobTemplate
-}
-
-// GetJobTemplateOk returns a tuple with the JobTemplate field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *SubmitSinglePdfSplitParams) GetJobTemplateOk() (*string, bool) {
-	if o == nil || IsNil(o.JobTemplate) {
-		return nil, false
-	}
-	return o.JobTemplate, true
-}
-
-// HasJobTemplate returns a boolean if a field has been set.
-func (o *SubmitSinglePdfSplitParams) HasJobTemplate() bool {
-	if o != nil && !IsNil(o.JobTemplate) {
-		return true
-	}
-
-	return false
-}
-
-// SetJobTemplate gets a reference to the given string and assigns it to the JobTemplate field.
-func (o *SubmitSinglePdfSplitParams) SetJobTemplate(v string) {
-	o.JobTemplate = &v
 }
 
 // GetDocSourceStandard returns the DocSourceStandard field value
@@ -269,9 +236,6 @@ func (o SubmitSinglePdfSplitParams) MarshalJSON() ([]byte, error) {
 
 func (o SubmitSinglePdfSplitParams) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	if !IsNil(o.JobTemplate) {
-		toSerialize["jobTemplate"] = o.JobTemplate
-	}
 	toSerialize["docSourceStandard"] = o.DocSourceStandard
 	toSerialize["pdfSplitJobsWithAddress"] = o.PdfSplitJobsWithAddress
 	if !IsNil(o.PaymentDetails) {

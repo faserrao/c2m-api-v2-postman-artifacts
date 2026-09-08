@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**job_template** | **string** |  | [optional]
 **doc_source_standard** | [**\C2MApi\Model\DocSourceStandard**](DocSourceStandard.md) |  |
 **pdf_split_jobs_with_address** | [**\C2MApi\Model\PdfSplitJobItemWithAddress[]**](PdfSplitJobItemWithAddress.md) |  |
 **payment_details** | [**\C2MApi\Model\PaymentDetails**](PaymentDetails.md) |  | [optional]

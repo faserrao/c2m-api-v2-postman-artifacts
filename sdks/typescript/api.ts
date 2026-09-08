@@ -469,7 +469,6 @@ export interface SubmitSinglePdfSplitAddressCaptureParams {
     'tags'?: Array<string>;
 }
 export interface SubmitSinglePdfSplitParams {
-    'jobTemplate'?: string;
     'docSourceStandard': DocSourceStandard;
     'pdfSplitJobsWithAddress': Array<PdfSplitJobItemWithAddress>;
     'paymentDetails'?: PaymentDetails;

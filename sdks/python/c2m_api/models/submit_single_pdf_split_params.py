@@ -31,14 +31,13 @@ class SubmitSinglePdfSplitParams(BaseModel):
     """
     SubmitSinglePdfSplitParams
     """ # noqa: E501
-    job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
     doc_source_standard: DocSourceStandard = Field(alias="docSourceStandard")
     pdf_split_jobs_with_address: List[PdfSplitJobItemWithAddress] = Field(alias="pdfSplitJobsWithAddress")
     payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
     return_address: Optional[ReturnAddress] = Field(default=None, alias="returnAddress")
     job_options: Optional[JobOptions] = Field(default=None, alias="jobOptions")
     tags: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["jobTemplate", "docSourceStandard", "pdfSplitJobsWithAddress", "paymentDetails", "returnAddress", "jobOptions", "tags"]
+    __properties: ClassVar[List[str]] = ["docSourceStandard", "pdfSplitJobsWithAddress", "paymentDetails", "returnAddress", "jobOptions", "tags"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -110,7 +109,6 @@ class SubmitSinglePdfSplitParams(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "jobTemplate": obj.get("jobTemplate"),
             "docSourceStandard": DocSourceStandard.from_dict(obj["docSourceStandard"]) if obj.get("docSourceStandard") is not None else None,
             "pdfSplitJobsWithAddress": [PdfSplitJobItemWithAddress.from_dict(_item) for _item in obj["pdfSplitJobsWithAddress"]] if obj.get("pdfSplitJobsWithAddress") is not None else None,
             "paymentDetails": PaymentDetails.from_dict(obj["paymentDetails"]) if obj.get("paymentDetails") is not None else None,
