@@ -12,6 +12,7 @@ import AnyCodable
 
 public struct SubmitSinglePdfSplitParams: Codable, JSONEncodable, Hashable {
 
+    public var jobTemplate: String?
     public var docSourceStandard: DocSourceStandard
     public var pdfSplitJobsWithAddress: [PdfSplitJobItemWithAddress]
     public var paymentDetails: PaymentDetails?
@@ -19,7 +20,8 @@ public struct SubmitSinglePdfSplitParams: Codable, JSONEncodable, Hashable {
     public var jobOptions: JobOptions?
     public var tags: [String]?
 
-    public init(docSourceStandard: DocSourceStandard, pdfSplitJobsWithAddress: [PdfSplitJobItemWithAddress], paymentDetails: PaymentDetails? = nil, returnAddress: ReturnAddress? = nil, jobOptions: JobOptions? = nil, tags: [String]? = nil) {
+    public init(jobTemplate: String? = nil, docSourceStandard: DocSourceStandard, pdfSplitJobsWithAddress: [PdfSplitJobItemWithAddress], paymentDetails: PaymentDetails? = nil, returnAddress: ReturnAddress? = nil, jobOptions: JobOptions? = nil, tags: [String]? = nil) {
+        self.jobTemplate = jobTemplate
         self.docSourceStandard = docSourceStandard
         self.pdfSplitJobsWithAddress = pdfSplitJobsWithAddress
         self.paymentDetails = paymentDetails
@@ -29,6 +31,7 @@ public struct SubmitSinglePdfSplitParams: Codable, JSONEncodable, Hashable {
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case jobTemplate
         case docSourceStandard
         case pdfSplitJobsWithAddress
         case paymentDetails
@@ -41,6 +44,7 @@ public struct SubmitSinglePdfSplitParams: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(jobTemplate, forKey: .jobTemplate)
         try container.encode(docSourceStandard, forKey: .docSourceStandard)
         try container.encode(pdfSplitJobsWithAddress, forKey: .pdfSplitJobsWithAddress)
         try container.encodeIfPresent(paymentDetails, forKey: .paymentDetails)

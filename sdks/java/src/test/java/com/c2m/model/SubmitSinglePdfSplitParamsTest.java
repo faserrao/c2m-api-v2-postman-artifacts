@@ -45,6 +45,14 @@ public class SubmitSinglePdfSplitParamsTest {
     }
 
     /**
+     * Test the property 'jobTemplate'
+     */
+    @Test
+    public void jobTemplateTest() {
+        // TODO: test jobTemplate
+    }
+
+    /**
      * Test the property 'docSourceStandard'
      */
     @Test

@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**jobTemplate** | **string** |  | [optional] [default to undefined]
 **docSourceStandard** | [**DocSourceStandard**](DocSourceStandard.md) |  | [default to undefined]
 **pdfSplitJobsWithAddress** | [**Array&lt;PdfSplitJobItemWithAddress&gt;**](PdfSplitJobItemWithAddress.md) |  | [default to undefined]
 **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] [default to undefined]
@@ -18,6 +19,7 @@ Name | Type | Description | Notes
 import { SubmitSinglePdfSplitParams } from './api';
 
 const instance: SubmitSinglePdfSplitParams = {
+    jobTemplate,
     docSourceStandard,
     pdfSplitJobsWithAddress,
     paymentDetails,
