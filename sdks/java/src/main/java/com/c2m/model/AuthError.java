@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * AuthError
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-08T18:25:24.145699845Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-09T01:52:35.053742494Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class AuthError {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
