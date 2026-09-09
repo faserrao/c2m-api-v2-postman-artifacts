@@ -1,0 +1,67 @@
+cat: postman/postman_linked_collection_uid.txt: No such file or directory
+cat: postman/postman_env_uid.txt: No such file or directory
+==========================================================================
+GOLDEN TEST SUITE — validate_collections_against_spec.py
+==========================================================================
+
+[1] Positive controls (System A, EBNF-driven) — expect ZERO real failures
+    (known gap: jobTemplate false-positive filtered — see translator TODO)
+    [ok  ] c2mapiv2-linked-collection-flat.json: 0 failures (expected 0)
+    [ok  ] c2mapiv2-test-collection-flat.json: 0 failures (expected 0)
+
+[2] Negative controls (System B, Getting Started) — must be fully clean
+    (§5a field-name drift fixed in 14a60e9; false-negative coverage in test 3)
+  c2mapiv2-getting-started-linked-collection.json
+    [ok  ] /jobs/submit/single/doc: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/single/pdf/addressCapture: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/single/pdf/split: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/single/pdf/split/addressCapture: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/multi/doc: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/multi/doc/merge: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/multi/zip: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/multi/zip/addressCapture: 0 failures (expected 0 — §5a resolved)
+  c2mapiv2-getting-started-test-collection.json
+    [ok  ] /jobs/submit/single/doc: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/single/pdf/addressCapture: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/single/pdf/split: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/single/pdf/split/addressCapture: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/multi/doc: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/multi/doc/merge: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/multi/zip: 0 failures (expected 0 — §5a resolved)
+    [ok  ] /jobs/submit/multi/zip/addressCapture: 0 failures (expected 0 — §5a resolved)
+
+[3] Synthetic fault injection
+    [ok  ] clean multi/doc body -> no errors
+    [ok  ] wrong-wrapper multi/doc -> flags missing multiDocJobs
+    [ok  ] wrong-wrapper multi/doc -> flags unexpected 'jobs'
+    [ok  ] empty multi/doc -> flags missing multiDocJobs
+    [ok  ] clean single/doc body -> no errors
+    [ok  ] single/doc with extra field -> flags unexpected 'bogusField'
+    [ok  ] single/doc missing recipientAddressSource -> flagged
+    [ok  ] placeholder single/doc body -> no false positives
+    [ok  ] pdf/split wrong names -> flags both missing required fields
+
+==========================================================================
+RESULT: ✅ ALL golden assertions passed — validator is trustworthy
+test_nested_object (__main__.TestBuildVariantPlaceholderStructure.test_nested_object) ... ok
+test_simple_object (__main__.TestBuildVariantPlaceholderStructure.test_simple_object) ... ok
+test_unknown_schema_returns_none (__main__.TestBuildVariantPlaceholderStructure.test_unknown_schema_returns_none) ... ok
+test_address_list_variant (__main__.TestFindVariantByDiscriminatorKey.test_address_list_variant) ... ok
+test_direct_oneof_match (__main__.TestFindVariantByDiscriminatorKey.test_direct_oneof_match) ... ok
+test_nested_oneof_match (__main__.TestFindVariantByDiscriminatorKey.test_nested_oneof_match)
+docSourceAll → docSourceStandard → requestIdSource (two levels deep) ... ok
+test_nested_oneof_url_variant (__main__.TestFindVariantByDiscriminatorKey.test_nested_oneof_url_variant) ... ok
+test_payment_variant (__main__.TestFindVariantByDiscriminatorKey.test_payment_variant) ... ok
+test_unknown_discriminator_key_returns_none (__main__.TestFindVariantByDiscriminatorKey.test_unknown_discriminator_key_returns_none) ... ok
+test_unknown_field_returns_none (__main__.TestFindVariantByDiscriminatorKey.test_unknown_field_returns_none) ... ok
+test_all_known_variants_resolve (__main__.TestWithRealSpec.test_all_known_variants_resolve)
+Ensure every variant that the YAML configs use resolves correctly. ... ok
+test_credit_card (__main__.TestWithRealSpec.test_credit_card) ... ok
+test_document_id_source (__main__.TestWithRealSpec.test_document_id_source) ... ok
+test_request_id_source (__main__.TestWithRealSpec.test_request_id_source) ... ok
+test_single_address (__main__.TestWithRealSpec.test_single_address) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.156s
+
+OK
