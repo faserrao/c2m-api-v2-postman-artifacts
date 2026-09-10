@@ -4,14 +4,14 @@ All URIs are relative to *https://api.click2mail.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**submitMultiDocMergeParams**](JobsApi.md#submitMultiDocMergeParams) | **POST** /mail-merge | Submitmultidocmergeparams
-[**submitMultiDocParams**](JobsApi.md#submitMultiDocParams) | **POST** /static/multi | Submitmultidocparams
-[**submitMultiZipAddressCaptureParams**](JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /batch/zip/address-capture | Submitmultizipaddresscaptureparams
-[**submitMultiZipParams**](JobsApi.md#submitMultiZipParams) | **POST** /batch/zip | Submitmultizipparams
-[**submitSingleDocParams**](JobsApi.md#submitSingleDocParams) | **POST** /static | Submitsingledocparams
-[**submitSinglePdfAddressCaptureParams**](JobsApi.md#submitSinglePdfAddressCaptureParams) | **POST** /static/address-capture | Submitsinglepdfaddresscaptureparams
-[**submitSinglePdfSplitAddressCaptureParams**](JobsApi.md#submitSinglePdfSplitAddressCaptureParams) | **POST** /batch/split/address-capture | Submitsinglepdfsplitaddresscaptureparams
-[**submitSinglePdfSplitParams**](JobsApi.md#submitSinglePdfSplitParams) | **POST** /batch/split | Submitsinglepdfsplitparams
+[**submitMultiDocMergeParams**](JobsApi.md#submitMultiDocMergeParams) | **POST** /mail-merge | Submit mail merge
+[**submitMultiDocParams**](JobsApi.md#submitMultiDocParams) | **POST** /static/multi | Submit multiple documents
+[**submitMultiZipAddressCaptureParams**](JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
+[**submitMultiZipParams**](JobsApi.md#submitMultiZipParams) | **POST** /batch/zip | Submit ZIP batch
+[**submitSingleDocParams**](JobsApi.md#submitSingleDocParams) | **POST** /static | Submit single document
+[**submitSinglePdfAddressCaptureParams**](JobsApi.md#submitSinglePdfAddressCaptureParams) | **POST** /static/address-capture | Submit single document — address capture
+[**submitSinglePdfSplitAddressCaptureParams**](JobsApi.md#submitSinglePdfSplitAddressCaptureParams) | **POST** /batch/split/address-capture | Submit PDF split — address capture
+[**submitSinglePdfSplitParams**](JobsApi.md#submitSinglePdfSplitParams) | **POST** /batch/split | Submit PDF split
 
 
 
@@ -19,9 +19,9 @@ Method | HTTP request | Description
 
 > StandardResponse submitMultiDocMergeParams(submitMultiDocMergeParams)
 
-Submitmultidocmergeparams
+Submit mail merge
 
-API endpoint for submitMultiDocMergeParams
+Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
 
 ### Example
 
@@ -68,9 +68,9 @@ Name | Type | Description  | Notes
 
 > StandardResponse submitMultiDocParams(submitMultiDocParams)
 
-Submitmultidocparams
+Submit multiple documents
 
-API endpoint for submitMultiDocParams
+Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
 
 ### Example
 
@@ -117,9 +117,9 @@ Name | Type | Description  | Notes
 
 > StandardResponse submitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams)
 
-Submitmultizipaddresscaptureparams
+Submit ZIP batch — address capture
 
-API endpoint for submitMultiZipAddressCaptureParams
+Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
 
 ### Example
 
@@ -166,9 +166,9 @@ Name | Type | Description  | Notes
 
 > StandardResponse submitMultiZipParams(submitMultiZipParams)
 
-Submitmultizipparams
+Submit ZIP batch
 
-API endpoint for submitMultiZipParams
+Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
 
 ### Example
 
@@ -215,9 +215,9 @@ Name | Type | Description  | Notes
 
 > StandardResponse submitSingleDocParams(submitSingleDocParams)
 
-Submitsingledocparams
+Submit single document
 
-API endpoint for submitSingleDocParams
+Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
 
 ### Example
 
@@ -264,9 +264,9 @@ Name | Type | Description  | Notes
 
 > StandardResponse submitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams)
 
-Submitsinglepdfaddresscaptureparams
+Submit single document — address capture
 
-API endpoint for submitSinglePdfAddressCaptureParams
+Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
 
 ### Example
 
@@ -313,9 +313,9 @@ Name | Type | Description  | Notes
 
 > StandardResponse submitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams)
 
-Submitsinglepdfsplitaddresscaptureparams
+Submit PDF split — address capture
 
-API endpoint for submitSinglePdfSplitAddressCaptureParams
+Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
 
 ### Example
 
@@ -362,9 +362,9 @@ Name | Type | Description  | Notes
 
 > StandardResponse submitSinglePdfSplitParams(submitSinglePdfSplitParams)
 
-Submitsinglepdfsplitparams
+Submit PDF split
 
-API endpoint for submitSinglePdfSplitParams
+Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
 
 ### Example
 

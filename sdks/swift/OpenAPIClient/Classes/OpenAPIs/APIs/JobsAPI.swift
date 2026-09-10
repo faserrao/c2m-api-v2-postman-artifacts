@@ -13,7 +13,7 @@ import AnyCodable
 open class JobsAPI {
 
     /**
-     Submitmultidocmergeparams
+     Submit mail merge
      
      - parameter submitMultiDocMergeParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -32,9 +32,9 @@ open class JobsAPI {
     }
 
     /**
-     Submitmultidocmergeparams
+     Submit mail merge
      - POST /mail-merge
-     - API endpoint for submitMultiDocMergeParams
+     - Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -60,7 +60,7 @@ open class JobsAPI {
     }
 
     /**
-     Submitmultidocparams
+     Submit multiple documents
      
      - parameter submitMultiDocParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -79,9 +79,9 @@ open class JobsAPI {
     }
 
     /**
-     Submitmultidocparams
+     Submit multiple documents
      - POST /static/multi
-     - API endpoint for submitMultiDocParams
+     - Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -107,7 +107,7 @@ open class JobsAPI {
     }
 
     /**
-     Submitmultizipaddresscaptureparams
+     Submit ZIP batch — address capture
      
      - parameter submitMultiZipAddressCaptureParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -126,9 +126,9 @@ open class JobsAPI {
     }
 
     /**
-     Submitmultizipaddresscaptureparams
+     Submit ZIP batch — address capture
      - POST /batch/zip/address-capture
-     - API endpoint for submitMultiZipAddressCaptureParams
+     - Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -154,7 +154,7 @@ open class JobsAPI {
     }
 
     /**
-     Submitmultizipparams
+     Submit ZIP batch
      
      - parameter submitMultiZipParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -173,9 +173,9 @@ open class JobsAPI {
     }
 
     /**
-     Submitmultizipparams
+     Submit ZIP batch
      - POST /batch/zip
-     - API endpoint for submitMultiZipParams
+     - Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -201,7 +201,7 @@ open class JobsAPI {
     }
 
     /**
-     Submitsingledocparams
+     Submit single document
      
      - parameter submitSingleDocParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -220,9 +220,9 @@ open class JobsAPI {
     }
 
     /**
-     Submitsingledocparams
+     Submit single document
      - POST /static
-     - API endpoint for submitSingleDocParams
+     - Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -248,7 +248,7 @@ open class JobsAPI {
     }
 
     /**
-     Submitsinglepdfaddresscaptureparams
+     Submit single document — address capture
      
      - parameter submitSinglePdfAddressCaptureParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -267,9 +267,9 @@ open class JobsAPI {
     }
 
     /**
-     Submitsinglepdfaddresscaptureparams
+     Submit single document — address capture
      - POST /static/address-capture
-     - API endpoint for submitSinglePdfAddressCaptureParams
+     - Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -295,7 +295,7 @@ open class JobsAPI {
     }
 
     /**
-     Submitsinglepdfsplitaddresscaptureparams
+     Submit PDF split — address capture
      
      - parameter submitSinglePdfSplitAddressCaptureParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -314,9 +314,9 @@ open class JobsAPI {
     }
 
     /**
-     Submitsinglepdfsplitaddresscaptureparams
+     Submit PDF split — address capture
      - POST /batch/split/address-capture
-     - API endpoint for submitSinglePdfSplitAddressCaptureParams
+     - Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -342,7 +342,7 @@ open class JobsAPI {
     }
 
     /**
-     Submitsinglepdfsplitparams
+     Submit PDF split
      
      - parameter submitSinglePdfSplitParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -361,9 +361,9 @@ open class JobsAPI {
     }
 
     /**
-     Submitsinglepdfsplitparams
+     Submit PDF split
      - POST /batch/split
-     - API endpoint for submitSinglePdfSplitParams
+     - Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
      - Bearer Token:
        - type: http
        - name: bearerAuth

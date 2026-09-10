@@ -4,19 +4,19 @@ All URIs are relative to *https://api.click2mail.com/v2*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**submitMultiDocMergeParams**](#submitmultidocmergeparams) | **POST** /mail-merge | Submitmultidocmergeparams|
-|[**submitMultiDocParams**](#submitmultidocparams) | **POST** /static/multi | Submitmultidocparams|
-|[**submitMultiZipAddressCaptureParams**](#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submitmultizipaddresscaptureparams|
-|[**submitMultiZipParams**](#submitmultizipparams) | **POST** /batch/zip | Submitmultizipparams|
-|[**submitSingleDocParams**](#submitsingledocparams) | **POST** /static | Submitsingledocparams|
-|[**submitSinglePdfAddressCaptureParams**](#submitsinglepdfaddresscaptureparams) | **POST** /static/address-capture | Submitsinglepdfaddresscaptureparams|
-|[**submitSinglePdfSplitAddressCaptureParams**](#submitsinglepdfsplitaddresscaptureparams) | **POST** /batch/split/address-capture | Submitsinglepdfsplitaddresscaptureparams|
-|[**submitSinglePdfSplitParams**](#submitsinglepdfsplitparams) | **POST** /batch/split | Submitsinglepdfsplitparams|
+|[**submitMultiDocMergeParams**](#submitmultidocmergeparams) | **POST** /mail-merge | Submit mail merge|
+|[**submitMultiDocParams**](#submitmultidocparams) | **POST** /static/multi | Submit multiple documents|
+|[**submitMultiZipAddressCaptureParams**](#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture|
+|[**submitMultiZipParams**](#submitmultizipparams) | **POST** /batch/zip | Submit ZIP batch|
+|[**submitSingleDocParams**](#submitsingledocparams) | **POST** /static | Submit single document|
+|[**submitSinglePdfAddressCaptureParams**](#submitsinglepdfaddresscaptureparams) | **POST** /static/address-capture | Submit single document — address capture|
+|[**submitSinglePdfSplitAddressCaptureParams**](#submitsinglepdfsplitaddresscaptureparams) | **POST** /batch/split/address-capture | Submit PDF split — address capture|
+|[**submitSinglePdfSplitParams**](#submitsinglepdfsplitparams) | **POST** /batch/split | Submit PDF split|
 
 # **submitMultiDocMergeParams**
 > StandardResponse submitMultiDocMergeParams(submitMultiDocMergeParams)
 
-API endpoint for submitMultiDocMergeParams
+Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
 
 ### Example
 
@@ -74,7 +74,7 @@ const { status, data } = await apiInstance.submitMultiDocMergeParams(
 # **submitMultiDocParams**
 > StandardResponse submitMultiDocParams(submitMultiDocParams)
 
-API endpoint for submitMultiDocParams
+Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
 
 ### Example
 
@@ -132,7 +132,7 @@ const { status, data } = await apiInstance.submitMultiDocParams(
 # **submitMultiZipAddressCaptureParams**
 > StandardResponse submitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams)
 
-API endpoint for submitMultiZipAddressCaptureParams
+Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
 
 ### Example
 
@@ -190,7 +190,7 @@ const { status, data } = await apiInstance.submitMultiZipAddressCaptureParams(
 # **submitMultiZipParams**
 > StandardResponse submitMultiZipParams(submitMultiZipParams)
 
-API endpoint for submitMultiZipParams
+Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
 
 ### Example
 
@@ -248,7 +248,7 @@ const { status, data } = await apiInstance.submitMultiZipParams(
 # **submitSingleDocParams**
 > StandardResponse submitSingleDocParams(submitSingleDocParams)
 
-API endpoint for submitSingleDocParams
+Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
 
 ### Example
 
@@ -306,7 +306,7 @@ const { status, data } = await apiInstance.submitSingleDocParams(
 # **submitSinglePdfAddressCaptureParams**
 > StandardResponse submitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams)
 
-API endpoint for submitSinglePdfAddressCaptureParams
+Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
 
 ### Example
 
@@ -364,7 +364,7 @@ const { status, data } = await apiInstance.submitSinglePdfAddressCaptureParams(
 # **submitSinglePdfSplitAddressCaptureParams**
 > StandardResponse submitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams)
 
-API endpoint for submitSinglePdfSplitAddressCaptureParams
+Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
 
 ### Example
 
@@ -422,7 +422,7 @@ const { status, data } = await apiInstance.submitSinglePdfSplitAddressCapturePar
 # **submitSinglePdfSplitParams**
 > StandardResponse submitSinglePdfSplitParams(submitSinglePdfSplitParams)
 
-API endpoint for submitSinglePdfSplitParams
+Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
 
 ### Example
 

@@ -61,9 +61,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> StandardResponse:
-        """Submitmultidocmergeparams
+        """Submit mail merge
 
-        API endpoint for submitMultiDocMergeParams
+        Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
 
         :param submit_multi_doc_merge_params: (required)
         :type submit_multi_doc_merge_params: SubmitMultiDocMergeParams
@@ -134,9 +134,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[StandardResponse]:
-        """Submitmultidocmergeparams
+        """Submit mail merge
 
-        API endpoint for submitMultiDocMergeParams
+        Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
 
         :param submit_multi_doc_merge_params: (required)
         :type submit_multi_doc_merge_params: SubmitMultiDocMergeParams
@@ -207,9 +207,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Submitmultidocmergeparams
+        """Submit mail merge
 
-        API endpoint for submitMultiDocMergeParams
+        Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
 
         :param submit_multi_doc_merge_params: (required)
         :type submit_multi_doc_merge_params: SubmitMultiDocMergeParams
@@ -353,9 +353,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> StandardResponse:
-        """Submitmultidocparams
+        """Submit multiple documents
 
-        API endpoint for submitMultiDocParams
+        Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
 
         :param submit_multi_doc_params: (required)
         :type submit_multi_doc_params: SubmitMultiDocParams
@@ -426,9 +426,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[StandardResponse]:
-        """Submitmultidocparams
+        """Submit multiple documents
 
-        API endpoint for submitMultiDocParams
+        Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
 
         :param submit_multi_doc_params: (required)
         :type submit_multi_doc_params: SubmitMultiDocParams
@@ -499,9 +499,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Submitmultidocparams
+        """Submit multiple documents
 
-        API endpoint for submitMultiDocParams
+        Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
 
         :param submit_multi_doc_params: (required)
         :type submit_multi_doc_params: SubmitMultiDocParams
@@ -645,9 +645,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> StandardResponse:
-        """Submitmultizipaddresscaptureparams
+        """Submit ZIP batch — address capture
 
-        API endpoint for submitMultiZipAddressCaptureParams
+        Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
 
         :param submit_multi_zip_address_capture_params: (required)
         :type submit_multi_zip_address_capture_params: SubmitMultiZipAddressCaptureParams
@@ -718,9 +718,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[StandardResponse]:
-        """Submitmultizipaddresscaptureparams
+        """Submit ZIP batch — address capture
 
-        API endpoint for submitMultiZipAddressCaptureParams
+        Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
 
         :param submit_multi_zip_address_capture_params: (required)
         :type submit_multi_zip_address_capture_params: SubmitMultiZipAddressCaptureParams
@@ -791,9 +791,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Submitmultizipaddresscaptureparams
+        """Submit ZIP batch — address capture
 
-        API endpoint for submitMultiZipAddressCaptureParams
+        Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
 
         :param submit_multi_zip_address_capture_params: (required)
         :type submit_multi_zip_address_capture_params: SubmitMultiZipAddressCaptureParams
@@ -937,9 +937,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> StandardResponse:
-        """Submitmultizipparams
+        """Submit ZIP batch
 
-        API endpoint for submitMultiZipParams
+        Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
 
         :param submit_multi_zip_params: (required)
         :type submit_multi_zip_params: SubmitMultiZipParams
@@ -1010,9 +1010,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[StandardResponse]:
-        """Submitmultizipparams
+        """Submit ZIP batch
 
-        API endpoint for submitMultiZipParams
+        Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
 
         :param submit_multi_zip_params: (required)
         :type submit_multi_zip_params: SubmitMultiZipParams
@@ -1083,9 +1083,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Submitmultizipparams
+        """Submit ZIP batch
 
-        API endpoint for submitMultiZipParams
+        Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
 
         :param submit_multi_zip_params: (required)
         :type submit_multi_zip_params: SubmitMultiZipParams
@@ -1229,9 +1229,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> StandardResponse:
-        """Submitsingledocparams
+        """Submit single document
 
-        API endpoint for submitSingleDocParams
+        Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
 
         :param submit_single_doc_params: (required)
         :type submit_single_doc_params: SubmitSingleDocParams
@@ -1302,9 +1302,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[StandardResponse]:
-        """Submitsingledocparams
+        """Submit single document
 
-        API endpoint for submitSingleDocParams
+        Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
 
         :param submit_single_doc_params: (required)
         :type submit_single_doc_params: SubmitSingleDocParams
@@ -1375,9 +1375,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Submitsingledocparams
+        """Submit single document
 
-        API endpoint for submitSingleDocParams
+        Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
 
         :param submit_single_doc_params: (required)
         :type submit_single_doc_params: SubmitSingleDocParams
@@ -1521,9 +1521,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> StandardResponse:
-        """Submitsinglepdfaddresscaptureparams
+        """Submit single document — address capture
 
-        API endpoint for submitSinglePdfAddressCaptureParams
+        Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
 
         :param submit_single_pdf_address_capture_params: (required)
         :type submit_single_pdf_address_capture_params: SubmitSinglePdfAddressCaptureParams
@@ -1594,9 +1594,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[StandardResponse]:
-        """Submitsinglepdfaddresscaptureparams
+        """Submit single document — address capture
 
-        API endpoint for submitSinglePdfAddressCaptureParams
+        Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
 
         :param submit_single_pdf_address_capture_params: (required)
         :type submit_single_pdf_address_capture_params: SubmitSinglePdfAddressCaptureParams
@@ -1667,9 +1667,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Submitsinglepdfaddresscaptureparams
+        """Submit single document — address capture
 
-        API endpoint for submitSinglePdfAddressCaptureParams
+        Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
 
         :param submit_single_pdf_address_capture_params: (required)
         :type submit_single_pdf_address_capture_params: SubmitSinglePdfAddressCaptureParams
@@ -1813,9 +1813,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> StandardResponse:
-        """Submitsinglepdfsplitaddresscaptureparams
+        """Submit PDF split — address capture
 
-        API endpoint for submitSinglePdfSplitAddressCaptureParams
+        Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
 
         :param submit_single_pdf_split_address_capture_params: (required)
         :type submit_single_pdf_split_address_capture_params: SubmitSinglePdfSplitAddressCaptureParams
@@ -1886,9 +1886,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[StandardResponse]:
-        """Submitsinglepdfsplitaddresscaptureparams
+        """Submit PDF split — address capture
 
-        API endpoint for submitSinglePdfSplitAddressCaptureParams
+        Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
 
         :param submit_single_pdf_split_address_capture_params: (required)
         :type submit_single_pdf_split_address_capture_params: SubmitSinglePdfSplitAddressCaptureParams
@@ -1959,9 +1959,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Submitsinglepdfsplitaddresscaptureparams
+        """Submit PDF split — address capture
 
-        API endpoint for submitSinglePdfSplitAddressCaptureParams
+        Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
 
         :param submit_single_pdf_split_address_capture_params: (required)
         :type submit_single_pdf_split_address_capture_params: SubmitSinglePdfSplitAddressCaptureParams
@@ -2105,9 +2105,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> StandardResponse:
-        """Submitsinglepdfsplitparams
+        """Submit PDF split
 
-        API endpoint for submitSinglePdfSplitParams
+        Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
 
         :param submit_single_pdf_split_params: (required)
         :type submit_single_pdf_split_params: SubmitSinglePdfSplitParams
@@ -2178,9 +2178,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[StandardResponse]:
-        """Submitsinglepdfsplitparams
+        """Submit PDF split
 
-        API endpoint for submitSinglePdfSplitParams
+        Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
 
         :param submit_single_pdf_split_params: (required)
         :type submit_single_pdf_split_params: SubmitSinglePdfSplitParams
@@ -2251,9 +2251,9 @@ class JobsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Submitsinglepdfsplitparams
+        """Submit PDF split
 
-        API endpoint for submitSinglePdfSplitParams
+        Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
 
         :param submit_single_pdf_split_params: (required)
         :type submit_single_pdf_split_params: SubmitSinglePdfSplitParams

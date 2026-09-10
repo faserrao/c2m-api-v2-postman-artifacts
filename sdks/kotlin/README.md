@@ -48,14 +48,14 @@ All URIs are relative to *https://api.click2mail.com/v2*
 | *AuthApi* | [**issueLongTermToken**](docs/AuthApi.md#issuelongtermtoken) | **POST** /auth/tokens/long | Issue or rotate a long-term token |
 | *AuthApi* | [**issueShortTermToken**](docs/AuthApi.md#issueshorttermtoken) | **POST** /auth/tokens/short | Issue a short-term access token |
 | *AuthApi* | [**revokeToken**](docs/AuthApi.md#revoketoken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token |
-| *JobsApi* | [**submitMultiDocMergeParams**](docs/JobsApi.md#submitmultidocmergeparams) | **POST** /mail-merge | Submitmultidocmergeparams |
-| *JobsApi* | [**submitMultiDocParams**](docs/JobsApi.md#submitmultidocparams) | **POST** /static/multi | Submitmultidocparams |
-| *JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/JobsApi.md#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submitmultizipaddresscaptureparams |
-| *JobsApi* | [**submitMultiZipParams**](docs/JobsApi.md#submitmultizipparams) | **POST** /batch/zip | Submitmultizipparams |
-| *JobsApi* | [**submitSingleDocParams**](docs/JobsApi.md#submitsingledocparams) | **POST** /static | Submitsingledocparams |
-| *JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/JobsApi.md#submitsinglepdfaddresscaptureparams) | **POST** /static/address-capture | Submitsinglepdfaddresscaptureparams |
-| *JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsApi.md#submitsinglepdfsplitaddresscaptureparams) | **POST** /batch/split/address-capture | Submitsinglepdfsplitaddresscaptureparams |
-| *JobsApi* | [**submitSinglePdfSplitParams**](docs/JobsApi.md#submitsinglepdfsplitparams) | **POST** /batch/split | Submitsinglepdfsplitparams |
+| *JobsApi* | [**submitMultiDocMergeParams**](docs/JobsApi.md#submitmultidocmergeparams) | **POST** /mail-merge | Submit mail merge |
+| *JobsApi* | [**submitMultiDocParams**](docs/JobsApi.md#submitmultidocparams) | **POST** /static/multi | Submit multiple documents |
+| *JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/JobsApi.md#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture |
+| *JobsApi* | [**submitMultiZipParams**](docs/JobsApi.md#submitmultizipparams) | **POST** /batch/zip | Submit ZIP batch |
+| *JobsApi* | [**submitSingleDocParams**](docs/JobsApi.md#submitsingledocparams) | **POST** /static | Submit single document |
+| *JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/JobsApi.md#submitsinglepdfaddresscaptureparams) | **POST** /static/address-capture | Submit single document — address capture |
+| *JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsApi.md#submitsinglepdfsplitaddresscaptureparams) | **POST** /batch/split/address-capture | Submit PDF split — address capture |
+| *JobsApi* | [**submitSinglePdfSplitParams**](docs/JobsApi.md#submitsinglepdfsplitparams) | **POST** /batch/split | Submit PDF split |
 
 
 <a id="documentation-for-models"></a>

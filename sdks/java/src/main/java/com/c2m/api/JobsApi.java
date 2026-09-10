@@ -157,8 +157,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitmultidocmergeparams
-     * API endpoint for submitMultiDocMergeParams
+     * Submit mail merge
+     * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
      * @param submitMultiDocMergeParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -181,8 +181,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitmultidocmergeparams
-     * API endpoint for submitMultiDocMergeParams
+     * Submit mail merge
+     * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
      * @param submitMultiDocMergeParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -206,8 +206,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitmultidocmergeparams (asynchronously)
-     * API endpoint for submitMultiDocMergeParams
+     * Submit mail merge (asynchronously)
+     * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
      * @param submitMultiDocMergeParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -308,8 +308,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitmultidocparams
-     * API endpoint for submitMultiDocParams
+     * Submit multiple documents
+     * Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
      * @param submitMultiDocParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -332,8 +332,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitmultidocparams
-     * API endpoint for submitMultiDocParams
+     * Submit multiple documents
+     * Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
      * @param submitMultiDocParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -357,8 +357,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitmultidocparams (asynchronously)
-     * API endpoint for submitMultiDocParams
+     * Submit multiple documents (asynchronously)
+     * Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
      * @param submitMultiDocParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -459,8 +459,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitmultizipaddresscaptureparams
-     * API endpoint for submitMultiZipAddressCaptureParams
+     * Submit ZIP batch — address capture
+     * Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
      * @param submitMultiZipAddressCaptureParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -483,8 +483,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitmultizipaddresscaptureparams
-     * API endpoint for submitMultiZipAddressCaptureParams
+     * Submit ZIP batch — address capture
+     * Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
      * @param submitMultiZipAddressCaptureParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -508,8 +508,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitmultizipaddresscaptureparams (asynchronously)
-     * API endpoint for submitMultiZipAddressCaptureParams
+     * Submit ZIP batch — address capture (asynchronously)
+     * Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
      * @param submitMultiZipAddressCaptureParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -610,8 +610,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitmultizipparams
-     * API endpoint for submitMultiZipParams
+     * Submit ZIP batch
+     * Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
      * @param submitMultiZipParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -634,8 +634,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitmultizipparams
-     * API endpoint for submitMultiZipParams
+     * Submit ZIP batch
+     * Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
      * @param submitMultiZipParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -659,8 +659,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitmultizipparams (asynchronously)
-     * API endpoint for submitMultiZipParams
+     * Submit ZIP batch (asynchronously)
+     * Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
      * @param submitMultiZipParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -761,8 +761,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitsingledocparams
-     * API endpoint for submitSingleDocParams
+     * Submit single document
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
      * @param submitSingleDocParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -785,8 +785,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitsingledocparams
-     * API endpoint for submitSingleDocParams
+     * Submit single document
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
      * @param submitSingleDocParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -810,8 +810,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitsingledocparams (asynchronously)
-     * API endpoint for submitSingleDocParams
+     * Submit single document (asynchronously)
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
      * @param submitSingleDocParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -912,8 +912,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitsinglepdfaddresscaptureparams
-     * API endpoint for submitSinglePdfAddressCaptureParams
+     * Submit single document — address capture
+     * Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
      * @param submitSinglePdfAddressCaptureParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -936,8 +936,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitsinglepdfaddresscaptureparams
-     * API endpoint for submitSinglePdfAddressCaptureParams
+     * Submit single document — address capture
+     * Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
      * @param submitSinglePdfAddressCaptureParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -961,8 +961,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitsinglepdfaddresscaptureparams (asynchronously)
-     * API endpoint for submitSinglePdfAddressCaptureParams
+     * Submit single document — address capture (asynchronously)
+     * Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
      * @param submitSinglePdfAddressCaptureParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1063,8 +1063,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitsinglepdfsplitaddresscaptureparams
-     * API endpoint for submitSinglePdfSplitAddressCaptureParams
+     * Submit PDF split — address capture
+     * Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
      * @param submitSinglePdfSplitAddressCaptureParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1087,8 +1087,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitsinglepdfsplitaddresscaptureparams
-     * API endpoint for submitSinglePdfSplitAddressCaptureParams
+     * Submit PDF split — address capture
+     * Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
      * @param submitSinglePdfSplitAddressCaptureParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1112,8 +1112,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitsinglepdfsplitaddresscaptureparams (asynchronously)
-     * API endpoint for submitSinglePdfSplitAddressCaptureParams
+     * Submit PDF split — address capture (asynchronously)
+     * Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
      * @param submitSinglePdfSplitAddressCaptureParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1214,8 +1214,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitsinglepdfsplitparams
-     * API endpoint for submitSinglePdfSplitParams
+     * Submit PDF split
+     * Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
      * @param submitSinglePdfSplitParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1238,8 +1238,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitsinglepdfsplitparams
-     * API endpoint for submitSinglePdfSplitParams
+     * Submit PDF split
+     * Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
      * @param submitSinglePdfSplitParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1263,8 +1263,8 @@ public class JobsApi {
     }
 
     /**
-     * Submitsinglepdfsplitparams (asynchronously)
-     * API endpoint for submitSinglePdfSplitParams
+     * Submit PDF split (asynchronously)
+     * Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
      * @param submitSinglePdfSplitParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

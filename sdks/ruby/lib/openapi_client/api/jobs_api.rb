@@ -19,8 +19,8 @@ module OpenapiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Submitmultidocmergeparams
-    # API endpoint for submitMultiDocMergeParams
+    # Submit mail merge
+    # Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
     # @param submit_multi_doc_merge_params [SubmitMultiDocMergeParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -29,8 +29,8 @@ module OpenapiClient
       data
     end
 
-    # Submitmultidocmergeparams
-    # API endpoint for submitMultiDocMergeParams
+    # Submit mail merge
+    # Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
     # @param submit_multi_doc_merge_params [SubmitMultiDocMergeParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -87,8 +87,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submitmultidocparams
-    # API endpoint for submitMultiDocParams
+    # Submit multiple documents
+    # Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
     # @param submit_multi_doc_params [SubmitMultiDocParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -97,8 +97,8 @@ module OpenapiClient
       data
     end
 
-    # Submitmultidocparams
-    # API endpoint for submitMultiDocParams
+    # Submit multiple documents
+    # Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
     # @param submit_multi_doc_params [SubmitMultiDocParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -155,8 +155,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submitmultizipaddresscaptureparams
-    # API endpoint for submitMultiZipAddressCaptureParams
+    # Submit ZIP batch — address capture
+    # Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
     # @param submit_multi_zip_address_capture_params [SubmitMultiZipAddressCaptureParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -165,8 +165,8 @@ module OpenapiClient
       data
     end
 
-    # Submitmultizipaddresscaptureparams
-    # API endpoint for submitMultiZipAddressCaptureParams
+    # Submit ZIP batch — address capture
+    # Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
     # @param submit_multi_zip_address_capture_params [SubmitMultiZipAddressCaptureParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -223,8 +223,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submitmultizipparams
-    # API endpoint for submitMultiZipParams
+    # Submit ZIP batch
+    # Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
     # @param submit_multi_zip_params [SubmitMultiZipParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -233,8 +233,8 @@ module OpenapiClient
       data
     end
 
-    # Submitmultizipparams
-    # API endpoint for submitMultiZipParams
+    # Submit ZIP batch
+    # Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
     # @param submit_multi_zip_params [SubmitMultiZipParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -291,8 +291,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submitsingledocparams
-    # API endpoint for submitSingleDocParams
+    # Submit single document
+    # Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
     # @param submit_single_doc_params [SubmitSingleDocParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -301,8 +301,8 @@ module OpenapiClient
       data
     end
 
-    # Submitsingledocparams
-    # API endpoint for submitSingleDocParams
+    # Submit single document
+    # Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
     # @param submit_single_doc_params [SubmitSingleDocParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -359,8 +359,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submitsinglepdfaddresscaptureparams
-    # API endpoint for submitSinglePdfAddressCaptureParams
+    # Submit single document — address capture
+    # Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
     # @param submit_single_pdf_address_capture_params [SubmitSinglePdfAddressCaptureParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -369,8 +369,8 @@ module OpenapiClient
       data
     end
 
-    # Submitsinglepdfaddresscaptureparams
-    # API endpoint for submitSinglePdfAddressCaptureParams
+    # Submit single document — address capture
+    # Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
     # @param submit_single_pdf_address_capture_params [SubmitSinglePdfAddressCaptureParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -427,8 +427,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submitsinglepdfsplitaddresscaptureparams
-    # API endpoint for submitSinglePdfSplitAddressCaptureParams
+    # Submit PDF split — address capture
+    # Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
     # @param submit_single_pdf_split_address_capture_params [SubmitSinglePdfSplitAddressCaptureParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -437,8 +437,8 @@ module OpenapiClient
       data
     end
 
-    # Submitsinglepdfsplitaddresscaptureparams
-    # API endpoint for submitSinglePdfSplitAddressCaptureParams
+    # Submit PDF split — address capture
+    # Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
     # @param submit_single_pdf_split_address_capture_params [SubmitSinglePdfSplitAddressCaptureParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -495,8 +495,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submitsinglepdfsplitparams
-    # API endpoint for submitSinglePdfSplitParams
+    # Submit PDF split
+    # Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
     # @param submit_single_pdf_split_params [SubmitSinglePdfSplitParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -505,8 +505,8 @@ module OpenapiClient
       data
     end
 
-    # Submitsinglepdfsplitparams
-    # API endpoint for submitSinglePdfSplitParams
+    # Submit PDF split
+    # Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
     # @param submit_single_pdf_split_params [SubmitSinglePdfSplitParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers

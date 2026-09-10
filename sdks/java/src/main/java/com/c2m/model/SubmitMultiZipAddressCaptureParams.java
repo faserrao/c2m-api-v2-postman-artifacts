@@ -54,7 +54,7 @@ import com.c2m.JSON;
 /**
  * SubmitMultiZipAddressCaptureParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-10T02:35:52.766543280Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-10T02:47:29.155964107Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class SubmitMultiZipAddressCaptureParams {
   public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
   @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)

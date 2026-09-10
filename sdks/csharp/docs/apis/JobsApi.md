@@ -4,22 +4,22 @@ All URIs are relative to *https://api.click2mail.com/v2*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**SubmitMultiDocMergeParams**](JobsApi.md#submitmultidocmergeparams) | **POST** /mail-merge | Submitmultidocmergeparams |
-| [**SubmitMultiDocParams**](JobsApi.md#submitmultidocparams) | **POST** /static/multi | Submitmultidocparams |
-| [**SubmitMultiZipAddressCaptureParams**](JobsApi.md#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submitmultizipaddresscaptureparams |
-| [**SubmitMultiZipParams**](JobsApi.md#submitmultizipparams) | **POST** /batch/zip | Submitmultizipparams |
-| [**SubmitSingleDocParams**](JobsApi.md#submitsingledocparams) | **POST** /static | Submitsingledocparams |
-| [**SubmitSinglePdfAddressCaptureParams**](JobsApi.md#submitsinglepdfaddresscaptureparams) | **POST** /static/address-capture | Submitsinglepdfaddresscaptureparams |
-| [**SubmitSinglePdfSplitAddressCaptureParams**](JobsApi.md#submitsinglepdfsplitaddresscaptureparams) | **POST** /batch/split/address-capture | Submitsinglepdfsplitaddresscaptureparams |
-| [**SubmitSinglePdfSplitParams**](JobsApi.md#submitsinglepdfsplitparams) | **POST** /batch/split | Submitsinglepdfsplitparams |
+| [**SubmitMultiDocMergeParams**](JobsApi.md#submitmultidocmergeparams) | **POST** /mail-merge | Submit mail merge |
+| [**SubmitMultiDocParams**](JobsApi.md#submitmultidocparams) | **POST** /static/multi | Submit multiple documents |
+| [**SubmitMultiZipAddressCaptureParams**](JobsApi.md#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture |
+| [**SubmitMultiZipParams**](JobsApi.md#submitmultizipparams) | **POST** /batch/zip | Submit ZIP batch |
+| [**SubmitSingleDocParams**](JobsApi.md#submitsingledocparams) | **POST** /static | Submit single document |
+| [**SubmitSinglePdfAddressCaptureParams**](JobsApi.md#submitsinglepdfaddresscaptureparams) | **POST** /static/address-capture | Submit single document — address capture |
+| [**SubmitSinglePdfSplitAddressCaptureParams**](JobsApi.md#submitsinglepdfsplitaddresscaptureparams) | **POST** /batch/split/address-capture | Submit PDF split — address capture |
+| [**SubmitSinglePdfSplitParams**](JobsApi.md#submitsinglepdfsplitparams) | **POST** /batch/split | Submit PDF split |
 
 <a id="submitmultidocmergeparams"></a>
 # **SubmitMultiDocMergeParams**
 > StandardResponse SubmitMultiDocMergeParams (SubmitMultiDocMergeParams submitMultiDocMergeParams)
 
-Submitmultidocmergeparams
+Submit mail merge
 
-API endpoint for submitMultiDocMergeParams
+Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
 
 
 ### Parameters
@@ -59,9 +59,9 @@ API endpoint for submitMultiDocMergeParams
 # **SubmitMultiDocParams**
 > StandardResponse SubmitMultiDocParams (SubmitMultiDocParams submitMultiDocParams)
 
-Submitmultidocparams
+Submit multiple documents
 
-API endpoint for submitMultiDocParams
+Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
 
 
 ### Parameters
@@ -101,9 +101,9 @@ API endpoint for submitMultiDocParams
 # **SubmitMultiZipAddressCaptureParams**
 > StandardResponse SubmitMultiZipAddressCaptureParams (SubmitMultiZipAddressCaptureParams submitMultiZipAddressCaptureParams)
 
-Submitmultizipaddresscaptureparams
+Submit ZIP batch — address capture
 
-API endpoint for submitMultiZipAddressCaptureParams
+Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
 
 
 ### Parameters
@@ -143,9 +143,9 @@ API endpoint for submitMultiZipAddressCaptureParams
 # **SubmitMultiZipParams**
 > StandardResponse SubmitMultiZipParams (SubmitMultiZipParams submitMultiZipParams)
 
-Submitmultizipparams
+Submit ZIP batch
 
-API endpoint for submitMultiZipParams
+Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
 
 
 ### Parameters
@@ -185,9 +185,9 @@ API endpoint for submitMultiZipParams
 # **SubmitSingleDocParams**
 > StandardResponse SubmitSingleDocParams (SubmitSingleDocParams submitSingleDocParams)
 
-Submitsingledocparams
+Submit single document
 
-API endpoint for submitSingleDocParams
+Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
 
 
 ### Parameters
@@ -227,9 +227,9 @@ API endpoint for submitSingleDocParams
 # **SubmitSinglePdfAddressCaptureParams**
 > StandardResponse SubmitSinglePdfAddressCaptureParams (SubmitSinglePdfAddressCaptureParams submitSinglePdfAddressCaptureParams)
 
-Submitsinglepdfaddresscaptureparams
+Submit single document — address capture
 
-API endpoint for submitSinglePdfAddressCaptureParams
+Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
 
 
 ### Parameters
@@ -269,9 +269,9 @@ API endpoint for submitSinglePdfAddressCaptureParams
 # **SubmitSinglePdfSplitAddressCaptureParams**
 > StandardResponse SubmitSinglePdfSplitAddressCaptureParams (SubmitSinglePdfSplitAddressCaptureParams submitSinglePdfSplitAddressCaptureParams)
 
-Submitsinglepdfsplitaddresscaptureparams
+Submit PDF split — address capture
 
-API endpoint for submitSinglePdfSplitAddressCaptureParams
+Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
 
 
 ### Parameters
@@ -311,9 +311,9 @@ API endpoint for submitSinglePdfSplitAddressCaptureParams
 # **SubmitSinglePdfSplitParams**
 > StandardResponse SubmitSinglePdfSplitParams (SubmitSinglePdfSplitParams submitSinglePdfSplitParams)
 
-Submitsinglepdfsplitparams
+Submit PDF split
 
-API endpoint for submitSinglePdfSplitParams
+Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
 
 
 ### Parameters

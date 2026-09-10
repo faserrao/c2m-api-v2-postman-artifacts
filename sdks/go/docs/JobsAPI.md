@@ -4,14 +4,14 @@ All URIs are relative to *https://api.click2mail.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**SubmitMultiDocMergeParams**](JobsAPI.md#SubmitMultiDocMergeParams) | **Post** /mail-merge | Submitmultidocmergeparams
-[**SubmitMultiDocParams**](JobsAPI.md#SubmitMultiDocParams) | **Post** /static/multi | Submitmultidocparams
-[**SubmitMultiZipAddressCaptureParams**](JobsAPI.md#SubmitMultiZipAddressCaptureParams) | **Post** /batch/zip/address-capture | Submitmultizipaddresscaptureparams
-[**SubmitMultiZipParams**](JobsAPI.md#SubmitMultiZipParams) | **Post** /batch/zip | Submitmultizipparams
-[**SubmitSingleDocParams**](JobsAPI.md#SubmitSingleDocParams) | **Post** /static | Submitsingledocparams
-[**SubmitSinglePdfAddressCaptureParams**](JobsAPI.md#SubmitSinglePdfAddressCaptureParams) | **Post** /static/address-capture | Submitsinglepdfaddresscaptureparams
-[**SubmitSinglePdfSplitAddressCaptureParams**](JobsAPI.md#SubmitSinglePdfSplitAddressCaptureParams) | **Post** /batch/split/address-capture | Submitsinglepdfsplitaddresscaptureparams
-[**SubmitSinglePdfSplitParams**](JobsAPI.md#SubmitSinglePdfSplitParams) | **Post** /batch/split | Submitsinglepdfsplitparams
+[**SubmitMultiDocMergeParams**](JobsAPI.md#SubmitMultiDocMergeParams) | **Post** /mail-merge | Submit mail merge
+[**SubmitMultiDocParams**](JobsAPI.md#SubmitMultiDocParams) | **Post** /static/multi | Submit multiple documents
+[**SubmitMultiZipAddressCaptureParams**](JobsAPI.md#SubmitMultiZipAddressCaptureParams) | **Post** /batch/zip/address-capture | Submit ZIP batch — address capture
+[**SubmitMultiZipParams**](JobsAPI.md#SubmitMultiZipParams) | **Post** /batch/zip | Submit ZIP batch
+[**SubmitSingleDocParams**](JobsAPI.md#SubmitSingleDocParams) | **Post** /static | Submit single document
+[**SubmitSinglePdfAddressCaptureParams**](JobsAPI.md#SubmitSinglePdfAddressCaptureParams) | **Post** /static/address-capture | Submit single document — address capture
+[**SubmitSinglePdfSplitAddressCaptureParams**](JobsAPI.md#SubmitSinglePdfSplitAddressCaptureParams) | **Post** /batch/split/address-capture | Submit PDF split — address capture
+[**SubmitSinglePdfSplitParams**](JobsAPI.md#SubmitSinglePdfSplitParams) | **Post** /batch/split | Submit PDF split
 
 
 
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 > StandardResponse SubmitMultiDocMergeParams(ctx).SubmitMultiDocMergeParams(submitMultiDocMergeParams).Execute()
 
-Submitmultidocmergeparams
+Submit mail merge
 
 
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 > StandardResponse SubmitMultiDocParams(ctx).SubmitMultiDocParams(submitMultiDocParams).Execute()
 
-Submitmultidocparams
+Submit multiple documents
 
 
 
@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 
 > StandardResponse SubmitMultiZipAddressCaptureParams(ctx).SubmitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams).Execute()
 
-Submitmultizipaddresscaptureparams
+Submit ZIP batch — address capture
 
 
 
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 > StandardResponse SubmitMultiZipParams(ctx).SubmitMultiZipParams(submitMultiZipParams).Execute()
 
-Submitmultizipparams
+Submit ZIP batch
 
 
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 
 > StandardResponse SubmitSingleDocParams(ctx).SubmitSingleDocParams(submitSingleDocParams).Execute()
 
-Submitsingledocparams
+Submit single document
 
 
 
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
 
 > StandardResponse SubmitSinglePdfAddressCaptureParams(ctx).SubmitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams).Execute()
 
-Submitsinglepdfaddresscaptureparams
+Submit single document — address capture
 
 
 
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 > StandardResponse SubmitSinglePdfSplitAddressCaptureParams(ctx).SubmitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams).Execute()
 
-Submitsinglepdfsplitaddresscaptureparams
+Submit PDF split — address capture
 
 
 
@@ -481,7 +481,7 @@ Name | Type | Description  | Notes
 
 > StandardResponse SubmitSinglePdfSplitParams(ctx).SubmitSinglePdfSplitParams(submitSinglePdfSplitParams).Execute()
 
-Submitsinglepdfsplitparams
+Submit PDF split
 
 
 

@@ -33,8 +33,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_multi_doc_merge_params
-  # Submitmultidocmergeparams
-  # API endpoint for submitMultiDocMergeParams
+  # Submit mail merge
+  # Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
   # @param submit_multi_doc_merge_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -45,8 +45,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_multi_doc_params
-  # Submitmultidocparams
-  # API endpoint for submitMultiDocParams
+  # Submit multiple documents
+  # Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
   # @param submit_multi_doc_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -57,8 +57,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_multi_zip_address_capture_params
-  # Submitmultizipaddresscaptureparams
-  # API endpoint for submitMultiZipAddressCaptureParams
+  # Submit ZIP batch — address capture
+  # Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
   # @param submit_multi_zip_address_capture_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -69,8 +69,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_multi_zip_params
-  # Submitmultizipparams
-  # API endpoint for submitMultiZipParams
+  # Submit ZIP batch
+  # Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
   # @param submit_multi_zip_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -81,8 +81,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_single_doc_params
-  # Submitsingledocparams
-  # API endpoint for submitSingleDocParams
+  # Submit single document
+  # Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
   # @param submit_single_doc_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -93,8 +93,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_single_pdf_address_capture_params
-  # Submitsinglepdfaddresscaptureparams
-  # API endpoint for submitSinglePdfAddressCaptureParams
+  # Submit single document — address capture
+  # Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
   # @param submit_single_pdf_address_capture_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -105,8 +105,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_single_pdf_split_address_capture_params
-  # Submitsinglepdfsplitaddresscaptureparams
-  # API endpoint for submitSinglePdfSplitAddressCaptureParams
+  # Submit PDF split — address capture
+  # Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
   # @param submit_single_pdf_split_address_capture_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -117,8 +117,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_single_pdf_split_params
-  # Submitsinglepdfsplitparams
-  # API endpoint for submitSinglePdfSplitParams
+  # Submit PDF split
+  # Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
   # @param submit_single_pdf_split_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]

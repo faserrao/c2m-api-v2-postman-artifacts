@@ -38,9 +38,9 @@ func (r ApiSubmitMultiDocMergeParamsRequest) Execute() (*StandardResponse, *http
 }
 
 /*
-SubmitMultiDocMergeParams Submitmultidocmergeparams
+SubmitMultiDocMergeParams Submit mail merge
 
-API endpoint for submitMultiDocMergeParams
+Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitMultiDocMergeParamsRequest
@@ -213,9 +213,9 @@ func (r ApiSubmitMultiDocParamsRequest) Execute() (*StandardResponse, *http.Resp
 }
 
 /*
-SubmitMultiDocParams Submitmultidocparams
+SubmitMultiDocParams Submit multiple documents
 
-API endpoint for submitMultiDocParams
+Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitMultiDocParamsRequest
@@ -388,9 +388,9 @@ func (r ApiSubmitMultiZipAddressCaptureParamsRequest) Execute() (*StandardRespon
 }
 
 /*
-SubmitMultiZipAddressCaptureParams Submitmultizipaddresscaptureparams
+SubmitMultiZipAddressCaptureParams Submit ZIP batch — address capture
 
-API endpoint for submitMultiZipAddressCaptureParams
+Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitMultiZipAddressCaptureParamsRequest
@@ -563,9 +563,9 @@ func (r ApiSubmitMultiZipParamsRequest) Execute() (*StandardResponse, *http.Resp
 }
 
 /*
-SubmitMultiZipParams Submitmultizipparams
+SubmitMultiZipParams Submit ZIP batch
 
-API endpoint for submitMultiZipParams
+Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitMultiZipParamsRequest
@@ -738,9 +738,9 @@ func (r ApiSubmitSingleDocParamsRequest) Execute() (*StandardResponse, *http.Res
 }
 
 /*
-SubmitSingleDocParams Submitsingledocparams
+SubmitSingleDocParams Submit single document
 
-API endpoint for submitSingleDocParams
+Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitSingleDocParamsRequest
@@ -913,9 +913,9 @@ func (r ApiSubmitSinglePdfAddressCaptureParamsRequest) Execute() (*StandardRespo
 }
 
 /*
-SubmitSinglePdfAddressCaptureParams Submitsinglepdfaddresscaptureparams
+SubmitSinglePdfAddressCaptureParams Submit single document — address capture
 
-API endpoint for submitSinglePdfAddressCaptureParams
+Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitSinglePdfAddressCaptureParamsRequest
@@ -1088,9 +1088,9 @@ func (r ApiSubmitSinglePdfSplitAddressCaptureParamsRequest) Execute() (*Standard
 }
 
 /*
-SubmitSinglePdfSplitAddressCaptureParams Submitsinglepdfsplitaddresscaptureparams
+SubmitSinglePdfSplitAddressCaptureParams Submit PDF split — address capture
 
-API endpoint for submitSinglePdfSplitAddressCaptureParams
+Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitSinglePdfSplitAddressCaptureParamsRequest
@@ -1263,9 +1263,9 @@ func (r ApiSubmitSinglePdfSplitParamsRequest) Execute() (*StandardResponse, *htt
 }
 
 /*
-SubmitSinglePdfSplitParams Submitsinglepdfsplitparams
+SubmitSinglePdfSplitParams Submit PDF split
 
-API endpoint for submitSinglePdfSplitParams
+Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitSinglePdfSplitParamsRequest

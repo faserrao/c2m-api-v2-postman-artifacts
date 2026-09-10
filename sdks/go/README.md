@@ -82,14 +82,14 @@ Class | Method | HTTP request | Description
 *AuthAPI* | [**IssueLongTermToken**](docs/AuthAPI.md#issuelongtermtoken) | **Post** /auth/tokens/long | Issue or rotate a long-term token
 *AuthAPI* | [**IssueShortTermToken**](docs/AuthAPI.md#issueshorttermtoken) | **Post** /auth/tokens/short | Issue a short-term access token
 *AuthAPI* | [**RevokeToken**](docs/AuthAPI.md#revoketoken) | **Post** /auth/tokens/{tokenId}/revoke | Revoke a token
-*JobsAPI* | [**SubmitMultiDocMergeParams**](docs/JobsAPI.md#submitmultidocmergeparams) | **Post** /mail-merge | Submitmultidocmergeparams
-*JobsAPI* | [**SubmitMultiDocParams**](docs/JobsAPI.md#submitmultidocparams) | **Post** /static/multi | Submitmultidocparams
-*JobsAPI* | [**SubmitMultiZipAddressCaptureParams**](docs/JobsAPI.md#submitmultizipaddresscaptureparams) | **Post** /batch/zip/address-capture | Submitmultizipaddresscaptureparams
-*JobsAPI* | [**SubmitMultiZipParams**](docs/JobsAPI.md#submitmultizipparams) | **Post** /batch/zip | Submitmultizipparams
-*JobsAPI* | [**SubmitSingleDocParams**](docs/JobsAPI.md#submitsingledocparams) | **Post** /static | Submitsingledocparams
-*JobsAPI* | [**SubmitSinglePdfAddressCaptureParams**](docs/JobsAPI.md#submitsinglepdfaddresscaptureparams) | **Post** /static/address-capture | Submitsinglepdfaddresscaptureparams
-*JobsAPI* | [**SubmitSinglePdfSplitAddressCaptureParams**](docs/JobsAPI.md#submitsinglepdfsplitaddresscaptureparams) | **Post** /batch/split/address-capture | Submitsinglepdfsplitaddresscaptureparams
-*JobsAPI* | [**SubmitSinglePdfSplitParams**](docs/JobsAPI.md#submitsinglepdfsplitparams) | **Post** /batch/split | Submitsinglepdfsplitparams
+*JobsAPI* | [**SubmitMultiDocMergeParams**](docs/JobsAPI.md#submitmultidocmergeparams) | **Post** /mail-merge | Submit mail merge
+*JobsAPI* | [**SubmitMultiDocParams**](docs/JobsAPI.md#submitmultidocparams) | **Post** /static/multi | Submit multiple documents
+*JobsAPI* | [**SubmitMultiZipAddressCaptureParams**](docs/JobsAPI.md#submitmultizipaddresscaptureparams) | **Post** /batch/zip/address-capture | Submit ZIP batch — address capture
+*JobsAPI* | [**SubmitMultiZipParams**](docs/JobsAPI.md#submitmultizipparams) | **Post** /batch/zip | Submit ZIP batch
+*JobsAPI* | [**SubmitSingleDocParams**](docs/JobsAPI.md#submitsingledocparams) | **Post** /static | Submit single document
+*JobsAPI* | [**SubmitSinglePdfAddressCaptureParams**](docs/JobsAPI.md#submitsinglepdfaddresscaptureparams) | **Post** /static/address-capture | Submit single document — address capture
+*JobsAPI* | [**SubmitSinglePdfSplitAddressCaptureParams**](docs/JobsAPI.md#submitsinglepdfsplitaddresscaptureparams) | **Post** /batch/split/address-capture | Submit PDF split — address capture
+*JobsAPI* | [**SubmitSinglePdfSplitParams**](docs/JobsAPI.md#submitsinglepdfsplitparams) | **Post** /batch/split | Submit PDF split
 
 
 ## Documentation For Models

@@ -4,22 +4,22 @@ All URIs are relative to *https://api.click2mail.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**submit_multi_doc_merge_params**](JobsApi.md#submit_multi_doc_merge_params) | **POST** /mail-merge | Submitmultidocmergeparams
-[**submit_multi_doc_params**](JobsApi.md#submit_multi_doc_params) | **POST** /static/multi | Submitmultidocparams
-[**submit_multi_zip_address_capture_params**](JobsApi.md#submit_multi_zip_address_capture_params) | **POST** /batch/zip/address-capture | Submitmultizipaddresscaptureparams
-[**submit_multi_zip_params**](JobsApi.md#submit_multi_zip_params) | **POST** /batch/zip | Submitmultizipparams
-[**submit_single_doc_params**](JobsApi.md#submit_single_doc_params) | **POST** /static | Submitsingledocparams
-[**submit_single_pdf_address_capture_params**](JobsApi.md#submit_single_pdf_address_capture_params) | **POST** /static/address-capture | Submitsinglepdfaddresscaptureparams
-[**submit_single_pdf_split_address_capture_params**](JobsApi.md#submit_single_pdf_split_address_capture_params) | **POST** /batch/split/address-capture | Submitsinglepdfsplitaddresscaptureparams
-[**submit_single_pdf_split_params**](JobsApi.md#submit_single_pdf_split_params) | **POST** /batch/split | Submitsinglepdfsplitparams
+[**submit_multi_doc_merge_params**](JobsApi.md#submit_multi_doc_merge_params) | **POST** /mail-merge | Submit mail merge
+[**submit_multi_doc_params**](JobsApi.md#submit_multi_doc_params) | **POST** /static/multi | Submit multiple documents
+[**submit_multi_zip_address_capture_params**](JobsApi.md#submit_multi_zip_address_capture_params) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
+[**submit_multi_zip_params**](JobsApi.md#submit_multi_zip_params) | **POST** /batch/zip | Submit ZIP batch
+[**submit_single_doc_params**](JobsApi.md#submit_single_doc_params) | **POST** /static | Submit single document
+[**submit_single_pdf_address_capture_params**](JobsApi.md#submit_single_pdf_address_capture_params) | **POST** /static/address-capture | Submit single document — address capture
+[**submit_single_pdf_split_address_capture_params**](JobsApi.md#submit_single_pdf_split_address_capture_params) | **POST** /batch/split/address-capture | Submit PDF split — address capture
+[**submit_single_pdf_split_params**](JobsApi.md#submit_single_pdf_split_params) | **POST** /batch/split | Submit PDF split
 
 
 # **submit_multi_doc_merge_params**
 > StandardResponse submit_multi_doc_merge_params(submit_multi_doc_merge_params)
 
-Submitmultidocmergeparams
+Submit mail merge
 
-API endpoint for submitMultiDocMergeParams
+Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
 
 ### Example
 
@@ -55,7 +55,7 @@ with c2m_api.ApiClient(configuration) as api_client:
     submit_multi_doc_merge_params = c2m_api.SubmitMultiDocMergeParams() # SubmitMultiDocMergeParams | 
 
     try:
-        # Submitmultidocmergeparams
+        # Submit mail merge
         api_response = api_instance.submit_multi_doc_merge_params(submit_multi_doc_merge_params)
         print("The response of JobsApi->submit_multi_doc_merge_params:\n")
         pprint(api_response)
@@ -102,9 +102,9 @@ Name | Type | Description  | Notes
 # **submit_multi_doc_params**
 > StandardResponse submit_multi_doc_params(submit_multi_doc_params)
 
-Submitmultidocparams
+Submit multiple documents
 
-API endpoint for submitMultiDocParams
+Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
 
 ### Example
 
@@ -140,7 +140,7 @@ with c2m_api.ApiClient(configuration) as api_client:
     submit_multi_doc_params = c2m_api.SubmitMultiDocParams() # SubmitMultiDocParams | 
 
     try:
-        # Submitmultidocparams
+        # Submit multiple documents
         api_response = api_instance.submit_multi_doc_params(submit_multi_doc_params)
         print("The response of JobsApi->submit_multi_doc_params:\n")
         pprint(api_response)
@@ -187,9 +187,9 @@ Name | Type | Description  | Notes
 # **submit_multi_zip_address_capture_params**
 > StandardResponse submit_multi_zip_address_capture_params(submit_multi_zip_address_capture_params)
 
-Submitmultizipaddresscaptureparams
+Submit ZIP batch — address capture
 
-API endpoint for submitMultiZipAddressCaptureParams
+Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
 
 ### Example
 
@@ -225,7 +225,7 @@ with c2m_api.ApiClient(configuration) as api_client:
     submit_multi_zip_address_capture_params = c2m_api.SubmitMultiZipAddressCaptureParams() # SubmitMultiZipAddressCaptureParams | 
 
     try:
-        # Submitmultizipaddresscaptureparams
+        # Submit ZIP batch — address capture
         api_response = api_instance.submit_multi_zip_address_capture_params(submit_multi_zip_address_capture_params)
         print("The response of JobsApi->submit_multi_zip_address_capture_params:\n")
         pprint(api_response)
@@ -272,9 +272,9 @@ Name | Type | Description  | Notes
 # **submit_multi_zip_params**
 > StandardResponse submit_multi_zip_params(submit_multi_zip_params)
 
-Submitmultizipparams
+Submit ZIP batch
 
-API endpoint for submitMultiZipParams
+Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
 
 ### Example
 
@@ -310,7 +310,7 @@ with c2m_api.ApiClient(configuration) as api_client:
     submit_multi_zip_params = c2m_api.SubmitMultiZipParams() # SubmitMultiZipParams | 
 
     try:
-        # Submitmultizipparams
+        # Submit ZIP batch
         api_response = api_instance.submit_multi_zip_params(submit_multi_zip_params)
         print("The response of JobsApi->submit_multi_zip_params:\n")
         pprint(api_response)
@@ -357,9 +357,9 @@ Name | Type | Description  | Notes
 # **submit_single_doc_params**
 > StandardResponse submit_single_doc_params(submit_single_doc_params)
 
-Submitsingledocparams
+Submit single document
 
-API endpoint for submitSingleDocParams
+Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
 
 ### Example
 
@@ -395,7 +395,7 @@ with c2m_api.ApiClient(configuration) as api_client:
     submit_single_doc_params = c2m_api.SubmitSingleDocParams() # SubmitSingleDocParams | 
 
     try:
-        # Submitsingledocparams
+        # Submit single document
         api_response = api_instance.submit_single_doc_params(submit_single_doc_params)
         print("The response of JobsApi->submit_single_doc_params:\n")
         pprint(api_response)
@@ -442,9 +442,9 @@ Name | Type | Description  | Notes
 # **submit_single_pdf_address_capture_params**
 > StandardResponse submit_single_pdf_address_capture_params(submit_single_pdf_address_capture_params)
 
-Submitsinglepdfaddresscaptureparams
+Submit single document — address capture
 
-API endpoint for submitSinglePdfAddressCaptureParams
+Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
 
 ### Example
 
@@ -480,7 +480,7 @@ with c2m_api.ApiClient(configuration) as api_client:
     submit_single_pdf_address_capture_params = c2m_api.SubmitSinglePdfAddressCaptureParams() # SubmitSinglePdfAddressCaptureParams | 
 
     try:
-        # Submitsinglepdfaddresscaptureparams
+        # Submit single document — address capture
         api_response = api_instance.submit_single_pdf_address_capture_params(submit_single_pdf_address_capture_params)
         print("The response of JobsApi->submit_single_pdf_address_capture_params:\n")
         pprint(api_response)
@@ -527,9 +527,9 @@ Name | Type | Description  | Notes
 # **submit_single_pdf_split_address_capture_params**
 > StandardResponse submit_single_pdf_split_address_capture_params(submit_single_pdf_split_address_capture_params)
 
-Submitsinglepdfsplitaddresscaptureparams
+Submit PDF split — address capture
 
-API endpoint for submitSinglePdfSplitAddressCaptureParams
+Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
 
 ### Example
 
@@ -565,7 +565,7 @@ with c2m_api.ApiClient(configuration) as api_client:
     submit_single_pdf_split_address_capture_params = c2m_api.SubmitSinglePdfSplitAddressCaptureParams() # SubmitSinglePdfSplitAddressCaptureParams | 
 
     try:
-        # Submitsinglepdfsplitaddresscaptureparams
+        # Submit PDF split — address capture
         api_response = api_instance.submit_single_pdf_split_address_capture_params(submit_single_pdf_split_address_capture_params)
         print("The response of JobsApi->submit_single_pdf_split_address_capture_params:\n")
         pprint(api_response)
@@ -612,9 +612,9 @@ Name | Type | Description  | Notes
 # **submit_single_pdf_split_params**
 > StandardResponse submit_single_pdf_split_params(submit_single_pdf_split_params)
 
-Submitsinglepdfsplitparams
+Submit PDF split
 
-API endpoint for submitSinglePdfSplitParams
+Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
 
 ### Example
 
@@ -650,7 +650,7 @@ with c2m_api.ApiClient(configuration) as api_client:
     submit_single_pdf_split_params = c2m_api.SubmitSinglePdfSplitParams() # SubmitSinglePdfSplitParams | 
 
     try:
-        # Submitsinglepdfsplitparams
+        # Submit PDF split
         api_response = api_instance.submit_single_pdf_split_params(submit_single_pdf_split_params)
         print("The response of JobsApi->submit_single_pdf_split_params:\n")
         pprint(api_response)

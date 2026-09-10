@@ -36,10 +36,10 @@ namespace C2M.Api.Api
         JobsApiEvents Events { get; }
 
         /// <summary>
-        /// Submitmultidocmergeparams
+        /// Submit mail merge
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitMultiDocMergeParams
+        /// Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocMergeParams"></param>
@@ -48,10 +48,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiDocMergeParamsApiResponse> SubmitMultiDocMergeParamsAsync(SubmitMultiDocMergeParams submitMultiDocMergeParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitmultidocmergeparams
+        /// Submit mail merge
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitMultiDocMergeParams
+        /// Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
         /// </remarks>
         /// <param name="submitMultiDocMergeParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -59,10 +59,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiDocMergeParamsApiResponse?> SubmitMultiDocMergeParamsOrDefaultAsync(SubmitMultiDocMergeParams submitMultiDocMergeParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitmultidocparams
+        /// Submit multiple documents
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitMultiDocParams
+        /// Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocParams"></param>
@@ -71,10 +71,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiDocParamsApiResponse> SubmitMultiDocParamsAsync(SubmitMultiDocParams submitMultiDocParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitmultidocparams
+        /// Submit multiple documents
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitMultiDocParams
+        /// Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
         /// </remarks>
         /// <param name="submitMultiDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -82,10 +82,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiDocParamsApiResponse?> SubmitMultiDocParamsOrDefaultAsync(SubmitMultiDocParams submitMultiDocParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitmultizipaddresscaptureparams
+        /// Submit ZIP batch — address capture
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitMultiZipAddressCaptureParams
+        /// Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiZipAddressCaptureParams"></param>
@@ -94,10 +94,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiZipAddressCaptureParamsApiResponse> SubmitMultiZipAddressCaptureParamsAsync(SubmitMultiZipAddressCaptureParams submitMultiZipAddressCaptureParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitmultizipaddresscaptureparams
+        /// Submit ZIP batch — address capture
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitMultiZipAddressCaptureParams
+        /// Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
         /// </remarks>
         /// <param name="submitMultiZipAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -105,10 +105,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiZipAddressCaptureParamsApiResponse?> SubmitMultiZipAddressCaptureParamsOrDefaultAsync(SubmitMultiZipAddressCaptureParams submitMultiZipAddressCaptureParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitmultizipparams
+        /// Submit ZIP batch
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitMultiZipParams
+        /// Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiZipParams"></param>
@@ -117,10 +117,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiZipParamsApiResponse> SubmitMultiZipParamsAsync(SubmitMultiZipParams submitMultiZipParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitmultizipparams
+        /// Submit ZIP batch
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitMultiZipParams
+        /// Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
         /// </remarks>
         /// <param name="submitMultiZipParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -128,10 +128,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiZipParamsApiResponse?> SubmitMultiZipParamsOrDefaultAsync(SubmitMultiZipParams submitMultiZipParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitsingledocparams
+        /// Submit single document
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitSingleDocParams
+        /// Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSingleDocParams"></param>
@@ -140,10 +140,10 @@ namespace C2M.Api.Api
         Task<ISubmitSingleDocParamsApiResponse> SubmitSingleDocParamsAsync(SubmitSingleDocParams submitSingleDocParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitsingledocparams
+        /// Submit single document
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitSingleDocParams
+        /// Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
         /// </remarks>
         /// <param name="submitSingleDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -151,10 +151,10 @@ namespace C2M.Api.Api
         Task<ISubmitSingleDocParamsApiResponse?> SubmitSingleDocParamsOrDefaultAsync(SubmitSingleDocParams submitSingleDocParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitsinglepdfaddresscaptureparams
+        /// Submit single document — address capture
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitSinglePdfAddressCaptureParams
+        /// Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfAddressCaptureParams"></param>
@@ -163,10 +163,10 @@ namespace C2M.Api.Api
         Task<ISubmitSinglePdfAddressCaptureParamsApiResponse> SubmitSinglePdfAddressCaptureParamsAsync(SubmitSinglePdfAddressCaptureParams submitSinglePdfAddressCaptureParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitsinglepdfaddresscaptureparams
+        /// Submit single document — address capture
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitSinglePdfAddressCaptureParams
+        /// Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
         /// </remarks>
         /// <param name="submitSinglePdfAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -174,10 +174,10 @@ namespace C2M.Api.Api
         Task<ISubmitSinglePdfAddressCaptureParamsApiResponse?> SubmitSinglePdfAddressCaptureParamsOrDefaultAsync(SubmitSinglePdfAddressCaptureParams submitSinglePdfAddressCaptureParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitsinglepdfsplitaddresscaptureparams
+        /// Submit PDF split — address capture
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitSinglePdfSplitAddressCaptureParams
+        /// Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfSplitAddressCaptureParams"></param>
@@ -186,10 +186,10 @@ namespace C2M.Api.Api
         Task<ISubmitSinglePdfSplitAddressCaptureParamsApiResponse> SubmitSinglePdfSplitAddressCaptureParamsAsync(SubmitSinglePdfSplitAddressCaptureParams submitSinglePdfSplitAddressCaptureParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitsinglepdfsplitaddresscaptureparams
+        /// Submit PDF split — address capture
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitSinglePdfSplitAddressCaptureParams
+        /// Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
         /// </remarks>
         /// <param name="submitSinglePdfSplitAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -197,10 +197,10 @@ namespace C2M.Api.Api
         Task<ISubmitSinglePdfSplitAddressCaptureParamsApiResponse?> SubmitSinglePdfSplitAddressCaptureParamsOrDefaultAsync(SubmitSinglePdfSplitAddressCaptureParams submitSinglePdfSplitAddressCaptureParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitsinglepdfsplitparams
+        /// Submit PDF split
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitSinglePdfSplitParams
+        /// Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfSplitParams"></param>
@@ -209,10 +209,10 @@ namespace C2M.Api.Api
         Task<ISubmitSinglePdfSplitParamsApiResponse> SubmitSinglePdfSplitParamsAsync(SubmitSinglePdfSplitParams submitSinglePdfSplitParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submitsinglepdfsplitparams
+        /// Submit PDF split
         /// </summary>
         /// <remarks>
-        /// API endpoint for submitSinglePdfSplitParams
+        /// Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
         /// </remarks>
         /// <param name="submitSinglePdfSplitParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -891,7 +891,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitMultiDocMergeParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitMultiDocMergeParams submitMultiDocMergeParams);
 
         /// <summary>
-        /// Submitmultidocmergeparams API endpoint for submitMultiDocMergeParams
+        /// Submit mail merge Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
         /// </summary>
         /// <param name="submitMultiDocMergeParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -909,7 +909,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submitmultidocmergeparams API endpoint for submitMultiDocMergeParams
+        /// Submit mail merge Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocMergeParams"></param>
@@ -1384,7 +1384,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitMultiDocParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitMultiDocParams submitMultiDocParams);
 
         /// <summary>
-        /// Submitmultidocparams API endpoint for submitMultiDocParams
+        /// Submit multiple documents Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
         /// </summary>
         /// <param name="submitMultiDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1402,7 +1402,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submitmultidocparams API endpoint for submitMultiDocParams
+        /// Submit multiple documents Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocParams"></param>
@@ -1877,7 +1877,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitMultiZipAddressCaptureParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitMultiZipAddressCaptureParams submitMultiZipAddressCaptureParams);
 
         /// <summary>
-        /// Submitmultizipaddresscaptureparams API endpoint for submitMultiZipAddressCaptureParams
+        /// Submit ZIP batch — address capture Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
         /// </summary>
         /// <param name="submitMultiZipAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1895,7 +1895,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submitmultizipaddresscaptureparams API endpoint for submitMultiZipAddressCaptureParams
+        /// Submit ZIP batch — address capture Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiZipAddressCaptureParams"></param>
@@ -2370,7 +2370,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitMultiZipParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitMultiZipParams submitMultiZipParams);
 
         /// <summary>
-        /// Submitmultizipparams API endpoint for submitMultiZipParams
+        /// Submit ZIP batch Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
         /// </summary>
         /// <param name="submitMultiZipParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2388,7 +2388,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submitmultizipparams API endpoint for submitMultiZipParams
+        /// Submit ZIP batch Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiZipParams"></param>
@@ -2863,7 +2863,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitSingleDocParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitSingleDocParams submitSingleDocParams);
 
         /// <summary>
-        /// Submitsingledocparams API endpoint for submitSingleDocParams
+        /// Submit single document Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
         /// </summary>
         /// <param name="submitSingleDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2881,7 +2881,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submitsingledocparams API endpoint for submitSingleDocParams
+        /// Submit single document Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSingleDocParams"></param>
@@ -3356,7 +3356,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitSinglePdfAddressCaptureParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitSinglePdfAddressCaptureParams submitSinglePdfAddressCaptureParams);
 
         /// <summary>
-        /// Submitsinglepdfaddresscaptureparams API endpoint for submitSinglePdfAddressCaptureParams
+        /// Submit single document — address capture Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
         /// </summary>
         /// <param name="submitSinglePdfAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3374,7 +3374,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submitsinglepdfaddresscaptureparams API endpoint for submitSinglePdfAddressCaptureParams
+        /// Submit single document — address capture Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfAddressCaptureParams"></param>
@@ -3849,7 +3849,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitSinglePdfSplitAddressCaptureParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitSinglePdfSplitAddressCaptureParams submitSinglePdfSplitAddressCaptureParams);
 
         /// <summary>
-        /// Submitsinglepdfsplitaddresscaptureparams API endpoint for submitSinglePdfSplitAddressCaptureParams
+        /// Submit PDF split — address capture Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
         /// </summary>
         /// <param name="submitSinglePdfSplitAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3867,7 +3867,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submitsinglepdfsplitaddresscaptureparams API endpoint for submitSinglePdfSplitAddressCaptureParams
+        /// Submit PDF split — address capture Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfSplitAddressCaptureParams"></param>
@@ -4342,7 +4342,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitSinglePdfSplitParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitSinglePdfSplitParams submitSinglePdfSplitParams);
 
         /// <summary>
-        /// Submitsinglepdfsplitparams API endpoint for submitSinglePdfSplitParams
+        /// Submit PDF split Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
         /// </summary>
         /// <param name="submitSinglePdfSplitParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4360,7 +4360,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submitsinglepdfsplitparams API endpoint for submitSinglePdfSplitParams
+        /// Submit PDF split Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfSplitParams"></param>

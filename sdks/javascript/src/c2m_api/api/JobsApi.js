@@ -52,8 +52,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submitmultidocmergeparams
-     * API endpoint for submitMultiDocMergeParams
+     * Submit mail merge
+     * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
      * @param {module:c2m_api/model/SubmitMultiDocMergeParams} submitMultiDocMergeParams 
      * @param {module:c2m_api/api/JobsApi~submitMultiDocMergeParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -94,8 +94,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submitmultidocparams
-     * API endpoint for submitMultiDocParams
+     * Submit multiple documents
+     * Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
      * @param {module:c2m_api/model/SubmitMultiDocParams} submitMultiDocParams 
      * @param {module:c2m_api/api/JobsApi~submitMultiDocParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -136,8 +136,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submitmultizipaddresscaptureparams
-     * API endpoint for submitMultiZipAddressCaptureParams
+     * Submit ZIP batch — address capture
+     * Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
      * @param {module:c2m_api/model/SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
      * @param {module:c2m_api/api/JobsApi~submitMultiZipAddressCaptureParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -178,8 +178,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submitmultizipparams
-     * API endpoint for submitMultiZipParams
+     * Submit ZIP batch
+     * Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
      * @param {module:c2m_api/model/SubmitMultiZipParams} submitMultiZipParams 
      * @param {module:c2m_api/api/JobsApi~submitMultiZipParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -220,8 +220,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submitsingledocparams
-     * API endpoint for submitSingleDocParams
+     * Submit single document
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
      * @param {module:c2m_api/model/SubmitSingleDocParams} submitSingleDocParams 
      * @param {module:c2m_api/api/JobsApi~submitSingleDocParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -262,8 +262,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submitsinglepdfaddresscaptureparams
-     * API endpoint for submitSinglePdfAddressCaptureParams
+     * Submit single document — address capture
+     * Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
      * @param {module:c2m_api/model/SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
      * @param {module:c2m_api/api/JobsApi~submitSinglePdfAddressCaptureParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -304,8 +304,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submitsinglepdfsplitaddresscaptureparams
-     * API endpoint for submitSinglePdfSplitAddressCaptureParams
+     * Submit PDF split — address capture
+     * Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
      * @param {module:c2m_api/model/SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
      * @param {module:c2m_api/api/JobsApi~submitSinglePdfSplitAddressCaptureParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -346,8 +346,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submitsinglepdfsplitparams
-     * API endpoint for submitSinglePdfSplitParams
+     * Submit PDF split
+     * Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
      * @param {module:c2m_api/model/SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
      * @param {module:c2m_api/api/JobsApi~submitSinglePdfSplitParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}

@@ -29,56 +29,56 @@ class TestJobsApi(unittest.TestCase):
     def test_submit_multi_doc_merge_params(self) -> None:
         """Test case for submit_multi_doc_merge_params
 
-        Submitmultidocmergeparams
+        Submit mail merge
         """
         pass
 
     def test_submit_multi_doc_params(self) -> None:
         """Test case for submit_multi_doc_params
 
-        Submitmultidocparams
+        Submit multiple documents
         """
         pass
 
     def test_submit_multi_zip_address_capture_params(self) -> None:
         """Test case for submit_multi_zip_address_capture_params
 
-        Submitmultizipaddresscaptureparams
+        Submit ZIP batch — address capture
         """
         pass
 
     def test_submit_multi_zip_params(self) -> None:
         """Test case for submit_multi_zip_params
 
-        Submitmultizipparams
+        Submit ZIP batch
         """
         pass
 
     def test_submit_single_doc_params(self) -> None:
         """Test case for submit_single_doc_params
 
-        Submitsingledocparams
+        Submit single document
         """
         pass
 
     def test_submit_single_pdf_address_capture_params(self) -> None:
         """Test case for submit_single_pdf_address_capture_params
 
-        Submitsinglepdfaddresscaptureparams
+        Submit single document — address capture
         """
         pass
 
     def test_submit_single_pdf_split_address_capture_params(self) -> None:
         """Test case for submit_single_pdf_split_address_capture_params
 
-        Submitsinglepdfsplitaddresscaptureparams
+        Submit PDF split — address capture
         """
         pass
 
     def test_submit_single_pdf_split_params(self) -> None:
         """Test case for submit_single_pdf_split_params
 
-        Submitsinglepdfsplitparams
+        Submit PDF split
         """
         pass
 

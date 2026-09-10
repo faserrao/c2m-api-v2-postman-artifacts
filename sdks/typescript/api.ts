@@ -759,8 +759,8 @@ export class AuthApi extends BaseAPI {
 export const JobsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * API endpoint for submitMultiDocMergeParams
-         * @summary Submitmultidocmergeparams
+         * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+         * @summary Submit mail merge
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -799,8 +799,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * API endpoint for submitMultiDocParams
-         * @summary Submitmultidocparams
+         * Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
+         * @summary Submit multiple documents
          * @param {SubmitMultiDocParams} submitMultiDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -839,8 +839,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * API endpoint for submitMultiZipAddressCaptureParams
-         * @summary Submitmultizipaddresscaptureparams
+         * Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
+         * @summary Submit ZIP batch — address capture
          * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -879,8 +879,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * API endpoint for submitMultiZipParams
-         * @summary Submitmultizipparams
+         * Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
+         * @summary Submit ZIP batch
          * @param {SubmitMultiZipParams} submitMultiZipParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -919,8 +919,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * API endpoint for submitSingleDocParams
-         * @summary Submitsingledocparams
+         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+         * @summary Submit single document
          * @param {SubmitSingleDocParams} submitSingleDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -959,8 +959,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * API endpoint for submitSinglePdfAddressCaptureParams
-         * @summary Submitsinglepdfaddresscaptureparams
+         * Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
+         * @summary Submit single document — address capture
          * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -999,8 +999,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * API endpoint for submitSinglePdfSplitAddressCaptureParams
-         * @summary Submitsinglepdfsplitaddresscaptureparams
+         * Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
+         * @summary Submit PDF split — address capture
          * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1039,8 +1039,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * API endpoint for submitSinglePdfSplitParams
-         * @summary Submitsinglepdfsplitparams
+         * Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
+         * @summary Submit PDF split
          * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1088,8 +1088,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = JobsApiAxiosParamCreator(configuration)
     return {
         /**
-         * API endpoint for submitMultiDocMergeParams
-         * @summary Submitmultidocmergeparams
+         * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+         * @summary Submit mail merge
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1101,8 +1101,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * API endpoint for submitMultiDocParams
-         * @summary Submitmultidocparams
+         * Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
+         * @summary Submit multiple documents
          * @param {SubmitMultiDocParams} submitMultiDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1114,8 +1114,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * API endpoint for submitMultiZipAddressCaptureParams
-         * @summary Submitmultizipaddresscaptureparams
+         * Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
+         * @summary Submit ZIP batch — address capture
          * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1127,8 +1127,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * API endpoint for submitMultiZipParams
-         * @summary Submitmultizipparams
+         * Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
+         * @summary Submit ZIP batch
          * @param {SubmitMultiZipParams} submitMultiZipParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1140,8 +1140,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * API endpoint for submitSingleDocParams
-         * @summary Submitsingledocparams
+         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+         * @summary Submit single document
          * @param {SubmitSingleDocParams} submitSingleDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1153,8 +1153,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * API endpoint for submitSinglePdfAddressCaptureParams
-         * @summary Submitsinglepdfaddresscaptureparams
+         * Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
+         * @summary Submit single document — address capture
          * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1166,8 +1166,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * API endpoint for submitSinglePdfSplitAddressCaptureParams
-         * @summary Submitsinglepdfsplitaddresscaptureparams
+         * Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
+         * @summary Submit PDF split — address capture
          * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1179,8 +1179,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * API endpoint for submitSinglePdfSplitParams
-         * @summary Submitsinglepdfsplitparams
+         * Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
+         * @summary Submit PDF split
          * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1201,8 +1201,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
     const localVarFp = JobsApiFp(configuration)
     return {
         /**
-         * API endpoint for submitMultiDocMergeParams
-         * @summary Submitmultidocmergeparams
+         * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+         * @summary Submit mail merge
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1211,8 +1211,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitMultiDocMergeParams(submitMultiDocMergeParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * API endpoint for submitMultiDocParams
-         * @summary Submitmultidocparams
+         * Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
+         * @summary Submit multiple documents
          * @param {SubmitMultiDocParams} submitMultiDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1221,8 +1221,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitMultiDocParams(submitMultiDocParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * API endpoint for submitMultiZipAddressCaptureParams
-         * @summary Submitmultizipaddresscaptureparams
+         * Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
+         * @summary Submit ZIP batch — address capture
          * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1231,8 +1231,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * API endpoint for submitMultiZipParams
-         * @summary Submitmultizipparams
+         * Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
+         * @summary Submit ZIP batch
          * @param {SubmitMultiZipParams} submitMultiZipParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1241,8 +1241,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitMultiZipParams(submitMultiZipParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * API endpoint for submitSingleDocParams
-         * @summary Submitsingledocparams
+         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+         * @summary Submit single document
          * @param {SubmitSingleDocParams} submitSingleDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1251,8 +1251,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitSingleDocParams(submitSingleDocParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * API endpoint for submitSinglePdfAddressCaptureParams
-         * @summary Submitsinglepdfaddresscaptureparams
+         * Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
+         * @summary Submit single document — address capture
          * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1261,8 +1261,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * API endpoint for submitSinglePdfSplitAddressCaptureParams
-         * @summary Submitsinglepdfsplitaddresscaptureparams
+         * Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
+         * @summary Submit PDF split — address capture
          * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1271,8 +1271,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * API endpoint for submitSinglePdfSplitParams
-         * @summary Submitsinglepdfsplitparams
+         * Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
+         * @summary Submit PDF split
          * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1288,8 +1288,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
  */
 export class JobsApi extends BaseAPI {
     /**
-     * API endpoint for submitMultiDocMergeParams
-     * @summary Submitmultidocmergeparams
+     * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+     * @summary Submit mail merge
      * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1299,8 +1299,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * API endpoint for submitMultiDocParams
-     * @summary Submitmultidocparams
+     * Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
+     * @summary Submit multiple documents
      * @param {SubmitMultiDocParams} submitMultiDocParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1310,8 +1310,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * API endpoint for submitMultiZipAddressCaptureParams
-     * @summary Submitmultizipaddresscaptureparams
+     * Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.
+     * @summary Submit ZIP batch — address capture
      * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1321,8 +1321,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * API endpoint for submitMultiZipParams
-     * @summary Submitmultizipparams
+     * Submits multiple mailing jobs sourced from files inside a single ZIP archive. Each job item specifies which file within the ZIP and the recipient address.
+     * @summary Submit ZIP batch
      * @param {SubmitMultiZipParams} submitMultiZipParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1332,8 +1332,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * API endpoint for submitSingleDocParams
-     * @summary Submitsingledocparams
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+     * @summary Submit single document
      * @param {SubmitSingleDocParams} submitSingleDocParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1343,8 +1343,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * API endpoint for submitSinglePdfAddressCaptureParams
-     * @summary Submitsinglepdfaddresscaptureparams
+     * Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
+     * @summary Submit single document — address capture
      * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1354,8 +1354,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * API endpoint for submitSinglePdfSplitAddressCaptureParams
-     * @summary Submitsinglepdfsplitaddresscaptureparams
+     * Splits a single PDF into page ranges where recipient addresses are captured from the PDF. No inline recipient addresses are required.
+     * @summary Submit PDF split — address capture
      * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1365,8 +1365,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * API endpoint for submitSinglePdfSplitParams
-     * @summary Submitsinglepdfsplitparams
+     * Splits a single PDF into page ranges and mails each range to a different recipient. Each job item specifies page range and recipient address.
+     * @summary Submit PDF split
      * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
