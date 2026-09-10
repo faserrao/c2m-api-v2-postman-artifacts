@@ -13,7 +13,7 @@ import AnyCodable
 open class JobsAPI {
 
     /**
-     Submit a multi doc merge job
+     Submitmultidocmergeparams
      
      - parameter submitMultiDocMergeParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -32,9 +32,9 @@ open class JobsAPI {
     }
 
     /**
-     Submit a multi doc merge job
-     - POST /jobs/submit/multi/doc/merge
-     - Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+     Submitmultidocmergeparams
+     - POST /mail-merge
+     - API endpoint for submitMultiDocMergeParams
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -42,7 +42,7 @@ open class JobsAPI {
      - returns: RequestBuilder<StandardResponse> 
      */
     open class func submitMultiDocMergeParamsWithRequestBuilder(submitMultiDocMergeParams: SubmitMultiDocMergeParams) -> RequestBuilder<StandardResponse> {
-        let localVariablePath = "/jobs/submit/multi/doc/merge"
+        let localVariablePath = "/mail-merge"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: submitMultiDocMergeParams)
 
@@ -60,7 +60,7 @@ open class JobsAPI {
     }
 
     /**
-     Submit a multi doc job
+     Submitmultidocparams
      
      - parameter submitMultiDocParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -79,9 +79,9 @@ open class JobsAPI {
     }
 
     /**
-     Submit a multi doc job
-     - POST /jobs/submit/multi/doc
-     - Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+     Submitmultidocparams
+     - POST /static/multi
+     - API endpoint for submitMultiDocParams
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -89,7 +89,7 @@ open class JobsAPI {
      - returns: RequestBuilder<StandardResponse> 
      */
     open class func submitMultiDocParamsWithRequestBuilder(submitMultiDocParams: SubmitMultiDocParams) -> RequestBuilder<StandardResponse> {
-        let localVariablePath = "/jobs/submit/multi/doc"
+        let localVariablePath = "/static/multi"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: submitMultiDocParams)
 
@@ -107,7 +107,7 @@ open class JobsAPI {
     }
 
     /**
-     Submit a multi zip addressCapture job
+     Submitmultizipaddresscaptureparams
      
      - parameter submitMultiZipAddressCaptureParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -126,9 +126,9 @@ open class JobsAPI {
     }
 
     /**
-     Submit a multi zip addressCapture job
-     - POST /jobs/submit/multi/zip/addressCapture
-     - Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     Submitmultizipaddresscaptureparams
+     - POST /batch/zip/address-capture
+     - API endpoint for submitMultiZipAddressCaptureParams
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -136,7 +136,7 @@ open class JobsAPI {
      - returns: RequestBuilder<StandardResponse> 
      */
     open class func submitMultiZipAddressCaptureParamsWithRequestBuilder(submitMultiZipAddressCaptureParams: SubmitMultiZipAddressCaptureParams) -> RequestBuilder<StandardResponse> {
-        let localVariablePath = "/jobs/submit/multi/zip/addressCapture"
+        let localVariablePath = "/batch/zip/address-capture"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: submitMultiZipAddressCaptureParams)
 
@@ -154,7 +154,7 @@ open class JobsAPI {
     }
 
     /**
-     Submit a multi zip job
+     Submitmultizipparams
      
      - parameter submitMultiZipParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -173,9 +173,9 @@ open class JobsAPI {
     }
 
     /**
-     Submit a multi zip job
-     - POST /jobs/submit/multi/zip
-     - Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+     Submitmultizipparams
+     - POST /batch/zip
+     - API endpoint for submitMultiZipParams
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -183,7 +183,7 @@ open class JobsAPI {
      - returns: RequestBuilder<StandardResponse> 
      */
     open class func submitMultiZipParamsWithRequestBuilder(submitMultiZipParams: SubmitMultiZipParams) -> RequestBuilder<StandardResponse> {
-        let localVariablePath = "/jobs/submit/multi/zip"
+        let localVariablePath = "/batch/zip"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: submitMultiZipParams)
 
@@ -201,7 +201,7 @@ open class JobsAPI {
     }
 
     /**
-     Submit a single doc job
+     Submitsingledocparams
      
      - parameter submitSingleDocParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -220,9 +220,9 @@ open class JobsAPI {
     }
 
     /**
-     Submit a single doc job
-     - POST /jobs/submit/single/doc
-     - Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+     Submitsingledocparams
+     - POST /static
+     - API endpoint for submitSingleDocParams
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -230,7 +230,7 @@ open class JobsAPI {
      - returns: RequestBuilder<StandardResponse> 
      */
     open class func submitSingleDocParamsWithRequestBuilder(submitSingleDocParams: SubmitSingleDocParams) -> RequestBuilder<StandardResponse> {
-        let localVariablePath = "/jobs/submit/single/doc"
+        let localVariablePath = "/static"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: submitSingleDocParams)
 
@@ -248,7 +248,7 @@ open class JobsAPI {
     }
 
     /**
-     Submit a single pdf addressCapture job
+     Submitsinglepdfaddresscaptureparams
      
      - parameter submitSinglePdfAddressCaptureParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -267,9 +267,9 @@ open class JobsAPI {
     }
 
     /**
-     Submit a single pdf addressCapture job
-     - POST /jobs/submit/single/pdf/addressCapture
-     - Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     Submitsinglepdfaddresscaptureparams
+     - POST /static/address-capture
+     - API endpoint for submitSinglePdfAddressCaptureParams
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -277,7 +277,7 @@ open class JobsAPI {
      - returns: RequestBuilder<StandardResponse> 
      */
     open class func submitSinglePdfAddressCaptureParamsWithRequestBuilder(submitSinglePdfAddressCaptureParams: SubmitSinglePdfAddressCaptureParams) -> RequestBuilder<StandardResponse> {
-        let localVariablePath = "/jobs/submit/single/pdf/addressCapture"
+        let localVariablePath = "/static/address-capture"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: submitSinglePdfAddressCaptureParams)
 
@@ -295,7 +295,7 @@ open class JobsAPI {
     }
 
     /**
-     Submit a single pdf split addressCapture job
+     Submitsinglepdfsplitaddresscaptureparams
      
      - parameter submitSinglePdfSplitAddressCaptureParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -314,9 +314,9 @@ open class JobsAPI {
     }
 
     /**
-     Submit a single pdf split addressCapture job
-     - POST /jobs/submit/single/pdf/split/addressCapture
-     - Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     Submitsinglepdfsplitaddresscaptureparams
+     - POST /batch/split/address-capture
+     - API endpoint for submitSinglePdfSplitAddressCaptureParams
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -324,7 +324,7 @@ open class JobsAPI {
      - returns: RequestBuilder<StandardResponse> 
      */
     open class func submitSinglePdfSplitAddressCaptureParamsWithRequestBuilder(submitSinglePdfSplitAddressCaptureParams: SubmitSinglePdfSplitAddressCaptureParams) -> RequestBuilder<StandardResponse> {
-        let localVariablePath = "/jobs/submit/single/pdf/split/addressCapture"
+        let localVariablePath = "/batch/split/address-capture"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: submitSinglePdfSplitAddressCaptureParams)
 
@@ -342,7 +342,7 @@ open class JobsAPI {
     }
 
     /**
-     Submit a single pdf split job
+     Submitsinglepdfsplitparams
      
      - parameter submitSinglePdfSplitParams: (body)  
      - parameter apiResponseQueue: The queue on which api response is dispatched.
@@ -361,9 +361,9 @@ open class JobsAPI {
     }
 
     /**
-     Submit a single pdf split job
-     - POST /jobs/submit/single/pdf/split
-     - Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+     Submitsinglepdfsplitparams
+     - POST /batch/split
+     - API endpoint for submitSinglePdfSplitParams
      - Bearer Token:
        - type: http
        - name: bearerAuth
@@ -371,7 +371,7 @@ open class JobsAPI {
      - returns: RequestBuilder<StandardResponse> 
      */
     open class func submitSinglePdfSplitParamsWithRequestBuilder(submitSinglePdfSplitParams: SubmitSinglePdfSplitParams) -> RequestBuilder<StandardResponse> {
-        let localVariablePath = "/jobs/submit/single/pdf/split"
+        let localVariablePath = "/batch/split"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: submitSinglePdfSplitParams)
 

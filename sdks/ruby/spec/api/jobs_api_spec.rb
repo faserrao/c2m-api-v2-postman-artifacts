@@ -33,8 +33,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_multi_doc_merge_params
-  # Submit a multi doc merge job
-  # Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+  # Submitmultidocmergeparams
+  # API endpoint for submitMultiDocMergeParams
   # @param submit_multi_doc_merge_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -45,8 +45,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_multi_doc_params
-  # Submit a multi doc job
-  # Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+  # Submitmultidocparams
+  # API endpoint for submitMultiDocParams
   # @param submit_multi_doc_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -57,8 +57,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_multi_zip_address_capture_params
-  # Submit a multi zip addressCapture job
-  # Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+  # Submitmultizipaddresscaptureparams
+  # API endpoint for submitMultiZipAddressCaptureParams
   # @param submit_multi_zip_address_capture_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -69,8 +69,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_multi_zip_params
-  # Submit a multi zip job
-  # Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+  # Submitmultizipparams
+  # API endpoint for submitMultiZipParams
   # @param submit_multi_zip_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -81,8 +81,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_single_doc_params
-  # Submit a single doc job
-  # Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+  # Submitsingledocparams
+  # API endpoint for submitSingleDocParams
   # @param submit_single_doc_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -93,8 +93,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_single_pdf_address_capture_params
-  # Submit a single pdf addressCapture job
-  # Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+  # Submitsinglepdfaddresscaptureparams
+  # API endpoint for submitSinglePdfAddressCaptureParams
   # @param submit_single_pdf_address_capture_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -105,8 +105,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_single_pdf_split_address_capture_params
-  # Submit a single pdf split addressCapture job
-  # Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+  # Submitsinglepdfsplitaddresscaptureparams
+  # API endpoint for submitSinglePdfSplitAddressCaptureParams
   # @param submit_single_pdf_split_address_capture_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
@@ -117,8 +117,8 @@ describe 'JobsApi' do
   end
 
   # unit tests for submit_single_pdf_split_params
-  # Submit a single pdf split job
-  # Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+  # Submitsinglepdfsplitparams
+  # API endpoint for submitSinglePdfSplitParams
   # @param submit_single_pdf_split_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]

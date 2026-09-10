@@ -117,7 +117,7 @@ public class JobsApi {
         Object localVarPostBody = submitMultiDocMergeParams;
 
         // create path and map variables
-        String localVarPath = "/jobs/submit/multi/doc/merge";
+        String localVarPath = "/mail-merge";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -157,8 +157,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a multi doc merge job
-     * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultidocmergeparams
+     * API endpoint for submitMultiDocMergeParams
      * @param submitMultiDocMergeParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -181,8 +181,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a multi doc merge job
-     * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultidocmergeparams
+     * API endpoint for submitMultiDocMergeParams
      * @param submitMultiDocMergeParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -206,8 +206,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a multi doc merge job (asynchronously)
-     * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultidocmergeparams (asynchronously)
+     * API endpoint for submitMultiDocMergeParams
      * @param submitMultiDocMergeParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -268,7 +268,7 @@ public class JobsApi {
         Object localVarPostBody = submitMultiDocParams;
 
         // create path and map variables
-        String localVarPath = "/jobs/submit/multi/doc";
+        String localVarPath = "/static/multi";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -308,8 +308,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a multi doc job
-     * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultidocparams
+     * API endpoint for submitMultiDocParams
      * @param submitMultiDocParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -332,8 +332,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a multi doc job
-     * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultidocparams
+     * API endpoint for submitMultiDocParams
      * @param submitMultiDocParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -357,8 +357,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a multi doc job (asynchronously)
-     * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultidocparams (asynchronously)
+     * API endpoint for submitMultiDocParams
      * @param submitMultiDocParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -419,7 +419,7 @@ public class JobsApi {
         Object localVarPostBody = submitMultiZipAddressCaptureParams;
 
         // create path and map variables
-        String localVarPath = "/jobs/submit/multi/zip/addressCapture";
+        String localVarPath = "/batch/zip/address-capture";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -459,8 +459,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a multi zip addressCapture job
-     * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultizipaddresscaptureparams
+     * API endpoint for submitMultiZipAddressCaptureParams
      * @param submitMultiZipAddressCaptureParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -483,8 +483,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a multi zip addressCapture job
-     * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultizipaddresscaptureparams
+     * API endpoint for submitMultiZipAddressCaptureParams
      * @param submitMultiZipAddressCaptureParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -508,8 +508,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a multi zip addressCapture job (asynchronously)
-     * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultizipaddresscaptureparams (asynchronously)
+     * API endpoint for submitMultiZipAddressCaptureParams
      * @param submitMultiZipAddressCaptureParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -570,7 +570,7 @@ public class JobsApi {
         Object localVarPostBody = submitMultiZipParams;
 
         // create path and map variables
-        String localVarPath = "/jobs/submit/multi/zip";
+        String localVarPath = "/batch/zip";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -610,8 +610,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a multi zip job
-     * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultizipparams
+     * API endpoint for submitMultiZipParams
      * @param submitMultiZipParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -634,8 +634,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a multi zip job
-     * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultizipparams
+     * API endpoint for submitMultiZipParams
      * @param submitMultiZipParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -659,8 +659,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a multi zip job (asynchronously)
-     * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultizipparams (asynchronously)
+     * API endpoint for submitMultiZipParams
      * @param submitMultiZipParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -721,7 +721,7 @@ public class JobsApi {
         Object localVarPostBody = submitSingleDocParams;
 
         // create path and map variables
-        String localVarPath = "/jobs/submit/single/doc";
+        String localVarPath = "/static";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -761,8 +761,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a single doc job
-     * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsingledocparams
+     * API endpoint for submitSingleDocParams
      * @param submitSingleDocParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -785,8 +785,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a single doc job
-     * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsingledocparams
+     * API endpoint for submitSingleDocParams
      * @param submitSingleDocParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -810,8 +810,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a single doc job (asynchronously)
-     * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsingledocparams (asynchronously)
+     * API endpoint for submitSingleDocParams
      * @param submitSingleDocParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -872,7 +872,7 @@ public class JobsApi {
         Object localVarPostBody = submitSinglePdfAddressCaptureParams;
 
         // create path and map variables
-        String localVarPath = "/jobs/submit/single/pdf/addressCapture";
+        String localVarPath = "/static/address-capture";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -912,8 +912,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a single pdf addressCapture job
-     * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsinglepdfaddresscaptureparams
+     * API endpoint for submitSinglePdfAddressCaptureParams
      * @param submitSinglePdfAddressCaptureParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -936,8 +936,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a single pdf addressCapture job
-     * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsinglepdfaddresscaptureparams
+     * API endpoint for submitSinglePdfAddressCaptureParams
      * @param submitSinglePdfAddressCaptureParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -961,8 +961,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a single pdf addressCapture job (asynchronously)
-     * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsinglepdfaddresscaptureparams (asynchronously)
+     * API endpoint for submitSinglePdfAddressCaptureParams
      * @param submitSinglePdfAddressCaptureParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1023,7 +1023,7 @@ public class JobsApi {
         Object localVarPostBody = submitSinglePdfSplitAddressCaptureParams;
 
         // create path and map variables
-        String localVarPath = "/jobs/submit/single/pdf/split/addressCapture";
+        String localVarPath = "/batch/split/address-capture";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1063,8 +1063,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a single pdf split addressCapture job
-     * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsinglepdfsplitaddresscaptureparams
+     * API endpoint for submitSinglePdfSplitAddressCaptureParams
      * @param submitSinglePdfSplitAddressCaptureParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1087,8 +1087,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a single pdf split addressCapture job
-     * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsinglepdfsplitaddresscaptureparams
+     * API endpoint for submitSinglePdfSplitAddressCaptureParams
      * @param submitSinglePdfSplitAddressCaptureParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1112,8 +1112,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a single pdf split addressCapture job (asynchronously)
-     * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsinglepdfsplitaddresscaptureparams (asynchronously)
+     * API endpoint for submitSinglePdfSplitAddressCaptureParams
      * @param submitSinglePdfSplitAddressCaptureParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1174,7 +1174,7 @@ public class JobsApi {
         Object localVarPostBody = submitSinglePdfSplitParams;
 
         // create path and map variables
-        String localVarPath = "/jobs/submit/single/pdf/split";
+        String localVarPath = "/batch/split";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1214,8 +1214,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a single pdf split job
-     * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsinglepdfsplitparams
+     * API endpoint for submitSinglePdfSplitParams
      * @param submitSinglePdfSplitParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1238,8 +1238,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a single pdf split job
-     * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsinglepdfsplitparams
+     * API endpoint for submitSinglePdfSplitParams
      * @param submitSinglePdfSplitParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1263,8 +1263,8 @@ public class JobsApi {
     }
 
     /**
-     * Submit a single pdf split job (asynchronously)
-     * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsinglepdfsplitparams (asynchronously)
+     * API endpoint for submitSinglePdfSplitParams
      * @param submitSinglePdfSplitParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

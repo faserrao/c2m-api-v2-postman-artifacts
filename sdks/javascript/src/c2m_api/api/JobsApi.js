@@ -52,8 +52,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submit a multi doc merge job
-     * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultidocmergeparams
+     * API endpoint for submitMultiDocMergeParams
      * @param {module:c2m_api/model/SubmitMultiDocMergeParams} submitMultiDocMergeParams 
      * @param {module:c2m_api/api/JobsApi~submitMultiDocMergeParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -79,7 +79,7 @@ export default class JobsApi {
       let accepts = ['application/json'];
       let returnType = StandardResponse;
       return this.apiClient.callApi(
-        '/jobs/submit/multi/doc/merge', 'POST',
+        '/mail-merge', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -94,8 +94,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submit a multi doc job
-     * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultidocparams
+     * API endpoint for submitMultiDocParams
      * @param {module:c2m_api/model/SubmitMultiDocParams} submitMultiDocParams 
      * @param {module:c2m_api/api/JobsApi~submitMultiDocParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -121,7 +121,7 @@ export default class JobsApi {
       let accepts = ['application/json'];
       let returnType = StandardResponse;
       return this.apiClient.callApi(
-        '/jobs/submit/multi/doc', 'POST',
+        '/static/multi', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -136,8 +136,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submit a multi zip addressCapture job
-     * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultizipaddresscaptureparams
+     * API endpoint for submitMultiZipAddressCaptureParams
      * @param {module:c2m_api/model/SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
      * @param {module:c2m_api/api/JobsApi~submitMultiZipAddressCaptureParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -163,7 +163,7 @@ export default class JobsApi {
       let accepts = ['application/json'];
       let returnType = StandardResponse;
       return this.apiClient.callApi(
-        '/jobs/submit/multi/zip/addressCapture', 'POST',
+        '/batch/zip/address-capture', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -178,8 +178,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submit a multi zip job
-     * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitmultizipparams
+     * API endpoint for submitMultiZipParams
      * @param {module:c2m_api/model/SubmitMultiZipParams} submitMultiZipParams 
      * @param {module:c2m_api/api/JobsApi~submitMultiZipParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -205,7 +205,7 @@ export default class JobsApi {
       let accepts = ['application/json'];
       let returnType = StandardResponse;
       return this.apiClient.callApi(
-        '/jobs/submit/multi/zip', 'POST',
+        '/batch/zip', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -220,8 +220,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submit a single doc job
-     * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsingledocparams
+     * API endpoint for submitSingleDocParams
      * @param {module:c2m_api/model/SubmitSingleDocParams} submitSingleDocParams 
      * @param {module:c2m_api/api/JobsApi~submitSingleDocParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -247,7 +247,7 @@ export default class JobsApi {
       let accepts = ['application/json'];
       let returnType = StandardResponse;
       return this.apiClient.callApi(
-        '/jobs/submit/single/doc', 'POST',
+        '/static', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -262,8 +262,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submit a single pdf addressCapture job
-     * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsinglepdfaddresscaptureparams
+     * API endpoint for submitSinglePdfAddressCaptureParams
      * @param {module:c2m_api/model/SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
      * @param {module:c2m_api/api/JobsApi~submitSinglePdfAddressCaptureParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -289,7 +289,7 @@ export default class JobsApi {
       let accepts = ['application/json'];
       let returnType = StandardResponse;
       return this.apiClient.callApi(
-        '/jobs/submit/single/pdf/addressCapture', 'POST',
+        '/static/address-capture', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -304,8 +304,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submit a single pdf split addressCapture job
-     * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsinglepdfsplitaddresscaptureparams
+     * API endpoint for submitSinglePdfSplitAddressCaptureParams
      * @param {module:c2m_api/model/SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
      * @param {module:c2m_api/api/JobsApi~submitSinglePdfSplitAddressCaptureParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -331,7 +331,7 @@ export default class JobsApi {
       let accepts = ['application/json'];
       let returnType = StandardResponse;
       return this.apiClient.callApi(
-        '/jobs/submit/single/pdf/split/addressCapture', 'POST',
+        '/batch/split/address-capture', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );
@@ -346,8 +346,8 @@ export default class JobsApi {
      */
 
     /**
-     * Submit a single pdf split job
-     * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+     * Submitsinglepdfsplitparams
+     * API endpoint for submitSinglePdfSplitParams
      * @param {module:c2m_api/model/SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
      * @param {module:c2m_api/api/JobsApi~submitSinglePdfSplitParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}
@@ -373,7 +373,7 @@ export default class JobsApi {
       let accepts = ['application/json'];
       let returnType = StandardResponse;
       return this.apiClient.callApi(
-        '/jobs/submit/single/pdf/split', 'POST',
+        '/batch/split', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

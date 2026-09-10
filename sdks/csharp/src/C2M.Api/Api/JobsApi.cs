@@ -36,10 +36,10 @@ namespace C2M.Api.Api
         JobsApiEvents Events { get; }
 
         /// <summary>
-        /// Submit a multi doc merge job
+        /// Submitmultidocmergeparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitMultiDocMergeParams
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocMergeParams"></param>
@@ -48,10 +48,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiDocMergeParamsApiResponse> SubmitMultiDocMergeParamsAsync(SubmitMultiDocMergeParams submitMultiDocMergeParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a multi doc merge job
+        /// Submitmultidocmergeparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitMultiDocMergeParams
         /// </remarks>
         /// <param name="submitMultiDocMergeParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -59,10 +59,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiDocMergeParamsApiResponse?> SubmitMultiDocMergeParamsOrDefaultAsync(SubmitMultiDocMergeParams submitMultiDocMergeParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a multi doc job
+        /// Submitmultidocparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitMultiDocParams
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocParams"></param>
@@ -71,10 +71,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiDocParamsApiResponse> SubmitMultiDocParamsAsync(SubmitMultiDocParams submitMultiDocParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a multi doc job
+        /// Submitmultidocparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitMultiDocParams
         /// </remarks>
         /// <param name="submitMultiDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -82,10 +82,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiDocParamsApiResponse?> SubmitMultiDocParamsOrDefaultAsync(SubmitMultiDocParams submitMultiDocParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a multi zip addressCapture job
+        /// Submitmultizipaddresscaptureparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitMultiZipAddressCaptureParams
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiZipAddressCaptureParams"></param>
@@ -94,10 +94,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiZipAddressCaptureParamsApiResponse> SubmitMultiZipAddressCaptureParamsAsync(SubmitMultiZipAddressCaptureParams submitMultiZipAddressCaptureParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a multi zip addressCapture job
+        /// Submitmultizipaddresscaptureparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitMultiZipAddressCaptureParams
         /// </remarks>
         /// <param name="submitMultiZipAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -105,10 +105,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiZipAddressCaptureParamsApiResponse?> SubmitMultiZipAddressCaptureParamsOrDefaultAsync(SubmitMultiZipAddressCaptureParams submitMultiZipAddressCaptureParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a multi zip job
+        /// Submitmultizipparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitMultiZipParams
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiZipParams"></param>
@@ -117,10 +117,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiZipParamsApiResponse> SubmitMultiZipParamsAsync(SubmitMultiZipParams submitMultiZipParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a multi zip job
+        /// Submitmultizipparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitMultiZipParams
         /// </remarks>
         /// <param name="submitMultiZipParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -128,10 +128,10 @@ namespace C2M.Api.Api
         Task<ISubmitMultiZipParamsApiResponse?> SubmitMultiZipParamsOrDefaultAsync(SubmitMultiZipParams submitMultiZipParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a single doc job
+        /// Submitsingledocparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitSingleDocParams
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSingleDocParams"></param>
@@ -140,10 +140,10 @@ namespace C2M.Api.Api
         Task<ISubmitSingleDocParamsApiResponse> SubmitSingleDocParamsAsync(SubmitSingleDocParams submitSingleDocParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a single doc job
+        /// Submitsingledocparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitSingleDocParams
         /// </remarks>
         /// <param name="submitSingleDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -151,10 +151,10 @@ namespace C2M.Api.Api
         Task<ISubmitSingleDocParamsApiResponse?> SubmitSingleDocParamsOrDefaultAsync(SubmitSingleDocParams submitSingleDocParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a single pdf addressCapture job
+        /// Submitsinglepdfaddresscaptureparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitSinglePdfAddressCaptureParams
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfAddressCaptureParams"></param>
@@ -163,10 +163,10 @@ namespace C2M.Api.Api
         Task<ISubmitSinglePdfAddressCaptureParamsApiResponse> SubmitSinglePdfAddressCaptureParamsAsync(SubmitSinglePdfAddressCaptureParams submitSinglePdfAddressCaptureParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a single pdf addressCapture job
+        /// Submitsinglepdfaddresscaptureparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitSinglePdfAddressCaptureParams
         /// </remarks>
         /// <param name="submitSinglePdfAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -174,10 +174,10 @@ namespace C2M.Api.Api
         Task<ISubmitSinglePdfAddressCaptureParamsApiResponse?> SubmitSinglePdfAddressCaptureParamsOrDefaultAsync(SubmitSinglePdfAddressCaptureParams submitSinglePdfAddressCaptureParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a single pdf split addressCapture job
+        /// Submitsinglepdfsplitaddresscaptureparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitSinglePdfSplitAddressCaptureParams
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfSplitAddressCaptureParams"></param>
@@ -186,10 +186,10 @@ namespace C2M.Api.Api
         Task<ISubmitSinglePdfSplitAddressCaptureParamsApiResponse> SubmitSinglePdfSplitAddressCaptureParamsAsync(SubmitSinglePdfSplitAddressCaptureParams submitSinglePdfSplitAddressCaptureParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a single pdf split addressCapture job
+        /// Submitsinglepdfsplitaddresscaptureparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitSinglePdfSplitAddressCaptureParams
         /// </remarks>
         /// <param name="submitSinglePdfSplitAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -197,10 +197,10 @@ namespace C2M.Api.Api
         Task<ISubmitSinglePdfSplitAddressCaptureParamsApiResponse?> SubmitSinglePdfSplitAddressCaptureParamsOrDefaultAsync(SubmitSinglePdfSplitAddressCaptureParams submitSinglePdfSplitAddressCaptureParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a single pdf split job
+        /// Submitsinglepdfsplitparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitSinglePdfSplitParams
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfSplitParams"></param>
@@ -209,10 +209,10 @@ namespace C2M.Api.Api
         Task<ISubmitSinglePdfSplitParamsApiResponse> SubmitSinglePdfSplitParamsAsync(SubmitSinglePdfSplitParams submitSinglePdfSplitParams, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Submit a single pdf split job
+        /// Submitsinglepdfsplitparams
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// API endpoint for submitSinglePdfSplitParams
         /// </remarks>
         /// <param name="submitSinglePdfSplitParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -891,7 +891,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitMultiDocMergeParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitMultiDocMergeParams submitMultiDocMergeParams);
 
         /// <summary>
-        /// Submit a multi doc merge job Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitmultidocmergeparams API endpoint for submitMultiDocMergeParams
         /// </summary>
         /// <param name="submitMultiDocMergeParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -909,7 +909,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a multi doc merge job Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitmultidocmergeparams API endpoint for submitMultiDocMergeParams
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocMergeParams"></param>
@@ -931,8 +931,8 @@ namespace C2M.Api.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/jobs/submit/multi/doc/merge"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/jobs/submit/multi/doc/merge");
+                        ? "/mail-merge"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/mail-merge");
 
                     httpRequestMessageLocalVar.Content = (submitMultiDocMergeParams as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
@@ -977,7 +977,7 @@ namespace C2M.Api.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/jobs/submit/multi/doc/merge", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/mail-merge", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -997,7 +997,7 @@ namespace C2M.Api.Api
             }
             catch(Exception e)
             {
-                OnErrorSubmitMultiDocMergeParamsDefaultImplementation(e, "/jobs/submit/multi/doc/merge", uriBuilderLocalVar.Path, submitMultiDocMergeParams);
+                OnErrorSubmitMultiDocMergeParamsDefaultImplementation(e, "/mail-merge", uriBuilderLocalVar.Path, submitMultiDocMergeParams);
                 Events.ExecuteOnErrorSubmitMultiDocMergeParams(e);
                 throw;
             }
@@ -1384,7 +1384,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitMultiDocParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitMultiDocParams submitMultiDocParams);
 
         /// <summary>
-        /// Submit a multi doc job Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitmultidocparams API endpoint for submitMultiDocParams
         /// </summary>
         /// <param name="submitMultiDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1402,7 +1402,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a multi doc job Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitmultidocparams API endpoint for submitMultiDocParams
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocParams"></param>
@@ -1424,8 +1424,8 @@ namespace C2M.Api.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/jobs/submit/multi/doc"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/jobs/submit/multi/doc");
+                        ? "/static/multi"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/static/multi");
 
                     httpRequestMessageLocalVar.Content = (submitMultiDocParams as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
@@ -1470,7 +1470,7 @@ namespace C2M.Api.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/jobs/submit/multi/doc", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/static/multi", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -1490,7 +1490,7 @@ namespace C2M.Api.Api
             }
             catch(Exception e)
             {
-                OnErrorSubmitMultiDocParamsDefaultImplementation(e, "/jobs/submit/multi/doc", uriBuilderLocalVar.Path, submitMultiDocParams);
+                OnErrorSubmitMultiDocParamsDefaultImplementation(e, "/static/multi", uriBuilderLocalVar.Path, submitMultiDocParams);
                 Events.ExecuteOnErrorSubmitMultiDocParams(e);
                 throw;
             }
@@ -1877,7 +1877,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitMultiZipAddressCaptureParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitMultiZipAddressCaptureParams submitMultiZipAddressCaptureParams);
 
         /// <summary>
-        /// Submit a multi zip addressCapture job Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitmultizipaddresscaptureparams API endpoint for submitMultiZipAddressCaptureParams
         /// </summary>
         /// <param name="submitMultiZipAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1895,7 +1895,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a multi zip addressCapture job Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitmultizipaddresscaptureparams API endpoint for submitMultiZipAddressCaptureParams
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiZipAddressCaptureParams"></param>
@@ -1917,8 +1917,8 @@ namespace C2M.Api.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/jobs/submit/multi/zip/addressCapture"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/jobs/submit/multi/zip/addressCapture");
+                        ? "/batch/zip/address-capture"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/batch/zip/address-capture");
 
                     httpRequestMessageLocalVar.Content = (submitMultiZipAddressCaptureParams as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
@@ -1963,7 +1963,7 @@ namespace C2M.Api.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/jobs/submit/multi/zip/addressCapture", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/batch/zip/address-capture", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -1983,7 +1983,7 @@ namespace C2M.Api.Api
             }
             catch(Exception e)
             {
-                OnErrorSubmitMultiZipAddressCaptureParamsDefaultImplementation(e, "/jobs/submit/multi/zip/addressCapture", uriBuilderLocalVar.Path, submitMultiZipAddressCaptureParams);
+                OnErrorSubmitMultiZipAddressCaptureParamsDefaultImplementation(e, "/batch/zip/address-capture", uriBuilderLocalVar.Path, submitMultiZipAddressCaptureParams);
                 Events.ExecuteOnErrorSubmitMultiZipAddressCaptureParams(e);
                 throw;
             }
@@ -2370,7 +2370,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitMultiZipParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitMultiZipParams submitMultiZipParams);
 
         /// <summary>
-        /// Submit a multi zip job Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitmultizipparams API endpoint for submitMultiZipParams
         /// </summary>
         /// <param name="submitMultiZipParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2388,7 +2388,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a multi zip job Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitmultizipparams API endpoint for submitMultiZipParams
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiZipParams"></param>
@@ -2410,8 +2410,8 @@ namespace C2M.Api.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/jobs/submit/multi/zip"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/jobs/submit/multi/zip");
+                        ? "/batch/zip"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/batch/zip");
 
                     httpRequestMessageLocalVar.Content = (submitMultiZipParams as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
@@ -2456,7 +2456,7 @@ namespace C2M.Api.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/jobs/submit/multi/zip", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/batch/zip", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -2476,7 +2476,7 @@ namespace C2M.Api.Api
             }
             catch(Exception e)
             {
-                OnErrorSubmitMultiZipParamsDefaultImplementation(e, "/jobs/submit/multi/zip", uriBuilderLocalVar.Path, submitMultiZipParams);
+                OnErrorSubmitMultiZipParamsDefaultImplementation(e, "/batch/zip", uriBuilderLocalVar.Path, submitMultiZipParams);
                 Events.ExecuteOnErrorSubmitMultiZipParams(e);
                 throw;
             }
@@ -2863,7 +2863,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitSingleDocParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitSingleDocParams submitSingleDocParams);
 
         /// <summary>
-        /// Submit a single doc job Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitsingledocparams API endpoint for submitSingleDocParams
         /// </summary>
         /// <param name="submitSingleDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2881,7 +2881,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a single doc job Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitsingledocparams API endpoint for submitSingleDocParams
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSingleDocParams"></param>
@@ -2903,8 +2903,8 @@ namespace C2M.Api.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/jobs/submit/single/doc"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/jobs/submit/single/doc");
+                        ? "/static"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/static");
 
                     httpRequestMessageLocalVar.Content = (submitSingleDocParams as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
@@ -2949,7 +2949,7 @@ namespace C2M.Api.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/jobs/submit/single/doc", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/static", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -2969,7 +2969,7 @@ namespace C2M.Api.Api
             }
             catch(Exception e)
             {
-                OnErrorSubmitSingleDocParamsDefaultImplementation(e, "/jobs/submit/single/doc", uriBuilderLocalVar.Path, submitSingleDocParams);
+                OnErrorSubmitSingleDocParamsDefaultImplementation(e, "/static", uriBuilderLocalVar.Path, submitSingleDocParams);
                 Events.ExecuteOnErrorSubmitSingleDocParams(e);
                 throw;
             }
@@ -3356,7 +3356,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitSinglePdfAddressCaptureParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitSinglePdfAddressCaptureParams submitSinglePdfAddressCaptureParams);
 
         /// <summary>
-        /// Submit a single pdf addressCapture job Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitsinglepdfaddresscaptureparams API endpoint for submitSinglePdfAddressCaptureParams
         /// </summary>
         /// <param name="submitSinglePdfAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3374,7 +3374,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a single pdf addressCapture job Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitsinglepdfaddresscaptureparams API endpoint for submitSinglePdfAddressCaptureParams
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfAddressCaptureParams"></param>
@@ -3396,8 +3396,8 @@ namespace C2M.Api.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/jobs/submit/single/pdf/addressCapture"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/jobs/submit/single/pdf/addressCapture");
+                        ? "/static/address-capture"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/static/address-capture");
 
                     httpRequestMessageLocalVar.Content = (submitSinglePdfAddressCaptureParams as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
@@ -3442,7 +3442,7 @@ namespace C2M.Api.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/jobs/submit/single/pdf/addressCapture", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/static/address-capture", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -3462,7 +3462,7 @@ namespace C2M.Api.Api
             }
             catch(Exception e)
             {
-                OnErrorSubmitSinglePdfAddressCaptureParamsDefaultImplementation(e, "/jobs/submit/single/pdf/addressCapture", uriBuilderLocalVar.Path, submitSinglePdfAddressCaptureParams);
+                OnErrorSubmitSinglePdfAddressCaptureParamsDefaultImplementation(e, "/static/address-capture", uriBuilderLocalVar.Path, submitSinglePdfAddressCaptureParams);
                 Events.ExecuteOnErrorSubmitSinglePdfAddressCaptureParams(e);
                 throw;
             }
@@ -3849,7 +3849,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitSinglePdfSplitAddressCaptureParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitSinglePdfSplitAddressCaptureParams submitSinglePdfSplitAddressCaptureParams);
 
         /// <summary>
-        /// Submit a single pdf split addressCapture job Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitsinglepdfsplitaddresscaptureparams API endpoint for submitSinglePdfSplitAddressCaptureParams
         /// </summary>
         /// <param name="submitSinglePdfSplitAddressCaptureParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3867,7 +3867,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a single pdf split addressCapture job Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitsinglepdfsplitaddresscaptureparams API endpoint for submitSinglePdfSplitAddressCaptureParams
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfSplitAddressCaptureParams"></param>
@@ -3889,8 +3889,8 @@ namespace C2M.Api.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/jobs/submit/single/pdf/split/addressCapture"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/jobs/submit/single/pdf/split/addressCapture");
+                        ? "/batch/split/address-capture"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/batch/split/address-capture");
 
                     httpRequestMessageLocalVar.Content = (submitSinglePdfSplitAddressCaptureParams as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
@@ -3935,7 +3935,7 @@ namespace C2M.Api.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/jobs/submit/single/pdf/split/addressCapture", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/batch/split/address-capture", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -3955,7 +3955,7 @@ namespace C2M.Api.Api
             }
             catch(Exception e)
             {
-                OnErrorSubmitSinglePdfSplitAddressCaptureParamsDefaultImplementation(e, "/jobs/submit/single/pdf/split/addressCapture", uriBuilderLocalVar.Path, submitSinglePdfSplitAddressCaptureParams);
+                OnErrorSubmitSinglePdfSplitAddressCaptureParamsDefaultImplementation(e, "/batch/split/address-capture", uriBuilderLocalVar.Path, submitSinglePdfSplitAddressCaptureParams);
                 Events.ExecuteOnErrorSubmitSinglePdfSplitAddressCaptureParams(e);
                 throw;
             }
@@ -4342,7 +4342,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitSinglePdfSplitParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitSinglePdfSplitParams submitSinglePdfSplitParams);
 
         /// <summary>
-        /// Submit a single pdf split job Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitsinglepdfsplitparams API endpoint for submitSinglePdfSplitParams
         /// </summary>
         /// <param name="submitSinglePdfSplitParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4360,7 +4360,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit a single pdf split job Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+        /// Submitsinglepdfsplitparams API endpoint for submitSinglePdfSplitParams
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitSinglePdfSplitParams"></param>
@@ -4382,8 +4382,8 @@ namespace C2M.Api.Api
                     uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
                     uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
                     uriBuilderLocalVar.Path = HttpClient.BaseAddress.AbsolutePath == "/"
-                        ? "/jobs/submit/single/pdf/split"
-                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/jobs/submit/single/pdf/split");
+                        ? "/batch/split"
+                        : string.Concat(HttpClient.BaseAddress.AbsolutePath, "/batch/split");
 
                     httpRequestMessageLocalVar.Content = (submitSinglePdfSplitParams as object) is System.IO.Stream stream
                         ? httpRequestMessageLocalVar.Content = new StreamContent(stream)
@@ -4428,7 +4428,7 @@ namespace C2M.Api.Api
                         switch ((int)httpResponseMessageLocalVar.StatusCode) {
                             default: {
                                 string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/jobs/submit/single/pdf/split", requestedAtLocalVar, _jsonSerializerOptions);
+                                apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/batch/split", requestedAtLocalVar, _jsonSerializerOptions);
 
                                 break;
                             }
@@ -4448,7 +4448,7 @@ namespace C2M.Api.Api
             }
             catch(Exception e)
             {
-                OnErrorSubmitSinglePdfSplitParamsDefaultImplementation(e, "/jobs/submit/single/pdf/split", uriBuilderLocalVar.Path, submitSinglePdfSplitParams);
+                OnErrorSubmitSinglePdfSplitParamsDefaultImplementation(e, "/batch/split", uriBuilderLocalVar.Path, submitSinglePdfSplitParams);
                 Events.ExecuteOnErrorSubmitSinglePdfSplitParams(e);
                 throw;
             }

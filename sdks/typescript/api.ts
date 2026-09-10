@@ -759,8 +759,8 @@ export class AuthApi extends BaseAPI {
 export const JobsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a multi doc merge job
+         * API endpoint for submitMultiDocMergeParams
+         * @summary Submitmultidocmergeparams
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -768,7 +768,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
         submitMultiDocMergeParams: async (submitMultiDocMergeParams: SubmitMultiDocMergeParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'submitMultiDocMergeParams' is not null or undefined
             assertParamExists('submitMultiDocMergeParams', 'submitMultiDocMergeParams', submitMultiDocMergeParams)
-            const localVarPath = `/jobs/submit/multi/doc/merge`;
+            const localVarPath = `/mail-merge`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -799,8 +799,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a multi doc job
+         * API endpoint for submitMultiDocParams
+         * @summary Submitmultidocparams
          * @param {SubmitMultiDocParams} submitMultiDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -808,7 +808,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
         submitMultiDocParams: async (submitMultiDocParams: SubmitMultiDocParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'submitMultiDocParams' is not null or undefined
             assertParamExists('submitMultiDocParams', 'submitMultiDocParams', submitMultiDocParams)
-            const localVarPath = `/jobs/submit/multi/doc`;
+            const localVarPath = `/static/multi`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -839,8 +839,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a multi zip addressCapture job
+         * API endpoint for submitMultiZipAddressCaptureParams
+         * @summary Submitmultizipaddresscaptureparams
          * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -848,7 +848,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
         submitMultiZipAddressCaptureParams: async (submitMultiZipAddressCaptureParams: SubmitMultiZipAddressCaptureParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'submitMultiZipAddressCaptureParams' is not null or undefined
             assertParamExists('submitMultiZipAddressCaptureParams', 'submitMultiZipAddressCaptureParams', submitMultiZipAddressCaptureParams)
-            const localVarPath = `/jobs/submit/multi/zip/addressCapture`;
+            const localVarPath = `/batch/zip/address-capture`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -879,8 +879,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a multi zip job
+         * API endpoint for submitMultiZipParams
+         * @summary Submitmultizipparams
          * @param {SubmitMultiZipParams} submitMultiZipParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -888,7 +888,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
         submitMultiZipParams: async (submitMultiZipParams: SubmitMultiZipParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'submitMultiZipParams' is not null or undefined
             assertParamExists('submitMultiZipParams', 'submitMultiZipParams', submitMultiZipParams)
-            const localVarPath = `/jobs/submit/multi/zip`;
+            const localVarPath = `/batch/zip`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -919,8 +919,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a single doc job
+         * API endpoint for submitSingleDocParams
+         * @summary Submitsingledocparams
          * @param {SubmitSingleDocParams} submitSingleDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -928,7 +928,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
         submitSingleDocParams: async (submitSingleDocParams: SubmitSingleDocParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'submitSingleDocParams' is not null or undefined
             assertParamExists('submitSingleDocParams', 'submitSingleDocParams', submitSingleDocParams)
-            const localVarPath = `/jobs/submit/single/doc`;
+            const localVarPath = `/static`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -959,8 +959,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a single pdf addressCapture job
+         * API endpoint for submitSinglePdfAddressCaptureParams
+         * @summary Submitsinglepdfaddresscaptureparams
          * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -968,7 +968,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
         submitSinglePdfAddressCaptureParams: async (submitSinglePdfAddressCaptureParams: SubmitSinglePdfAddressCaptureParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'submitSinglePdfAddressCaptureParams' is not null or undefined
             assertParamExists('submitSinglePdfAddressCaptureParams', 'submitSinglePdfAddressCaptureParams', submitSinglePdfAddressCaptureParams)
-            const localVarPath = `/jobs/submit/single/pdf/addressCapture`;
+            const localVarPath = `/static/address-capture`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -999,8 +999,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a single pdf split addressCapture job
+         * API endpoint for submitSinglePdfSplitAddressCaptureParams
+         * @summary Submitsinglepdfsplitaddresscaptureparams
          * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1008,7 +1008,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
         submitSinglePdfSplitAddressCaptureParams: async (submitSinglePdfSplitAddressCaptureParams: SubmitSinglePdfSplitAddressCaptureParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'submitSinglePdfSplitAddressCaptureParams' is not null or undefined
             assertParamExists('submitSinglePdfSplitAddressCaptureParams', 'submitSinglePdfSplitAddressCaptureParams', submitSinglePdfSplitAddressCaptureParams)
-            const localVarPath = `/jobs/submit/single/pdf/split/addressCapture`;
+            const localVarPath = `/batch/split/address-capture`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1039,8 +1039,8 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a single pdf split job
+         * API endpoint for submitSinglePdfSplitParams
+         * @summary Submitsinglepdfsplitparams
          * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1048,7 +1048,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
         submitSinglePdfSplitParams: async (submitSinglePdfSplitParams: SubmitSinglePdfSplitParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'submitSinglePdfSplitParams' is not null or undefined
             assertParamExists('submitSinglePdfSplitParams', 'submitSinglePdfSplitParams', submitSinglePdfSplitParams)
-            const localVarPath = `/jobs/submit/single/pdf/split`;
+            const localVarPath = `/batch/split`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1088,8 +1088,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = JobsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a multi doc merge job
+         * API endpoint for submitMultiDocMergeParams
+         * @summary Submitmultidocmergeparams
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1101,8 +1101,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a multi doc job
+         * API endpoint for submitMultiDocParams
+         * @summary Submitmultidocparams
          * @param {SubmitMultiDocParams} submitMultiDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1114,8 +1114,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a multi zip addressCapture job
+         * API endpoint for submitMultiZipAddressCaptureParams
+         * @summary Submitmultizipaddresscaptureparams
          * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1127,8 +1127,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a multi zip job
+         * API endpoint for submitMultiZipParams
+         * @summary Submitmultizipparams
          * @param {SubmitMultiZipParams} submitMultiZipParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1140,8 +1140,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a single doc job
+         * API endpoint for submitSingleDocParams
+         * @summary Submitsingledocparams
          * @param {SubmitSingleDocParams} submitSingleDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1153,8 +1153,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a single pdf addressCapture job
+         * API endpoint for submitSinglePdfAddressCaptureParams
+         * @summary Submitsinglepdfaddresscaptureparams
          * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1166,8 +1166,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a single pdf split addressCapture job
+         * API endpoint for submitSinglePdfSplitAddressCaptureParams
+         * @summary Submitsinglepdfsplitaddresscaptureparams
          * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1179,8 +1179,8 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a single pdf split job
+         * API endpoint for submitSinglePdfSplitParams
+         * @summary Submitsinglepdfsplitparams
          * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1201,8 +1201,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
     const localVarFp = JobsApiFp(configuration)
     return {
         /**
-         * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a multi doc merge job
+         * API endpoint for submitMultiDocMergeParams
+         * @summary Submitmultidocmergeparams
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1211,8 +1211,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitMultiDocMergeParams(submitMultiDocMergeParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a multi doc job
+         * API endpoint for submitMultiDocParams
+         * @summary Submitmultidocparams
          * @param {SubmitMultiDocParams} submitMultiDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1221,8 +1221,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitMultiDocParams(submitMultiDocParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a multi zip addressCapture job
+         * API endpoint for submitMultiZipAddressCaptureParams
+         * @summary Submitmultizipaddresscaptureparams
          * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1231,8 +1231,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a multi zip job
+         * API endpoint for submitMultiZipParams
+         * @summary Submitmultizipparams
          * @param {SubmitMultiZipParams} submitMultiZipParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1241,8 +1241,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitMultiZipParams(submitMultiZipParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a single doc job
+         * API endpoint for submitSingleDocParams
+         * @summary Submitsingledocparams
          * @param {SubmitSingleDocParams} submitSingleDocParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1251,8 +1251,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitSingleDocParams(submitSingleDocParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a single pdf addressCapture job
+         * API endpoint for submitSinglePdfAddressCaptureParams
+         * @summary Submitsinglepdfaddresscaptureparams
          * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1261,8 +1261,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a single pdf split addressCapture job
+         * API endpoint for submitSinglePdfSplitAddressCaptureParams
+         * @summary Submitsinglepdfsplitaddresscaptureparams
          * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1271,8 +1271,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
-         * @summary Submit a single pdf split job
+         * API endpoint for submitSinglePdfSplitParams
+         * @summary Submitsinglepdfsplitparams
          * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -1288,8 +1288,8 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
  */
 export class JobsApi extends BaseAPI {
     /**
-     * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
-     * @summary Submit a multi doc merge job
+     * API endpoint for submitMultiDocMergeParams
+     * @summary Submitmultidocmergeparams
      * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1299,8 +1299,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
-     * @summary Submit a multi doc job
+     * API endpoint for submitMultiDocParams
+     * @summary Submitmultidocparams
      * @param {SubmitMultiDocParams} submitMultiDocParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1310,8 +1310,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
-     * @summary Submit a multi zip addressCapture job
+     * API endpoint for submitMultiZipAddressCaptureParams
+     * @summary Submitmultizipaddresscaptureparams
      * @param {SubmitMultiZipAddressCaptureParams} submitMultiZipAddressCaptureParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1321,8 +1321,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
-     * @summary Submit a multi zip job
+     * API endpoint for submitMultiZipParams
+     * @summary Submitmultizipparams
      * @param {SubmitMultiZipParams} submitMultiZipParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1332,8 +1332,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
-     * @summary Submit a single doc job
+     * API endpoint for submitSingleDocParams
+     * @summary Submitsingledocparams
      * @param {SubmitSingleDocParams} submitSingleDocParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1343,8 +1343,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
-     * @summary Submit a single pdf addressCapture job
+     * API endpoint for submitSinglePdfAddressCaptureParams
+     * @summary Submitsinglepdfaddresscaptureparams
      * @param {SubmitSinglePdfAddressCaptureParams} submitSinglePdfAddressCaptureParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1354,8 +1354,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
-     * @summary Submit a single pdf split addressCapture job
+     * API endpoint for submitSinglePdfSplitAddressCaptureParams
+     * @summary Submitsinglepdfsplitaddresscaptureparams
      * @param {SubmitSinglePdfSplitAddressCaptureParams} submitSinglePdfSplitAddressCaptureParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -1365,8 +1365,8 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
-     * @summary Submit a single pdf split job
+     * API endpoint for submitSinglePdfSplitParams
+     * @summary Submitsinglepdfsplitparams
      * @param {SubmitSinglePdfSplitParams} submitSinglePdfSplitParams 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}

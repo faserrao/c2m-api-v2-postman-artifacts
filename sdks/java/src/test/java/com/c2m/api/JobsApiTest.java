@@ -41,9 +41,9 @@ public class JobsApiTest {
     private final JobsApi api = new JobsApi();
 
     /**
-     * Submit a multi doc merge job
+     * Submitmultidocmergeparams
      *
-     * Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+     * API endpoint for submitMultiDocMergeParams
      *
      * @throws ApiException if the Api call fails
      */
@@ -55,9 +55,9 @@ public class JobsApiTest {
     }
 
     /**
-     * Submit a multi doc job
+     * Submitmultidocparams
      *
-     * Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+     * API endpoint for submitMultiDocParams
      *
      * @throws ApiException if the Api call fails
      */
@@ -69,9 +69,9 @@ public class JobsApiTest {
     }
 
     /**
-     * Submit a multi zip addressCapture job
+     * Submitmultizipaddresscaptureparams
      *
-     * Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * API endpoint for submitMultiZipAddressCaptureParams
      *
      * @throws ApiException if the Api call fails
      */
@@ -83,9 +83,9 @@ public class JobsApiTest {
     }
 
     /**
-     * Submit a multi zip job
+     * Submitmultizipparams
      *
-     * Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+     * API endpoint for submitMultiZipParams
      *
      * @throws ApiException if the Api call fails
      */
@@ -97,9 +97,9 @@ public class JobsApiTest {
     }
 
     /**
-     * Submit a single doc job
+     * Submitsingledocparams
      *
-     * Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+     * API endpoint for submitSingleDocParams
      *
      * @throws ApiException if the Api call fails
      */
@@ -111,9 +111,9 @@ public class JobsApiTest {
     }
 
     /**
-     * Submit a single pdf addressCapture job
+     * Submitsinglepdfaddresscaptureparams
      *
-     * Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * API endpoint for submitSinglePdfAddressCaptureParams
      *
      * @throws ApiException if the Api call fails
      */
@@ -125,9 +125,9 @@ public class JobsApiTest {
     }
 
     /**
-     * Submit a single pdf split addressCapture job
+     * Submitsinglepdfsplitaddresscaptureparams
      *
-     * Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+     * API endpoint for submitSinglePdfSplitAddressCaptureParams
      *
      * @throws ApiException if the Api call fails
      */
@@ -139,9 +139,9 @@ public class JobsApiTest {
     }
 
     /**
-     * Submit a single pdf split job
+     * Submitsinglepdfsplitparams
      *
-     * Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+     * API endpoint for submitSinglePdfSplitParams
      *
      * @throws ApiException if the Api call fails
      */

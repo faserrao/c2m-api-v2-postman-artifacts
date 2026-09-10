@@ -38,9 +38,9 @@ func (r ApiSubmitMultiDocMergeParamsRequest) Execute() (*StandardResponse, *http
 }
 
 /*
-SubmitMultiDocMergeParams Submit a multi doc merge job
+SubmitMultiDocMergeParams Submitmultidocmergeparams
 
-Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitMultiDocMergeParams
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitMultiDocMergeParamsRequest
@@ -67,7 +67,7 @@ func (a *JobsAPIService) SubmitMultiDocMergeParamsExecute(r ApiSubmitMultiDocMer
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/jobs/submit/multi/doc/merge"
+	localVarPath := localBasePath + "/mail-merge"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -213,9 +213,9 @@ func (r ApiSubmitMultiDocParamsRequest) Execute() (*StandardResponse, *http.Resp
 }
 
 /*
-SubmitMultiDocParams Submit a multi doc job
+SubmitMultiDocParams Submitmultidocparams
 
-Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitMultiDocParams
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitMultiDocParamsRequest
@@ -242,7 +242,7 @@ func (a *JobsAPIService) SubmitMultiDocParamsExecute(r ApiSubmitMultiDocParamsRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/jobs/submit/multi/doc"
+	localVarPath := localBasePath + "/static/multi"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -388,9 +388,9 @@ func (r ApiSubmitMultiZipAddressCaptureParamsRequest) Execute() (*StandardRespon
 }
 
 /*
-SubmitMultiZipAddressCaptureParams Submit a multi zip addressCapture job
+SubmitMultiZipAddressCaptureParams Submitmultizipaddresscaptureparams
 
-Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitMultiZipAddressCaptureParams
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitMultiZipAddressCaptureParamsRequest
@@ -417,7 +417,7 @@ func (a *JobsAPIService) SubmitMultiZipAddressCaptureParamsExecute(r ApiSubmitMu
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/jobs/submit/multi/zip/addressCapture"
+	localVarPath := localBasePath + "/batch/zip/address-capture"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -563,9 +563,9 @@ func (r ApiSubmitMultiZipParamsRequest) Execute() (*StandardResponse, *http.Resp
 }
 
 /*
-SubmitMultiZipParams Submit a multi zip job
+SubmitMultiZipParams Submitmultizipparams
 
-Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitMultiZipParams
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitMultiZipParamsRequest
@@ -592,7 +592,7 @@ func (a *JobsAPIService) SubmitMultiZipParamsExecute(r ApiSubmitMultiZipParamsRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/jobs/submit/multi/zip"
+	localVarPath := localBasePath + "/batch/zip"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -738,9 +738,9 @@ func (r ApiSubmitSingleDocParamsRequest) Execute() (*StandardResponse, *http.Res
 }
 
 /*
-SubmitSingleDocParams Submit a single doc job
+SubmitSingleDocParams Submitsingledocparams
 
-Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitSingleDocParams
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitSingleDocParamsRequest
@@ -767,7 +767,7 @@ func (a *JobsAPIService) SubmitSingleDocParamsExecute(r ApiSubmitSingleDocParams
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/jobs/submit/single/doc"
+	localVarPath := localBasePath + "/static"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -913,9 +913,9 @@ func (r ApiSubmitSinglePdfAddressCaptureParamsRequest) Execute() (*StandardRespo
 }
 
 /*
-SubmitSinglePdfAddressCaptureParams Submit a single pdf addressCapture job
+SubmitSinglePdfAddressCaptureParams Submitsinglepdfaddresscaptureparams
 
-Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitSinglePdfAddressCaptureParams
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitSinglePdfAddressCaptureParamsRequest
@@ -942,7 +942,7 @@ func (a *JobsAPIService) SubmitSinglePdfAddressCaptureParamsExecute(r ApiSubmitS
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/jobs/submit/single/pdf/addressCapture"
+	localVarPath := localBasePath + "/static/address-capture"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1088,9 +1088,9 @@ func (r ApiSubmitSinglePdfSplitAddressCaptureParamsRequest) Execute() (*Standard
 }
 
 /*
-SubmitSinglePdfSplitAddressCaptureParams Submit a single pdf split addressCapture job
+SubmitSinglePdfSplitAddressCaptureParams Submitsinglepdfsplitaddresscaptureparams
 
-Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitSinglePdfSplitAddressCaptureParams
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitSinglePdfSplitAddressCaptureParamsRequest
@@ -1117,7 +1117,7 @@ func (a *JobsAPIService) SubmitSinglePdfSplitAddressCaptureParamsExecute(r ApiSu
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/jobs/submit/single/pdf/split/addressCapture"
+	localVarPath := localBasePath + "/batch/split/address-capture"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1263,9 +1263,9 @@ func (r ApiSubmitSinglePdfSplitParamsRequest) Execute() (*StandardResponse, *htt
 }
 
 /*
-SubmitSinglePdfSplitParams Submit a single pdf split job
+SubmitSinglePdfSplitParams Submitsinglepdfsplitparams
 
-Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitSinglePdfSplitParams
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitSinglePdfSplitParamsRequest
@@ -1292,7 +1292,7 @@ func (a *JobsAPIService) SubmitSinglePdfSplitParamsExecute(r ApiSubmitSinglePdfS
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/jobs/submit/single/pdf/split"
+	localVarPath := localBasePath + "/batch/split"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

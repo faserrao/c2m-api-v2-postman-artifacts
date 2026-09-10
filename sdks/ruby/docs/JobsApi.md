@@ -4,23 +4,23 @@ All URIs are relative to *https://api.click2mail.com/v2*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**submit_multi_doc_merge_params**](JobsApi.md#submit_multi_doc_merge_params) | **POST** /jobs/submit/multi/doc/merge | Submit a multi doc merge job |
-| [**submit_multi_doc_params**](JobsApi.md#submit_multi_doc_params) | **POST** /jobs/submit/multi/doc | Submit a multi doc job |
-| [**submit_multi_zip_address_capture_params**](JobsApi.md#submit_multi_zip_address_capture_params) | **POST** /jobs/submit/multi/zip/addressCapture | Submit a multi zip addressCapture job |
-| [**submit_multi_zip_params**](JobsApi.md#submit_multi_zip_params) | **POST** /jobs/submit/multi/zip | Submit a multi zip job |
-| [**submit_single_doc_params**](JobsApi.md#submit_single_doc_params) | **POST** /jobs/submit/single/doc | Submit a single doc job |
-| [**submit_single_pdf_address_capture_params**](JobsApi.md#submit_single_pdf_address_capture_params) | **POST** /jobs/submit/single/pdf/addressCapture | Submit a single pdf addressCapture job |
-| [**submit_single_pdf_split_address_capture_params**](JobsApi.md#submit_single_pdf_split_address_capture_params) | **POST** /jobs/submit/single/pdf/split/addressCapture | Submit a single pdf split addressCapture job |
-| [**submit_single_pdf_split_params**](JobsApi.md#submit_single_pdf_split_params) | **POST** /jobs/submit/single/pdf/split | Submit a single pdf split job |
+| [**submit_multi_doc_merge_params**](JobsApi.md#submit_multi_doc_merge_params) | **POST** /mail-merge | Submitmultidocmergeparams |
+| [**submit_multi_doc_params**](JobsApi.md#submit_multi_doc_params) | **POST** /static/multi | Submitmultidocparams |
+| [**submit_multi_zip_address_capture_params**](JobsApi.md#submit_multi_zip_address_capture_params) | **POST** /batch/zip/address-capture | Submitmultizipaddresscaptureparams |
+| [**submit_multi_zip_params**](JobsApi.md#submit_multi_zip_params) | **POST** /batch/zip | Submitmultizipparams |
+| [**submit_single_doc_params**](JobsApi.md#submit_single_doc_params) | **POST** /static | Submitsingledocparams |
+| [**submit_single_pdf_address_capture_params**](JobsApi.md#submit_single_pdf_address_capture_params) | **POST** /static/address-capture | Submitsinglepdfaddresscaptureparams |
+| [**submit_single_pdf_split_address_capture_params**](JobsApi.md#submit_single_pdf_split_address_capture_params) | **POST** /batch/split/address-capture | Submitsinglepdfsplitaddresscaptureparams |
+| [**submit_single_pdf_split_params**](JobsApi.md#submit_single_pdf_split_params) | **POST** /batch/split | Submitsinglepdfsplitparams |
 
 
 ## submit_multi_doc_merge_params
 
 > <StandardResponse> submit_multi_doc_merge_params(submit_multi_doc_merge_params)
 
-Submit a multi doc merge job
+Submitmultidocmergeparams
 
-Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitMultiDocMergeParams
 
 ### Examples
 
@@ -37,7 +37,7 @@ api_instance = OpenapiClient::JobsApi.new
 submit_multi_doc_merge_params = OpenapiClient::SubmitMultiDocMergeParams.new({merge_document_source: [nil], recipient_address_source: nil}) # SubmitMultiDocMergeParams | 
 
 begin
-  # Submit a multi doc merge job
+  # Submitmultidocmergeparams
   result = api_instance.submit_multi_doc_merge_params(submit_multi_doc_merge_params)
   p result
 rescue OpenapiClient::ApiError => e
@@ -53,7 +53,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Submit a multi doc merge job
+  # Submitmultidocmergeparams
   data, status_code, headers = api_instance.submit_multi_doc_merge_params_with_http_info(submit_multi_doc_merge_params)
   p status_code # => 2xx
   p headers # => { ... }
@@ -87,9 +87,9 @@ end
 
 > <StandardResponse> submit_multi_doc_params(submit_multi_doc_params)
 
-Submit a multi doc job
+Submitmultidocparams
 
-Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitMultiDocParams
 
 ### Examples
 
@@ -106,7 +106,7 @@ api_instance = OpenapiClient::JobsApi.new
 submit_multi_doc_params = OpenapiClient::SubmitMultiDocParams.new({multi_doc_jobs: [OpenapiClient::MultiDocJobItem.new({doc_source_all: nil, recipient_address_source: nil})]}) # SubmitMultiDocParams | 
 
 begin
-  # Submit a multi doc job
+  # Submitmultidocparams
   result = api_instance.submit_multi_doc_params(submit_multi_doc_params)
   p result
 rescue OpenapiClient::ApiError => e
@@ -122,7 +122,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Submit a multi doc job
+  # Submitmultidocparams
   data, status_code, headers = api_instance.submit_multi_doc_params_with_http_info(submit_multi_doc_params)
   p status_code # => 2xx
   p headers # => { ... }
@@ -156,9 +156,9 @@ end
 
 > <StandardResponse> submit_multi_zip_address_capture_params(submit_multi_zip_address_capture_params)
 
-Submit a multi zip addressCapture job
+Submitmultizipaddresscaptureparams
 
-Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitMultiZipAddressCaptureParams
 
 ### Examples
 
@@ -175,7 +175,7 @@ api_instance = OpenapiClient::JobsApi.new
 submit_multi_zip_address_capture_params = OpenapiClient::SubmitMultiZipAddressCaptureParams.new({zip_document_source: OpenapiClient::ZipDocumentIdSource.new({zip_document_id: 37, filename: 'filename_example'})}) # SubmitMultiZipAddressCaptureParams | 
 
 begin
-  # Submit a multi zip addressCapture job
+  # Submitmultizipaddresscaptureparams
   result = api_instance.submit_multi_zip_address_capture_params(submit_multi_zip_address_capture_params)
   p result
 rescue OpenapiClient::ApiError => e
@@ -191,7 +191,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Submit a multi zip addressCapture job
+  # Submitmultizipaddresscaptureparams
   data, status_code, headers = api_instance.submit_multi_zip_address_capture_params_with_http_info(submit_multi_zip_address_capture_params)
   p status_code # => 2xx
   p headers # => { ... }
@@ -225,9 +225,9 @@ end
 
 > <StandardResponse> submit_multi_zip_params(submit_multi_zip_params)
 
-Submit a multi zip job
+Submitmultizipparams
 
-Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitMultiZipParams
 
 ### Examples
 
@@ -244,7 +244,7 @@ api_instance = OpenapiClient::JobsApi.new
 submit_multi_zip_params = OpenapiClient::SubmitMultiZipParams.new({doc_source_zip_file_ref: nil, multi_zip_jobs: [OpenapiClient::MultiZipJobItem.new({filename: 'filename_example', recipient_address_source: nil})]}) # SubmitMultiZipParams | 
 
 begin
-  # Submit a multi zip job
+  # Submitmultizipparams
   result = api_instance.submit_multi_zip_params(submit_multi_zip_params)
   p result
 rescue OpenapiClient::ApiError => e
@@ -260,7 +260,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Submit a multi zip job
+  # Submitmultizipparams
   data, status_code, headers = api_instance.submit_multi_zip_params_with_http_info(submit_multi_zip_params)
   p status_code # => 2xx
   p headers # => { ... }
@@ -294,9 +294,9 @@ end
 
 > <StandardResponse> submit_single_doc_params(submit_single_doc_params)
 
-Submit a single doc job
+Submitsingledocparams
 
-Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitSingleDocParams
 
 ### Examples
 
@@ -313,7 +313,7 @@ api_instance = OpenapiClient::JobsApi.new
 submit_single_doc_params = OpenapiClient::SubmitSingleDocParams.new({doc_source_all: nil, recipient_address_source: nil}) # SubmitSingleDocParams | 
 
 begin
-  # Submit a single doc job
+  # Submitsingledocparams
   result = api_instance.submit_single_doc_params(submit_single_doc_params)
   p result
 rescue OpenapiClient::ApiError => e
@@ -329,7 +329,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Submit a single doc job
+  # Submitsingledocparams
   data, status_code, headers = api_instance.submit_single_doc_params_with_http_info(submit_single_doc_params)
   p status_code # => 2xx
   p headers # => { ... }
@@ -363,9 +363,9 @@ end
 
 > <StandardResponse> submit_single_pdf_address_capture_params(submit_single_pdf_address_capture_params)
 
-Submit a single pdf addressCapture job
+Submitsinglepdfaddresscaptureparams
 
-Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitSinglePdfAddressCaptureParams
 
 ### Examples
 
@@ -382,7 +382,7 @@ api_instance = OpenapiClient::JobsApi.new
 submit_single_pdf_address_capture_params = OpenapiClient::SubmitSinglePdfAddressCaptureParams.new({doc_source_standard: nil}) # SubmitSinglePdfAddressCaptureParams | 
 
 begin
-  # Submit a single pdf addressCapture job
+  # Submitsinglepdfaddresscaptureparams
   result = api_instance.submit_single_pdf_address_capture_params(submit_single_pdf_address_capture_params)
   p result
 rescue OpenapiClient::ApiError => e
@@ -398,7 +398,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Submit a single pdf addressCapture job
+  # Submitsinglepdfaddresscaptureparams
   data, status_code, headers = api_instance.submit_single_pdf_address_capture_params_with_http_info(submit_single_pdf_address_capture_params)
   p status_code # => 2xx
   p headers # => { ... }
@@ -432,9 +432,9 @@ end
 
 > <StandardResponse> submit_single_pdf_split_address_capture_params(submit_single_pdf_split_address_capture_params)
 
-Submit a single pdf split addressCapture job
+Submitsinglepdfsplitaddresscaptureparams
 
-Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitSinglePdfSplitAddressCaptureParams
 
 ### Examples
 
@@ -451,7 +451,7 @@ api_instance = OpenapiClient::JobsApi.new
 submit_single_pdf_split_address_capture_params = OpenapiClient::SubmitSinglePdfSplitAddressCaptureParams.new({doc_source_standard: nil, pdf_split_jobs_no_address: [OpenapiClient::PdfSplitJobItemNoAddress.new({start_page: 37, end_page: 37})]}) # SubmitSinglePdfSplitAddressCaptureParams | 
 
 begin
-  # Submit a single pdf split addressCapture job
+  # Submitsinglepdfsplitaddresscaptureparams
   result = api_instance.submit_single_pdf_split_address_capture_params(submit_single_pdf_split_address_capture_params)
   p result
 rescue OpenapiClient::ApiError => e
@@ -467,7 +467,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Submit a single pdf split addressCapture job
+  # Submitsinglepdfsplitaddresscaptureparams
   data, status_code, headers = api_instance.submit_single_pdf_split_address_capture_params_with_http_info(submit_single_pdf_split_address_capture_params)
   p status_code # => 2xx
   p headers # => { ... }
@@ -501,9 +501,9 @@ end
 
 > <StandardResponse> submit_single_pdf_split_params(submit_single_pdf_split_params)
 
-Submit a single pdf split job
+Submitsinglepdfsplitparams
 
-Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+API endpoint for submitSinglePdfSplitParams
 
 ### Examples
 
@@ -520,7 +520,7 @@ api_instance = OpenapiClient::JobsApi.new
 submit_single_pdf_split_params = OpenapiClient::SubmitSinglePdfSplitParams.new({doc_source_standard: nil, pdf_split_jobs_with_address: [OpenapiClient::PdfSplitJobItemWithAddress.new({start_page: 37, end_page: 37, recipient_address_source: nil})]}) # SubmitSinglePdfSplitParams | 
 
 begin
-  # Submit a single pdf split job
+  # Submitsinglepdfsplitparams
   result = api_instance.submit_single_pdf_split_params(submit_single_pdf_split_params)
   p result
 rescue OpenapiClient::ApiError => e
@@ -536,7 +536,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Submit a single pdf split job
+  # Submitsinglepdfsplitparams
   data, status_code, headers = api_instance.submit_single_pdf_split_params_with_http_info(submit_single_pdf_split_params)
   p status_code # => 2xx
   p headers # => { ... }

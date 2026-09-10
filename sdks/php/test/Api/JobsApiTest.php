@@ -74,7 +74,7 @@ class JobsApiTest extends TestCase
     /**
      * Test case for submitMultiDocMergeParams
      *
-     * Submit a multi doc merge job.
+     * Submitmultidocmergeparams.
      *
      */
     public function testSubmitMultiDocMergeParams()
@@ -86,7 +86,7 @@ class JobsApiTest extends TestCase
     /**
      * Test case for submitMultiDocParams
      *
-     * Submit a multi doc job.
+     * Submitmultidocparams.
      *
      */
     public function testSubmitMultiDocParams()
@@ -98,7 +98,7 @@ class JobsApiTest extends TestCase
     /**
      * Test case for submitMultiZipAddressCaptureParams
      *
-     * Submit a multi zip addressCapture job.
+     * Submitmultizipaddresscaptureparams.
      *
      */
     public function testSubmitMultiZipAddressCaptureParams()
@@ -110,7 +110,7 @@ class JobsApiTest extends TestCase
     /**
      * Test case for submitMultiZipParams
      *
-     * Submit a multi zip job.
+     * Submitmultizipparams.
      *
      */
     public function testSubmitMultiZipParams()
@@ -122,7 +122,7 @@ class JobsApiTest extends TestCase
     /**
      * Test case for submitSingleDocParams
      *
-     * Submit a single doc job.
+     * Submitsingledocparams.
      *
      */
     public function testSubmitSingleDocParams()
@@ -134,7 +134,7 @@ class JobsApiTest extends TestCase
     /**
      * Test case for submitSinglePdfAddressCaptureParams
      *
-     * Submit a single pdf addressCapture job.
+     * Submitsinglepdfaddresscaptureparams.
      *
      */
     public function testSubmitSinglePdfAddressCaptureParams()
@@ -146,7 +146,7 @@ class JobsApiTest extends TestCase
     /**
      * Test case for submitSinglePdfSplitAddressCaptureParams
      *
-     * Submit a single pdf split addressCapture job.
+     * Submitsinglepdfsplitaddresscaptureparams.
      *
      */
     public function testSubmitSinglePdfSplitAddressCaptureParams()
@@ -158,7 +158,7 @@ class JobsApiTest extends TestCase
     /**
      * Test case for submitSinglePdfSplitParams
      *
-     * Submit a single pdf split job.
+     * Submitsinglepdfsplitparams.
      *
      */
     public function testSubmitSinglePdfSplitParams()

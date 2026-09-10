@@ -19,8 +19,8 @@ module OpenapiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Submit a multi doc merge job
-    # Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitmultidocmergeparams
+    # API endpoint for submitMultiDocMergeParams
     # @param submit_multi_doc_merge_params [SubmitMultiDocMergeParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -29,8 +29,8 @@ module OpenapiClient
       data
     end
 
-    # Submit a multi doc merge job
-    # Submits a mailing job (multi doc merge). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitmultidocmergeparams
+    # API endpoint for submitMultiDocMergeParams
     # @param submit_multi_doc_merge_params [SubmitMultiDocMergeParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -43,7 +43,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'submit_multi_doc_merge_params' when calling JobsApi.submit_multi_doc_merge_params"
       end
       # resource path
-      local_var_path = '/jobs/submit/multi/doc/merge'
+      local_var_path = '/mail-merge'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -87,8 +87,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submit a multi doc job
-    # Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitmultidocparams
+    # API endpoint for submitMultiDocParams
     # @param submit_multi_doc_params [SubmitMultiDocParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -97,8 +97,8 @@ module OpenapiClient
       data
     end
 
-    # Submit a multi doc job
-    # Submits a mailing job (multi doc). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitmultidocparams
+    # API endpoint for submitMultiDocParams
     # @param submit_multi_doc_params [SubmitMultiDocParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -111,7 +111,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'submit_multi_doc_params' when calling JobsApi.submit_multi_doc_params"
       end
       # resource path
-      local_var_path = '/jobs/submit/multi/doc'
+      local_var_path = '/static/multi'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -155,8 +155,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submit a multi zip addressCapture job
-    # Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitmultizipaddresscaptureparams
+    # API endpoint for submitMultiZipAddressCaptureParams
     # @param submit_multi_zip_address_capture_params [SubmitMultiZipAddressCaptureParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -165,8 +165,8 @@ module OpenapiClient
       data
     end
 
-    # Submit a multi zip addressCapture job
-    # Submits a mailing job (multi zip addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitmultizipaddresscaptureparams
+    # API endpoint for submitMultiZipAddressCaptureParams
     # @param submit_multi_zip_address_capture_params [SubmitMultiZipAddressCaptureParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -179,7 +179,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'submit_multi_zip_address_capture_params' when calling JobsApi.submit_multi_zip_address_capture_params"
       end
       # resource path
-      local_var_path = '/jobs/submit/multi/zip/addressCapture'
+      local_var_path = '/batch/zip/address-capture'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -223,8 +223,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submit a multi zip job
-    # Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitmultizipparams
+    # API endpoint for submitMultiZipParams
     # @param submit_multi_zip_params [SubmitMultiZipParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -233,8 +233,8 @@ module OpenapiClient
       data
     end
 
-    # Submit a multi zip job
-    # Submits a mailing job (multi zip). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitmultizipparams
+    # API endpoint for submitMultiZipParams
     # @param submit_multi_zip_params [SubmitMultiZipParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -247,7 +247,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'submit_multi_zip_params' when calling JobsApi.submit_multi_zip_params"
       end
       # resource path
-      local_var_path = '/jobs/submit/multi/zip'
+      local_var_path = '/batch/zip'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -291,8 +291,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submit a single doc job
-    # Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitsingledocparams
+    # API endpoint for submitSingleDocParams
     # @param submit_single_doc_params [SubmitSingleDocParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -301,8 +301,8 @@ module OpenapiClient
       data
     end
 
-    # Submit a single doc job
-    # Submits a mailing job (single doc). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitsingledocparams
+    # API endpoint for submitSingleDocParams
     # @param submit_single_doc_params [SubmitSingleDocParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -315,7 +315,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'submit_single_doc_params' when calling JobsApi.submit_single_doc_params"
       end
       # resource path
-      local_var_path = '/jobs/submit/single/doc'
+      local_var_path = '/static'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -359,8 +359,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submit a single pdf addressCapture job
-    # Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitsinglepdfaddresscaptureparams
+    # API endpoint for submitSinglePdfAddressCaptureParams
     # @param submit_single_pdf_address_capture_params [SubmitSinglePdfAddressCaptureParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -369,8 +369,8 @@ module OpenapiClient
       data
     end
 
-    # Submit a single pdf addressCapture job
-    # Submits a mailing job (single pdf addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitsinglepdfaddresscaptureparams
+    # API endpoint for submitSinglePdfAddressCaptureParams
     # @param submit_single_pdf_address_capture_params [SubmitSinglePdfAddressCaptureParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -383,7 +383,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'submit_single_pdf_address_capture_params' when calling JobsApi.submit_single_pdf_address_capture_params"
       end
       # resource path
-      local_var_path = '/jobs/submit/single/pdf/addressCapture'
+      local_var_path = '/static/address-capture'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -427,8 +427,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submit a single pdf split addressCapture job
-    # Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitsinglepdfsplitaddresscaptureparams
+    # API endpoint for submitSinglePdfSplitAddressCaptureParams
     # @param submit_single_pdf_split_address_capture_params [SubmitSinglePdfSplitAddressCaptureParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -437,8 +437,8 @@ module OpenapiClient
       data
     end
 
-    # Submit a single pdf split addressCapture job
-    # Submits a mailing job (single pdf split addressCapture). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitsinglepdfsplitaddresscaptureparams
+    # API endpoint for submitSinglePdfSplitAddressCaptureParams
     # @param submit_single_pdf_split_address_capture_params [SubmitSinglePdfSplitAddressCaptureParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -451,7 +451,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'submit_single_pdf_split_address_capture_params' when calling JobsApi.submit_single_pdf_split_address_capture_params"
       end
       # resource path
-      local_var_path = '/jobs/submit/single/pdf/split/addressCapture'
+      local_var_path = '/batch/split/address-capture'
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -495,8 +495,8 @@ module OpenapiClient
       return data, status_code, headers
     end
 
-    # Submit a single pdf split job
-    # Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitsinglepdfsplitparams
+    # API endpoint for submitSinglePdfSplitParams
     # @param submit_single_pdf_split_params [SubmitSinglePdfSplitParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -505,8 +505,8 @@ module OpenapiClient
       data
     end
 
-    # Submit a single pdf split job
-    # Submits a mailing job (single pdf split). The request body contains job parameters including document source, recipient address information, and payment details.
+    # Submitsinglepdfsplitparams
+    # API endpoint for submitSinglePdfSplitParams
     # @param submit_single_pdf_split_params [SubmitSinglePdfSplitParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers
@@ -519,7 +519,7 @@ module OpenapiClient
         fail ArgumentError, "Missing the required parameter 'submit_single_pdf_split_params' when calling JobsApi.submit_single_pdf_split_params"
       end
       # resource path
-      local_var_path = '/jobs/submit/single/pdf/split'
+      local_var_path = '/batch/split'
 
       # query parameters
       query_params = opts[:query_params] || {}

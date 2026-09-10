@@ -149,7 +149,7 @@ class JobsApi
     /**
      * Operation submitMultiDocMergeParams
      *
-     * Submit a multi doc merge job
+     * Submitmultidocmergeparams
      *
      * @param  \C2MApi\Model\SubmitMultiDocMergeParams $submit_multi_doc_merge_params submit_multi_doc_merge_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiDocMergeParams'] to see the possible values for this operation
@@ -167,7 +167,7 @@ class JobsApi
     /**
      * Operation submitMultiDocMergeParamsWithHttpInfo
      *
-     * Submit a multi doc merge job
+     * Submitmultidocmergeparams
      *
      * @param  \C2MApi\Model\SubmitMultiDocMergeParams $submit_multi_doc_merge_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiDocMergeParams'] to see the possible values for this operation
@@ -336,7 +336,7 @@ class JobsApi
     /**
      * Operation submitMultiDocMergeParamsAsync
      *
-     * Submit a multi doc merge job
+     * Submitmultidocmergeparams
      *
      * @param  \C2MApi\Model\SubmitMultiDocMergeParams $submit_multi_doc_merge_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiDocMergeParams'] to see the possible values for this operation
@@ -357,7 +357,7 @@ class JobsApi
     /**
      * Operation submitMultiDocMergeParamsAsyncWithHttpInfo
      *
-     * Submit a multi doc merge job
+     * Submitmultidocmergeparams
      *
      * @param  \C2MApi\Model\SubmitMultiDocMergeParams $submit_multi_doc_merge_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiDocMergeParams'] to see the possible values for this operation
@@ -426,7 +426,7 @@ class JobsApi
         }
 
 
-        $resourcePath = '/jobs/submit/multi/doc/merge';
+        $resourcePath = '/mail-merge';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -504,7 +504,7 @@ class JobsApi
     /**
      * Operation submitMultiDocParams
      *
-     * Submit a multi doc job
+     * Submitmultidocparams
      *
      * @param  \C2MApi\Model\SubmitMultiDocParams $submit_multi_doc_params submit_multi_doc_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiDocParams'] to see the possible values for this operation
@@ -522,7 +522,7 @@ class JobsApi
     /**
      * Operation submitMultiDocParamsWithHttpInfo
      *
-     * Submit a multi doc job
+     * Submitmultidocparams
      *
      * @param  \C2MApi\Model\SubmitMultiDocParams $submit_multi_doc_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiDocParams'] to see the possible values for this operation
@@ -691,7 +691,7 @@ class JobsApi
     /**
      * Operation submitMultiDocParamsAsync
      *
-     * Submit a multi doc job
+     * Submitmultidocparams
      *
      * @param  \C2MApi\Model\SubmitMultiDocParams $submit_multi_doc_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiDocParams'] to see the possible values for this operation
@@ -712,7 +712,7 @@ class JobsApi
     /**
      * Operation submitMultiDocParamsAsyncWithHttpInfo
      *
-     * Submit a multi doc job
+     * Submitmultidocparams
      *
      * @param  \C2MApi\Model\SubmitMultiDocParams $submit_multi_doc_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiDocParams'] to see the possible values for this operation
@@ -781,7 +781,7 @@ class JobsApi
         }
 
 
-        $resourcePath = '/jobs/submit/multi/doc';
+        $resourcePath = '/static/multi';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -859,7 +859,7 @@ class JobsApi
     /**
      * Operation submitMultiZipAddressCaptureParams
      *
-     * Submit a multi zip addressCapture job
+     * Submitmultizipaddresscaptureparams
      *
      * @param  \C2MApi\Model\SubmitMultiZipAddressCaptureParams $submit_multi_zip_address_capture_params submit_multi_zip_address_capture_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiZipAddressCaptureParams'] to see the possible values for this operation
@@ -877,7 +877,7 @@ class JobsApi
     /**
      * Operation submitMultiZipAddressCaptureParamsWithHttpInfo
      *
-     * Submit a multi zip addressCapture job
+     * Submitmultizipaddresscaptureparams
      *
      * @param  \C2MApi\Model\SubmitMultiZipAddressCaptureParams $submit_multi_zip_address_capture_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiZipAddressCaptureParams'] to see the possible values for this operation
@@ -1046,7 +1046,7 @@ class JobsApi
     /**
      * Operation submitMultiZipAddressCaptureParamsAsync
      *
-     * Submit a multi zip addressCapture job
+     * Submitmultizipaddresscaptureparams
      *
      * @param  \C2MApi\Model\SubmitMultiZipAddressCaptureParams $submit_multi_zip_address_capture_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiZipAddressCaptureParams'] to see the possible values for this operation
@@ -1067,7 +1067,7 @@ class JobsApi
     /**
      * Operation submitMultiZipAddressCaptureParamsAsyncWithHttpInfo
      *
-     * Submit a multi zip addressCapture job
+     * Submitmultizipaddresscaptureparams
      *
      * @param  \C2MApi\Model\SubmitMultiZipAddressCaptureParams $submit_multi_zip_address_capture_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiZipAddressCaptureParams'] to see the possible values for this operation
@@ -1136,7 +1136,7 @@ class JobsApi
         }
 
 
-        $resourcePath = '/jobs/submit/multi/zip/addressCapture';
+        $resourcePath = '/batch/zip/address-capture';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1214,7 +1214,7 @@ class JobsApi
     /**
      * Operation submitMultiZipParams
      *
-     * Submit a multi zip job
+     * Submitmultizipparams
      *
      * @param  \C2MApi\Model\SubmitMultiZipParams $submit_multi_zip_params submit_multi_zip_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiZipParams'] to see the possible values for this operation
@@ -1232,7 +1232,7 @@ class JobsApi
     /**
      * Operation submitMultiZipParamsWithHttpInfo
      *
-     * Submit a multi zip job
+     * Submitmultizipparams
      *
      * @param  \C2MApi\Model\SubmitMultiZipParams $submit_multi_zip_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiZipParams'] to see the possible values for this operation
@@ -1401,7 +1401,7 @@ class JobsApi
     /**
      * Operation submitMultiZipParamsAsync
      *
-     * Submit a multi zip job
+     * Submitmultizipparams
      *
      * @param  \C2MApi\Model\SubmitMultiZipParams $submit_multi_zip_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiZipParams'] to see the possible values for this operation
@@ -1422,7 +1422,7 @@ class JobsApi
     /**
      * Operation submitMultiZipParamsAsyncWithHttpInfo
      *
-     * Submit a multi zip job
+     * Submitmultizipparams
      *
      * @param  \C2MApi\Model\SubmitMultiZipParams $submit_multi_zip_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitMultiZipParams'] to see the possible values for this operation
@@ -1491,7 +1491,7 @@ class JobsApi
         }
 
 
-        $resourcePath = '/jobs/submit/multi/zip';
+        $resourcePath = '/batch/zip';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1569,7 +1569,7 @@ class JobsApi
     /**
      * Operation submitSingleDocParams
      *
-     * Submit a single doc job
+     * Submitsingledocparams
      *
      * @param  \C2MApi\Model\SubmitSingleDocParams $submit_single_doc_params submit_single_doc_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSingleDocParams'] to see the possible values for this operation
@@ -1587,7 +1587,7 @@ class JobsApi
     /**
      * Operation submitSingleDocParamsWithHttpInfo
      *
-     * Submit a single doc job
+     * Submitsingledocparams
      *
      * @param  \C2MApi\Model\SubmitSingleDocParams $submit_single_doc_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSingleDocParams'] to see the possible values for this operation
@@ -1756,7 +1756,7 @@ class JobsApi
     /**
      * Operation submitSingleDocParamsAsync
      *
-     * Submit a single doc job
+     * Submitsingledocparams
      *
      * @param  \C2MApi\Model\SubmitSingleDocParams $submit_single_doc_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSingleDocParams'] to see the possible values for this operation
@@ -1777,7 +1777,7 @@ class JobsApi
     /**
      * Operation submitSingleDocParamsAsyncWithHttpInfo
      *
-     * Submit a single doc job
+     * Submitsingledocparams
      *
      * @param  \C2MApi\Model\SubmitSingleDocParams $submit_single_doc_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSingleDocParams'] to see the possible values for this operation
@@ -1846,7 +1846,7 @@ class JobsApi
         }
 
 
-        $resourcePath = '/jobs/submit/single/doc';
+        $resourcePath = '/static';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1924,7 +1924,7 @@ class JobsApi
     /**
      * Operation submitSinglePdfAddressCaptureParams
      *
-     * Submit a single pdf addressCapture job
+     * Submitsinglepdfaddresscaptureparams
      *
      * @param  \C2MApi\Model\SubmitSinglePdfAddressCaptureParams $submit_single_pdf_address_capture_params submit_single_pdf_address_capture_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSinglePdfAddressCaptureParams'] to see the possible values for this operation
@@ -1942,7 +1942,7 @@ class JobsApi
     /**
      * Operation submitSinglePdfAddressCaptureParamsWithHttpInfo
      *
-     * Submit a single pdf addressCapture job
+     * Submitsinglepdfaddresscaptureparams
      *
      * @param  \C2MApi\Model\SubmitSinglePdfAddressCaptureParams $submit_single_pdf_address_capture_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSinglePdfAddressCaptureParams'] to see the possible values for this operation
@@ -2111,7 +2111,7 @@ class JobsApi
     /**
      * Operation submitSinglePdfAddressCaptureParamsAsync
      *
-     * Submit a single pdf addressCapture job
+     * Submitsinglepdfaddresscaptureparams
      *
      * @param  \C2MApi\Model\SubmitSinglePdfAddressCaptureParams $submit_single_pdf_address_capture_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSinglePdfAddressCaptureParams'] to see the possible values for this operation
@@ -2132,7 +2132,7 @@ class JobsApi
     /**
      * Operation submitSinglePdfAddressCaptureParamsAsyncWithHttpInfo
      *
-     * Submit a single pdf addressCapture job
+     * Submitsinglepdfaddresscaptureparams
      *
      * @param  \C2MApi\Model\SubmitSinglePdfAddressCaptureParams $submit_single_pdf_address_capture_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSinglePdfAddressCaptureParams'] to see the possible values for this operation
@@ -2201,7 +2201,7 @@ class JobsApi
         }
 
 
-        $resourcePath = '/jobs/submit/single/pdf/addressCapture';
+        $resourcePath = '/static/address-capture';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2279,7 +2279,7 @@ class JobsApi
     /**
      * Operation submitSinglePdfSplitAddressCaptureParams
      *
-     * Submit a single pdf split addressCapture job
+     * Submitsinglepdfsplitaddresscaptureparams
      *
      * @param  \C2MApi\Model\SubmitSinglePdfSplitAddressCaptureParams $submit_single_pdf_split_address_capture_params submit_single_pdf_split_address_capture_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSinglePdfSplitAddressCaptureParams'] to see the possible values for this operation
@@ -2297,7 +2297,7 @@ class JobsApi
     /**
      * Operation submitSinglePdfSplitAddressCaptureParamsWithHttpInfo
      *
-     * Submit a single pdf split addressCapture job
+     * Submitsinglepdfsplitaddresscaptureparams
      *
      * @param  \C2MApi\Model\SubmitSinglePdfSplitAddressCaptureParams $submit_single_pdf_split_address_capture_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSinglePdfSplitAddressCaptureParams'] to see the possible values for this operation
@@ -2466,7 +2466,7 @@ class JobsApi
     /**
      * Operation submitSinglePdfSplitAddressCaptureParamsAsync
      *
-     * Submit a single pdf split addressCapture job
+     * Submitsinglepdfsplitaddresscaptureparams
      *
      * @param  \C2MApi\Model\SubmitSinglePdfSplitAddressCaptureParams $submit_single_pdf_split_address_capture_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSinglePdfSplitAddressCaptureParams'] to see the possible values for this operation
@@ -2487,7 +2487,7 @@ class JobsApi
     /**
      * Operation submitSinglePdfSplitAddressCaptureParamsAsyncWithHttpInfo
      *
-     * Submit a single pdf split addressCapture job
+     * Submitsinglepdfsplitaddresscaptureparams
      *
      * @param  \C2MApi\Model\SubmitSinglePdfSplitAddressCaptureParams $submit_single_pdf_split_address_capture_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSinglePdfSplitAddressCaptureParams'] to see the possible values for this operation
@@ -2556,7 +2556,7 @@ class JobsApi
         }
 
 
-        $resourcePath = '/jobs/submit/single/pdf/split/addressCapture';
+        $resourcePath = '/batch/split/address-capture';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2634,7 +2634,7 @@ class JobsApi
     /**
      * Operation submitSinglePdfSplitParams
      *
-     * Submit a single pdf split job
+     * Submitsinglepdfsplitparams
      *
      * @param  \C2MApi\Model\SubmitSinglePdfSplitParams $submit_single_pdf_split_params submit_single_pdf_split_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSinglePdfSplitParams'] to see the possible values for this operation
@@ -2652,7 +2652,7 @@ class JobsApi
     /**
      * Operation submitSinglePdfSplitParamsWithHttpInfo
      *
-     * Submit a single pdf split job
+     * Submitsinglepdfsplitparams
      *
      * @param  \C2MApi\Model\SubmitSinglePdfSplitParams $submit_single_pdf_split_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSinglePdfSplitParams'] to see the possible values for this operation
@@ -2821,7 +2821,7 @@ class JobsApi
     /**
      * Operation submitSinglePdfSplitParamsAsync
      *
-     * Submit a single pdf split job
+     * Submitsinglepdfsplitparams
      *
      * @param  \C2MApi\Model\SubmitSinglePdfSplitParams $submit_single_pdf_split_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSinglePdfSplitParams'] to see the possible values for this operation
@@ -2842,7 +2842,7 @@ class JobsApi
     /**
      * Operation submitSinglePdfSplitParamsAsyncWithHttpInfo
      *
-     * Submit a single pdf split job
+     * Submitsinglepdfsplitparams
      *
      * @param  \C2MApi\Model\SubmitSinglePdfSplitParams $submit_single_pdf_split_params (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSinglePdfSplitParams'] to see the possible values for this operation
@@ -2911,7 +2911,7 @@ class JobsApi
         }
 
 
-        $resourcePath = '/jobs/submit/single/pdf/split';
+        $resourcePath = '/batch/split';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
