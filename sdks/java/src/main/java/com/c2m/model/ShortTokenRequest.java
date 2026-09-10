@@ -50,7 +50,7 @@ import com.c2m.JSON;
 /**
  * ShortTokenRequest
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-10T02:47:29.155964107Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-10T03:21:45.041719288Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ShortTokenRequest {
   public static final String SERIALIZED_NAME_LONG_TOKEN = "long_token";
   @SerializedName(SERIALIZED_NAME_LONG_TOKEN)
