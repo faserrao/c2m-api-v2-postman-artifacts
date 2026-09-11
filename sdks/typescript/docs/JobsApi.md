@@ -5,7 +5,6 @@ All URIs are relative to *https://api.click2mail.com/v2*
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
 |[**submitMultiDocMergeParams**](#submitmultidocmergeparams) | **POST** /mail-merge | Submit mail merge|
-|[**submitMultiDocParams**](#submitmultidocparams) | **POST** /static/multi | Submit multiple documents|
 |[**submitMultiZipAddressCaptureParams**](#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture|
 |[**submitMultiZipParams**](#submitmultizipparams) | **POST** /batch/zip | Submit ZIP batch|
 |[**submitSingleDocParams**](#submitsingledocparams) | **POST** /static | Submit single document|
@@ -42,64 +41,6 @@ const { status, data } = await apiInstance.submitMultiDocMergeParams(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **submitMultiDocMergeParams** | **SubmitMultiDocMergeParams**|  | |
-
-
-### Return type
-
-**StandardResponse**
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Success |  -  |
-|**400** | Bad Request - Invalid request parameters |  -  |
-|**401** | Unauthorized - Missing or invalid authentication |  -  |
-|**403** | Forbidden - Insufficient permissions |  -  |
-|**404** | Not Found - Resource not found |  -  |
-|**422** | Unprocessable Entity - Validation failed |  -  |
-|**500** | Internal Server Error - Server encountered an error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **submitMultiDocParams**
-> StandardResponse submitMultiDocParams(submitMultiDocParams)
-
-Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
-
-### Example
-
-```typescript
-import {
-    JobsApi,
-    Configuration,
-    SubmitMultiDocParams
-} from './api';
-
-const configuration = new Configuration();
-const apiInstance = new JobsApi(configuration);
-
-let submitMultiDocParams: SubmitMultiDocParams; //
-
-const { status, data } = await apiInstance.submitMultiDocParams(
-    submitMultiDocParams
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **submitMultiDocParams** | **SubmitMultiDocParams**|  | |
 
 
 ### Return type

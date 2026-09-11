@@ -67,7 +67,6 @@ __all__ = [
     "ShortTokenResponse",
     "StandardResponse",
     "SubmitMultiDocMergeParams",
-    "SubmitMultiDocParams",
     "SubmitMultiZipAddressCaptureParams",
     "SubmitMultiZipParams",
     "SubmitSingleDocParams",
@@ -135,7 +134,6 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.short_token_response import ShortTokenResponse as ShortTokenResponse
     from c2m_api.models.standard_response import StandardResponse as StandardResponse
     from c2m_api.models.submit_multi_doc_merge_params import SubmitMultiDocMergeParams as SubmitMultiDocMergeParams
-    from c2m_api.models.submit_multi_doc_params import SubmitMultiDocParams as SubmitMultiDocParams
     from c2m_api.models.submit_multi_zip_address_capture_params import SubmitMultiZipAddressCaptureParams as SubmitMultiZipAddressCaptureParams
     from c2m_api.models.submit_multi_zip_params import SubmitMultiZipParams as SubmitMultiZipParams
     from c2m_api.models.submit_single_doc_params import SubmitSingleDocParams as SubmitSingleDocParams
@@ -209,7 +207,6 @@ from c2m_api.models.short_token_request import ShortTokenRequest as ShortTokenRe
 from c2m_api.models.short_token_response import ShortTokenResponse as ShortTokenResponse
 from c2m_api.models.standard_response import StandardResponse as StandardResponse
 from c2m_api.models.submit_multi_doc_merge_params import SubmitMultiDocMergeParams as SubmitMultiDocMergeParams
-from c2m_api.models.submit_multi_doc_params import SubmitMultiDocParams as SubmitMultiDocParams
 from c2m_api.models.submit_multi_zip_address_capture_params import SubmitMultiZipAddressCaptureParams as SubmitMultiZipAddressCaptureParams
 from c2m_api.models.submit_multi_zip_params import SubmitMultiZipParams as SubmitMultiZipParams
 from c2m_api.models.submit_single_doc_params import SubmitSingleDocParams as SubmitSingleDocParams

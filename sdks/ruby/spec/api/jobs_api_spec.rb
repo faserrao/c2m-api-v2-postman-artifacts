@@ -44,18 +44,6 @@ describe 'JobsApi' do
     end
   end
 
-  # unit tests for submit_multi_doc_params
-  # Submit multiple documents
-  # Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
-  # @param submit_multi_doc_params 
-  # @param [Hash] opts the optional parameters
-  # @return [StandardResponse]
-  describe 'submit_multi_doc_params test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
   # unit tests for submit_multi_zip_address_capture_params
   # Submit ZIP batch — address capture
   # Submits a ZIP-based mailing batch where recipient addresses are captured externally. No inline recipient addresses are required.

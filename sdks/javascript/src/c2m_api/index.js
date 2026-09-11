@@ -51,7 +51,6 @@ import ShortTokenRequest from './model/ShortTokenRequest';
 import ShortTokenResponse from './model/ShortTokenResponse';
 import StandardResponse from './model/StandardResponse';
 import SubmitMultiDocMergeParams from './model/SubmitMultiDocMergeParams';
-import SubmitMultiDocParams from './model/SubmitMultiDocParams';
 import SubmitMultiZipAddressCaptureParams from './model/SubmitMultiZipAddressCaptureParams';
 import SubmitMultiZipParams from './model/SubmitMultiZipParams';
 import SubmitSingleDocParams from './model/SubmitSingleDocParams';
@@ -331,12 +330,6 @@ export {
      * @property {module:c2m_api/model/SubmitMultiDocMergeParams}
      */
     SubmitMultiDocMergeParams,
-
-    /**
-     * The SubmitMultiDocParams model constructor.
-     * @property {module:c2m_api/model/SubmitMultiDocParams}
-     */
-    SubmitMultiDocParams,
 
     /**
      * The SubmitMultiZipAddressCaptureParams model constructor.

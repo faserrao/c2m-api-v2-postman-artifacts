@@ -4,4 +4,4 @@
 
 | Collection | Pass | Fail | Skip |
 |---|---|---|---|
-| c2mapiv2-linked-collection-flat.json | 10 | 0 | 1 |
+| c2mapiv2-linked-collection-flat.json | 9 | 0 | 1 |

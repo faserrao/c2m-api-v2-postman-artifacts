@@ -5,7 +5,6 @@ All URIs are relative to *https://api.click2mail.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**submitMultiDocMergeParams**](JobsAPI.md#submitmultidocmergeparams) | **POST** /mail-merge | Submit mail merge
-[**submitMultiDocParams**](JobsAPI.md#submitmultidocparams) | **POST** /static/multi | Submit multiple documents
 [**submitMultiZipAddressCaptureParams**](JobsAPI.md#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
 [**submitMultiZipParams**](JobsAPI.md#submitmultizipparams) | **POST** /batch/zip | Submit ZIP batch
 [**submitSingleDocParams**](JobsAPI.md#submitsingledocparams) | **POST** /static | Submit single document
@@ -48,56 +47,6 @@ JobsAPI.submitMultiDocMergeParams(submitMultiDocMergeParams: submitMultiDocMerge
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **submitMultiDocMergeParams** | [**SubmitMultiDocMergeParams**](SubmitMultiDocMergeParams.md) |  | 
-
-### Return type
-
-[**StandardResponse**](StandardResponse.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **submitMultiDocParams**
-```swift
-    open class func submitMultiDocParams(submitMultiDocParams: SubmitMultiDocParams, completion: @escaping (_ data: StandardResponse?, _ error: Error?) -> Void)
-```
-
-Submit multiple documents
-
-Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
-
-### Example
-```swift
-// The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
-import OpenAPIClient
-
-let submitMultiDocParams = submitMultiDocParams(multiDocJobs: [multiDocJobItem(jobTemplate: "jobTemplate_example", docSourceAll: docSourceAll(requestId: 123, filename: "filename_example", zipDocumentId: 123, zipFilename: "zipFilename_example"), recipientAddressSource: recipientAddressSource(mappingId: 123, singleAddress: address(firstName: "firstName_example", lastName: "lastName_example", address1: "address1_example", city: "city_example", state: "state_example", zip: "zip_example", country: "country_example", address2: "address2_example", address3: "address3_example", foo1: "foo1_example", foo2: "foo2_example"), addressName: "addressName_example", addressList: [nil], addressListName: "addressListName_example"))], paymentDetails: paymentDetails(creditCardDetails: creditCardDetails(cardType: "cardType_example", cardNumber: "cardNumber_example", expirationDate: expirationDate(month: 123, year: 123), cvv: 123), invoiceDetails: invoiceDetails(invoiceNumber: "invoiceNumber_example", amountDue: 123), achDetails: achDetails(routingNumber: "routingNumber_example", accountNumber: "accountNumber_example", checkDigit: 123), creditAmount: creditAmount(amount: 123, currency: "currency_example")), tags: ["tags_example"]) // SubmitMultiDocParams | 
-
-// Submit multiple documents
-JobsAPI.submitMultiDocParams(submitMultiDocParams: submitMultiDocParams) { (response, error) in
-    guard error == nil else {
-        print(error)
-        return
-    }
-
-    if (response) {
-        dump(response)
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **submitMultiDocParams** | [**SubmitMultiDocParams**](SubmitMultiDocParams.md) |  | 
 
 ### Return type
 

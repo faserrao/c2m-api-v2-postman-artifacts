@@ -84,18 +84,6 @@ class JobsApiTest extends TestCase
     }
 
     /**
-     * Test case for submitMultiDocParams
-     *
-     * Submit multiple documents.
-     *
-     */
-    public function testSubmitMultiDocParams()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for submitMultiZipAddressCaptureParams
      *
      * Submit ZIP batch — address capture.

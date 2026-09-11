@@ -16,7 +16,6 @@ import ApiClient from "../ApiClient";
 import ErrorResponse from '../model/ErrorResponse';
 import StandardResponse from '../model/StandardResponse';
 import SubmitMultiDocMergeParams from '../model/SubmitMultiDocMergeParams';
-import SubmitMultiDocParams from '../model/SubmitMultiDocParams';
 import SubmitMultiZipAddressCaptureParams from '../model/SubmitMultiZipAddressCaptureParams';
 import SubmitMultiZipParams from '../model/SubmitMultiZipParams';
 import SubmitSingleDocParams from '../model/SubmitSingleDocParams';
@@ -80,48 +79,6 @@ export default class JobsApi {
       let returnType = StandardResponse;
       return this.apiClient.callApi(
         '/mail-merge', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the submitMultiDocParams operation.
-     * @callback module:c2m_api/api/JobsApi~submitMultiDocParamsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:c2m_api/model/StandardResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Submit multiple documents
-     * Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
-     * @param {module:c2m_api/model/SubmitMultiDocParams} submitMultiDocParams 
-     * @param {module:c2m_api/api/JobsApi~submitMultiDocParamsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:c2m_api/model/StandardResponse}
-     */
-    submitMultiDocParams(submitMultiDocParams, callback) {
-      let postBody = submitMultiDocParams;
-      // verify the required parameter 'submitMultiDocParams' is set
-      if (submitMultiDocParams === undefined || submitMultiDocParams === null) {
-        throw new Error("Missing the required parameter 'submitMultiDocParams' when calling submitMultiDocParams");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['bearerAuth'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = StandardResponse;
-      return this.apiClient.callApi(
-        '/static/multi', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

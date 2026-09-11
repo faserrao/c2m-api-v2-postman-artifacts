@@ -63,18 +63,6 @@ namespace C2M.Api.Test.Api
         }
 
         /// <summary>
-        /// Test SubmitMultiDocParams
-        /// </summary>
-        [Fact (Skip = "not implemented")]
-        public async Task SubmitMultiDocParamsAsyncTest()
-        {
-            SubmitMultiDocParams submitMultiDocParams = default!;
-            var response = await _instance.SubmitMultiDocParamsAsync(submitMultiDocParams);
-            var model = response.Ok();
-            Assert.IsType<StandardResponse>(model);
-        }
-
-        /// <summary>
         /// Test SubmitMultiZipAddressCaptureParams
         /// </summary>
         [Fact (Skip = "not implemented")]

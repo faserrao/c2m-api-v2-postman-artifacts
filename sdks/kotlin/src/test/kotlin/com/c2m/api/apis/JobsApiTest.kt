@@ -22,7 +22,6 @@ import com.c2m.api.apis.JobsApi
 import com.c2m.api.models.ErrorResponse
 import com.c2m.api.models.StandardResponse
 import com.c2m.api.models.SubmitMultiDocMergeParams
-import com.c2m.api.models.SubmitMultiDocParams
 import com.c2m.api.models.SubmitMultiZipAddressCaptureParams
 import com.c2m.api.models.SubmitMultiZipParams
 import com.c2m.api.models.SubmitSingleDocParams
@@ -40,14 +39,6 @@ class JobsApiTest : ShouldSpec() {
             // uncomment below to test submitMultiDocMergeParams
             //val submitMultiDocMergeParams : SubmitMultiDocMergeParams =  // SubmitMultiDocMergeParams | 
             //val result : StandardResponse = apiInstance.submitMultiDocMergeParams(submitMultiDocMergeParams)
-            //result shouldBe ("TODO")
-        }
-
-        // to test submitMultiDocParams
-        should("test submitMultiDocParams") {
-            // uncomment below to test submitMultiDocParams
-            //val submitMultiDocParams : SubmitMultiDocParams =  // SubmitMultiDocParams | 
-            //val result : StandardResponse = apiInstance.submitMultiDocParams(submitMultiDocParams)
             //result shouldBe ("TODO")
         }
 

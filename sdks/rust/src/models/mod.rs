@@ -74,8 +74,6 @@ pub mod standard_response;
 pub use self::standard_response::StandardResponse;
 pub mod submit_multi_doc_merge_params;
 pub use self::submit_multi_doc_merge_params::SubmitMultiDocMergeParams;
-pub mod submit_multi_doc_params;
-pub use self::submit_multi_doc_params::SubmitMultiDocParams;
 pub mod submit_multi_zip_address_capture_params;
 pub use self::submit_multi_zip_address_capture_params::SubmitMultiZipAddressCaptureParams;
 pub mod submit_multi_zip_params;

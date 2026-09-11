@@ -5,7 +5,6 @@ All URIs are relative to *https://api.click2mail.com/v2*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**SubmitMultiDocMergeParams**](JobsApi.md#submitmultidocmergeparams) | **POST** /mail-merge | Submit mail merge |
-| [**SubmitMultiDocParams**](JobsApi.md#submitmultidocparams) | **POST** /static/multi | Submit multiple documents |
 | [**SubmitMultiZipAddressCaptureParams**](JobsApi.md#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture |
 | [**SubmitMultiZipParams**](JobsApi.md#submitmultizipparams) | **POST** /batch/zip | Submit ZIP batch |
 | [**SubmitSingleDocParams**](JobsApi.md#submitsingledocparams) | **POST** /static | Submit single document |
@@ -27,48 +26,6 @@ Merges multiple documents into a single mailing sent to one recipient. Useful fo
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **submitMultiDocMergeParams** | [**SubmitMultiDocMergeParams**](SubmitMultiDocMergeParams.md) |  |  |
-
-### Return type
-
-[**StandardResponse**](StandardResponse.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request - Invalid request parameters |  -  |
-| **401** | Unauthorized - Missing or invalid authentication |  -  |
-| **403** | Forbidden - Insufficient permissions |  -  |
-| **404** | Not Found - Resource not found |  -  |
-| **422** | Unprocessable Entity - Validation failed |  -  |
-| **500** | Internal Server Error - Server encountered an error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-<a id="submitmultidocparams"></a>
-# **SubmitMultiDocParams**
-> StandardResponse SubmitMultiDocParams (SubmitMultiDocParams submitMultiDocParams)
-
-Submit multiple documents
-
-Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
-
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **submitMultiDocParams** | [**SubmitMultiDocParams**](SubmitMultiDocParams.md) |  |  |
 
 ### Return type
 

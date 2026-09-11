@@ -5,7 +5,6 @@ All URIs are relative to *https://api.click2mail.com/v2*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**submit_multi_doc_merge_params**](JobsApi.md#submit_multi_doc_merge_params) | **POST** /mail-merge | Submit mail merge |
-| [**submit_multi_doc_params**](JobsApi.md#submit_multi_doc_params) | **POST** /static/multi | Submit multiple documents |
 | [**submit_multi_zip_address_capture_params**](JobsApi.md#submit_multi_zip_address_capture_params) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture |
 | [**submit_multi_zip_params**](JobsApi.md#submit_multi_zip_params) | **POST** /batch/zip | Submit ZIP batch |
 | [**submit_single_doc_params**](JobsApi.md#submit_single_doc_params) | **POST** /static | Submit single document |
@@ -68,75 +67,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **submit_multi_doc_merge_params** | [**SubmitMultiDocMergeParams**](SubmitMultiDocMergeParams.md) |  |  |
-
-### Return type
-
-[**StandardResponse**](StandardResponse.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## submit_multi_doc_params
-
-> <StandardResponse> submit_multi_doc_params(submit_multi_doc_params)
-
-Submit multiple documents
-
-Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
-
-### Examples
-
-```ruby
-require 'time'
-require 'openapi_client'
-# setup authorization
-OpenapiClient.configure do |config|
-  # Configure Bearer authorization (JWT): bearerAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = OpenapiClient::JobsApi.new
-submit_multi_doc_params = OpenapiClient::SubmitMultiDocParams.new({multi_doc_jobs: [OpenapiClient::MultiDocJobItem.new({doc_source_all: nil, recipient_address_source: nil})]}) # SubmitMultiDocParams | 
-
-begin
-  # Submit multiple documents
-  result = api_instance.submit_multi_doc_params(submit_multi_doc_params)
-  p result
-rescue OpenapiClient::ApiError => e
-  puts "Error when calling JobsApi->submit_multi_doc_params: #{e}"
-end
-```
-
-#### Using the submit_multi_doc_params_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<StandardResponse>, Integer, Hash)> submit_multi_doc_params_with_http_info(submit_multi_doc_params)
-
-```ruby
-begin
-  # Submit multiple documents
-  data, status_code, headers = api_instance.submit_multi_doc_params_with_http_info(submit_multi_doc_params)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <StandardResponse>
-rescue OpenapiClient::ApiError => e
-  puts "Error when calling JobsApi->submit_multi_doc_params_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **submit_multi_doc_params** | [**SubmitMultiDocParams**](SubmitMultiDocParams.md) |  |  |
 
 ### Return type
 

@@ -85,7 +85,6 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new ShortTokenResponseJsonConverter());
             _jsonOptions.Converters.Add(new StandardResponseJsonConverter());
             _jsonOptions.Converters.Add(new SubmitMultiDocMergeParamsJsonConverter());
-            _jsonOptions.Converters.Add(new SubmitMultiDocParamsJsonConverter());
             _jsonOptions.Converters.Add(new SubmitMultiZipAddressCaptureParamsJsonConverter());
             _jsonOptions.Converters.Add(new SubmitMultiZipParamsJsonConverter());
             _jsonOptions.Converters.Add(new SubmitSingleDocParamsJsonConverter());

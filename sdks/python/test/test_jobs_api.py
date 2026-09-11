@@ -33,13 +33,6 @@ class TestJobsApi(unittest.TestCase):
         """
         pass
 
-    def test_submit_multi_doc_params(self) -> None:
-        """Test case for submit_multi_doc_params
-
-        Submit multiple documents
-        """
-        pass
-
     def test_submit_multi_zip_address_capture_params(self) -> None:
         """Test case for submit_multi_zip_address_capture_params
 

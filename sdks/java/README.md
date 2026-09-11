@@ -2,7 +2,7 @@
 
 C2M API v2
 - API version: 2.0.0
-  - Build date: 2026-09-10T03:21:45.041719288Z[Etc/UTC]
+  - Build date: 2026-09-11T07:19:17.310796380Z[Etc/UTC]
   - Generator version: 7.15.0
 
 API for submitting mailing jobs with various document routing options
@@ -130,7 +130,6 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**issueShortTermToken**](docs/AuthApi.md#issueShortTermToken) | **POST** /auth/tokens/short | Issue a short-term access token
 *AuthApi* | [**revokeToken**](docs/AuthApi.md#revokeToken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
 *JobsApi* | [**submitMultiDocMergeParams**](docs/JobsApi.md#submitMultiDocMergeParams) | **POST** /mail-merge | Submit mail merge
-*JobsApi* | [**submitMultiDocParams**](docs/JobsApi.md#submitMultiDocParams) | **POST** /static/multi | Submit multiple documents
 *JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
 *JobsApi* | [**submitMultiZipParams**](docs/JobsApi.md#submitMultiZipParams) | **POST** /batch/zip | Submit ZIP batch
 *JobsApi* | [**submitSingleDocParams**](docs/JobsApi.md#submitSingleDocParams) | **POST** /static | Submit single document
@@ -179,7 +178,6 @@ Class | Method | HTTP request | Description
  - [ShortTokenResponse](docs/ShortTokenResponse.md)
  - [StandardResponse](docs/StandardResponse.md)
  - [SubmitMultiDocMergeParams](docs/SubmitMultiDocMergeParams.md)
- - [SubmitMultiDocParams](docs/SubmitMultiDocParams.md)
  - [SubmitMultiZipAddressCaptureParams](docs/SubmitMultiZipAddressCaptureParams.md)
  - [SubmitMultiZipParams](docs/SubmitMultiZipParams.md)
  - [SubmitSingleDocParams](docs/SubmitSingleDocParams.md)

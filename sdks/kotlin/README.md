@@ -49,7 +49,6 @@ All URIs are relative to *https://api.click2mail.com/v2*
 | *AuthApi* | [**issueShortTermToken**](docs/AuthApi.md#issueshorttermtoken) | **POST** /auth/tokens/short | Issue a short-term access token |
 | *AuthApi* | [**revokeToken**](docs/AuthApi.md#revoketoken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token |
 | *JobsApi* | [**submitMultiDocMergeParams**](docs/JobsApi.md#submitmultidocmergeparams) | **POST** /mail-merge | Submit mail merge |
-| *JobsApi* | [**submitMultiDocParams**](docs/JobsApi.md#submitmultidocparams) | **POST** /static/multi | Submit multiple documents |
 | *JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/JobsApi.md#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture |
 | *JobsApi* | [**submitMultiZipParams**](docs/JobsApi.md#submitmultizipparams) | **POST** /batch/zip | Submit ZIP batch |
 | *JobsApi* | [**submitSingleDocParams**](docs/JobsApi.md#submitsingledocparams) | **POST** /static | Submit single document |
@@ -99,7 +98,6 @@ All URIs are relative to *https://api.click2mail.com/v2*
  - [com.c2m.api.models.ShortTokenResponse](docs/ShortTokenResponse.md)
  - [com.c2m.api.models.StandardResponse](docs/StandardResponse.md)
  - [com.c2m.api.models.SubmitMultiDocMergeParams](docs/SubmitMultiDocMergeParams.md)
- - [com.c2m.api.models.SubmitMultiDocParams](docs/SubmitMultiDocParams.md)
  - [com.c2m.api.models.SubmitMultiZipAddressCaptureParams](docs/SubmitMultiZipAddressCaptureParams.md)
  - [com.c2m.api.models.SubmitMultiZipParams](docs/SubmitMultiZipParams.md)
  - [com.c2m.api.models.SubmitSingleDocParams](docs/SubmitSingleDocParams.md)
