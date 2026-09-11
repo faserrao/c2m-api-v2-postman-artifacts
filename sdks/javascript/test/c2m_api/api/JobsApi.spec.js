@@ -58,16 +58,6 @@
         done();
       });
     });
-    describe('submitMultiDocParams', function() {
-      it('should call submitMultiDocParams successfully', function(done) {
-        //uncomment below and update the code to test submitMultiDocParams
-        //instance.submitMultiDocParams(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
     describe('submitMultiZipAddressCaptureParams', function() {
       it('should call submitMultiZipAddressCaptureParams successfully', function(done) {
         //uncomment below and update the code to test submitMultiZipAddressCaptureParams

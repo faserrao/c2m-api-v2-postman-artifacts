@@ -22,7 +22,6 @@ import okhttp3.HttpUrl
 import com.c2m.api.models.ErrorResponse
 import com.c2m.api.models.StandardResponse
 import com.c2m.api.models.SubmitMultiDocMergeParams
-import com.c2m.api.models.SubmitMultiDocParams
 import com.c2m.api.models.SubmitMultiZipAddressCaptureParams
 import com.c2m.api.models.SubmitMultiZipParams
 import com.c2m.api.models.SubmitSingleDocParams
@@ -121,80 +120,6 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/mail-merge",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * POST /static/multi
-     * Submit multiple documents
-     * Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
-     * @param submitMultiDocParams 
-     * @return StandardResponse
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun submitMultiDocParams(submitMultiDocParams: SubmitMultiDocParams) : StandardResponse {
-        val localVarResponse = submitMultiDocParamsWithHttpInfo(submitMultiDocParams = submitMultiDocParams)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as StandardResponse
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * POST /static/multi
-     * Submit multiple documents
-     * Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
-     * @param submitMultiDocParams 
-     * @return ApiResponse<StandardResponse?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun submitMultiDocParamsWithHttpInfo(submitMultiDocParams: SubmitMultiDocParams) : ApiResponse<StandardResponse?> {
-        val localVariableConfig = submitMultiDocParamsRequestConfig(submitMultiDocParams = submitMultiDocParams)
-
-        return request<SubmitMultiDocParams, StandardResponse>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation submitMultiDocParams
-     *
-     * @param submitMultiDocParams 
-     * @return RequestConfig
-     */
-    fun submitMultiDocParamsRequestConfig(submitMultiDocParams: SubmitMultiDocParams) : RequestConfig<SubmitMultiDocParams> {
-        val localVariableBody = submitMultiDocParams
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/static/multi",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,

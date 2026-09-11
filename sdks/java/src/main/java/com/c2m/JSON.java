@@ -130,7 +130,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ShortTokenResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.StandardResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitMultiDocMergeParams.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitMultiDocParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitMultiZipAddressCaptureParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitMultiZipParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitSingleDocParams.CustomTypeAdapterFactory());

@@ -5,7 +5,6 @@ All URIs are relative to *https://api.click2mail.com/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**submitMultiDocMergeParams**](JobsApi.md#submitMultiDocMergeParams) | **POST** /mail-merge | Submit mail merge |
-| [**submitMultiDocParams**](JobsApi.md#submitMultiDocParams) | **POST** /static/multi | Submit multiple documents |
 | [**submitMultiZipAddressCaptureParams**](JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture |
 | [**submitMultiZipParams**](JobsApi.md#submitMultiZipParams) | **POST** /batch/zip | Submit ZIP batch |
 | [**submitSingleDocParams**](JobsApi.md#submitSingleDocParams) | **POST** /static | Submit single document |
@@ -62,79 +61,6 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **submitMultiDocMergeParams** | [**SubmitMultiDocMergeParams**](SubmitMultiDocMergeParams.md)|  | |
-
-### Return type
-
-[**StandardResponse**](StandardResponse.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request - Invalid request parameters |  -  |
-| **401** | Unauthorized - Missing or invalid authentication |  -  |
-| **403** | Forbidden - Insufficient permissions |  -  |
-| **404** | Not Found - Resource not found |  -  |
-| **422** | Unprocessable Entity - Validation failed |  -  |
-| **500** | Internal Server Error - Server encountered an error |  -  |
-
-<a id="submitMultiDocParams"></a>
-# **submitMultiDocParams**
-> StandardResponse submitMultiDocParams(submitMultiDocParams)
-
-Submit multiple documents
-
-Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
-
-### Example
-```java
-// Import classes:
-import com.c2m.ApiClient;
-import com.c2m.ApiException;
-import com.c2m.Configuration;
-import com.c2m.auth.*;
-import com.c2m.models.*;
-import com.c2m.api.JobsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.click2mail.com/v2");
-    
-    // Configure HTTP bearer authorization: bearerAuth
-    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
-    bearerAuth.setBearerToken("BEARER TOKEN");
-
-    JobsApi apiInstance = new JobsApi(defaultClient);
-    SubmitMultiDocParams submitMultiDocParams = new SubmitMultiDocParams(); // SubmitMultiDocParams | 
-    try {
-      StandardResponse result = apiInstance.submitMultiDocParams(submitMultiDocParams);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling JobsApi#submitMultiDocParams");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **submitMultiDocParams** | [**SubmitMultiDocParams**](SubmitMultiDocParams.md)|  | |
 
 ### Return type
 

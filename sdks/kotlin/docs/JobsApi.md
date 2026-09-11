@@ -5,7 +5,6 @@ All URIs are relative to *https://api.click2mail.com/v2*
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**submitMultiDocMergeParams**](JobsApi.md#submitMultiDocMergeParams) | **POST** /mail-merge | Submit mail merge |
-| [**submitMultiDocParams**](JobsApi.md#submitMultiDocParams) | **POST** /static/multi | Submit multiple documents |
 | [**submitMultiZipAddressCaptureParams**](JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture |
 | [**submitMultiZipParams**](JobsApi.md#submitMultiZipParams) | **POST** /batch/zip | Submit ZIP batch |
 | [**submitSingleDocParams**](JobsApi.md#submitSingleDocParams) | **POST** /static | Submit single document |
@@ -46,54 +45,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **submitMultiDocMergeParams** | [**SubmitMultiDocMergeParams**](SubmitMultiDocMergeParams.md)|  | |
-
-### Return type
-
-[**StandardResponse**](StandardResponse.md)
-
-### Authorization
-
-
-Configure bearerAuth:
-    ApiClient.accessToken = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="submitMultiDocParams"></a>
-# **submitMultiDocParams**
-> StandardResponse submitMultiDocParams(submitMultiDocParams)
-
-Submit multiple documents
-
-Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
-
-### Example
-```kotlin
-// Import classes:
-//import com.c2m.api.infrastructure.*
-//import com.c2m.api.models.*
-
-val apiInstance = JobsApi()
-val submitMultiDocParams : SubmitMultiDocParams =  // SubmitMultiDocParams | 
-try {
-    val result : StandardResponse = apiInstance.submitMultiDocParams(submitMultiDocParams)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling JobsApi#submitMultiDocParams")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling JobsApi#submitMultiDocParams")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **submitMultiDocParams** | [**SubmitMultiDocParams**](SubmitMultiDocParams.md)|  | |
 
 ### Return type
 

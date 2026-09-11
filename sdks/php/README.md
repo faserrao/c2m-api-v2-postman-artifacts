@@ -84,7 +84,6 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**issueShortTermToken**](docs/Api/AuthApi.md#issueshorttermtoken) | **POST** /auth/tokens/short | Issue a short-term access token
 *AuthApi* | [**revokeToken**](docs/Api/AuthApi.md#revoketoken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
 *JobsApi* | [**submitMultiDocMergeParams**](docs/Api/JobsApi.md#submitmultidocmergeparams) | **POST** /mail-merge | Submit mail merge
-*JobsApi* | [**submitMultiDocParams**](docs/Api/JobsApi.md#submitmultidocparams) | **POST** /static/multi | Submit multiple documents
 *JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/Api/JobsApi.md#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
 *JobsApi* | [**submitMultiZipParams**](docs/Api/JobsApi.md#submitmultizipparams) | **POST** /batch/zip | Submit ZIP batch
 *JobsApi* | [**submitSingleDocParams**](docs/Api/JobsApi.md#submitsingledocparams) | **POST** /static | Submit single document
@@ -132,7 +131,6 @@ Class | Method | HTTP request | Description
 - [ShortTokenResponse](docs/Model/ShortTokenResponse.md)
 - [StandardResponse](docs/Model/StandardResponse.md)
 - [SubmitMultiDocMergeParams](docs/Model/SubmitMultiDocMergeParams.md)
-- [SubmitMultiDocParams](docs/Model/SubmitMultiDocParams.md)
 - [SubmitMultiZipAddressCaptureParams](docs/Model/SubmitMultiZipAddressCaptureParams.md)
 - [SubmitMultiZipParams](docs/Model/SubmitMultiZipParams.md)
 - [SubmitSingleDocParams](docs/Model/SubmitSingleDocParams.md)

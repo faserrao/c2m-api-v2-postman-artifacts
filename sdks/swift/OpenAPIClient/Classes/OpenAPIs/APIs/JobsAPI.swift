@@ -60,53 +60,6 @@ open class JobsAPI {
     }
 
     /**
-     Submit multiple documents
-     
-     - parameter submitMultiDocParams: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func submitMultiDocParams(submitMultiDocParams: SubmitMultiDocParams, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: StandardResponse?, _ error: Error?) -> Void)) -> RequestTask {
-        return submitMultiDocParamsWithRequestBuilder(submitMultiDocParams: submitMultiDocParams).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Submit multiple documents
-     - POST /static/multi
-     - Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
-     - Bearer Token:
-       - type: http
-       - name: bearerAuth
-     - parameter submitMultiDocParams: (body)  
-     - returns: RequestBuilder<StandardResponse> 
-     */
-    open class func submitMultiDocParamsWithRequestBuilder(submitMultiDocParams: SubmitMultiDocParams) -> RequestBuilder<StandardResponse> {
-        let localVariablePath = "/static/multi"
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: submitMultiDocParams)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<StandardResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
      Submit ZIP batch — address capture
      
      - parameter submitMultiZipAddressCaptureParams: (body)  

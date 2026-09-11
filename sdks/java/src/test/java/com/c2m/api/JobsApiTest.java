@@ -17,7 +17,6 @@ import com.c2m.ApiException;
 import com.c2m.model.ErrorResponse;
 import com.c2m.model.StandardResponse;
 import com.c2m.model.SubmitMultiDocMergeParams;
-import com.c2m.model.SubmitMultiDocParams;
 import com.c2m.model.SubmitMultiZipAddressCaptureParams;
 import com.c2m.model.SubmitMultiZipParams;
 import com.c2m.model.SubmitSingleDocParams;
@@ -51,20 +50,6 @@ public class JobsApiTest {
     public void submitMultiDocMergeParamsTest() throws ApiException {
         SubmitMultiDocMergeParams submitMultiDocMergeParams = null;
         StandardResponse response = api.submitMultiDocMergeParams(submitMultiDocMergeParams);
-        // TODO: test validations
-    }
-
-    /**
-     * Submit multiple documents
-     *
-     * Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void submitMultiDocParamsTest() throws ApiException {
-        SubmitMultiDocParams submitMultiDocParams = null;
-        StandardResponse response = api.submitMultiDocParams(submitMultiDocParams);
         // TODO: test validations
     }
 

@@ -134,7 +134,6 @@ Class | Method | HTTP request | Description
 *C2MApiV2.AuthApi* | [**issueShortTermToken**](docs/AuthApi.md#issueShortTermToken) | **POST** /auth/tokens/short | Issue a short-term access token
 *C2MApiV2.AuthApi* | [**revokeToken**](docs/AuthApi.md#revokeToken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
 *C2MApiV2.JobsApi* | [**submitMultiDocMergeParams**](docs/JobsApi.md#submitMultiDocMergeParams) | **POST** /mail-merge | Submit mail merge
-*C2MApiV2.JobsApi* | [**submitMultiDocParams**](docs/JobsApi.md#submitMultiDocParams) | **POST** /static/multi | Submit multiple documents
 *C2MApiV2.JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
 *C2MApiV2.JobsApi* | [**submitMultiZipParams**](docs/JobsApi.md#submitMultiZipParams) | **POST** /batch/zip | Submit ZIP batch
 *C2MApiV2.JobsApi* | [**submitSingleDocParams**](docs/JobsApi.md#submitSingleDocParams) | **POST** /static | Submit single document
@@ -183,7 +182,6 @@ Class | Method | HTTP request | Description
  - [C2MApiV2.ShortTokenResponse](docs/ShortTokenResponse.md)
  - [C2MApiV2.StandardResponse](docs/StandardResponse.md)
  - [C2MApiV2.SubmitMultiDocMergeParams](docs/SubmitMultiDocMergeParams.md)
- - [C2MApiV2.SubmitMultiDocParams](docs/SubmitMultiDocParams.md)
  - [C2MApiV2.SubmitMultiZipAddressCaptureParams](docs/SubmitMultiZipAddressCaptureParams.md)
  - [C2MApiV2.SubmitMultiZipParams](docs/SubmitMultiZipParams.md)
  - [C2MApiV2.SubmitSingleDocParams](docs/SubmitSingleDocParams.md)

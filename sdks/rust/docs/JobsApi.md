@@ -5,7 +5,6 @@ All URIs are relative to *https://api.click2mail.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**submit_multi_doc_merge_params**](JobsApi.md#submit_multi_doc_merge_params) | **POST** /mail-merge | Submit mail merge
-[**submit_multi_doc_params**](JobsApi.md#submit_multi_doc_params) | **POST** /static/multi | Submit multiple documents
 [**submit_multi_zip_address_capture_params**](JobsApi.md#submit_multi_zip_address_capture_params) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
 [**submit_multi_zip_params**](JobsApi.md#submit_multi_zip_params) | **POST** /batch/zip | Submit ZIP batch
 [**submit_single_doc_params**](JobsApi.md#submit_single_doc_params) | **POST** /static | Submit single document
@@ -28,36 +27,6 @@ Merges multiple documents into a single mailing sent to one recipient. Useful fo
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **submit_multi_doc_merge_params** | [**SubmitMultiDocMergeParams**](SubmitMultiDocMergeParams.md) |  | [required] |
-
-### Return type
-
-[**models::StandardResponse**](standardResponse.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## submit_multi_doc_params
-
-> models::StandardResponse submit_multi_doc_params(submit_multi_doc_params)
-Submit multiple documents
-
-Submits a batch of independent mailing jobs in a single request. Each job specifies its own document source and recipient address.
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**submit_multi_doc_params** | [**SubmitMultiDocParams**](SubmitMultiDocParams.md) |  | [required] |
 
 ### Return type
 
