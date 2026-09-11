@@ -115,7 +115,7 @@ ACH bank transfer payment.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
-| `"ach"` | "ach" | Required | See EBNF rule `"ach"`. |
+| `"ach"` | "ach" | Required | JSON property key identifying the ACH bank-transfer payment variant. |
 | `achDetails` | object | Required | ACH payment fields: routing number, bank account number, and check digit. |
 
 ### `address`
@@ -162,7 +162,7 @@ Credit card payment.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
-| `"creditCard"` | "creditCard" | Required | See EBNF rule `"creditCard"`. |
+| `"creditCard"` | "creditCard" | Required | JSON property key identifying the credit-card payment variant. |
 | `creditCardDetails` | object | Required | Credit card payment fields: card type, card number, expiration date, and CVV. |
 
 ### `errorResponse`
@@ -201,7 +201,7 @@ Invoice payment — billed to an existing account invoice.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
-| `"invoice"` | "invoice" | Required | See EBNF rule `"invoice"`. |
+| `"invoice"` | "invoice" | Required | JSON property key identifying the invoice payment variant. |
 | `invoiceDetails` | object | Required | Invoice payment fields: invoice number and amount due. |
 
 ### `jobOptions`
@@ -330,7 +330,7 @@ Payment deducted from the account's prepaid credit balance.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
-| `"userCredit"` | "userCredit" | Required | See EBNF rule `"userCredit"`. |
+| `"userCredit"` | "userCredit" | Required | JSON property key identifying the account-credit payment variant. |
 | `creditAmount` | object | Required | Account credit payment fields: monetary amount and ISO currency code. |
 
 ### `zipDocumentIdSource`
@@ -487,7 +487,7 @@ Array of user-defined string tags.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
-| `string` | string[] | — | See EBNF rule `string`. |
+| `string` | string[] | — | A plain text string value. |
 
 ## Enumerations
 

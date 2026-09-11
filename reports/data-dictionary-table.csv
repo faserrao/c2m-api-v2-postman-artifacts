@@ -122,13 +122,13 @@ pdfSplitJobsNoAddress,Array Type,,pdfSplitJobItemNoAddress,object[],—,A single
 pdfSplitJobsWithAddress,Array Type,,—,array,—,"List of page-range job items, each with its own inline recipient address."
 pdfSplitJobsWithAddress,Array Type,,pdfSplitJobItemWithAddress,object[],—,"A single page-range job entry: page range (startPage, endPage) plus a recipient address."
 tagsList,Array Type,,—,array,—,Array of user-defined string tags.
-tagsList,Array Type,,string,string[],—,See EBNF rule `string`.
+tagsList,Array Type,,string,string[],—,A plain text string value.
 achDetails,Data Structure,,—,object,—,"ACH payment fields: routing number, bank account number, and check digit."
 achDetails,Data Structure,,routingNumber,string,Required,ABA bank routing number.
 achDetails,Data Structure,,accountNumber,string,Required,Bank account number.
 achDetails,Data Structure,,checkDigit,integer,Required,ACH check digit.
 achPayment,Data Structure,,—,object,—,ACH bank transfer payment.
-achPayment,Data Structure,,"""ach""","""ach""",Required,"See EBNF rule `""ach""`."
+achPayment,Data Structure,,"""ach""","""ach""",Required,JSON property key identifying the ACH bank-transfer payment variant.
 achPayment,Data Structure,,achDetails,object,Required,"ACH payment fields: routing number, bank account number, and check digit."
 address,Data Structure,,—,object,—,"Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2)."
 address,Data Structure,,firstName,string,Required,Recipient's first name.
@@ -151,7 +151,7 @@ creditCardDetails,Data Structure,,cardNumber,string,Required,Credit card number 
 creditCardDetails,Data Structure,,expirationDate,object,Required,Card expiration date containing month and year.
 creditCardDetails,Data Structure,,cvv,integer,Required,Card security code (CVV/CVC) as an integer.
 creditCardPayment,Data Structure,,—,object,—,Credit card payment.
-creditCardPayment,Data Structure,,"""creditCard""","""creditCard""",Required,"See EBNF rule `""creditCard""`."
+creditCardPayment,Data Structure,,"""creditCard""","""creditCard""",Required,JSON property key identifying the credit-card payment variant.
 creditCardPayment,Data Structure,,creditCardDetails,object,Required,"Credit card payment fields: card type, card number, expiration date, and CVV."
 errorResponse,Data Structure,,—,object,—,Error response structure returned for all API error conditions.
 errorResponse,Data Structure,,errorType,enum (ValidationError | AuthenticationError | AuthorizationError | ResourceNotFoundError | ServerError),Required,"High-level error category string (ValidationError, AuthenticationError, etc.)."
@@ -166,7 +166,7 @@ invoiceDetails,Data Structure,,—,object,—,Invoice payment fields: invoice nu
 invoiceDetails,Data Structure,,invoiceNumber,string,Required,Invoice reference number.
 invoiceDetails,Data Structure,,amountDue,number,Required,Amount due on the invoice.
 invoicePayment,Data Structure,,—,object,—,Invoice payment — billed to an existing account invoice.
-invoicePayment,Data Structure,,"""invoice""","""invoice""",Required,"See EBNF rule `""invoice""`."
+invoicePayment,Data Structure,,"""invoice""","""invoice""",Required,JSON property key identifying the invoice payment variant.
 invoicePayment,Data Structure,,invoiceDetails,object,Required,Invoice payment fields: invoice number and amount due.
 jobOptions,Data Structure,,—,object,—,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
 jobOptions,Data Structure,,documentClass,string,Required,"Document class (e.g. letter, flat)."
@@ -223,7 +223,7 @@ standardResponse,Data Structure,,status,string,Required,"Job status string (e.g.
 standardResponse,Data Structure,,message,string,Required,"Human-readable confirmation message (e.g. ""Your request has been queued"")."
 standardResponse,Data Structure,,requestId,id,Required,Integer ID of a prior file upload request. Also returned in success responses.
 userCreditPayment,Data Structure,,—,object,—,Payment deducted from the account's prepaid credit balance.
-userCreditPayment,Data Structure,,"""userCredit""","""userCredit""",Required,"See EBNF rule `""userCredit""`."
+userCreditPayment,Data Structure,,"""userCredit""","""userCredit""",Required,JSON property key identifying the account-credit payment variant.
 userCreditPayment,Data Structure,,creditAmount,object,Required,Account credit payment fields: monetary amount and ISO currency code.
 zipDocumentIdSource,Data Structure,,—,object,—,Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
 zipDocumentIdSource,Data Structure,,zipDocumentId,id,Required,Integer ID of a previously stored ZIP archive.

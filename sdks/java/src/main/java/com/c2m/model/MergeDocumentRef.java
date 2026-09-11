@@ -58,7 +58,7 @@ import com.google.gson.JsonParseException;
 
 import com.c2m.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-11T19:42:06.375195165Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-11T20:16:55.872781906Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class MergeDocumentRef extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(MergeDocumentRef.class.getName());
 

@@ -67,7 +67,7 @@ POST,/static,jobOptions.color,string,Optional,"Color mode (e.g. full_color, blac
 POST,/static,jobOptions.paperType,string,Optional,"Paper stock (e.g. white, recycled)."
 POST,/static,jobOptions.printOption,string,Optional,"Duplex setting (e.g. single_sided, double_sided)."
 POST,/static,jobOptions.mailClass,string,Optional,"USPS mail class (e.g. first_class, standard)."
-POST,/static,tags[],string,Optional,See EBNF rule `tags[]`.
+POST,/static,tags[],string,Optional,Optional list of user-defined string tags for reporting and filtering.
 POST,/static/address-capture,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
 POST,/static/address-capture,docSourceStandard[documentIdSource].documentId,integer,Required*,Integer ID of a previously stored or uploaded document.
 POST,/static/address-capture,docSourceStandard[requestIdSource].requestId,integer,Required*,Integer ID of a prior file upload request. Also returned in success responses.
@@ -103,7 +103,7 @@ POST,/static/address-capture,jobOptions.color,string,Optional,"Color mode (e.g. 
 POST,/static/address-capture,jobOptions.paperType,string,Optional,"Paper stock (e.g. white, recycled)."
 POST,/static/address-capture,jobOptions.printOption,string,Optional,"Duplex setting (e.g. single_sided, double_sided)."
 POST,/static/address-capture,jobOptions.mailClass,string,Optional,"USPS mail class (e.g. first_class, standard)."
-POST,/static/address-capture,tags[],string,Optional,See EBNF rule `tags[]`.
+POST,/static/address-capture,tags[],string,Optional,Optional list of user-defined string tags for reporting and filtering.
 POST,/batch/split,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
 POST,/batch/split,docSourceStandard[documentIdSource].documentId,integer,Required*,Integer ID of a previously stored or uploaded document.
 POST,/batch/split,docSourceStandard[requestIdSource].requestId,integer,Required*,Integer ID of a prior file upload request. Also returned in success responses.
@@ -170,7 +170,7 @@ POST,/batch/split,jobOptions.color,string,Optional,"Color mode (e.g. full_color,
 POST,/batch/split,jobOptions.paperType,string,Optional,"Paper stock (e.g. white, recycled)."
 POST,/batch/split,jobOptions.printOption,string,Optional,"Duplex setting (e.g. single_sided, double_sided)."
 POST,/batch/split,jobOptions.mailClass,string,Optional,"USPS mail class (e.g. first_class, standard)."
-POST,/batch/split,tags[],string,Optional,See EBNF rule `tags[]`.
+POST,/batch/split,tags[],string,Optional,Optional list of user-defined string tags for reporting and filtering.
 POST,/batch/split/address-capture,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
 POST,/batch/split/address-capture,docSourceStandard[documentIdSource].documentId,integer,Required*,Integer ID of a previously stored or uploaded document.
 POST,/batch/split/address-capture,docSourceStandard[requestIdSource].requestId,integer,Required*,Integer ID of a prior file upload request. Also returned in success responses.
@@ -208,7 +208,7 @@ POST,/batch/split/address-capture,jobOptions.color,string,Optional,"Color mode (
 POST,/batch/split/address-capture,jobOptions.paperType,string,Optional,"Paper stock (e.g. white, recycled)."
 POST,/batch/split/address-capture,jobOptions.printOption,string,Optional,"Duplex setting (e.g. single_sided, double_sided)."
 POST,/batch/split/address-capture,jobOptions.mailClass,string,Optional,"USPS mail class (e.g. first_class, standard)."
-POST,/batch/split/address-capture,tags[],string,Optional,See EBNF rule `tags[]`.
+POST,/batch/split/address-capture,tags[],string,Optional,Optional list of user-defined string tags for reporting and filtering.
 POST,/mail-merge,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
 POST,/mail-merge,mergeDocumentSource[][mergeByDocumentId].documentId,integer,Required*,Integer ID of a previously stored or uploaded document.
 POST,/mail-merge,mergeDocumentSource[][mergeByRequestId].requestId,integer,Required*,Integer ID of a prior file upload request. Also returned in success responses.
@@ -271,7 +271,7 @@ POST,/mail-merge,jobOptions.color,string,Optional,"Color mode (e.g. full_color, 
 POST,/mail-merge,jobOptions.paperType,string,Optional,"Paper stock (e.g. white, recycled)."
 POST,/mail-merge,jobOptions.printOption,string,Optional,"Duplex setting (e.g. single_sided, double_sided)."
 POST,/mail-merge,jobOptions.mailClass,string,Optional,"USPS mail class (e.g. first_class, standard)."
-POST,/mail-merge,tags[],string,Optional,See EBNF rule `tags[]`.
+POST,/mail-merge,tags[],string,Optional,Optional list of user-defined string tags for reporting and filtering.
 POST,/batch/zip,docSourceZipFileRef[zipDocumentIdOnly].zipDocumentId,integer,Required*,Integer ID of a previously stored ZIP archive.
 POST,/batch/zip,docSourceZipFileRef[zipRequestIdOnly].requestId,integer,Required*,Integer ID of a prior file upload request. Also returned in success responses.
 POST,/batch/zip,multiZipJobs[].jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
@@ -316,7 +316,7 @@ POST,/batch/zip,paymentDetails[achPayment].ach.accountNumber,string,Optional,Ban
 POST,/batch/zip,paymentDetails[achPayment].ach.checkDigit,integer,Optional,ACH check digit.
 POST,/batch/zip,paymentDetails[userCreditPayment].userCredit.amount,number,Optional,Monetary amount (numeric value).
 POST,/batch/zip,paymentDetails[userCreditPayment].userCredit.currency,enum: USD | EUR | GBP | CAD | AUD,Optional,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD."
-POST,/batch/zip,tags[],string,Optional,See EBNF rule `tags[]`.
+POST,/batch/zip,tags[],string,Optional,Optional list of user-defined string tags for reporting and filtering.
 POST,/batch/zip/address-capture,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
 POST,/batch/zip/address-capture,zipDocumentSource[zipDocumentIdSource].zipDocumentId,integer,Required*,Integer ID of a previously stored ZIP archive.
 POST,/batch/zip/address-capture,zipDocumentSource[zipDocumentIdSource].filename,string,Required*,Filename of a specific file within an upload request or ZIP archive.
@@ -353,4 +353,4 @@ POST,/batch/zip/address-capture,jobOptions.color,string,Optional,"Color mode (e.
 POST,/batch/zip/address-capture,jobOptions.paperType,string,Optional,"Paper stock (e.g. white, recycled)."
 POST,/batch/zip/address-capture,jobOptions.printOption,string,Optional,"Duplex setting (e.g. single_sided, double_sided)."
 POST,/batch/zip/address-capture,jobOptions.mailClass,string,Optional,"USPS mail class (e.g. first_class, standard)."
-POST,/batch/zip/address-capture,tags[],string,Optional,See EBNF rule `tags[]`.
+POST,/batch/zip/address-capture,tags[],string,Optional,Optional list of user-defined string tags for reporting and filtering.

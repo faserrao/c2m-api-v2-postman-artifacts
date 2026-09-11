@@ -86,7 +86,7 @@
 | `jobOptions.paperType` | string | Optional | Paper stock (e.g. white, recycled). |
 | `jobOptions.printOption` | string | Optional | Duplex setting (e.g. single_sided, double_sided). |
 | `jobOptions.mailClass` | string | Optional | USPS mail class (e.g. first_class, standard). |
-| `tags[]` | string | Optional | See EBNF rule `tags[]`. |
+| `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
 
@@ -131,7 +131,7 @@
 | `jobOptions.paperType` | string | Optional | Paper stock (e.g. white, recycled). |
 | `jobOptions.printOption` | string | Optional | Duplex setting (e.g. single_sided, double_sided). |
 | `jobOptions.mailClass` | string | Optional | USPS mail class (e.g. first_class, standard). |
-| `tags[]` | string | Optional | See EBNF rule `tags[]`. |
+| `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
 
@@ -207,7 +207,7 @@
 | `jobOptions.paperType` | string | Optional | Paper stock (e.g. white, recycled). |
 | `jobOptions.printOption` | string | Optional | Duplex setting (e.g. single_sided, double_sided). |
 | `jobOptions.mailClass` | string | Optional | USPS mail class (e.g. first_class, standard). |
-| `tags[]` | string | Optional | See EBNF rule `tags[]`. |
+| `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
 
@@ -254,7 +254,7 @@
 | `jobOptions.paperType` | string | Optional | Paper stock (e.g. white, recycled). |
 | `jobOptions.printOption` | string | Optional | Duplex setting (e.g. single_sided, double_sided). |
 | `jobOptions.mailClass` | string | Optional | USPS mail class (e.g. first_class, standard). |
-| `tags[]` | string | Optional | See EBNF rule `tags[]`. |
+| `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
 
@@ -326,7 +326,7 @@
 | `jobOptions.paperType` | string | Optional | Paper stock (e.g. white, recycled). |
 | `jobOptions.printOption` | string | Optional | Duplex setting (e.g. single_sided, double_sided). |
 | `jobOptions.mailClass` | string | Optional | USPS mail class (e.g. first_class, standard). |
-| `tags[]` | string | Optional | See EBNF rule `tags[]`. |
+| `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
 
@@ -380,7 +380,7 @@
 | `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount (numeric value). |
 | `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD. |
-| `tags[]` | string | Optional | See EBNF rule `tags[]`. |
+| `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
 
@@ -426,4 +426,4 @@
 | `jobOptions.paperType` | string | Optional | Paper stock (e.g. white, recycled). |
 | `jobOptions.printOption` | string | Optional | Duplex setting (e.g. single_sided, double_sided). |
 | `jobOptions.mailClass` | string | Optional | USPS mail class (e.g. first_class, standard). |
-| `tags[]` | string | Optional | See EBNF rule `tags[]`. |
+| `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
