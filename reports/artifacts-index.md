@@ -1,6 +1,6 @@
 # C2M API v2 — Artifacts Index
 
-_Generated: 2026-09-11 22:44 UTC_
+_Generated: 2026-09-11 23:39 UTC_
 
 All artifacts are produced by the CI pipeline and committed to this repository on every successful build.
 
@@ -34,6 +34,22 @@ All artifacts are produced by the CI pipeline and committed to this repository o
 | Getting Started — Test | [Download](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/postman/collections/c2mapiv2-getting-started-test-collection.json) | Getting Started collection with Newman test assertions for automated verification. |
 | Real World Use Cases | [Download](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/postman/collections/c2mapiv2-real-world-use-cases-collection.json) | Collection demonstrating realistic end-to-end request sequences across multiple endpoints. |
 
+## SDKs
+
+| Report Name | Link | Description |
+|---|---|---|
+| SDK — Python | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/python) | Python client library generated from the OpenAPI spec via OpenAPI Generator. |
+| SDK — JavaScript | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/javascript) | JavaScript client library for browser and Node.js environments. |
+| SDK — TypeScript | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/typescript) | TypeScript client library with full type definitions. |
+| SDK — Java | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/java) | Java client library generated from the OpenAPI spec. |
+| SDK — Go | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/go) | Go client library generated from the OpenAPI spec. |
+| SDK — Ruby | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/ruby) | Ruby gem generated from the OpenAPI spec. |
+| SDK — PHP | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/php) | PHP client library generated from the OpenAPI spec. |
+| SDK — C# | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/csharp) | C# / .NET client library generated from the OpenAPI spec. |
+| SDK — Swift | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/swift) | Swift client library for iOS and macOS applications. |
+| SDK — Kotlin | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/kotlin) | Kotlin client library generated from the OpenAPI spec. |
+| SDK — Rust | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/rust) | Rust client library generated from the OpenAPI spec. |
+
 ## Data Dictionary Reports
 
 | Report Name | Link | Description |
@@ -49,5 +65,5 @@ All artifacts are produced by the CI pipeline and committed to this repository o
 |---|---|---|
 | Conformance Gate | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/conformance-gate.md) | Postman collection conformance results — validates every request body against the generated OpenAPI spec. |
 | Golden Test Suite | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/golden-tests.txt) | Validator and resolver unit test results — positive/negative controls and synthetic fault injection. |
-| Newman Test Run (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/newman-c2mapiv2-test-collection-fixed-20260911-224157.html) | Most recent Newman end-to-end test run against the live API — HTML report with request/response details and pass/fail counts. |
-| Collection Validation Report (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/validation-20260911-224422.md) | Most recent per-endpoint conformance validation showing any fields that don't match the spec. |
+| Newman Test Run (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/newman-c2mapiv2-test-collection-fixed-20260911-233937.html) | Most recent Newman end-to-end test run against the live API — HTML report with request/response details and pass/fail counts. |
+| Collection Validation Report (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/validation-20260911-233945.md) | Most recent per-endpoint conformance validation showing any fields that don't match the spec. |

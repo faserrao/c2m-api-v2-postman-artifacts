@@ -49,7 +49,7 @@ import com.c2m.JSON;
 /**
  * PdfSplitJobItemWithAddress
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-11T22:39:52.461740270Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-11T23:38:20.731777644Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class PdfSplitJobItemWithAddress {
   public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
   @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)
