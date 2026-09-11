@@ -1,0 +1,297 @@
+component,category,endpoint,field,field_type,required,description
+submitSingleDocParams,Endpoint,POST /static,—,object,—,Request body for POST /static — submit a single document to one or more recipients.
+submitSingleDocParams,Endpoint,POST /static,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+submitSingleDocParams,Endpoint,POST /static,docSourceAll,oneOf,Required,"Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId)."
+submitSingleDocParams,Endpoint,POST /static,recipientAddressSource,oneOf,Required,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID."
+submitSingleDocParams,Endpoint,POST /static,paymentDetails,oneOf,Optional,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit."
+submitSingleDocParams,Endpoint,POST /static,returnAddress,object,Optional,Optional sender return address printed on the mailpiece.
+submitSingleDocParams,Endpoint,POST /static,jobOptions,object,Optional,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
+submitSingleDocParams,Endpoint,POST /static,tags,string[],Optional,Optional list of user-defined string tags for reporting and filtering.
+submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,—,object,—,Request body for POST /static/address-capture — recipient addresses are captured from the document by OCR rather than provided inline.
+submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,docSourceStandard,oneOf,Required,"Document source — standard (non-zip) variants only: requestId, documentId, or URL."
+submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,paymentDetails,oneOf,Optional,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit."
+submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,returnAddress,object,Optional,Optional sender return address printed on the mailpiece.
+submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,jobOptions,object,Optional,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
+submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,tags,string[],Optional,Optional list of user-defined string tags for reporting and filtering.
+submitSinglePdfSplitParams,Endpoint,POST /batch/split,—,object,—,Request body for POST /batch/split — split a single PDF into page ranges and mail each range to a different recipient.
+submitSinglePdfSplitParams,Endpoint,POST /batch/split,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+submitSinglePdfSplitParams,Endpoint,POST /batch/split,docSourceStandard,oneOf,Required,"Document source — standard (non-zip) variants only: requestId, documentId, or URL."
+submitSinglePdfSplitParams,Endpoint,POST /batch/split,pdfSplitJobsWithAddress,object[],Required,"List of page-range job items, each with its own inline recipient address."
+submitSinglePdfSplitParams,Endpoint,POST /batch/split,paymentDetails,oneOf,Optional,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit."
+submitSinglePdfSplitParams,Endpoint,POST /batch/split,returnAddress,object,Optional,Optional sender return address printed on the mailpiece.
+submitSinglePdfSplitParams,Endpoint,POST /batch/split,jobOptions,object,Optional,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
+submitSinglePdfSplitParams,Endpoint,POST /batch/split,tags,string[],Optional,Optional list of user-defined string tags for reporting and filtering.
+submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,—,object,—,Request body for POST /batch/split/address-capture — page-range PDF split with recipient addresses captured externally (no inline addresses required).
+submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,docSourceStandard,oneOf,Required,"Document source — standard (non-zip) variants only: requestId, documentId, or URL."
+submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,pdfSplitJobsNoAddress,object[],Required,List of page-range job items without inline addresses — addresses are captured externally (POST /batch/split/address-capture).
+submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,paymentDetails,oneOf,Optional,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit."
+submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,returnAddress,object,Optional,Optional sender return address printed on the mailpiece.
+submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,jobOptions,object,Optional,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
+submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,tags,string[],Optional,Optional list of user-defined string tags for reporting and filtering.
+submitMultiDocMergeParams,Endpoint,POST /mail-merge,—,object,—,Request body for POST /mail-merge — merge multiple documents into one mailing sent to a single recipient.
+submitMultiDocMergeParams,Endpoint,POST /mail-merge,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+submitMultiDocMergeParams,Endpoint,POST /mail-merge,mergeDocumentSource,oneOf[],Required,Container for the list of documents to merge (POST /mail-merge).
+submitMultiDocMergeParams,Endpoint,POST /mail-merge,recipientAddressSource,oneOf,Required,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID."
+submitMultiDocMergeParams,Endpoint,POST /mail-merge,paymentDetails,oneOf,Optional,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit."
+submitMultiDocMergeParams,Endpoint,POST /mail-merge,returnAddress,object,Optional,Optional sender return address printed on the mailpiece.
+submitMultiDocMergeParams,Endpoint,POST /mail-merge,jobOptions,object,Optional,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
+submitMultiDocMergeParams,Endpoint,POST /mail-merge,tags,string[],Optional,Optional list of user-defined string tags for reporting and filtering.
+submitMultiZipParams,Endpoint,POST /batch/zip,—,object,—,"Request body for POST /batch/zip — mail individual files from a ZIP archive, each file to its own recipient."
+submitMultiZipParams,Endpoint,POST /batch/zip,docSourceZipFileRef,oneOf,Required,"Top-level ZIP archive reference for batch endpoints — identifies the archive itself, not a file within it. No filename is required at this level."
+submitMultiZipParams,Endpoint,POST /batch/zip,multiZipJobs,object[],Required,List of per-file job items extracted from a ZIP archive (POST /batch/zip).
+submitMultiZipParams,Endpoint,POST /batch/zip,paymentDetails,oneOf,Optional,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit."
+submitMultiZipParams,Endpoint,POST /batch/zip,tags,string[],Optional,Optional list of user-defined string tags for reporting and filtering.
+submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,—,object,—,Request body for POST /batch/zip/address-capture — ZIP-based mailing batch with recipient addresses captured externally.
+submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,zipDocumentSource,oneOf,Required,ZIP document source — either a stored zip archive (zipDocumentId) or an uploaded zip archive (requestId).
+submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,paymentDetails,oneOf,Optional,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit."
+submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,returnAddress,object,Optional,Optional sender return address printed on the mailpiece.
+submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,jobOptions,object,Optional,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
+submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,tags,string[],Optional,Optional list of user-defined string tags for reporting and filtering.
+accountNumber,Alias / Primitive,,—,string,—,Bank account number.
+address1,Alias / Primitive,,—,string,—,Primary street address line.
+address2,Alias / Primitive,,—,string,—,"Secondary address line (suite, apartment, floor, etc.)."
+address3,Alias / Primitive,,—,string,—,Tertiary address line.
+addressId,Alias / Primitive,,—,id,—,Integer ID of a previously stored individual recipient address.
+addressListId,Alias / Primitive,,—,id,—,Integer ID of a previously stored recipient address list.
+addressListName,Alias / Primitive,,—,string,—,Optional name for this address list record.
+addressName,Alias / Primitive,,—,string,—,Optional label for this recipient address record.
+amount,Alias / Primitive,,—,number,—,Monetary amount (numeric value).
+amountDue,Alias / Primitive,,—,number,—,Amount due on the invoice.
+cardNumber,Alias / Primitive,,—,string,—,Credit card number (PAN) as a string.
+checkDigit,Alias / Primitive,,—,integer,—,ACH check digit.
+city,Alias / Primitive,,—,string,—,City name.
+color,Alias / Primitive,,—,string,—,"Color mode (e.g. full_color, black_and_white)."
+country,Alias / Primitive,,—,string,—,Country code (e.g. USA).
+cvv,Alias / Primitive,,—,integer,—,Card security code (CVV/CVC) as an integer.
+documentClass,Alias / Primitive,,—,string,—,"Document class (e.g. letter, flat)."
+documentId,Alias / Primitive,,—,id,—,Integer ID of a previously stored or uploaded document.
+documentIdSource,Alias / Primitive,,—,id,—,Source a document by its previously stored document ID.
+endPage,Alias / Primitive,,—,integer,—,Last page of this job's page range (inclusive). Must be ≥ startPage.
+envelope,Alias / Primitive,,—,string,—,"Envelope type (e.g. standard, window)."
+errorDetails,Alias / Primitive,,—,string,—,Optional JSON object with additional error context (free-form key/value pairs).
+errorMessage,Alias / Primitive,,—,string,—,Human-readable error description.
+errorTrackingId,Alias / Primitive,,—,string,—,Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
+filename,Alias / Primitive,,—,string,—,Filename of a specific file within an upload request or ZIP archive.
+firstName,Alias / Primitive,,—,string,—,Recipient's first name.
+foo1,Alias / Primitive,,—,string,—,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
+foo2,Alias / Primitive,,—,string,—,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
+id,Alias / Primitive,,—,id,—,"Integer identifier — alias for integer, used for all ID fields."
+invoiceNumber,Alias / Primitive,,—,string,—,Invoice reference number.
+jobTemplate,Alias / Primitive,,—,string,—,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+lastName,Alias / Primitive,,—,string,—,Recipient's last name.
+layout,Alias / Primitive,,—,string,—,"Page layout (e.g. address_on_top, address_on_bottom)."
+mailClass,Alias / Primitive,,—,string,—,"USPS mail class (e.g. first_class, standard)."
+mappingId,Alias / Primitive,,—,id,—,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used."
+mergeByDocumentId,Alias / Primitive,,—,id,—,Merge a stored document identified by its document ID.
+mergeDocumentSource,Alias / Primitive,,—,oneOf[],—,Container for the list of documents to merge (POST /mail-merge).
+message,Alias / Primitive,,—,string,—,"Human-readable confirmation message (e.g. ""Your request has been queued"")."
+month,Alias / Primitive,,—,integer,—,Expiration month as an integer (1–12).
+paperType,Alias / Primitive,,—,string,—,"Paper stock (e.g. white, recycled)."
+printOption,Alias / Primitive,,—,string,—,"Duplex setting (e.g. single_sided, double_sided)."
+productionTime,Alias / Primitive,,—,string,—,"Production time preference (e.g. next_day, standard)."
+recipientAddressByAddressId,Alias / Primitive,,—,id,—,Reference to a previously stored individual recipient address by its integer ID.
+recipientAddressByListId,Alias / Primitive,,—,id,—,Reference to a previously stored recipient address list by its integer ID.
+requestId,Alias / Primitive,,—,id,—,Integer ID of a prior file upload request. Also returned in success responses.
+routingNumber,Alias / Primitive,,—,string,—,ABA bank routing number.
+singleAddress,Alias / Primitive,,—,object,—,A single recipient mailing address (alias for address).
+startPage,Alias / Primitive,,—,integer,—,"First page of this job's page range, 1-indexed (inclusive)."
+state,Alias / Primitive,,—,string,—,Two-letter state or province abbreviation.
+status,Alias / Primitive,,—,string,—,"Job status string (e.g. ""accepted"")."
+tags,Alias / Primitive,,—,string[],—,Optional list of user-defined string tags for reporting and filtering.
+url,Alias / Primitive,,—,string,—,URL from which the API will fetch the document at submission time.
+urlSource,Alias / Primitive,,—,string,—,Fetch the document from an external URL at submission time.
+year,Alias / Primitive,,—,integer,—,Expiration year as a four-digit integer (e.g. 2027).
+zip,Alias / Primitive,,—,string,—,ZIP or postal code.
+zipDocumentId,Alias / Primitive,,—,id,—,Integer ID of a previously stored ZIP archive.
+zipDocumentIdOnly,Alias / Primitive,,—,id,—,Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames.
+zipFilename,Alias / Primitive,,—,string,—,Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
+zipRequestIdOnly,Alias / Primitive,,—,id,—,Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
+addressList,Array Type,,—,array,—,List of recipient mailing addresses — used for batch sends and mail merge.
+addressList,Array Type,,address,object[],—,"Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2)."
+documentsToMerge,Array Type,,—,array,—,Ordered array of document references to merge into one output document. Minimum two entries required.
+documentsToMerge,Array Type,,mergeDocumentRef,oneOf[],—,A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
+multiDocJobs,Array Type,,—,array,—,List of independent document-per-recipient jobs (each job has its own document source and recipient address).
+multiDocJobs,Array Type,,multiDocJobItem,object[],—,A single independent document job entry within a multi-doc batch.
+multiZipJobs,Array Type,,—,array,—,List of per-file job items extracted from a ZIP archive (POST /batch/zip).
+multiZipJobs,Array Type,,multiZipJobItem,object[],—,"A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address."
+pdfSplitJobsNoAddress,Array Type,,—,array,—,List of page-range job items without inline addresses — addresses are captured externally (POST /batch/split/address-capture).
+pdfSplitJobsNoAddress,Array Type,,pdfSplitJobItemNoAddress,object[],—,A single page-range job entry: page range only (no address — used for address-capture endpoint).
+pdfSplitJobsWithAddress,Array Type,,—,array,—,"List of page-range job items, each with its own inline recipient address."
+pdfSplitJobsWithAddress,Array Type,,pdfSplitJobItemWithAddress,object[],—,"A single page-range job entry: page range (startPage, endPage) plus a recipient address."
+tagsList,Array Type,,—,array,—,Array of user-defined string tags.
+tagsList,Array Type,,string,string[],—,See EBNF rule `string`.
+achDetails,Data Structure,,—,object,—,"ACH payment fields: routing number, bank account number, and check digit."
+achDetails,Data Structure,,routingNumber,string,Required,ABA bank routing number.
+achDetails,Data Structure,,accountNumber,string,Required,Bank account number.
+achDetails,Data Structure,,checkDigit,integer,Required,ACH check digit.
+achPayment,Data Structure,,—,object,—,ACH bank transfer payment.
+achPayment,Data Structure,,"""ach""","""ach""",Required,"See EBNF rule `""ach""`."
+achPayment,Data Structure,,achDetails,object,Required,"ACH payment fields: routing number, bank account number, and check digit."
+address,Data Structure,,—,object,—,"Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2)."
+address,Data Structure,,firstName,string,Required,Recipient's first name.
+address,Data Structure,,lastName,string,Required,Recipient's last name.
+address,Data Structure,,address1,string,Required,Primary street address line.
+address,Data Structure,,city,string,Required,City name.
+address,Data Structure,,state,string,Required,Two-letter state or province abbreviation.
+address,Data Structure,,zip,string,Required,ZIP or postal code.
+address,Data Structure,,country,string,Required,Country code (e.g. USA).
+address,Data Structure,,address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+address,Data Structure,,address3,string,Optional,Tertiary address line.
+address,Data Structure,,foo1,string,Optional,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
+address,Data Structure,,foo2,string,Optional,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
+creditAmount,Data Structure,,—,object,—,Account credit payment fields: monetary amount and ISO currency code.
+creditAmount,Data Structure,,amount,number,Required,Monetary amount (numeric value).
+creditAmount,Data Structure,,currency,enum (USD | EUR | GBP | CAD | AUD),Required,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD."
+creditCardDetails,Data Structure,,—,object,—,"Credit card payment fields: card type, card number, expiration date, and CVV."
+creditCardDetails,Data Structure,,cardType,enum (visa | mastercard | discover | americanExpress),Required,"Card brand. Accepted values: visa, mastercard, discover, americanExpress."
+creditCardDetails,Data Structure,,cardNumber,string,Required,Credit card number (PAN) as a string.
+creditCardDetails,Data Structure,,expirationDate,object,Required,Card expiration date containing month and year.
+creditCardDetails,Data Structure,,cvv,integer,Required,Card security code (CVV/CVC) as an integer.
+creditCardPayment,Data Structure,,—,object,—,Credit card payment.
+creditCardPayment,Data Structure,,"""creditCard""","""creditCard""",Required,"See EBNF rule `""creditCard""`."
+creditCardPayment,Data Structure,,creditCardDetails,object,Required,"Credit card payment fields: card type, card number, expiration date, and CVV."
+errorResponse,Data Structure,,—,object,—,Error response structure returned for all API error conditions.
+errorResponse,Data Structure,,errorType,enum (ValidationError | AuthenticationError | AuthorizationError | ResourceNotFoundError | ServerError),Required,"High-level error category string (ValidationError, AuthenticationError, etc.)."
+errorResponse,Data Structure,,errorMessage,string,Required,Human-readable error description.
+errorResponse,Data Structure,,errorCode,enum (MISSING_REQUIRED_FIELD | INVALID_ONEOF | INVALID_JSON | MISSING_AUTH_HEADER | INVALID_TOKEN | EXPIRED_TOKEN | INSUFFICIENT_PERMISSIONS | ACCOUNT_SUSPENDED | JOB_NOT_FOUND | RESOURCE_NOT_FOUND | INVALID_ENUM_VALUE | MUTUAL_EXCLUSION_VIOLATION | INVALID_FORMAT | SERVER_ERROR | DATABASE_ERROR | EXTERNAL_SERVICE_ERROR),Required,Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
+errorResponse,Data Structure,,errorDetails,string,Optional,Optional JSON object with additional error context (free-form key/value pairs).
+errorResponse,Data Structure,,errorTrackingId,string,Optional,Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
+expirationDate,Data Structure,,—,object,—,Card expiration date containing month and year.
+expirationDate,Data Structure,,month,integer,Required,Expiration month as an integer (1–12).
+expirationDate,Data Structure,,year,integer,Required,Expiration year as a four-digit integer (e.g. 2027).
+invoiceDetails,Data Structure,,—,object,—,Invoice payment fields: invoice number and amount due.
+invoiceDetails,Data Structure,,invoiceNumber,string,Required,Invoice reference number.
+invoiceDetails,Data Structure,,amountDue,number,Required,Amount due on the invoice.
+invoicePayment,Data Structure,,—,object,—,Invoice payment — billed to an existing account invoice.
+invoicePayment,Data Structure,,"""invoice""","""invoice""",Required,"See EBNF rule `""invoice""`."
+invoicePayment,Data Structure,,invoiceDetails,object,Required,Invoice payment fields: invoice number and amount due.
+jobOptions,Data Structure,,—,object,—,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
+jobOptions,Data Structure,,documentClass,string,Required,"Document class (e.g. letter, flat)."
+jobOptions,Data Structure,,layout,string,Required,"Page layout (e.g. address_on_top, address_on_bottom)."
+jobOptions,Data Structure,,productionTime,string,Required,"Production time preference (e.g. next_day, standard)."
+jobOptions,Data Structure,,envelope,string,Required,"Envelope type (e.g. standard, window)."
+jobOptions,Data Structure,,color,string,Required,"Color mode (e.g. full_color, black_and_white)."
+jobOptions,Data Structure,,paperType,string,Required,"Paper stock (e.g. white, recycled)."
+jobOptions,Data Structure,,printOption,string,Required,"Duplex setting (e.g. single_sided, double_sided)."
+jobOptions,Data Structure,,mailClass,string,Required,"USPS mail class (e.g. first_class, standard)."
+mergeByRequestId,Data Structure,,—,object,—,"Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files."
+mergeByRequestId,Data Structure,,requestId,id,Required,Integer ID of a prior file upload request. Also returned in success responses.
+mergeByRequestId,Data Structure,,filename,string,Optional,Filename of a specific file within an upload request or ZIP archive.
+multiDocJobItem,Data Structure,,—,object,—,A single independent document job entry within a multi-doc batch.
+multiDocJobItem,Data Structure,,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+multiDocJobItem,Data Structure,,docSourceAll,oneOf,Required,"Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId)."
+multiDocJobItem,Data Structure,,recipientAddressSource,oneOf,Required,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID."
+multiZipJobItem,Data Structure,,—,object,—,"A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address."
+multiZipJobItem,Data Structure,,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+multiZipJobItem,Data Structure,,filename,string,Required,Filename of a specific file within an upload request or ZIP archive.
+multiZipJobItem,Data Structure,,recipientAddressSource,oneOf,Required,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID."
+pdfSplitJobItemNoAddress,Data Structure,,—,object,—,A single page-range job entry: page range only (no address — used for address-capture endpoint).
+pdfSplitJobItemNoAddress,Data Structure,,startPage,integer,Required,"First page of this job's page range, 1-indexed (inclusive)."
+pdfSplitJobItemNoAddress,Data Structure,,endPage,integer,Required,Last page of this job's page range (inclusive). Must be ≥ startPage.
+pdfSplitJobItemWithAddress,Data Structure,,—,object,—,"A single page-range job entry: page range (startPage, endPage) plus a recipient address."
+pdfSplitJobItemWithAddress,Data Structure,,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+pdfSplitJobItemWithAddress,Data Structure,,startPage,integer,Required,"First page of this job's page range, 1-indexed (inclusive)."
+pdfSplitJobItemWithAddress,Data Structure,,endPage,integer,Required,Last page of this job's page range (inclusive). Must be ≥ startPage.
+pdfSplitJobItemWithAddress,Data Structure,,recipientAddressSource,oneOf,Required,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID."
+recipientAddressByList,Data Structure,,—,object,—,Inline list of recipient addresses with an optional merge-field mapping ID.
+recipientAddressByList,Data Structure,,mappingId,id,Optional,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used."
+recipientAddressByList,Data Structure,,addressList,object[],Required,List of recipient mailing addresses — used for batch sends and mail merge.
+recipientAddressByList,Data Structure,,addressListName,string,Optional,Optional name for this address list record.
+recipientAddressBySingle,Data Structure,,—,object,—,Inline single recipient address with an optional merge-field mapping ID.
+recipientAddressBySingle,Data Structure,,mappingId,id,Optional,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used."
+recipientAddressBySingle,Data Structure,,singleAddress,object,Required,A single recipient mailing address (alias for address).
+recipientAddressBySingle,Data Structure,,addressName,string,Optional,Optional label for this recipient address record.
+requestIdSource,Data Structure,,—,object,—,"Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one."
+requestIdSource,Data Structure,,requestId,id,Required,Integer ID of a prior file upload request. Also returned in success responses.
+requestIdSource,Data Structure,,filename,string,Optional,Filename of a specific file within an upload request or ZIP archive.
+returnAddress,Data Structure,,—,object,—,Optional sender return address printed on the mailpiece.
+returnAddress,Data Structure,,firstName,string,Required,Recipient's first name.
+returnAddress,Data Structure,,lastName,string,Required,Recipient's last name.
+returnAddress,Data Structure,,company,company,Optional,Recipient's company or organisation name (optional).
+returnAddress,Data Structure,,address1,string,Required,Primary street address line.
+returnAddress,Data Structure,,city,string,Required,City name.
+returnAddress,Data Structure,,state,string,Required,Two-letter state or province abbreviation.
+returnAddress,Data Structure,,zip,string,Required,ZIP or postal code.
+returnAddress,Data Structure,,country,string,Required,Country code (e.g. USA).
+returnAddress,Data Structure,,address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+returnAddress,Data Structure,,address3,string,Optional,Tertiary address line.
+standardResponse,Data Structure,,—,object,—,Success response returned for all successful job submissions.
+standardResponse,Data Structure,,status,string,Required,"Job status string (e.g. ""accepted"")."
+standardResponse,Data Structure,,message,string,Required,"Human-readable confirmation message (e.g. ""Your request has been queued"")."
+standardResponse,Data Structure,,requestId,id,Required,Integer ID of a prior file upload request. Also returned in success responses.
+userCreditPayment,Data Structure,,—,object,—,Payment deducted from the account's prepaid credit balance.
+userCreditPayment,Data Structure,,"""userCredit""","""userCredit""",Required,"See EBNF rule `""userCredit""`."
+userCreditPayment,Data Structure,,creditAmount,object,Required,Account credit payment fields: monetary amount and ISO currency code.
+zipDocumentIdSource,Data Structure,,—,object,—,Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
+zipDocumentIdSource,Data Structure,,zipDocumentId,id,Required,Integer ID of a previously stored ZIP archive.
+zipDocumentIdSource,Data Structure,,filename,string,Required,Filename of a specific file within an upload request or ZIP archive.
+zipRequestIdSource,Data Structure,,—,object,—,"Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip."
+zipRequestIdSource,Data Structure,,requestId,id,Required,Integer ID of a prior file upload request. Also returned in success responses.
+zipRequestIdSource,Data Structure,,zipFilename,string,Required,Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
+zipRequestIdSource,Data Structure,,filename,string,Required,Filename of a specific file within an upload request or ZIP archive.
+cardType,Enumeration,,—,enum,—,"Card brand. Accepted values: visa, mastercard, discover, americanExpress."
+cardType,Enumeration,,visa,string,—,
+cardType,Enumeration,,mastercard,string,—,
+cardType,Enumeration,,discover,string,—,
+cardType,Enumeration,,americanExpress,string,—,
+currency,Enumeration,,—,enum,—,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD."
+currency,Enumeration,,USD,string,—,
+currency,Enumeration,,EUR,string,—,
+currency,Enumeration,,GBP,string,—,
+currency,Enumeration,,CAD,string,—,
+currency,Enumeration,,AUD,string,—,
+errorCode,Enumeration,,—,enum,—,Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
+errorCode,Enumeration,,MISSING_REQUIRED_FIELD,string,—,
+errorCode,Enumeration,,INVALID_ONEOF,string,—,
+errorCode,Enumeration,,INVALID_JSON,string,—,
+errorCode,Enumeration,,MISSING_AUTH_HEADER,string,—,
+errorCode,Enumeration,,INVALID_TOKEN,string,—,
+errorCode,Enumeration,,EXPIRED_TOKEN,string,—,
+errorCode,Enumeration,,INSUFFICIENT_PERMISSIONS,string,—,
+errorCode,Enumeration,,ACCOUNT_SUSPENDED,string,—,
+errorCode,Enumeration,,JOB_NOT_FOUND,string,—,
+errorCode,Enumeration,,RESOURCE_NOT_FOUND,string,—,
+errorCode,Enumeration,,INVALID_ENUM_VALUE,string,—,
+errorCode,Enumeration,,MUTUAL_EXCLUSION_VIOLATION,string,—,
+errorCode,Enumeration,,INVALID_FORMAT,string,—,
+errorCode,Enumeration,,SERVER_ERROR,string,—,
+errorCode,Enumeration,,DATABASE_ERROR,string,—,
+errorCode,Enumeration,,EXTERNAL_SERVICE_ERROR,string,—,
+errorType,Enumeration,,—,enum,—,"High-level error category string (ValidationError, AuthenticationError, etc.)."
+errorType,Enumeration,,ValidationError,string,—,
+errorType,Enumeration,,AuthenticationError,string,—,
+errorType,Enumeration,,AuthorizationError,string,—,
+errorType,Enumeration,,ResourceNotFoundError,string,—,
+errorType,Enumeration,,ServerError,string,—,
+docSourceAll,Union Type (oneOf),,—,oneOf,—,"Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId)."
+docSourceAll,Union Type (oneOf),,docSourceStandard,oneOf,—,"Document source — standard (non-zip) variants only: requestId, documentId, or URL."
+docSourceAll,Union Type (oneOf),,docSourceZipFile,oneOf,—,Document source — zip variants: a specific file within a stored ZIP (zipDocumentId + filename) or uploaded ZIP (requestId + zipFilename + filename).
+docSourceStandard,Union Type (oneOf),,—,oneOf,—,"Document source — standard (non-zip) variants only: requestId, documentId, or URL."
+docSourceStandard,Union Type (oneOf),,documentIdSource,id,—,Source a document by its previously stored document ID.
+docSourceStandard,Union Type (oneOf),,requestIdSource,object,—,"Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one."
+docSourceStandard,Union Type (oneOf),,urlSource,string,—,Fetch the document from an external URL at submission time.
+docSourceZipFile,Union Type (oneOf),,—,oneOf,—,Document source — zip variants: a specific file within a stored ZIP (zipDocumentId + filename) or uploaded ZIP (requestId + zipFilename + filename).
+docSourceZipFile,Union Type (oneOf),,zipDocumentIdSource,object,—,Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
+docSourceZipFile,Union Type (oneOf),,zipRequestIdSource,object,—,"Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip."
+docSourceZipFileRef,Union Type (oneOf),,—,oneOf,—,"Top-level ZIP archive reference for batch endpoints — identifies the archive itself, not a file within it. No filename is required at this level."
+docSourceZipFileRef,Union Type (oneOf),,zipDocumentIdOnly,id,—,Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames.
+docSourceZipFileRef,Union Type (oneOf),,zipRequestIdOnly,id,—,Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
+mergeDocumentRef,Union Type (oneOf),,—,oneOf,—,A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
+mergeDocumentRef,Union Type (oneOf),,mergeByDocumentId,id,—,Merge a stored document identified by its document ID.
+mergeDocumentRef,Union Type (oneOf),,mergeByRequestId,object,—,"Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files."
+paymentDetails,Union Type (oneOf),,—,oneOf,—,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit."
+paymentDetails,Union Type (oneOf),,creditCardPayment,object,—,Credit card payment.
+paymentDetails,Union Type (oneOf),,invoicePayment,object,—,Invoice payment — billed to an existing account invoice.
+paymentDetails,Union Type (oneOf),,achPayment,object,—,ACH bank transfer payment.
+paymentDetails,Union Type (oneOf),,userCreditPayment,object,—,Payment deducted from the account's prepaid credit balance.
+recipientAddressSource,Union Type (oneOf),,—,oneOf,—,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID."
+recipientAddressSource,Union Type (oneOf),,recipientAddressBySingle,object,—,Inline single recipient address with an optional merge-field mapping ID.
+recipientAddressSource,Union Type (oneOf),,recipientAddressByList,object,—,Inline list of recipient addresses with an optional merge-field mapping ID.
+recipientAddressSource,Union Type (oneOf),,recipientAddressByAddressId,id,—,Reference to a previously stored individual recipient address by its integer ID.
+recipientAddressSource,Union Type (oneOf),,recipientAddressByListId,id,—,Reference to a previously stored recipient address list by its integer ID.
+zipDocumentSource,Union Type (oneOf),,—,oneOf,—,ZIP document source — either a stored zip archive (zipDocumentId) or an uploaded zip archive (requestId).
+zipDocumentSource,Union Type (oneOf),,zipDocumentIdSource,object,—,Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
+zipDocumentSource,Union Type (oneOf),,zipRequestIdSource,object,—,"Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip."

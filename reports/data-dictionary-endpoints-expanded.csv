@@ -1,0 +1,356 @@
+method,endpoint,field_path,type,required,description
+POST,/static,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+POST,/static,docSourceAll[docSourceStandard][documentIdSource].documentId,integer,Required*,Integer ID of a previously stored or uploaded document.
+POST,/static,docSourceAll[docSourceStandard][requestIdSource].requestId,integer,Required*,Integer ID of a prior file upload request. Also returned in success responses.
+POST,/static,docSourceAll[docSourceStandard][requestIdSource].filename,string,Optional,Filename of a specific file within an upload request or ZIP archive.
+POST,/static,docSourceAll[docSourceStandard][urlSource].url,string,Required*,URL from which the API will fetch the document at submission time.
+POST,/static,docSourceAll[docSourceZipFile][zipDocumentIdSource].zipDocumentId,integer,Required*,Integer ID of a previously stored ZIP archive.
+POST,/static,docSourceAll[docSourceZipFile][zipDocumentIdSource].filename,string,Required*,Filename of a specific file within an upload request or ZIP archive.
+POST,/static,docSourceAll[docSourceZipFile][zipRequestIdSource].requestId,integer,Required*,Integer ID of a prior file upload request. Also returned in success responses.
+POST,/static,docSourceAll[docSourceZipFile][zipRequestIdSource].zipFilename,string,Required*,Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
+POST,/static,docSourceAll[docSourceZipFile][zipRequestIdSource].filename,string,Required*,Filename of a specific file within an upload request or ZIP archive.
+POST,/static,recipientAddressSource[recipientAddressBySingle].mappingId,integer,Optional,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used."
+POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.firstName,string,Required*,Recipient's first name.
+POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.lastName,string,Required*,Recipient's last name.
+POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.address1,string,Required*,Primary street address line.
+POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.city,string,Required*,City name.
+POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.state,string,Required*,Two-letter state or province abbreviation.
+POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.zip,string,Required*,ZIP or postal code.
+POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.country,string,Required*,Country code (e.g. USA).
+POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.address3,string,Optional,Tertiary address line.
+POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.foo1,string,Optional,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
+POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.foo2,string,Optional,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
+POST,/static,recipientAddressSource[recipientAddressBySingle].addressName,string,Optional,Optional label for this recipient address record.
+POST,/static,recipientAddressSource[recipientAddressByList].mappingId,integer,Optional,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used."
+POST,/static,recipientAddressSource[recipientAddressByList].addressList[].firstName,string,Required*,Recipient's first name.
+POST,/static,recipientAddressSource[recipientAddressByList].addressList[].lastName,string,Required*,Recipient's last name.
+POST,/static,recipientAddressSource[recipientAddressByList].addressList[].address1,string,Required*,Primary street address line.
+POST,/static,recipientAddressSource[recipientAddressByList].addressList[].city,string,Required*,City name.
+POST,/static,recipientAddressSource[recipientAddressByList].addressList[].state,string,Required*,Two-letter state or province abbreviation.
+POST,/static,recipientAddressSource[recipientAddressByList].addressList[].zip,string,Required*,ZIP or postal code.
+POST,/static,recipientAddressSource[recipientAddressByList].addressList[].country,string,Required*,Country code (e.g. USA).
+POST,/static,recipientAddressSource[recipientAddressByList].addressList[].address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/static,recipientAddressSource[recipientAddressByList].addressList[].address3,string,Optional,Tertiary address line.
+POST,/static,recipientAddressSource[recipientAddressByList].addressList[].foo1,string,Optional,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
+POST,/static,recipientAddressSource[recipientAddressByList].addressList[].foo2,string,Optional,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
+POST,/static,recipientAddressSource[recipientAddressByList].addressListName,string,Optional,Optional name for this address list record.
+POST,/static,recipientAddressSource[recipientAddressByAddressId].addressId,integer,Required*,Integer ID of a previously stored individual recipient address.
+POST,/static,recipientAddressSource[recipientAddressByListId].addressListId,integer,Required*,Integer ID of a previously stored recipient address list.
+POST,/static,paymentDetails[creditCardPayment].creditCard.cardType,enum: visa | mastercard | discover | americanExpress,Optional,"Card brand. Accepted values: visa, mastercard, discover, americanExpress."
+POST,/static,paymentDetails[creditCardPayment].creditCard.cardNumber,string,Optional,Credit card number (PAN) as a string.
+POST,/static,paymentDetails[creditCardPayment].creditCard.expirationDate.month,integer,Optional,Expiration month as an integer (1–12).
+POST,/static,paymentDetails[creditCardPayment].creditCard.expirationDate.year,integer,Optional,Expiration year as a four-digit integer (e.g. 2027).
+POST,/static,paymentDetails[creditCardPayment].creditCard.cvv,integer,Optional,Card security code (CVV/CVC) as an integer.
+POST,/static,paymentDetails[invoicePayment].invoice.invoiceNumber,string,Optional,Invoice reference number.
+POST,/static,paymentDetails[invoicePayment].invoice.amountDue,number,Optional,Amount due on the invoice.
+POST,/static,paymentDetails[achPayment].ach.routingNumber,string,Optional,ABA bank routing number.
+POST,/static,paymentDetails[achPayment].ach.accountNumber,string,Optional,Bank account number.
+POST,/static,paymentDetails[achPayment].ach.checkDigit,integer,Optional,ACH check digit.
+POST,/static,paymentDetails[userCreditPayment].userCredit.amount,number,Optional,Monetary amount (numeric value).
+POST,/static,paymentDetails[userCreditPayment].userCredit.currency,enum: USD | EUR | GBP | CAD | AUD,Optional,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD."
+POST,/static,returnAddress.firstName,string,Optional,Recipient's first name.
+POST,/static,returnAddress.lastName,string,Optional,Recipient's last name.
+POST,/static,returnAddress.company,string,Optional,Recipient's company or organisation name (optional).
+POST,/static,returnAddress.address1,string,Optional,Primary street address line.
+POST,/static,returnAddress.city,string,Optional,City name.
+POST,/static,returnAddress.state,string,Optional,Two-letter state or province abbreviation.
+POST,/static,returnAddress.zip,string,Optional,ZIP or postal code.
+POST,/static,returnAddress.country,string,Optional,Country code (e.g. USA).
+POST,/static,returnAddress.address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/static,returnAddress.address3,string,Optional,Tertiary address line.
+POST,/static,jobOptions.documentClass,string,Optional,"Document class (e.g. letter, flat)."
+POST,/static,jobOptions.layout,string,Optional,"Page layout (e.g. address_on_top, address_on_bottom)."
+POST,/static,jobOptions.productionTime,string,Optional,"Production time preference (e.g. next_day, standard)."
+POST,/static,jobOptions.envelope,string,Optional,"Envelope type (e.g. standard, window)."
+POST,/static,jobOptions.color,string,Optional,"Color mode (e.g. full_color, black_and_white)."
+POST,/static,jobOptions.paperType,string,Optional,"Paper stock (e.g. white, recycled)."
+POST,/static,jobOptions.printOption,string,Optional,"Duplex setting (e.g. single_sided, double_sided)."
+POST,/static,jobOptions.mailClass,string,Optional,"USPS mail class (e.g. first_class, standard)."
+POST,/static,tags[],string,Optional,See EBNF rule `tags[]`.
+POST,/static/address-capture,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+POST,/static/address-capture,docSourceStandard[documentIdSource].documentId,integer,Required*,Integer ID of a previously stored or uploaded document.
+POST,/static/address-capture,docSourceStandard[requestIdSource].requestId,integer,Required*,Integer ID of a prior file upload request. Also returned in success responses.
+POST,/static/address-capture,docSourceStandard[requestIdSource].filename,string,Optional,Filename of a specific file within an upload request or ZIP archive.
+POST,/static/address-capture,docSourceStandard[urlSource].url,string,Required*,URL from which the API will fetch the document at submission time.
+POST,/static/address-capture,paymentDetails[creditCardPayment].creditCard.cardType,enum: visa | mastercard | discover | americanExpress,Optional,"Card brand. Accepted values: visa, mastercard, discover, americanExpress."
+POST,/static/address-capture,paymentDetails[creditCardPayment].creditCard.cardNumber,string,Optional,Credit card number (PAN) as a string.
+POST,/static/address-capture,paymentDetails[creditCardPayment].creditCard.expirationDate.month,integer,Optional,Expiration month as an integer (1–12).
+POST,/static/address-capture,paymentDetails[creditCardPayment].creditCard.expirationDate.year,integer,Optional,Expiration year as a four-digit integer (e.g. 2027).
+POST,/static/address-capture,paymentDetails[creditCardPayment].creditCard.cvv,integer,Optional,Card security code (CVV/CVC) as an integer.
+POST,/static/address-capture,paymentDetails[invoicePayment].invoice.invoiceNumber,string,Optional,Invoice reference number.
+POST,/static/address-capture,paymentDetails[invoicePayment].invoice.amountDue,number,Optional,Amount due on the invoice.
+POST,/static/address-capture,paymentDetails[achPayment].ach.routingNumber,string,Optional,ABA bank routing number.
+POST,/static/address-capture,paymentDetails[achPayment].ach.accountNumber,string,Optional,Bank account number.
+POST,/static/address-capture,paymentDetails[achPayment].ach.checkDigit,integer,Optional,ACH check digit.
+POST,/static/address-capture,paymentDetails[userCreditPayment].userCredit.amount,number,Optional,Monetary amount (numeric value).
+POST,/static/address-capture,paymentDetails[userCreditPayment].userCredit.currency,enum: USD | EUR | GBP | CAD | AUD,Optional,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD."
+POST,/static/address-capture,returnAddress.firstName,string,Optional,Recipient's first name.
+POST,/static/address-capture,returnAddress.lastName,string,Optional,Recipient's last name.
+POST,/static/address-capture,returnAddress.company,string,Optional,Recipient's company or organisation name (optional).
+POST,/static/address-capture,returnAddress.address1,string,Optional,Primary street address line.
+POST,/static/address-capture,returnAddress.city,string,Optional,City name.
+POST,/static/address-capture,returnAddress.state,string,Optional,Two-letter state or province abbreviation.
+POST,/static/address-capture,returnAddress.zip,string,Optional,ZIP or postal code.
+POST,/static/address-capture,returnAddress.country,string,Optional,Country code (e.g. USA).
+POST,/static/address-capture,returnAddress.address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/static/address-capture,returnAddress.address3,string,Optional,Tertiary address line.
+POST,/static/address-capture,jobOptions.documentClass,string,Optional,"Document class (e.g. letter, flat)."
+POST,/static/address-capture,jobOptions.layout,string,Optional,"Page layout (e.g. address_on_top, address_on_bottom)."
+POST,/static/address-capture,jobOptions.productionTime,string,Optional,"Production time preference (e.g. next_day, standard)."
+POST,/static/address-capture,jobOptions.envelope,string,Optional,"Envelope type (e.g. standard, window)."
+POST,/static/address-capture,jobOptions.color,string,Optional,"Color mode (e.g. full_color, black_and_white)."
+POST,/static/address-capture,jobOptions.paperType,string,Optional,"Paper stock (e.g. white, recycled)."
+POST,/static/address-capture,jobOptions.printOption,string,Optional,"Duplex setting (e.g. single_sided, double_sided)."
+POST,/static/address-capture,jobOptions.mailClass,string,Optional,"USPS mail class (e.g. first_class, standard)."
+POST,/static/address-capture,tags[],string,Optional,See EBNF rule `tags[]`.
+POST,/batch/split,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+POST,/batch/split,docSourceStandard[documentIdSource].documentId,integer,Required*,Integer ID of a previously stored or uploaded document.
+POST,/batch/split,docSourceStandard[requestIdSource].requestId,integer,Required*,Integer ID of a prior file upload request. Also returned in success responses.
+POST,/batch/split,docSourceStandard[requestIdSource].filename,string,Optional,Filename of a specific file within an upload request or ZIP archive.
+POST,/batch/split,docSourceStandard[urlSource].url,string,Required*,URL from which the API will fetch the document at submission time.
+POST,/batch/split,pdfSplitJobsWithAddress[].jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+POST,/batch/split,pdfSplitJobsWithAddress[].startPage,integer,Required,"First page of this job's page range, 1-indexed (inclusive)."
+POST,/batch/split,pdfSplitJobsWithAddress[].endPage,integer,Required,Last page of this job's page range (inclusive). Must be ≥ startPage.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].mappingId,integer,Optional,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used."
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.firstName,string,Required*,Recipient's first name.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.lastName,string,Required*,Recipient's last name.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.address1,string,Required*,Primary street address line.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.city,string,Required*,City name.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.state,string,Required*,Two-letter state or province abbreviation.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.zip,string,Required*,ZIP or postal code.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.country,string,Required*,Country code (e.g. USA).
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.address3,string,Optional,Tertiary address line.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.foo1,string,Optional,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.foo2,string,Optional,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].addressName,string,Optional,Optional label for this recipient address record.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].mappingId,integer,Optional,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used."
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].firstName,string,Required*,Recipient's first name.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].lastName,string,Required*,Recipient's last name.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].address1,string,Required*,Primary street address line.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].city,string,Required*,City name.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].state,string,Required*,Two-letter state or province abbreviation.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].zip,string,Required*,ZIP or postal code.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].country,string,Required*,Country code (e.g. USA).
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].address3,string,Optional,Tertiary address line.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].foo1,string,Optional,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].foo2,string,Optional,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressListName,string,Optional,Optional name for this address list record.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByAddressId].addressId,integer,Required*,Integer ID of a previously stored individual recipient address.
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByListId].addressListId,integer,Required*,Integer ID of a previously stored recipient address list.
+POST,/batch/split,paymentDetails[creditCardPayment].creditCard.cardType,enum: visa | mastercard | discover | americanExpress,Optional,"Card brand. Accepted values: visa, mastercard, discover, americanExpress."
+POST,/batch/split,paymentDetails[creditCardPayment].creditCard.cardNumber,string,Optional,Credit card number (PAN) as a string.
+POST,/batch/split,paymentDetails[creditCardPayment].creditCard.expirationDate.month,integer,Optional,Expiration month as an integer (1–12).
+POST,/batch/split,paymentDetails[creditCardPayment].creditCard.expirationDate.year,integer,Optional,Expiration year as a four-digit integer (e.g. 2027).
+POST,/batch/split,paymentDetails[creditCardPayment].creditCard.cvv,integer,Optional,Card security code (CVV/CVC) as an integer.
+POST,/batch/split,paymentDetails[invoicePayment].invoice.invoiceNumber,string,Optional,Invoice reference number.
+POST,/batch/split,paymentDetails[invoicePayment].invoice.amountDue,number,Optional,Amount due on the invoice.
+POST,/batch/split,paymentDetails[achPayment].ach.routingNumber,string,Optional,ABA bank routing number.
+POST,/batch/split,paymentDetails[achPayment].ach.accountNumber,string,Optional,Bank account number.
+POST,/batch/split,paymentDetails[achPayment].ach.checkDigit,integer,Optional,ACH check digit.
+POST,/batch/split,paymentDetails[userCreditPayment].userCredit.amount,number,Optional,Monetary amount (numeric value).
+POST,/batch/split,paymentDetails[userCreditPayment].userCredit.currency,enum: USD | EUR | GBP | CAD | AUD,Optional,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD."
+POST,/batch/split,returnAddress.firstName,string,Optional,Recipient's first name.
+POST,/batch/split,returnAddress.lastName,string,Optional,Recipient's last name.
+POST,/batch/split,returnAddress.company,string,Optional,Recipient's company or organisation name (optional).
+POST,/batch/split,returnAddress.address1,string,Optional,Primary street address line.
+POST,/batch/split,returnAddress.city,string,Optional,City name.
+POST,/batch/split,returnAddress.state,string,Optional,Two-letter state or province abbreviation.
+POST,/batch/split,returnAddress.zip,string,Optional,ZIP or postal code.
+POST,/batch/split,returnAddress.country,string,Optional,Country code (e.g. USA).
+POST,/batch/split,returnAddress.address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/batch/split,returnAddress.address3,string,Optional,Tertiary address line.
+POST,/batch/split,jobOptions.documentClass,string,Optional,"Document class (e.g. letter, flat)."
+POST,/batch/split,jobOptions.layout,string,Optional,"Page layout (e.g. address_on_top, address_on_bottom)."
+POST,/batch/split,jobOptions.productionTime,string,Optional,"Production time preference (e.g. next_day, standard)."
+POST,/batch/split,jobOptions.envelope,string,Optional,"Envelope type (e.g. standard, window)."
+POST,/batch/split,jobOptions.color,string,Optional,"Color mode (e.g. full_color, black_and_white)."
+POST,/batch/split,jobOptions.paperType,string,Optional,"Paper stock (e.g. white, recycled)."
+POST,/batch/split,jobOptions.printOption,string,Optional,"Duplex setting (e.g. single_sided, double_sided)."
+POST,/batch/split,jobOptions.mailClass,string,Optional,"USPS mail class (e.g. first_class, standard)."
+POST,/batch/split,tags[],string,Optional,See EBNF rule `tags[]`.
+POST,/batch/split/address-capture,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+POST,/batch/split/address-capture,docSourceStandard[documentIdSource].documentId,integer,Required*,Integer ID of a previously stored or uploaded document.
+POST,/batch/split/address-capture,docSourceStandard[requestIdSource].requestId,integer,Required*,Integer ID of a prior file upload request. Also returned in success responses.
+POST,/batch/split/address-capture,docSourceStandard[requestIdSource].filename,string,Optional,Filename of a specific file within an upload request or ZIP archive.
+POST,/batch/split/address-capture,docSourceStandard[urlSource].url,string,Required*,URL from which the API will fetch the document at submission time.
+POST,/batch/split/address-capture,pdfSplitJobsNoAddress[].startPage,integer,Required,"First page of this job's page range, 1-indexed (inclusive)."
+POST,/batch/split/address-capture,pdfSplitJobsNoAddress[].endPage,integer,Required,Last page of this job's page range (inclusive). Must be ≥ startPage.
+POST,/batch/split/address-capture,paymentDetails[creditCardPayment].creditCard.cardType,enum: visa | mastercard | discover | americanExpress,Optional,"Card brand. Accepted values: visa, mastercard, discover, americanExpress."
+POST,/batch/split/address-capture,paymentDetails[creditCardPayment].creditCard.cardNumber,string,Optional,Credit card number (PAN) as a string.
+POST,/batch/split/address-capture,paymentDetails[creditCardPayment].creditCard.expirationDate.month,integer,Optional,Expiration month as an integer (1–12).
+POST,/batch/split/address-capture,paymentDetails[creditCardPayment].creditCard.expirationDate.year,integer,Optional,Expiration year as a four-digit integer (e.g. 2027).
+POST,/batch/split/address-capture,paymentDetails[creditCardPayment].creditCard.cvv,integer,Optional,Card security code (CVV/CVC) as an integer.
+POST,/batch/split/address-capture,paymentDetails[invoicePayment].invoice.invoiceNumber,string,Optional,Invoice reference number.
+POST,/batch/split/address-capture,paymentDetails[invoicePayment].invoice.amountDue,number,Optional,Amount due on the invoice.
+POST,/batch/split/address-capture,paymentDetails[achPayment].ach.routingNumber,string,Optional,ABA bank routing number.
+POST,/batch/split/address-capture,paymentDetails[achPayment].ach.accountNumber,string,Optional,Bank account number.
+POST,/batch/split/address-capture,paymentDetails[achPayment].ach.checkDigit,integer,Optional,ACH check digit.
+POST,/batch/split/address-capture,paymentDetails[userCreditPayment].userCredit.amount,number,Optional,Monetary amount (numeric value).
+POST,/batch/split/address-capture,paymentDetails[userCreditPayment].userCredit.currency,enum: USD | EUR | GBP | CAD | AUD,Optional,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD."
+POST,/batch/split/address-capture,returnAddress.firstName,string,Optional,Recipient's first name.
+POST,/batch/split/address-capture,returnAddress.lastName,string,Optional,Recipient's last name.
+POST,/batch/split/address-capture,returnAddress.company,string,Optional,Recipient's company or organisation name (optional).
+POST,/batch/split/address-capture,returnAddress.address1,string,Optional,Primary street address line.
+POST,/batch/split/address-capture,returnAddress.city,string,Optional,City name.
+POST,/batch/split/address-capture,returnAddress.state,string,Optional,Two-letter state or province abbreviation.
+POST,/batch/split/address-capture,returnAddress.zip,string,Optional,ZIP or postal code.
+POST,/batch/split/address-capture,returnAddress.country,string,Optional,Country code (e.g. USA).
+POST,/batch/split/address-capture,returnAddress.address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/batch/split/address-capture,returnAddress.address3,string,Optional,Tertiary address line.
+POST,/batch/split/address-capture,jobOptions.documentClass,string,Optional,"Document class (e.g. letter, flat)."
+POST,/batch/split/address-capture,jobOptions.layout,string,Optional,"Page layout (e.g. address_on_top, address_on_bottom)."
+POST,/batch/split/address-capture,jobOptions.productionTime,string,Optional,"Production time preference (e.g. next_day, standard)."
+POST,/batch/split/address-capture,jobOptions.envelope,string,Optional,"Envelope type (e.g. standard, window)."
+POST,/batch/split/address-capture,jobOptions.color,string,Optional,"Color mode (e.g. full_color, black_and_white)."
+POST,/batch/split/address-capture,jobOptions.paperType,string,Optional,"Paper stock (e.g. white, recycled)."
+POST,/batch/split/address-capture,jobOptions.printOption,string,Optional,"Duplex setting (e.g. single_sided, double_sided)."
+POST,/batch/split/address-capture,jobOptions.mailClass,string,Optional,"USPS mail class (e.g. first_class, standard)."
+POST,/batch/split/address-capture,tags[],string,Optional,See EBNF rule `tags[]`.
+POST,/mail-merge,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+POST,/mail-merge,mergeDocumentSource[][mergeByDocumentId].documentId,integer,Required*,Integer ID of a previously stored or uploaded document.
+POST,/mail-merge,mergeDocumentSource[][mergeByRequestId].requestId,integer,Required*,Integer ID of a prior file upload request. Also returned in success responses.
+POST,/mail-merge,mergeDocumentSource[][mergeByRequestId].filename,string,Optional,Filename of a specific file within an upload request or ZIP archive.
+POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].mappingId,integer,Optional,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used."
+POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.firstName,string,Required*,Recipient's first name.
+POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.lastName,string,Required*,Recipient's last name.
+POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.address1,string,Required*,Primary street address line.
+POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.city,string,Required*,City name.
+POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.state,string,Required*,Two-letter state or province abbreviation.
+POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.zip,string,Required*,ZIP or postal code.
+POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.country,string,Required*,Country code (e.g. USA).
+POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.address3,string,Optional,Tertiary address line.
+POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.foo1,string,Optional,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
+POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.foo2,string,Optional,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
+POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].addressName,string,Optional,Optional label for this recipient address record.
+POST,/mail-merge,recipientAddressSource[recipientAddressByList].mappingId,integer,Optional,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used."
+POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].firstName,string,Required*,Recipient's first name.
+POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].lastName,string,Required*,Recipient's last name.
+POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].address1,string,Required*,Primary street address line.
+POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].city,string,Required*,City name.
+POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].state,string,Required*,Two-letter state or province abbreviation.
+POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].zip,string,Required*,ZIP or postal code.
+POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].country,string,Required*,Country code (e.g. USA).
+POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].address3,string,Optional,Tertiary address line.
+POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].foo1,string,Optional,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
+POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].foo2,string,Optional,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
+POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressListName,string,Optional,Optional name for this address list record.
+POST,/mail-merge,recipientAddressSource[recipientAddressByAddressId].addressId,integer,Required*,Integer ID of a previously stored individual recipient address.
+POST,/mail-merge,recipientAddressSource[recipientAddressByListId].addressListId,integer,Required*,Integer ID of a previously stored recipient address list.
+POST,/mail-merge,paymentDetails[creditCardPayment].creditCard.cardType,enum: visa | mastercard | discover | americanExpress,Optional,"Card brand. Accepted values: visa, mastercard, discover, americanExpress."
+POST,/mail-merge,paymentDetails[creditCardPayment].creditCard.cardNumber,string,Optional,Credit card number (PAN) as a string.
+POST,/mail-merge,paymentDetails[creditCardPayment].creditCard.expirationDate.month,integer,Optional,Expiration month as an integer (1–12).
+POST,/mail-merge,paymentDetails[creditCardPayment].creditCard.expirationDate.year,integer,Optional,Expiration year as a four-digit integer (e.g. 2027).
+POST,/mail-merge,paymentDetails[creditCardPayment].creditCard.cvv,integer,Optional,Card security code (CVV/CVC) as an integer.
+POST,/mail-merge,paymentDetails[invoicePayment].invoice.invoiceNumber,string,Optional,Invoice reference number.
+POST,/mail-merge,paymentDetails[invoicePayment].invoice.amountDue,number,Optional,Amount due on the invoice.
+POST,/mail-merge,paymentDetails[achPayment].ach.routingNumber,string,Optional,ABA bank routing number.
+POST,/mail-merge,paymentDetails[achPayment].ach.accountNumber,string,Optional,Bank account number.
+POST,/mail-merge,paymentDetails[achPayment].ach.checkDigit,integer,Optional,ACH check digit.
+POST,/mail-merge,paymentDetails[userCreditPayment].userCredit.amount,number,Optional,Monetary amount (numeric value).
+POST,/mail-merge,paymentDetails[userCreditPayment].userCredit.currency,enum: USD | EUR | GBP | CAD | AUD,Optional,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD."
+POST,/mail-merge,returnAddress.firstName,string,Optional,Recipient's first name.
+POST,/mail-merge,returnAddress.lastName,string,Optional,Recipient's last name.
+POST,/mail-merge,returnAddress.company,string,Optional,Recipient's company or organisation name (optional).
+POST,/mail-merge,returnAddress.address1,string,Optional,Primary street address line.
+POST,/mail-merge,returnAddress.city,string,Optional,City name.
+POST,/mail-merge,returnAddress.state,string,Optional,Two-letter state or province abbreviation.
+POST,/mail-merge,returnAddress.zip,string,Optional,ZIP or postal code.
+POST,/mail-merge,returnAddress.country,string,Optional,Country code (e.g. USA).
+POST,/mail-merge,returnAddress.address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/mail-merge,returnAddress.address3,string,Optional,Tertiary address line.
+POST,/mail-merge,jobOptions.documentClass,string,Optional,"Document class (e.g. letter, flat)."
+POST,/mail-merge,jobOptions.layout,string,Optional,"Page layout (e.g. address_on_top, address_on_bottom)."
+POST,/mail-merge,jobOptions.productionTime,string,Optional,"Production time preference (e.g. next_day, standard)."
+POST,/mail-merge,jobOptions.envelope,string,Optional,"Envelope type (e.g. standard, window)."
+POST,/mail-merge,jobOptions.color,string,Optional,"Color mode (e.g. full_color, black_and_white)."
+POST,/mail-merge,jobOptions.paperType,string,Optional,"Paper stock (e.g. white, recycled)."
+POST,/mail-merge,jobOptions.printOption,string,Optional,"Duplex setting (e.g. single_sided, double_sided)."
+POST,/mail-merge,jobOptions.mailClass,string,Optional,"USPS mail class (e.g. first_class, standard)."
+POST,/mail-merge,tags[],string,Optional,See EBNF rule `tags[]`.
+POST,/batch/zip,docSourceZipFileRef[zipDocumentIdOnly].zipDocumentId,integer,Required*,Integer ID of a previously stored ZIP archive.
+POST,/batch/zip,docSourceZipFileRef[zipRequestIdOnly].requestId,integer,Required*,Integer ID of a prior file upload request. Also returned in success responses.
+POST,/batch/zip,multiZipJobs[].jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+POST,/batch/zip,multiZipJobs[].filename,string,Required,Filename of a specific file within an upload request or ZIP archive.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].mappingId,integer,Optional,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used."
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.firstName,string,Required*,Recipient's first name.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.lastName,string,Required*,Recipient's last name.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.address1,string,Required*,Primary street address line.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.city,string,Required*,City name.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.state,string,Required*,Two-letter state or province abbreviation.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.zip,string,Required*,ZIP or postal code.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.country,string,Required*,Country code (e.g. USA).
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.address3,string,Optional,Tertiary address line.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.foo1,string,Optional,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.foo2,string,Optional,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].addressName,string,Optional,Optional label for this recipient address record.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].mappingId,integer,Optional,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used."
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].firstName,string,Required*,Recipient's first name.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].lastName,string,Required*,Recipient's last name.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].address1,string,Required*,Primary street address line.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].city,string,Required*,City name.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].state,string,Required*,Two-letter state or province abbreviation.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].zip,string,Required*,ZIP or postal code.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].country,string,Required*,Country code (e.g. USA).
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].address3,string,Optional,Tertiary address line.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].foo1,string,Optional,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].foo2,string,Optional,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressListName,string,Optional,Optional name for this address list record.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByAddressId].addressId,integer,Required*,Integer ID of a previously stored individual recipient address.
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByListId].addressListId,integer,Required*,Integer ID of a previously stored recipient address list.
+POST,/batch/zip,paymentDetails[creditCardPayment].creditCard.cardType,enum: visa | mastercard | discover | americanExpress,Optional,"Card brand. Accepted values: visa, mastercard, discover, americanExpress."
+POST,/batch/zip,paymentDetails[creditCardPayment].creditCard.cardNumber,string,Optional,Credit card number (PAN) as a string.
+POST,/batch/zip,paymentDetails[creditCardPayment].creditCard.expirationDate.month,integer,Optional,Expiration month as an integer (1–12).
+POST,/batch/zip,paymentDetails[creditCardPayment].creditCard.expirationDate.year,integer,Optional,Expiration year as a four-digit integer (e.g. 2027).
+POST,/batch/zip,paymentDetails[creditCardPayment].creditCard.cvv,integer,Optional,Card security code (CVV/CVC) as an integer.
+POST,/batch/zip,paymentDetails[invoicePayment].invoice.invoiceNumber,string,Optional,Invoice reference number.
+POST,/batch/zip,paymentDetails[invoicePayment].invoice.amountDue,number,Optional,Amount due on the invoice.
+POST,/batch/zip,paymentDetails[achPayment].ach.routingNumber,string,Optional,ABA bank routing number.
+POST,/batch/zip,paymentDetails[achPayment].ach.accountNumber,string,Optional,Bank account number.
+POST,/batch/zip,paymentDetails[achPayment].ach.checkDigit,integer,Optional,ACH check digit.
+POST,/batch/zip,paymentDetails[userCreditPayment].userCredit.amount,number,Optional,Monetary amount (numeric value).
+POST,/batch/zip,paymentDetails[userCreditPayment].userCredit.currency,enum: USD | EUR | GBP | CAD | AUD,Optional,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD."
+POST,/batch/zip,tags[],string,Optional,See EBNF rule `tags[]`.
+POST,/batch/zip/address-capture,jobTemplate,string,Optional,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+POST,/batch/zip/address-capture,zipDocumentSource[zipDocumentIdSource].zipDocumentId,integer,Required*,Integer ID of a previously stored ZIP archive.
+POST,/batch/zip/address-capture,zipDocumentSource[zipDocumentIdSource].filename,string,Required*,Filename of a specific file within an upload request or ZIP archive.
+POST,/batch/zip/address-capture,zipDocumentSource[zipRequestIdSource].requestId,integer,Required*,Integer ID of a prior file upload request. Also returned in success responses.
+POST,/batch/zip/address-capture,zipDocumentSource[zipRequestIdSource].zipFilename,string,Required*,Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
+POST,/batch/zip/address-capture,zipDocumentSource[zipRequestIdSource].filename,string,Required*,Filename of a specific file within an upload request or ZIP archive.
+POST,/batch/zip/address-capture,paymentDetails[creditCardPayment].creditCard.cardType,enum: visa | mastercard | discover | americanExpress,Optional,"Card brand. Accepted values: visa, mastercard, discover, americanExpress."
+POST,/batch/zip/address-capture,paymentDetails[creditCardPayment].creditCard.cardNumber,string,Optional,Credit card number (PAN) as a string.
+POST,/batch/zip/address-capture,paymentDetails[creditCardPayment].creditCard.expirationDate.month,integer,Optional,Expiration month as an integer (1–12).
+POST,/batch/zip/address-capture,paymentDetails[creditCardPayment].creditCard.expirationDate.year,integer,Optional,Expiration year as a four-digit integer (e.g. 2027).
+POST,/batch/zip/address-capture,paymentDetails[creditCardPayment].creditCard.cvv,integer,Optional,Card security code (CVV/CVC) as an integer.
+POST,/batch/zip/address-capture,paymentDetails[invoicePayment].invoice.invoiceNumber,string,Optional,Invoice reference number.
+POST,/batch/zip/address-capture,paymentDetails[invoicePayment].invoice.amountDue,number,Optional,Amount due on the invoice.
+POST,/batch/zip/address-capture,paymentDetails[achPayment].ach.routingNumber,string,Optional,ABA bank routing number.
+POST,/batch/zip/address-capture,paymentDetails[achPayment].ach.accountNumber,string,Optional,Bank account number.
+POST,/batch/zip/address-capture,paymentDetails[achPayment].ach.checkDigit,integer,Optional,ACH check digit.
+POST,/batch/zip/address-capture,paymentDetails[userCreditPayment].userCredit.amount,number,Optional,Monetary amount (numeric value).
+POST,/batch/zip/address-capture,paymentDetails[userCreditPayment].userCredit.currency,enum: USD | EUR | GBP | CAD | AUD,Optional,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD."
+POST,/batch/zip/address-capture,returnAddress.firstName,string,Optional,Recipient's first name.
+POST,/batch/zip/address-capture,returnAddress.lastName,string,Optional,Recipient's last name.
+POST,/batch/zip/address-capture,returnAddress.company,string,Optional,Recipient's company or organisation name (optional).
+POST,/batch/zip/address-capture,returnAddress.address1,string,Optional,Primary street address line.
+POST,/batch/zip/address-capture,returnAddress.city,string,Optional,City name.
+POST,/batch/zip/address-capture,returnAddress.state,string,Optional,Two-letter state or province abbreviation.
+POST,/batch/zip/address-capture,returnAddress.zip,string,Optional,ZIP or postal code.
+POST,/batch/zip/address-capture,returnAddress.country,string,Optional,Country code (e.g. USA).
+POST,/batch/zip/address-capture,returnAddress.address2,string,Optional,"Secondary address line (suite, apartment, floor, etc.)."
+POST,/batch/zip/address-capture,returnAddress.address3,string,Optional,Tertiary address line.
+POST,/batch/zip/address-capture,jobOptions.documentClass,string,Optional,"Document class (e.g. letter, flat)."
+POST,/batch/zip/address-capture,jobOptions.layout,string,Optional,"Page layout (e.g. address_on_top, address_on_bottom)."
+POST,/batch/zip/address-capture,jobOptions.productionTime,string,Optional,"Production time preference (e.g. next_day, standard)."
+POST,/batch/zip/address-capture,jobOptions.envelope,string,Optional,"Envelope type (e.g. standard, window)."
+POST,/batch/zip/address-capture,jobOptions.color,string,Optional,"Color mode (e.g. full_color, black_and_white)."
+POST,/batch/zip/address-capture,jobOptions.paperType,string,Optional,"Paper stock (e.g. white, recycled)."
+POST,/batch/zip/address-capture,jobOptions.printOption,string,Optional,"Duplex setting (e.g. single_sided, double_sided)."
+POST,/batch/zip/address-capture,jobOptions.mailClass,string,Optional,"USPS mail class (e.g. first_class, standard)."
+POST,/batch/zip/address-capture,tags[],string,Optional,See EBNF rule `tags[]`.
