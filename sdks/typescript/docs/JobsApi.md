@@ -4,13 +4,71 @@ All URIs are relative to *https://api.click2mail.com/v2*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
+|[**submitDocParams**](#submitdocparams) | **POST** /static | Submit single document|
 |[**submitMultiDocMergeParams**](#submitmultidocmergeparams) | **POST** /mail-merge | Submit mail merge|
 |[**submitMultiZipAddressCaptureParams**](#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture|
 |[**submitMultiZipParams**](#submitmultizipparams) | **POST** /batch/zip | Submit ZIP batch|
-|[**submitSingleDocParams**](#submitsingledocparams) | **POST** /static | Submit single document|
 |[**submitSinglePdfAddressCaptureParams**](#submitsinglepdfaddresscaptureparams) | **POST** /static/address-capture | Submit single document — address capture|
 |[**submitSinglePdfSplitAddressCaptureParams**](#submitsinglepdfsplitaddresscaptureparams) | **POST** /batch/split/address-capture | Submit PDF split — address capture|
 |[**submitSinglePdfSplitParams**](#submitsinglepdfsplitparams) | **POST** /batch/split | Submit PDF split|
+
+# **submitDocParams**
+> StandardResponse submitDocParams(submitDocParams)
+
+Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+
+### Example
+
+```typescript
+import {
+    JobsApi,
+    Configuration,
+    SubmitDocParams
+} from './api';
+
+const configuration = new Configuration();
+const apiInstance = new JobsApi(configuration);
+
+let submitDocParams: SubmitDocParams; //
+
+const { status, data } = await apiInstance.submitDocParams(
+    submitDocParams
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **submitDocParams** | **SubmitDocParams**|  | |
+
+
+### Return type
+
+**StandardResponse**
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | Success |  -  |
+|**400** | Bad Request - Invalid request parameters |  -  |
+|**401** | Unauthorized - Missing or invalid authentication |  -  |
+|**403** | Forbidden - Insufficient permissions |  -  |
+|**404** | Not Found - Resource not found |  -  |
+|**422** | Unprocessable Entity - Validation failed |  -  |
+|**500** | Internal Server Error - Server encountered an error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **submitMultiDocMergeParams**
 > StandardResponse submitMultiDocMergeParams(submitMultiDocMergeParams)
@@ -157,64 +215,6 @@ const { status, data } = await apiInstance.submitMultiZipParams(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **submitMultiZipParams** | **SubmitMultiZipParams**|  | |
-
-
-### Return type
-
-**StandardResponse**
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-|**200** | Success |  -  |
-|**400** | Bad Request - Invalid request parameters |  -  |
-|**401** | Unauthorized - Missing or invalid authentication |  -  |
-|**403** | Forbidden - Insufficient permissions |  -  |
-|**404** | Not Found - Resource not found |  -  |
-|**422** | Unprocessable Entity - Validation failed |  -  |
-|**500** | Internal Server Error - Server encountered an error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **submitSingleDocParams**
-> StandardResponse submitSingleDocParams(submitSingleDocParams)
-
-Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-
-### Example
-
-```typescript
-import {
-    JobsApi,
-    Configuration,
-    SubmitSingleDocParams
-} from './api';
-
-const configuration = new Configuration();
-const apiInstance = new JobsApi(configuration);
-
-let submitSingleDocParams: SubmitSingleDocParams; //
-
-const { status, data } = await apiInstance.submitSingleDocParams(
-    submitSingleDocParams
-);
-```
-
-### Parameters
-
-|Name | Type | Description  | Notes|
-|------------- | ------------- | ------------- | -------------|
-| **submitSingleDocParams** | **SubmitSingleDocParams**|  | |
 
 
 ### Return type

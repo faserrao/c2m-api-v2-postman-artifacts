@@ -4,14 +4,63 @@ All URIs are relative to *https://api.click2mail.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**submitDocParams**](JobsApi.md#submitDocParams) | **POST** /static | Submit single document
 [**submitMultiDocMergeParams**](JobsApi.md#submitMultiDocMergeParams) | **POST** /mail-merge | Submit mail merge
 [**submitMultiZipAddressCaptureParams**](JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
 [**submitMultiZipParams**](JobsApi.md#submitMultiZipParams) | **POST** /batch/zip | Submit ZIP batch
-[**submitSingleDocParams**](JobsApi.md#submitSingleDocParams) | **POST** /static | Submit single document
 [**submitSinglePdfAddressCaptureParams**](JobsApi.md#submitSinglePdfAddressCaptureParams) | **POST** /static/address-capture | Submit single document — address capture
 [**submitSinglePdfSplitAddressCaptureParams**](JobsApi.md#submitSinglePdfSplitAddressCaptureParams) | **POST** /batch/split/address-capture | Submit PDF split — address capture
 [**submitSinglePdfSplitParams**](JobsApi.md#submitSinglePdfSplitParams) | **POST** /batch/split | Submit PDF split
 
+
+
+## submitDocParams
+
+> StandardResponse submitDocParams(submitDocParams)
+
+Submit single document
+
+Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+
+### Example
+
+```javascript
+import C2MApiV2 from 'c2_m_api_v2';
+let defaultClient = C2MApiV2.ApiClient.instance;
+// Configure Bearer (JWT) access token for authorization: bearerAuth
+let bearerAuth = defaultClient.authentications['bearerAuth'];
+bearerAuth.accessToken = "YOUR ACCESS TOKEN"
+
+let apiInstance = new C2MApiV2.JobsApi();
+let submitDocParams = new C2MApiV2.SubmitDocParams(); // SubmitDocParams | 
+apiInstance.submitDocParams(submitDocParams, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **submitDocParams** | [**SubmitDocParams**](SubmitDocParams.md)|  | 
+
+### Return type
+
+[**StandardResponse**](StandardResponse.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## submitMultiDocMergeParams
@@ -146,55 +195,6 @@ apiInstance.submitMultiZipParams(submitMultiZipParams, (error, data, response) =
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **submitMultiZipParams** | [**SubmitMultiZipParams**](SubmitMultiZipParams.md)|  | 
-
-### Return type
-
-[**StandardResponse**](StandardResponse.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## submitSingleDocParams
-
-> StandardResponse submitSingleDocParams(submitSingleDocParams)
-
-Submit single document
-
-Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-
-### Example
-
-```javascript
-import C2MApiV2 from 'c2_m_api_v2';
-let defaultClient = C2MApiV2.ApiClient.instance;
-// Configure Bearer (JWT) access token for authorization: bearerAuth
-let bearerAuth = defaultClient.authentications['bearerAuth'];
-bearerAuth.accessToken = "YOUR ACCESS TOKEN"
-
-let apiInstance = new C2MApiV2.JobsApi();
-let submitSingleDocParams = new C2MApiV2.SubmitSingleDocParams(); // SubmitSingleDocParams | 
-apiInstance.submitSingleDocParams(submitSingleDocParams, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **submitSingleDocParams** | [**SubmitSingleDocParams**](SubmitSingleDocParams.md)|  | 
 
 ### Return type
 

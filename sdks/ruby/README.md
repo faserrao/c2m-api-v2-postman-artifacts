@@ -92,10 +92,10 @@ Class | Method | HTTP request | Description
 *OpenapiClient::AuthApi* | [**issue_long_term_token**](docs/AuthApi.md#issue_long_term_token) | **POST** /auth/tokens/long | Issue or rotate a long-term token
 *OpenapiClient::AuthApi* | [**issue_short_term_token**](docs/AuthApi.md#issue_short_term_token) | **POST** /auth/tokens/short | Issue a short-term access token
 *OpenapiClient::AuthApi* | [**revoke_token**](docs/AuthApi.md#revoke_token) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
+*OpenapiClient::JobsApi* | [**submit_doc_params**](docs/JobsApi.md#submit_doc_params) | **POST** /static | Submit single document
 *OpenapiClient::JobsApi* | [**submit_multi_doc_merge_params**](docs/JobsApi.md#submit_multi_doc_merge_params) | **POST** /mail-merge | Submit mail merge
 *OpenapiClient::JobsApi* | [**submit_multi_zip_address_capture_params**](docs/JobsApi.md#submit_multi_zip_address_capture_params) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
 *OpenapiClient::JobsApi* | [**submit_multi_zip_params**](docs/JobsApi.md#submit_multi_zip_params) | **POST** /batch/zip | Submit ZIP batch
-*OpenapiClient::JobsApi* | [**submit_single_doc_params**](docs/JobsApi.md#submit_single_doc_params) | **POST** /static | Submit single document
 *OpenapiClient::JobsApi* | [**submit_single_pdf_address_capture_params**](docs/JobsApi.md#submit_single_pdf_address_capture_params) | **POST** /static/address-capture | Submit single document — address capture
 *OpenapiClient::JobsApi* | [**submit_single_pdf_split_address_capture_params**](docs/JobsApi.md#submit_single_pdf_split_address_capture_params) | **POST** /batch/split/address-capture | Submit PDF split — address capture
 *OpenapiClient::JobsApi* | [**submit_single_pdf_split_params**](docs/JobsApi.md#submit_single_pdf_split_params) | **POST** /batch/split | Submit PDF split
@@ -133,17 +133,16 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [OpenapiClient::PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
  - [OpenapiClient::RecipientAddressByList](docs/RecipientAddressByList.md)
- - [OpenapiClient::RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [OpenapiClient::RecipientAddressSource](docs/RecipientAddressSource.md)
  - [OpenapiClient::RequestIdSource](docs/RequestIdSource.md)
  - [OpenapiClient::ReturnAddress](docs/ReturnAddress.md)
  - [OpenapiClient::ShortTokenRequest](docs/ShortTokenRequest.md)
  - [OpenapiClient::ShortTokenResponse](docs/ShortTokenResponse.md)
  - [OpenapiClient::StandardResponse](docs/StandardResponse.md)
+ - [OpenapiClient::SubmitDocParams](docs/SubmitDocParams.md)
  - [OpenapiClient::SubmitMultiDocMergeParams](docs/SubmitMultiDocMergeParams.md)
  - [OpenapiClient::SubmitMultiZipAddressCaptureParams](docs/SubmitMultiZipAddressCaptureParams.md)
  - [OpenapiClient::SubmitMultiZipParams](docs/SubmitMultiZipParams.md)
- - [OpenapiClient::SubmitSingleDocParams](docs/SubmitSingleDocParams.md)
  - [OpenapiClient::SubmitSinglePdfAddressCaptureParams](docs/SubmitSinglePdfAddressCaptureParams.md)
  - [OpenapiClient::SubmitSinglePdfSplitAddressCaptureParams](docs/SubmitSinglePdfSplitAddressCaptureParams.md)
  - [OpenapiClient::SubmitSinglePdfSplitParams](docs/SubmitSinglePdfSplitParams.md)

@@ -83,10 +83,10 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**issueLongTermToken**](docs/Api/AuthApi.md#issuelongtermtoken) | **POST** /auth/tokens/long | Issue or rotate a long-term token
 *AuthApi* | [**issueShortTermToken**](docs/Api/AuthApi.md#issueshorttermtoken) | **POST** /auth/tokens/short | Issue a short-term access token
 *AuthApi* | [**revokeToken**](docs/Api/AuthApi.md#revoketoken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
+*JobsApi* | [**submitDocParams**](docs/Api/JobsApi.md#submitdocparams) | **POST** /static | Submit single document
 *JobsApi* | [**submitMultiDocMergeParams**](docs/Api/JobsApi.md#submitmultidocmergeparams) | **POST** /mail-merge | Submit mail merge
 *JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/Api/JobsApi.md#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
 *JobsApi* | [**submitMultiZipParams**](docs/Api/JobsApi.md#submitmultizipparams) | **POST** /batch/zip | Submit ZIP batch
-*JobsApi* | [**submitSingleDocParams**](docs/Api/JobsApi.md#submitsingledocparams) | **POST** /static | Submit single document
 *JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/Api/JobsApi.md#submitsinglepdfaddresscaptureparams) | **POST** /static/address-capture | Submit single document — address capture
 *JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/Api/JobsApi.md#submitsinglepdfsplitaddresscaptureparams) | **POST** /batch/split/address-capture | Submit PDF split — address capture
 *JobsApi* | [**submitSinglePdfSplitParams**](docs/Api/JobsApi.md#submitsinglepdfsplitparams) | **POST** /batch/split | Submit PDF split
@@ -123,17 +123,16 @@ Class | Method | HTTP request | Description
 - [PdfSplitJobItemNoAddress](docs/Model/PdfSplitJobItemNoAddress.md)
 - [PdfSplitJobItemWithAddress](docs/Model/PdfSplitJobItemWithAddress.md)
 - [RecipientAddressByList](docs/Model/RecipientAddressByList.md)
-- [RecipientAddressBySingle](docs/Model/RecipientAddressBySingle.md)
 - [RecipientAddressSource](docs/Model/RecipientAddressSource.md)
 - [RequestIdSource](docs/Model/RequestIdSource.md)
 - [ReturnAddress](docs/Model/ReturnAddress.md)
 - [ShortTokenRequest](docs/Model/ShortTokenRequest.md)
 - [ShortTokenResponse](docs/Model/ShortTokenResponse.md)
 - [StandardResponse](docs/Model/StandardResponse.md)
+- [SubmitDocParams](docs/Model/SubmitDocParams.md)
 - [SubmitMultiDocMergeParams](docs/Model/SubmitMultiDocMergeParams.md)
 - [SubmitMultiZipAddressCaptureParams](docs/Model/SubmitMultiZipAddressCaptureParams.md)
 - [SubmitMultiZipParams](docs/Model/SubmitMultiZipParams.md)
-- [SubmitSingleDocParams](docs/Model/SubmitSingleDocParams.md)
 - [SubmitSinglePdfAddressCaptureParams](docs/Model/SubmitSinglePdfAddressCaptureParams.md)
 - [SubmitSinglePdfSplitAddressCaptureParams](docs/Model/SubmitSinglePdfSplitAddressCaptureParams.md)
 - [SubmitSinglePdfSplitParams](docs/Model/SubmitSinglePdfSplitParams.md)

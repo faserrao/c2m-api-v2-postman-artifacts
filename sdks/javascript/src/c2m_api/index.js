@@ -43,17 +43,16 @@ import PaymentDetails from './model/PaymentDetails';
 import PdfSplitJobItemNoAddress from './model/PdfSplitJobItemNoAddress';
 import PdfSplitJobItemWithAddress from './model/PdfSplitJobItemWithAddress';
 import RecipientAddressByList from './model/RecipientAddressByList';
-import RecipientAddressBySingle from './model/RecipientAddressBySingle';
 import RecipientAddressSource from './model/RecipientAddressSource';
 import RequestIdSource from './model/RequestIdSource';
 import ReturnAddress from './model/ReturnAddress';
 import ShortTokenRequest from './model/ShortTokenRequest';
 import ShortTokenResponse from './model/ShortTokenResponse';
 import StandardResponse from './model/StandardResponse';
+import SubmitDocParams from './model/SubmitDocParams';
 import SubmitMultiDocMergeParams from './model/SubmitMultiDocMergeParams';
 import SubmitMultiZipAddressCaptureParams from './model/SubmitMultiZipAddressCaptureParams';
 import SubmitMultiZipParams from './model/SubmitMultiZipParams';
-import SubmitSingleDocParams from './model/SubmitSingleDocParams';
 import SubmitSinglePdfAddressCaptureParams from './model/SubmitSinglePdfAddressCaptureParams';
 import SubmitSinglePdfSplitAddressCaptureParams from './model/SubmitSinglePdfSplitAddressCaptureParams';
 import SubmitSinglePdfSplitParams from './model/SubmitSinglePdfSplitParams';
@@ -284,12 +283,6 @@ export {
     RecipientAddressByList,
 
     /**
-     * The RecipientAddressBySingle model constructor.
-     * @property {module:c2m_api/model/RecipientAddressBySingle}
-     */
-    RecipientAddressBySingle,
-
-    /**
      * The RecipientAddressSource model constructor.
      * @property {module:c2m_api/model/RecipientAddressSource}
      */
@@ -326,6 +319,12 @@ export {
     StandardResponse,
 
     /**
+     * The SubmitDocParams model constructor.
+     * @property {module:c2m_api/model/SubmitDocParams}
+     */
+    SubmitDocParams,
+
+    /**
      * The SubmitMultiDocMergeParams model constructor.
      * @property {module:c2m_api/model/SubmitMultiDocMergeParams}
      */
@@ -342,12 +341,6 @@ export {
      * @property {module:c2m_api/model/SubmitMultiZipParams}
      */
     SubmitMultiZipParams,
-
-    /**
-     * The SubmitSingleDocParams model constructor.
-     * @property {module:c2m_api/model/SubmitSingleDocParams}
-     */
-    SubmitSingleDocParams,
 
     /**
      * The SubmitSinglePdfAddressCaptureParams model constructor.

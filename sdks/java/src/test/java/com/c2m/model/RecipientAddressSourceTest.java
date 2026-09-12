@@ -15,7 +15,6 @@ package com.c2m.model;
 
 import com.c2m.model.Address;
 import com.c2m.model.RecipientAddressByList;
-import com.c2m.model.RecipientAddressBySingle;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -43,27 +42,99 @@ public class RecipientAddressSourceTest {
     }
 
     /**
+     * Test the property 'firstName'
+     */
+    @Test
+    public void firstNameTest() {
+        // TODO: test firstName
+    }
+
+    /**
+     * Test the property 'lastName'
+     */
+    @Test
+    public void lastNameTest() {
+        // TODO: test lastName
+    }
+
+    /**
+     * Test the property 'address1'
+     */
+    @Test
+    public void address1Test() {
+        // TODO: test address1
+    }
+
+    /**
+     * Test the property 'city'
+     */
+    @Test
+    public void cityTest() {
+        // TODO: test city
+    }
+
+    /**
+     * Test the property 'state'
+     */
+    @Test
+    public void stateTest() {
+        // TODO: test state
+    }
+
+    /**
+     * Test the property 'zip'
+     */
+    @Test
+    public void zipTest() {
+        // TODO: test zip
+    }
+
+    /**
+     * Test the property 'country'
+     */
+    @Test
+    public void countryTest() {
+        // TODO: test country
+    }
+
+    /**
+     * Test the property 'address2'
+     */
+    @Test
+    public void address2Test() {
+        // TODO: test address2
+    }
+
+    /**
+     * Test the property 'address3'
+     */
+    @Test
+    public void address3Test() {
+        // TODO: test address3
+    }
+
+    /**
+     * Test the property 'foo1'
+     */
+    @Test
+    public void foo1Test() {
+        // TODO: test foo1
+    }
+
+    /**
+     * Test the property 'foo2'
+     */
+    @Test
+    public void foo2Test() {
+        // TODO: test foo2
+    }
+
+    /**
      * Test the property 'mappingId'
      */
     @Test
     public void mappingIdTest() {
         // TODO: test mappingId
-    }
-
-    /**
-     * Test the property 'singleAddress'
-     */
-    @Test
-    public void singleAddressTest() {
-        // TODO: test singleAddress
-    }
-
-    /**
-     * Test the property 'addressName'
-     */
-    @Test
-    public void addressNameTest() {
-        // TODO: test addressName
     }
 
     /**

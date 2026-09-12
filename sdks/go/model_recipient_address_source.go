@@ -18,22 +18,22 @@ import (
 
 // RecipientAddressSource - struct for RecipientAddressSource
 type RecipientAddressSource struct {
+	Address *Address
 	RecipientAddressByList *RecipientAddressByList
-	RecipientAddressBySingle *RecipientAddressBySingle
 	Int32 *int32
+}
+
+// AddressAsRecipientAddressSource is a convenience function that returns Address wrapped in RecipientAddressSource
+func AddressAsRecipientAddressSource(v *Address) RecipientAddressSource {
+	return RecipientAddressSource{
+		Address: v,
+	}
 }
 
 // RecipientAddressByListAsRecipientAddressSource is a convenience function that returns RecipientAddressByList wrapped in RecipientAddressSource
 func RecipientAddressByListAsRecipientAddressSource(v *RecipientAddressByList) RecipientAddressSource {
 	return RecipientAddressSource{
 		RecipientAddressByList: v,
-	}
-}
-
-// RecipientAddressBySingleAsRecipientAddressSource is a convenience function that returns RecipientAddressBySingle wrapped in RecipientAddressSource
-func RecipientAddressBySingleAsRecipientAddressSource(v *RecipientAddressBySingle) RecipientAddressSource {
-	return RecipientAddressSource{
-		RecipientAddressBySingle: v,
 	}
 }
 
@@ -49,6 +49,23 @@ func Int32AsRecipientAddressSource(v *int32) RecipientAddressSource {
 func (dst *RecipientAddressSource) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
+	// try to unmarshal data into Address
+	err = newStrictDecoder(data).Decode(&dst.Address)
+	if err == nil {
+		jsonAddress, _ := json.Marshal(dst.Address)
+		if string(jsonAddress) == "{}" { // empty struct
+			dst.Address = nil
+		} else {
+			if err = validator.Validate(dst.Address); err != nil {
+				dst.Address = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.Address = nil
+	}
+
 	// try to unmarshal data into RecipientAddressByList
 	err = newStrictDecoder(data).Decode(&dst.RecipientAddressByList)
 	if err == nil {
@@ -64,23 +81,6 @@ func (dst *RecipientAddressSource) UnmarshalJSON(data []byte) error {
 		}
 	} else {
 		dst.RecipientAddressByList = nil
-	}
-
-	// try to unmarshal data into RecipientAddressBySingle
-	err = newStrictDecoder(data).Decode(&dst.RecipientAddressBySingle)
-	if err == nil {
-		jsonRecipientAddressBySingle, _ := json.Marshal(dst.RecipientAddressBySingle)
-		if string(jsonRecipientAddressBySingle) == "{}" { // empty struct
-			dst.RecipientAddressBySingle = nil
-		} else {
-			if err = validator.Validate(dst.RecipientAddressBySingle); err != nil {
-				dst.RecipientAddressBySingle = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.RecipientAddressBySingle = nil
 	}
 
 	// try to unmarshal data into Int32
@@ -102,8 +102,8 @@ func (dst *RecipientAddressSource) UnmarshalJSON(data []byte) error {
 
 	if match > 1 { // more than 1 match
 		// reset to nil
+		dst.Address = nil
 		dst.RecipientAddressByList = nil
-		dst.RecipientAddressBySingle = nil
 		dst.Int32 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(RecipientAddressSource)")
@@ -116,12 +116,12 @@ func (dst *RecipientAddressSource) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src RecipientAddressSource) MarshalJSON() ([]byte, error) {
-	if src.RecipientAddressByList != nil {
-		return json.Marshal(&src.RecipientAddressByList)
+	if src.Address != nil {
+		return json.Marshal(&src.Address)
 	}
 
-	if src.RecipientAddressBySingle != nil {
-		return json.Marshal(&src.RecipientAddressBySingle)
+	if src.RecipientAddressByList != nil {
+		return json.Marshal(&src.RecipientAddressByList)
 	}
 
 	if src.Int32 != nil {
@@ -136,12 +136,12 @@ func (obj *RecipientAddressSource) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.RecipientAddressByList != nil {
-		return obj.RecipientAddressByList
+	if obj.Address != nil {
+		return obj.Address
 	}
 
-	if obj.RecipientAddressBySingle != nil {
-		return obj.RecipientAddressBySingle
+	if obj.RecipientAddressByList != nil {
+		return obj.RecipientAddressByList
 	}
 
 	if obj.Int32 != nil {
@@ -154,12 +154,12 @@ func (obj *RecipientAddressSource) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj RecipientAddressSource) GetActualInstanceValue() (interface{}) {
-	if obj.RecipientAddressByList != nil {
-		return *obj.RecipientAddressByList
+	if obj.Address != nil {
+		return *obj.Address
 	}
 
-	if obj.RecipientAddressBySingle != nil {
-		return *obj.RecipientAddressBySingle
+	if obj.RecipientAddressByList != nil {
+		return *obj.RecipientAddressByList
 	}
 
 	if obj.Int32 != nil {

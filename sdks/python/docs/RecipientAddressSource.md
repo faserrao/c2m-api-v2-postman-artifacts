@@ -5,9 +5,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**first_name** | **str** |  | 
+**last_name** | **str** |  | 
+**address1** | **str** |  | 
+**city** | **str** |  | 
+**state** | **str** |  | 
+**zip** | **str** |  | 
+**country** | **str** |  | 
+**address2** | **str** |  | [optional] 
+**address3** | **str** |  | [optional] 
+**foo1** | **str** |  | [optional] 
+**foo2** | **str** |  | [optional] 
 **mapping_id** | **int** |  | [optional] 
-**single_address** | [**Address**](Address.md) |  | 
-**address_name** | **str** |  | [optional] 
 **address_list** | [**List[Address]**](Address.md) |  | 
 **address_list_name** | **str** |  | [optional] 
 

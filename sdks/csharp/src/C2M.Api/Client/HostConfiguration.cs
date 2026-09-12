@@ -77,17 +77,16 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new PdfSplitJobItemNoAddressJsonConverter());
             _jsonOptions.Converters.Add(new PdfSplitJobItemWithAddressJsonConverter());
             _jsonOptions.Converters.Add(new RecipientAddressByListJsonConverter());
-            _jsonOptions.Converters.Add(new RecipientAddressBySingleJsonConverter());
             _jsonOptions.Converters.Add(new RecipientAddressSourceJsonConverter());
             _jsonOptions.Converters.Add(new RequestIdSourceJsonConverter());
             _jsonOptions.Converters.Add(new ReturnAddressJsonConverter());
             _jsonOptions.Converters.Add(new ShortTokenRequestJsonConverter());
             _jsonOptions.Converters.Add(new ShortTokenResponseJsonConverter());
             _jsonOptions.Converters.Add(new StandardResponseJsonConverter());
+            _jsonOptions.Converters.Add(new SubmitDocParamsJsonConverter());
             _jsonOptions.Converters.Add(new SubmitMultiDocMergeParamsJsonConverter());
             _jsonOptions.Converters.Add(new SubmitMultiZipAddressCaptureParamsJsonConverter());
             _jsonOptions.Converters.Add(new SubmitMultiZipParamsJsonConverter());
-            _jsonOptions.Converters.Add(new SubmitSingleDocParamsJsonConverter());
             _jsonOptions.Converters.Add(new SubmitSinglePdfAddressCaptureParamsJsonConverter());
             _jsonOptions.Converters.Add(new SubmitSinglePdfSplitAddressCaptureParamsJsonConverter());
             _jsonOptions.Converters.Add(new SubmitSinglePdfSplitParamsJsonConverter());

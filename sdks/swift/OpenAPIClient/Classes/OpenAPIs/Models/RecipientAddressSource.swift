@@ -11,30 +11,30 @@ import AnyCodable
 #endif
 
 public enum RecipientAddressSource: Codable, JSONEncodable, Hashable {
+    case typeAddress(Address)
     case typeInt(Int)
     case typeRecipientAddressByList(RecipientAddressByList)
-    case typeRecipientAddressBySingle(RecipientAddressBySingle)
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
+        case .typeAddress(let value):
+            try container.encode(value)
         case .typeInt(let value):
             try container.encode(value)
         case .typeRecipientAddressByList(let value):
-            try container.encode(value)
-        case .typeRecipientAddressBySingle(let value):
             try container.encode(value)
         }
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        if let value = try? container.decode(Int.self) {
+        if let value = try? container.decode(Address.self) {
+            self = .typeAddress(value)
+        } else if let value = try? container.decode(Int.self) {
             self = .typeInt(value)
         } else if let value = try? container.decode(RecipientAddressByList.self) {
             self = .typeRecipientAddressByList(value)
-        } else if let value = try? container.decode(RecipientAddressBySingle.self) {
-            self = .typeRecipientAddressBySingle(value)
         } else {
             throw DecodingError.typeMismatch(Self.Type.self, .init(codingPath: decoder.codingPath, debugDescription: "Unable to decode instance of RecipientAddressSource"))
         }

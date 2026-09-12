@@ -343,15 +343,10 @@ export interface RecipientAddressByList {
     'addressList': Array<Address>;
     'addressListName'?: string;
 }
-export interface RecipientAddressBySingle {
-    'mappingId'?: number;
-    'singleAddress': Address;
-    'addressName'?: string;
-}
 /**
  * @type RecipientAddressSource
  */
-export type RecipientAddressSource = RecipientAddressByList | RecipientAddressBySingle | number;
+export type RecipientAddressSource = Address | RecipientAddressByList | number;
 
 export interface RequestIdSource {
     'requestId': number;
@@ -414,6 +409,15 @@ export interface StandardResponse {
     'message': string;
     'requestId': number;
 }
+export interface SubmitDocParams {
+    'jobTemplate'?: string;
+    'docSourceAll': DocSourceAll;
+    'recipientAddressSource': RecipientAddressSource;
+    'paymentDetails'?: PaymentDetails;
+    'returnAddress'?: ReturnAddress;
+    'jobOptions'?: JobOptions;
+    'tags'?: Array<string>;
+}
 export interface SubmitMultiDocMergeParams {
     'jobTemplate'?: string;
     'mergeDocumentSource': Array<MergeDocumentRef>;
@@ -435,15 +439,6 @@ export interface SubmitMultiZipParams {
     'docSourceZipFileRef': DocSourceZipFileRef;
     'multiZipJobs': Array<MultiZipJobItem>;
     'paymentDetails'?: PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface SubmitSingleDocParams {
-    'jobTemplate'?: string;
-    'docSourceAll': DocSourceAll;
-    'recipientAddressSource': RecipientAddressSource;
-    'paymentDetails'?: PaymentDetails;
-    'returnAddress'?: ReturnAddress;
-    'jobOptions'?: JobOptions;
     'tags'?: Array<string>;
 }
 export interface SubmitSinglePdfAddressCaptureParams {
@@ -754,6 +749,46 @@ export class AuthApi extends BaseAPI {
 export const JobsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+         * @summary Submit single document
+         * @param {SubmitDocParams} submitDocParams 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitDocParams: async (submitDocParams: SubmitDocParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'submitDocParams' is not null or undefined
+            assertParamExists('submitDocParams', 'submitDocParams', submitDocParams)
+            const localVarPath = `/static`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(submitDocParams, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
          * @summary Submit mail merge
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
@@ -867,46 +902,6 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(submitMultiZipParams, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-         * @summary Submit single document
-         * @param {SubmitSingleDocParams} submitSingleDocParams 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        submitSingleDocParams: async (submitSingleDocParams: SubmitSingleDocParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'submitSingleDocParams' is not null or undefined
-            assertParamExists('submitSingleDocParams', 'submitSingleDocParams', submitSingleDocParams)
-            const localVarPath = `/static`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication bearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(submitSingleDocParams, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1043,6 +1038,19 @@ export const JobsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = JobsApiAxiosParamCreator(configuration)
     return {
         /**
+         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+         * @summary Submit single document
+         * @param {SubmitDocParams} submitDocParams 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async submitDocParams(submitDocParams: SubmitDocParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitDocParams(submitDocParams, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobsApi.submitDocParams']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
          * @summary Submit mail merge
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
@@ -1079,19 +1087,6 @@ export const JobsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.submitMultiZipParams(submitMultiZipParams, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JobsApi.submitMultiZipParams']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-         * @summary Submit single document
-         * @param {SubmitSingleDocParams} submitSingleDocParams 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async submitSingleDocParams(submitSingleDocParams: SubmitSingleDocParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSingleDocParams(submitSingleDocParams, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['JobsApi.submitSingleDocParams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1143,6 +1138,16 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
     const localVarFp = JobsApiFp(configuration)
     return {
         /**
+         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+         * @summary Submit single document
+         * @param {SubmitDocParams} submitDocParams 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitDocParams(submitDocParams: SubmitDocParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
+            return localVarFp.submitDocParams(submitDocParams, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
          * @summary Submit mail merge
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
@@ -1171,16 +1176,6 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
          */
         submitMultiZipParams(submitMultiZipParams: SubmitMultiZipParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
             return localVarFp.submitMultiZipParams(submitMultiZipParams, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-         * @summary Submit single document
-         * @param {SubmitSingleDocParams} submitSingleDocParams 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        submitSingleDocParams(submitSingleDocParams: SubmitSingleDocParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
-            return localVarFp.submitSingleDocParams(submitSingleDocParams, options).then((request) => request(axios, basePath));
         },
         /**
          * Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
@@ -1220,6 +1215,17 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
  */
 export class JobsApi extends BaseAPI {
     /**
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+     * @summary Submit single document
+     * @param {SubmitDocParams} submitDocParams 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public submitDocParams(submitDocParams: SubmitDocParams, options?: RawAxiosRequestConfig) {
+        return JobsApiFp(this.configuration).submitDocParams(submitDocParams, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
      * @summary Submit mail merge
      * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
@@ -1250,17 +1256,6 @@ export class JobsApi extends BaseAPI {
      */
     public submitMultiZipParams(submitMultiZipParams: SubmitMultiZipParams, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).submitMultiZipParams(submitMultiZipParams, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-     * @summary Submit single document
-     * @param {SubmitSingleDocParams} submitSingleDocParams 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public submitSingleDocParams(submitSingleDocParams: SubmitSingleDocParams, options?: RawAxiosRequestConfig) {
-        return JobsApiFp(this.configuration).submitSingleDocParams(submitSingleDocParams, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

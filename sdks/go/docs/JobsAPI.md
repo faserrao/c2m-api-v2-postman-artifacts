@@ -4,14 +4,80 @@ All URIs are relative to *https://api.click2mail.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**SubmitDocParams**](JobsAPI.md#SubmitDocParams) | **Post** /static | Submit single document
 [**SubmitMultiDocMergeParams**](JobsAPI.md#SubmitMultiDocMergeParams) | **Post** /mail-merge | Submit mail merge
 [**SubmitMultiZipAddressCaptureParams**](JobsAPI.md#SubmitMultiZipAddressCaptureParams) | **Post** /batch/zip/address-capture | Submit ZIP batch — address capture
 [**SubmitMultiZipParams**](JobsAPI.md#SubmitMultiZipParams) | **Post** /batch/zip | Submit ZIP batch
-[**SubmitSingleDocParams**](JobsAPI.md#SubmitSingleDocParams) | **Post** /static | Submit single document
 [**SubmitSinglePdfAddressCaptureParams**](JobsAPI.md#SubmitSinglePdfAddressCaptureParams) | **Post** /static/address-capture | Submit single document — address capture
 [**SubmitSinglePdfSplitAddressCaptureParams**](JobsAPI.md#SubmitSinglePdfSplitAddressCaptureParams) | **Post** /batch/split/address-capture | Submit PDF split — address capture
 [**SubmitSinglePdfSplitParams**](JobsAPI.md#SubmitSinglePdfSplitParams) | **Post** /batch/split | Submit PDF split
 
+
+
+## SubmitDocParams
+
+> StandardResponse SubmitDocParams(ctx).SubmitDocParams(submitDocParams).Execute()
+
+Submit single document
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+)
+
+func main() {
+	submitDocParams := *openapiclient.NewSubmitDocParams(openapiclient.docSourceAll{DocSourceStandard: openapiclient.docSourceStandard{RequestIdSource: openapiclient.NewRequestIdSource(int32(123))}}, openapiclient.recipientAddressSource{Address: openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")}) // SubmitDocParams | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.JobsAPI.SubmitDocParams(context.Background()).SubmitDocParams(submitDocParams).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPI.SubmitDocParams``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `SubmitDocParams`: StandardResponse
+	fmt.Fprintf(os.Stdout, "Response from `JobsAPI.SubmitDocParams`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSubmitDocParamsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **submitDocParams** | [**SubmitDocParams**](SubmitDocParams.md) |  | 
+
+### Return type
+
+[**StandardResponse**](StandardResponse.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## SubmitMultiDocMergeParams
@@ -35,7 +101,7 @@ import (
 )
 
 func main() {
-	submitMultiDocMergeParams := *openapiclient.NewSubmitMultiDocMergeParams([]openapiclient.MergeDocumentRef{openapiclient.mergeDocumentRef{MergeByRequestId: openapiclient.NewMergeByRequestId(int32(123))}}, openapiclient.recipientAddressSource{RecipientAddressByList: openapiclient.NewRecipientAddressByList([]openapiclient.Address{*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")})}) // SubmitMultiDocMergeParams | 
+	submitMultiDocMergeParams := *openapiclient.NewSubmitMultiDocMergeParams([]openapiclient.MergeDocumentRef{openapiclient.mergeDocumentRef{MergeByRequestId: openapiclient.NewMergeByRequestId(int32(123))}}, openapiclient.recipientAddressSource{Address: openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")}) // SubmitMultiDocMergeParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -167,7 +233,7 @@ import (
 )
 
 func main() {
-	submitMultiZipParams := *openapiclient.NewSubmitMultiZipParams(openapiclient.docSourceZipFileRef{Int32: new(int32)}, []openapiclient.MultiZipJobItem{*openapiclient.NewMultiZipJobItem("Filename_example", openapiclient.recipientAddressSource{RecipientAddressByList: openapiclient.NewRecipientAddressByList([]openapiclient.Address{*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")})})}) // SubmitMultiZipParams | 
+	submitMultiZipParams := *openapiclient.NewSubmitMultiZipParams(openapiclient.docSourceZipFileRef{Int32: new(int32)}, []openapiclient.MultiZipJobItem{*openapiclient.NewMultiZipJobItem("Filename_example", openapiclient.recipientAddressSource{Address: openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")})}) // SubmitMultiZipParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -193,72 +259,6 @@ Other parameters are passed through a pointer to a apiSubmitMultiZipParamsReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **submitMultiZipParams** | [**SubmitMultiZipParams**](SubmitMultiZipParams.md) |  | 
-
-### Return type
-
-[**StandardResponse**](StandardResponse.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## SubmitSingleDocParams
-
-> StandardResponse SubmitSingleDocParams(ctx).SubmitSingleDocParams(submitSingleDocParams).Execute()
-
-Submit single document
-
-
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
-)
-
-func main() {
-	submitSingleDocParams := *openapiclient.NewSubmitSingleDocParams(openapiclient.docSourceAll{DocSourceStandard: openapiclient.docSourceStandard{RequestIdSource: openapiclient.NewRequestIdSource(int32(123))}}, openapiclient.recipientAddressSource{RecipientAddressByList: openapiclient.NewRecipientAddressByList([]openapiclient.Address{*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")})}) // SubmitSingleDocParams | 
-
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.JobsAPI.SubmitSingleDocParams(context.Background()).SubmitSingleDocParams(submitSingleDocParams).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `JobsAPI.SubmitSingleDocParams``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SubmitSingleDocParams`: StandardResponse
-	fmt.Fprintf(os.Stdout, "Response from `JobsAPI.SubmitSingleDocParams`: %v\n", resp)
-}
-```
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSubmitSingleDocParamsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **submitSingleDocParams** | [**SubmitSingleDocParams**](SubmitSingleDocParams.md) |  | 
 
 ### Return type
 
@@ -431,7 +431,7 @@ import (
 )
 
 func main() {
-	submitSinglePdfSplitParams := *openapiclient.NewSubmitSinglePdfSplitParams(openapiclient.docSourceStandard{RequestIdSource: openapiclient.NewRequestIdSource(int32(123))}, []openapiclient.PdfSplitJobItemWithAddress{*openapiclient.NewPdfSplitJobItemWithAddress(int32(123), int32(123), openapiclient.recipientAddressSource{RecipientAddressByList: openapiclient.NewRecipientAddressByList([]openapiclient.Address{*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")})})}) // SubmitSinglePdfSplitParams | 
+	submitSinglePdfSplitParams := *openapiclient.NewSubmitSinglePdfSplitParams(openapiclient.docSourceStandard{RequestIdSource: openapiclient.NewRequestIdSource(int32(123))}, []openapiclient.PdfSplitJobItemWithAddress{*openapiclient.NewPdfSplitJobItemWithAddress(int32(123), int32(123), openapiclient.recipientAddressSource{Address: openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")})}) // SubmitSinglePdfSplitParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

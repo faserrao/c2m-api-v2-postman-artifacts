@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RecipientAddressSource {
-    RecipientAddressBySingle(Box<models::RecipientAddressBySingle>),
+    SingleAddress(Box<models::Address>),
     RecipientAddressByList(Box<models::RecipientAddressByList>),
     RecipientAddressByAddressId(i32),
     RecipientAddressByListId(i32),
@@ -22,7 +22,7 @@ pub enum RecipientAddressSource {
 
 impl Default for RecipientAddressSource {
     fn default() -> Self {
-        Self::RecipientAddressBySingle(Default::default())
+        Self::SingleAddress(Default::default())
     }
 }
 

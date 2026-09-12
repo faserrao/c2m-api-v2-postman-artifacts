@@ -2,7 +2,7 @@
 
 C2M API v2
 - API version: 2.0.0
-  - Build date: 2026-09-12T03:23:21.239371998Z[Etc/UTC]
+  - Build date: 2026-09-12T09:45:04.132820859Z[Etc/UTC]
   - Generator version: 7.15.0
 
 API for submitting mailing jobs with various document routing options
@@ -129,10 +129,10 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**issueLongTermToken**](docs/AuthApi.md#issueLongTermToken) | **POST** /auth/tokens/long | Issue or rotate a long-term token
 *AuthApi* | [**issueShortTermToken**](docs/AuthApi.md#issueShortTermToken) | **POST** /auth/tokens/short | Issue a short-term access token
 *AuthApi* | [**revokeToken**](docs/AuthApi.md#revokeToken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
+*JobsApi* | [**submitDocParams**](docs/JobsApi.md#submitDocParams) | **POST** /static | Submit single document
 *JobsApi* | [**submitMultiDocMergeParams**](docs/JobsApi.md#submitMultiDocMergeParams) | **POST** /mail-merge | Submit mail merge
 *JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
 *JobsApi* | [**submitMultiZipParams**](docs/JobsApi.md#submitMultiZipParams) | **POST** /batch/zip | Submit ZIP batch
-*JobsApi* | [**submitSingleDocParams**](docs/JobsApi.md#submitSingleDocParams) | **POST** /static | Submit single document
 *JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfAddressCaptureParams) | **POST** /static/address-capture | Submit single document — address capture
 *JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfSplitAddressCaptureParams) | **POST** /batch/split/address-capture | Submit PDF split — address capture
 *JobsApi* | [**submitSinglePdfSplitParams**](docs/JobsApi.md#submitSinglePdfSplitParams) | **POST** /batch/split | Submit PDF split
@@ -170,17 +170,16 @@ Class | Method | HTTP request | Description
  - [PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
  - [RecipientAddressByList](docs/RecipientAddressByList.md)
- - [RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [RecipientAddressSource](docs/RecipientAddressSource.md)
  - [RequestIdSource](docs/RequestIdSource.md)
  - [ReturnAddress](docs/ReturnAddress.md)
  - [ShortTokenRequest](docs/ShortTokenRequest.md)
  - [ShortTokenResponse](docs/ShortTokenResponse.md)
  - [StandardResponse](docs/StandardResponse.md)
+ - [SubmitDocParams](docs/SubmitDocParams.md)
  - [SubmitMultiDocMergeParams](docs/SubmitMultiDocMergeParams.md)
  - [SubmitMultiZipAddressCaptureParams](docs/SubmitMultiZipAddressCaptureParams.md)
  - [SubmitMultiZipParams](docs/SubmitMultiZipParams.md)
- - [SubmitSingleDocParams](docs/SubmitSingleDocParams.md)
  - [SubmitSinglePdfAddressCaptureParams](docs/SubmitSinglePdfAddressCaptureParams.md)
  - [SubmitSinglePdfSplitAddressCaptureParams](docs/SubmitSinglePdfSplitAddressCaptureParams.md)
  - [SubmitSinglePdfSplitParams](docs/SubmitSinglePdfSplitParams.md)

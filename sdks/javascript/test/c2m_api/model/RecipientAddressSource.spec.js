@@ -54,20 +54,74 @@
       //expect(instance).to.be.a(C2MApiV2.RecipientAddressSource);
     });
 
+    it('should have the property firstName (base name: "firstName")', function() {
+      // uncomment below and update the code to test the property firstName
+      //var instance = new C2MApiV2.RecipientAddressSource();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property lastName (base name: "lastName")', function() {
+      // uncomment below and update the code to test the property lastName
+      //var instance = new C2MApiV2.RecipientAddressSource();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property address1 (base name: "address1")', function() {
+      // uncomment below and update the code to test the property address1
+      //var instance = new C2MApiV2.RecipientAddressSource();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property city (base name: "city")', function() {
+      // uncomment below and update the code to test the property city
+      //var instance = new C2MApiV2.RecipientAddressSource();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property state (base name: "state")', function() {
+      // uncomment below and update the code to test the property state
+      //var instance = new C2MApiV2.RecipientAddressSource();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property zip (base name: "zip")', function() {
+      // uncomment below and update the code to test the property zip
+      //var instance = new C2MApiV2.RecipientAddressSource();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property country (base name: "country")', function() {
+      // uncomment below and update the code to test the property country
+      //var instance = new C2MApiV2.RecipientAddressSource();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property address2 (base name: "address2")', function() {
+      // uncomment below and update the code to test the property address2
+      //var instance = new C2MApiV2.RecipientAddressSource();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property address3 (base name: "address3")', function() {
+      // uncomment below and update the code to test the property address3
+      //var instance = new C2MApiV2.RecipientAddressSource();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property foo1 (base name: "foo1")', function() {
+      // uncomment below and update the code to test the property foo1
+      //var instance = new C2MApiV2.RecipientAddressSource();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property foo2 (base name: "foo2")', function() {
+      // uncomment below and update the code to test the property foo2
+      //var instance = new C2MApiV2.RecipientAddressSource();
+      //expect(instance).to.be();
+    });
+
     it('should have the property mappingId (base name: "mappingId")', function() {
       // uncomment below and update the code to test the property mappingId
-      //var instance = new C2MApiV2.RecipientAddressSource();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property singleAddress (base name: "singleAddress")', function() {
-      // uncomment below and update the code to test the property singleAddress
-      //var instance = new C2MApiV2.RecipientAddressSource();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property addressName (base name: "addressName")', function() {
-      // uncomment below and update the code to test the property addressName
       //var instance = new C2MApiV2.RecipientAddressSource();
       //expect(instance).to.be();
     });

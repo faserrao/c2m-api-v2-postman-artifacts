@@ -48,10 +48,10 @@ All URIs are relative to *https://api.click2mail.com/v2*
 | *AuthApi* | [**issueLongTermToken**](docs/AuthApi.md#issuelongtermtoken) | **POST** /auth/tokens/long | Issue or rotate a long-term token |
 | *AuthApi* | [**issueShortTermToken**](docs/AuthApi.md#issueshorttermtoken) | **POST** /auth/tokens/short | Issue a short-term access token |
 | *AuthApi* | [**revokeToken**](docs/AuthApi.md#revoketoken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token |
+| *JobsApi* | [**submitDocParams**](docs/JobsApi.md#submitdocparams) | **POST** /static | Submit single document |
 | *JobsApi* | [**submitMultiDocMergeParams**](docs/JobsApi.md#submitmultidocmergeparams) | **POST** /mail-merge | Submit mail merge |
 | *JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/JobsApi.md#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture |
 | *JobsApi* | [**submitMultiZipParams**](docs/JobsApi.md#submitmultizipparams) | **POST** /batch/zip | Submit ZIP batch |
-| *JobsApi* | [**submitSingleDocParams**](docs/JobsApi.md#submitsingledocparams) | **POST** /static | Submit single document |
 | *JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/JobsApi.md#submitsinglepdfaddresscaptureparams) | **POST** /static/address-capture | Submit single document — address capture |
 | *JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsApi.md#submitsinglepdfsplitaddresscaptureparams) | **POST** /batch/split/address-capture | Submit PDF split — address capture |
 | *JobsApi* | [**submitSinglePdfSplitParams**](docs/JobsApi.md#submitsinglepdfsplitparams) | **POST** /batch/split | Submit PDF split |
@@ -90,17 +90,16 @@ All URIs are relative to *https://api.click2mail.com/v2*
  - [com.c2m.api.models.PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [com.c2m.api.models.PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
  - [com.c2m.api.models.RecipientAddressByList](docs/RecipientAddressByList.md)
- - [com.c2m.api.models.RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [com.c2m.api.models.RecipientAddressSource](docs/RecipientAddressSource.md)
  - [com.c2m.api.models.RequestIdSource](docs/RequestIdSource.md)
  - [com.c2m.api.models.ReturnAddress](docs/ReturnAddress.md)
  - [com.c2m.api.models.ShortTokenRequest](docs/ShortTokenRequest.md)
  - [com.c2m.api.models.ShortTokenResponse](docs/ShortTokenResponse.md)
  - [com.c2m.api.models.StandardResponse](docs/StandardResponse.md)
+ - [com.c2m.api.models.SubmitDocParams](docs/SubmitDocParams.md)
  - [com.c2m.api.models.SubmitMultiDocMergeParams](docs/SubmitMultiDocMergeParams.md)
  - [com.c2m.api.models.SubmitMultiZipAddressCaptureParams](docs/SubmitMultiZipAddressCaptureParams.md)
  - [com.c2m.api.models.SubmitMultiZipParams](docs/SubmitMultiZipParams.md)
- - [com.c2m.api.models.SubmitSingleDocParams](docs/SubmitSingleDocParams.md)
  - [com.c2m.api.models.SubmitSinglePdfAddressCaptureParams](docs/SubmitSinglePdfAddressCaptureParams.md)
  - [com.c2m.api.models.SubmitSinglePdfSplitAddressCaptureParams](docs/SubmitSinglePdfSplitAddressCaptureParams.md)
  - [com.c2m.api.models.SubmitSinglePdfSplitParams](docs/SubmitSinglePdfSplitParams.md)

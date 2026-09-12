@@ -32,6 +32,18 @@ describe 'JobsApi' do
     end
   end
 
+  # unit tests for submit_doc_params
+  # Submit single document
+  # Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+  # @param submit_doc_params 
+  # @param [Hash] opts the optional parameters
+  # @return [StandardResponse]
+  describe 'submit_doc_params test' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+    end
+  end
+
   # unit tests for submit_multi_doc_merge_params
   # Submit mail merge
   # Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
@@ -63,18 +75,6 @@ describe 'JobsApi' do
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]
   describe 'submit_multi_zip_params test' do
-    it 'should work' do
-      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
-    end
-  end
-
-  # unit tests for submit_single_doc_params
-  # Submit single document
-  # Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-  # @param submit_single_doc_params 
-  # @param [Hash] opts the optional parameters
-  # @return [StandardResponse]
-  describe 'submit_single_doc_params test' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

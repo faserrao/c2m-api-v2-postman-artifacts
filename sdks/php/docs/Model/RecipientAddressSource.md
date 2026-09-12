@@ -4,9 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**first_name** | **string** |  |
+**last_name** | **string** |  |
+**address1** | **string** |  |
+**city** | **string** |  |
+**state** | **string** |  |
+**zip** | **string** |  |
+**country** | **string** |  |
+**address2** | **string** |  | [optional]
+**address3** | **string** |  | [optional]
+**foo1** | **string** |  | [optional]
+**foo2** | **string** |  | [optional]
 **mapping_id** | **int** |  | [optional]
-**single_address** | [**\C2MApi\Model\Address**](Address.md) |  |
-**address_name** | **string** |  | [optional]
 **address_list** | [**\C2MApi\Model\Address[]**](Address.md) |  |
 **address_list_name** | **string** |  | [optional]
 

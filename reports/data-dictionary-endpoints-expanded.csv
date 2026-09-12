@@ -1,73 +1,4 @@
 method,endpoint,field_path,description,type,required
-POST,/static,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
-POST,/static,docSourceAll[docSourceStandard][documentIdSource].documentId,Integer ID of a previously stored or uploaded document.,integer,Required*
-POST,/static,docSourceAll[docSourceStandard][requestIdSource].requestId,Integer ID of a prior file upload request. Also returned in success responses.,integer,Required*
-POST,/static,docSourceAll[docSourceStandard][requestIdSource].filename,Filename of a specific file within an upload request or ZIP archive.,string,Optional
-POST,/static,docSourceAll[docSourceStandard][urlSource].url,URL from which the API will fetch the document at submission time.,string,Required*
-POST,/static,docSourceAll[docSourceZipFile][zipDocumentIdSource].zipDocumentId,Integer ID of a previously stored ZIP archive.,integer,Required*
-POST,/static,docSourceAll[docSourceZipFile][zipDocumentIdSource].filename,Filename of a specific file within an upload request or ZIP archive.,string,Required*
-POST,/static,docSourceAll[docSourceZipFile][zipRequestIdSource].requestId,Integer ID of a prior file upload request. Also returned in success responses.,integer,Required*
-POST,/static,docSourceAll[docSourceZipFile][zipRequestIdSource].zipFilename,Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).,string,Required*
-POST,/static,docSourceAll[docSourceZipFile][zipRequestIdSource].filename,Filename of a specific file within an upload request or ZIP archive.,string,Required*
-POST,/static,recipientAddressSource[recipientAddressBySingle].mappingId,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.",integer,Optional
-POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.firstName,Recipient's first name.,string,Required*
-POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.lastName,Recipient's last name.,string,Required*
-POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.address1,Primary street address line.,string,Required*
-POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.city,City name.,string,Required*
-POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.state,Two-letter state or province abbreviation.,string,Required*
-POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.zip,ZIP or postal code.,string,Required*
-POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.country,Country code (e.g. USA).,string,Required*
-POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
-POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.address3,Tertiary address line.,string,Optional
-POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.foo1,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.,string,Optional
-POST,/static,recipientAddressSource[recipientAddressBySingle].singleAddress.foo2,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.,string,Optional
-POST,/static,recipientAddressSource[recipientAddressBySingle].addressName,Optional label for this recipient address record.,string,Optional
-POST,/static,recipientAddressSource[recipientAddressByList].mappingId,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.",integer,Optional
-POST,/static,recipientAddressSource[recipientAddressByList].addressList[].firstName,Recipient's first name.,string,Required*
-POST,/static,recipientAddressSource[recipientAddressByList].addressList[].lastName,Recipient's last name.,string,Required*
-POST,/static,recipientAddressSource[recipientAddressByList].addressList[].address1,Primary street address line.,string,Required*
-POST,/static,recipientAddressSource[recipientAddressByList].addressList[].city,City name.,string,Required*
-POST,/static,recipientAddressSource[recipientAddressByList].addressList[].state,Two-letter state or province abbreviation.,string,Required*
-POST,/static,recipientAddressSource[recipientAddressByList].addressList[].zip,ZIP or postal code.,string,Required*
-POST,/static,recipientAddressSource[recipientAddressByList].addressList[].country,Country code (e.g. USA).,string,Required*
-POST,/static,recipientAddressSource[recipientAddressByList].addressList[].address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
-POST,/static,recipientAddressSource[recipientAddressByList].addressList[].address3,Tertiary address line.,string,Optional
-POST,/static,recipientAddressSource[recipientAddressByList].addressList[].foo1,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.,string,Optional
-POST,/static,recipientAddressSource[recipientAddressByList].addressList[].foo2,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.,string,Optional
-POST,/static,recipientAddressSource[recipientAddressByList].addressListName,Optional name for this address list record.,string,Optional
-POST,/static,recipientAddressSource[recipientAddressByAddressId].addressId,Integer ID of a previously stored individual recipient address.,integer,Required*
-POST,/static,recipientAddressSource[recipientAddressByListId].addressListId,Integer ID of a previously stored recipient address list.,integer,Required*
-POST,/static,paymentDetails[creditCardPayment].creditCard.cardType,"Card brand. Accepted values: visa, mastercard, discover, americanExpress.",enum: visa | mastercard | discover | americanExpress,Optional
-POST,/static,paymentDetails[creditCardPayment].creditCard.cardNumber,Credit card number (PAN) as a string.,string,Optional
-POST,/static,paymentDetails[creditCardPayment].creditCard.expirationDate.month,Expiration month as an integer (1–12).,integer,Optional
-POST,/static,paymentDetails[creditCardPayment].creditCard.expirationDate.year,Expiration year as a four-digit integer (e.g. 2027).,integer,Optional
-POST,/static,paymentDetails[creditCardPayment].creditCard.cvv,Card security code (CVV/CVC) as an integer.,integer,Optional
-POST,/static,paymentDetails[invoicePayment].invoice.invoiceNumber,Invoice reference number.,string,Optional
-POST,/static,paymentDetails[invoicePayment].invoice.amountDue,Amount due on the invoice.,number,Optional
-POST,/static,paymentDetails[achPayment].ach.routingNumber,ABA bank routing number.,string,Optional
-POST,/static,paymentDetails[achPayment].ach.accountNumber,Bank account number.,string,Optional
-POST,/static,paymentDetails[achPayment].ach.checkDigit,ACH check digit.,integer,Optional
-POST,/static,paymentDetails[userCreditPayment].userCredit.amount,Monetary amount (numeric value).,number,Optional
-POST,/static,paymentDetails[userCreditPayment].userCredit.currency,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.",enum: USD | EUR | GBP | CAD | AUD,Optional
-POST,/static,returnAddress.firstName,Recipient's first name.,string,Optional
-POST,/static,returnAddress.lastName,Recipient's last name.,string,Optional
-POST,/static,returnAddress.company,Recipient's company or organisation name (optional).,string,Optional
-POST,/static,returnAddress.address1,Primary street address line.,string,Optional
-POST,/static,returnAddress.city,City name.,string,Optional
-POST,/static,returnAddress.state,Two-letter state or province abbreviation.,string,Optional
-POST,/static,returnAddress.zip,ZIP or postal code.,string,Optional
-POST,/static,returnAddress.country,Country code (e.g. USA).,string,Optional
-POST,/static,returnAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
-POST,/static,returnAddress.address3,Tertiary address line.,string,Optional
-POST,/static,jobOptions.documentClass,"Document class (e.g. letter, flat).",string,Optional
-POST,/static,jobOptions.layout,"Page layout (e.g. address_on_top, address_on_bottom).",string,Optional
-POST,/static,jobOptions.productionTime,"Production time preference (e.g. next_day, standard).",string,Optional
-POST,/static,jobOptions.envelope,"Envelope type (e.g. standard, window).",string,Optional
-POST,/static,jobOptions.color,"Color mode (e.g. full_color, black_and_white).",string,Optional
-POST,/static,jobOptions.paperType,"Paper stock (e.g. white, recycled).",string,Optional
-POST,/static,jobOptions.printOption,"Duplex setting (e.g. single_sided, double_sided).",string,Optional
-POST,/static,jobOptions.mailClass,"USPS mail class (e.g. first_class, standard).",string,Optional
-POST,/static,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional
 POST,/static/address-capture,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/static/address-capture,docSourceStandard[documentIdSource].documentId,Integer ID of a previously stored or uploaded document.,integer,Required*
 POST,/static/address-capture,docSourceStandard[requestIdSource].requestId,Integer ID of a prior file upload request. Also returned in success responses.,integer,Required*
@@ -112,19 +43,17 @@ POST,/batch/split,docSourceStandard[urlSource].url,URL from which the API will f
 POST,/batch/split,pdfSplitJobsWithAddress[].jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/batch/split,pdfSplitJobsWithAddress[].startPage,"First page of this job's page range, 1-indexed (inclusive).",integer,Required
 POST,/batch/split,pdfSplitJobsWithAddress[].endPage,Last page of this job's page range (inclusive). Must be ≥ startPage.,integer,Required
-POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].mappingId,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.",integer,Optional
-POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.firstName,Recipient's first name.,string,Required*
-POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.lastName,Recipient's last name.,string,Required*
-POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.address1,Primary street address line.,string,Required*
-POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.city,City name.,string,Required*
-POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.state,Two-letter state or province abbreviation.,string,Required*
-POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.zip,ZIP or postal code.,string,Required*
-POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.country,Country code (e.g. USA).,string,Required*
-POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
-POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.address3,Tertiary address line.,string,Optional
-POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.foo1,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.,string,Optional
-POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].singleAddress.foo2,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.,string,Optional
-POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressBySingle].addressName,Optional label for this recipient address record.,string,Optional
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].firstName,Recipient's first name.,string,Required*
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].lastName,Recipient's last name.,string,Required*
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].address1,Primary street address line.,string,Required*
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].city,City name.,string,Required*
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].state,Two-letter state or province abbreviation.,string,Required*
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].zip,ZIP or postal code.,string,Required*
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].country,Country code (e.g. USA).,string,Required*
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].address3,Tertiary address line.,string,Optional
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].foo1,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.,string,Optional
+POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].foo2,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.,string,Optional
 POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].mappingId,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.",integer,Optional
 POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].firstName,Recipient's first name.,string,Required*
 POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].lastName,Recipient's last name.,string,Required*
@@ -213,19 +142,17 @@ POST,/mail-merge,jobTemplate,Saved job template name; pre-populates all print an
 POST,/mail-merge,mergeDocumentSource[][mergeByDocumentId].documentId,Integer ID of a previously stored or uploaded document.,integer,Required*
 POST,/mail-merge,mergeDocumentSource[][mergeByRequestId].requestId,Integer ID of a prior file upload request. Also returned in success responses.,integer,Required*
 POST,/mail-merge,mergeDocumentSource[][mergeByRequestId].filename,Filename of a specific file within an upload request or ZIP archive.,string,Optional
-POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].mappingId,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.",integer,Optional
-POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.firstName,Recipient's first name.,string,Required*
-POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.lastName,Recipient's last name.,string,Required*
-POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.address1,Primary street address line.,string,Required*
-POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.city,City name.,string,Required*
-POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.state,Two-letter state or province abbreviation.,string,Required*
-POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.zip,ZIP or postal code.,string,Required*
-POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.country,Country code (e.g. USA).,string,Required*
-POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
-POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.address3,Tertiary address line.,string,Optional
-POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.foo1,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.,string,Optional
-POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].singleAddress.foo2,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.,string,Optional
-POST,/mail-merge,recipientAddressSource[recipientAddressBySingle].addressName,Optional label for this recipient address record.,string,Optional
+POST,/mail-merge,recipientAddressSource[singleAddress].firstName,Recipient's first name.,string,Required*
+POST,/mail-merge,recipientAddressSource[singleAddress].lastName,Recipient's last name.,string,Required*
+POST,/mail-merge,recipientAddressSource[singleAddress].address1,Primary street address line.,string,Required*
+POST,/mail-merge,recipientAddressSource[singleAddress].city,City name.,string,Required*
+POST,/mail-merge,recipientAddressSource[singleAddress].state,Two-letter state or province abbreviation.,string,Required*
+POST,/mail-merge,recipientAddressSource[singleAddress].zip,ZIP or postal code.,string,Required*
+POST,/mail-merge,recipientAddressSource[singleAddress].country,Country code (e.g. USA).,string,Required*
+POST,/mail-merge,recipientAddressSource[singleAddress].address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
+POST,/mail-merge,recipientAddressSource[singleAddress].address3,Tertiary address line.,string,Optional
+POST,/mail-merge,recipientAddressSource[singleAddress].foo1,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.,string,Optional
+POST,/mail-merge,recipientAddressSource[singleAddress].foo2,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.,string,Optional
 POST,/mail-merge,recipientAddressSource[recipientAddressByList].mappingId,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.",integer,Optional
 POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].firstName,Recipient's first name.,string,Required*
 POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].lastName,Recipient's last name.,string,Required*
@@ -276,19 +203,17 @@ POST,/batch/zip,docSourceZipFileRef[zipDocumentIdOnly].zipDocumentId,Integer ID 
 POST,/batch/zip,docSourceZipFileRef[zipRequestIdOnly].requestId,Integer ID of a prior file upload request. Also returned in success responses.,integer,Required*
 POST,/batch/zip,multiZipJobs[].jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/batch/zip,multiZipJobs[].filename,Filename of a specific file within an upload request or ZIP archive.,string,Required
-POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].mappingId,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.",integer,Optional
-POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.firstName,Recipient's first name.,string,Required*
-POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.lastName,Recipient's last name.,string,Required*
-POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.address1,Primary street address line.,string,Required*
-POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.city,City name.,string,Required*
-POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.state,Two-letter state or province abbreviation.,string,Required*
-POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.zip,ZIP or postal code.,string,Required*
-POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.country,Country code (e.g. USA).,string,Required*
-POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
-POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.address3,Tertiary address line.,string,Optional
-POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.foo1,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.,string,Optional
-POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].singleAddress.foo2,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.,string,Optional
-POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressBySingle].addressName,Optional label for this recipient address record.,string,Optional
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[singleAddress].firstName,Recipient's first name.,string,Required*
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[singleAddress].lastName,Recipient's last name.,string,Required*
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[singleAddress].address1,Primary street address line.,string,Required*
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[singleAddress].city,City name.,string,Required*
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[singleAddress].state,Two-letter state or province abbreviation.,string,Required*
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[singleAddress].zip,ZIP or postal code.,string,Required*
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[singleAddress].country,Country code (e.g. USA).,string,Required*
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[singleAddress].address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[singleAddress].address3,Tertiary address line.,string,Optional
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[singleAddress].foo1,User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.,string,Optional
+POST,/batch/zip,multiZipJobs[].recipientAddressSource[singleAddress].foo2,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.,string,Optional
 POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].mappingId,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.",integer,Optional
 POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].firstName,Recipient's first name.,string,Required*
 POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].lastName,Recipient's last name.,string,Required*

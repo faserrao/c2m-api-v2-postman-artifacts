@@ -4,14 +4,62 @@ All URIs are relative to *https://api.click2mail.com/v2*
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**submitDocParams**](JobsApi.md#submitDocParams) | **POST** /static | Submit single document |
 | [**submitMultiDocMergeParams**](JobsApi.md#submitMultiDocMergeParams) | **POST** /mail-merge | Submit mail merge |
 | [**submitMultiZipAddressCaptureParams**](JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture |
 | [**submitMultiZipParams**](JobsApi.md#submitMultiZipParams) | **POST** /batch/zip | Submit ZIP batch |
-| [**submitSingleDocParams**](JobsApi.md#submitSingleDocParams) | **POST** /static | Submit single document |
 | [**submitSinglePdfAddressCaptureParams**](JobsApi.md#submitSinglePdfAddressCaptureParams) | **POST** /static/address-capture | Submit single document — address capture |
 | [**submitSinglePdfSplitAddressCaptureParams**](JobsApi.md#submitSinglePdfSplitAddressCaptureParams) | **POST** /batch/split/address-capture | Submit PDF split — address capture |
 | [**submitSinglePdfSplitParams**](JobsApi.md#submitSinglePdfSplitParams) | **POST** /batch/split | Submit PDF split |
 
+
+<a id="submitDocParams"></a>
+# **submitDocParams**
+> StandardResponse submitDocParams(submitDocParams)
+
+Submit single document
+
+Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+
+### Example
+```kotlin
+// Import classes:
+//import com.c2m.api.infrastructure.*
+//import com.c2m.api.models.*
+
+val apiInstance = JobsApi()
+val submitDocParams : SubmitDocParams =  // SubmitDocParams | 
+try {
+    val result : StandardResponse = apiInstance.submitDocParams(submitDocParams)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling JobsApi#submitDocParams")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling JobsApi#submitDocParams")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **submitDocParams** | [**SubmitDocParams**](SubmitDocParams.md)|  | |
+
+### Return type
+
+[**StandardResponse**](StandardResponse.md)
+
+### Authorization
+
+
+Configure bearerAuth:
+    ApiClient.accessToken = ""
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 <a id="submitMultiDocMergeParams"></a>
 # **submitMultiDocMergeParams**
@@ -141,54 +189,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **submitMultiZipParams** | [**SubmitMultiZipParams**](SubmitMultiZipParams.md)|  | |
-
-### Return type
-
-[**StandardResponse**](StandardResponse.md)
-
-### Authorization
-
-
-Configure bearerAuth:
-    ApiClient.accessToken = ""
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a id="submitSingleDocParams"></a>
-# **submitSingleDocParams**
-> StandardResponse submitSingleDocParams(submitSingleDocParams)
-
-Submit single document
-
-Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-
-### Example
-```kotlin
-// Import classes:
-//import com.c2m.api.infrastructure.*
-//import com.c2m.api.models.*
-
-val apiInstance = JobsApi()
-val submitSingleDocParams : SubmitSingleDocParams =  // SubmitSingleDocParams | 
-try {
-    val result : StandardResponse = apiInstance.submitSingleDocParams(submitSingleDocParams)
-    println(result)
-} catch (e: ClientException) {
-    println("4xx response calling JobsApi#submitSingleDocParams")
-    e.printStackTrace()
-} catch (e: ServerException) {
-    println("5xx response calling JobsApi#submitSingleDocParams")
-    e.printStackTrace()
-}
-```
-
-### Parameters
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **submitSingleDocParams** | [**SubmitSingleDocParams**](SubmitSingleDocParams.md)|  | |
 
 ### Return type
 

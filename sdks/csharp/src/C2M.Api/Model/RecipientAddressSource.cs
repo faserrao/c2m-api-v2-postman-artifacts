@@ -33,10 +33,10 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecipientAddressSource" /> class.
         /// </summary>
-        /// <param name="recipientAddressBySingle"></param>
-        public RecipientAddressSource(RecipientAddressBySingle recipientAddressBySingle)
+        /// <param name="address"></param>
+        public RecipientAddressSource(Address address)
         {
-            RecipientAddressBySingle = recipientAddressBySingle;
+            Address = address;
             OnCreated();
         }
 
@@ -63,9 +63,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets RecipientAddressBySingle
+        /// Gets or Sets Address
         /// </summary>
-        public RecipientAddressBySingle? RecipientAddressBySingle { get; set; }
+        public Address? Address { get; set; }
 
         /// <summary>
         /// Gets or Sets RecipientAddressByList
@@ -122,7 +122,7 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            RecipientAddressBySingle? recipientAddressBySingle = default;
+            Address? address = default;
             RecipientAddressByList? recipientAddressByList = default;
             int? varInt = default;
 
@@ -147,8 +147,8 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (recipientAddressBySingle != null)
-                return new RecipientAddressSource(recipientAddressBySingle);
+            if (address != null)
+                return new RecipientAddressSource(address);
 
             if (recipientAddressByList != null)
                 return new RecipientAddressSource(recipientAddressByList);

@@ -74,6 +74,9 @@ class JobsApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'submitDocParams' => [
+            'application/json',
+        ],
         'submitMultiDocMergeParams' => [
             'application/json',
         ],
@@ -81,9 +84,6 @@ class JobsApi
             'application/json',
         ],
         'submitMultiZipParams' => [
-            'application/json',
-        ],
-        'submitSingleDocParams' => [
             'application/json',
         ],
         'submitSinglePdfAddressCaptureParams' => [
@@ -141,6 +141,361 @@ class JobsApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation submitDocParams
+     *
+     * Submit single document
+     *
+     * @param  \C2MApi\Model\SubmitDocParams $submit_doc_params submit_doc_params (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitDocParams'] to see the possible values for this operation
+     *
+     * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse
+     */
+    public function submitDocParams($submit_doc_params, string $contentType = self::contentTypes['submitDocParams'][0])
+    {
+        list($response) = $this->submitDocParamsWithHttpInfo($submit_doc_params, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation submitDocParamsWithHttpInfo
+     *
+     * Submit single document
+     *
+     * @param  \C2MApi\Model\SubmitDocParams $submit_doc_params (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitDocParams'] to see the possible values for this operation
+     *
+     * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function submitDocParamsWithHttpInfo($submit_doc_params, string $contentType = self::contentTypes['submitDocParams'][0])
+    {
+        $request = $this->submitDocParamsRequest($submit_doc_params, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\C2MApi\Model\StandardResponse',
+                        $request,
+                        $response,
+                    );
+                case 400:
+                    return $this->handleResponseWithDataType(
+                        '\C2MApi\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 401:
+                    return $this->handleResponseWithDataType(
+                        '\C2MApi\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 403:
+                    return $this->handleResponseWithDataType(
+                        '\C2MApi\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 404:
+                    return $this->handleResponseWithDataType(
+                        '\C2MApi\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\C2MApi\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+                case 500:
+                    return $this->handleResponseWithDataType(
+                        '\C2MApi\Model\ErrorResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\C2MApi\Model\StandardResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\C2MApi\Model\StandardResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\C2MApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 401:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\C2MApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 403:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\C2MApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\C2MApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\C2MApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 500:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\C2MApi\Model\ErrorResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation submitDocParamsAsync
+     *
+     * Submit single document
+     *
+     * @param  \C2MApi\Model\SubmitDocParams $submit_doc_params (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitDocParams'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function submitDocParamsAsync($submit_doc_params, string $contentType = self::contentTypes['submitDocParams'][0])
+    {
+        return $this->submitDocParamsAsyncWithHttpInfo($submit_doc_params, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation submitDocParamsAsyncWithHttpInfo
+     *
+     * Submit single document
+     *
+     * @param  \C2MApi\Model\SubmitDocParams $submit_doc_params (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitDocParams'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function submitDocParamsAsyncWithHttpInfo($submit_doc_params, string $contentType = self::contentTypes['submitDocParams'][0])
+    {
+        $returnType = '\C2MApi\Model\StandardResponse';
+        $request = $this->submitDocParamsRequest($submit_doc_params, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'submitDocParams'
+     *
+     * @param  \C2MApi\Model\SubmitDocParams $submit_doc_params (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitDocParams'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function submitDocParamsRequest($submit_doc_params, string $contentType = self::contentTypes['submitDocParams'][0])
+    {
+
+        // verify the required parameter 'submit_doc_params' is set
+        if ($submit_doc_params === null || (is_array($submit_doc_params) && count($submit_doc_params) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $submit_doc_params when calling submitDocParams'
+            );
+        }
+
+
+        $resourcePath = '/static';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($submit_doc_params)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($submit_doc_params));
+            } else {
+                $httpBody = $submit_doc_params;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
@@ -1157,361 +1512,6 @@ class JobsApi
                 $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($submit_multi_zip_params));
             } else {
                 $httpBody = $submit_multi_zip_params;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
-                    foreach ($formParamValueItems as $formParamValueItem) {
-                        $multipartContents[] = [
-                            'name' => $formParamName,
-                            'contents' => $formParamValueItem
-                        ];
-                    }
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the form parameters
-                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
-            } else {
-                // for HTTP post (form)
-                $httpBody = ObjectSerializer::buildQuery($formParams);
-            }
-        }
-
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if (!empty($this->config->getAccessToken())) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $operationHost = $this->config->getHost();
-        $query = ObjectSerializer::buildQuery($queryParams);
-        return new Request(
-            'POST',
-            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation submitSingleDocParams
-     *
-     * Submit single document
-     *
-     * @param  \C2MApi\Model\SubmitSingleDocParams $submit_single_doc_params submit_single_doc_params (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSingleDocParams'] to see the possible values for this operation
-     *
-     * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse
-     */
-    public function submitSingleDocParams($submit_single_doc_params, string $contentType = self::contentTypes['submitSingleDocParams'][0])
-    {
-        list($response) = $this->submitSingleDocParamsWithHttpInfo($submit_single_doc_params, $contentType);
-        return $response;
-    }
-
-    /**
-     * Operation submitSingleDocParamsWithHttpInfo
-     *
-     * Submit single document
-     *
-     * @param  \C2MApi\Model\SubmitSingleDocParams $submit_single_doc_params (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSingleDocParams'] to see the possible values for this operation
-     *
-     * @throws \C2MApi\ApiException on non-2xx response or if the response body is not in the expected format
-     * @throws \InvalidArgumentException
-     * @return array of \C2MApi\Model\StandardResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse|\C2MApi\Model\ErrorResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function submitSingleDocParamsWithHttpInfo($submit_single_doc_params, string $contentType = self::contentTypes['submitSingleDocParams'][0])
-    {
-        $request = $this->submitSingleDocParamsRequest($submit_single_doc_params, $contentType);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            } catch (ConnectException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    (int) $e->getCode(),
-                    null,
-                    null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-
-            switch($statusCode) {
-                case 200:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\StandardResponse',
-                        $request,
-                        $response,
-                    );
-                case 400:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 403:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 404:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\C2MApi\Model\ErrorResponse',
-                        $request,
-                        $response,
-                    );
-            }
-
-            
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\C2MApi\Model\StandardResponse',
-                $request,
-                $response,
-            );
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\StandardResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\C2MApi\Model\ErrorResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
-            }
-        
-
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation submitSingleDocParamsAsync
-     *
-     * Submit single document
-     *
-     * @param  \C2MApi\Model\SubmitSingleDocParams $submit_single_doc_params (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSingleDocParams'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function submitSingleDocParamsAsync($submit_single_doc_params, string $contentType = self::contentTypes['submitSingleDocParams'][0])
-    {
-        return $this->submitSingleDocParamsAsyncWithHttpInfo($submit_single_doc_params, $contentType)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation submitSingleDocParamsAsyncWithHttpInfo
-     *
-     * Submit single document
-     *
-     * @param  \C2MApi\Model\SubmitSingleDocParams $submit_single_doc_params (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSingleDocParams'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function submitSingleDocParamsAsyncWithHttpInfo($submit_single_doc_params, string $contentType = self::contentTypes['submitSingleDocParams'][0])
-    {
-        $returnType = '\C2MApi\Model\StandardResponse';
-        $request = $this->submitSingleDocParamsRequest($submit_single_doc_params, $contentType);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    if ($returnType === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        (string) $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'submitSingleDocParams'
-     *
-     * @param  \C2MApi\Model\SubmitSingleDocParams $submit_single_doc_params (required)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['submitSingleDocParams'] to see the possible values for this operation
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    public function submitSingleDocParamsRequest($submit_single_doc_params, string $contentType = self::contentTypes['submitSingleDocParams'][0])
-    {
-
-        // verify the required parameter 'submit_single_doc_params' is set
-        if ($submit_single_doc_params === null || (is_array($submit_single_doc_params) && count($submit_single_doc_params) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $submit_single_doc_params when calling submitSingleDocParams'
-            );
-        }
-
-
-        $resourcePath = '/static';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-
-
-        $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
-            $contentType,
-            $multipart
-        );
-
-        // for model (json/xml)
-        if (isset($submit_single_doc_params)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($submit_single_doc_params));
-            } else {
-                $httpBody = $submit_single_doc_params;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

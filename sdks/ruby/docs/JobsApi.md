@@ -4,13 +4,82 @@ All URIs are relative to *https://api.click2mail.com/v2*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**submit_doc_params**](JobsApi.md#submit_doc_params) | **POST** /static | Submit single document |
 | [**submit_multi_doc_merge_params**](JobsApi.md#submit_multi_doc_merge_params) | **POST** /mail-merge | Submit mail merge |
 | [**submit_multi_zip_address_capture_params**](JobsApi.md#submit_multi_zip_address_capture_params) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture |
 | [**submit_multi_zip_params**](JobsApi.md#submit_multi_zip_params) | **POST** /batch/zip | Submit ZIP batch |
-| [**submit_single_doc_params**](JobsApi.md#submit_single_doc_params) | **POST** /static | Submit single document |
 | [**submit_single_pdf_address_capture_params**](JobsApi.md#submit_single_pdf_address_capture_params) | **POST** /static/address-capture | Submit single document — address capture |
 | [**submit_single_pdf_split_address_capture_params**](JobsApi.md#submit_single_pdf_split_address_capture_params) | **POST** /batch/split/address-capture | Submit PDF split — address capture |
 | [**submit_single_pdf_split_params**](JobsApi.md#submit_single_pdf_split_params) | **POST** /batch/split | Submit PDF split |
+
+
+## submit_doc_params
+
+> <StandardResponse> submit_doc_params(submit_doc_params)
+
+Submit single document
+
+Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+
+### Examples
+
+```ruby
+require 'time'
+require 'openapi_client'
+# setup authorization
+OpenapiClient.configure do |config|
+  # Configure Bearer authorization (JWT): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = OpenapiClient::JobsApi.new
+submit_doc_params = OpenapiClient::SubmitDocParams.new({doc_source_all: nil, recipient_address_source: OpenapiClient::Address.new({first_name: 'first_name_example', last_name: 'last_name_example', address1: 'address1_example', city: 'city_example', state: 'state_example', zip: 'zip_example', country: 'country_example'})}) # SubmitDocParams | 
+
+begin
+  # Submit single document
+  result = api_instance.submit_doc_params(submit_doc_params)
+  p result
+rescue OpenapiClient::ApiError => e
+  puts "Error when calling JobsApi->submit_doc_params: #{e}"
+end
+```
+
+#### Using the submit_doc_params_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<StandardResponse>, Integer, Hash)> submit_doc_params_with_http_info(submit_doc_params)
+
+```ruby
+begin
+  # Submit single document
+  data, status_code, headers = api_instance.submit_doc_params_with_http_info(submit_doc_params)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <StandardResponse>
+rescue OpenapiClient::ApiError => e
+  puts "Error when calling JobsApi->submit_doc_params_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **submit_doc_params** | [**SubmitDocParams**](SubmitDocParams.md) |  |  |
+
+### Return type
+
+[**StandardResponse**](StandardResponse.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## submit_multi_doc_merge_params
@@ -33,7 +102,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::JobsApi.new
-submit_multi_doc_merge_params = OpenapiClient::SubmitMultiDocMergeParams.new({merge_document_source: [nil], recipient_address_source: nil}) # SubmitMultiDocMergeParams | 
+submit_multi_doc_merge_params = OpenapiClient::SubmitMultiDocMergeParams.new({merge_document_source: [nil], recipient_address_source: OpenapiClient::Address.new({first_name: 'first_name_example', last_name: 'last_name_example', address1: 'address1_example', city: 'city_example', state: 'state_example', zip: 'zip_example', country: 'country_example'})}) # SubmitMultiDocMergeParams | 
 
 begin
   # Submit mail merge
@@ -171,7 +240,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::JobsApi.new
-submit_multi_zip_params = OpenapiClient::SubmitMultiZipParams.new({doc_source_zip_file_ref: nil, multi_zip_jobs: [OpenapiClient::MultiZipJobItem.new({filename: 'filename_example', recipient_address_source: nil})]}) # SubmitMultiZipParams | 
+submit_multi_zip_params = OpenapiClient::SubmitMultiZipParams.new({doc_source_zip_file_ref: nil, multi_zip_jobs: [OpenapiClient::MultiZipJobItem.new({filename: 'filename_example', recipient_address_source: OpenapiClient::Address.new({first_name: 'first_name_example', last_name: 'last_name_example', address1: 'address1_example', city: 'city_example', state: 'state_example', zip: 'zip_example', country: 'country_example'})})]}) # SubmitMultiZipParams | 
 
 begin
   # Submit ZIP batch
@@ -205,75 +274,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **submit_multi_zip_params** | [**SubmitMultiZipParams**](SubmitMultiZipParams.md) |  |  |
-
-### Return type
-
-[**StandardResponse**](StandardResponse.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## submit_single_doc_params
-
-> <StandardResponse> submit_single_doc_params(submit_single_doc_params)
-
-Submit single document
-
-Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-
-### Examples
-
-```ruby
-require 'time'
-require 'openapi_client'
-# setup authorization
-OpenapiClient.configure do |config|
-  # Configure Bearer authorization (JWT): bearerAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-end
-
-api_instance = OpenapiClient::JobsApi.new
-submit_single_doc_params = OpenapiClient::SubmitSingleDocParams.new({doc_source_all: nil, recipient_address_source: nil}) # SubmitSingleDocParams | 
-
-begin
-  # Submit single document
-  result = api_instance.submit_single_doc_params(submit_single_doc_params)
-  p result
-rescue OpenapiClient::ApiError => e
-  puts "Error when calling JobsApi->submit_single_doc_params: #{e}"
-end
-```
-
-#### Using the submit_single_doc_params_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<StandardResponse>, Integer, Hash)> submit_single_doc_params_with_http_info(submit_single_doc_params)
-
-```ruby
-begin
-  # Submit single document
-  data, status_code, headers = api_instance.submit_single_doc_params_with_http_info(submit_single_doc_params)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <StandardResponse>
-rescue OpenapiClient::ApiError => e
-  puts "Error when calling JobsApi->submit_single_doc_params_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **submit_single_doc_params** | [**SubmitSingleDocParams**](SubmitSingleDocParams.md) |  |  |
 
 ### Return type
 
@@ -447,7 +447,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::JobsApi.new
-submit_single_pdf_split_params = OpenapiClient::SubmitSinglePdfSplitParams.new({doc_source_standard: nil, pdf_split_jobs_with_address: [OpenapiClient::PdfSplitJobItemWithAddress.new({start_page: 37, end_page: 37, recipient_address_source: nil})]}) # SubmitSinglePdfSplitParams | 
+submit_single_pdf_split_params = OpenapiClient::SubmitSinglePdfSplitParams.new({doc_source_standard: nil, pdf_split_jobs_with_address: [OpenapiClient::PdfSplitJobItemWithAddress.new({start_page: 37, end_page: 37, recipient_address_source: OpenapiClient::Address.new({first_name: 'first_name_example', last_name: 'last_name_example', address1: 'address1_example', city: 'city_example', state: 'state_example', zip: 'zip_example', country: 'country_example'})})]}) # SubmitSinglePdfSplitParams | 
 
 begin
   # Submit PDF split

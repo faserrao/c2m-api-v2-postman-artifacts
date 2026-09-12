@@ -1,12 +1,4 @@
 component,category,endpoint,field,description,field_type,required
-submitSingleDocParams,Endpoint,POST /static,—,Request body for POST /static — submit a single document to one or more recipients.,object,—
-submitSingleDocParams,Endpoint,POST /static,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
-submitSingleDocParams,Endpoint,POST /static,docSourceAll,"Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).",oneOf,Required
-submitSingleDocParams,Endpoint,POST /static,recipientAddressSource,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
-submitSingleDocParams,Endpoint,POST /static,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit.",oneOf,Optional
-submitSingleDocParams,Endpoint,POST /static,returnAddress,Optional sender return address printed on the mailpiece.,object,Optional
-submitSingleDocParams,Endpoint,POST /static,jobOptions,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,Optional
-submitSingleDocParams,Endpoint,POST /static,tags,Optional list of user-defined string tags for reporting and filtering.,string[],Optional
 submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,—,Request body for POST /static/address-capture — recipient addresses are captured from the document by OCR rather than provided inline.,object,—
 submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,docSourceStandard,"Document source — standard (non-zip) variants only: requestId, documentId, or URL.",oneOf,Required
@@ -200,10 +192,6 @@ recipientAddressByList,Data Structure,,—,Inline list of recipient addresses wi
 recipientAddressByList,Data Structure,,mappingId,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.",id,Optional
 recipientAddressByList,Data Structure,,addressList,List of recipient mailing addresses — used for batch sends and mail merge.,object[],Required
 recipientAddressByList,Data Structure,,addressListName,Optional name for this address list record.,string,Optional
-recipientAddressBySingle,Data Structure,,—,Inline single recipient address with an optional merge-field mapping ID.,object,—
-recipientAddressBySingle,Data Structure,,mappingId,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.",id,Optional
-recipientAddressBySingle,Data Structure,,singleAddress,A single recipient mailing address (alias for address).,object,Required
-recipientAddressBySingle,Data Structure,,addressName,Optional label for this recipient address record.,string,Optional
 requestIdSource,Data Structure,,—,"Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one.",object,—
 requestIdSource,Data Structure,,requestId,Integer ID of a prior file upload request. Also returned in success responses.,id,Required
 requestIdSource,Data Structure,,filename,Filename of a specific file within an upload request or ZIP archive.,string,Optional
@@ -222,6 +210,14 @@ standardResponse,Data Structure,,—,Success response returned for all successfu
 standardResponse,Data Structure,,status,"Job status string (e.g. ""accepted"").",string,Required
 standardResponse,Data Structure,,message,"Human-readable confirmation message (e.g. ""Your request has been queued"").",string,Required
 standardResponse,Data Structure,,requestId,Integer ID of a prior file upload request. Also returned in success responses.,id,Required
+submitDocParams,Data Structure,,—,See EBNF rule `submitDocParams`.,object,—
+submitDocParams,Data Structure,,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
+submitDocParams,Data Structure,,docSourceAll,"Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).",oneOf,Required
+submitDocParams,Data Structure,,recipientAddressSource,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
+submitDocParams,Data Structure,,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit.",oneOf,Optional
+submitDocParams,Data Structure,,returnAddress,Optional sender return address printed on the mailpiece.,object,Optional
+submitDocParams,Data Structure,,jobOptions,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,Optional
+submitDocParams,Data Structure,,tags,Optional list of user-defined string tags for reporting and filtering.,string[],Optional
 userCreditPayment,Data Structure,,—,Payment deducted from the account's prepaid credit balance.,object,—
 userCreditPayment,Data Structure,,"""userCredit""",JSON property key identifying the account-credit payment variant.,"""userCredit""",Required
 userCreditPayment,Data Structure,,creditAmount,Account credit payment fields: monetary amount and ISO currency code.,object,Required
@@ -288,7 +284,7 @@ paymentDetails,Union Type (oneOf),,invoicePayment,Invoice payment — billed to 
 paymentDetails,Union Type (oneOf),,achPayment,ACH bank transfer payment.,object,—
 paymentDetails,Union Type (oneOf),,userCreditPayment,Payment deducted from the account's prepaid credit balance.,object,—
 recipientAddressSource,Union Type (oneOf),,—,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.",oneOf,—
-recipientAddressSource,Union Type (oneOf),,recipientAddressBySingle,Inline single recipient address with an optional merge-field mapping ID.,object,—
+recipientAddressSource,Union Type (oneOf),,singleAddress,A single recipient mailing address (alias for address).,object,—
 recipientAddressSource,Union Type (oneOf),,recipientAddressByList,Inline list of recipient addresses with an optional merge-field mapping ID.,object,—
 recipientAddressSource,Union Type (oneOf),,recipientAddressByAddressId,Reference to a previously stored individual recipient address by its integer ID.,id,—
 recipientAddressSource,Union Type (oneOf),,recipientAddressByListId,Reference to a previously stored recipient address list by its integer ID.,id,—

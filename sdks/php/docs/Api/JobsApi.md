@@ -4,14 +4,74 @@ All URIs are relative to https://api.click2mail.com/v2, except if the operation 
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**submitDocParams()**](JobsApi.md#submitDocParams) | **POST** /static | Submit single document |
 | [**submitMultiDocMergeParams()**](JobsApi.md#submitMultiDocMergeParams) | **POST** /mail-merge | Submit mail merge |
 | [**submitMultiZipAddressCaptureParams()**](JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture |
 | [**submitMultiZipParams()**](JobsApi.md#submitMultiZipParams) | **POST** /batch/zip | Submit ZIP batch |
-| [**submitSingleDocParams()**](JobsApi.md#submitSingleDocParams) | **POST** /static | Submit single document |
 | [**submitSinglePdfAddressCaptureParams()**](JobsApi.md#submitSinglePdfAddressCaptureParams) | **POST** /static/address-capture | Submit single document — address capture |
 | [**submitSinglePdfSplitAddressCaptureParams()**](JobsApi.md#submitSinglePdfSplitAddressCaptureParams) | **POST** /batch/split/address-capture | Submit PDF split — address capture |
 | [**submitSinglePdfSplitParams()**](JobsApi.md#submitSinglePdfSplitParams) | **POST** /batch/split | Submit PDF split |
 
+
+## `submitDocParams()`
+
+```php
+submitDocParams($submit_doc_params): \C2MApi\Model\StandardResponse
+```
+
+Submit single document
+
+Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure Bearer (JWT) authorization: bearerAuth
+$config = C2MApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new C2MApi\Api\JobsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$submit_doc_params = new \C2MApi\Model\SubmitDocParams(); // \C2MApi\Model\SubmitDocParams
+
+try {
+    $result = $apiInstance->submitDocParams($submit_doc_params);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling JobsApi->submitDocParams: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **submit_doc_params** | [**\C2MApi\Model\SubmitDocParams**](../Model/SubmitDocParams.md)|  | |
+
+### Return type
+
+[**\C2MApi\Model\StandardResponse**](../Model/StandardResponse.md)
+
+### Authorization
+
+[bearerAuth](../../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `submitMultiDocMergeParams()`
 
@@ -175,66 +235,6 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **submit_multi_zip_params** | [**\C2MApi\Model\SubmitMultiZipParams**](../Model/SubmitMultiZipParams.md)|  | |
-
-### Return type
-
-[**\C2MApi\Model\StandardResponse**](../Model/StandardResponse.md)
-
-### Authorization
-
-[bearerAuth](../../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
-
-[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
-[[Back to Model list]](../../README.md#models)
-[[Back to README]](../../README.md)
-
-## `submitSingleDocParams()`
-
-```php
-submitSingleDocParams($submit_single_doc_params): \C2MApi\Model\StandardResponse
-```
-
-Submit single document
-
-Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-
-### Example
-
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-
-// Configure Bearer (JWT) authorization: bearerAuth
-$config = C2MApi\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-
-$apiInstance = new C2MApi\Api\JobsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$submit_single_doc_params = new \C2MApi\Model\SubmitSingleDocParams(); // \C2MApi\Model\SubmitSingleDocParams
-
-try {
-    $result = $apiInstance->submitSingleDocParams($submit_single_doc_params);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling JobsApi->submitSingleDocParams: ', $e->getMessage(), PHP_EOL;
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **submit_single_doc_params** | [**\C2MApi\Model\SubmitSingleDocParams**](../Model/SubmitSingleDocParams.md)|  | |
 
 ### Return type
 

@@ -45,17 +45,16 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress
     from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress
     from c2m_api.models.recipient_address_by_list import RecipientAddressByList
-    from c2m_api.models.recipient_address_by_single import RecipientAddressBySingle
     from c2m_api.models.recipient_address_source import RecipientAddressSource
     from c2m_api.models.request_id_source import RequestIdSource
     from c2m_api.models.return_address import ReturnAddress
     from c2m_api.models.short_token_request import ShortTokenRequest
     from c2m_api.models.short_token_response import ShortTokenResponse
     from c2m_api.models.standard_response import StandardResponse
+    from c2m_api.models.submit_doc_params import SubmitDocParams
     from c2m_api.models.submit_multi_doc_merge_params import SubmitMultiDocMergeParams
     from c2m_api.models.submit_multi_zip_address_capture_params import SubmitMultiZipAddressCaptureParams
     from c2m_api.models.submit_multi_zip_params import SubmitMultiZipParams
-    from c2m_api.models.submit_single_doc_params import SubmitSingleDocParams
     from c2m_api.models.submit_single_pdf_address_capture_params import SubmitSinglePdfAddressCaptureParams
     from c2m_api.models.submit_single_pdf_split_address_capture_params import SubmitSinglePdfSplitAddressCaptureParams
     from c2m_api.models.submit_single_pdf_split_params import SubmitSinglePdfSplitParams
@@ -101,17 +100,16 @@ from c2m_api.models.payment_details import PaymentDetails
 from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress
 from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress
 from c2m_api.models.recipient_address_by_list import RecipientAddressByList
-from c2m_api.models.recipient_address_by_single import RecipientAddressBySingle
 from c2m_api.models.recipient_address_source import RecipientAddressSource
 from c2m_api.models.request_id_source import RequestIdSource
 from c2m_api.models.return_address import ReturnAddress
 from c2m_api.models.short_token_request import ShortTokenRequest
 from c2m_api.models.short_token_response import ShortTokenResponse
 from c2m_api.models.standard_response import StandardResponse
+from c2m_api.models.submit_doc_params import SubmitDocParams
 from c2m_api.models.submit_multi_doc_merge_params import SubmitMultiDocMergeParams
 from c2m_api.models.submit_multi_zip_address_capture_params import SubmitMultiZipAddressCaptureParams
 from c2m_api.models.submit_multi_zip_params import SubmitMultiZipParams
-from c2m_api.models.submit_single_doc_params import SubmitSingleDocParams
 from c2m_api.models.submit_single_pdf_address_capture_params import SubmitSinglePdfAddressCaptureParams
 from c2m_api.models.submit_single_pdf_split_address_capture_params import SubmitSinglePdfSplitAddressCaptureParams
 from c2m_api.models.submit_single_pdf_split_params import SubmitSinglePdfSplitParams

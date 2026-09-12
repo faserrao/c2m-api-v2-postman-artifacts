@@ -21,17 +21,52 @@ import io.kotlintest.specs.ShouldSpec
 import com.c2m.api.models.RecipientAddressSource
 import com.c2m.api.models.Address
 import com.c2m.api.models.RecipientAddressByList
-import com.c2m.api.models.RecipientAddressBySingle
 
 class RecipientAddressSourceTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of RecipientAddressSource
         //val modelInstance = RecipientAddressSource()
 
-        // to test the property `singleAddress`
-        should("test singleAddress") {
+        // to test the property `firstName`
+        should("test firstName") {
             // uncomment below to test the property
-            //modelInstance.singleAddress shouldBe ("TODO")
+            //modelInstance.firstName shouldBe ("TODO")
+        }
+
+        // to test the property `lastName`
+        should("test lastName") {
+            // uncomment below to test the property
+            //modelInstance.lastName shouldBe ("TODO")
+        }
+
+        // to test the property `address1`
+        should("test address1") {
+            // uncomment below to test the property
+            //modelInstance.address1 shouldBe ("TODO")
+        }
+
+        // to test the property `city`
+        should("test city") {
+            // uncomment below to test the property
+            //modelInstance.city shouldBe ("TODO")
+        }
+
+        // to test the property `state`
+        should("test state") {
+            // uncomment below to test the property
+            //modelInstance.state shouldBe ("TODO")
+        }
+
+        // to test the property `zip`
+        should("test zip") {
+            // uncomment below to test the property
+            //modelInstance.zip shouldBe ("TODO")
+        }
+
+        // to test the property `country`
+        should("test country") {
+            // uncomment below to test the property
+            //modelInstance.country shouldBe ("TODO")
         }
 
         // to test the property `addressList`
@@ -40,16 +75,34 @@ class RecipientAddressSourceTest : ShouldSpec() {
             //modelInstance.addressList shouldBe ("TODO")
         }
 
+        // to test the property `address2`
+        should("test address2") {
+            // uncomment below to test the property
+            //modelInstance.address2 shouldBe ("TODO")
+        }
+
+        // to test the property `address3`
+        should("test address3") {
+            // uncomment below to test the property
+            //modelInstance.address3 shouldBe ("TODO")
+        }
+
+        // to test the property `foo1`
+        should("test foo1") {
+            // uncomment below to test the property
+            //modelInstance.foo1 shouldBe ("TODO")
+        }
+
+        // to test the property `foo2`
+        should("test foo2") {
+            // uncomment below to test the property
+            //modelInstance.foo2 shouldBe ("TODO")
+        }
+
         // to test the property `mappingId`
         should("test mappingId") {
             // uncomment below to test the property
             //modelInstance.mappingId shouldBe ("TODO")
-        }
-
-        // to test the property `addressName`
-        should("test addressName") {
-            // uncomment below to test the property
-            //modelInstance.addressName shouldBe ("TODO")
         }
 
         // to test the property `addressListName`

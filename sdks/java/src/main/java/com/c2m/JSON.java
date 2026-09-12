@@ -122,17 +122,16 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.PdfSplitJobItemNoAddress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.PdfSplitJobItemWithAddress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressByList.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressBySingle.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RequestIdSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ReturnAddress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ShortTokenRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ShortTokenResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.StandardResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitDocParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitMultiDocMergeParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitMultiZipAddressCaptureParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitMultiZipParams.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitSingleDocParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitSinglePdfAddressCaptureParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitSinglePdfSplitAddressCaptureParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitSinglePdfSplitParams.CustomTypeAdapterFactory());

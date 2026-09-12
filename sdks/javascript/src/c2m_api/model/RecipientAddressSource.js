@@ -14,7 +14,6 @@
 import ApiClient from '../ApiClient';
 import Address from './Address';
 import RecipientAddressByList from './RecipientAddressByList';
-import RecipientAddressBySingle from './RecipientAddressBySingle';
 
 /**
  * The RecipientAddressSource model module.
@@ -25,7 +24,7 @@ class RecipientAddressSource {
     /**
      * Constructs a new <code>RecipientAddressSource</code>.
      * @alias module:c2m_api/model/RecipientAddressSource
-     * @param {(module:c2m_api/model/Number|module:c2m_api/model/RecipientAddressByList|module:c2m_api/model/RecipientAddressBySingle)} instance The actual instance to initialize RecipientAddressSource.
+     * @param {(module:c2m_api/model/Address|module:c2m_api/model/Number|module:c2m_api/model/RecipientAddressByList)} instance The actual instance to initialize RecipientAddressSource.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -35,19 +34,19 @@ class RecipientAddressSource {
         var match = 0;
         var errorMessages = [];
         try {
-            if (typeof instance === "RecipientAddressBySingle") {
+            if (typeof instance === "Address") {
                 this.actualInstance = instance;
             } else {
                 // plain JS object
                 // validate the object
-                RecipientAddressBySingle.validateJSON(instance); // throw an exception if no match
-                // create RecipientAddressBySingle from JS object
-                this.actualInstance = RecipientAddressBySingle.constructFromObject(instance);
+                Address.validateJSON(instance); // throw an exception if no match
+                // create Address from JS object
+                this.actualInstance = Address.constructFromObject(instance);
             }
             match++;
         } catch(err) {
-            // json data failed to deserialize into RecipientAddressBySingle
-            errorMessages.push("Failed to construct RecipientAddressBySingle: " + err)
+            // json data failed to deserialize into Address
+            errorMessages.push("Failed to construct Address: " + err)
         }
 
         try {
@@ -91,10 +90,10 @@ class RecipientAddressSource {
         }
 
         if (match > 1) {
-            throw new Error("Multiple matches found constructing `RecipientAddressSource` with oneOf schemas Number, RecipientAddressByList, RecipientAddressBySingle. Input: " + JSON.stringify(instance));
+            throw new Error("Multiple matches found constructing `RecipientAddressSource` with oneOf schemas Address, Number, RecipientAddressByList. Input: " + JSON.stringify(instance));
         } else if (match === 0) {
             this.actualInstance = null; // clear the actual instance in case there are multiple matches
-            throw new Error("No match found constructing `RecipientAddressSource` with oneOf schemas Number, RecipientAddressByList, RecipientAddressBySingle. Details: " +
+            throw new Error("No match found constructing `RecipientAddressSource` with oneOf schemas Address, Number, RecipientAddressByList. Details: " +
                             errorMessages.join(", "));
         } else { // only 1 match
             // the input is valid
@@ -113,16 +112,16 @@ class RecipientAddressSource {
     }
 
     /**
-     * Gets the actual instance, which can be <code>Number</code>, <code>RecipientAddressByList</code>, <code>RecipientAddressBySingle</code>.
-     * @return {(module:c2m_api/model/Number|module:c2m_api/model/RecipientAddressByList|module:c2m_api/model/RecipientAddressBySingle)} The actual instance.
+     * Gets the actual instance, which can be <code>Address</code>, <code>Number</code>, <code>RecipientAddressByList</code>.
+     * @return {(module:c2m_api/model/Address|module:c2m_api/model/Number|module:c2m_api/model/RecipientAddressByList)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>Number</code>, <code>RecipientAddressByList</code>, <code>RecipientAddressBySingle</code>.
-     * @param {(module:c2m_api/model/Number|module:c2m_api/model/RecipientAddressByList|module:c2m_api/model/RecipientAddressBySingle)} obj The actual instance.
+     * Sets the actual instance, which can be <code>Address</code>, <code>Number</code>, <code>RecipientAddressByList</code>.
+     * @param {(module:c2m_api/model/Address|module:c2m_api/model/Number|module:c2m_api/model/RecipientAddressByList)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = RecipientAddressSource.constructFromObject(obj).getActualInstance();
@@ -147,19 +146,64 @@ class RecipientAddressSource {
 }
 
 /**
+ * @member {String} firstName
+ */
+RecipientAddressSource.prototype['firstName'] = undefined;
+
+/**
+ * @member {String} lastName
+ */
+RecipientAddressSource.prototype['lastName'] = undefined;
+
+/**
+ * @member {String} address1
+ */
+RecipientAddressSource.prototype['address1'] = undefined;
+
+/**
+ * @member {String} city
+ */
+RecipientAddressSource.prototype['city'] = undefined;
+
+/**
+ * @member {String} state
+ */
+RecipientAddressSource.prototype['state'] = undefined;
+
+/**
+ * @member {String} zip
+ */
+RecipientAddressSource.prototype['zip'] = undefined;
+
+/**
+ * @member {String} country
+ */
+RecipientAddressSource.prototype['country'] = undefined;
+
+/**
+ * @member {String} address2
+ */
+RecipientAddressSource.prototype['address2'] = undefined;
+
+/**
+ * @member {String} address3
+ */
+RecipientAddressSource.prototype['address3'] = undefined;
+
+/**
+ * @member {String} foo1
+ */
+RecipientAddressSource.prototype['foo1'] = undefined;
+
+/**
+ * @member {String} foo2
+ */
+RecipientAddressSource.prototype['foo2'] = undefined;
+
+/**
  * @member {Number} mappingId
  */
 RecipientAddressSource.prototype['mappingId'] = undefined;
-
-/**
- * @member {module:c2m_api/model/Address} singleAddress
- */
-RecipientAddressSource.prototype['singleAddress'] = undefined;
-
-/**
- * @member {String} addressName
- */
-RecipientAddressSource.prototype['addressName'] = undefined;
 
 /**
  * @member {Array.<module:c2m_api/model/Address>} addressList
@@ -172,7 +216,7 @@ RecipientAddressSource.prototype['addressList'] = undefined;
 RecipientAddressSource.prototype['addressListName'] = undefined;
 
 
-RecipientAddressSource.OneOf = ["Number", "RecipientAddressByList", "RecipientAddressBySingle"];
+RecipientAddressSource.OneOf = ["Address", "Number", "RecipientAddressByList"];
 
 export default RecipientAddressSource;
 

@@ -133,10 +133,10 @@ Class | Method | HTTP request | Description
 *C2MApiV2.AuthApi* | [**issueLongTermToken**](docs/AuthApi.md#issueLongTermToken) | **POST** /auth/tokens/long | Issue or rotate a long-term token
 *C2MApiV2.AuthApi* | [**issueShortTermToken**](docs/AuthApi.md#issueShortTermToken) | **POST** /auth/tokens/short | Issue a short-term access token
 *C2MApiV2.AuthApi* | [**revokeToken**](docs/AuthApi.md#revokeToken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
+*C2MApiV2.JobsApi* | [**submitDocParams**](docs/JobsApi.md#submitDocParams) | **POST** /static | Submit single document
 *C2MApiV2.JobsApi* | [**submitMultiDocMergeParams**](docs/JobsApi.md#submitMultiDocMergeParams) | **POST** /mail-merge | Submit mail merge
 *C2MApiV2.JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
 *C2MApiV2.JobsApi* | [**submitMultiZipParams**](docs/JobsApi.md#submitMultiZipParams) | **POST** /batch/zip | Submit ZIP batch
-*C2MApiV2.JobsApi* | [**submitSingleDocParams**](docs/JobsApi.md#submitSingleDocParams) | **POST** /static | Submit single document
 *C2MApiV2.JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfAddressCaptureParams) | **POST** /static/address-capture | Submit single document — address capture
 *C2MApiV2.JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfSplitAddressCaptureParams) | **POST** /batch/split/address-capture | Submit PDF split — address capture
 *C2MApiV2.JobsApi* | [**submitSinglePdfSplitParams**](docs/JobsApi.md#submitSinglePdfSplitParams) | **POST** /batch/split | Submit PDF split
@@ -174,17 +174,16 @@ Class | Method | HTTP request | Description
  - [C2MApiV2.PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [C2MApiV2.PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
  - [C2MApiV2.RecipientAddressByList](docs/RecipientAddressByList.md)
- - [C2MApiV2.RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [C2MApiV2.RecipientAddressSource](docs/RecipientAddressSource.md)
  - [C2MApiV2.RequestIdSource](docs/RequestIdSource.md)
  - [C2MApiV2.ReturnAddress](docs/ReturnAddress.md)
  - [C2MApiV2.ShortTokenRequest](docs/ShortTokenRequest.md)
  - [C2MApiV2.ShortTokenResponse](docs/ShortTokenResponse.md)
  - [C2MApiV2.StandardResponse](docs/StandardResponse.md)
+ - [C2MApiV2.SubmitDocParams](docs/SubmitDocParams.md)
  - [C2MApiV2.SubmitMultiDocMergeParams](docs/SubmitMultiDocMergeParams.md)
  - [C2MApiV2.SubmitMultiZipAddressCaptureParams](docs/SubmitMultiZipAddressCaptureParams.md)
  - [C2MApiV2.SubmitMultiZipParams](docs/SubmitMultiZipParams.md)
- - [C2MApiV2.SubmitSingleDocParams](docs/SubmitSingleDocParams.md)
  - [C2MApiV2.SubmitSinglePdfAddressCaptureParams](docs/SubmitSinglePdfAddressCaptureParams.md)
  - [C2MApiV2.SubmitSinglePdfSplitAddressCaptureParams](docs/SubmitSinglePdfSplitAddressCaptureParams.md)
  - [C2MApiV2.SubmitSinglePdfSplitParams](docs/SubmitSinglePdfSplitParams.md)
