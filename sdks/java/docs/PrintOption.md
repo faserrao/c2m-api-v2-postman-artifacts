@@ -5,11 +5,9 @@
 ## Enum
 
 
-* `NONE` (value: `"none"`)
+* `DOUBLE_SIDED` (value: `"double_sided"`)
 
-* `COLOR` (value: `"color"`)
-
-* `GRAYSCALE` (value: `"grayscale"`)
+* `SINGLE_SIDED` (value: `"single_sided"`)
 
 
 

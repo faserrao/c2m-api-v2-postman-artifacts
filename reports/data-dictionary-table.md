@@ -196,14 +196,14 @@ Explicit print and mail configuration options. Mutually exclusive with jobTempla
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
-| `documentClass` | string | Required | Document class (e.g. letter, flat). |
-| `layout` | string | Required | Page layout (e.g. address_on_top, address_on_bottom). |
-| `productionTime` | string | Required | Production time preference (e.g. next_day, standard). |
-| `envelope` | string | Required | Envelope type (e.g. standard, window). |
-| `color` | string | Required | Color mode (e.g. full_color, black_and_white). |
-| `paperType` | string | Required | Paper stock (e.g. white, recycled). |
-| `printOption` | string | Required | Duplex setting (e.g. single_sided, double_sided). |
-| `mailClass` | string | Required | USPS mail class (e.g. first_class, standard). |
+| `documentClass` | enum (letter | postcard | brochure | flat) | Required | Document class. Legal values: letter, postcard, brochure, flat. |
+| `layout` | enum (address_on_first_page | address_on_back_page) | Required | Page layout for address placement. Legal values: address_on_first_page, address_on_back_page. |
+| `productionTime` | enum (next_day | two_day | three_day | standard | same_day) | Required | Production time preference. Legal values: next_day, two_day, three_day, standard, same_day. |
+| `envelope` | enum (standard | none | flat | double_window) | Required | Envelope type. Legal values: standard, none, flat, double_window. |
+| `color` | enum (full_color | black_and_white) | Required | Color mode. Legal values: full_color, black_and_white. |
+| `paperType` | enum (white | white_24 | ivory | glossy) | Required | Paper stock. Legal values: white, white_24, ivory, glossy. |
+| `printOption` | enum (double_sided | single_sided) | Required | Duplex setting. Legal values: double_sided, single_sided. |
+| `mailClass` | enum (first_class | standard | non_profit) | Required | USPS mail class. Legal values: first_class, standard, non_profit. |
 
 ### `mergeByRequestId`
 
@@ -492,6 +492,15 @@ Card brand. Accepted values: visa, mastercard, discover, americanExpress.
 | `discover` | string | — |  |
 | `americanExpress` | string | — |  |
 
+### `color`
+
+Color mode. Legal values: full_color, black_and_white.
+
+| Field / Variant | Type | Required | Description |
+| --- | --- | --- | --- |
+| `full_color` | string | — |  |
+| `black_and_white` | string | — |  |
+
 ### `currency`
 
 ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.
@@ -503,6 +512,28 @@ ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.
 | `GBP` | string | — |  |
 | `CAD` | string | — |  |
 | `AUD` | string | — |  |
+
+### `documentClass`
+
+Document class. Legal values: letter, postcard, brochure, flat.
+
+| Field / Variant | Type | Required | Description |
+| --- | --- | --- | --- |
+| `letter` | string | — |  |
+| `postcard` | string | — |  |
+| `brochure` | string | — |  |
+| `flat` | string | — |  |
+
+### `envelope`
+
+Envelope type. Legal values: standard, none, flat, double_window.
+
+| Field / Variant | Type | Required | Description |
+| --- | --- | --- | --- |
+| `standard` | string | — |  |
+| `none` | string | — |  |
+| `flat` | string | — |  |
+| `double_window` | string | — |  |
 
 ### `errorCode`
 
@@ -540,6 +571,57 @@ High-level error category string (ValidationError, AuthenticationError, etc.).
 | `ResourceNotFoundError` | string | — |  |
 | `RateLimitError` | string | — |  |
 | `ServerError` | string | — |  |
+
+### `layout`
+
+Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.
+
+| Field / Variant | Type | Required | Description |
+| --- | --- | --- | --- |
+| `address_on_first_page` | string | — |  |
+| `address_on_back_page` | string | — |  |
+
+### `mailClass`
+
+USPS mail class. Legal values: first_class, standard, non_profit.
+
+| Field / Variant | Type | Required | Description |
+| --- | --- | --- | --- |
+| `first_class` | string | — |  |
+| `standard` | string | — |  |
+| `non_profit` | string | — |  |
+
+### `paperType`
+
+Paper stock. Legal values: white, white_24, ivory, glossy.
+
+| Field / Variant | Type | Required | Description |
+| --- | --- | --- | --- |
+| `white` | string | — |  |
+| `white_24` | string | — |  |
+| `ivory` | string | — |  |
+| `glossy` | string | — |  |
+
+### `printOption`
+
+Duplex setting. Legal values: double_sided, single_sided.
+
+| Field / Variant | Type | Required | Description |
+| --- | --- | --- | --- |
+| `double_sided` | string | — |  |
+| `single_sided` | string | — |  |
+
+### `productionTime`
+
+Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.
+
+| Field / Variant | Type | Required | Description |
+| --- | --- | --- | --- |
+| `next_day` | string | — |  |
+| `two_day` | string | — |  |
+| `three_day` | string | — |  |
+| `standard` | string | — |  |
+| `same_day` | string | — |  |
 
 ## Alias / Primitives
 
@@ -595,10 +677,6 @@ ACH check digit.
 
 City name.
 
-### `color`
-
-Color mode (e.g. full_color, black_and_white).
-
 ### `country`
 
 Country code (e.g. USA).
@@ -606,10 +684,6 @@ Country code (e.g. USA).
 ### `cvv`
 
 Card security code (CVV/CVC) as an integer.
-
-### `documentClass`
-
-Document class (e.g. letter, flat).
 
 ### `documentId`
 
@@ -622,10 +696,6 @@ Source a document by its previously stored document ID.
 ### `endPage`
 
 Last page of this job's page range (inclusive). Must be ≥ startPage.
-
-### `envelope`
-
-Envelope type (e.g. standard, window).
 
 ### `errorDetails`
 
@@ -671,14 +741,6 @@ Saved job template name; pre-populates all print and mail options. Mutually excl
 
 Recipient's last name.
 
-### `layout`
-
-Page layout (e.g. address_on_top, address_on_bottom).
-
-### `mailClass`
-
-USPS mail class (e.g. first_class, standard).
-
 ### `mappingId`
 
 Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.
@@ -698,18 +760,6 @@ Human-readable confirmation message (e.g. "Your request has been queued").
 ### `month`
 
 Expiration month as an integer (1–12).
-
-### `paperType`
-
-Paper stock (e.g. white, recycled).
-
-### `printOption`
-
-Duplex setting (e.g. single_sided, double_sided).
-
-### `productionTime`
-
-Production time preference (e.g. next_day, standard).
 
 ### `recipientAddressByAddressId`
 

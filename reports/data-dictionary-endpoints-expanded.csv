@@ -26,14 +26,14 @@ POST,/static/address-capture,returnAddress.zip,ZIP or postal code.,string,Option
 POST,/static/address-capture,returnAddress.country,Country code (e.g. USA).,string,Optional
 POST,/static/address-capture,returnAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
 POST,/static/address-capture,returnAddress.address3,Tertiary address line.,string,Optional
-POST,/static/address-capture,jobOptions.documentClass,"Document class (e.g. letter, flat).",string,Optional
-POST,/static/address-capture,jobOptions.layout,"Page layout (e.g. address_on_top, address_on_bottom).",string,Optional
-POST,/static/address-capture,jobOptions.productionTime,"Production time preference (e.g. next_day, standard).",string,Optional
-POST,/static/address-capture,jobOptions.envelope,"Envelope type (e.g. standard, window).",string,Optional
-POST,/static/address-capture,jobOptions.color,"Color mode (e.g. full_color, black_and_white).",string,Optional
-POST,/static/address-capture,jobOptions.paperType,"Paper stock (e.g. white, recycled).",string,Optional
-POST,/static/address-capture,jobOptions.printOption,"Duplex setting (e.g. single_sided, double_sided).",string,Optional
-POST,/static/address-capture,jobOptions.mailClass,"USPS mail class (e.g. first_class, standard).",string,Optional
+POST,/static/address-capture,jobOptions.documentClass,"Document class. Legal values: letter, postcard, brochure, flat.",enum: letter | postcard | brochure | flat,Optional
+POST,/static/address-capture,jobOptions.layout,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum: address_on_first_page | address_on_back_page,Optional
+POST,/static/address-capture,jobOptions.productionTime,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum: next_day | two_day | three_day | standard | same_day,Optional
+POST,/static/address-capture,jobOptions.envelope,"Envelope type. Legal values: standard, none, flat, double_window.",enum: standard | none | flat | double_window,Optional
+POST,/static/address-capture,jobOptions.color,"Color mode. Legal values: full_color, black_and_white.",enum: full_color | black_and_white,Optional
+POST,/static/address-capture,jobOptions.paperType,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum: white | white_24 | ivory | glossy,Optional
+POST,/static/address-capture,jobOptions.printOption,"Duplex setting. Legal values: double_sided, single_sided.",enum: double_sided | single_sided,Optional
+POST,/static/address-capture,jobOptions.mailClass,"USPS mail class. Legal values: first_class, standard, non_profit.",enum: first_class | standard | non_profit,Optional
 POST,/static/address-capture,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional
 POST,/batch/split,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/batch/split,docSourceStandard[documentIdSource].documentId,Integer ID of a previously stored or uploaded document.,integer,Required*
@@ -91,14 +91,14 @@ POST,/batch/split,returnAddress.zip,ZIP or postal code.,string,Optional
 POST,/batch/split,returnAddress.country,Country code (e.g. USA).,string,Optional
 POST,/batch/split,returnAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
 POST,/batch/split,returnAddress.address3,Tertiary address line.,string,Optional
-POST,/batch/split,jobOptions.documentClass,"Document class (e.g. letter, flat).",string,Optional
-POST,/batch/split,jobOptions.layout,"Page layout (e.g. address_on_top, address_on_bottom).",string,Optional
-POST,/batch/split,jobOptions.productionTime,"Production time preference (e.g. next_day, standard).",string,Optional
-POST,/batch/split,jobOptions.envelope,"Envelope type (e.g. standard, window).",string,Optional
-POST,/batch/split,jobOptions.color,"Color mode (e.g. full_color, black_and_white).",string,Optional
-POST,/batch/split,jobOptions.paperType,"Paper stock (e.g. white, recycled).",string,Optional
-POST,/batch/split,jobOptions.printOption,"Duplex setting (e.g. single_sided, double_sided).",string,Optional
-POST,/batch/split,jobOptions.mailClass,"USPS mail class (e.g. first_class, standard).",string,Optional
+POST,/batch/split,jobOptions.documentClass,"Document class. Legal values: letter, postcard, brochure, flat.",enum: letter | postcard | brochure | flat,Optional
+POST,/batch/split,jobOptions.layout,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum: address_on_first_page | address_on_back_page,Optional
+POST,/batch/split,jobOptions.productionTime,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum: next_day | two_day | three_day | standard | same_day,Optional
+POST,/batch/split,jobOptions.envelope,"Envelope type. Legal values: standard, none, flat, double_window.",enum: standard | none | flat | double_window,Optional
+POST,/batch/split,jobOptions.color,"Color mode. Legal values: full_color, black_and_white.",enum: full_color | black_and_white,Optional
+POST,/batch/split,jobOptions.paperType,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum: white | white_24 | ivory | glossy,Optional
+POST,/batch/split,jobOptions.printOption,"Duplex setting. Legal values: double_sided, single_sided.",enum: double_sided | single_sided,Optional
+POST,/batch/split,jobOptions.mailClass,"USPS mail class. Legal values: first_class, standard, non_profit.",enum: first_class | standard | non_profit,Optional
 POST,/batch/split,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional
 POST,/batch/split/address-capture,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/batch/split/address-capture,docSourceStandard[documentIdSource].documentId,Integer ID of a previously stored or uploaded document.,integer,Required*
@@ -129,14 +129,14 @@ POST,/batch/split/address-capture,returnAddress.zip,ZIP or postal code.,string,O
 POST,/batch/split/address-capture,returnAddress.country,Country code (e.g. USA).,string,Optional
 POST,/batch/split/address-capture,returnAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
 POST,/batch/split/address-capture,returnAddress.address3,Tertiary address line.,string,Optional
-POST,/batch/split/address-capture,jobOptions.documentClass,"Document class (e.g. letter, flat).",string,Optional
-POST,/batch/split/address-capture,jobOptions.layout,"Page layout (e.g. address_on_top, address_on_bottom).",string,Optional
-POST,/batch/split/address-capture,jobOptions.productionTime,"Production time preference (e.g. next_day, standard).",string,Optional
-POST,/batch/split/address-capture,jobOptions.envelope,"Envelope type (e.g. standard, window).",string,Optional
-POST,/batch/split/address-capture,jobOptions.color,"Color mode (e.g. full_color, black_and_white).",string,Optional
-POST,/batch/split/address-capture,jobOptions.paperType,"Paper stock (e.g. white, recycled).",string,Optional
-POST,/batch/split/address-capture,jobOptions.printOption,"Duplex setting (e.g. single_sided, double_sided).",string,Optional
-POST,/batch/split/address-capture,jobOptions.mailClass,"USPS mail class (e.g. first_class, standard).",string,Optional
+POST,/batch/split/address-capture,jobOptions.documentClass,"Document class. Legal values: letter, postcard, brochure, flat.",enum: letter | postcard | brochure | flat,Optional
+POST,/batch/split/address-capture,jobOptions.layout,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum: address_on_first_page | address_on_back_page,Optional
+POST,/batch/split/address-capture,jobOptions.productionTime,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum: next_day | two_day | three_day | standard | same_day,Optional
+POST,/batch/split/address-capture,jobOptions.envelope,"Envelope type. Legal values: standard, none, flat, double_window.",enum: standard | none | flat | double_window,Optional
+POST,/batch/split/address-capture,jobOptions.color,"Color mode. Legal values: full_color, black_and_white.",enum: full_color | black_and_white,Optional
+POST,/batch/split/address-capture,jobOptions.paperType,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum: white | white_24 | ivory | glossy,Optional
+POST,/batch/split/address-capture,jobOptions.printOption,"Duplex setting. Legal values: double_sided, single_sided.",enum: double_sided | single_sided,Optional
+POST,/batch/split/address-capture,jobOptions.mailClass,"USPS mail class. Legal values: first_class, standard, non_profit.",enum: first_class | standard | non_profit,Optional
 POST,/batch/split/address-capture,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional
 POST,/mail-merge,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/mail-merge,mergeDocumentSource[][mergeByDocumentId].documentId,Integer ID of a previously stored or uploaded document.,integer,Required*
@@ -190,14 +190,14 @@ POST,/mail-merge,returnAddress.zip,ZIP or postal code.,string,Optional
 POST,/mail-merge,returnAddress.country,Country code (e.g. USA).,string,Optional
 POST,/mail-merge,returnAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
 POST,/mail-merge,returnAddress.address3,Tertiary address line.,string,Optional
-POST,/mail-merge,jobOptions.documentClass,"Document class (e.g. letter, flat).",string,Optional
-POST,/mail-merge,jobOptions.layout,"Page layout (e.g. address_on_top, address_on_bottom).",string,Optional
-POST,/mail-merge,jobOptions.productionTime,"Production time preference (e.g. next_day, standard).",string,Optional
-POST,/mail-merge,jobOptions.envelope,"Envelope type (e.g. standard, window).",string,Optional
-POST,/mail-merge,jobOptions.color,"Color mode (e.g. full_color, black_and_white).",string,Optional
-POST,/mail-merge,jobOptions.paperType,"Paper stock (e.g. white, recycled).",string,Optional
-POST,/mail-merge,jobOptions.printOption,"Duplex setting (e.g. single_sided, double_sided).",string,Optional
-POST,/mail-merge,jobOptions.mailClass,"USPS mail class (e.g. first_class, standard).",string,Optional
+POST,/mail-merge,jobOptions.documentClass,"Document class. Legal values: letter, postcard, brochure, flat.",enum: letter | postcard | brochure | flat,Optional
+POST,/mail-merge,jobOptions.layout,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum: address_on_first_page | address_on_back_page,Optional
+POST,/mail-merge,jobOptions.productionTime,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum: next_day | two_day | three_day | standard | same_day,Optional
+POST,/mail-merge,jobOptions.envelope,"Envelope type. Legal values: standard, none, flat, double_window.",enum: standard | none | flat | double_window,Optional
+POST,/mail-merge,jobOptions.color,"Color mode. Legal values: full_color, black_and_white.",enum: full_color | black_and_white,Optional
+POST,/mail-merge,jobOptions.paperType,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum: white | white_24 | ivory | glossy,Optional
+POST,/mail-merge,jobOptions.printOption,"Duplex setting. Legal values: double_sided, single_sided.",enum: double_sided | single_sided,Optional
+POST,/mail-merge,jobOptions.mailClass,"USPS mail class. Legal values: first_class, standard, non_profit.",enum: first_class | standard | non_profit,Optional
 POST,/mail-merge,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional
 POST,/batch/zip,docSourceZipFileRef[zipDocumentIdOnly].zipDocumentId,Integer ID of a previously stored ZIP archive.,integer,Required*
 POST,/batch/zip,docSourceZipFileRef[zipRequestIdOnly].requestId,Integer ID of a prior file upload request. Also returned in success responses.,integer,Required*
@@ -270,12 +270,12 @@ POST,/batch/zip/address-capture,returnAddress.zip,ZIP or postal code.,string,Opt
 POST,/batch/zip/address-capture,returnAddress.country,Country code (e.g. USA).,string,Optional
 POST,/batch/zip/address-capture,returnAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
 POST,/batch/zip/address-capture,returnAddress.address3,Tertiary address line.,string,Optional
-POST,/batch/zip/address-capture,jobOptions.documentClass,"Document class (e.g. letter, flat).",string,Optional
-POST,/batch/zip/address-capture,jobOptions.layout,"Page layout (e.g. address_on_top, address_on_bottom).",string,Optional
-POST,/batch/zip/address-capture,jobOptions.productionTime,"Production time preference (e.g. next_day, standard).",string,Optional
-POST,/batch/zip/address-capture,jobOptions.envelope,"Envelope type (e.g. standard, window).",string,Optional
-POST,/batch/zip/address-capture,jobOptions.color,"Color mode (e.g. full_color, black_and_white).",string,Optional
-POST,/batch/zip/address-capture,jobOptions.paperType,"Paper stock (e.g. white, recycled).",string,Optional
-POST,/batch/zip/address-capture,jobOptions.printOption,"Duplex setting (e.g. single_sided, double_sided).",string,Optional
-POST,/batch/zip/address-capture,jobOptions.mailClass,"USPS mail class (e.g. first_class, standard).",string,Optional
+POST,/batch/zip/address-capture,jobOptions.documentClass,"Document class. Legal values: letter, postcard, brochure, flat.",enum: letter | postcard | brochure | flat,Optional
+POST,/batch/zip/address-capture,jobOptions.layout,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum: address_on_first_page | address_on_back_page,Optional
+POST,/batch/zip/address-capture,jobOptions.productionTime,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum: next_day | two_day | three_day | standard | same_day,Optional
+POST,/batch/zip/address-capture,jobOptions.envelope,"Envelope type. Legal values: standard, none, flat, double_window.",enum: standard | none | flat | double_window,Optional
+POST,/batch/zip/address-capture,jobOptions.color,"Color mode. Legal values: full_color, black_and_white.",enum: full_color | black_and_white,Optional
+POST,/batch/zip/address-capture,jobOptions.paperType,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum: white | white_24 | ivory | glossy,Optional
+POST,/batch/zip/address-capture,jobOptions.printOption,"Duplex setting. Legal values: double_sided, single_sided.",enum: double_sided | single_sided,Optional
+POST,/batch/zip/address-capture,jobOptions.mailClass,"USPS mail class. Legal values: first_class, standard, non_profit.",enum: first_class | standard | non_profit,Optional
 POST,/batch/zip/address-capture,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional

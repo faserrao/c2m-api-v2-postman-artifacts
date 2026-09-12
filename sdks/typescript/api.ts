@@ -69,6 +69,15 @@ export const CardType = {
 export type CardType = typeof CardType[keyof typeof CardType];
 
 
+
+export const Color = {
+    FullColor: 'full_color',
+    BlackAndWhite: 'black_and_white'
+} as const;
+
+export type Color = typeof Color[keyof typeof Color];
+
+
 export interface CreditAmount {
     'amount': number;
     'currency': CreditAmountCurrencyEnum;
@@ -134,6 +143,28 @@ export type DocSourceZipFile = ZipDocumentIdSource | ZipRequestIdSource;
  * @type DocSourceZipFileRef
  */
 export type DocSourceZipFileRef = number;
+
+
+export const DocumentClass = {
+    Letter: 'letter',
+    Postcard: 'postcard',
+    Brochure: 'brochure',
+    Flat: 'flat'
+} as const;
+
+export type DocumentClass = typeof DocumentClass[keyof typeof DocumentClass];
+
+
+
+export const Envelope = {
+    Standard: 'standard',
+    None: 'none',
+    Flat: 'flat',
+    DoubleWindow: 'double_window'
+} as const;
+
+export type Envelope = typeof Envelope[keyof typeof Envelope];
+
 
 
 export const ErrorCode = {
@@ -224,15 +255,84 @@ export interface InvoicePayment {
     'invoiceDetails': InvoiceDetails;
 }
 export interface JobOptions {
-    'documentClass': string;
-    'layout': string;
-    'productionTime': string;
-    'envelope': string;
-    'color': string;
-    'paperType': string;
-    'printOption': string;
-    'mailClass': string;
+    'documentClass': JobOptionsDocumentClassEnum;
+    'layout': JobOptionsLayoutEnum;
+    'productionTime': JobOptionsProductionTimeEnum;
+    'envelope': JobOptionsEnvelopeEnum;
+    'color': JobOptionsColorEnum;
+    'paperType': JobOptionsPaperTypeEnum;
+    'printOption': JobOptionsPrintOptionEnum;
+    'mailClass': JobOptionsMailClassEnum;
 }
+
+export const JobOptionsDocumentClassEnum = {
+    Letter: 'letter',
+    Postcard: 'postcard',
+    Brochure: 'brochure',
+    Flat: 'flat'
+} as const;
+
+export type JobOptionsDocumentClassEnum = typeof JobOptionsDocumentClassEnum[keyof typeof JobOptionsDocumentClassEnum];
+export const JobOptionsLayoutEnum = {
+    AddressOnFirstPage: 'address_on_first_page',
+    AddressOnBackPage: 'address_on_back_page'
+} as const;
+
+export type JobOptionsLayoutEnum = typeof JobOptionsLayoutEnum[keyof typeof JobOptionsLayoutEnum];
+export const JobOptionsProductionTimeEnum = {
+    NextDay: 'next_day',
+    TwoDay: 'two_day',
+    ThreeDay: 'three_day',
+    Standard: 'standard',
+    SameDay: 'same_day'
+} as const;
+
+export type JobOptionsProductionTimeEnum = typeof JobOptionsProductionTimeEnum[keyof typeof JobOptionsProductionTimeEnum];
+export const JobOptionsEnvelopeEnum = {
+    Standard: 'standard',
+    None: 'none',
+    Flat: 'flat',
+    DoubleWindow: 'double_window'
+} as const;
+
+export type JobOptionsEnvelopeEnum = typeof JobOptionsEnvelopeEnum[keyof typeof JobOptionsEnvelopeEnum];
+export const JobOptionsColorEnum = {
+    FullColor: 'full_color',
+    BlackAndWhite: 'black_and_white'
+} as const;
+
+export type JobOptionsColorEnum = typeof JobOptionsColorEnum[keyof typeof JobOptionsColorEnum];
+export const JobOptionsPaperTypeEnum = {
+    White: 'white',
+    White24: 'white_24',
+    Ivory: 'ivory',
+    Glossy: 'glossy'
+} as const;
+
+export type JobOptionsPaperTypeEnum = typeof JobOptionsPaperTypeEnum[keyof typeof JobOptionsPaperTypeEnum];
+export const JobOptionsPrintOptionEnum = {
+    DoubleSided: 'double_sided',
+    SingleSided: 'single_sided'
+} as const;
+
+export type JobOptionsPrintOptionEnum = typeof JobOptionsPrintOptionEnum[keyof typeof JobOptionsPrintOptionEnum];
+export const JobOptionsMailClassEnum = {
+    FirstClass: 'first_class',
+    Standard: 'standard',
+    NonProfit: 'non_profit'
+} as const;
+
+export type JobOptionsMailClassEnum = typeof JobOptionsMailClassEnum[keyof typeof JobOptionsMailClassEnum];
+
+
+export const Layout = {
+    AddressOnFirstPage: 'address_on_first_page',
+    AddressOnBackPage: 'address_on_back_page'
+} as const;
+
+export type Layout = typeof Layout[keyof typeof Layout];
+
+
 /**
  * One of several credential mechanisms must be provided.
  */
@@ -308,6 +408,16 @@ export const LongTokenResponseTokenTypeEnum = {
 
 export type LongTokenResponseTokenTypeEnum = typeof LongTokenResponseTokenTypeEnum[keyof typeof LongTokenResponseTokenTypeEnum];
 
+
+export const MailClass = {
+    FirstClass: 'first_class',
+    Standard: 'standard',
+    NonProfit: 'non_profit'
+} as const;
+
+export type MailClass = typeof MailClass[keyof typeof MailClass];
+
+
 export interface MergeByRequestId {
     'requestId': number;
     'filename'?: string;
@@ -327,6 +437,17 @@ export interface MultiZipJobItem {
     'filename': string;
     'recipientAddressSource': RecipientAddressSource;
 }
+
+export const PaperType = {
+    White: 'white',
+    White24: 'white_24',
+    Ivory: 'ivory',
+    Glossy: 'glossy'
+} as const;
+
+export type PaperType = typeof PaperType[keyof typeof PaperType];
+
+
 /**
  * @type PaymentDetails
  */
@@ -342,6 +463,27 @@ export interface PdfSplitJobItemWithAddress {
     'endPage': number;
     'recipientAddressSource': RecipientAddressSource;
 }
+
+export const PrintOption = {
+    DoubleSided: 'double_sided',
+    SingleSided: 'single_sided'
+} as const;
+
+export type PrintOption = typeof PrintOption[keyof typeof PrintOption];
+
+
+
+export const ProductionTime = {
+    NextDay: 'next_day',
+    TwoDay: 'two_day',
+    ThreeDay: 'three_day',
+    Standard: 'standard',
+    SameDay: 'same_day'
+} as const;
+
+export type ProductionTime = typeof ProductionTime[keyof typeof ProductionTime];
+
+
 export interface RecipientAddressByList {
     'mappingId'?: number;
     'addressList': Array<Address>;

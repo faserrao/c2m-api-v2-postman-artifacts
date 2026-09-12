@@ -1,7 +1,7 @@
 /*
- * C2M API v2 - Auth Overlay
+ * C2M API v2
  *
- * API for submitting documents with various routing options
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -14,34 +14,31 @@ use serde::{Deserialize, Serialize};
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Envelope {
+    #[serde(rename = "standard")]
+    Standard,
+    #[serde(rename = "none")]
+    None,
     #[serde(rename = "flat")]
     Flat,
-    #[serde(rename = "windowedFlat")]
-    WindowedFlat,
-    #[serde(rename = "letter")]
-    Letter,
-    #[serde(rename = "legal")]
-    Legal,
-    #[serde(rename = "postcard")]
-    Postcard,
+    #[serde(rename = "double_window")]
+    DoubleWindow,
 
 }
 
 impl std::fmt::Display for Envelope {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
+            Self::Standard => write!(f, "standard"),
+            Self::None => write!(f, "none"),
             Self::Flat => write!(f, "flat"),
-            Self::WindowedFlat => write!(f, "windowedFlat"),
-            Self::Letter => write!(f, "letter"),
-            Self::Legal => write!(f, "legal"),
-            Self::Postcard => write!(f, "postcard"),
+            Self::DoubleWindow => write!(f, "double_window"),
         }
     }
 }
 
 impl Default for Envelope {
     fn default() -> Envelope {
-        Self::Flat
+        Self::Standard
     }
 }
 

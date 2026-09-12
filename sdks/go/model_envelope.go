@@ -1,7 +1,7 @@
 /*
-C2M API v2 - Auth Overlay
+C2M API v2
 
-API for submitting documents with various routing options
+API for submitting mailing jobs with various document routing options
 
 API version: 2.0.0
 */
@@ -20,20 +20,18 @@ type Envelope string
 
 // List of envelope
 const (
+	STANDARD Envelope = "standard"
+	NONE Envelope = "none"
 	FLAT Envelope = "flat"
-	WINDOWED_FLAT Envelope = "windowedFlat"
-	LETTER Envelope = "letter"
-	LEGAL Envelope = "legal"
-	POSTCARD Envelope = "postcard"
+	DOUBLE_WINDOW Envelope = "double_window"
 )
 
 // All allowed values of Envelope enum
 var AllowedEnvelopeEnumValues = []Envelope{
+	"standard",
+	"none",
 	"flat",
-	"windowedFlat",
-	"letter",
-	"legal",
-	"postcard",
+	"double_window",
 }
 
 func (v *Envelope) UnmarshalJSON(src []byte) error {

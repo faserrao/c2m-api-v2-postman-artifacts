@@ -2,7 +2,7 @@
 
 C2M API v2
 - API version: 2.0.0
-  - Build date: 2026-09-12T11:38:37.333034385Z[Etc/UTC]
+  - Build date: 2026-09-12T13:09:59.175707330Z[Etc/UTC]
   - Generator version: 7.15.0
 
 API for submitting mailing jobs with various document routing options
@@ -145,6 +145,7 @@ Class | Method | HTTP request | Description
  - [Address](docs/Address.md)
  - [AuthError](docs/AuthError.md)
  - [CardType](docs/CardType.md)
+ - [Color](docs/Color.md)
  - [CreditAmount](docs/CreditAmount.md)
  - [CreditCardDetails](docs/CreditCardDetails.md)
  - [CreditCardPayment](docs/CreditCardPayment.md)
@@ -153,6 +154,8 @@ Class | Method | HTTP request | Description
  - [DocSourceStandard](docs/DocSourceStandard.md)
  - [DocSourceZipFile](docs/DocSourceZipFile.md)
  - [DocSourceZipFileRef](docs/DocSourceZipFileRef.md)
+ - [DocumentClass](docs/DocumentClass.md)
+ - [Envelope](docs/Envelope.md)
  - [ErrorCode](docs/ErrorCode.md)
  - [ErrorResponse](docs/ErrorResponse.md)
  - [ErrorType](docs/ErrorType.md)
@@ -160,15 +163,20 @@ Class | Method | HTTP request | Description
  - [InvoiceDetails](docs/InvoiceDetails.md)
  - [InvoicePayment](docs/InvoicePayment.md)
  - [JobOptions](docs/JobOptions.md)
+ - [Layout](docs/Layout.md)
  - [LongTokenRequest](docs/LongTokenRequest.md)
  - [LongTokenResponse](docs/LongTokenResponse.md)
+ - [MailClass](docs/MailClass.md)
  - [MergeByRequestId](docs/MergeByRequestId.md)
  - [MergeDocumentRef](docs/MergeDocumentRef.md)
  - [MultiDocJobItem](docs/MultiDocJobItem.md)
  - [MultiZipJobItem](docs/MultiZipJobItem.md)
+ - [PaperType](docs/PaperType.md)
  - [PaymentDetails](docs/PaymentDetails.md)
  - [PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
+ - [PrintOption](docs/PrintOption.md)
+ - [ProductionTime](docs/ProductionTime.md)
  - [RecipientAddressByList](docs/RecipientAddressByList.md)
  - [RecipientAddressSource](docs/RecipientAddressSource.md)
  - [RequestIdSource](docs/RequestIdSource.md)

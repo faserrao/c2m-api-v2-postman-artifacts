@@ -18,6 +18,7 @@ import AchPayment from './model/AchPayment';
 import Address from './model/Address';
 import AuthError from './model/AuthError';
 import CardType from './model/CardType';
+import Color from './model/Color';
 import CreditAmount from './model/CreditAmount';
 import CreditCardDetails from './model/CreditCardDetails';
 import CreditCardPayment from './model/CreditCardPayment';
@@ -26,6 +27,8 @@ import DocSourceAll from './model/DocSourceAll';
 import DocSourceStandard from './model/DocSourceStandard';
 import DocSourceZipFile from './model/DocSourceZipFile';
 import DocSourceZipFileRef from './model/DocSourceZipFileRef';
+import DocumentClass from './model/DocumentClass';
+import Envelope from './model/Envelope';
 import ErrorCode from './model/ErrorCode';
 import ErrorResponse from './model/ErrorResponse';
 import ErrorType from './model/ErrorType';
@@ -33,15 +36,20 @@ import ExpirationDate from './model/ExpirationDate';
 import InvoiceDetails from './model/InvoiceDetails';
 import InvoicePayment from './model/InvoicePayment';
 import JobOptions from './model/JobOptions';
+import Layout from './model/Layout';
 import LongTokenRequest from './model/LongTokenRequest';
 import LongTokenResponse from './model/LongTokenResponse';
+import MailClass from './model/MailClass';
 import MergeByRequestId from './model/MergeByRequestId';
 import MergeDocumentRef from './model/MergeDocumentRef';
 import MultiDocJobItem from './model/MultiDocJobItem';
 import MultiZipJobItem from './model/MultiZipJobItem';
+import PaperType from './model/PaperType';
 import PaymentDetails from './model/PaymentDetails';
 import PdfSplitJobItemNoAddress from './model/PdfSplitJobItemNoAddress';
 import PdfSplitJobItemWithAddress from './model/PdfSplitJobItemWithAddress';
+import PrintOption from './model/PrintOption';
+import ProductionTime from './model/ProductionTime';
 import RecipientAddressByList from './model/RecipientAddressByList';
 import RecipientAddressSource from './model/RecipientAddressSource';
 import RequestIdSource from './model/RequestIdSource';
@@ -133,6 +141,12 @@ export {
     CardType,
 
     /**
+     * The Color model constructor.
+     * @property {module:c2m_api/model/Color}
+     */
+    Color,
+
+    /**
      * The CreditAmount model constructor.
      * @property {module:c2m_api/model/CreditAmount}
      */
@@ -181,6 +195,18 @@ export {
     DocSourceZipFileRef,
 
     /**
+     * The DocumentClass model constructor.
+     * @property {module:c2m_api/model/DocumentClass}
+     */
+    DocumentClass,
+
+    /**
+     * The Envelope model constructor.
+     * @property {module:c2m_api/model/Envelope}
+     */
+    Envelope,
+
+    /**
      * The ErrorCode model constructor.
      * @property {module:c2m_api/model/ErrorCode}
      */
@@ -223,6 +249,12 @@ export {
     JobOptions,
 
     /**
+     * The Layout model constructor.
+     * @property {module:c2m_api/model/Layout}
+     */
+    Layout,
+
+    /**
      * The LongTokenRequest model constructor.
      * @property {module:c2m_api/model/LongTokenRequest}
      */
@@ -233,6 +265,12 @@ export {
      * @property {module:c2m_api/model/LongTokenResponse}
      */
     LongTokenResponse,
+
+    /**
+     * The MailClass model constructor.
+     * @property {module:c2m_api/model/MailClass}
+     */
+    MailClass,
 
     /**
      * The MergeByRequestId model constructor.
@@ -259,6 +297,12 @@ export {
     MultiZipJobItem,
 
     /**
+     * The PaperType model constructor.
+     * @property {module:c2m_api/model/PaperType}
+     */
+    PaperType,
+
+    /**
      * The PaymentDetails model constructor.
      * @property {module:c2m_api/model/PaymentDetails}
      */
@@ -275,6 +319,18 @@ export {
      * @property {module:c2m_api/model/PdfSplitJobItemWithAddress}
      */
     PdfSplitJobItemWithAddress,
+
+    /**
+     * The PrintOption model constructor.
+     * @property {module:c2m_api/model/PrintOption}
+     */
+    PrintOption,
+
+    /**
+     * The ProductionTime model constructor.
+     * @property {module:c2m_api/model/ProductionTime}
+     */
+    ProductionTime,
 
     /**
      * The RecipientAddressByList model constructor.

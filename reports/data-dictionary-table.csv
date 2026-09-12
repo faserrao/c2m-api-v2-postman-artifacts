@@ -55,14 +55,11 @@ amountDue,Alias / Primitive,,—,Amount due on the invoice.,number,—
 cardNumber,Alias / Primitive,,—,Credit card number (PAN) as a string.,string,—
 checkDigit,Alias / Primitive,,—,ACH check digit.,integer,—
 city,Alias / Primitive,,—,City name.,string,—
-color,Alias / Primitive,,—,"Color mode (e.g. full_color, black_and_white).",string,—
 country,Alias / Primitive,,—,Country code (e.g. USA).,string,—
 cvv,Alias / Primitive,,—,Card security code (CVV/CVC) as an integer.,integer,—
-documentClass,Alias / Primitive,,—,"Document class (e.g. letter, flat).",string,—
 documentId,Alias / Primitive,,—,Integer ID of a previously stored or uploaded document.,id,—
 documentIdSource,Alias / Primitive,,—,Source a document by its previously stored document ID.,id,—
 endPage,Alias / Primitive,,—,Last page of this job's page range (inclusive). Must be ≥ startPage.,integer,—
-envelope,Alias / Primitive,,—,"Envelope type (e.g. standard, window).",string,—
 errorDetails,Alias / Primitive,,—,Optional JSON object with additional error context (free-form key/value pairs).,string,—
 errorMessage,Alias / Primitive,,—,Human-readable error description.,string,—
 errorTrackingId,Alias / Primitive,,—,Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.,string,—
@@ -74,16 +71,11 @@ id,Alias / Primitive,,—,"Integer identifier — alias for integer, used for al
 invoiceNumber,Alias / Primitive,,—,Invoice reference number.,string,—
 jobTemplate,Alias / Primitive,,—,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,—
 lastName,Alias / Primitive,,—,Recipient's last name.,string,—
-layout,Alias / Primitive,,—,"Page layout (e.g. address_on_top, address_on_bottom).",string,—
-mailClass,Alias / Primitive,,—,"USPS mail class (e.g. first_class, standard).",string,—
 mappingId,Alias / Primitive,,—,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.",id,—
 mergeByDocumentId,Alias / Primitive,,—,Merge a stored document identified by its document ID.,id,—
 mergeDocumentSource,Alias / Primitive,,—,Container for the list of documents to merge (POST /mail-merge).,oneOf[],—
 message,Alias / Primitive,,—,"Human-readable confirmation message (e.g. ""Your request has been queued"").",string,—
 month,Alias / Primitive,,—,Expiration month as an integer (1–12).,integer,—
-paperType,Alias / Primitive,,—,"Paper stock (e.g. white, recycled).",string,—
-printOption,Alias / Primitive,,—,"Duplex setting (e.g. single_sided, double_sided).",string,—
-productionTime,Alias / Primitive,,—,"Production time preference (e.g. next_day, standard).",string,—
 recipientAddressByAddressId,Alias / Primitive,,—,Reference to a previously stored individual recipient address by its integer ID.,id,—
 recipientAddressByListId,Alias / Primitive,,—,Reference to a previously stored recipient address list by its integer ID.,id,—
 requestId,Alias / Primitive,,—,Integer ID of a prior file upload request. Also returned in success responses.,id,—
@@ -161,14 +153,14 @@ invoicePayment,Data Structure,,—,Invoice payment — billed to an existing acc
 invoicePayment,Data Structure,,"""invoice""",JSON property key identifying the invoice payment variant.,"""invoice""",Required
 invoicePayment,Data Structure,,invoiceDetails,Invoice payment fields: invoice number and amount due.,object,Required
 jobOptions,Data Structure,,—,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,—
-jobOptions,Data Structure,,documentClass,"Document class (e.g. letter, flat).",string,Required
-jobOptions,Data Structure,,layout,"Page layout (e.g. address_on_top, address_on_bottom).",string,Required
-jobOptions,Data Structure,,productionTime,"Production time preference (e.g. next_day, standard).",string,Required
-jobOptions,Data Structure,,envelope,"Envelope type (e.g. standard, window).",string,Required
-jobOptions,Data Structure,,color,"Color mode (e.g. full_color, black_and_white).",string,Required
-jobOptions,Data Structure,,paperType,"Paper stock (e.g. white, recycled).",string,Required
-jobOptions,Data Structure,,printOption,"Duplex setting (e.g. single_sided, double_sided).",string,Required
-jobOptions,Data Structure,,mailClass,"USPS mail class (e.g. first_class, standard).",string,Required
+jobOptions,Data Structure,,documentClass,"Document class. Legal values: letter, postcard, brochure, flat.",enum (letter | postcard | brochure | flat),Required
+jobOptions,Data Structure,,layout,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum (address_on_first_page | address_on_back_page),Required
+jobOptions,Data Structure,,productionTime,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum (next_day | two_day | three_day | standard | same_day),Required
+jobOptions,Data Structure,,envelope,"Envelope type. Legal values: standard, none, flat, double_window.",enum (standard | none | flat | double_window),Required
+jobOptions,Data Structure,,color,"Color mode. Legal values: full_color, black_and_white.",enum (full_color | black_and_white),Required
+jobOptions,Data Structure,,paperType,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum (white | white_24 | ivory | glossy),Required
+jobOptions,Data Structure,,printOption,"Duplex setting. Legal values: double_sided, single_sided.",enum (double_sided | single_sided),Required
+jobOptions,Data Structure,,mailClass,"USPS mail class. Legal values: first_class, standard, non_profit.",enum (first_class | standard | non_profit),Required
 mergeByRequestId,Data Structure,,—,"Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.",object,—
 mergeByRequestId,Data Structure,,requestId,Integer ID of a prior file upload request. Also returned in success responses.,id,Required
 mergeByRequestId,Data Structure,,filename,Filename of a specific file within an upload request or ZIP archive.,string,Optional
@@ -233,12 +225,25 @@ cardType,Enumeration,,visa,,string,—
 cardType,Enumeration,,mastercard,,string,—
 cardType,Enumeration,,discover,,string,—
 cardType,Enumeration,,americanExpress,,string,—
+color,Enumeration,,—,"Color mode. Legal values: full_color, black_and_white.",enum,—
+color,Enumeration,,full_color,,string,—
+color,Enumeration,,black_and_white,,string,—
 currency,Enumeration,,—,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.",enum,—
 currency,Enumeration,,USD,,string,—
 currency,Enumeration,,EUR,,string,—
 currency,Enumeration,,GBP,,string,—
 currency,Enumeration,,CAD,,string,—
 currency,Enumeration,,AUD,,string,—
+documentClass,Enumeration,,—,"Document class. Legal values: letter, postcard, brochure, flat.",enum,—
+documentClass,Enumeration,,letter,,string,—
+documentClass,Enumeration,,postcard,,string,—
+documentClass,Enumeration,,brochure,,string,—
+documentClass,Enumeration,,flat,,string,—
+envelope,Enumeration,,—,"Envelope type. Legal values: standard, none, flat, double_window.",enum,—
+envelope,Enumeration,,standard,,string,—
+envelope,Enumeration,,none,,string,—
+envelope,Enumeration,,flat,,string,—
+envelope,Enumeration,,double_window,,string,—
 errorCode,Enumeration,,—,Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).,enum,—
 errorCode,Enumeration,,MISSING_REQUIRED_FIELD,,string,—
 errorCode,Enumeration,,INVALID_ONEOF,,string,—
@@ -264,6 +269,27 @@ errorType,Enumeration,,AuthorizationError,,string,—
 errorType,Enumeration,,ResourceNotFoundError,,string,—
 errorType,Enumeration,,RateLimitError,,string,—
 errorType,Enumeration,,ServerError,,string,—
+layout,Enumeration,,—,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum,—
+layout,Enumeration,,address_on_first_page,,string,—
+layout,Enumeration,,address_on_back_page,,string,—
+mailClass,Enumeration,,—,"USPS mail class. Legal values: first_class, standard, non_profit.",enum,—
+mailClass,Enumeration,,first_class,,string,—
+mailClass,Enumeration,,standard,,string,—
+mailClass,Enumeration,,non_profit,,string,—
+paperType,Enumeration,,—,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum,—
+paperType,Enumeration,,white,,string,—
+paperType,Enumeration,,white_24,,string,—
+paperType,Enumeration,,ivory,,string,—
+paperType,Enumeration,,glossy,,string,—
+printOption,Enumeration,,—,"Duplex setting. Legal values: double_sided, single_sided.",enum,—
+printOption,Enumeration,,double_sided,,string,—
+printOption,Enumeration,,single_sided,,string,—
+productionTime,Enumeration,,—,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum,—
+productionTime,Enumeration,,next_day,,string,—
+productionTime,Enumeration,,two_day,,string,—
+productionTime,Enumeration,,three_day,,string,—
+productionTime,Enumeration,,standard,,string,—
+productionTime,Enumeration,,same_day,,string,—
 docSourceAll,Union Type (oneOf),,—,"Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).",oneOf,—
 docSourceAll,Union Type (oneOf),,docSourceStandard,"Document source — standard (non-zip) variants only: requestId, documentId, or URL.",oneOf,—
 docSourceAll,Union Type (oneOf),,docSourceZipFile,Document source — zip variants: a specific file within a stored ZIP (zipDocumentId + filename) or uploaded ZIP (requestId + zipFilename + filename).,oneOf,—

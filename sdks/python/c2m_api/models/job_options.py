@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -35,6 +35,62 @@ class JobOptions(BaseModel):
     print_option: StrictStr = Field(alias="printOption")
     mail_class: StrictStr = Field(alias="mailClass")
     __properties: ClassVar[List[str]] = ["documentClass", "layout", "productionTime", "envelope", "color", "paperType", "printOption", "mailClass"]
+
+    @field_validator('document_class')
+    def document_class_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['letter', 'postcard', 'brochure', 'flat']):
+            raise ValueError("must be one of enum values ('letter', 'postcard', 'brochure', 'flat')")
+        return value
+
+    @field_validator('layout')
+    def layout_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['address_on_first_page', 'address_on_back_page']):
+            raise ValueError("must be one of enum values ('address_on_first_page', 'address_on_back_page')")
+        return value
+
+    @field_validator('production_time')
+    def production_time_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['next_day', 'two_day', 'three_day', 'standard', 'same_day']):
+            raise ValueError("must be one of enum values ('next_day', 'two_day', 'three_day', 'standard', 'same_day')")
+        return value
+
+    @field_validator('envelope')
+    def envelope_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['standard', 'none', 'flat', 'double_window']):
+            raise ValueError("must be one of enum values ('standard', 'none', 'flat', 'double_window')")
+        return value
+
+    @field_validator('color')
+    def color_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['full_color', 'black_and_white']):
+            raise ValueError("must be one of enum values ('full_color', 'black_and_white')")
+        return value
+
+    @field_validator('paper_type')
+    def paper_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['white', 'white_24', 'ivory', 'glossy']):
+            raise ValueError("must be one of enum values ('white', 'white_24', 'ivory', 'glossy')")
+        return value
+
+    @field_validator('print_option')
+    def print_option_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['double_sided', 'single_sided']):
+            raise ValueError("must be one of enum values ('double_sided', 'single_sided')")
+        return value
+
+    @field_validator('mail_class')
+    def mail_class_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['first_class', 'standard', 'non_profit']):
+            raise ValueError("must be one of enum values ('first_class', 'standard', 'non_profit')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

@@ -4,11 +4,13 @@
 ## Enum
 
 
-    * `letter` (value: `"letter"`)
+    * `white` (value: `"white"`)
 
-    * `legal` (value: `"legal"`)
+    * `white_24` (value: `"white_24"`)
 
-    * `postcard` (value: `"postcard"`)
+    * `ivory` (value: `"ivory"`)
+
+    * `glossy` (value: `"glossy"`)
 
 
 

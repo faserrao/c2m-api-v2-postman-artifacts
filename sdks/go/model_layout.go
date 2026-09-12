@@ -1,7 +1,7 @@
 /*
-C2M API v2 - Auth Overlay
+C2M API v2
 
-API for submitting documents with various routing options
+API for submitting mailing jobs with various document routing options
 
 API version: 2.0.0
 */
@@ -20,14 +20,14 @@ type Layout string
 
 // List of layout
 const (
-	PORTRAIT Layout = "portrait"
-	LANDSCAPE Layout = "landscape"
+	ADDRESS_ON_FIRST_PAGE Layout = "address_on_first_page"
+	ADDRESS_ON_BACK_PAGE Layout = "address_on_back_page"
 )
 
 // All allowed values of Layout enum
 var AllowedLayoutEnumValues = []Layout{
-	"portrait",
-	"landscape",
+	"address_on_first_page",
+	"address_on_back_page",
 }
 
 func (v *Layout) UnmarshalJSON(src []byte) error {

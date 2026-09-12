@@ -22,17 +22,23 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: businessLetter,personalLetter
+ * Values: letter,postcard,brochure,flat
  */
 
 @JsonClass(generateAdapter = false)
 enum class DocumentClass(val value: kotlin.String) {
 
-    @Json(name = "businessLetter")
-    businessLetter("businessLetter"),
+    @Json(name = "letter")
+    letter("letter"),
 
-    @Json(name = "personalLetter")
-    personalLetter("personalLetter");
+    @Json(name = "postcard")
+    postcard("postcard"),
+
+    @Json(name = "brochure")
+    brochure("brochure"),
+
+    @Json(name = "flat")
+    flat("flat");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

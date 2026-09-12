@@ -11,6 +11,6 @@ import AnyCodable
 #endif
 
 public enum Layout: String, Codable, CaseIterable {
-    case portrait = "portrait"
-    case landscape = "landscape"
+    case addressOnFirstPage = "address_on_first_page"
+    case addressOnBackPage = "address_on_back_page"
 }

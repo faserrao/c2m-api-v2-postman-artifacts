@@ -22,20 +22,17 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: none,color,grayscale
+ * Values: double_sided,single_sided
  */
 
 @JsonClass(generateAdapter = false)
 enum class PrintOption(val value: kotlin.String) {
 
-    @Json(name = "none")
-    none("none"),
+    @Json(name = "double_sided")
+    double_sided("double_sided"),
 
-    @Json(name = "color")
-    color("color"),
-
-    @Json(name = "grayscale")
-    grayscale("grayscale");
+    @Json(name = "single_sided")
+    single_sided("single_sided");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

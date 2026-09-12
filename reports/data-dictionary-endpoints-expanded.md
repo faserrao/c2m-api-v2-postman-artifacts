@@ -45,14 +45,14 @@
 | `returnAddress.country` | string | Optional | Country code (e.g. USA). |
 | `returnAddress.address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
 | `returnAddress.address3` | string | Optional | Tertiary address line. |
-| `jobOptions.documentClass` | string | Optional | Document class (e.g. letter, flat). |
-| `jobOptions.layout` | string | Optional | Page layout (e.g. address_on_top, address_on_bottom). |
-| `jobOptions.productionTime` | string | Optional | Production time preference (e.g. next_day, standard). |
-| `jobOptions.envelope` | string | Optional | Envelope type (e.g. standard, window). |
-| `jobOptions.color` | string | Optional | Color mode (e.g. full_color, black_and_white). |
-| `jobOptions.paperType` | string | Optional | Paper stock (e.g. white, recycled). |
-| `jobOptions.printOption` | string | Optional | Duplex setting (e.g. single_sided, double_sided). |
-| `jobOptions.mailClass` | string | Optional | USPS mail class (e.g. first_class, standard). |
+| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. Legal values: letter, postcard, brochure, flat. |
+| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. Legal values: address_on_first_page, address_on_back_page. |
+| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. Legal values: next_day, two_day, three_day, standard, same_day. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. Legal values: standard, none, flat, double_window. |
+| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. Legal values: full_color, black_and_white. |
+| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. Legal values: white, white_24, ivory, glossy. |
+| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. Legal values: double_sided, single_sided. |
+| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. Legal values: first_class, standard, non_profit. |
 | `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
@@ -119,14 +119,14 @@
 | `returnAddress.country` | string | Optional | Country code (e.g. USA). |
 | `returnAddress.address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
 | `returnAddress.address3` | string | Optional | Tertiary address line. |
-| `jobOptions.documentClass` | string | Optional | Document class (e.g. letter, flat). |
-| `jobOptions.layout` | string | Optional | Page layout (e.g. address_on_top, address_on_bottom). |
-| `jobOptions.productionTime` | string | Optional | Production time preference (e.g. next_day, standard). |
-| `jobOptions.envelope` | string | Optional | Envelope type (e.g. standard, window). |
-| `jobOptions.color` | string | Optional | Color mode (e.g. full_color, black_and_white). |
-| `jobOptions.paperType` | string | Optional | Paper stock (e.g. white, recycled). |
-| `jobOptions.printOption` | string | Optional | Duplex setting (e.g. single_sided, double_sided). |
-| `jobOptions.mailClass` | string | Optional | USPS mail class (e.g. first_class, standard). |
+| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. Legal values: letter, postcard, brochure, flat. |
+| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. Legal values: address_on_first_page, address_on_back_page. |
+| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. Legal values: next_day, two_day, three_day, standard, same_day. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. Legal values: standard, none, flat, double_window. |
+| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. Legal values: full_color, black_and_white. |
+| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. Legal values: white, white_24, ivory, glossy. |
+| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. Legal values: double_sided, single_sided. |
+| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. Legal values: first_class, standard, non_profit. |
 | `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
@@ -166,14 +166,14 @@
 | `returnAddress.country` | string | Optional | Country code (e.g. USA). |
 | `returnAddress.address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
 | `returnAddress.address3` | string | Optional | Tertiary address line. |
-| `jobOptions.documentClass` | string | Optional | Document class (e.g. letter, flat). |
-| `jobOptions.layout` | string | Optional | Page layout (e.g. address_on_top, address_on_bottom). |
-| `jobOptions.productionTime` | string | Optional | Production time preference (e.g. next_day, standard). |
-| `jobOptions.envelope` | string | Optional | Envelope type (e.g. standard, window). |
-| `jobOptions.color` | string | Optional | Color mode (e.g. full_color, black_and_white). |
-| `jobOptions.paperType` | string | Optional | Paper stock (e.g. white, recycled). |
-| `jobOptions.printOption` | string | Optional | Duplex setting (e.g. single_sided, double_sided). |
-| `jobOptions.mailClass` | string | Optional | USPS mail class (e.g. first_class, standard). |
+| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. Legal values: letter, postcard, brochure, flat. |
+| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. Legal values: address_on_first_page, address_on_back_page. |
+| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. Legal values: next_day, two_day, three_day, standard, same_day. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. Legal values: standard, none, flat, double_window. |
+| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. Legal values: full_color, black_and_white. |
+| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. Legal values: white, white_24, ivory, glossy. |
+| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. Legal values: double_sided, single_sided. |
+| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. Legal values: first_class, standard, non_profit. |
 | `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
@@ -236,14 +236,14 @@
 | `returnAddress.country` | string | Optional | Country code (e.g. USA). |
 | `returnAddress.address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
 | `returnAddress.address3` | string | Optional | Tertiary address line. |
-| `jobOptions.documentClass` | string | Optional | Document class (e.g. letter, flat). |
-| `jobOptions.layout` | string | Optional | Page layout (e.g. address_on_top, address_on_bottom). |
-| `jobOptions.productionTime` | string | Optional | Production time preference (e.g. next_day, standard). |
-| `jobOptions.envelope` | string | Optional | Envelope type (e.g. standard, window). |
-| `jobOptions.color` | string | Optional | Color mode (e.g. full_color, black_and_white). |
-| `jobOptions.paperType` | string | Optional | Paper stock (e.g. white, recycled). |
-| `jobOptions.printOption` | string | Optional | Duplex setting (e.g. single_sided, double_sided). |
-| `jobOptions.mailClass` | string | Optional | USPS mail class (e.g. first_class, standard). |
+| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. Legal values: letter, postcard, brochure, flat. |
+| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. Legal values: address_on_first_page, address_on_back_page. |
+| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. Legal values: next_day, two_day, three_day, standard, same_day. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. Legal values: standard, none, flat, double_window. |
+| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. Legal values: full_color, black_and_white. |
+| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. Legal values: white, white_24, ivory, glossy. |
+| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. Legal values: double_sided, single_sided. |
+| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. Legal values: first_class, standard, non_profit. |
 | `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
@@ -334,12 +334,12 @@
 | `returnAddress.country` | string | Optional | Country code (e.g. USA). |
 | `returnAddress.address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
 | `returnAddress.address3` | string | Optional | Tertiary address line. |
-| `jobOptions.documentClass` | string | Optional | Document class (e.g. letter, flat). |
-| `jobOptions.layout` | string | Optional | Page layout (e.g. address_on_top, address_on_bottom). |
-| `jobOptions.productionTime` | string | Optional | Production time preference (e.g. next_day, standard). |
-| `jobOptions.envelope` | string | Optional | Envelope type (e.g. standard, window). |
-| `jobOptions.color` | string | Optional | Color mode (e.g. full_color, black_and_white). |
-| `jobOptions.paperType` | string | Optional | Paper stock (e.g. white, recycled). |
-| `jobOptions.printOption` | string | Optional | Duplex setting (e.g. single_sided, double_sided). |
-| `jobOptions.mailClass` | string | Optional | USPS mail class (e.g. first_class, standard). |
+| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. Legal values: letter, postcard, brochure, flat. |
+| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. Legal values: address_on_first_page, address_on_back_page. |
+| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. Legal values: next_day, two_day, three_day, standard, same_day. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. Legal values: standard, none, flat, double_window. |
+| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. Legal values: full_color, black_and_white. |
+| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. Legal values: white, white_24, ivory, glossy. |
+| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. Legal values: double_sided, single_sided. |
+| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. Legal values: first_class, standard, non_profit. |
 | `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |

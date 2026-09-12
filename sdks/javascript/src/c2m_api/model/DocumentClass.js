@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,17 +20,31 @@ import ApiClient from '../ApiClient';
 export default class DocumentClass {
     
         /**
-         * value: "businessLetter"
+         * value: "letter"
          * @const
          */
-        "businessLetter" = "businessLetter";
+        "letter" = "letter";
 
     
         /**
-         * value: "personalLetter"
+         * value: "postcard"
          * @const
          */
-        "personalLetter" = "personalLetter";
+        "postcard" = "postcard";
+
+    
+        /**
+         * value: "brochure"
+         * @const
+         */
+        "brochure" = "brochure";
+
+    
+        /**
+         * value: "flat"
+         * @const
+         */
+        "flat" = "flat";
 
     
 

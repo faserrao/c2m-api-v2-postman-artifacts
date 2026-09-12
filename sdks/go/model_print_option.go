@@ -1,7 +1,7 @@
 /*
-C2M API v2 - Auth Overlay
+C2M API v2
 
-API for submitting documents with various routing options
+API for submitting mailing jobs with various document routing options
 
 API version: 2.0.0
 */
@@ -20,16 +20,14 @@ type PrintOption string
 
 // List of printOption
 const (
-	NONE PrintOption = "none"
-	COLOR PrintOption = "color"
-	GRAYSCALE PrintOption = "grayscale"
+	DOUBLE_SIDED PrintOption = "double_sided"
+	SINGLE_SIDED PrintOption = "single_sided"
 )
 
 // All allowed values of PrintOption enum
 var AllowedPrintOptionEnumValues = []PrintOption{
-	"none",
-	"color",
-	"grayscale",
+	"double_sided",
+	"single_sided",
 }
 
 func (v *PrintOption) UnmarshalJSON(src []byte) error {

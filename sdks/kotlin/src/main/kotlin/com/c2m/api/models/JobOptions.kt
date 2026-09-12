@@ -36,31 +36,121 @@ import com.squareup.moshi.JsonClass
 data class JobOptions (
 
     @Json(name = "documentClass")
-    val documentClass: kotlin.String,
+    val documentClass: JobOptions.DocumentClass,
 
     @Json(name = "layout")
-    val layout: kotlin.String,
+    val layout: JobOptions.Layout,
 
     @Json(name = "productionTime")
-    val productionTime: kotlin.String,
+    val productionTime: JobOptions.ProductionTime,
 
     @Json(name = "envelope")
-    val envelope: kotlin.String,
+    val envelope: JobOptions.Envelope,
 
     @Json(name = "color")
-    val color: kotlin.String,
+    val color: JobOptions.Color,
 
     @Json(name = "paperType")
-    val paperType: kotlin.String,
+    val paperType: JobOptions.PaperType,
 
     @Json(name = "printOption")
-    val printOption: kotlin.String,
+    val printOption: JobOptions.PrintOption,
 
     @Json(name = "mailClass")
-    val mailClass: kotlin.String
+    val mailClass: JobOptions.MailClass
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: letter,postcard,brochure,flat
+     */
+    @JsonClass(generateAdapter = false)
+    enum class DocumentClass(val value: kotlin.String) {
+        @Json(name = "letter") letter("letter"),
+        @Json(name = "postcard") postcard("postcard"),
+        @Json(name = "brochure") brochure("brochure"),
+        @Json(name = "flat") flat("flat");
+    }
+    /**
+     * 
+     *
+     * Values: address_on_first_page,address_on_back_page
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Layout(val value: kotlin.String) {
+        @Json(name = "address_on_first_page") address_on_first_page("address_on_first_page"),
+        @Json(name = "address_on_back_page") address_on_back_page("address_on_back_page");
+    }
+    /**
+     * 
+     *
+     * Values: next_day,two_day,three_day,standard,same_day
+     */
+    @JsonClass(generateAdapter = false)
+    enum class ProductionTime(val value: kotlin.String) {
+        @Json(name = "next_day") next_day("next_day"),
+        @Json(name = "two_day") two_day("two_day"),
+        @Json(name = "three_day") three_day("three_day"),
+        @Json(name = "standard") standard("standard"),
+        @Json(name = "same_day") same_day("same_day");
+    }
+    /**
+     * 
+     *
+     * Values: standard,none,flat,double_window
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Envelope(val value: kotlin.String) {
+        @Json(name = "standard") standard("standard"),
+        @Json(name = "none") none("none"),
+        @Json(name = "flat") flat("flat"),
+        @Json(name = "double_window") double_window("double_window");
+    }
+    /**
+     * 
+     *
+     * Values: full_color,black_and_white
+     */
+    @JsonClass(generateAdapter = false)
+    enum class Color(val value: kotlin.String) {
+        @Json(name = "full_color") full_color("full_color"),
+        @Json(name = "black_and_white") black_and_white("black_and_white");
+    }
+    /**
+     * 
+     *
+     * Values: white,white_24,ivory,glossy
+     */
+    @JsonClass(generateAdapter = false)
+    enum class PaperType(val value: kotlin.String) {
+        @Json(name = "white") white("white"),
+        @Json(name = "white_24") white_24("white_24"),
+        @Json(name = "ivory") ivory("ivory"),
+        @Json(name = "glossy") glossy("glossy");
+    }
+    /**
+     * 
+     *
+     * Values: double_sided,single_sided
+     */
+    @JsonClass(generateAdapter = false)
+    enum class PrintOption(val value: kotlin.String) {
+        @Json(name = "double_sided") double_sided("double_sided"),
+        @Json(name = "single_sided") single_sided("single_sided");
+    }
+    /**
+     * 
+     *
+     * Values: first_class,standard,non_profit
+     */
+    @JsonClass(generateAdapter = false)
+    enum class MailClass(val value: kotlin.String) {
+        @Json(name = "first_class") first_class("first_class"),
+        @Json(name = "standard") standard("standard"),
+        @Json(name = "non_profit") non_profit("non_profit");
+    }
 
 }
 

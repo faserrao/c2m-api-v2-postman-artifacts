@@ -4,9 +4,13 @@
 ## Enum
 
 
-    * `businessLetter` (value: `"businessLetter"`)
+    * `letter` (value: `"letter"`)
 
-    * `personalLetter` (value: `"personalLetter"`)
+    * `postcard` (value: `"postcard"`)
+
+    * `brochure` (value: `"brochure"`)
+
+    * `flat` (value: `"flat"`)
 
 
 

@@ -11,9 +11,8 @@ import AnyCodable
 #endif
 
 public enum Envelope: String, Codable, CaseIterable {
+    case standard = "standard"
+    case _none = "none"
     case flat = "flat"
-    case windowedflat = "windowedFlat"
-    case letter = "letter"
-    case legal = "legal"
-    case postcard = "postcard"
+    case doubleWindow = "double_window"
 }

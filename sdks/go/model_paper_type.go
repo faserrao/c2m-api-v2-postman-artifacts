@@ -1,7 +1,7 @@
 /*
-C2M API v2 - Auth Overlay
+C2M API v2
 
-API for submitting documents with various routing options
+API for submitting mailing jobs with various document routing options
 
 API version: 2.0.0
 */
@@ -20,16 +20,18 @@ type PaperType string
 
 // List of paperType
 const (
-	LETTER PaperType = "letter"
-	LEGAL PaperType = "legal"
-	POSTCARD PaperType = "postcard"
+	WHITE PaperType = "white"
+	WHITE_24 PaperType = "white_24"
+	IVORY PaperType = "ivory"
+	GLOSSY PaperType = "glossy"
 )
 
 // All allowed values of PaperType enum
 var AllowedPaperTypeEnumValues = []PaperType{
-	"letter",
-	"legal",
-	"postcard",
+	"white",
+	"white_24",
+	"ivory",
+	"glossy",
 }
 
 func (v *PaperType) UnmarshalJSON(src []byte) error {

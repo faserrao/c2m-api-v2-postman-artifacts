@@ -22,20 +22,23 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: letter,legal,postcard
+ * Values: white,white_24,ivory,glossy
  */
 
 @JsonClass(generateAdapter = false)
 enum class PaperType(val value: kotlin.String) {
 
-    @Json(name = "letter")
-    letter("letter"),
+    @Json(name = "white")
+    white("white"),
 
-    @Json(name = "legal")
-    legal("legal"),
+    @Json(name = "white_24")
+    white_24("white_24"),
 
-    @Json(name = "postcard")
-    postcard("postcard");
+    @Json(name = "ivory")
+    ivory("ivory"),
+
+    @Json(name = "glossy")
+    glossy("glossy");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

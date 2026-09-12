@@ -1,7 +1,7 @@
 /*
-C2M API v2 - Auth Overlay
+C2M API v2
 
-API for submitting documents with various routing options
+API for submitting mailing jobs with various document routing options
 
 API version: 2.0.0
 */
@@ -20,14 +20,18 @@ type DocumentClass string
 
 // List of documentClass
 const (
-	BUSINESS_LETTER DocumentClass = "businessLetter"
-	PERSONAL_LETTER DocumentClass = "personalLetter"
+	LETTER DocumentClass = "letter"
+	POSTCARD DocumentClass = "postcard"
+	BROCHURE DocumentClass = "brochure"
+	FLAT DocumentClass = "flat"
 )
 
 // All allowed values of DocumentClass enum
 var AllowedDocumentClassEnumValues = []DocumentClass{
-	"businessLetter",
-	"personalLetter",
+	"letter",
+	"postcard",
+	"brochure",
+	"flat",
 }
 
 func (v *DocumentClass) UnmarshalJSON(src []byte) error {

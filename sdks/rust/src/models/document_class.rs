@@ -1,7 +1,7 @@
 /*
- * C2M API v2 - Auth Overlay
+ * C2M API v2
  *
- * API for submitting documents with various routing options
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -14,25 +14,31 @@ use serde::{Deserialize, Serialize};
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum DocumentClass {
-    #[serde(rename = "businessLetter")]
-    BusinessLetter,
-    #[serde(rename = "personalLetter")]
-    PersonalLetter,
+    #[serde(rename = "letter")]
+    Letter,
+    #[serde(rename = "postcard")]
+    Postcard,
+    #[serde(rename = "brochure")]
+    Brochure,
+    #[serde(rename = "flat")]
+    Flat,
 
 }
 
 impl std::fmt::Display for DocumentClass {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::BusinessLetter => write!(f, "businessLetter"),
-            Self::PersonalLetter => write!(f, "personalLetter"),
+            Self::Letter => write!(f, "letter"),
+            Self::Postcard => write!(f, "postcard"),
+            Self::Brochure => write!(f, "brochure"),
+            Self::Flat => write!(f, "flat"),
         }
     }
 }
 
 impl Default for DocumentClass {
     fn default() -> DocumentClass {
-        Self::BusinessLetter
+        Self::Letter
     }
 }
 

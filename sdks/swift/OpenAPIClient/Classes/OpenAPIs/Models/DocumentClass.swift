@@ -11,6 +11,8 @@ import AnyCodable
 #endif
 
 public enum DocumentClass: String, Codable, CaseIterable {
-    case businessletter = "businessLetter"
-    case personalletter = "personalLetter"
+    case letter = "letter"
+    case postcard = "postcard"
+    case brochure = "brochure"
+    case flat = "flat"
 }

@@ -1,7 +1,7 @@
 =begin
-#C2M API v2 - Auth Overlay
+#C2M API v2
 
-#API for submitting documents with various routing options
+#API for submitting mailing jobs with various document routing options
 
 The version of the OpenAPI document: 2.0.0
 
@@ -15,12 +15,11 @@ require 'time'
 
 module OpenapiClient
   class PrintOption
-    NONE = "none".freeze
-    COLOR = "color".freeze
-    GRAYSCALE = "grayscale".freeze
+    DOUBLE_SIDED = "double_sided".freeze
+    SINGLE_SIDED = "single_sided".freeze
 
     def self.all_vars
-      @all_vars ||= [NONE, COLOR, GRAYSCALE].freeze
+      @all_vars ||= [DOUBLE_SIDED, SINGLE_SIDED].freeze
     end
 
     # Builds the enum from string

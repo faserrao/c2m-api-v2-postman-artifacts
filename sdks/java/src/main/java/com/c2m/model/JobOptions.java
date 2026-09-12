@@ -48,52 +48,488 @@ import com.c2m.JSON;
 /**
  * JobOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T11:38:37.333034385Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T13:09:59.175707330Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class JobOptions {
+  /**
+   * Gets or Sets documentClass
+   */
+  @JsonAdapter(DocumentClassEnum.Adapter.class)
+  public enum DocumentClassEnum {
+    LETTER("letter"),
+    
+    POSTCARD("postcard"),
+    
+    BROCHURE("brochure"),
+    
+    FLAT("flat");
+
+    private String value;
+
+    DocumentClassEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DocumentClassEnum fromValue(String value) {
+      for (DocumentClassEnum b : DocumentClassEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<DocumentClassEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DocumentClassEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DocumentClassEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return DocumentClassEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      DocumentClassEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_DOCUMENT_CLASS = "documentClass";
   @SerializedName(SERIALIZED_NAME_DOCUMENT_CLASS)
   @javax.annotation.Nonnull
-  private String documentClass;
+  private DocumentClassEnum documentClass;
+
+  /**
+   * Gets or Sets layout
+   */
+  @JsonAdapter(LayoutEnum.Adapter.class)
+  public enum LayoutEnum {
+    ADDRESS_ON_FIRST_PAGE("address_on_first_page"),
+    
+    ADDRESS_ON_BACK_PAGE("address_on_back_page");
+
+    private String value;
+
+    LayoutEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static LayoutEnum fromValue(String value) {
+      for (LayoutEnum b : LayoutEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<LayoutEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final LayoutEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public LayoutEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return LayoutEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      LayoutEnum.fromValue(value);
+    }
+  }
 
   public static final String SERIALIZED_NAME_LAYOUT = "layout";
   @SerializedName(SERIALIZED_NAME_LAYOUT)
   @javax.annotation.Nonnull
-  private String layout;
+  private LayoutEnum layout;
+
+  /**
+   * Gets or Sets productionTime
+   */
+  @JsonAdapter(ProductionTimeEnum.Adapter.class)
+  public enum ProductionTimeEnum {
+    NEXT_DAY("next_day"),
+    
+    TWO_DAY("two_day"),
+    
+    THREE_DAY("three_day"),
+    
+    STANDARD("standard"),
+    
+    SAME_DAY("same_day");
+
+    private String value;
+
+    ProductionTimeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ProductionTimeEnum fromValue(String value) {
+      for (ProductionTimeEnum b : ProductionTimeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ProductionTimeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ProductionTimeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ProductionTimeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ProductionTimeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ProductionTimeEnum.fromValue(value);
+    }
+  }
 
   public static final String SERIALIZED_NAME_PRODUCTION_TIME = "productionTime";
   @SerializedName(SERIALIZED_NAME_PRODUCTION_TIME)
   @javax.annotation.Nonnull
-  private String productionTime;
+  private ProductionTimeEnum productionTime;
+
+  /**
+   * Gets or Sets envelope
+   */
+  @JsonAdapter(EnvelopeEnum.Adapter.class)
+  public enum EnvelopeEnum {
+    STANDARD("standard"),
+    
+    NONE("none"),
+    
+    FLAT("flat"),
+    
+    DOUBLE_WINDOW("double_window");
+
+    private String value;
+
+    EnvelopeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static EnvelopeEnum fromValue(String value) {
+      for (EnvelopeEnum b : EnvelopeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<EnvelopeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final EnvelopeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public EnvelopeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return EnvelopeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      EnvelopeEnum.fromValue(value);
+    }
+  }
 
   public static final String SERIALIZED_NAME_ENVELOPE = "envelope";
   @SerializedName(SERIALIZED_NAME_ENVELOPE)
   @javax.annotation.Nonnull
-  private String envelope;
+  private EnvelopeEnum envelope;
+
+  /**
+   * Gets or Sets color
+   */
+  @JsonAdapter(ColorEnum.Adapter.class)
+  public enum ColorEnum {
+    FULL_COLOR("full_color"),
+    
+    BLACK_AND_WHITE("black_and_white");
+
+    private String value;
+
+    ColorEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ColorEnum fromValue(String value) {
+      for (ColorEnum b : ColorEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ColorEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ColorEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ColorEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ColorEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ColorEnum.fromValue(value);
+    }
+  }
 
   public static final String SERIALIZED_NAME_COLOR = "color";
   @SerializedName(SERIALIZED_NAME_COLOR)
   @javax.annotation.Nonnull
-  private String color;
+  private ColorEnum color;
+
+  /**
+   * Gets or Sets paperType
+   */
+  @JsonAdapter(PaperTypeEnum.Adapter.class)
+  public enum PaperTypeEnum {
+    WHITE("white"),
+    
+    WHITE_24("white_24"),
+    
+    IVORY("ivory"),
+    
+    GLOSSY("glossy");
+
+    private String value;
+
+    PaperTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PaperTypeEnum fromValue(String value) {
+      for (PaperTypeEnum b : PaperTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<PaperTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PaperTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PaperTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return PaperTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      PaperTypeEnum.fromValue(value);
+    }
+  }
 
   public static final String SERIALIZED_NAME_PAPER_TYPE = "paperType";
   @SerializedName(SERIALIZED_NAME_PAPER_TYPE)
   @javax.annotation.Nonnull
-  private String paperType;
+  private PaperTypeEnum paperType;
+
+  /**
+   * Gets or Sets printOption
+   */
+  @JsonAdapter(PrintOptionEnum.Adapter.class)
+  public enum PrintOptionEnum {
+    DOUBLE_SIDED("double_sided"),
+    
+    SINGLE_SIDED("single_sided");
+
+    private String value;
+
+    PrintOptionEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PrintOptionEnum fromValue(String value) {
+      for (PrintOptionEnum b : PrintOptionEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<PrintOptionEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PrintOptionEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PrintOptionEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return PrintOptionEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      PrintOptionEnum.fromValue(value);
+    }
+  }
 
   public static final String SERIALIZED_NAME_PRINT_OPTION = "printOption";
   @SerializedName(SERIALIZED_NAME_PRINT_OPTION)
   @javax.annotation.Nonnull
-  private String printOption;
+  private PrintOptionEnum printOption;
+
+  /**
+   * Gets or Sets mailClass
+   */
+  @JsonAdapter(MailClassEnum.Adapter.class)
+  public enum MailClassEnum {
+    FIRST_CLASS("first_class"),
+    
+    STANDARD("standard"),
+    
+    NON_PROFIT("non_profit");
+
+    private String value;
+
+    MailClassEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static MailClassEnum fromValue(String value) {
+      for (MailClassEnum b : MailClassEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<MailClassEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final MailClassEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public MailClassEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return MailClassEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      MailClassEnum.fromValue(value);
+    }
+  }
 
   public static final String SERIALIZED_NAME_MAIL_CLASS = "mailClass";
   @SerializedName(SERIALIZED_NAME_MAIL_CLASS)
   @javax.annotation.Nonnull
-  private String mailClass;
+  private MailClassEnum mailClass;
 
   public JobOptions() {
   }
 
-  public JobOptions documentClass(@javax.annotation.Nonnull String documentClass) {
+  public JobOptions documentClass(@javax.annotation.Nonnull DocumentClassEnum documentClass) {
     this.documentClass = documentClass;
     return this;
   }
@@ -103,16 +539,16 @@ public class JobOptions {
    * @return documentClass
    */
   @javax.annotation.Nonnull
-  public String getDocumentClass() {
+  public DocumentClassEnum getDocumentClass() {
     return documentClass;
   }
 
-  public void setDocumentClass(@javax.annotation.Nonnull String documentClass) {
+  public void setDocumentClass(@javax.annotation.Nonnull DocumentClassEnum documentClass) {
     this.documentClass = documentClass;
   }
 
 
-  public JobOptions layout(@javax.annotation.Nonnull String layout) {
+  public JobOptions layout(@javax.annotation.Nonnull LayoutEnum layout) {
     this.layout = layout;
     return this;
   }
@@ -122,16 +558,16 @@ public class JobOptions {
    * @return layout
    */
   @javax.annotation.Nonnull
-  public String getLayout() {
+  public LayoutEnum getLayout() {
     return layout;
   }
 
-  public void setLayout(@javax.annotation.Nonnull String layout) {
+  public void setLayout(@javax.annotation.Nonnull LayoutEnum layout) {
     this.layout = layout;
   }
 
 
-  public JobOptions productionTime(@javax.annotation.Nonnull String productionTime) {
+  public JobOptions productionTime(@javax.annotation.Nonnull ProductionTimeEnum productionTime) {
     this.productionTime = productionTime;
     return this;
   }
@@ -141,16 +577,16 @@ public class JobOptions {
    * @return productionTime
    */
   @javax.annotation.Nonnull
-  public String getProductionTime() {
+  public ProductionTimeEnum getProductionTime() {
     return productionTime;
   }
 
-  public void setProductionTime(@javax.annotation.Nonnull String productionTime) {
+  public void setProductionTime(@javax.annotation.Nonnull ProductionTimeEnum productionTime) {
     this.productionTime = productionTime;
   }
 
 
-  public JobOptions envelope(@javax.annotation.Nonnull String envelope) {
+  public JobOptions envelope(@javax.annotation.Nonnull EnvelopeEnum envelope) {
     this.envelope = envelope;
     return this;
   }
@@ -160,16 +596,16 @@ public class JobOptions {
    * @return envelope
    */
   @javax.annotation.Nonnull
-  public String getEnvelope() {
+  public EnvelopeEnum getEnvelope() {
     return envelope;
   }
 
-  public void setEnvelope(@javax.annotation.Nonnull String envelope) {
+  public void setEnvelope(@javax.annotation.Nonnull EnvelopeEnum envelope) {
     this.envelope = envelope;
   }
 
 
-  public JobOptions color(@javax.annotation.Nonnull String color) {
+  public JobOptions color(@javax.annotation.Nonnull ColorEnum color) {
     this.color = color;
     return this;
   }
@@ -179,16 +615,16 @@ public class JobOptions {
    * @return color
    */
   @javax.annotation.Nonnull
-  public String getColor() {
+  public ColorEnum getColor() {
     return color;
   }
 
-  public void setColor(@javax.annotation.Nonnull String color) {
+  public void setColor(@javax.annotation.Nonnull ColorEnum color) {
     this.color = color;
   }
 
 
-  public JobOptions paperType(@javax.annotation.Nonnull String paperType) {
+  public JobOptions paperType(@javax.annotation.Nonnull PaperTypeEnum paperType) {
     this.paperType = paperType;
     return this;
   }
@@ -198,16 +634,16 @@ public class JobOptions {
    * @return paperType
    */
   @javax.annotation.Nonnull
-  public String getPaperType() {
+  public PaperTypeEnum getPaperType() {
     return paperType;
   }
 
-  public void setPaperType(@javax.annotation.Nonnull String paperType) {
+  public void setPaperType(@javax.annotation.Nonnull PaperTypeEnum paperType) {
     this.paperType = paperType;
   }
 
 
-  public JobOptions printOption(@javax.annotation.Nonnull String printOption) {
+  public JobOptions printOption(@javax.annotation.Nonnull PrintOptionEnum printOption) {
     this.printOption = printOption;
     return this;
   }
@@ -217,16 +653,16 @@ public class JobOptions {
    * @return printOption
    */
   @javax.annotation.Nonnull
-  public String getPrintOption() {
+  public PrintOptionEnum getPrintOption() {
     return printOption;
   }
 
-  public void setPrintOption(@javax.annotation.Nonnull String printOption) {
+  public void setPrintOption(@javax.annotation.Nonnull PrintOptionEnum printOption) {
     this.printOption = printOption;
   }
 
 
-  public JobOptions mailClass(@javax.annotation.Nonnull String mailClass) {
+  public JobOptions mailClass(@javax.annotation.Nonnull MailClassEnum mailClass) {
     this.mailClass = mailClass;
     return this;
   }
@@ -236,11 +672,11 @@ public class JobOptions {
    * @return mailClass
    */
   @javax.annotation.Nonnull
-  public String getMailClass() {
+  public MailClassEnum getMailClass() {
     return mailClass;
   }
 
-  public void setMailClass(@javax.annotation.Nonnull String mailClass) {
+  public void setMailClass(@javax.annotation.Nonnull MailClassEnum mailClass) {
     this.mailClass = mailClass;
   }
 
@@ -340,27 +776,43 @@ public class JobOptions {
       if (!jsonObj.get("documentClass").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `documentClass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("documentClass").toString()));
       }
+      // validate the required field `documentClass`
+      DocumentClassEnum.validateJsonElement(jsonObj.get("documentClass"));
       if (!jsonObj.get("layout").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `layout` to be a primitive type in the JSON string but got `%s`", jsonObj.get("layout").toString()));
       }
+      // validate the required field `layout`
+      LayoutEnum.validateJsonElement(jsonObj.get("layout"));
       if (!jsonObj.get("productionTime").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `productionTime` to be a primitive type in the JSON string but got `%s`", jsonObj.get("productionTime").toString()));
       }
+      // validate the required field `productionTime`
+      ProductionTimeEnum.validateJsonElement(jsonObj.get("productionTime"));
       if (!jsonObj.get("envelope").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `envelope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("envelope").toString()));
       }
+      // validate the required field `envelope`
+      EnvelopeEnum.validateJsonElement(jsonObj.get("envelope"));
       if (!jsonObj.get("color").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `color` to be a primitive type in the JSON string but got `%s`", jsonObj.get("color").toString()));
       }
+      // validate the required field `color`
+      ColorEnum.validateJsonElement(jsonObj.get("color"));
       if (!jsonObj.get("paperType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `paperType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paperType").toString()));
       }
+      // validate the required field `paperType`
+      PaperTypeEnum.validateJsonElement(jsonObj.get("paperType"));
       if (!jsonObj.get("printOption").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `printOption` to be a primitive type in the JSON string but got `%s`", jsonObj.get("printOption").toString()));
       }
+      // validate the required field `printOption`
+      PrintOptionEnum.validateJsonElement(jsonObj.get("printOption"));
       if (!jsonObj.get("mailClass").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mailClass` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mailClass").toString()));
       }
+      // validate the required field `mailClass`
+      MailClassEnum.validateJsonElement(jsonObj.get("mailClass"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

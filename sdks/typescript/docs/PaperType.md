@@ -3,10 +3,12 @@
 
 ## Enum
 
-* `Letter` (value: `'letter'`)
+* `White` (value: `'white'`)
 
-* `Legal` (value: `'legal'`)
+* `White24` (value: `'white_24'`)
 
-* `Postcard` (value: `'postcard'`)
+* `Ivory` (value: `'ivory'`)
+
+* `Glossy` (value: `'glossy'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

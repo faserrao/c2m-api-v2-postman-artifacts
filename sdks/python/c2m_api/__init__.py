@@ -34,6 +34,7 @@ __all__ = [
     "Address",
     "AuthError",
     "CardType",
+    "Color",
     "CreditAmount",
     "CreditCardDetails",
     "CreditCardPayment",
@@ -42,6 +43,8 @@ __all__ = [
     "DocSourceStandard",
     "DocSourceZipFile",
     "DocSourceZipFileRef",
+    "DocumentClass",
+    "Envelope",
     "ErrorCode",
     "ErrorResponse",
     "ErrorType",
@@ -49,15 +52,20 @@ __all__ = [
     "InvoiceDetails",
     "InvoicePayment",
     "JobOptions",
+    "Layout",
     "LongTokenRequest",
     "LongTokenResponse",
+    "MailClass",
     "MergeByRequestId",
     "MergeDocumentRef",
     "MultiDocJobItem",
     "MultiZipJobItem",
+    "PaperType",
     "PaymentDetails",
     "PdfSplitJobItemNoAddress",
     "PdfSplitJobItemWithAddress",
+    "PrintOption",
+    "ProductionTime",
     "RecipientAddressByList",
     "RecipientAddressSource",
     "RequestIdSource",
@@ -100,6 +108,7 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.address import Address as Address
     from c2m_api.models.auth_error import AuthError as AuthError
     from c2m_api.models.card_type import CardType as CardType
+    from c2m_api.models.color import Color as Color
     from c2m_api.models.credit_amount import CreditAmount as CreditAmount
     from c2m_api.models.credit_card_details import CreditCardDetails as CreditCardDetails
     from c2m_api.models.credit_card_payment import CreditCardPayment as CreditCardPayment
@@ -108,6 +117,8 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.doc_source_standard import DocSourceStandard as DocSourceStandard
     from c2m_api.models.doc_source_zip_file import DocSourceZipFile as DocSourceZipFile
     from c2m_api.models.doc_source_zip_file_ref import DocSourceZipFileRef as DocSourceZipFileRef
+    from c2m_api.models.document_class import DocumentClass as DocumentClass
+    from c2m_api.models.envelope import Envelope as Envelope
     from c2m_api.models.error_code import ErrorCode as ErrorCode
     from c2m_api.models.error_response import ErrorResponse as ErrorResponse
     from c2m_api.models.error_type import ErrorType as ErrorType
@@ -115,15 +126,20 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.invoice_details import InvoiceDetails as InvoiceDetails
     from c2m_api.models.invoice_payment import InvoicePayment as InvoicePayment
     from c2m_api.models.job_options import JobOptions as JobOptions
+    from c2m_api.models.layout import Layout as Layout
     from c2m_api.models.long_token_request import LongTokenRequest as LongTokenRequest
     from c2m_api.models.long_token_response import LongTokenResponse as LongTokenResponse
+    from c2m_api.models.mail_class import MailClass as MailClass
     from c2m_api.models.merge_by_request_id import MergeByRequestId as MergeByRequestId
     from c2m_api.models.merge_document_ref import MergeDocumentRef as MergeDocumentRef
     from c2m_api.models.multi_doc_job_item import MultiDocJobItem as MultiDocJobItem
     from c2m_api.models.multi_zip_job_item import MultiZipJobItem as MultiZipJobItem
+    from c2m_api.models.paper_type import PaperType as PaperType
     from c2m_api.models.payment_details import PaymentDetails as PaymentDetails
     from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress as PdfSplitJobItemNoAddress
     from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress as PdfSplitJobItemWithAddress
+    from c2m_api.models.print_option import PrintOption as PrintOption
+    from c2m_api.models.production_time import ProductionTime as ProductionTime
     from c2m_api.models.recipient_address_by_list import RecipientAddressByList as RecipientAddressByList
     from c2m_api.models.recipient_address_source import RecipientAddressSource as RecipientAddressSource
     from c2m_api.models.request_id_source import RequestIdSource as RequestIdSource
@@ -172,6 +188,7 @@ from c2m_api.models.ach_payment import AchPayment as AchPayment
 from c2m_api.models.address import Address as Address
 from c2m_api.models.auth_error import AuthError as AuthError
 from c2m_api.models.card_type import CardType as CardType
+from c2m_api.models.color import Color as Color
 from c2m_api.models.credit_amount import CreditAmount as CreditAmount
 from c2m_api.models.credit_card_details import CreditCardDetails as CreditCardDetails
 from c2m_api.models.credit_card_payment import CreditCardPayment as CreditCardPayment
@@ -180,6 +197,8 @@ from c2m_api.models.doc_source_all import DocSourceAll as DocSourceAll
 from c2m_api.models.doc_source_standard import DocSourceStandard as DocSourceStandard
 from c2m_api.models.doc_source_zip_file import DocSourceZipFile as DocSourceZipFile
 from c2m_api.models.doc_source_zip_file_ref import DocSourceZipFileRef as DocSourceZipFileRef
+from c2m_api.models.document_class import DocumentClass as DocumentClass
+from c2m_api.models.envelope import Envelope as Envelope
 from c2m_api.models.error_code import ErrorCode as ErrorCode
 from c2m_api.models.error_response import ErrorResponse as ErrorResponse
 from c2m_api.models.error_type import ErrorType as ErrorType
@@ -187,15 +206,20 @@ from c2m_api.models.expiration_date import ExpirationDate as ExpirationDate
 from c2m_api.models.invoice_details import InvoiceDetails as InvoiceDetails
 from c2m_api.models.invoice_payment import InvoicePayment as InvoicePayment
 from c2m_api.models.job_options import JobOptions as JobOptions
+from c2m_api.models.layout import Layout as Layout
 from c2m_api.models.long_token_request import LongTokenRequest as LongTokenRequest
 from c2m_api.models.long_token_response import LongTokenResponse as LongTokenResponse
+from c2m_api.models.mail_class import MailClass as MailClass
 from c2m_api.models.merge_by_request_id import MergeByRequestId as MergeByRequestId
 from c2m_api.models.merge_document_ref import MergeDocumentRef as MergeDocumentRef
 from c2m_api.models.multi_doc_job_item import MultiDocJobItem as MultiDocJobItem
 from c2m_api.models.multi_zip_job_item import MultiZipJobItem as MultiZipJobItem
+from c2m_api.models.paper_type import PaperType as PaperType
 from c2m_api.models.payment_details import PaymentDetails as PaymentDetails
 from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress as PdfSplitJobItemNoAddress
 from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress as PdfSplitJobItemWithAddress
+from c2m_api.models.print_option import PrintOption as PrintOption
+from c2m_api.models.production_time import ProductionTime as ProductionTime
 from c2m_api.models.recipient_address_by_list import RecipientAddressByList as RecipientAddressByList
 from c2m_api.models.recipient_address_source import RecipientAddressSource as RecipientAddressSource
 from c2m_api.models.request_id_source import RequestIdSource as RequestIdSource

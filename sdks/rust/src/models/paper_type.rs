@@ -1,7 +1,7 @@
 /*
- * C2M API v2 - Auth Overlay
+ * C2M API v2
  *
- * API for submitting documents with various routing options
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -14,28 +14,31 @@ use serde::{Deserialize, Serialize};
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum PaperType {
-    #[serde(rename = "letter")]
-    Letter,
-    #[serde(rename = "legal")]
-    Legal,
-    #[serde(rename = "postcard")]
-    Postcard,
+    #[serde(rename = "white")]
+    White,
+    #[serde(rename = "white_24")]
+    White24,
+    #[serde(rename = "ivory")]
+    Ivory,
+    #[serde(rename = "glossy")]
+    Glossy,
 
 }
 
 impl std::fmt::Display for PaperType {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::Letter => write!(f, "letter"),
-            Self::Legal => write!(f, "legal"),
-            Self::Postcard => write!(f, "postcard"),
+            Self::White => write!(f, "white"),
+            Self::White24 => write!(f, "white_24"),
+            Self::Ivory => write!(f, "ivory"),
+            Self::Glossy => write!(f, "glossy"),
         }
     }
 }
 
 impl Default for PaperType {
     fn default() -> PaperType {
-        Self::Letter
+        Self::White
     }
 }
 
