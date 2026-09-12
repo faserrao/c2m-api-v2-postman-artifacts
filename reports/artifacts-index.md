@@ -1,10 +1,10 @@
 # C2M API v2 — Artifacts Index
 
-_Generated: 2026-09-11 23:39 UTC_
+_Generated: 2026-09-12 01:25 UTC_
 
 All artifacts are produced by the CI pipeline and committed to this repository on every successful build.
 
-## API Documentation
+## API Documentation &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/docs/README.md)
 
 | Report Name | Link | Description |
 |---|---|---|
@@ -38,19 +38,19 @@ All artifacts are produced by the CI pipeline and committed to this repository o
 
 | Report Name | Link | Description |
 |---|---|---|
-| SDK — Python | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/python) | Python client library generated from the OpenAPI spec via OpenAPI Generator. |
-| SDK — JavaScript | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/javascript) | JavaScript client library for browser and Node.js environments. |
-| SDK — TypeScript | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/typescript) | TypeScript client library with full type definitions. |
-| SDK — Java | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/java) | Java client library generated from the OpenAPI spec. |
-| SDK — Go | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/go) | Go client library generated from the OpenAPI spec. |
-| SDK — Ruby | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/ruby) | Ruby gem generated from the OpenAPI spec. |
-| SDK — PHP | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/php) | PHP client library generated from the OpenAPI spec. |
-| SDK — C# | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/csharp) | C# / .NET client library generated from the OpenAPI spec. |
-| SDK — Swift | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/swift) | Swift client library for iOS and macOS applications. |
-| SDK — Kotlin | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/kotlin) | Kotlin client library generated from the OpenAPI spec. |
-| SDK — Rust | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/rust) | Rust client library generated from the OpenAPI spec. |
+| SDK — Python | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/python) &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/sdks/python/README.md) | Python client library generated from the OpenAPI spec via OpenAPI Generator. |
+| SDK — JavaScript | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/javascript) &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/sdks/javascript/README.md) | JavaScript client library for browser and Node.js environments. |
+| SDK — TypeScript | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/typescript) &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/sdks/typescript/README.md) | TypeScript client library with full type definitions. |
+| SDK — Java | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/java) &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/sdks/java/README.md) | Java client library generated from the OpenAPI spec. |
+| SDK — Go | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/go) &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/sdks/go/README.md) | Go client library generated from the OpenAPI spec. |
+| SDK — Ruby | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/ruby) &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/sdks/ruby/README.md) | Ruby gem generated from the OpenAPI spec. |
+| SDK — PHP | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/php) &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/sdks/php/README.md) | PHP client library generated from the OpenAPI spec. |
+| SDK — C# | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/csharp) &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/sdks/csharp/README.md) | C# / .NET client library generated from the OpenAPI spec. |
+| SDK — Swift | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/swift) &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/sdks/swift/README.md) | Swift client library for iOS and macOS applications. |
+| SDK — Kotlin | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/kotlin) &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/sdks/kotlin/README.md) | Kotlin client library generated from the OpenAPI spec. |
+| SDK — Rust | [Browse](https://github.com/faserrao/c2m-api-v2-postman-artifacts/tree/main/sdks/rust) &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/sdks/rust/README.md) | Rust client library generated from the OpenAPI spec. |
 
-## Data Dictionary Reports
+## Data Dictionary Reports &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/README.md)
 
 | Report Name | Link | Description |
 |---|---|---|
@@ -59,11 +59,11 @@ All artifacts are produced by the CI pipeline and committed to this repository o
 | Data Dictionary — Endpoints Expanded (Markdown) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/data-dictionary-endpoints-expanded.md) | Each API endpoint recursively expanded to every primitive leaf field with dot-path notation and descriptions. |
 | Data Dictionary — Endpoints Expanded (CSV) | [Download](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/data-dictionary-endpoints-expanded.csv) | CSV export of the endpoint expanded table for use in spreadsheets and data tools. |
 
-## CI Quality Reports
+## CI Quality Reports &nbsp;·&nbsp; [README](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/README.md)
 
 | Report Name | Link | Description |
 |---|---|---|
 | Conformance Gate | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/conformance-gate.md) | Postman collection conformance results — validates every request body against the generated OpenAPI spec. |
 | Golden Test Suite | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/golden-tests.txt) | Validator and resolver unit test results — positive/negative controls and synthetic fault injection. |
-| Newman Test Run (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/newman-c2mapiv2-test-collection-fixed-20260911-233937.html) | Most recent Newman end-to-end test run against the live API — HTML report with request/response details and pass/fail counts. |
-| Collection Validation Report (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/validation-20260911-233945.md) | Most recent per-endpoint conformance validation showing any fields that don't match the spec. |
+| Newman Test Run (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/newman-c2mapiv2-test-collection-fixed-20260912-012543.html) | Most recent Newman end-to-end test run against the live API — HTML report with request/response details and pass/fail counts. |
+| Collection Validation Report (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/validation-20260912-012553.md) | Most recent per-endpoint conformance validation showing any fields that don't match the spec. |
