@@ -55,7 +55,7 @@ Interactive API documentation with a clean, responsive design.
 - Template endpoints banner
 - Clean, professional design
 
-**Access:** http://localhost:8080/index.html (or http://localhost:8080/)
+**Access:** https://faserrao.github.io/c2m-api-v2-postman-artifacts/index.html (or https://faserrao.github.io/c2m-api-v2-postman-artifacts/)
 
 **Best for:** Reading documentation, understanding API structure
 
@@ -77,7 +77,7 @@ Modern, component-based API documentation with excellent UX.
 - Automatic request/response validation
 - Schema explorer
 
-**Access:** http://localhost:8080/elements.html
+**Access:** https://faserrao.github.io/c2m-api-v2-postman-artifacts/elements.html
 
 **Best for:** Interactive testing, API exploration, modern user experience
 
@@ -104,7 +104,7 @@ Classic interactive API explorer with comprehensive testing capabilities.
 - Multiple server support
 - Industry-standard interface
 
-**Access:** http://localhost:8080/swagger.html
+**Access:** https://faserrao.github.io/c2m-api-v2-postman-artifacts/swagger.html
 
 **Best for:** Traditional API testing, familiar interface
 
@@ -178,7 +178,7 @@ make docs-build
 # Serve documentation locally
 make docs-serve
 
-# Access at http://localhost:8080
+# Access at https://faserrao.github.io/c2m-api-v2-postman-artifacts
 ```
 
 ### Production Build
