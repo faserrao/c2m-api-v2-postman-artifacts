@@ -17,6 +17,7 @@ public struct ModelErrorResponse: Codable, JSONEncodable, Hashable {
         case authenticationError = "AuthenticationError"
         case authorizationError = "AuthorizationError"
         case resourceNotFoundError = "ResourceNotFoundError"
+        case rateLimitError = "RateLimitError"
         case serverError = "ServerError"
     }
     public enum ErrorCode: String, Codable, CaseIterable {
@@ -36,6 +37,7 @@ public struct ModelErrorResponse: Codable, JSONEncodable, Hashable {
         case serverError = "SERVER_ERROR"
         case databaseError = "DATABASE_ERROR"
         case externalServiceError = "EXTERNAL_SERVICE_ERROR"
+        case rateLimitExceeded = "RATE_LIMIT_EXCEEDED"
     }
     public var errorType: ErrorType
     public var errorMessage: String

@@ -74,6 +74,8 @@ class ErrorCode
 
     public const EXTERNAL_SERVICE_ERROR = 'EXTERNAL_SERVICE_ERROR';
 
+    public const RATE_LIMIT_EXCEEDED = 'RATE_LIMIT_EXCEEDED';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -96,7 +98,8 @@ class ErrorCode
             self::INVALID_FORMAT,
             self::SERVER_ERROR,
             self::DATABASE_ERROR,
-            self::EXTERNAL_SERVICE_ERROR
+            self::EXTERNAL_SERVICE_ERROR,
+            self::RATE_LIMIT_EXCEEDED
         ];
     }
 }

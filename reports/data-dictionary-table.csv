@@ -146,9 +146,9 @@ creditCardPayment,Data Structure,,—,Credit card payment.,object,—
 creditCardPayment,Data Structure,,"""creditCard""",JSON property key identifying the credit-card payment variant.,"""creditCard""",Required
 creditCardPayment,Data Structure,,creditCardDetails,"Credit card payment fields: card type, card number, expiration date, and CVV.",object,Required
 errorResponse,Data Structure,,—,Error response structure returned for all API error conditions.,object,—
-errorResponse,Data Structure,,errorType,"High-level error category string (ValidationError, AuthenticationError, etc.).",enum (ValidationError | AuthenticationError | AuthorizationError | ResourceNotFoundError | ServerError),Required
+errorResponse,Data Structure,,errorType,"High-level error category string (ValidationError, AuthenticationError, etc.).",enum (ValidationError | AuthenticationError | AuthorizationError | ResourceNotFoundError | RateLimitError | ServerError),Required
 errorResponse,Data Structure,,errorMessage,Human-readable error description.,string,Required
-errorResponse,Data Structure,,errorCode,Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).,enum (MISSING_REQUIRED_FIELD | INVALID_ONEOF | INVALID_JSON | MISSING_AUTH_HEADER | INVALID_TOKEN | EXPIRED_TOKEN | INSUFFICIENT_PERMISSIONS | ACCOUNT_SUSPENDED | JOB_NOT_FOUND | RESOURCE_NOT_FOUND | INVALID_ENUM_VALUE | MUTUAL_EXCLUSION_VIOLATION | INVALID_FORMAT | SERVER_ERROR | DATABASE_ERROR | EXTERNAL_SERVICE_ERROR),Required
+errorResponse,Data Structure,,errorCode,Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).,enum (MISSING_REQUIRED_FIELD | INVALID_ONEOF | INVALID_JSON | MISSING_AUTH_HEADER | INVALID_TOKEN | EXPIRED_TOKEN | INSUFFICIENT_PERMISSIONS | ACCOUNT_SUSPENDED | JOB_NOT_FOUND | RESOURCE_NOT_FOUND | INVALID_ENUM_VALUE | MUTUAL_EXCLUSION_VIOLATION | INVALID_FORMAT | SERVER_ERROR | DATABASE_ERROR | EXTERNAL_SERVICE_ERROR | RATE_LIMIT_EXCEEDED),Required
 errorResponse,Data Structure,,errorDetails,Optional JSON object with additional error context (free-form key/value pairs).,string,Optional
 errorResponse,Data Structure,,errorTrackingId,Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.,string,Optional
 expirationDate,Data Structure,,—,Card expiration date containing month and year.,object,—
@@ -256,11 +256,13 @@ errorCode,Enumeration,,INVALID_FORMAT,,string,—
 errorCode,Enumeration,,SERVER_ERROR,,string,—
 errorCode,Enumeration,,DATABASE_ERROR,,string,—
 errorCode,Enumeration,,EXTERNAL_SERVICE_ERROR,,string,—
+errorCode,Enumeration,,RATE_LIMIT_EXCEEDED,,string,—
 errorType,Enumeration,,—,"High-level error category string (ValidationError, AuthenticationError, etc.).",enum,—
 errorType,Enumeration,,ValidationError,,string,—
 errorType,Enumeration,,AuthenticationError,,string,—
 errorType,Enumeration,,AuthorizationError,,string,—
 errorType,Enumeration,,ResourceNotFoundError,,string,—
+errorType,Enumeration,,RateLimitError,,string,—
 errorType,Enumeration,,ServerError,,string,—
 docSourceAll,Union Type (oneOf),,—,"Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).",oneOf,—
 docSourceAll,Union Type (oneOf),,docSourceStandard,"Document source — standard (non-zip) variants only: requestId, documentId, or URL.",oneOf,—

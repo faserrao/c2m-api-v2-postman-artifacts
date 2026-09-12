@@ -152,7 +152,8 @@ export const ErrorCode = {
     InvalidFormat: 'INVALID_FORMAT',
     ServerError: 'SERVER_ERROR',
     DatabaseError: 'DATABASE_ERROR',
-    ExternalServiceError: 'EXTERNAL_SERVICE_ERROR'
+    ExternalServiceError: 'EXTERNAL_SERVICE_ERROR',
+    RateLimitExceeded: 'RATE_LIMIT_EXCEEDED'
 } as const;
 
 export type ErrorCode = typeof ErrorCode[keyof typeof ErrorCode];
@@ -171,6 +172,7 @@ export const ErrorResponseErrorTypeEnum = {
     AuthenticationError: 'AuthenticationError',
     AuthorizationError: 'AuthorizationError',
     ResourceNotFoundError: 'ResourceNotFoundError',
+    RateLimitError: 'RateLimitError',
     ServerError: 'ServerError'
 } as const;
 
@@ -191,7 +193,8 @@ export const ErrorResponseErrorCodeEnum = {
     InvalidFormat: 'INVALID_FORMAT',
     ServerError: 'SERVER_ERROR',
     DatabaseError: 'DATABASE_ERROR',
-    ExternalServiceError: 'EXTERNAL_SERVICE_ERROR'
+    ExternalServiceError: 'EXTERNAL_SERVICE_ERROR',
+    RateLimitExceeded: 'RATE_LIMIT_EXCEEDED'
 } as const;
 
 export type ErrorResponseErrorCodeEnum = typeof ErrorResponseErrorCodeEnum[keyof typeof ErrorResponseErrorCodeEnum];
@@ -202,6 +205,7 @@ export const ErrorType = {
     AuthenticationError: 'AuthenticationError',
     AuthorizationError: 'AuthorizationError',
     ResourceNotFoundError: 'ResourceNotFoundError',
+    RateLimitError: 'RateLimitError',
     ServerError: 'ServerError'
 } as const;
 

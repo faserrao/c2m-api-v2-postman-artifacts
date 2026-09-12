@@ -157,9 +157,9 @@ Error response structure returned for all API error conditions.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
-| `errorType` | enum (ValidationError | AuthenticationError | AuthorizationError | ResourceNotFoundError | ServerError) | Required | High-level error category string (ValidationError, AuthenticationError, etc.). |
+| `errorType` | enum (ValidationError | AuthenticationError | AuthorizationError | ResourceNotFoundError | RateLimitError | ServerError) | Required | High-level error category string (ValidationError, AuthenticationError, etc.). |
 | `errorMessage` | string | Required | Human-readable error description. |
-| `errorCode` | enum (MISSING_REQUIRED_FIELD | INVALID_ONEOF | INVALID_JSON | MISSING_AUTH_HEADER | INVALID_TOKEN | EXPIRED_TOKEN | INSUFFICIENT_PERMISSIONS | ACCOUNT_SUSPENDED | JOB_NOT_FOUND | RESOURCE_NOT_FOUND | INVALID_ENUM_VALUE | MUTUAL_EXCLUSION_VIOLATION | INVALID_FORMAT | SERVER_ERROR | DATABASE_ERROR | EXTERNAL_SERVICE_ERROR) | Required | Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). |
+| `errorCode` | enum (MISSING_REQUIRED_FIELD | INVALID_ONEOF | INVALID_JSON | MISSING_AUTH_HEADER | INVALID_TOKEN | EXPIRED_TOKEN | INSUFFICIENT_PERMISSIONS | ACCOUNT_SUSPENDED | JOB_NOT_FOUND | RESOURCE_NOT_FOUND | INVALID_ENUM_VALUE | MUTUAL_EXCLUSION_VIOLATION | INVALID_FORMAT | SERVER_ERROR | DATABASE_ERROR | EXTERNAL_SERVICE_ERROR | RATE_LIMIT_EXCEEDED) | Required | Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). |
 | `errorDetails` | string | Optional | Optional JSON object with additional error context (free-form key/value pairs). |
 | `errorTrackingId` | string | Optional | Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX. |
 
@@ -526,6 +526,7 @@ Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
 | `SERVER_ERROR` | string | — |  |
 | `DATABASE_ERROR` | string | — |  |
 | `EXTERNAL_SERVICE_ERROR` | string | — |  |
+| `RATE_LIMIT_EXCEEDED` | string | — |  |
 
 ### `errorType`
 
@@ -537,6 +538,7 @@ High-level error category string (ValidationError, AuthenticationError, etc.).
 | `AuthenticationError` | string | — |  |
 | `AuthorizationError` | string | — |  |
 | `ResourceNotFoundError` | string | — |  |
+| `RateLimitError` | string | — |  |
 | `ServerError` | string | — |  |
 
 ## Alias / Primitives

@@ -36,6 +36,7 @@ const (
 	SERVER_ERROR ErrorCode = "SERVER_ERROR"
 	DATABASE_ERROR ErrorCode = "DATABASE_ERROR"
 	EXTERNAL_SERVICE_ERROR ErrorCode = "EXTERNAL_SERVICE_ERROR"
+	RATE_LIMIT_EXCEEDED ErrorCode = "RATE_LIMIT_EXCEEDED"
 )
 
 // All allowed values of ErrorCode enum
@@ -56,6 +57,7 @@ var AllowedErrorCodeEnumValues = []ErrorCode{
 	"SERVER_ERROR",
 	"DATABASE_ERROR",
 	"EXTERNAL_SERVICE_ERROR",
+	"RATE_LIMIT_EXCEEDED",
 }
 
 func (v *ErrorCode) UnmarshalJSON(src []byte) error {

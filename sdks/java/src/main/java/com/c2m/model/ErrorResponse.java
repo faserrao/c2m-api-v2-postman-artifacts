@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * ErrorResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T10:26:17.984344773Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T10:29:55.766399516Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ErrorResponse {
   /**
    * Gets or Sets errorType
@@ -62,6 +62,8 @@ public class ErrorResponse {
     AUTHORIZATION_ERROR("AuthorizationError"),
     
     RESOURCE_NOT_FOUND_ERROR("ResourceNotFoundError"),
+    
+    RATE_LIMIT_ERROR("RateLimitError"),
     
     SERVER_ERROR("ServerError");
 
@@ -153,7 +155,9 @@ public class ErrorResponse {
     
     DATABASE_ERROR("DATABASE_ERROR"),
     
-    EXTERNAL_SERVICE_ERROR("EXTERNAL_SERVICE_ERROR");
+    EXTERNAL_SERVICE_ERROR("EXTERNAL_SERVICE_ERROR"),
+    
+    RATE_LIMIT_EXCEEDED("RATE_LIMIT_EXCEEDED");
 
     private String value;
 

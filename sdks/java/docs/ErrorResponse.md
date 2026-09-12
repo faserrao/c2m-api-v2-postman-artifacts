@@ -23,6 +23,7 @@
 | AUTHENTICATION_ERROR | &quot;AuthenticationError&quot; |
 | AUTHORIZATION_ERROR | &quot;AuthorizationError&quot; |
 | RESOURCE_NOT_FOUND_ERROR | &quot;ResourceNotFoundError&quot; |
+| RATE_LIMIT_ERROR | &quot;RateLimitError&quot; |
 | SERVER_ERROR | &quot;ServerError&quot; |
 
 
@@ -47,6 +48,7 @@
 | SERVER_ERROR | &quot;SERVER_ERROR&quot; |
 | DATABASE_ERROR | &quot;DATABASE_ERROR&quot; |
 | EXTERNAL_SERVICE_ERROR | &quot;EXTERNAL_SERVICE_ERROR&quot; |
+| RATE_LIMIT_EXCEEDED | &quot;RATE_LIMIT_EXCEEDED&quot; |
 
 
 

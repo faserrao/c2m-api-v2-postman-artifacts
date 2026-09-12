@@ -131,6 +131,13 @@ export default class ErrorCode {
         "EXTERNAL_SERVICE_ERROR" = "EXTERNAL_SERVICE_ERROR";
 
     
+        /**
+         * value: "RATE_LIMIT_EXCEEDED"
+         * @const
+         */
+        "RATE_LIMIT_EXCEEDED" = "RATE_LIMIT_EXCEEDED";
+
+    
 
     /**
     * Returns a <code>ErrorCode</code> enum value from a Javascript object name.

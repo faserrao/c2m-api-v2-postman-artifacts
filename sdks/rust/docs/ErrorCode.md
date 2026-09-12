@@ -20,6 +20,7 @@
 | ServerError | SERVER_ERROR |
 | DatabaseError | DATABASE_ERROR |
 | ExternalServiceError | EXTERNAL_SERVICE_ERROR |
+| RateLimitExceeded | RATE_LIMIT_EXCEEDED |
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

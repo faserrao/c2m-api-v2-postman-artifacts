@@ -19,10 +19,11 @@ module OpenapiClient
     AUTHENTICATION_ERROR = "AuthenticationError".freeze
     AUTHORIZATION_ERROR = "AuthorizationError".freeze
     RESOURCE_NOT_FOUND_ERROR = "ResourceNotFoundError".freeze
+    RATE_LIMIT_ERROR = "RateLimitError".freeze
     SERVER_ERROR = "ServerError".freeze
 
     def self.all_vars
-      @all_vars ||= [VALIDATION_ERROR, AUTHENTICATION_ERROR, AUTHORIZATION_ERROR, RESOURCE_NOT_FOUND_ERROR, SERVER_ERROR].freeze
+      @all_vars ||= [VALIDATION_ERROR, AUTHENTICATION_ERROR, AUTHORIZATION_ERROR, RESOURCE_NOT_FOUND_ERROR, RATE_LIMIT_ERROR, SERVER_ERROR].freeze
     end
 
     # Builds the enum from string

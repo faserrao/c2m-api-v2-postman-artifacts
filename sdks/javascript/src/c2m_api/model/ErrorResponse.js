@@ -174,6 +174,12 @@ ErrorResponse['ErrorTypeEnum'] = {
     "ResourceNotFoundError": "ResourceNotFoundError",
 
     /**
+     * value: "RateLimitError"
+     * @const
+     */
+    "RateLimitError": "RateLimitError",
+
+    /**
      * value: "ServerError"
      * @const
      */
@@ -282,7 +288,13 @@ ErrorResponse['ErrorCodeEnum'] = {
      * value: "EXTERNAL_SERVICE_ERROR"
      * @const
      */
-    "EXTERNAL_SERVICE_ERROR": "EXTERNAL_SERVICE_ERROR"
+    "EXTERNAL_SERVICE_ERROR": "EXTERNAL_SERVICE_ERROR",
+
+    /**
+     * value: "RATE_LIMIT_EXCEEDED"
+     * @const
+     */
+    "RATE_LIMIT_EXCEEDED": "RATE_LIMIT_EXCEEDED"
 };
 
 

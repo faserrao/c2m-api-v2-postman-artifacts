@@ -51,9 +51,14 @@ namespace C2M.Api.Model
         ResourceNotFoundError = 4,
 
         /// <summary>
+        /// Enum RateLimitError for value: RateLimitError
+        /// </summary>
+        RateLimitError = 5,
+
+        /// <summary>
         /// Enum ServerError for value: ServerError
         /// </summary>
-        ServerError = 5
+        ServerError = 6
     }
 
     /// <summary>
@@ -80,6 +85,9 @@ namespace C2M.Api.Model
             if (value.Equals("ResourceNotFoundError"))
                 return ErrorType.ResourceNotFoundError;
 
+            if (value.Equals("RateLimitError"))
+                return ErrorType.RateLimitError;
+
             if (value.Equals("ServerError"))
                 return ErrorType.ServerError;
 
@@ -104,6 +112,9 @@ namespace C2M.Api.Model
 
             if (value.Equals("ResourceNotFoundError"))
                 return ErrorType.ResourceNotFoundError;
+
+            if (value.Equals("RateLimitError"))
+                return ErrorType.RateLimitError;
 
             if (value.Equals("ServerError"))
                 return ErrorType.ServerError;
@@ -130,6 +141,9 @@ namespace C2M.Api.Model
 
             if (value == ErrorType.ResourceNotFoundError)
                 return "ResourceNotFoundError";
+
+            if (value == ErrorType.RateLimitError)
+                return "RateLimitError";
 
             if (value == ErrorType.ServerError)
                 return "ServerError";

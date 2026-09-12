@@ -8,6 +8,7 @@
 | AuthenticationError | AuthenticationError |
 | AuthorizationError | AuthorizationError |
 | ResourceNotFoundError | ResourceNotFoundError |
+| RateLimitError | RateLimitError |
 | ServerError | ServerError |
 
 

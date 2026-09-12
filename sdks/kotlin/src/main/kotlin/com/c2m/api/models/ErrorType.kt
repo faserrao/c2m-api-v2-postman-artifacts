@@ -22,7 +22,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: ValidationError,AuthenticationError,AuthorizationError,ResourceNotFoundError,ServerError
+ * Values: ValidationError,AuthenticationError,AuthorizationError,ResourceNotFoundError,RateLimitError,ServerError
  */
 
 @JsonClass(generateAdapter = false)
@@ -39,6 +39,9 @@ enum class ErrorType(val value: kotlin.String) {
 
     @Json(name = "ResourceNotFoundError")
     ResourceNotFoundError("ResourceNotFoundError"),
+
+    @Json(name = "RateLimitError")
+    RateLimitError("RateLimitError"),
 
     @Json(name = "ServerError")
     ServerError("ServerError");

@@ -48,6 +48,13 @@ export default class ErrorType {
 
     
         /**
+         * value: "RateLimitError"
+         * @const
+         */
+        "RateLimitError" = "RateLimitError";
+
+    
+        /**
          * value: "ServerError"
          * @const
          */

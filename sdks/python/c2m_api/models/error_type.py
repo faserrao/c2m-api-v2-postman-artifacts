@@ -30,6 +30,7 @@ class ErrorType(str, Enum):
     AUTHENTICATIONERROR = 'AuthenticationError'
     AUTHORIZATIONERROR = 'AuthorizationError'
     RESOURCENOTFOUNDERROR = 'ResourceNotFoundError'
+    RATELIMITERROR = 'RateLimitError'
     SERVERERROR = 'ServerError'
 
     @classmethod

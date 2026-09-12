@@ -27,4 +27,5 @@ public enum ErrorCode: String, Codable, CaseIterable {
     case serverError = "SERVER_ERROR"
     case databaseError = "DATABASE_ERROR"
     case externalServiceError = "EXTERNAL_SERVICE_ERROR"
+    case rateLimitExceeded = "RATE_LIMIT_EXCEEDED"
 }

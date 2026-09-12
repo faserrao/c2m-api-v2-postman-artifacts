@@ -256,6 +256,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public const ERROR_TYPE_AUTHENTICATION_ERROR = 'AuthenticationError';
     public const ERROR_TYPE_AUTHORIZATION_ERROR = 'AuthorizationError';
     public const ERROR_TYPE_RESOURCE_NOT_FOUND_ERROR = 'ResourceNotFoundError';
+    public const ERROR_TYPE_RATE_LIMIT_ERROR = 'RateLimitError';
     public const ERROR_TYPE_SERVER_ERROR = 'ServerError';
     public const ERROR_CODE_MISSING_REQUIRED_FIELD = 'MISSING_REQUIRED_FIELD';
     public const ERROR_CODE_INVALID_ONEOF = 'INVALID_ONEOF';
@@ -273,6 +274,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     public const ERROR_CODE_SERVER_ERROR = 'SERVER_ERROR';
     public const ERROR_CODE_DATABASE_ERROR = 'DATABASE_ERROR';
     public const ERROR_CODE_EXTERNAL_SERVICE_ERROR = 'EXTERNAL_SERVICE_ERROR';
+    public const ERROR_CODE_RATE_LIMIT_EXCEEDED = 'RATE_LIMIT_EXCEEDED';
 
     /**
      * Gets allowable values of the enum
@@ -286,6 +288,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             self::ERROR_TYPE_AUTHENTICATION_ERROR,
             self::ERROR_TYPE_AUTHORIZATION_ERROR,
             self::ERROR_TYPE_RESOURCE_NOT_FOUND_ERROR,
+            self::ERROR_TYPE_RATE_LIMIT_ERROR,
             self::ERROR_TYPE_SERVER_ERROR,
         ];
     }
@@ -314,6 +317,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
             self::ERROR_CODE_SERVER_ERROR,
             self::ERROR_CODE_DATABASE_ERROR,
             self::ERROR_CODE_EXTERNAL_SERVICE_ERROR,
+            self::ERROR_CODE_RATE_LIMIT_EXCEEDED,
         ];
     }
 
