@@ -79,7 +79,7 @@ configuration.api_key['ClientKey'] = os.environ["API_KEY"]
 with c2m_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = c2m_api.AuthApi(api_client)
-    long_token_request = {"grant_type":"client_credentials","client_id":"c2m_abc123","client_secret":"supersecret123","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000} # LongTokenRequest | 
+    long_token_request = {"grant_type":"client_credentials","client_id":"{{clientId}}","client_secret":"{{clientSecret}}","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000} # LongTokenRequest | 
 
     try:
         # Issue or rotate a long-term token

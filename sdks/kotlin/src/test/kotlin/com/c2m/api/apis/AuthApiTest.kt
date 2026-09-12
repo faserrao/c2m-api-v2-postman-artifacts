@@ -33,7 +33,7 @@ class AuthApiTest : ShouldSpec() {
         // to test issueLongTermToken
         should("test issueLongTermToken") {
             // uncomment below to test issueLongTermToken
-            //val longTokenRequest : LongTokenRequest = {"grant_type":"client_credentials","client_id":"c2m_abc123","client_secret":"supersecret123","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000} // LongTokenRequest | 
+            //val longTokenRequest : LongTokenRequest = {"grant_type":"client_credentials","client_id":"{{clientId}}","client_secret":"{{clientSecret}}","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000} // LongTokenRequest | 
             //val result : LongTokenResponse = apiInstance.issueLongTermToken(longTokenRequest)
             //result shouldBe ("TODO")
         }

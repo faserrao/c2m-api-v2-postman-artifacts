@@ -24,7 +24,7 @@ Issues a long-term token (e.g., 30-90 days) for automation or server-to-server u
 //import com.c2m.api.models.*
 
 val apiInstance = AuthApi()
-val longTokenRequest : LongTokenRequest = {"grant_type":"client_credentials","client_id":"c2m_abc123","client_secret":"supersecret123","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000} // LongTokenRequest | 
+val longTokenRequest : LongTokenRequest = {"grant_type":"client_credentials","client_id":"{{clientId}}","client_secret":"{{clientSecret}}","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000} // LongTokenRequest | 
 try {
     val result : LongTokenResponse = apiInstance.issueLongTermToken(longTokenRequest)
     println(result)
