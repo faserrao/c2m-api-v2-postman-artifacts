@@ -49,7 +49,7 @@ import com.c2m.JSON;
 /**
  * UserCreditPayment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:06:19.872968856Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:55:31.263756333Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class UserCreditPayment {
   public static final String SERIALIZED_NAME_CREDIT_AMOUNT = "creditAmount";
   @SerializedName(SERIALIZED_NAME_CREDIT_AMOUNT)
