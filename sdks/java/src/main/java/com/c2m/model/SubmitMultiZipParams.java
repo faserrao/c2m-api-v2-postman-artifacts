@@ -53,7 +53,7 @@ import com.c2m.JSON;
 /**
  * SubmitMultiZipParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T14:55:31.263756333Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-12T15:51:49.576493360Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class SubmitMultiZipParams {
   public static final String SERIALIZED_NAME_DOC_SOURCE_ZIP_FILE_REF = "docSourceZipFileRef";
   @SerializedName(SERIALIZED_NAME_DOC_SOURCE_ZIP_FILE_REF)
