@@ -2,7 +2,7 @@
 
 C2M API v2
 - API version: 2.0.0
-  - Build date: 2026-09-13T03:25:19.341124137Z[Etc/UTC]
+  - Build date: 2026-09-13T04:43:29.598608617Z[Etc/UTC]
   - Generator version: 7.15.0
 
 API for submitting mailing jobs with various document routing options
