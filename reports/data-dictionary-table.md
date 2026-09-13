@@ -281,7 +281,7 @@ Optional sender return address printed on the mailpiece.
 | --- | --- | --- | --- |
 | `firstName` | string | Required | Recipient's first name. |
 | `lastName` | string | Required | Recipient's last name. |
-| `company` | company | Optional | Recipient's company or organisation name (optional). |
+| `company` | string | Optional | Recipient's company or organisation name (optional). |
 | `address1` | string | Required | Primary street address line. |
 | `city` | string | Required | City name. |
 | `state` | string | Required | Two-letter state or province abbreviation. |
@@ -676,6 +676,10 @@ ACH check digit.
 ### `city`
 
 City name.
+
+### `company`
+
+Recipient's company or organisation name (optional).
 
 ### `country`
 
