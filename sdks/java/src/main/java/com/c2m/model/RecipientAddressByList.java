@@ -51,7 +51,7 @@ import com.c2m.JSON;
 /**
  * RecipientAddressByList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-13T18:09:09.075669981Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-14T01:59:36.053883833Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class RecipientAddressByList {
   public static final String SERIALIZED_NAME_MAPPING_ID = "mappingId";
   @SerializedName(SERIALIZED_NAME_MAPPING_ID)
