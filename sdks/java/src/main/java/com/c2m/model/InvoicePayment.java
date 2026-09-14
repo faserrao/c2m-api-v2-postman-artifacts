@@ -49,7 +49,7 @@ import com.c2m.JSON;
 /**
  * InvoicePayment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-14T19:06:19.471550080Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-14T22:23:51.006478321Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class InvoicePayment {
   public static final String SERIALIZED_NAME_INVOICE_DETAILS = "invoiceDetails";
   @SerializedName(SERIALIZED_NAME_INVOICE_DETAILS)
