@@ -55,7 +55,7 @@ import com.c2m.JSON;
 /**
  * SubmitMultiDocMergeParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-14T08:49:17.223867092Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-14T18:42:44.468553752Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class SubmitMultiDocMergeParams {
   public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
   @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)
