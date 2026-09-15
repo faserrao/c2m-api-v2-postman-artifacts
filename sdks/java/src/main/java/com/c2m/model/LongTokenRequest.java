@@ -50,7 +50,7 @@ import com.c2m.JSON;
 /**
  * One of several credential mechanisms must be provided.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-14T23:57:37.867667603Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T00:12:02.887008233Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class LongTokenRequest {
   /**
    * The authentication grant type
