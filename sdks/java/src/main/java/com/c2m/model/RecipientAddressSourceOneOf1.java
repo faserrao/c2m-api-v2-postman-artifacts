@@ -49,7 +49,7 @@ import com.c2m.JSON;
 /**
  * RecipientAddressSourceOneOf1
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T07:21:03.354774142Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T07:25:22.805632768Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class RecipientAddressSourceOneOf1 {
   public static final String SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_LIST = "recipientAddressByList";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_LIST)
