@@ -1,5 +1,5 @@
 window.onload = function () {
-  var MOCK_SERVER_URL = "https://230a79ac-9548-47d1-a343-9dd3fb9faa3e.mock.pstmn.io";
+  var MOCK_SERVER_URL = "https://97c63f25-324f-4b17-a8bb-3e6b9f11b4e5.mock.pstmn.io";
 
   const ui = SwaggerUIBundle({
     url: "swagger.yaml",
