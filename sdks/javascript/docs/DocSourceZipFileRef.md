@@ -4,5 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**zipDocumentId** | **Number** |  | 
+**requestId** | **Number** |  | 
 
 

@@ -35,9 +35,13 @@ class TestDocSourceZipFileRef(unittest.TestCase):
         model = DocSourceZipFileRef()
         if include_optional:
             return DocSourceZipFileRef(
+                zip_document_id = 56,
+                request_id = 56
             )
         else:
             return DocSourceZipFileRef(
+                zip_document_id = 56,
+                request_id = 56,
         )
         """
 

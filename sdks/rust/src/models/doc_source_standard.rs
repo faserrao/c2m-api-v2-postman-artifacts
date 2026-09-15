@@ -14,9 +14,9 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DocSourceStandard {
-    DocumentIdSource(i32),
+    DocumentIdSource(Box<models::DocumentIdSource>),
     RequestIdSource(Box<models::RequestIdSource>),
-    UrlSource(String),
+    UrlSource(Box<models::UrlSource>),
 }
 
 impl Default for DocSourceStandard {

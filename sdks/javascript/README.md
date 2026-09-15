@@ -159,6 +159,7 @@ Class | Method | HTTP request | Description
  - [C2MApiV2.DocSourceZipFile](docs/DocSourceZipFile.md)
  - [C2MApiV2.DocSourceZipFileRef](docs/DocSourceZipFileRef.md)
  - [C2MApiV2.DocumentClass](docs/DocumentClass.md)
+ - [C2MApiV2.DocumentIdSource](docs/DocumentIdSource.md)
  - [C2MApiV2.Envelope](docs/Envelope.md)
  - [C2MApiV2.ErrorCode](docs/ErrorCode.md)
  - [C2MApiV2.ErrorResponse](docs/ErrorResponse.md)
@@ -171,6 +172,7 @@ Class | Method | HTTP request | Description
  - [C2MApiV2.LongTokenRequest](docs/LongTokenRequest.md)
  - [C2MApiV2.LongTokenResponse](docs/LongTokenResponse.md)
  - [C2MApiV2.MailClass](docs/MailClass.md)
+ - [C2MApiV2.MergeByDocumentId](docs/MergeByDocumentId.md)
  - [C2MApiV2.MergeByRequestId](docs/MergeByRequestId.md)
  - [C2MApiV2.MergeDocumentRef](docs/MergeDocumentRef.md)
  - [C2MApiV2.MultiDocJobItem](docs/MultiDocJobItem.md)
@@ -195,9 +197,12 @@ Class | Method | HTTP request | Description
  - [C2MApiV2.SubmitSinglePdfAddressCaptureParams](docs/SubmitSinglePdfAddressCaptureParams.md)
  - [C2MApiV2.SubmitSinglePdfSplitAddressCaptureParams](docs/SubmitSinglePdfSplitAddressCaptureParams.md)
  - [C2MApiV2.SubmitSinglePdfSplitParams](docs/SubmitSinglePdfSplitParams.md)
+ - [C2MApiV2.UrlSource](docs/UrlSource.md)
  - [C2MApiV2.UserCreditPayment](docs/UserCreditPayment.md)
+ - [C2MApiV2.ZipDocumentIdOnly](docs/ZipDocumentIdOnly.md)
  - [C2MApiV2.ZipDocumentIdSource](docs/ZipDocumentIdSource.md)
  - [C2MApiV2.ZipDocumentSource](docs/ZipDocumentSource.md)
+ - [C2MApiV2.ZipRequestIdOnly](docs/ZipRequestIdOnly.md)
  - [C2MApiV2.ZipRequestIdSource](docs/ZipRequestIdSource.md)
 
 

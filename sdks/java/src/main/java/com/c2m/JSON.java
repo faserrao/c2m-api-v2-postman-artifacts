@@ -107,6 +107,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceStandard.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceZipFile.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceZipFileRef.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocumentIdSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ErrorResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ExpirationDate.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.InvoiceDetails.CustomTypeAdapterFactory());
@@ -114,6 +115,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.JobOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.LongTokenRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.LongTokenResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.MergeByDocumentId.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.MergeByRequestId.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.MergeDocumentRef.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.MultiDocJobItem.CustomTypeAdapterFactory());
@@ -135,9 +137,12 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitSinglePdfAddressCaptureParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitSinglePdfSplitAddressCaptureParams.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.SubmitSinglePdfSplitParams.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.UrlSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.UserCreditPayment.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ZipDocumentIdOnly.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ZipDocumentIdSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ZipDocumentSource.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ZipRequestIdOnly.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ZipRequestIdSource.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();
     }

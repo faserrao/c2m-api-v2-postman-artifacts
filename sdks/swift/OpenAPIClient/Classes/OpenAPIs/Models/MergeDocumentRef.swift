@@ -11,13 +11,13 @@ import AnyCodable
 #endif
 
 public enum MergeDocumentRef: Codable, JSONEncodable, Hashable {
-    case typeInt(Int)
+    case typeMergeByDocumentId(MergeByDocumentId)
     case typeMergeByRequestId(MergeByRequestId)
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
-        case .typeInt(let value):
+        case .typeMergeByDocumentId(let value):
             try container.encode(value)
         case .typeMergeByRequestId(let value):
             try container.encode(value)
@@ -26,8 +26,8 @@ public enum MergeDocumentRef: Codable, JSONEncodable, Hashable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        if let value = try? container.decode(Int.self) {
-            self = .typeInt(value)
+        if let value = try? container.decode(MergeByDocumentId.self) {
+            self = .typeMergeByDocumentId(value)
         } else if let value = try? container.decode(MergeByRequestId.self) {
             self = .typeMergeByRequestId(value)
         } else {

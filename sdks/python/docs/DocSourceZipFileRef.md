@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**zip_document_id** | **int** |  | 
+**request_id** | **int** |  | 
 
 ## Example
 

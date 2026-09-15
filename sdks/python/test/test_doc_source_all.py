@@ -35,15 +35,19 @@ class TestDocSourceAll(unittest.TestCase):
         model = DocSourceAll()
         if include_optional:
             return DocSourceAll(
+                document_id = 56,
                 request_id = 56,
                 filename = '',
+                url = '',
                 zip_document_id = 56,
                 zip_filename = ''
             )
         else:
             return DocSourceAll(
+                document_id = 56,
                 request_id = 56,
                 filename = '',
+                url = '',
                 zip_document_id = 56,
                 zip_filename = '',
         )

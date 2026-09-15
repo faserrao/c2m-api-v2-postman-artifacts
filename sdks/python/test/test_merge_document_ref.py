@@ -35,11 +35,13 @@ class TestMergeDocumentRef(unittest.TestCase):
         model = MergeDocumentRef()
         if include_optional:
             return MergeDocumentRef(
+                document_id = 56,
                 request_id = 56,
                 filename = ''
             )
         else:
             return MergeDocumentRef(
+                document_id = 56,
                 request_id = 56,
         )
         """

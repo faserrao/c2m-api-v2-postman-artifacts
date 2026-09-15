@@ -12,7 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
+import DocumentIdSource from './DocumentIdSource';
 import RequestIdSource from './RequestIdSource';
+import UrlSource from './UrlSource';
 
 /**
  * The DocSourceStandard model module.
@@ -23,7 +25,7 @@ class DocSourceStandard {
     /**
      * Constructs a new <code>DocSourceStandard</code>.
      * @alias module:c2m_api/model/DocSourceStandard
-     * @param {(module:c2m_api/model/Number|module:c2m_api/model/RequestIdSource|module:c2m_api/model/String)} instance The actual instance to initialize DocSourceStandard.
+     * @param {(module:c2m_api/model/DocumentIdSource|module:c2m_api/model/RequestIdSource|module:c2m_api/model/UrlSource)} instance The actual instance to initialize DocSourceStandard.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -33,15 +35,19 @@ class DocSourceStandard {
         var match = 0;
         var errorMessages = [];
         try {
-            // validate integer
-            if (!(typeof instance === 'number' && instance % 1 === 0)) {
-                throw new Error("Invalid value. Must be integer. Input: " + JSON.stringify(instance));
+            if (typeof instance === "DocumentIdSource") {
+                this.actualInstance = instance;
+            } else {
+                // plain JS object
+                // validate the object
+                DocumentIdSource.validateJSON(instance); // throw an exception if no match
+                // create DocumentIdSource from JS object
+                this.actualInstance = DocumentIdSource.constructFromObject(instance);
             }
-            this.actualInstance = instance;
             match++;
         } catch(err) {
-            // json data failed to deserialize into Number
-            errorMessages.push("Failed to construct Number: " + err)
+            // json data failed to deserialize into DocumentIdSource
+            errorMessages.push("Failed to construct DocumentIdSource: " + err)
         }
 
         try {
@@ -61,22 +67,26 @@ class DocSourceStandard {
         }
 
         try {
-            // validate string
-            if (!(typeof instance === 'string')) {
-                throw new Error("Invalid value. Must be string. Input: " + JSON.stringify(instance));
+            if (typeof instance === "UrlSource") {
+                this.actualInstance = instance;
+            } else {
+                // plain JS object
+                // validate the object
+                UrlSource.validateJSON(instance); // throw an exception if no match
+                // create UrlSource from JS object
+                this.actualInstance = UrlSource.constructFromObject(instance);
             }
-            this.actualInstance = instance;
             match++;
         } catch(err) {
-            // json data failed to deserialize into String
-            errorMessages.push("Failed to construct String: " + err)
+            // json data failed to deserialize into UrlSource
+            errorMessages.push("Failed to construct UrlSource: " + err)
         }
 
         if (match > 1) {
-            throw new Error("Multiple matches found constructing `DocSourceStandard` with oneOf schemas Number, RequestIdSource, String. Input: " + JSON.stringify(instance));
+            throw new Error("Multiple matches found constructing `DocSourceStandard` with oneOf schemas DocumentIdSource, RequestIdSource, UrlSource. Input: " + JSON.stringify(instance));
         } else if (match === 0) {
             this.actualInstance = null; // clear the actual instance in case there are multiple matches
-            throw new Error("No match found constructing `DocSourceStandard` with oneOf schemas Number, RequestIdSource, String. Details: " +
+            throw new Error("No match found constructing `DocSourceStandard` with oneOf schemas DocumentIdSource, RequestIdSource, UrlSource. Details: " +
                             errorMessages.join(", "));
         } else { // only 1 match
             // the input is valid
@@ -95,16 +105,16 @@ class DocSourceStandard {
     }
 
     /**
-     * Gets the actual instance, which can be <code>Number</code>, <code>RequestIdSource</code>, <code>String</code>.
-     * @return {(module:c2m_api/model/Number|module:c2m_api/model/RequestIdSource|module:c2m_api/model/String)} The actual instance.
+     * Gets the actual instance, which can be <code>DocumentIdSource</code>, <code>RequestIdSource</code>, <code>UrlSource</code>.
+     * @return {(module:c2m_api/model/DocumentIdSource|module:c2m_api/model/RequestIdSource|module:c2m_api/model/UrlSource)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>Number</code>, <code>RequestIdSource</code>, <code>String</code>.
-     * @param {(module:c2m_api/model/Number|module:c2m_api/model/RequestIdSource|module:c2m_api/model/String)} obj The actual instance.
+     * Sets the actual instance, which can be <code>DocumentIdSource</code>, <code>RequestIdSource</code>, <code>UrlSource</code>.
+     * @param {(module:c2m_api/model/DocumentIdSource|module:c2m_api/model/RequestIdSource|module:c2m_api/model/UrlSource)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = DocSourceStandard.constructFromObject(obj).getActualInstance();
@@ -129,6 +139,11 @@ class DocSourceStandard {
 }
 
 /**
+ * @member {Number} documentId
+ */
+DocSourceStandard.prototype['documentId'] = undefined;
+
+/**
  * @member {Number} requestId
  */
 DocSourceStandard.prototype['requestId'] = undefined;
@@ -138,8 +153,13 @@ DocSourceStandard.prototype['requestId'] = undefined;
  */
 DocSourceStandard.prototype['filename'] = undefined;
 
+/**
+ * @member {String} url
+ */
+DocSourceStandard.prototype['url'] = undefined;
 
-DocSourceStandard.OneOf = ["Number", "RequestIdSource", "String"];
+
+DocSourceStandard.OneOf = ["DocumentIdSource", "RequestIdSource", "UrlSource"];
 
 export default DocSourceStandard;
 

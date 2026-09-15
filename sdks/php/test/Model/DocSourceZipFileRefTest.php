@@ -78,4 +78,22 @@ class DocSourceZipFileRefTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "zip_document_id"
+     */
+    public function testPropertyZipDocumentId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "request_id"
+     */
+    public function testPropertyRequestId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

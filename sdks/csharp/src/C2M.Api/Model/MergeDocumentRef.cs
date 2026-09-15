@@ -33,10 +33,10 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MergeDocumentRef" /> class.
         /// </summary>
-        /// <param name="int"></param>
-        public MergeDocumentRef(int @int)
+        /// <param name="mergeByDocumentId"></param>
+        public MergeDocumentRef(MergeByDocumentId mergeByDocumentId)
         {
-            Int = @int;
+            MergeByDocumentId = mergeByDocumentId;
             OnCreated();
         }
 
@@ -53,9 +53,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets Int
+        /// Gets or Sets MergeByDocumentId
         /// </summary>
-        public int? Int { get; set; }
+        public MergeByDocumentId? MergeByDocumentId { get; set; }
 
         /// <summary>
         /// Gets or Sets MergeByRequestId
@@ -107,7 +107,7 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            int? varInt = default;
+            MergeByDocumentId? mergeByDocumentId = default;
             MergeByRequestId? mergeByRequestId = default;
 
             Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
@@ -121,8 +121,8 @@ namespace C2M.Api.Model
 
                 if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
                 {
-                    Utf8JsonReader utf8JsonReaderInt = utf8JsonReader;
-                    ClientUtils.TryDeserialize<int?>(ref utf8JsonReaderInt, jsonSerializerOptions, out varInt);
+                    Utf8JsonReader utf8JsonReaderMergeByDocumentId = utf8JsonReader;
+                    ClientUtils.TryDeserialize<MergeByDocumentId?>(ref utf8JsonReaderMergeByDocumentId, jsonSerializerOptions, out mergeByDocumentId);
 
                     Utf8JsonReader utf8JsonReaderMergeByRequestId = utf8JsonReader;
                     ClientUtils.TryDeserialize<MergeByRequestId?>(ref utf8JsonReaderMergeByRequestId, jsonSerializerOptions, out mergeByRequestId);
@@ -150,8 +150,8 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (varInt != null)
-                return new MergeDocumentRef(varInt.Value);
+            if (mergeByDocumentId != null)
+                return new MergeDocumentRef(mergeByDocumentId);
 
             if (mergeByRequestId != null)
                 return new MergeDocumentRef(mergeByRequestId);

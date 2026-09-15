@@ -13,6 +13,15 @@
 
 package com.c2m.model;
 
+import com.c2m.model.ZipDocumentIdOnly;
+import com.c2m.model.ZipRequestIdOnly;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -28,6 +37,22 @@ public class DocSourceZipFileRefTest {
     @Test
     public void testDocSourceZipFileRef() {
         // TODO: test DocSourceZipFileRef
+    }
+
+    /**
+     * Test the property 'zipDocumentId'
+     */
+    @Test
+    public void zipDocumentIdTest() {
+        // TODO: test zipDocumentId
+    }
+
+    /**
+     * Test the property 'requestId'
+     */
+    @Test
+    public void requestIdTest() {
+        // TODO: test requestId
     }
 
 }

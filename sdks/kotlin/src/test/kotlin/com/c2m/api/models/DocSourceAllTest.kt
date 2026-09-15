@@ -27,6 +27,12 @@ class DocSourceAllTest : ShouldSpec() {
         // uncomment below to create an instance of DocSourceAll
         //val modelInstance = DocSourceAll()
 
+        // to test the property `documentId`
+        should("test documentId") {
+            // uncomment below to test the property
+            //modelInstance.documentId shouldBe ("TODO")
+        }
+
         // to test the property `requestId`
         should("test requestId") {
             // uncomment below to test the property
@@ -37,6 +43,12 @@ class DocSourceAllTest : ShouldSpec() {
         should("test filename") {
             // uncomment below to test the property
             //modelInstance.filename shouldBe ("TODO")
+        }
+
+        // to test the property `url`
+        should("test url") {
+            // uncomment below to test the property
+            //modelInstance.url shouldBe ("TODO")
         }
 
         // to test the property `zipDocumentId`

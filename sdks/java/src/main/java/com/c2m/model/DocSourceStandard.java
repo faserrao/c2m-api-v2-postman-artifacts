@@ -14,13 +14,16 @@
 package com.c2m.model;
 
 import java.util.Objects;
+import com.c2m.model.DocumentIdSource;
 import com.c2m.model.RequestIdSource;
+import com.c2m.model.UrlSource;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Arrays;
 
 
@@ -58,7 +61,7 @@ import com.google.gson.JsonParseException;
 
 import com.c2m.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T00:28:32.711721413Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T02:54:50.388651928Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class DocSourceStandard extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(DocSourceStandard.class.getName());
 
@@ -70,9 +73,9 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'DocSourceStandard' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Integer> adapterInteger = gson.getDelegateAdapter(this, TypeToken.get(Integer.class));
+            final TypeAdapter<DocumentIdSource> adapterDocumentIdSource = gson.getDelegateAdapter(this, TypeToken.get(DocumentIdSource.class));
             final TypeAdapter<RequestIdSource> adapterRequestIdSource = gson.getDelegateAdapter(this, TypeToken.get(RequestIdSource.class));
-            final TypeAdapter<String> adapterString = gson.getDelegateAdapter(this, TypeToken.get(String.class));
+            final TypeAdapter<UrlSource> adapterUrlSource = gson.getDelegateAdapter(this, TypeToken.get(UrlSource.class));
 
             return (TypeAdapter<T>) new TypeAdapter<DocSourceStandard>() {
                 @Override
@@ -82,10 +85,10 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `Integer`
-                    if (value.getActualInstance() instanceof Integer) {
-                        JsonPrimitive primitive = adapterInteger.toJsonTree((Integer)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
+                    // check if the actual instance is of the type `DocumentIdSource`
+                    if (value.getActualInstance() instanceof DocumentIdSource) {
+                        JsonElement element = adapterDocumentIdSource.toJsonTree((DocumentIdSource)value.getActualInstance());
+                        elementAdapter.write(out, element);
                         return;
                     }
                     // check if the actual instance is of the type `RequestIdSource`
@@ -94,13 +97,13 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `String`
-                    if (value.getActualInstance() instanceof String) {
-                        JsonPrimitive primitive = adapterString.toJsonTree((String)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
+                    // check if the actual instance is of the type `UrlSource`
+                    if (value.getActualInstance() instanceof UrlSource) {
+                        JsonElement element = adapterUrlSource.toJsonTree((UrlSource)value.getActualInstance());
+                        elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Integer, RequestIdSource, String");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: DocumentIdSource, RequestIdSource, UrlSource");
                 }
 
                 @Override
@@ -112,19 +115,17 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize Integer
+                    // deserialize DocumentIdSource
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                            throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-                        }
-                        actualAdapter = adapterInteger;
+                        DocumentIdSource.validateJsonElement(jsonElement);
+                        actualAdapter = adapterDocumentIdSource;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'Integer'");
+                        log.log(Level.FINER, "Input data matches schema 'DocumentIdSource'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for Integer failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'Integer'", e);
+                        errorMessages.add(String.format("Deserialization for DocumentIdSource failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'DocumentIdSource'", e);
                     }
                     // deserialize RequestIdSource
                     try {
@@ -138,19 +139,17 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for RequestIdSource failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'RequestIdSource'", e);
                     }
-                    // deserialize String
+                    // deserialize UrlSource
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        if (!jsonElement.getAsJsonPrimitive().isString()) {
-                            throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
-                        }
-                        actualAdapter = adapterString;
+                        UrlSource.validateJsonElement(jsonElement);
+                        actualAdapter = adapterUrlSource;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'String'");
+                        log.log(Level.FINER, "Input data matches schema 'UrlSource'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'String'", e);
+                        errorMessages.add(String.format("Deserialization for UrlSource failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'UrlSource'", e);
                     }
 
                     if (match == 1) {
@@ -178,9 +177,9 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("Integer", Integer.class);
+        schemas.put("DocumentIdSource", DocumentIdSource.class);
         schemas.put("RequestIdSource", RequestIdSource.class);
-        schemas.put("String", String.class);
+        schemas.put("UrlSource", UrlSource.class);
     }
 
     @Override
@@ -191,13 +190,13 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * Integer, RequestIdSource, String
+     * DocumentIdSource, RequestIdSource, UrlSource
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof Integer) {
+        if (instance instanceof DocumentIdSource) {
             super.setActualInstance(instance);
             return;
         }
@@ -207,19 +206,19 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof String) {
+        if (instance instanceof UrlSource) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be Integer, RequestIdSource, String");
+        throw new RuntimeException("Invalid instance type. Must be DocumentIdSource, RequestIdSource, UrlSource");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * Integer, RequestIdSource, String
+     * DocumentIdSource, RequestIdSource, UrlSource
      *
-     * @return The actual instance (Integer, RequestIdSource, String)
+     * @return The actual instance (DocumentIdSource, RequestIdSource, UrlSource)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -228,14 +227,14 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `Integer`. If the actual instance is not `Integer`,
+     * Get the actual instance of `DocumentIdSource`. If the actual instance is not `DocumentIdSource`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `Integer`
-     * @throws ClassCastException if the instance is not `Integer`
+     * @return The actual instance of `DocumentIdSource`
+     * @throws ClassCastException if the instance is not `DocumentIdSource`
      */
-    public Integer getInteger() throws ClassCastException {
-        return (Integer)super.getActualInstance();
+    public DocumentIdSource getDocumentIdSource() throws ClassCastException {
+        return (DocumentIdSource)super.getActualInstance();
     }
 
     /**
@@ -250,14 +249,14 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `String`. If the actual instance is not `String`,
+     * Get the actual instance of `UrlSource`. If the actual instance is not `UrlSource`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `String`
-     * @throws ClassCastException if the instance is not `String`
+     * @return The actual instance of `UrlSource`
+     * @throws ClassCastException if the instance is not `UrlSource`
      */
-    public String getString() throws ClassCastException {
-        return (String)super.getActualInstance();
+    public UrlSource getUrlSource() throws ClassCastException {
+        return (UrlSource)super.getActualInstance();
     }
 
     /**
@@ -270,14 +269,12 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with Integer
+        // validate the json string with DocumentIdSource
         try {
-            if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-            }
+            DocumentIdSource.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for Integer failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for DocumentIdSource failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         // validate the json string with RequestIdSource
@@ -288,18 +285,16 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for RequestIdSource failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with String
+        // validate the json string with UrlSource
         try {
-            if (!jsonElement.getAsJsonPrimitive().isString()) {
-                throw new IllegalArgumentException(String.format("Expected json element to be of type String in the JSON string but got `%s`", jsonElement.toString()));
-            }
+            UrlSource.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for String failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for UrlSource failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for DocSourceStandard with oneOf schemas: Integer, RequestIdSource, String. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format("The JSON string is invalid for DocSourceStandard with oneOf schemas: DocumentIdSource, RequestIdSource, UrlSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

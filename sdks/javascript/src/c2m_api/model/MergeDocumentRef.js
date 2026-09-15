@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import MergeByDocumentId from './MergeByDocumentId';
 import MergeByRequestId from './MergeByRequestId';
 
 /**
@@ -23,7 +24,7 @@ class MergeDocumentRef {
     /**
      * Constructs a new <code>MergeDocumentRef</code>.
      * @alias module:c2m_api/model/MergeDocumentRef
-     * @param {(module:c2m_api/model/MergeByRequestId|module:c2m_api/model/Number)} instance The actual instance to initialize MergeDocumentRef.
+     * @param {(module:c2m_api/model/MergeByDocumentId|module:c2m_api/model/MergeByRequestId)} instance The actual instance to initialize MergeDocumentRef.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -33,15 +34,19 @@ class MergeDocumentRef {
         var match = 0;
         var errorMessages = [];
         try {
-            // validate integer
-            if (!(typeof instance === 'number' && instance % 1 === 0)) {
-                throw new Error("Invalid value. Must be integer. Input: " + JSON.stringify(instance));
+            if (typeof instance === "MergeByDocumentId") {
+                this.actualInstance = instance;
+            } else {
+                // plain JS object
+                // validate the object
+                MergeByDocumentId.validateJSON(instance); // throw an exception if no match
+                // create MergeByDocumentId from JS object
+                this.actualInstance = MergeByDocumentId.constructFromObject(instance);
             }
-            this.actualInstance = instance;
             match++;
         } catch(err) {
-            // json data failed to deserialize into Number
-            errorMessages.push("Failed to construct Number: " + err)
+            // json data failed to deserialize into MergeByDocumentId
+            errorMessages.push("Failed to construct MergeByDocumentId: " + err)
         }
 
         try {
@@ -61,10 +66,10 @@ class MergeDocumentRef {
         }
 
         if (match > 1) {
-            throw new Error("Multiple matches found constructing `MergeDocumentRef` with oneOf schemas MergeByRequestId, Number. Input: " + JSON.stringify(instance));
+            throw new Error("Multiple matches found constructing `MergeDocumentRef` with oneOf schemas MergeByDocumentId, MergeByRequestId. Input: " + JSON.stringify(instance));
         } else if (match === 0) {
             this.actualInstance = null; // clear the actual instance in case there are multiple matches
-            throw new Error("No match found constructing `MergeDocumentRef` with oneOf schemas MergeByRequestId, Number. Details: " +
+            throw new Error("No match found constructing `MergeDocumentRef` with oneOf schemas MergeByDocumentId, MergeByRequestId. Details: " +
                             errorMessages.join(", "));
         } else { // only 1 match
             // the input is valid
@@ -83,16 +88,16 @@ class MergeDocumentRef {
     }
 
     /**
-     * Gets the actual instance, which can be <code>MergeByRequestId</code>, <code>Number</code>.
-     * @return {(module:c2m_api/model/MergeByRequestId|module:c2m_api/model/Number)} The actual instance.
+     * Gets the actual instance, which can be <code>MergeByDocumentId</code>, <code>MergeByRequestId</code>.
+     * @return {(module:c2m_api/model/MergeByDocumentId|module:c2m_api/model/MergeByRequestId)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>MergeByRequestId</code>, <code>Number</code>.
-     * @param {(module:c2m_api/model/MergeByRequestId|module:c2m_api/model/Number)} obj The actual instance.
+     * Sets the actual instance, which can be <code>MergeByDocumentId</code>, <code>MergeByRequestId</code>.
+     * @param {(module:c2m_api/model/MergeByDocumentId|module:c2m_api/model/MergeByRequestId)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = MergeDocumentRef.constructFromObject(obj).getActualInstance();
@@ -117,6 +122,11 @@ class MergeDocumentRef {
 }
 
 /**
+ * @member {Number} documentId
+ */
+MergeDocumentRef.prototype['documentId'] = undefined;
+
+/**
  * @member {Number} requestId
  */
 MergeDocumentRef.prototype['requestId'] = undefined;
@@ -127,7 +137,7 @@ MergeDocumentRef.prototype['requestId'] = undefined;
 MergeDocumentRef.prototype['filename'] = undefined;
 
 
-MergeDocumentRef.OneOf = ["MergeByRequestId", "Number"];
+MergeDocumentRef.OneOf = ["MergeByDocumentId", "MergeByRequestId"];
 
 export default MergeDocumentRef;
 

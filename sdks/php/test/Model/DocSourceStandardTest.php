@@ -80,6 +80,15 @@ class DocSourceStandardTest extends TestCase
     }
 
     /**
+     * Test attribute "document_id"
+     */
+    public function testPropertyDocumentId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "request_id"
      */
     public function testPropertyRequestId()
@@ -92,6 +101,15 @@ class DocSourceStandardTest extends TestCase
      * Test attribute "filename"
      */
     public function testPropertyFilename()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "url"
+     */
+    public function testPropertyUrl()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

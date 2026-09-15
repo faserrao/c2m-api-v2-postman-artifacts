@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**documentId** | **number** |  | [default to undefined]
 **requestId** | **number** |  | [default to undefined]
 **filename** | **string** |  | [optional] [default to undefined]
 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 import { MergeDocumentRef } from './api';
 
 const instance: MergeDocumentRef = {
+    documentId,
     requestId,
     filename,
 };

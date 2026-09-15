@@ -132,7 +132,7 @@ export type DocSourceAll = DocSourceStandard | DocSourceZipFile;
 /**
  * @type DocSourceStandard
  */
-export type DocSourceStandard = RequestIdSource | number | string;
+export type DocSourceStandard = DocumentIdSource | RequestIdSource | UrlSource;
 
 /**
  * @type DocSourceZipFile
@@ -142,7 +142,7 @@ export type DocSourceZipFile = ZipDocumentIdSource | ZipRequestIdSource;
 /**
  * @type DocSourceZipFileRef
  */
-export type DocSourceZipFileRef = number;
+export type DocSourceZipFileRef = ZipDocumentIdOnly | ZipRequestIdOnly;
 
 
 export const DocumentClass = {
@@ -155,6 +155,9 @@ export const DocumentClass = {
 export type DocumentClass = typeof DocumentClass[keyof typeof DocumentClass];
 
 
+export interface DocumentIdSource {
+    'documentId': number;
+}
 
 export const Envelope = {
     Standard: 'standard',
@@ -418,6 +421,9 @@ export const MailClass = {
 export type MailClass = typeof MailClass[keyof typeof MailClass];
 
 
+export interface MergeByDocumentId {
+    'documentId': number;
+}
 export interface MergeByRequestId {
     'requestId': number;
     'filename'?: string;
@@ -425,7 +431,7 @@ export interface MergeByRequestId {
 /**
  * @type MergeDocumentRef
  */
-export type MergeDocumentRef = MergeByRequestId | number;
+export type MergeDocumentRef = MergeByDocumentId | MergeByRequestId;
 
 export interface MultiDocJobItem {
     'jobTemplate'?: string;
@@ -613,8 +619,14 @@ export interface SubmitSinglePdfSplitParams {
     'jobOptions'?: JobOptions;
     'tags'?: Array<string>;
 }
+export interface UrlSource {
+    'url': string;
+}
 export interface UserCreditPayment {
     'creditAmount': CreditAmount;
+}
+export interface ZipDocumentIdOnly {
+    'zipDocumentId': number;
 }
 export interface ZipDocumentIdSource {
     'zipDocumentId': number;
@@ -625,6 +637,9 @@ export interface ZipDocumentIdSource {
  */
 export type ZipDocumentSource = ZipDocumentIdSource | ZipRequestIdSource;
 
+export interface ZipRequestIdOnly {
+    'requestId': number;
+}
 export interface ZipRequestIdSource {
     'requestId': number;
     'zipFilename': string;

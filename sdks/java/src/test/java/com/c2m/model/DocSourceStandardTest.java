@@ -13,13 +13,16 @@
 
 package com.c2m.model;
 
+import com.c2m.model.DocumentIdSource;
 import com.c2m.model.RequestIdSource;
+import com.c2m.model.UrlSource;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -39,6 +42,14 @@ public class DocSourceStandardTest {
     }
 
     /**
+     * Test the property 'documentId'
+     */
+    @Test
+    public void documentIdTest() {
+        // TODO: test documentId
+    }
+
+    /**
      * Test the property 'requestId'
      */
     @Test
@@ -52,6 +63,14 @@ public class DocSourceStandardTest {
     @Test
     public void filenameTest() {
         // TODO: test filename
+    }
+
+    /**
+     * Test the property 'url'
+     */
+    @Test
+    public void urlTest() {
+        // TODO: test url
     }
 
 }

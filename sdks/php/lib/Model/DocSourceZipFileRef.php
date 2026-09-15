@@ -57,7 +57,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'zip_document_id' => 'int',
+        'request_id' => 'int'
     ];
 
     /**
@@ -68,7 +69,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'zip_document_id' => null,
+        'request_id' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'zip_document_id' => false,
+        'request_id' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'zip_document_id' => 'zipDocumentId',
+        'request_id' => 'requestId'
     ];
 
     /**
@@ -175,7 +179,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        
+        'zip_document_id' => 'setZipDocumentId',
+        'request_id' => 'setRequestId'
     ];
 
     /**
@@ -184,7 +189,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        
+        'zip_document_id' => 'getZipDocumentId',
+        'request_id' => 'getRequestId'
     ];
 
     /**
@@ -244,6 +250,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('zip_document_id', $data ?? [], null);
+        $this->setIfExists('request_id', $data ?? [], null);
     }
 
     /**
@@ -273,6 +281,12 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['zip_document_id'] === null) {
+            $invalidProperties[] = "'zip_document_id' can't be null";
+        }
+        if ($this->container['request_id'] === null) {
+            $invalidProperties[] = "'request_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -287,6 +301,60 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets zip_document_id
+     *
+     * @return int
+     */
+    public function getZipDocumentId()
+    {
+        return $this->container['zip_document_id'];
+    }
+
+    /**
+     * Sets zip_document_id
+     *
+     * @param int $zip_document_id zip_document_id
+     *
+     * @return self
+     */
+    public function setZipDocumentId($zip_document_id)
+    {
+        if (is_null($zip_document_id)) {
+            throw new \InvalidArgumentException('non-nullable zip_document_id cannot be null');
+        }
+        $this->container['zip_document_id'] = $zip_document_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets request_id
+     *
+     * @return int
+     */
+    public function getRequestId()
+    {
+        return $this->container['request_id'];
+    }
+
+    /**
+     * Sets request_id
+     *
+     * @param int $request_id request_id
+     *
+     * @return self
+     */
+    public function setRequestId($request_id)
+    {
+        if (is_null($request_id)) {
+            throw new \InvalidArgumentException('non-nullable request_id cannot be null');
+        }
+        $this->container['request_id'] = $request_id;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

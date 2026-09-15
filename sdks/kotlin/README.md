@@ -75,6 +75,7 @@ All URIs are relative to *https://api.click2mail.com/v2*
  - [com.c2m.api.models.DocSourceZipFile](docs/DocSourceZipFile.md)
  - [com.c2m.api.models.DocSourceZipFileRef](docs/DocSourceZipFileRef.md)
  - [com.c2m.api.models.DocumentClass](docs/DocumentClass.md)
+ - [com.c2m.api.models.DocumentIdSource](docs/DocumentIdSource.md)
  - [com.c2m.api.models.Envelope](docs/Envelope.md)
  - [com.c2m.api.models.ErrorCode](docs/ErrorCode.md)
  - [com.c2m.api.models.ErrorResponse](docs/ErrorResponse.md)
@@ -87,6 +88,7 @@ All URIs are relative to *https://api.click2mail.com/v2*
  - [com.c2m.api.models.LongTokenRequest](docs/LongTokenRequest.md)
  - [com.c2m.api.models.LongTokenResponse](docs/LongTokenResponse.md)
  - [com.c2m.api.models.MailClass](docs/MailClass.md)
+ - [com.c2m.api.models.MergeByDocumentId](docs/MergeByDocumentId.md)
  - [com.c2m.api.models.MergeByRequestId](docs/MergeByRequestId.md)
  - [com.c2m.api.models.MergeDocumentRef](docs/MergeDocumentRef.md)
  - [com.c2m.api.models.MultiDocJobItem](docs/MultiDocJobItem.md)
@@ -111,9 +113,12 @@ All URIs are relative to *https://api.click2mail.com/v2*
  - [com.c2m.api.models.SubmitSinglePdfAddressCaptureParams](docs/SubmitSinglePdfAddressCaptureParams.md)
  - [com.c2m.api.models.SubmitSinglePdfSplitAddressCaptureParams](docs/SubmitSinglePdfSplitAddressCaptureParams.md)
  - [com.c2m.api.models.SubmitSinglePdfSplitParams](docs/SubmitSinglePdfSplitParams.md)
+ - [com.c2m.api.models.UrlSource](docs/UrlSource.md)
  - [com.c2m.api.models.UserCreditPayment](docs/UserCreditPayment.md)
+ - [com.c2m.api.models.ZipDocumentIdOnly](docs/ZipDocumentIdOnly.md)
  - [com.c2m.api.models.ZipDocumentIdSource](docs/ZipDocumentIdSource.md)
  - [com.c2m.api.models.ZipDocumentSource](docs/ZipDocumentSource.md)
+ - [com.c2m.api.models.ZipRequestIdOnly](docs/ZipRequestIdOnly.md)
  - [com.c2m.api.models.ZipRequestIdSource](docs/ZipRequestIdSource.md)
 
 

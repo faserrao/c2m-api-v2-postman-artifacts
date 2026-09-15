@@ -33,10 +33,10 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocSourceStandard" /> class.
         /// </summary>
-        /// <param name="int"></param>
-        public DocSourceStandard(int @int)
+        /// <param name="documentIdSource"></param>
+        public DocSourceStandard(DocumentIdSource documentIdSource)
         {
-            Int = @int;
+            DocumentIdSource = documentIdSource;
             OnCreated();
         }
 
@@ -53,19 +53,19 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocSourceStandard" /> class.
         /// </summary>
-        /// <param name="string"></param>
-        public DocSourceStandard(string @string)
+        /// <param name="urlSource"></param>
+        public DocSourceStandard(UrlSource urlSource)
         {
-            String = @string;
+            UrlSource = urlSource;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets Int
+        /// Gets or Sets DocumentIdSource
         /// </summary>
-        public int? Int { get; set; }
+        public DocumentIdSource? DocumentIdSource { get; set; }
 
         /// <summary>
         /// Gets or Sets RequestIdSource
@@ -73,9 +73,9 @@ namespace C2M.Api.Model
         public RequestIdSource? RequestIdSource { get; set; }
 
         /// <summary>
-        /// Gets or Sets String
+        /// Gets or Sets UrlSource
         /// </summary>
-        public string? String { get; set; }
+        public UrlSource? UrlSource { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -122,9 +122,9 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            int? varInt = default;
+            DocumentIdSource? documentIdSource = default;
             RequestIdSource? requestIdSource = default;
-            string? varString = default;
+            UrlSource? urlSource = default;
 
             Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
             while (utf8JsonReaderOneOf.Read())
@@ -137,14 +137,14 @@ namespace C2M.Api.Model
 
                 if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
                 {
-                    Utf8JsonReader utf8JsonReaderInt = utf8JsonReader;
-                    ClientUtils.TryDeserialize<int?>(ref utf8JsonReaderInt, jsonSerializerOptions, out varInt);
+                    Utf8JsonReader utf8JsonReaderDocumentIdSource = utf8JsonReader;
+                    ClientUtils.TryDeserialize<DocumentIdSource?>(ref utf8JsonReaderDocumentIdSource, jsonSerializerOptions, out documentIdSource);
 
                     Utf8JsonReader utf8JsonReaderRequestIdSource = utf8JsonReader;
                     ClientUtils.TryDeserialize<RequestIdSource?>(ref utf8JsonReaderRequestIdSource, jsonSerializerOptions, out requestIdSource);
 
-                    Utf8JsonReader utf8JsonReaderString = utf8JsonReader;
-                    ClientUtils.TryDeserialize<string?>(ref utf8JsonReaderString, jsonSerializerOptions, out varString);
+                    Utf8JsonReader utf8JsonReaderUrlSource = utf8JsonReader;
+                    ClientUtils.TryDeserialize<UrlSource?>(ref utf8JsonReaderUrlSource, jsonSerializerOptions, out urlSource);
                 }
             }
 
@@ -169,14 +169,14 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (varInt != null)
-                return new DocSourceStandard(varInt.Value);
+            if (documentIdSource != null)
+                return new DocSourceStandard(documentIdSource);
 
             if (requestIdSource != null)
                 return new DocSourceStandard(requestIdSource);
 
-            if (varString != null)
-                return new DocSourceStandard(varString);
+            if (urlSource != null)
+                return new DocSourceStandard(urlSource);
 
             throw new JsonException();
         }

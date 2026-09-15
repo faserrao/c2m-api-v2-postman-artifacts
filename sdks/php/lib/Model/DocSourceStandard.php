@@ -57,8 +57,10 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
+        'document_id' => 'int',
         'request_id' => 'int',
-        'filename' => 'string'
+        'filename' => 'string',
+        'url' => 'string'
     ];
 
     /**
@@ -69,8 +71,10 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'document_id' => null,
         'request_id' => null,
-        'filename' => null
+        'filename' => null,
+        'url' => 'uri'
     ];
 
     /**
@@ -79,8 +83,10 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'document_id' => false,
         'request_id' => false,
-        'filename' => false
+        'filename' => false,
+        'url' => false
     ];
 
     /**
@@ -169,8 +175,10 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
+        'document_id' => 'documentId',
         'request_id' => 'requestId',
-        'filename' => 'filename'
+        'filename' => 'filename',
+        'url' => 'url'
     ];
 
     /**
@@ -179,8 +187,10 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
+        'document_id' => 'setDocumentId',
         'request_id' => 'setRequestId',
-        'filename' => 'setFilename'
+        'filename' => 'setFilename',
+        'url' => 'setUrl'
     ];
 
     /**
@@ -189,8 +199,10 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
+        'document_id' => 'getDocumentId',
         'request_id' => 'getRequestId',
-        'filename' => 'getFilename'
+        'filename' => 'getFilename',
+        'url' => 'getUrl'
     ];
 
     /**
@@ -250,8 +262,10 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('document_id', $data ?? [], null);
         $this->setIfExists('request_id', $data ?? [], null);
         $this->setIfExists('filename', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
     }
 
     /**
@@ -281,8 +295,14 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['document_id'] === null) {
+            $invalidProperties[] = "'document_id' can't be null";
+        }
         if ($this->container['request_id'] === null) {
             $invalidProperties[] = "'request_id' can't be null";
+        }
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
         }
         return $invalidProperties;
     }
@@ -298,6 +318,33 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets document_id
+     *
+     * @return int
+     */
+    public function getDocumentId()
+    {
+        return $this->container['document_id'];
+    }
+
+    /**
+     * Sets document_id
+     *
+     * @param int $document_id document_id
+     *
+     * @return self
+     */
+    public function setDocumentId($document_id)
+    {
+        if (is_null($document_id)) {
+            throw new \InvalidArgumentException('non-nullable document_id cannot be null');
+        }
+        $this->container['document_id'] = $document_id;
+
+        return $this;
+    }
 
     /**
      * Gets request_id
@@ -349,6 +396,33 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
             throw new \InvalidArgumentException('non-nullable filename cannot be null');
         }
         $this->container['filename'] = $filename;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string $url url
+     *
+     * @return self
+     */
+    public function setUrl($url)
+    {
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
+        }
+        $this->container['url'] = $url;
 
         return $this;
     }

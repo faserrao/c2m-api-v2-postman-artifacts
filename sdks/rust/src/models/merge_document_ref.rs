@@ -14,7 +14,7 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum MergeDocumentRef {
-    MergeByDocumentId(i32),
+    MergeByDocumentId(Box<models::MergeByDocumentId>),
     MergeByRequestId(Box<models::MergeByRequestId>),
 }
 

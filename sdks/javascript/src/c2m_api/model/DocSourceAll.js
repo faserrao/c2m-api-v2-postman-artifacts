@@ -122,6 +122,11 @@ class DocSourceAll {
 }
 
 /**
+ * @member {Number} documentId
+ */
+DocSourceAll.prototype['documentId'] = undefined;
+
+/**
  * @member {Number} requestId
  */
 DocSourceAll.prototype['requestId'] = undefined;
@@ -130,6 +135,11 @@ DocSourceAll.prototype['requestId'] = undefined;
  * @member {String} filename
  */
 DocSourceAll.prototype['filename'] = undefined;
+
+/**
+ * @member {String} url
+ */
+DocSourceAll.prototype['url'] = undefined;
 
 /**
  * @member {Number} zipDocumentId

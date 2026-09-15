@@ -15,25 +15,26 @@
 from __future__ import annotations
 import json
 import pprint
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, ValidationError, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
+from c2m_api.models.merge_by_document_id import MergeByDocumentId
 from c2m_api.models.merge_by_request_id import MergeByRequestId
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-MERGEDOCUMENTREF_ONE_OF_SCHEMAS = ["MergeByRequestId", "int"]
+MERGEDOCUMENTREF_ONE_OF_SCHEMAS = ["MergeByDocumentId", "MergeByRequestId"]
 
 class MergeDocumentRef(BaseModel):
     """
     MergeDocumentRef
     """
-    # data type: int
-    oneof_schema_1_validator: Optional[StrictInt] = None
+    # data type: MergeByDocumentId
+    oneof_schema_1_validator: Optional[MergeByDocumentId] = None
     # data type: MergeByRequestId
     oneof_schema_2_validator: Optional[MergeByRequestId] = None
-    actual_instance: Optional[Union[MergeByRequestId, int]] = None
-    one_of_schemas: Set[str] = { "MergeByRequestId", "int" }
+    actual_instance: Optional[Union[MergeByDocumentId, MergeByRequestId]] = None
+    one_of_schemas: Set[str] = { "MergeByDocumentId", "MergeByRequestId" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -56,12 +57,11 @@ class MergeDocumentRef(BaseModel):
         instance = MergeDocumentRef.model_construct()
         error_messages = []
         match = 0
-        # validate data type: int
-        try:
-            instance.oneof_schema_1_validator = v
+        # validate data type: MergeByDocumentId
+        if not isinstance(v, MergeByDocumentId):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `MergeByDocumentId`")
+        else:
             match += 1
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
         # validate data type: MergeByRequestId
         if not isinstance(v, MergeByRequestId):
             error_messages.append(f"Error! Input type `{type(v)}` is not `MergeByRequestId`")
@@ -69,10 +69,10 @@ class MergeDocumentRef(BaseModel):
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in MergeDocumentRef with oneOf schemas: MergeByRequestId, int. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in MergeDocumentRef with oneOf schemas: MergeByDocumentId, MergeByRequestId. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in MergeDocumentRef with oneOf schemas: MergeByRequestId, int. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in MergeDocumentRef with oneOf schemas: MergeByDocumentId, MergeByRequestId. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -87,12 +87,9 @@ class MergeDocumentRef(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into int
+        # deserialize data into MergeByDocumentId
         try:
-            # validation
-            instance.oneof_schema_1_validator = json.loads(json_str)
-            # assign value to actual_instance
-            instance.actual_instance = instance.oneof_schema_1_validator
+            instance.actual_instance = MergeByDocumentId.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
@@ -105,10 +102,10 @@ class MergeDocumentRef(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into MergeDocumentRef with oneOf schemas: MergeByRequestId, int. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into MergeDocumentRef with oneOf schemas: MergeByDocumentId, MergeByRequestId. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into MergeDocumentRef with oneOf schemas: MergeByRequestId, int. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into MergeDocumentRef with oneOf schemas: MergeByDocumentId, MergeByRequestId. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -122,7 +119,7 @@ class MergeDocumentRef(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], MergeByRequestId, int]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], MergeByDocumentId, MergeByRequestId]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

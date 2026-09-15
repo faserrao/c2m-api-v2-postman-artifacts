@@ -18,13 +18,21 @@ import (
 
 // DocSourceZipFileRef - struct for DocSourceZipFileRef
 type DocSourceZipFileRef struct {
-	Int32 *int32
+	ZipDocumentIdOnly *ZipDocumentIdOnly
+	ZipRequestIdOnly *ZipRequestIdOnly
 }
 
-// int32AsDocSourceZipFileRef is a convenience function that returns int32 wrapped in DocSourceZipFileRef
-func Int32AsDocSourceZipFileRef(v *int32) DocSourceZipFileRef {
+// ZipDocumentIdOnlyAsDocSourceZipFileRef is a convenience function that returns ZipDocumentIdOnly wrapped in DocSourceZipFileRef
+func ZipDocumentIdOnlyAsDocSourceZipFileRef(v *ZipDocumentIdOnly) DocSourceZipFileRef {
 	return DocSourceZipFileRef{
-		Int32: v,
+		ZipDocumentIdOnly: v,
+	}
+}
+
+// ZipRequestIdOnlyAsDocSourceZipFileRef is a convenience function that returns ZipRequestIdOnly wrapped in DocSourceZipFileRef
+func ZipRequestIdOnlyAsDocSourceZipFileRef(v *ZipRequestIdOnly) DocSourceZipFileRef {
+	return DocSourceZipFileRef{
+		ZipRequestIdOnly: v,
 	}
 }
 
@@ -33,26 +41,44 @@ func Int32AsDocSourceZipFileRef(v *int32) DocSourceZipFileRef {
 func (dst *DocSourceZipFileRef) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into Int32
-	err = newStrictDecoder(data).Decode(&dst.Int32)
+	// try to unmarshal data into ZipDocumentIdOnly
+	err = newStrictDecoder(data).Decode(&dst.ZipDocumentIdOnly)
 	if err == nil {
-		jsonInt32, _ := json.Marshal(dst.Int32)
-		if string(jsonInt32) == "{}" { // empty struct
-			dst.Int32 = nil
+		jsonZipDocumentIdOnly, _ := json.Marshal(dst.ZipDocumentIdOnly)
+		if string(jsonZipDocumentIdOnly) == "{}" { // empty struct
+			dst.ZipDocumentIdOnly = nil
 		} else {
-			if err = validator.Validate(dst.Int32); err != nil {
-				dst.Int32 = nil
+			if err = validator.Validate(dst.ZipDocumentIdOnly); err != nil {
+				dst.ZipDocumentIdOnly = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.Int32 = nil
+		dst.ZipDocumentIdOnly = nil
+	}
+
+	// try to unmarshal data into ZipRequestIdOnly
+	err = newStrictDecoder(data).Decode(&dst.ZipRequestIdOnly)
+	if err == nil {
+		jsonZipRequestIdOnly, _ := json.Marshal(dst.ZipRequestIdOnly)
+		if string(jsonZipRequestIdOnly) == "{}" { // empty struct
+			dst.ZipRequestIdOnly = nil
+		} else {
+			if err = validator.Validate(dst.ZipRequestIdOnly); err != nil {
+				dst.ZipRequestIdOnly = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.ZipRequestIdOnly = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.Int32 = nil
+		dst.ZipDocumentIdOnly = nil
+		dst.ZipRequestIdOnly = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(DocSourceZipFileRef)")
 	} else if match == 1 {
@@ -64,8 +90,12 @@ func (dst *DocSourceZipFileRef) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src DocSourceZipFileRef) MarshalJSON() ([]byte, error) {
-	if src.Int32 != nil {
-		return json.Marshal(&src.Int32)
+	if src.ZipDocumentIdOnly != nil {
+		return json.Marshal(&src.ZipDocumentIdOnly)
+	}
+
+	if src.ZipRequestIdOnly != nil {
+		return json.Marshal(&src.ZipRequestIdOnly)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -76,8 +106,12 @@ func (obj *DocSourceZipFileRef) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.Int32 != nil {
-		return obj.Int32
+	if obj.ZipDocumentIdOnly != nil {
+		return obj.ZipDocumentIdOnly
+	}
+
+	if obj.ZipRequestIdOnly != nil {
+		return obj.ZipRequestIdOnly
 	}
 
 	// all schemas are nil
@@ -86,8 +120,12 @@ func (obj *DocSourceZipFileRef) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj DocSourceZipFileRef) GetActualInstanceValue() (interface{}) {
-	if obj.Int32 != nil {
-		return *obj.Int32
+	if obj.ZipDocumentIdOnly != nil {
+		return *obj.ZipDocumentIdOnly
+	}
+
+	if obj.ZipRequestIdOnly != nil {
+		return *obj.ZipRequestIdOnly
 	}
 
 	// all schemas are nil

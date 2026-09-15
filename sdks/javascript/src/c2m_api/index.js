@@ -28,6 +28,7 @@ import DocSourceStandard from './model/DocSourceStandard';
 import DocSourceZipFile from './model/DocSourceZipFile';
 import DocSourceZipFileRef from './model/DocSourceZipFileRef';
 import DocumentClass from './model/DocumentClass';
+import DocumentIdSource from './model/DocumentIdSource';
 import Envelope from './model/Envelope';
 import ErrorCode from './model/ErrorCode';
 import ErrorResponse from './model/ErrorResponse';
@@ -40,6 +41,7 @@ import Layout from './model/Layout';
 import LongTokenRequest from './model/LongTokenRequest';
 import LongTokenResponse from './model/LongTokenResponse';
 import MailClass from './model/MailClass';
+import MergeByDocumentId from './model/MergeByDocumentId';
 import MergeByRequestId from './model/MergeByRequestId';
 import MergeDocumentRef from './model/MergeDocumentRef';
 import MultiDocJobItem from './model/MultiDocJobItem';
@@ -64,9 +66,12 @@ import SubmitMultiZipParams from './model/SubmitMultiZipParams';
 import SubmitSinglePdfAddressCaptureParams from './model/SubmitSinglePdfAddressCaptureParams';
 import SubmitSinglePdfSplitAddressCaptureParams from './model/SubmitSinglePdfSplitAddressCaptureParams';
 import SubmitSinglePdfSplitParams from './model/SubmitSinglePdfSplitParams';
+import UrlSource from './model/UrlSource';
 import UserCreditPayment from './model/UserCreditPayment';
+import ZipDocumentIdOnly from './model/ZipDocumentIdOnly';
 import ZipDocumentIdSource from './model/ZipDocumentIdSource';
 import ZipDocumentSource from './model/ZipDocumentSource';
+import ZipRequestIdOnly from './model/ZipRequestIdOnly';
 import ZipRequestIdSource from './model/ZipRequestIdSource';
 import AuthApi from './api/AuthApi';
 import JobsApi from './api/JobsApi';
@@ -201,6 +206,12 @@ export {
     DocumentClass,
 
     /**
+     * The DocumentIdSource model constructor.
+     * @property {module:c2m_api/model/DocumentIdSource}
+     */
+    DocumentIdSource,
+
+    /**
      * The Envelope model constructor.
      * @property {module:c2m_api/model/Envelope}
      */
@@ -271,6 +282,12 @@ export {
      * @property {module:c2m_api/model/MailClass}
      */
     MailClass,
+
+    /**
+     * The MergeByDocumentId model constructor.
+     * @property {module:c2m_api/model/MergeByDocumentId}
+     */
+    MergeByDocumentId,
 
     /**
      * The MergeByRequestId model constructor.
@@ -417,10 +434,22 @@ export {
     SubmitSinglePdfSplitParams,
 
     /**
+     * The UrlSource model constructor.
+     * @property {module:c2m_api/model/UrlSource}
+     */
+    UrlSource,
+
+    /**
      * The UserCreditPayment model constructor.
      * @property {module:c2m_api/model/UserCreditPayment}
      */
     UserCreditPayment,
+
+    /**
+     * The ZipDocumentIdOnly model constructor.
+     * @property {module:c2m_api/model/ZipDocumentIdOnly}
+     */
+    ZipDocumentIdOnly,
 
     /**
      * The ZipDocumentIdSource model constructor.
@@ -433,6 +462,12 @@ export {
      * @property {module:c2m_api/model/ZipDocumentSource}
      */
     ZipDocumentSource,
+
+    /**
+     * The ZipRequestIdOnly model constructor.
+     * @property {module:c2m_api/model/ZipRequestIdOnly}
+     */
+    ZipRequestIdOnly,
 
     /**
      * The ZipRequestIdSource model constructor.

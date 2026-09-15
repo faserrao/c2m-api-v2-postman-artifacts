@@ -14,8 +14,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DocSourceZipFileRef {
-    ZipDocumentIdOnly(i32),
-    ZipRequestIdOnly(i32),
+    ZipDocumentIdOnly(Box<models::ZipDocumentIdOnly>),
+    ZipRequestIdOnly(Box<models::ZipRequestIdOnly>),
 }
 
 impl Default for DocSourceZipFileRef {

@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**documentId** | **Int** |  | 
 **requestId** | **Int** |  | 
 **filename** | **String** |  | [optional] 
 

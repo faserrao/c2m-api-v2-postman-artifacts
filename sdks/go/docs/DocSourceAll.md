@@ -4,8 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DocumentId** | **int32** |  | 
 **RequestId** | **int32** |  | 
 **Filename** | **string** |  | 
+**Url** | **string** |  | 
 **ZipDocumentId** | **int32** |  | 
 **ZipFilename** | **string** |  | 
 
@@ -13,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewDocSourceAll
 
-`func NewDocSourceAll(requestId int32, filename string, zipDocumentId int32, zipFilename string, ) *DocSourceAll`
+`func NewDocSourceAll(documentId int32, requestId int32, filename string, url string, zipDocumentId int32, zipFilename string, ) *DocSourceAll`
 
 NewDocSourceAll instantiates a new DocSourceAll object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +29,26 @@ will change when the set of required properties is changed
 NewDocSourceAllWithDefaults instantiates a new DocSourceAll object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetDocumentId
+
+`func (o *DocSourceAll) GetDocumentId() int32`
+
+GetDocumentId returns the DocumentId field if non-nil, zero value otherwise.
+
+### GetDocumentIdOk
+
+`func (o *DocSourceAll) GetDocumentIdOk() (*int32, bool)`
+
+GetDocumentIdOk returns a tuple with the DocumentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDocumentId
+
+`func (o *DocSourceAll) SetDocumentId(v int32)`
+
+SetDocumentId sets DocumentId field to given value.
+
 
 ### GetRequestId
 
@@ -66,6 +88,26 @@ and a boolean to check if the value has been set.
 `func (o *DocSourceAll) SetFilename(v string)`
 
 SetFilename sets Filename field to given value.
+
+
+### GetUrl
+
+`func (o *DocSourceAll) GetUrl() string`
+
+GetUrl returns the Url field if non-nil, zero value otherwise.
+
+### GetUrlOk
+
+`func (o *DocSourceAll) GetUrlOk() (*string, bool)`
+
+GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUrl
+
+`func (o *DocSourceAll) SetUrl(v string)`
+
+SetUrl sets Url field to given value.
 
 
 ### GetZipDocumentId

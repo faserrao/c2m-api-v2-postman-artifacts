@@ -4,8 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**document_id** | **int** |  |
 **request_id** | **int** |  |
 **filename** | **string** |  |
+**url** | **string** |  |
 **zip_document_id** | **int** |  |
 **zip_filename** | **string** |  |
 

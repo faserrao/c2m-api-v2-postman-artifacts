@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DocumentId** | **int32** |  | 
 **RequestId** | **int32** |  | 
 **Filename** | Pointer to **string** |  | [optional] 
 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewMergeDocumentRef
 
-`func NewMergeDocumentRef(requestId int32, ) *MergeDocumentRef`
+`func NewMergeDocumentRef(documentId int32, requestId int32, ) *MergeDocumentRef`
 
 NewMergeDocumentRef instantiates a new MergeDocumentRef object
 This constructor will assign default values to properties that have it defined,
@@ -25,6 +26,26 @@ will change when the set of required properties is changed
 NewMergeDocumentRefWithDefaults instantiates a new MergeDocumentRef object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetDocumentId
+
+`func (o *MergeDocumentRef) GetDocumentId() int32`
+
+GetDocumentId returns the DocumentId field if non-nil, zero value otherwise.
+
+### GetDocumentIdOk
+
+`func (o *MergeDocumentRef) GetDocumentIdOk() (*int32, bool)`
+
+GetDocumentIdOk returns a tuple with the DocumentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDocumentId
+
+`func (o *MergeDocumentRef) SetDocumentId(v int32)`
+
+SetDocumentId sets DocumentId field to given value.
+
 
 ### GetRequestId
 

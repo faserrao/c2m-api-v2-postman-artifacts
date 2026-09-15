@@ -62,6 +62,7 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new DocSourceZipFileRefJsonConverter());
             _jsonOptions.Converters.Add(new DocumentClassJsonConverter());
             _jsonOptions.Converters.Add(new DocumentClassNullableJsonConverter());
+            _jsonOptions.Converters.Add(new DocumentIdSourceJsonConverter());
             _jsonOptions.Converters.Add(new EnvelopeJsonConverter());
             _jsonOptions.Converters.Add(new EnvelopeNullableJsonConverter());
             _jsonOptions.Converters.Add(new ErrorCodeJsonConverter());
@@ -79,6 +80,7 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new LongTokenResponseJsonConverter());
             _jsonOptions.Converters.Add(new MailClassJsonConverter());
             _jsonOptions.Converters.Add(new MailClassNullableJsonConverter());
+            _jsonOptions.Converters.Add(new MergeByDocumentIdJsonConverter());
             _jsonOptions.Converters.Add(new MergeByRequestIdJsonConverter());
             _jsonOptions.Converters.Add(new MergeDocumentRefJsonConverter());
             _jsonOptions.Converters.Add(new MultiDocJobItemJsonConverter());
@@ -106,9 +108,12 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new SubmitSinglePdfAddressCaptureParamsJsonConverter());
             _jsonOptions.Converters.Add(new SubmitSinglePdfSplitAddressCaptureParamsJsonConverter());
             _jsonOptions.Converters.Add(new SubmitSinglePdfSplitParamsJsonConverter());
+            _jsonOptions.Converters.Add(new UrlSourceJsonConverter());
             _jsonOptions.Converters.Add(new UserCreditPaymentJsonConverter());
+            _jsonOptions.Converters.Add(new ZipDocumentIdOnlyJsonConverter());
             _jsonOptions.Converters.Add(new ZipDocumentIdSourceJsonConverter());
             _jsonOptions.Converters.Add(new ZipDocumentSourceJsonConverter());
+            _jsonOptions.Converters.Add(new ZipRequestIdOnlyJsonConverter());
             _jsonOptions.Converters.Add(new ZipRequestIdSourceJsonConverter());
             JsonSerializerOptionsProvider jsonSerializerOptionsProvider = new(_jsonOptions);
             _services.AddSingleton(jsonSerializerOptionsProvider);

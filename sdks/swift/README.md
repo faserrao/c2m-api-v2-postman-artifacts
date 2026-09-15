@@ -55,6 +55,7 @@ Class | Method | HTTP request | Description
  - [DocSourceZipFile](docs/DocSourceZipFile.md)
  - [DocSourceZipFileRef](docs/DocSourceZipFileRef.md)
  - [DocumentClass](docs/DocumentClass.md)
+ - [DocumentIdSource](docs/DocumentIdSource.md)
  - [Envelope](docs/Envelope.md)
  - [ErrorCode](docs/ErrorCode.md)
  - [ErrorType](docs/ErrorType.md)
@@ -66,6 +67,7 @@ Class | Method | HTTP request | Description
  - [LongTokenRequest](docs/LongTokenRequest.md)
  - [LongTokenResponse](docs/LongTokenResponse.md)
  - [MailClass](docs/MailClass.md)
+ - [MergeByDocumentId](docs/MergeByDocumentId.md)
  - [MergeByRequestId](docs/MergeByRequestId.md)
  - [MergeDocumentRef](docs/MergeDocumentRef.md)
  - [ModelErrorResponse](docs/ModelErrorResponse.md)
@@ -91,9 +93,12 @@ Class | Method | HTTP request | Description
  - [SubmitSinglePdfAddressCaptureParams](docs/SubmitSinglePdfAddressCaptureParams.md)
  - [SubmitSinglePdfSplitAddressCaptureParams](docs/SubmitSinglePdfSplitAddressCaptureParams.md)
  - [SubmitSinglePdfSplitParams](docs/SubmitSinglePdfSplitParams.md)
+ - [UrlSource](docs/UrlSource.md)
  - [UserCreditPayment](docs/UserCreditPayment.md)
+ - [ZipDocumentIdOnly](docs/ZipDocumentIdOnly.md)
  - [ZipDocumentIdSource](docs/ZipDocumentIdSource.md)
  - [ZipDocumentSource](docs/ZipDocumentSource.md)
+ - [ZipRequestIdOnly](docs/ZipRequestIdOnly.md)
  - [ZipRequestIdSource](docs/ZipRequestIdSource.md)
 
 

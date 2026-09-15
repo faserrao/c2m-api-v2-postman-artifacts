@@ -19,11 +19,25 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.DocSourceZipFileRef
+import com.c2m.api.models.ZipDocumentIdOnly
+import com.c2m.api.models.ZipRequestIdOnly
 
 class DocSourceZipFileRefTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of DocSourceZipFileRef
         //val modelInstance = DocSourceZipFileRef()
+
+        // to test the property `zipDocumentId`
+        should("test zipDocumentId") {
+            // uncomment below to test the property
+            //modelInstance.zipDocumentId shouldBe ("TODO")
+        }
+
+        // to test the property `requestId`
+        should("test requestId") {
+            // uncomment below to test the property
+            //modelInstance.requestId shouldBe ("TODO")
+        }
 
     }
 }

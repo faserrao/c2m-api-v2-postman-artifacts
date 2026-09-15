@@ -14,7 +14,7 @@ require 'openapi_client'
 OpenapiClient::MergeDocumentRef.openapi_one_of
 # =>
 # [
-#   :'Integer',
+#   :'MergeByDocumentId',
 #   :'MergeByRequestId'
 # ]
 ```
@@ -29,7 +29,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'openapi_client'
 
 OpenapiClient::MergeDocumentRef.build(data)
-# => #<Integer:0x00007fdd4aab02a0>
+# => #<MergeByDocumentId:0x00007fdd4aab02a0>
 
 OpenapiClient::MergeDocumentRef.build(data_that_doesnt_match)
 # => nil
@@ -43,7 +43,7 @@ OpenapiClient::MergeDocumentRef.build(data_that_doesnt_match)
 
 #### Return type
 
-- `Integer`
+- `MergeByDocumentId`
 - `MergeByRequestId`
 - `nil` (if no type matches)
 

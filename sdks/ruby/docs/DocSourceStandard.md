@@ -14,9 +14,9 @@ require 'openapi_client'
 OpenapiClient::DocSourceStandard.openapi_one_of
 # =>
 # [
-#   :'Integer',
+#   :'DocumentIdSource',
 #   :'RequestIdSource',
-#   :'String'
+#   :'UrlSource'
 # ]
 ```
 
@@ -30,7 +30,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'openapi_client'
 
 OpenapiClient::DocSourceStandard.build(data)
-# => #<Integer:0x00007fdd4aab02a0>
+# => #<DocumentIdSource:0x00007fdd4aab02a0>
 
 OpenapiClient::DocSourceStandard.build(data_that_doesnt_match)
 # => nil
@@ -44,8 +44,8 @@ OpenapiClient::DocSourceStandard.build(data_that_doesnt_match)
 
 #### Return type
 
-- `Integer`
+- `DocumentIdSource`
 - `RequestIdSource`
-- `String`
+- `UrlSource`
 - `nil` (if no type matches)
 

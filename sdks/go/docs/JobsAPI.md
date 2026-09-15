@@ -35,7 +35,7 @@ import (
 )
 
 func main() {
-	submitDocParams := *openapiclient.NewSubmitDocParams(openapiclient.docSourceAll{DocSourceStandard: openapiclient.docSourceStandard{RequestIdSource: openapiclient.NewRequestIdSource(int32(123))}}, openapiclient.recipientAddressSource{Address: openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")}) // SubmitDocParams | 
+	submitDocParams := *openapiclient.NewSubmitDocParams(openapiclient.docSourceAll{DocSourceStandard: openapiclient.docSourceStandard{DocumentIdSource: openapiclient.NewDocumentIdSource(int32(123))}}, openapiclient.recipientAddressSource{Address: openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")}) // SubmitDocParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -101,7 +101,7 @@ import (
 )
 
 func main() {
-	submitMultiDocMergeParams := *openapiclient.NewSubmitMultiDocMergeParams([]openapiclient.MergeDocumentRef{openapiclient.mergeDocumentRef{MergeByRequestId: openapiclient.NewMergeByRequestId(int32(123))}}, openapiclient.recipientAddressSource{Address: openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")}) // SubmitMultiDocMergeParams | 
+	submitMultiDocMergeParams := *openapiclient.NewSubmitMultiDocMergeParams([]openapiclient.MergeDocumentRef{openapiclient.mergeDocumentRef{MergeByDocumentId: openapiclient.NewMergeByDocumentId(int32(123))}}, openapiclient.recipientAddressSource{Address: openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")}) // SubmitMultiDocMergeParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -233,7 +233,7 @@ import (
 )
 
 func main() {
-	submitMultiZipParams := *openapiclient.NewSubmitMultiZipParams(openapiclient.docSourceZipFileRef{Int32: new(int32)}, []openapiclient.MultiZipJobItem{*openapiclient.NewMultiZipJobItem("Filename_example", openapiclient.recipientAddressSource{Address: openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")})}) // SubmitMultiZipParams | 
+	submitMultiZipParams := *openapiclient.NewSubmitMultiZipParams(openapiclient.docSourceZipFileRef{ZipDocumentIdOnly: openapiclient.NewZipDocumentIdOnly(int32(123))}, []openapiclient.MultiZipJobItem{*openapiclient.NewMultiZipJobItem("Filename_example", openapiclient.recipientAddressSource{Address: openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")})}) // SubmitMultiZipParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -299,7 +299,7 @@ import (
 )
 
 func main() {
-	submitSinglePdfAddressCaptureParams := *openapiclient.NewSubmitSinglePdfAddressCaptureParams(openapiclient.docSourceStandard{RequestIdSource: openapiclient.NewRequestIdSource(int32(123))}) // SubmitSinglePdfAddressCaptureParams | 
+	submitSinglePdfAddressCaptureParams := *openapiclient.NewSubmitSinglePdfAddressCaptureParams(openapiclient.docSourceStandard{DocumentIdSource: openapiclient.NewDocumentIdSource(int32(123))}) // SubmitSinglePdfAddressCaptureParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -365,7 +365,7 @@ import (
 )
 
 func main() {
-	submitSinglePdfSplitAddressCaptureParams := *openapiclient.NewSubmitSinglePdfSplitAddressCaptureParams(openapiclient.docSourceStandard{RequestIdSource: openapiclient.NewRequestIdSource(int32(123))}, []openapiclient.PdfSplitJobItemNoAddress{*openapiclient.NewPdfSplitJobItemNoAddress(int32(123), int32(123))}) // SubmitSinglePdfSplitAddressCaptureParams | 
+	submitSinglePdfSplitAddressCaptureParams := *openapiclient.NewSubmitSinglePdfSplitAddressCaptureParams(openapiclient.docSourceStandard{DocumentIdSource: openapiclient.NewDocumentIdSource(int32(123))}, []openapiclient.PdfSplitJobItemNoAddress{*openapiclient.NewPdfSplitJobItemNoAddress(int32(123), int32(123))}) // SubmitSinglePdfSplitAddressCaptureParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -431,7 +431,7 @@ import (
 )
 
 func main() {
-	submitSinglePdfSplitParams := *openapiclient.NewSubmitSinglePdfSplitParams(openapiclient.docSourceStandard{RequestIdSource: openapiclient.NewRequestIdSource(int32(123))}, []openapiclient.PdfSplitJobItemWithAddress{*openapiclient.NewPdfSplitJobItemWithAddress(int32(123), int32(123), openapiclient.recipientAddressSource{Address: openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")})}) // SubmitSinglePdfSplitParams | 
+	submitSinglePdfSplitParams := *openapiclient.NewSubmitSinglePdfSplitParams(openapiclient.docSourceStandard{DocumentIdSource: openapiclient.NewDocumentIdSource(int32(123))}, []openapiclient.PdfSplitJobItemWithAddress{*openapiclient.NewPdfSplitJobItemWithAddress(int32(123), int32(123), openapiclient.recipientAddressSource{Address: openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")})}) // SubmitSinglePdfSplitParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

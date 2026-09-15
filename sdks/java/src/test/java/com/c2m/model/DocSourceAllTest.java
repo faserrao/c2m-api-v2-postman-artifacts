@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -40,6 +41,14 @@ public class DocSourceAllTest {
     }
 
     /**
+     * Test the property 'documentId'
+     */
+    @Test
+    public void documentIdTest() {
+        // TODO: test documentId
+    }
+
+    /**
      * Test the property 'requestId'
      */
     @Test
@@ -53,6 +62,14 @@ public class DocSourceAllTest {
     @Test
     public void filenameTest() {
         // TODO: test filename
+    }
+
+    /**
+     * Test the property 'url'
+     */
+    @Test
+    public void urlTest() {
+        // TODO: test url
     }
 
     /**

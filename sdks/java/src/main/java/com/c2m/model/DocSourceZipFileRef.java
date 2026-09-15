@@ -14,6 +14,15 @@
 package com.c2m.model;
 
 import java.util.Objects;
+import com.c2m.model.ZipDocumentIdOnly;
+import com.c2m.model.ZipRequestIdOnly;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+import java.util.Arrays;
 
 
 
@@ -50,7 +59,7 @@ import com.google.gson.JsonParseException;
 
 import com.c2m.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T00:28:32.711721413Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T02:54:50.388651928Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class DocSourceZipFileRef extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(DocSourceZipFileRef.class.getName());
 
@@ -62,7 +71,8 @@ public class DocSourceZipFileRef extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'DocSourceZipFileRef' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<Integer> adapterInteger = gson.getDelegateAdapter(this, TypeToken.get(Integer.class));
+            final TypeAdapter<ZipDocumentIdOnly> adapterZipDocumentIdOnly = gson.getDelegateAdapter(this, TypeToken.get(ZipDocumentIdOnly.class));
+            final TypeAdapter<ZipRequestIdOnly> adapterZipRequestIdOnly = gson.getDelegateAdapter(this, TypeToken.get(ZipRequestIdOnly.class));
 
             return (TypeAdapter<T>) new TypeAdapter<DocSourceZipFileRef>() {
                 @Override
@@ -72,13 +82,19 @@ public class DocSourceZipFileRef extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `Integer`
-                    if (value.getActualInstance() instanceof Integer) {
-                        JsonPrimitive primitive = adapterInteger.toJsonTree((Integer)value.getActualInstance()).getAsJsonPrimitive();
-                        elementAdapter.write(out, primitive);
+                    // check if the actual instance is of the type `ZipDocumentIdOnly`
+                    if (value.getActualInstance() instanceof ZipDocumentIdOnly) {
+                        JsonElement element = adapterZipDocumentIdOnly.toJsonTree((ZipDocumentIdOnly)value.getActualInstance());
+                        elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: Integer");
+                    // check if the actual instance is of the type `ZipRequestIdOnly`
+                    if (value.getActualInstance() instanceof ZipRequestIdOnly) {
+                        JsonElement element = adapterZipRequestIdOnly.toJsonTree((ZipRequestIdOnly)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: ZipDocumentIdOnly, ZipRequestIdOnly");
                 }
 
                 @Override
@@ -90,19 +106,29 @@ public class DocSourceZipFileRef extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize Integer
+                    // deserialize ZipDocumentIdOnly
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                            throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-                        }
-                        actualAdapter = adapterInteger;
+                        ZipDocumentIdOnly.validateJsonElement(jsonElement);
+                        actualAdapter = adapterZipDocumentIdOnly;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'Integer'");
+                        log.log(Level.FINER, "Input data matches schema 'ZipDocumentIdOnly'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for Integer failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'Integer'", e);
+                        errorMessages.add(String.format("Deserialization for ZipDocumentIdOnly failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ZipDocumentIdOnly'", e);
+                    }
+                    // deserialize ZipRequestIdOnly
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        ZipRequestIdOnly.validateJsonElement(jsonElement);
+                        actualAdapter = adapterZipRequestIdOnly;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'ZipRequestIdOnly'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for ZipRequestIdOnly failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'ZipRequestIdOnly'", e);
                     }
 
                     if (match == 1) {
@@ -130,7 +156,8 @@ public class DocSourceZipFileRef extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("Integer", Integer.class);
+        schemas.put("ZipDocumentIdOnly", ZipDocumentIdOnly.class);
+        schemas.put("ZipRequestIdOnly", ZipRequestIdOnly.class);
     }
 
     @Override
@@ -141,25 +168,30 @@ public class DocSourceZipFileRef extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * Integer
+     * ZipDocumentIdOnly, ZipRequestIdOnly
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof Integer) {
+        if (instance instanceof ZipDocumentIdOnly) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be Integer");
+        if (instance instanceof ZipRequestIdOnly) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be ZipDocumentIdOnly, ZipRequestIdOnly");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * Integer
+     * ZipDocumentIdOnly, ZipRequestIdOnly
      *
-     * @return The actual instance (Integer)
+     * @return The actual instance (ZipDocumentIdOnly, ZipRequestIdOnly)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -168,14 +200,25 @@ public class DocSourceZipFileRef extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `Integer`. If the actual instance is not `Integer`,
+     * Get the actual instance of `ZipDocumentIdOnly`. If the actual instance is not `ZipDocumentIdOnly`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `Integer`
-     * @throws ClassCastException if the instance is not `Integer`
+     * @return The actual instance of `ZipDocumentIdOnly`
+     * @throws ClassCastException if the instance is not `ZipDocumentIdOnly`
      */
-    public Integer getInteger() throws ClassCastException {
-        return (Integer)super.getActualInstance();
+    public ZipDocumentIdOnly getZipDocumentIdOnly() throws ClassCastException {
+        return (ZipDocumentIdOnly)super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ZipRequestIdOnly`. If the actual instance is not `ZipRequestIdOnly`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ZipRequestIdOnly`
+     * @throws ClassCastException if the instance is not `ZipRequestIdOnly`
+     */
+    public ZipRequestIdOnly getZipRequestIdOnly() throws ClassCastException {
+        return (ZipRequestIdOnly)super.getActualInstance();
     }
 
     /**
@@ -188,18 +231,24 @@ public class DocSourceZipFileRef extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with Integer
+        // validate the json string with ZipDocumentIdOnly
         try {
-            if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-                throw new IllegalArgumentException(String.format("Expected json element to be of type Number in the JSON string but got `%s`", jsonElement.toString()));
-            }
+            ZipDocumentIdOnly.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for Integer failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for ZipDocumentIdOnly failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with ZipRequestIdOnly
+        try {
+            ZipRequestIdOnly.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for ZipRequestIdOnly failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for DocSourceZipFileRef with oneOf schemas: Integer. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format("The JSON string is invalid for DocSourceZipFileRef with oneOf schemas: ZipDocumentIdOnly, ZipRequestIdOnly. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

@@ -13,6 +13,7 @@
 
 package com.c2m.model;
 
+import com.c2m.model.MergeByDocumentId;
 import com.c2m.model.MergeByRequestId;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -36,6 +37,14 @@ public class MergeDocumentRefTest {
     @Test
     public void testMergeDocumentRef() {
         // TODO: test MergeDocumentRef
+    }
+
+    /**
+     * Test the property 'documentId'
+     */
+    @Test
+    public void documentIdTest() {
+        // TODO: test documentId
     }
 
     /**

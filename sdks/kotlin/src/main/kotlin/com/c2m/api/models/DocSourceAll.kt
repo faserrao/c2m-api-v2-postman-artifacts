@@ -24,8 +24,10 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param documentId 
  * @param requestId 
  * @param filename 
+ * @param url 
  * @param zipDocumentId 
  * @param zipFilename 
  */
@@ -33,11 +35,17 @@ import com.squareup.moshi.JsonClass
 
 data class DocSourceAll (
 
+    @Json(name = "documentId")
+    val documentId: kotlin.Int,
+
     @Json(name = "requestId")
     val requestId: kotlin.Int,
 
     @Json(name = "filename")
     val filename: kotlin.String,
+
+    @Json(name = "url")
+    val url: java.net.URI,
 
     @Json(name = "zipDocumentId")
     val zipDocumentId: kotlin.Int,

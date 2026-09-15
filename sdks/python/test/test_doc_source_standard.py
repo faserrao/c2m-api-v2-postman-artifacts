@@ -35,12 +35,16 @@ class TestDocSourceStandard(unittest.TestCase):
         model = DocSourceStandard()
         if include_optional:
             return DocSourceStandard(
+                document_id = 56,
                 request_id = 56,
-                filename = ''
+                filename = '',
+                url = ''
             )
         else:
             return DocSourceStandard(
+                document_id = 56,
                 request_id = 56,
+                url = '',
         )
         """
 

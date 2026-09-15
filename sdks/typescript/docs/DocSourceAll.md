@@ -5,8 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**documentId** | **number** |  | [default to undefined]
 **requestId** | **number** |  | [default to undefined]
 **filename** | **string** |  | [default to undefined]
+**url** | **string** |  | [default to undefined]
 **zipDocumentId** | **number** |  | [default to undefined]
 **zipFilename** | **string** |  | [default to undefined]
 
@@ -16,8 +18,10 @@ Name | Type | Description | Notes
 import { DocSourceAll } from './api';
 
 const instance: DocSourceAll = {
+    documentId,
     requestId,
     filename,
+    url,
     zipDocumentId,
     zipFilename,
 };

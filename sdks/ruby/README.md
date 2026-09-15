@@ -118,6 +118,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::DocSourceZipFile](docs/DocSourceZipFile.md)
  - [OpenapiClient::DocSourceZipFileRef](docs/DocSourceZipFileRef.md)
  - [OpenapiClient::DocumentClass](docs/DocumentClass.md)
+ - [OpenapiClient::DocumentIdSource](docs/DocumentIdSource.md)
  - [OpenapiClient::Envelope](docs/Envelope.md)
  - [OpenapiClient::ErrorCode](docs/ErrorCode.md)
  - [OpenapiClient::ErrorResponse](docs/ErrorResponse.md)
@@ -130,6 +131,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::LongTokenRequest](docs/LongTokenRequest.md)
  - [OpenapiClient::LongTokenResponse](docs/LongTokenResponse.md)
  - [OpenapiClient::MailClass](docs/MailClass.md)
+ - [OpenapiClient::MergeByDocumentId](docs/MergeByDocumentId.md)
  - [OpenapiClient::MergeByRequestId](docs/MergeByRequestId.md)
  - [OpenapiClient::MergeDocumentRef](docs/MergeDocumentRef.md)
  - [OpenapiClient::MultiDocJobItem](docs/MultiDocJobItem.md)
@@ -154,9 +156,12 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::SubmitSinglePdfAddressCaptureParams](docs/SubmitSinglePdfAddressCaptureParams.md)
  - [OpenapiClient::SubmitSinglePdfSplitAddressCaptureParams](docs/SubmitSinglePdfSplitAddressCaptureParams.md)
  - [OpenapiClient::SubmitSinglePdfSplitParams](docs/SubmitSinglePdfSplitParams.md)
+ - [OpenapiClient::UrlSource](docs/UrlSource.md)
  - [OpenapiClient::UserCreditPayment](docs/UserCreditPayment.md)
+ - [OpenapiClient::ZipDocumentIdOnly](docs/ZipDocumentIdOnly.md)
  - [OpenapiClient::ZipDocumentIdSource](docs/ZipDocumentIdSource.md)
  - [OpenapiClient::ZipDocumentSource](docs/ZipDocumentSource.md)
+ - [OpenapiClient::ZipRequestIdOnly](docs/ZipRequestIdOnly.md)
  - [OpenapiClient::ZipRequestIdSource](docs/ZipRequestIdSource.md)
 
 

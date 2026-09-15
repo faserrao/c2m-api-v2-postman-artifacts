@@ -5,8 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**document_id** | **int** |  | 
 **request_id** | **int** |  | 
 **filename** | **str** |  | 
+**url** | **str** |  | 
 **zip_document_id** | **int** |  | 
 **zip_filename** | **str** |  | 
 

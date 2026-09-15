@@ -11,30 +11,30 @@ import AnyCodable
 #endif
 
 public enum DocSourceStandard: Codable, JSONEncodable, Hashable {
-    case typeInt(Int)
+    case typeDocumentIdSource(DocumentIdSource)
     case typeRequestIdSource(RequestIdSource)
-    case typeString(String)
+    case typeUrlSource(UrlSource)
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
-        case .typeInt(let value):
+        case .typeDocumentIdSource(let value):
             try container.encode(value)
         case .typeRequestIdSource(let value):
             try container.encode(value)
-        case .typeString(let value):
+        case .typeUrlSource(let value):
             try container.encode(value)
         }
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        if let value = try? container.decode(Int.self) {
-            self = .typeInt(value)
+        if let value = try? container.decode(DocumentIdSource.self) {
+            self = .typeDocumentIdSource(value)
         } else if let value = try? container.decode(RequestIdSource.self) {
             self = .typeRequestIdSource(value)
-        } else if let value = try? container.decode(String.self) {
-            self = .typeString(value)
+        } else if let value = try? container.decode(UrlSource.self) {
+            self = .typeUrlSource(value)
         } else {
             throw DecodingError.typeMismatch(Self.Type.self, .init(codingPath: decoder.codingPath, debugDescription: "Unable to decode instance of DocSourceStandard"))
         }

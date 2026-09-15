@@ -80,6 +80,15 @@ class MergeDocumentRefTest extends TestCase
     }
 
     /**
+     * Test attribute "document_id"
+     */
+    public function testPropertyDocumentId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "request_id"
      */
     public function testPropertyRequestId()
