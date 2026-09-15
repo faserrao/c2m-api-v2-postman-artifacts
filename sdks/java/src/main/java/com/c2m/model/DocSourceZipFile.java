@@ -61,7 +61,7 @@ import com.google.gson.JsonParseException;
 
 import com.c2m.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T17:02:49.016125356Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T18:07:46.687844167Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class DocSourceZipFile extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(DocSourceZipFile.class.getName());
 
