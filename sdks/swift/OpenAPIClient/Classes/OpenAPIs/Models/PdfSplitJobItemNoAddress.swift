@@ -12,15 +12,18 @@ import AnyCodable
 
 public struct PdfSplitJobItemNoAddress: Codable, JSONEncodable, Hashable {
 
+    public var jobTemplate: String?
     public var startPage: Int
     public var endPage: Int
 
-    public init(startPage: Int, endPage: Int) {
+    public init(jobTemplate: String? = nil, startPage: Int, endPage: Int) {
+        self.jobTemplate = jobTemplate
         self.startPage = startPage
         self.endPage = endPage
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case jobTemplate
         case startPage
         case endPage
     }
@@ -29,6 +32,7 @@ public struct PdfSplitJobItemNoAddress: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(jobTemplate, forKey: .jobTemplate)
         try container.encode(startPage, forKey: .startPage)
         try container.encode(endPage, forKey: .endPage)
     }

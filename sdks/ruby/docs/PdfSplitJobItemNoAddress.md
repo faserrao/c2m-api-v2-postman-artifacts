@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **job_template** | **String** |  | [optional] |
 | **start_page** | **Integer** |  |  |
 | **end_page** | **Integer** |  |  |
 
@@ -13,6 +14,7 @@
 require 'openapi_client'
 
 instance = OpenapiClient::PdfSplitJobItemNoAddress.new(
+  job_template: null,
   start_page: null,
   end_page: null
 )

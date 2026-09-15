@@ -35,6 +35,7 @@ class TestPdfSplitJobItemNoAddress(unittest.TestCase):
         model = PdfSplitJobItemNoAddress()
         if include_optional:
             return PdfSplitJobItemNoAddress(
+                job_template = '',
                 start_page = 56,
                 end_page = 56
             )

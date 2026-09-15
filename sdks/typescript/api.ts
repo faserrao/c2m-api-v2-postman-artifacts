@@ -481,6 +481,7 @@ export type PaperType = typeof PaperType[keyof typeof PaperType];
 export type PaymentDetails = AchPayment | CreditCardPayment | InvoicePayment | UserCreditPayment;
 
 export interface PdfSplitJobItemNoAddress {
+    'jobTemplate'?: string;
     'startPage': number;
     'endPage': number;
 }

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**job_template** | **string** |  | [optional]
 **start_page** | **int** |  |
 **end_page** | **int** |  |
 

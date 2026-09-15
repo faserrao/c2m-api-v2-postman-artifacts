@@ -6,6 +6,7 @@
 | ------------ | ------------- | ------------- | ------------- |
 | **startPage** | **kotlin.Int** |  |  |
 | **endPage** | **kotlin.Int** |  |  |
+| **jobTemplate** | **kotlin.String** |  |  [optional] |
 
 
 

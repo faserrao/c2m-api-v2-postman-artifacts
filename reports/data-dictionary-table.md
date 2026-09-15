@@ -240,6 +240,7 @@ A single page-range job entry: page range only (no address — used for address-
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
+| `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `startPage` | integer | Required | First page of this job's page range, 1-indexed (inclusive). |
 | `endPage` | integer | Required | Last page of this job's page range (inclusive). Must be ≥ startPage. |
 

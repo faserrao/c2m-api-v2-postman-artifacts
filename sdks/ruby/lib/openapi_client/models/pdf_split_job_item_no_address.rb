@@ -15,6 +15,8 @@ require 'time'
 
 module OpenapiClient
   class PdfSplitJobItemNoAddress
+    attr_accessor :job_template
+
     attr_accessor :start_page
 
     attr_accessor :end_page
@@ -22,6 +24,7 @@ module OpenapiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'job_template' => :'jobTemplate',
         :'start_page' => :'startPage',
         :'end_page' => :'endPage'
       }
@@ -40,6 +43,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'job_template' => :'String',
         :'start_page' => :'Integer',
         :'end_page' => :'Integer'
       }
@@ -66,6 +70,10 @@ module OpenapiClient
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'job_template')
+        self.job_template = attributes[:'job_template']
+      end
 
       if attributes.key?(:'start_page')
         self.start_page = attributes[:'start_page']
@@ -130,6 +138,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          job_template == o.job_template &&
           start_page == o.start_page &&
           end_page == o.end_page
     end
@@ -143,7 +152,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [start_page, end_page].hash
+      [job_template, start_page, end_page].hash
     end
 
     # Builds the object from hash

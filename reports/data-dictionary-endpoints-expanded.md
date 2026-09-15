@@ -142,6 +142,7 @@
 | `docSourceStandard[requestIdSource].requestId` | integer | Required* | Integer ID of a prior file upload request. Also returned in success responses. |
 | `docSourceStandard[requestIdSource].filename` | string | Optional | Filename of a specific file within an upload request or ZIP archive. |
 | `docSourceStandard[urlSource].url` | string | Required* | URL from which the API will fetch the document at submission time. |
+| `pdfSplitJobsNoAddress[].jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `pdfSplitJobsNoAddress[].startPage` | integer | Required | First page of this job's page range, 1-indexed (inclusive). |
 | `pdfSplitJobsNoAddress[].endPage` | integer | Required | Last page of this job's page range (inclusive). Must be ≥ startPage. |
 | `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand. Accepted values: visa, mastercard, discover, americanExpress. |

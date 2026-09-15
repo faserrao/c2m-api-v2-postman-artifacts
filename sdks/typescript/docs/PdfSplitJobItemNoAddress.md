@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**jobTemplate** | **string** |  | [optional] [default to undefined]
 **startPage** | **number** |  | [default to undefined]
 **endPage** | **number** |  | [default to undefined]
 
@@ -14,6 +15,7 @@ Name | Type | Description | Notes
 import { PdfSplitJobItemNoAddress } from './api';
 
 const instance: PdfSplitJobItemNoAddress = {
+    jobTemplate,
     startPage,
     endPage,
 };

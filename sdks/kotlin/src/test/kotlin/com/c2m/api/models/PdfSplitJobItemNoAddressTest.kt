@@ -37,5 +37,11 @@ class PdfSplitJobItemNoAddressTest : ShouldSpec() {
             //modelInstance.endPage shouldBe ("TODO")
         }
 
+        // to test the property `jobTemplate`
+        should("test jobTemplate") {
+            // uncomment below to test the property
+            //modelInstance.jobTemplate shouldBe ("TODO")
+        }
+
     }
 }

@@ -24,6 +24,7 @@ import com.squareup.moshi.JsonClass
  *
  * @param startPage 
  * @param endPage 
+ * @param jobTemplate 
  */
 
 
@@ -33,7 +34,10 @@ data class PdfSplitJobItemNoAddress (
     val startPage: kotlin.Int,
 
     @Json(name = "endPage")
-    val endPage: kotlin.Int
+    val endPage: kotlin.Int,
+
+    @Json(name = "jobTemplate")
+    val jobTemplate: kotlin.String? = null
 
 ) {
 

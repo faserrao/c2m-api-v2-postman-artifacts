@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,9 +26,10 @@ class PdfSplitJobItemNoAddress(BaseModel):
     """
     PdfSplitJobItemNoAddress
     """ # noqa: E501
+    job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
     start_page: StrictInt = Field(alias="startPage")
     end_page: StrictInt = Field(alias="endPage")
-    __properties: ClassVar[List[str]] = ["startPage", "endPage"]
+    __properties: ClassVar[List[str]] = ["jobTemplate", "startPage", "endPage"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +82,7 @@ class PdfSplitJobItemNoAddress(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "jobTemplate": obj.get("jobTemplate"),
             "startPage": obj.get("startPage"),
             "endPage": obj.get("endPage")
         })

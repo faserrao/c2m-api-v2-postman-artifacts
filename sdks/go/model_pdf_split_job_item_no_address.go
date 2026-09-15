@@ -21,6 +21,7 @@ var _ MappedNullable = &PdfSplitJobItemNoAddress{}
 
 // PdfSplitJobItemNoAddress struct for PdfSplitJobItemNoAddress
 type PdfSplitJobItemNoAddress struct {
+	JobTemplate *string `json:"jobTemplate,omitempty"`
 	StartPage int32 `json:"startPage"`
 	EndPage int32 `json:"endPage"`
 }
@@ -44,6 +45,38 @@ func NewPdfSplitJobItemNoAddress(startPage int32, endPage int32) *PdfSplitJobIte
 func NewPdfSplitJobItemNoAddressWithDefaults() *PdfSplitJobItemNoAddress {
 	this := PdfSplitJobItemNoAddress{}
 	return &this
+}
+
+// GetJobTemplate returns the JobTemplate field value if set, zero value otherwise.
+func (o *PdfSplitJobItemNoAddress) GetJobTemplate() string {
+	if o == nil || IsNil(o.JobTemplate) {
+		var ret string
+		return ret
+	}
+	return *o.JobTemplate
+}
+
+// GetJobTemplateOk returns a tuple with the JobTemplate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *PdfSplitJobItemNoAddress) GetJobTemplateOk() (*string, bool) {
+	if o == nil || IsNil(o.JobTemplate) {
+		return nil, false
+	}
+	return o.JobTemplate, true
+}
+
+// HasJobTemplate returns a boolean if a field has been set.
+func (o *PdfSplitJobItemNoAddress) HasJobTemplate() bool {
+	if o != nil && !IsNil(o.JobTemplate) {
+		return true
+	}
+
+	return false
+}
+
+// SetJobTemplate gets a reference to the given string and assigns it to the JobTemplate field.
+func (o *PdfSplitJobItemNoAddress) SetJobTemplate(v string) {
+	o.JobTemplate = &v
 }
 
 // GetStartPage returns the StartPage field value
@@ -104,6 +137,9 @@ func (o PdfSplitJobItemNoAddress) MarshalJSON() ([]byte, error) {
 
 func (o PdfSplitJobItemNoAddress) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.JobTemplate) {
+		toSerialize["jobTemplate"] = o.JobTemplate
+	}
 	toSerialize["startPage"] = o.StartPage
 	toSerialize["endPage"] = o.EndPage
 	return toSerialize, nil
