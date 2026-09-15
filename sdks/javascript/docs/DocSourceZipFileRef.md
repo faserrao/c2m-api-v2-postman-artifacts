@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**zipDocumentId** | **Number** |  | 
-**requestId** | **Number** |  | 
+**zipDocumentIdOnly** | [**ZipDocumentIdOnly**](ZipDocumentIdOnly.md) |  | 
+**zipRequestIdOnly** | [**ZipRequestIdOnly**](ZipRequestIdOnly.md) |  | 
 
 

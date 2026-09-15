@@ -5,12 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**documentId** | **number** |  | [default to undefined]
-**requestId** | **number** |  | [default to undefined]
-**filename** | **string** |  | [default to undefined]
-**url** | **string** |  | [default to undefined]
-**zipDocumentId** | **number** |  | [default to undefined]
-**zipFilename** | **string** |  | [default to undefined]
+**documentIdSource** | [**DocumentIdSource**](DocumentIdSource.md) |  | [default to undefined]
+**requestIdSource** | [**RequestIdSource**](RequestIdSource.md) |  | [default to undefined]
+**urlSource** | [**UrlSource**](UrlSource.md) |  | [default to undefined]
+**zipDocumentIdSource** | [**ZipDocumentIdSource**](ZipDocumentIdSource.md) |  | [default to undefined]
+**zipRequestIdSource** | [**ZipRequestIdSource**](ZipRequestIdSource.md) |  | [default to undefined]
 
 ## Example
 
@@ -18,12 +17,11 @@ Name | Type | Description | Notes
 import { DocSourceAll } from './api';
 
 const instance: DocSourceAll = {
-    documentId,
-    requestId,
-    filename,
-    url,
-    zipDocumentId,
-    zipFilename,
+    documentIdSource,
+    requestIdSource,
+    urlSource,
+    zipDocumentIdSource,
+    zipRequestIdSource,
 };
 ```
 

@@ -41,8 +41,13 @@ __all__ = [
     "Currency",
     "DocSourceAll",
     "DocSourceStandard",
+    "DocSourceStandardOneOf",
+    "DocSourceStandardOneOf1",
+    "DocSourceStandardOneOf2",
     "DocSourceZipFile",
     "DocSourceZipFileRef",
+    "DocSourceZipFileRefOneOf",
+    "DocSourceZipFileRefOneOf1",
     "DocumentClass",
     "DocumentIdSource",
     "Envelope",
@@ -60,6 +65,8 @@ __all__ = [
     "MergeByDocumentId",
     "MergeByRequestId",
     "MergeDocumentRef",
+    "MergeDocumentRefOneOf",
+    "MergeDocumentRefOneOf1",
     "MultiDocJobItem",
     "MultiZipJobItem",
     "PaperType",
@@ -70,6 +77,10 @@ __all__ = [
     "ProductionTime",
     "RecipientAddressByList",
     "RecipientAddressSource",
+    "RecipientAddressSourceOneOf",
+    "RecipientAddressSourceOneOf1",
+    "RecipientAddressSourceOneOf2",
+    "RecipientAddressSourceOneOf3",
     "RequestIdSource",
     "ReturnAddress",
     "ShortTokenRequest",
@@ -87,6 +98,8 @@ __all__ = [
     "ZipDocumentIdOnly",
     "ZipDocumentIdSource",
     "ZipDocumentSource",
+    "ZipDocumentSourceOneOf",
+    "ZipDocumentSourceOneOf1",
     "ZipRequestIdOnly",
     "ZipRequestIdSource",
 ]
@@ -120,8 +133,13 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.currency import Currency as Currency
     from c2m_api.models.doc_source_all import DocSourceAll as DocSourceAll
     from c2m_api.models.doc_source_standard import DocSourceStandard as DocSourceStandard
+    from c2m_api.models.doc_source_standard_one_of import DocSourceStandardOneOf as DocSourceStandardOneOf
+    from c2m_api.models.doc_source_standard_one_of1 import DocSourceStandardOneOf1 as DocSourceStandardOneOf1
+    from c2m_api.models.doc_source_standard_one_of2 import DocSourceStandardOneOf2 as DocSourceStandardOneOf2
     from c2m_api.models.doc_source_zip_file import DocSourceZipFile as DocSourceZipFile
     from c2m_api.models.doc_source_zip_file_ref import DocSourceZipFileRef as DocSourceZipFileRef
+    from c2m_api.models.doc_source_zip_file_ref_one_of import DocSourceZipFileRefOneOf as DocSourceZipFileRefOneOf
+    from c2m_api.models.doc_source_zip_file_ref_one_of1 import DocSourceZipFileRefOneOf1 as DocSourceZipFileRefOneOf1
     from c2m_api.models.document_class import DocumentClass as DocumentClass
     from c2m_api.models.document_id_source import DocumentIdSource as DocumentIdSource
     from c2m_api.models.envelope import Envelope as Envelope
@@ -139,6 +157,8 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.merge_by_document_id import MergeByDocumentId as MergeByDocumentId
     from c2m_api.models.merge_by_request_id import MergeByRequestId as MergeByRequestId
     from c2m_api.models.merge_document_ref import MergeDocumentRef as MergeDocumentRef
+    from c2m_api.models.merge_document_ref_one_of import MergeDocumentRefOneOf as MergeDocumentRefOneOf
+    from c2m_api.models.merge_document_ref_one_of1 import MergeDocumentRefOneOf1 as MergeDocumentRefOneOf1
     from c2m_api.models.multi_doc_job_item import MultiDocJobItem as MultiDocJobItem
     from c2m_api.models.multi_zip_job_item import MultiZipJobItem as MultiZipJobItem
     from c2m_api.models.paper_type import PaperType as PaperType
@@ -149,6 +169,10 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.production_time import ProductionTime as ProductionTime
     from c2m_api.models.recipient_address_by_list import RecipientAddressByList as RecipientAddressByList
     from c2m_api.models.recipient_address_source import RecipientAddressSource as RecipientAddressSource
+    from c2m_api.models.recipient_address_source_one_of import RecipientAddressSourceOneOf as RecipientAddressSourceOneOf
+    from c2m_api.models.recipient_address_source_one_of1 import RecipientAddressSourceOneOf1 as RecipientAddressSourceOneOf1
+    from c2m_api.models.recipient_address_source_one_of2 import RecipientAddressSourceOneOf2 as RecipientAddressSourceOneOf2
+    from c2m_api.models.recipient_address_source_one_of3 import RecipientAddressSourceOneOf3 as RecipientAddressSourceOneOf3
     from c2m_api.models.request_id_source import RequestIdSource as RequestIdSource
     from c2m_api.models.return_address import ReturnAddress as ReturnAddress
     from c2m_api.models.short_token_request import ShortTokenRequest as ShortTokenRequest
@@ -166,6 +190,8 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.zip_document_id_only import ZipDocumentIdOnly as ZipDocumentIdOnly
     from c2m_api.models.zip_document_id_source import ZipDocumentIdSource as ZipDocumentIdSource
     from c2m_api.models.zip_document_source import ZipDocumentSource as ZipDocumentSource
+    from c2m_api.models.zip_document_source_one_of import ZipDocumentSourceOneOf as ZipDocumentSourceOneOf
+    from c2m_api.models.zip_document_source_one_of1 import ZipDocumentSourceOneOf1 as ZipDocumentSourceOneOf1
     from c2m_api.models.zip_request_id_only import ZipRequestIdOnly as ZipRequestIdOnly
     from c2m_api.models.zip_request_id_source import ZipRequestIdSource as ZipRequestIdSource
     
@@ -205,8 +231,13 @@ from c2m_api.models.credit_card_payment import CreditCardPayment as CreditCardPa
 from c2m_api.models.currency import Currency as Currency
 from c2m_api.models.doc_source_all import DocSourceAll as DocSourceAll
 from c2m_api.models.doc_source_standard import DocSourceStandard as DocSourceStandard
+from c2m_api.models.doc_source_standard_one_of import DocSourceStandardOneOf as DocSourceStandardOneOf
+from c2m_api.models.doc_source_standard_one_of1 import DocSourceStandardOneOf1 as DocSourceStandardOneOf1
+from c2m_api.models.doc_source_standard_one_of2 import DocSourceStandardOneOf2 as DocSourceStandardOneOf2
 from c2m_api.models.doc_source_zip_file import DocSourceZipFile as DocSourceZipFile
 from c2m_api.models.doc_source_zip_file_ref import DocSourceZipFileRef as DocSourceZipFileRef
+from c2m_api.models.doc_source_zip_file_ref_one_of import DocSourceZipFileRefOneOf as DocSourceZipFileRefOneOf
+from c2m_api.models.doc_source_zip_file_ref_one_of1 import DocSourceZipFileRefOneOf1 as DocSourceZipFileRefOneOf1
 from c2m_api.models.document_class import DocumentClass as DocumentClass
 from c2m_api.models.document_id_source import DocumentIdSource as DocumentIdSource
 from c2m_api.models.envelope import Envelope as Envelope
@@ -224,6 +255,8 @@ from c2m_api.models.mail_class import MailClass as MailClass
 from c2m_api.models.merge_by_document_id import MergeByDocumentId as MergeByDocumentId
 from c2m_api.models.merge_by_request_id import MergeByRequestId as MergeByRequestId
 from c2m_api.models.merge_document_ref import MergeDocumentRef as MergeDocumentRef
+from c2m_api.models.merge_document_ref_one_of import MergeDocumentRefOneOf as MergeDocumentRefOneOf
+from c2m_api.models.merge_document_ref_one_of1 import MergeDocumentRefOneOf1 as MergeDocumentRefOneOf1
 from c2m_api.models.multi_doc_job_item import MultiDocJobItem as MultiDocJobItem
 from c2m_api.models.multi_zip_job_item import MultiZipJobItem as MultiZipJobItem
 from c2m_api.models.paper_type import PaperType as PaperType
@@ -234,6 +267,10 @@ from c2m_api.models.print_option import PrintOption as PrintOption
 from c2m_api.models.production_time import ProductionTime as ProductionTime
 from c2m_api.models.recipient_address_by_list import RecipientAddressByList as RecipientAddressByList
 from c2m_api.models.recipient_address_source import RecipientAddressSource as RecipientAddressSource
+from c2m_api.models.recipient_address_source_one_of import RecipientAddressSourceOneOf as RecipientAddressSourceOneOf
+from c2m_api.models.recipient_address_source_one_of1 import RecipientAddressSourceOneOf1 as RecipientAddressSourceOneOf1
+from c2m_api.models.recipient_address_source_one_of2 import RecipientAddressSourceOneOf2 as RecipientAddressSourceOneOf2
+from c2m_api.models.recipient_address_source_one_of3 import RecipientAddressSourceOneOf3 as RecipientAddressSourceOneOf3
 from c2m_api.models.request_id_source import RequestIdSource as RequestIdSource
 from c2m_api.models.return_address import ReturnAddress as ReturnAddress
 from c2m_api.models.short_token_request import ShortTokenRequest as ShortTokenRequest
@@ -251,6 +288,8 @@ from c2m_api.models.user_credit_payment import UserCreditPayment as UserCreditPa
 from c2m_api.models.zip_document_id_only import ZipDocumentIdOnly as ZipDocumentIdOnly
 from c2m_api.models.zip_document_id_source import ZipDocumentIdSource as ZipDocumentIdSource
 from c2m_api.models.zip_document_source import ZipDocumentSource as ZipDocumentSource
+from c2m_api.models.zip_document_source_one_of import ZipDocumentSourceOneOf as ZipDocumentSourceOneOf
+from c2m_api.models.zip_document_source_one_of1 import ZipDocumentSourceOneOf1 as ZipDocumentSourceOneOf1
 from c2m_api.models.zip_request_id_only import ZipRequestIdOnly as ZipRequestIdOnly
 from c2m_api.models.zip_request_id_source import ZipRequestIdSource as ZipRequestIdSource
 

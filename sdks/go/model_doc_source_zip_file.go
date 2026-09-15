@@ -18,21 +18,21 @@ import (
 
 // DocSourceZipFile - struct for DocSourceZipFile
 type DocSourceZipFile struct {
-	ZipDocumentIdSource *ZipDocumentIdSource
-	ZipRequestIdSource *ZipRequestIdSource
+	ZipDocumentSourceOneOf *ZipDocumentSourceOneOf
+	ZipDocumentSourceOneOf1 *ZipDocumentSourceOneOf1
 }
 
-// ZipDocumentIdSourceAsDocSourceZipFile is a convenience function that returns ZipDocumentIdSource wrapped in DocSourceZipFile
-func ZipDocumentIdSourceAsDocSourceZipFile(v *ZipDocumentIdSource) DocSourceZipFile {
+// ZipDocumentSourceOneOfAsDocSourceZipFile is a convenience function that returns ZipDocumentSourceOneOf wrapped in DocSourceZipFile
+func ZipDocumentSourceOneOfAsDocSourceZipFile(v *ZipDocumentSourceOneOf) DocSourceZipFile {
 	return DocSourceZipFile{
-		ZipDocumentIdSource: v,
+		ZipDocumentSourceOneOf: v,
 	}
 }
 
-// ZipRequestIdSourceAsDocSourceZipFile is a convenience function that returns ZipRequestIdSource wrapped in DocSourceZipFile
-func ZipRequestIdSourceAsDocSourceZipFile(v *ZipRequestIdSource) DocSourceZipFile {
+// ZipDocumentSourceOneOf1AsDocSourceZipFile is a convenience function that returns ZipDocumentSourceOneOf1 wrapped in DocSourceZipFile
+func ZipDocumentSourceOneOf1AsDocSourceZipFile(v *ZipDocumentSourceOneOf1) DocSourceZipFile {
 	return DocSourceZipFile{
-		ZipRequestIdSource: v,
+		ZipDocumentSourceOneOf1: v,
 	}
 }
 
@@ -41,44 +41,44 @@ func ZipRequestIdSourceAsDocSourceZipFile(v *ZipRequestIdSource) DocSourceZipFil
 func (dst *DocSourceZipFile) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into ZipDocumentIdSource
-	err = newStrictDecoder(data).Decode(&dst.ZipDocumentIdSource)
+	// try to unmarshal data into ZipDocumentSourceOneOf
+	err = newStrictDecoder(data).Decode(&dst.ZipDocumentSourceOneOf)
 	if err == nil {
-		jsonZipDocumentIdSource, _ := json.Marshal(dst.ZipDocumentIdSource)
-		if string(jsonZipDocumentIdSource) == "{}" { // empty struct
-			dst.ZipDocumentIdSource = nil
+		jsonZipDocumentSourceOneOf, _ := json.Marshal(dst.ZipDocumentSourceOneOf)
+		if string(jsonZipDocumentSourceOneOf) == "{}" { // empty struct
+			dst.ZipDocumentSourceOneOf = nil
 		} else {
-			if err = validator.Validate(dst.ZipDocumentIdSource); err != nil {
-				dst.ZipDocumentIdSource = nil
+			if err = validator.Validate(dst.ZipDocumentSourceOneOf); err != nil {
+				dst.ZipDocumentSourceOneOf = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.ZipDocumentIdSource = nil
+		dst.ZipDocumentSourceOneOf = nil
 	}
 
-	// try to unmarshal data into ZipRequestIdSource
-	err = newStrictDecoder(data).Decode(&dst.ZipRequestIdSource)
+	// try to unmarshal data into ZipDocumentSourceOneOf1
+	err = newStrictDecoder(data).Decode(&dst.ZipDocumentSourceOneOf1)
 	if err == nil {
-		jsonZipRequestIdSource, _ := json.Marshal(dst.ZipRequestIdSource)
-		if string(jsonZipRequestIdSource) == "{}" { // empty struct
-			dst.ZipRequestIdSource = nil
+		jsonZipDocumentSourceOneOf1, _ := json.Marshal(dst.ZipDocumentSourceOneOf1)
+		if string(jsonZipDocumentSourceOneOf1) == "{}" { // empty struct
+			dst.ZipDocumentSourceOneOf1 = nil
 		} else {
-			if err = validator.Validate(dst.ZipRequestIdSource); err != nil {
-				dst.ZipRequestIdSource = nil
+			if err = validator.Validate(dst.ZipDocumentSourceOneOf1); err != nil {
+				dst.ZipDocumentSourceOneOf1 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.ZipRequestIdSource = nil
+		dst.ZipDocumentSourceOneOf1 = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.ZipDocumentIdSource = nil
-		dst.ZipRequestIdSource = nil
+		dst.ZipDocumentSourceOneOf = nil
+		dst.ZipDocumentSourceOneOf1 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(DocSourceZipFile)")
 	} else if match == 1 {
@@ -90,12 +90,12 @@ func (dst *DocSourceZipFile) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src DocSourceZipFile) MarshalJSON() ([]byte, error) {
-	if src.ZipDocumentIdSource != nil {
-		return json.Marshal(&src.ZipDocumentIdSource)
+	if src.ZipDocumentSourceOneOf != nil {
+		return json.Marshal(&src.ZipDocumentSourceOneOf)
 	}
 
-	if src.ZipRequestIdSource != nil {
-		return json.Marshal(&src.ZipRequestIdSource)
+	if src.ZipDocumentSourceOneOf1 != nil {
+		return json.Marshal(&src.ZipDocumentSourceOneOf1)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -106,12 +106,12 @@ func (obj *DocSourceZipFile) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.ZipDocumentIdSource != nil {
-		return obj.ZipDocumentIdSource
+	if obj.ZipDocumentSourceOneOf != nil {
+		return obj.ZipDocumentSourceOneOf
 	}
 
-	if obj.ZipRequestIdSource != nil {
-		return obj.ZipRequestIdSource
+	if obj.ZipDocumentSourceOneOf1 != nil {
+		return obj.ZipDocumentSourceOneOf1
 	}
 
 	// all schemas are nil
@@ -120,12 +120,12 @@ func (obj *DocSourceZipFile) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj DocSourceZipFile) GetActualInstanceValue() (interface{}) {
-	if obj.ZipDocumentIdSource != nil {
-		return *obj.ZipDocumentIdSource
+	if obj.ZipDocumentSourceOneOf != nil {
+		return *obj.ZipDocumentSourceOneOf
 	}
 
-	if obj.ZipRequestIdSource != nil {
-		return *obj.ZipRequestIdSource
+	if obj.ZipDocumentSourceOneOf1 != nil {
+		return *obj.ZipDocumentSourceOneOf1
 	}
 
 	// all schemas are nil

@@ -5,10 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**document_id** | **int** |  | 
-**request_id** | **int** |  | 
-**filename** | **str** |  | [optional] 
-**url** | **str** |  | 
+**document_id_source** | [**DocumentIdSource**](DocumentIdSource.md) |  | 
+**request_id_source** | [**RequestIdSource**](RequestIdSource.md) |  | 
+**url_source** | [**UrlSource**](UrlSource.md) |  | 
 
 ## Example
 

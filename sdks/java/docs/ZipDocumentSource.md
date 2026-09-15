@@ -7,10 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**zipDocumentId** | **Integer** |  |  |
-|**filename** | **String** |  |  |
-|**requestId** | **Integer** |  |  |
-|**zipFilename** | **String** |  |  |
+|**zipDocumentIdSource** | [**ZipDocumentIdSource**](ZipDocumentIdSource.md) |  |  |
+|**zipRequestIdSource** | [**ZipRequestIdSource**](ZipRequestIdSource.md) |  |  |
 
 
 

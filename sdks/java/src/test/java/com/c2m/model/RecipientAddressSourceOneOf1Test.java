@@ -1,6 +1,6 @@
 /*
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -13,6 +13,7 @@
 
 package com.c2m.model;
 
+import com.c2m.model.RecipientAddressByList;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -38,11 +39,11 @@ public class RecipientAddressSourceOneOf1Test {
     }
 
     /**
-     * Test the property 'addressId'
+     * Test the property 'recipientAddressByList'
      */
     @Test
-    public void addressIdTest() {
-        // TODO: test addressId
+    public void recipientAddressByListTest() {
+        // TODO: test recipientAddressByList
     }
 
 }

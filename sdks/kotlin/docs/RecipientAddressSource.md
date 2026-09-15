@@ -4,20 +4,10 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **firstName** | **kotlin.String** |  |  |
-| **lastName** | **kotlin.String** |  |  |
-| **address1** | **kotlin.String** |  |  |
-| **city** | **kotlin.String** |  |  |
-| **state** | **kotlin.String** |  |  |
-| **zip** | **kotlin.String** |  |  |
-| **country** | **kotlin.String** |  |  |
-| **addressList** | [**kotlin.collections.List&lt;Address&gt;**](Address.md) |  |  |
-| **address2** | **kotlin.String** |  |  [optional] |
-| **address3** | **kotlin.String** |  |  [optional] |
-| **foo1** | **kotlin.String** |  |  [optional] |
-| **foo2** | **kotlin.String** |  |  [optional] |
-| **mappingId** | **kotlin.Int** |  |  [optional] |
-| **addressListName** | **kotlin.String** |  |  [optional] |
+| **singleAddress** | [**Address**](Address.md) |  |  |
+| **recipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  |  |
+| **recipientAddressByAddressId** | **kotlin.Int** |  |  |
+| **recipientAddressByListId** | **kotlin.Int** |  |  |
 
 
 

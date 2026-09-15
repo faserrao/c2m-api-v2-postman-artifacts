@@ -4,7 +4,7 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **addressId** | **kotlin.Int** |  |  |
+| **recipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  |  |
 
 
 

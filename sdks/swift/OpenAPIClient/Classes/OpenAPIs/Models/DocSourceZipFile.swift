@@ -11,25 +11,25 @@ import AnyCodable
 #endif
 
 public enum DocSourceZipFile: Codable, JSONEncodable, Hashable {
-    case typeZipDocumentIdSource(ZipDocumentIdSource)
-    case typeZipRequestIdSource(ZipRequestIdSource)
+    case typeZipDocumentSourceOneOf(ZipDocumentSourceOneOf)
+    case typeZipDocumentSourceOneOf1(ZipDocumentSourceOneOf1)
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
-        case .typeZipDocumentIdSource(let value):
+        case .typeZipDocumentSourceOneOf(let value):
             try container.encode(value)
-        case .typeZipRequestIdSource(let value):
+        case .typeZipDocumentSourceOneOf1(let value):
             try container.encode(value)
         }
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        if let value = try? container.decode(ZipDocumentIdSource.self) {
-            self = .typeZipDocumentIdSource(value)
-        } else if let value = try? container.decode(ZipRequestIdSource.self) {
-            self = .typeZipRequestIdSource(value)
+        if let value = try? container.decode(ZipDocumentSourceOneOf.self) {
+            self = .typeZipDocumentSourceOneOf(value)
+        } else if let value = try? container.decode(ZipDocumentSourceOneOf1.self) {
+            self = .typeZipDocumentSourceOneOf1(value)
         } else {
             throw DecodingError.typeMismatch(Self.Type.self, .init(codingPath: decoder.codingPath, debugDescription: "Unable to decode instance of DocSourceZipFile"))
         }

@@ -3,12 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**documentId** | **Int** |  | 
-**requestId** | **Int** |  | 
-**filename** | **String** |  | 
-**url** | **String** |  | 
-**zipDocumentId** | **Int** |  | 
-**zipFilename** | **String** |  | 
+**documentIdSource** | [**DocumentIdSource**](DocumentIdSource.md) |  | 
+**requestIdSource** | [**RequestIdSource**](RequestIdSource.md) |  | 
+**urlSource** | [**UrlSource**](UrlSource.md) |  | 
+**zipDocumentIdSource** | [**ZipDocumentIdSource**](ZipDocumentIdSource.md) |  | 
+**zipRequestIdSource** | [**ZipRequestIdSource**](ZipRequestIdSource.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -127,23 +127,38 @@ export type Currency = typeof Currency[keyof typeof Currency];
 /**
  * @type DocSourceAll
  */
-export type DocSourceAll = DocSourceStandard | DocSourceZipFile;
+export type DocSourceAll = DocSourceStandardOneOf | DocSourceStandardOneOf1 | DocSourceStandardOneOf2 | ZipDocumentSourceOneOf | ZipDocumentSourceOneOf1;
 
 /**
  * @type DocSourceStandard
  */
-export type DocSourceStandard = DocumentIdSource | RequestIdSource | UrlSource;
+export type DocSourceStandard = DocSourceStandardOneOf | DocSourceStandardOneOf1 | DocSourceStandardOneOf2;
 
+export interface DocSourceStandardOneOf {
+    'documentIdSource': DocumentIdSource;
+}
+export interface DocSourceStandardOneOf1 {
+    'requestIdSource': RequestIdSource;
+}
+export interface DocSourceStandardOneOf2 {
+    'urlSource': UrlSource;
+}
 /**
  * @type DocSourceZipFile
  */
-export type DocSourceZipFile = ZipDocumentIdSource | ZipRequestIdSource;
+export type DocSourceZipFile = ZipDocumentSourceOneOf | ZipDocumentSourceOneOf1;
 
 /**
  * @type DocSourceZipFileRef
  */
-export type DocSourceZipFileRef = ZipDocumentIdOnly | ZipRequestIdOnly;
+export type DocSourceZipFileRef = DocSourceZipFileRefOneOf | DocSourceZipFileRefOneOf1;
 
+export interface DocSourceZipFileRefOneOf {
+    'zipDocumentIdOnly': ZipDocumentIdOnly;
+}
+export interface DocSourceZipFileRefOneOf1 {
+    'zipRequestIdOnly': ZipRequestIdOnly;
+}
 
 export const DocumentClass = {
     Letter: 'letter',
@@ -431,8 +446,14 @@ export interface MergeByRequestId {
 /**
  * @type MergeDocumentRef
  */
-export type MergeDocumentRef = MergeByDocumentId | MergeByRequestId;
+export type MergeDocumentRef = MergeDocumentRefOneOf | MergeDocumentRefOneOf1;
 
+export interface MergeDocumentRefOneOf {
+    'mergeByDocumentId': MergeByDocumentId;
+}
+export interface MergeDocumentRefOneOf1 {
+    'mergeByRequestId': MergeByRequestId;
+}
 export interface MultiDocJobItem {
     'jobTemplate'?: string;
     'docSourceAll': DocSourceAll;
@@ -498,8 +519,20 @@ export interface RecipientAddressByList {
 /**
  * @type RecipientAddressSource
  */
-export type RecipientAddressSource = Address | RecipientAddressByList | number;
+export type RecipientAddressSource = RecipientAddressSourceOneOf | RecipientAddressSourceOneOf1 | RecipientAddressSourceOneOf2 | RecipientAddressSourceOneOf3;
 
+export interface RecipientAddressSourceOneOf {
+    'singleAddress': Address;
+}
+export interface RecipientAddressSourceOneOf1 {
+    'recipientAddressByList': RecipientAddressByList;
+}
+export interface RecipientAddressSourceOneOf2 {
+    'recipientAddressByAddressId': number;
+}
+export interface RecipientAddressSourceOneOf3 {
+    'recipientAddressByListId': number;
+}
 export interface RequestIdSource {
     'requestId': number;
     'filename'?: string;
@@ -635,8 +668,14 @@ export interface ZipDocumentIdSource {
 /**
  * @type ZipDocumentSource
  */
-export type ZipDocumentSource = ZipDocumentIdSource | ZipRequestIdSource;
+export type ZipDocumentSource = ZipDocumentSourceOneOf | ZipDocumentSourceOneOf1;
 
+export interface ZipDocumentSourceOneOf {
+    'zipDocumentIdSource': ZipDocumentIdSource;
+}
+export interface ZipDocumentSourceOneOf1 {
+    'zipRequestIdSource': ZipRequestIdSource;
+}
 export interface ZipRequestIdOnly {
     'requestId': number;
 }

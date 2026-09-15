@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addressListId** | **Number** |  | 
+**singleAddress** | [**Address**](Address.md) |  | 
 
 

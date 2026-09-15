@@ -13,6 +13,8 @@
 
 package com.c2m.model;
 
+import com.c2m.model.DocSourceZipFileRefOneOf;
+import com.c2m.model.DocSourceZipFileRefOneOf1;
 import com.c2m.model.ZipDocumentIdOnly;
 import com.c2m.model.ZipRequestIdOnly;
 import com.google.gson.TypeAdapter;
@@ -40,19 +42,19 @@ public class DocSourceZipFileRefTest {
     }
 
     /**
-     * Test the property 'zipDocumentId'
+     * Test the property 'zipDocumentIdOnly'
      */
     @Test
-    public void zipDocumentIdTest() {
-        // TODO: test zipDocumentId
+    public void zipDocumentIdOnlyTest() {
+        // TODO: test zipDocumentIdOnly
     }
 
     /**
-     * Test the property 'requestId'
+     * Test the property 'zipRequestIdOnly'
      */
     @Test
-    public void requestIdTest() {
-        // TODO: test requestId
+    public void zipRequestIdOnlyTest() {
+        // TODO: test zipRequestIdOnly
     }
 
 }

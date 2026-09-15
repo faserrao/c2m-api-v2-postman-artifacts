@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ZipDocumentId** | **int32** |  | 
-**RequestId** | **int32** |  | 
+**ZipDocumentIdOnly** | [**ZipDocumentIdOnly**](ZipDocumentIdOnly.md) |  | 
+**ZipRequestIdOnly** | [**ZipRequestIdOnly**](ZipRequestIdOnly.md) |  | 
 
 ## Methods
 
 ### NewDocSourceZipFileRef
 
-`func NewDocSourceZipFileRef(zipDocumentId int32, requestId int32, ) *DocSourceZipFileRef`
+`func NewDocSourceZipFileRef(zipDocumentIdOnly ZipDocumentIdOnly, zipRequestIdOnly ZipRequestIdOnly, ) *DocSourceZipFileRef`
 
 NewDocSourceZipFileRef instantiates a new DocSourceZipFileRef object
 This constructor will assign default values to properties that have it defined,
@@ -26,44 +26,44 @@ NewDocSourceZipFileRefWithDefaults instantiates a new DocSourceZipFileRef object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetZipDocumentId
+### GetZipDocumentIdOnly
 
-`func (o *DocSourceZipFileRef) GetZipDocumentId() int32`
+`func (o *DocSourceZipFileRef) GetZipDocumentIdOnly() ZipDocumentIdOnly`
 
-GetZipDocumentId returns the ZipDocumentId field if non-nil, zero value otherwise.
+GetZipDocumentIdOnly returns the ZipDocumentIdOnly field if non-nil, zero value otherwise.
 
-### GetZipDocumentIdOk
+### GetZipDocumentIdOnlyOk
 
-`func (o *DocSourceZipFileRef) GetZipDocumentIdOk() (*int32, bool)`
+`func (o *DocSourceZipFileRef) GetZipDocumentIdOnlyOk() (*ZipDocumentIdOnly, bool)`
 
-GetZipDocumentIdOk returns a tuple with the ZipDocumentId field if it's non-nil, zero value otherwise
+GetZipDocumentIdOnlyOk returns a tuple with the ZipDocumentIdOnly field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetZipDocumentId
+### SetZipDocumentIdOnly
 
-`func (o *DocSourceZipFileRef) SetZipDocumentId(v int32)`
+`func (o *DocSourceZipFileRef) SetZipDocumentIdOnly(v ZipDocumentIdOnly)`
 
-SetZipDocumentId sets ZipDocumentId field to given value.
+SetZipDocumentIdOnly sets ZipDocumentIdOnly field to given value.
 
 
-### GetRequestId
+### GetZipRequestIdOnly
 
-`func (o *DocSourceZipFileRef) GetRequestId() int32`
+`func (o *DocSourceZipFileRef) GetZipRequestIdOnly() ZipRequestIdOnly`
 
-GetRequestId returns the RequestId field if non-nil, zero value otherwise.
+GetZipRequestIdOnly returns the ZipRequestIdOnly field if non-nil, zero value otherwise.
 
-### GetRequestIdOk
+### GetZipRequestIdOnlyOk
 
-`func (o *DocSourceZipFileRef) GetRequestIdOk() (*int32, bool)`
+`func (o *DocSourceZipFileRef) GetZipRequestIdOnlyOk() (*ZipRequestIdOnly, bool)`
 
-GetRequestIdOk returns a tuple with the RequestId field if it's non-nil, zero value otherwise
+GetZipRequestIdOnlyOk returns a tuple with the ZipRequestIdOnly field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRequestId
+### SetZipRequestIdOnly
 
-`func (o *DocSourceZipFileRef) SetRequestId(v int32)`
+`func (o *DocSourceZipFileRef) SetZipRequestIdOnly(v ZipRequestIdOnly)`
 
-SetRequestId sets RequestId field to given value.
+SetZipRequestIdOnly sets ZipRequestIdOnly field to given value.
 
 
 

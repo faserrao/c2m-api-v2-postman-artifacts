@@ -50,7 +50,7 @@ import com.c2m.JSON;
 /**
  * MultiDocJobItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T02:58:21.920473899Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T04:46:23.499769106Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class MultiDocJobItem {
   public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
   @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)

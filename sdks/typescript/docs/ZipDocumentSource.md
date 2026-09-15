@@ -5,10 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**zipDocumentId** | **number** |  | [default to undefined]
-**filename** | **string** |  | [default to undefined]
-**requestId** | **number** |  | [default to undefined]
-**zipFilename** | **string** |  | [default to undefined]
+**zipDocumentIdSource** | [**ZipDocumentIdSource**](ZipDocumentIdSource.md) |  | [default to undefined]
+**zipRequestIdSource** | [**ZipRequestIdSource**](ZipRequestIdSource.md) |  | [default to undefined]
 
 ## Example
 
@@ -16,10 +14,8 @@ Name | Type | Description | Notes
 import { ZipDocumentSource } from './api';
 
 const instance: ZipDocumentSource = {
-    zipDocumentId,
-    filename,
-    requestId,
-    zipFilename,
+    zipDocumentIdSource,
+    zipRequestIdSource,
 };
 ```
 

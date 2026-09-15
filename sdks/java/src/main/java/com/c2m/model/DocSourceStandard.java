@@ -14,6 +14,9 @@
 package com.c2m.model;
 
 import java.util.Objects;
+import com.c2m.model.DocSourceStandardOneOf;
+import com.c2m.model.DocSourceStandardOneOf1;
+import com.c2m.model.DocSourceStandardOneOf2;
 import com.c2m.model.DocumentIdSource;
 import com.c2m.model.RequestIdSource;
 import com.c2m.model.UrlSource;
@@ -23,7 +26,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
 
 
@@ -61,7 +63,7 @@ import com.google.gson.JsonParseException;
 
 import com.c2m.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T02:58:21.920473899Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T04:46:23.499769106Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class DocSourceStandard extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(DocSourceStandard.class.getName());
 
@@ -73,9 +75,9 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'DocSourceStandard' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<DocumentIdSource> adapterDocumentIdSource = gson.getDelegateAdapter(this, TypeToken.get(DocumentIdSource.class));
-            final TypeAdapter<RequestIdSource> adapterRequestIdSource = gson.getDelegateAdapter(this, TypeToken.get(RequestIdSource.class));
-            final TypeAdapter<UrlSource> adapterUrlSource = gson.getDelegateAdapter(this, TypeToken.get(UrlSource.class));
+            final TypeAdapter<DocSourceStandardOneOf> adapterDocSourceStandardOneOf = gson.getDelegateAdapter(this, TypeToken.get(DocSourceStandardOneOf.class));
+            final TypeAdapter<DocSourceStandardOneOf1> adapterDocSourceStandardOneOf1 = gson.getDelegateAdapter(this, TypeToken.get(DocSourceStandardOneOf1.class));
+            final TypeAdapter<DocSourceStandardOneOf2> adapterDocSourceStandardOneOf2 = gson.getDelegateAdapter(this, TypeToken.get(DocSourceStandardOneOf2.class));
 
             return (TypeAdapter<T>) new TypeAdapter<DocSourceStandard>() {
                 @Override
@@ -85,25 +87,25 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `DocumentIdSource`
-                    if (value.getActualInstance() instanceof DocumentIdSource) {
-                        JsonElement element = adapterDocumentIdSource.toJsonTree((DocumentIdSource)value.getActualInstance());
+                    // check if the actual instance is of the type `DocSourceStandardOneOf`
+                    if (value.getActualInstance() instanceof DocSourceStandardOneOf) {
+                        JsonElement element = adapterDocSourceStandardOneOf.toJsonTree((DocSourceStandardOneOf)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `RequestIdSource`
-                    if (value.getActualInstance() instanceof RequestIdSource) {
-                        JsonElement element = adapterRequestIdSource.toJsonTree((RequestIdSource)value.getActualInstance());
+                    // check if the actual instance is of the type `DocSourceStandardOneOf1`
+                    if (value.getActualInstance() instanceof DocSourceStandardOneOf1) {
+                        JsonElement element = adapterDocSourceStandardOneOf1.toJsonTree((DocSourceStandardOneOf1)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `UrlSource`
-                    if (value.getActualInstance() instanceof UrlSource) {
-                        JsonElement element = adapterUrlSource.toJsonTree((UrlSource)value.getActualInstance());
+                    // check if the actual instance is of the type `DocSourceStandardOneOf2`
+                    if (value.getActualInstance() instanceof DocSourceStandardOneOf2) {
+                        JsonElement element = adapterDocSourceStandardOneOf2.toJsonTree((DocSourceStandardOneOf2)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: DocumentIdSource, RequestIdSource, UrlSource");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2");
                 }
 
                 @Override
@@ -115,41 +117,41 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize DocumentIdSource
+                    // deserialize DocSourceStandardOneOf
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        DocumentIdSource.validateJsonElement(jsonElement);
-                        actualAdapter = adapterDocumentIdSource;
+                        DocSourceStandardOneOf.validateJsonElement(jsonElement);
+                        actualAdapter = adapterDocSourceStandardOneOf;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'DocumentIdSource'");
+                        log.log(Level.FINER, "Input data matches schema 'DocSourceStandardOneOf'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for DocumentIdSource failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'DocumentIdSource'", e);
+                        errorMessages.add(String.format("Deserialization for DocSourceStandardOneOf failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'DocSourceStandardOneOf'", e);
                     }
-                    // deserialize RequestIdSource
+                    // deserialize DocSourceStandardOneOf1
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        RequestIdSource.validateJsonElement(jsonElement);
-                        actualAdapter = adapterRequestIdSource;
+                        DocSourceStandardOneOf1.validateJsonElement(jsonElement);
+                        actualAdapter = adapterDocSourceStandardOneOf1;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'RequestIdSource'");
+                        log.log(Level.FINER, "Input data matches schema 'DocSourceStandardOneOf1'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for RequestIdSource failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'RequestIdSource'", e);
+                        errorMessages.add(String.format("Deserialization for DocSourceStandardOneOf1 failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'DocSourceStandardOneOf1'", e);
                     }
-                    // deserialize UrlSource
+                    // deserialize DocSourceStandardOneOf2
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        UrlSource.validateJsonElement(jsonElement);
-                        actualAdapter = adapterUrlSource;
+                        DocSourceStandardOneOf2.validateJsonElement(jsonElement);
+                        actualAdapter = adapterDocSourceStandardOneOf2;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'UrlSource'");
+                        log.log(Level.FINER, "Input data matches schema 'DocSourceStandardOneOf2'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for UrlSource failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'UrlSource'", e);
+                        errorMessages.add(String.format("Deserialization for DocSourceStandardOneOf2 failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'DocSourceStandardOneOf2'", e);
                     }
 
                     if (match == 1) {
@@ -177,9 +179,9 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("DocumentIdSource", DocumentIdSource.class);
-        schemas.put("RequestIdSource", RequestIdSource.class);
-        schemas.put("UrlSource", UrlSource.class);
+        schemas.put("DocSourceStandardOneOf", DocSourceStandardOneOf.class);
+        schemas.put("DocSourceStandardOneOf1", DocSourceStandardOneOf1.class);
+        schemas.put("DocSourceStandardOneOf2", DocSourceStandardOneOf2.class);
     }
 
     @Override
@@ -190,35 +192,35 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * DocumentIdSource, RequestIdSource, UrlSource
+     * DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof DocumentIdSource) {
+        if (instance instanceof DocSourceStandardOneOf) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof RequestIdSource) {
+        if (instance instanceof DocSourceStandardOneOf1) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof UrlSource) {
+        if (instance instanceof DocSourceStandardOneOf2) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be DocumentIdSource, RequestIdSource, UrlSource");
+        throw new RuntimeException("Invalid instance type. Must be DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * DocumentIdSource, RequestIdSource, UrlSource
+     * DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2
      *
-     * @return The actual instance (DocumentIdSource, RequestIdSource, UrlSource)
+     * @return The actual instance (DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -227,36 +229,36 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `DocumentIdSource`. If the actual instance is not `DocumentIdSource`,
+     * Get the actual instance of `DocSourceStandardOneOf`. If the actual instance is not `DocSourceStandardOneOf`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `DocumentIdSource`
-     * @throws ClassCastException if the instance is not `DocumentIdSource`
+     * @return The actual instance of `DocSourceStandardOneOf`
+     * @throws ClassCastException if the instance is not `DocSourceStandardOneOf`
      */
-    public DocumentIdSource getDocumentIdSource() throws ClassCastException {
-        return (DocumentIdSource)super.getActualInstance();
+    public DocSourceStandardOneOf getDocSourceStandardOneOf() throws ClassCastException {
+        return (DocSourceStandardOneOf)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `RequestIdSource`. If the actual instance is not `RequestIdSource`,
+     * Get the actual instance of `DocSourceStandardOneOf1`. If the actual instance is not `DocSourceStandardOneOf1`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `RequestIdSource`
-     * @throws ClassCastException if the instance is not `RequestIdSource`
+     * @return The actual instance of `DocSourceStandardOneOf1`
+     * @throws ClassCastException if the instance is not `DocSourceStandardOneOf1`
      */
-    public RequestIdSource getRequestIdSource() throws ClassCastException {
-        return (RequestIdSource)super.getActualInstance();
+    public DocSourceStandardOneOf1 getDocSourceStandardOneOf1() throws ClassCastException {
+        return (DocSourceStandardOneOf1)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `UrlSource`. If the actual instance is not `UrlSource`,
+     * Get the actual instance of `DocSourceStandardOneOf2`. If the actual instance is not `DocSourceStandardOneOf2`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `UrlSource`
-     * @throws ClassCastException if the instance is not `UrlSource`
+     * @return The actual instance of `DocSourceStandardOneOf2`
+     * @throws ClassCastException if the instance is not `DocSourceStandardOneOf2`
      */
-    public UrlSource getUrlSource() throws ClassCastException {
-        return (UrlSource)super.getActualInstance();
+    public DocSourceStandardOneOf2 getDocSourceStandardOneOf2() throws ClassCastException {
+        return (DocSourceStandardOneOf2)super.getActualInstance();
     }
 
     /**
@@ -269,32 +271,32 @@ public class DocSourceStandard extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with DocumentIdSource
+        // validate the json string with DocSourceStandardOneOf
         try {
-            DocumentIdSource.validateJsonElement(jsonElement);
+            DocSourceStandardOneOf.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for DocumentIdSource failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for DocSourceStandardOneOf failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with RequestIdSource
+        // validate the json string with DocSourceStandardOneOf1
         try {
-            RequestIdSource.validateJsonElement(jsonElement);
+            DocSourceStandardOneOf1.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for RequestIdSource failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for DocSourceStandardOneOf1 failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with UrlSource
+        // validate the json string with DocSourceStandardOneOf2
         try {
-            UrlSource.validateJsonElement(jsonElement);
+            DocSourceStandardOneOf2.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for UrlSource failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for DocSourceStandardOneOf2 failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for DocSourceStandard with oneOf schemas: DocumentIdSource, RequestIdSource, UrlSource. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format("The JSON string is invalid for DocSourceStandard with oneOf schemas: DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

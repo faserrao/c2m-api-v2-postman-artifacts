@@ -80,18 +80,18 @@ class DocSourceZipFileRefTest extends TestCase
     }
 
     /**
-     * Test attribute "zip_document_id"
+     * Test attribute "zip_document_id_only"
      */
-    public function testPropertyZipDocumentId()
+    public function testPropertyZipDocumentIdOnly()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "request_id"
+     * Test attribute "zip_request_id_only"
      */
-    public function testPropertyRequestId()
+    public function testPropertyZipRequestIdOnly()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

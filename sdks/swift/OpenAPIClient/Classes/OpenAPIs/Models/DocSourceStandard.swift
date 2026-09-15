@@ -11,30 +11,30 @@ import AnyCodable
 #endif
 
 public enum DocSourceStandard: Codable, JSONEncodable, Hashable {
-    case typeDocumentIdSource(DocumentIdSource)
-    case typeRequestIdSource(RequestIdSource)
-    case typeUrlSource(UrlSource)
+    case typeDocSourceStandardOneOf(DocSourceStandardOneOf)
+    case typeDocSourceStandardOneOf1(DocSourceStandardOneOf1)
+    case typeDocSourceStandardOneOf2(DocSourceStandardOneOf2)
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
-        case .typeDocumentIdSource(let value):
+        case .typeDocSourceStandardOneOf(let value):
             try container.encode(value)
-        case .typeRequestIdSource(let value):
+        case .typeDocSourceStandardOneOf1(let value):
             try container.encode(value)
-        case .typeUrlSource(let value):
+        case .typeDocSourceStandardOneOf2(let value):
             try container.encode(value)
         }
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        if let value = try? container.decode(DocumentIdSource.self) {
-            self = .typeDocumentIdSource(value)
-        } else if let value = try? container.decode(RequestIdSource.self) {
-            self = .typeRequestIdSource(value)
-        } else if let value = try? container.decode(UrlSource.self) {
-            self = .typeUrlSource(value)
+        if let value = try? container.decode(DocSourceStandardOneOf.self) {
+            self = .typeDocSourceStandardOneOf(value)
+        } else if let value = try? container.decode(DocSourceStandardOneOf1.self) {
+            self = .typeDocSourceStandardOneOf1(value)
+        } else if let value = try? container.decode(DocSourceStandardOneOf2.self) {
+            self = .typeDocSourceStandardOneOf2(value)
         } else {
             throw DecodingError.typeMismatch(Self.Type.self, .init(codingPath: decoder.codingPath, debugDescription: "Unable to decode instance of DocSourceStandard"))
         }

@@ -33,34 +33,34 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocSourceZipFileRef" /> class.
         /// </summary>
-        /// <param name="zipDocumentIdOnly"></param>
-        public DocSourceZipFileRef(ZipDocumentIdOnly zipDocumentIdOnly)
+        /// <param name="docSourceZipFileRefOneOf"></param>
+        public DocSourceZipFileRef(DocSourceZipFileRefOneOf docSourceZipFileRefOneOf)
         {
-            ZipDocumentIdOnly = zipDocumentIdOnly;
+            DocSourceZipFileRefOneOf = docSourceZipFileRefOneOf;
             OnCreated();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DocSourceZipFileRef" /> class.
         /// </summary>
-        /// <param name="zipRequestIdOnly"></param>
-        public DocSourceZipFileRef(ZipRequestIdOnly zipRequestIdOnly)
+        /// <param name="docSourceZipFileRefOneOf1"></param>
+        public DocSourceZipFileRef(DocSourceZipFileRefOneOf1 docSourceZipFileRefOneOf1)
         {
-            ZipRequestIdOnly = zipRequestIdOnly;
+            DocSourceZipFileRefOneOf1 = docSourceZipFileRefOneOf1;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets ZipDocumentIdOnly
+        /// Gets or Sets DocSourceZipFileRefOneOf
         /// </summary>
-        public ZipDocumentIdOnly? ZipDocumentIdOnly { get; set; }
+        public DocSourceZipFileRefOneOf? DocSourceZipFileRefOneOf { get; set; }
 
         /// <summary>
-        /// Gets or Sets ZipRequestIdOnly
+        /// Gets or Sets DocSourceZipFileRefOneOf1
         /// </summary>
-        public ZipRequestIdOnly? ZipRequestIdOnly { get; set; }
+        public DocSourceZipFileRefOneOf1? DocSourceZipFileRefOneOf1 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -107,8 +107,8 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            ZipDocumentIdOnly? zipDocumentIdOnly = default;
-            ZipRequestIdOnly? zipRequestIdOnly = default;
+            DocSourceZipFileRefOneOf? docSourceZipFileRefOneOf = default;
+            DocSourceZipFileRefOneOf1? docSourceZipFileRefOneOf1 = default;
 
             Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
             while (utf8JsonReaderOneOf.Read())
@@ -121,11 +121,11 @@ namespace C2M.Api.Model
 
                 if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
                 {
-                    Utf8JsonReader utf8JsonReaderZipDocumentIdOnly = utf8JsonReader;
-                    ClientUtils.TryDeserialize<ZipDocumentIdOnly?>(ref utf8JsonReaderZipDocumentIdOnly, jsonSerializerOptions, out zipDocumentIdOnly);
+                    Utf8JsonReader utf8JsonReaderDocSourceZipFileRefOneOf = utf8JsonReader;
+                    ClientUtils.TryDeserialize<DocSourceZipFileRefOneOf?>(ref utf8JsonReaderDocSourceZipFileRefOneOf, jsonSerializerOptions, out docSourceZipFileRefOneOf);
 
-                    Utf8JsonReader utf8JsonReaderZipRequestIdOnly = utf8JsonReader;
-                    ClientUtils.TryDeserialize<ZipRequestIdOnly?>(ref utf8JsonReaderZipRequestIdOnly, jsonSerializerOptions, out zipRequestIdOnly);
+                    Utf8JsonReader utf8JsonReaderDocSourceZipFileRefOneOf1 = utf8JsonReader;
+                    ClientUtils.TryDeserialize<DocSourceZipFileRefOneOf1?>(ref utf8JsonReaderDocSourceZipFileRefOneOf1, jsonSerializerOptions, out docSourceZipFileRefOneOf1);
                 }
             }
 
@@ -150,11 +150,11 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (zipDocumentIdOnly != null)
-                return new DocSourceZipFileRef(zipDocumentIdOnly);
+            if (docSourceZipFileRefOneOf != null)
+                return new DocSourceZipFileRef(docSourceZipFileRefOneOf);
 
-            if (zipRequestIdOnly != null)
-                return new DocSourceZipFileRef(zipRequestIdOnly);
+            if (docSourceZipFileRefOneOf1 != null)
+                return new DocSourceZipFileRef(docSourceZipFileRefOneOf1);
 
             throw new JsonException();
         }

@@ -4,16 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DocumentId** | **int32** |  | 
-**RequestId** | **int32** |  | 
-**Filename** | Pointer to **string** |  | [optional] 
-**Url** | **string** |  | 
+**DocumentIdSource** | [**DocumentIdSource**](DocumentIdSource.md) |  | 
+**RequestIdSource** | [**RequestIdSource**](RequestIdSource.md) |  | 
+**UrlSource** | [**UrlSource**](UrlSource.md) |  | 
 
 ## Methods
 
 ### NewDocSourceStandard
 
-`func NewDocSourceStandard(documentId int32, requestId int32, url string, ) *DocSourceStandard`
+`func NewDocSourceStandard(documentIdSource DocumentIdSource, requestIdSource RequestIdSource, urlSource UrlSource, ) *DocSourceStandard`
 
 NewDocSourceStandard instantiates a new DocSourceStandard object
 This constructor will assign default values to properties that have it defined,
@@ -28,89 +27,64 @@ NewDocSourceStandardWithDefaults instantiates a new DocSourceStandard object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetDocumentId
+### GetDocumentIdSource
 
-`func (o *DocSourceStandard) GetDocumentId() int32`
+`func (o *DocSourceStandard) GetDocumentIdSource() DocumentIdSource`
 
-GetDocumentId returns the DocumentId field if non-nil, zero value otherwise.
+GetDocumentIdSource returns the DocumentIdSource field if non-nil, zero value otherwise.
 
-### GetDocumentIdOk
+### GetDocumentIdSourceOk
 
-`func (o *DocSourceStandard) GetDocumentIdOk() (*int32, bool)`
+`func (o *DocSourceStandard) GetDocumentIdSourceOk() (*DocumentIdSource, bool)`
 
-GetDocumentIdOk returns a tuple with the DocumentId field if it's non-nil, zero value otherwise
+GetDocumentIdSourceOk returns a tuple with the DocumentIdSource field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDocumentId
+### SetDocumentIdSource
 
-`func (o *DocSourceStandard) SetDocumentId(v int32)`
+`func (o *DocSourceStandard) SetDocumentIdSource(v DocumentIdSource)`
 
-SetDocumentId sets DocumentId field to given value.
+SetDocumentIdSource sets DocumentIdSource field to given value.
 
 
-### GetRequestId
+### GetRequestIdSource
 
-`func (o *DocSourceStandard) GetRequestId() int32`
+`func (o *DocSourceStandard) GetRequestIdSource() RequestIdSource`
 
-GetRequestId returns the RequestId field if non-nil, zero value otherwise.
+GetRequestIdSource returns the RequestIdSource field if non-nil, zero value otherwise.
 
-### GetRequestIdOk
+### GetRequestIdSourceOk
 
-`func (o *DocSourceStandard) GetRequestIdOk() (*int32, bool)`
+`func (o *DocSourceStandard) GetRequestIdSourceOk() (*RequestIdSource, bool)`
 
-GetRequestIdOk returns a tuple with the RequestId field if it's non-nil, zero value otherwise
+GetRequestIdSourceOk returns a tuple with the RequestIdSource field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRequestId
+### SetRequestIdSource
 
-`func (o *DocSourceStandard) SetRequestId(v int32)`
+`func (o *DocSourceStandard) SetRequestIdSource(v RequestIdSource)`
 
-SetRequestId sets RequestId field to given value.
+SetRequestIdSource sets RequestIdSource field to given value.
 
 
-### GetFilename
+### GetUrlSource
 
-`func (o *DocSourceStandard) GetFilename() string`
+`func (o *DocSourceStandard) GetUrlSource() UrlSource`
 
-GetFilename returns the Filename field if non-nil, zero value otherwise.
+GetUrlSource returns the UrlSource field if non-nil, zero value otherwise.
 
-### GetFilenameOk
+### GetUrlSourceOk
 
-`func (o *DocSourceStandard) GetFilenameOk() (*string, bool)`
+`func (o *DocSourceStandard) GetUrlSourceOk() (*UrlSource, bool)`
 
-GetFilenameOk returns a tuple with the Filename field if it's non-nil, zero value otherwise
+GetUrlSourceOk returns a tuple with the UrlSource field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFilename
+### SetUrlSource
 
-`func (o *DocSourceStandard) SetFilename(v string)`
+`func (o *DocSourceStandard) SetUrlSource(v UrlSource)`
 
-SetFilename sets Filename field to given value.
-
-### HasFilename
-
-`func (o *DocSourceStandard) HasFilename() bool`
-
-HasFilename returns a boolean if a field has been set.
-
-### GetUrl
-
-`func (o *DocSourceStandard) GetUrl() string`
-
-GetUrl returns the Url field if non-nil, zero value otherwise.
-
-### GetUrlOk
-
-`func (o *DocSourceStandard) GetUrlOk() (*string, bool)`
-
-GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUrl
-
-`func (o *DocSourceStandard) SetUrl(v string)`
-
-SetUrl sets Url field to given value.
+SetUrlSource sets UrlSource field to given value.
 
 
 

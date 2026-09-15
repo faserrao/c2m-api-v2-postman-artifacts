@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ZipDocumentSource {
-    ZipDocumentIdSource(Box<models::ZipDocumentIdSource>),
-    ZipRequestIdSource(Box<models::ZipRequestIdSource>),
+    ZipDocumentSourceOneOf(Box<models::ZipDocumentSourceOneOf>),
+    ZipDocumentSourceOneOf1(Box<models::ZipDocumentSourceOneOf1>),
 }
 
 impl Default for ZipDocumentSource {
     fn default() -> Self {
-        Self::ZipDocumentIdSource(Default::default())
+        Self::ZipDocumentSourceOneOf(Default::default())
     }
 }
 

@@ -54,38 +54,32 @@
       //expect(instance).to.be.a(C2MApiV2.DocSourceAll);
     });
 
-    it('should have the property documentId (base name: "documentId")', function() {
-      // uncomment below and update the code to test the property documentId
+    it('should have the property documentIdSource (base name: "documentIdSource")', function() {
+      // uncomment below and update the code to test the property documentIdSource
       //var instance = new C2MApiV2.DocSourceAll();
       //expect(instance).to.be();
     });
 
-    it('should have the property requestId (base name: "requestId")', function() {
-      // uncomment below and update the code to test the property requestId
+    it('should have the property requestIdSource (base name: "requestIdSource")', function() {
+      // uncomment below and update the code to test the property requestIdSource
       //var instance = new C2MApiV2.DocSourceAll();
       //expect(instance).to.be();
     });
 
-    it('should have the property filename (base name: "filename")', function() {
-      // uncomment below and update the code to test the property filename
+    it('should have the property urlSource (base name: "urlSource")', function() {
+      // uncomment below and update the code to test the property urlSource
       //var instance = new C2MApiV2.DocSourceAll();
       //expect(instance).to.be();
     });
 
-    it('should have the property url (base name: "url")', function() {
-      // uncomment below and update the code to test the property url
+    it('should have the property zipDocumentIdSource (base name: "zipDocumentIdSource")', function() {
+      // uncomment below and update the code to test the property zipDocumentIdSource
       //var instance = new C2MApiV2.DocSourceAll();
       //expect(instance).to.be();
     });
 
-    it('should have the property zipDocumentId (base name: "zipDocumentId")', function() {
-      // uncomment below and update the code to test the property zipDocumentId
-      //var instance = new C2MApiV2.DocSourceAll();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property zipFilename (base name: "zipFilename")', function() {
-      // uncomment below and update the code to test the property zipFilename
+    it('should have the property zipRequestIdSource (base name: "zipRequestIdSource")', function() {
+      // uncomment below and update the code to test the property zipRequestIdSource
       //var instance = new C2MApiV2.DocSourceAll();
       //expect(instance).to.be();
     });

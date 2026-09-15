@@ -17,24 +17,33 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from c2m_api.models.doc_source_standard import DocSourceStandard
-from c2m_api.models.doc_source_zip_file import DocSourceZipFile
+from c2m_api.models.doc_source_standard_one_of import DocSourceStandardOneOf
+from c2m_api.models.doc_source_standard_one_of1 import DocSourceStandardOneOf1
+from c2m_api.models.doc_source_standard_one_of2 import DocSourceStandardOneOf2
+from c2m_api.models.zip_document_source_one_of import ZipDocumentSourceOneOf
+from c2m_api.models.zip_document_source_one_of1 import ZipDocumentSourceOneOf1
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-DOCSOURCEALL_ONE_OF_SCHEMAS = ["DocSourceStandard", "DocSourceZipFile"]
+DOCSOURCEALL_ONE_OF_SCHEMAS = ["DocSourceStandardOneOf", "DocSourceStandardOneOf1", "DocSourceStandardOneOf2", "ZipDocumentSourceOneOf", "ZipDocumentSourceOneOf1"]
 
 class DocSourceAll(BaseModel):
     """
     DocSourceAll
     """
-    # data type: DocSourceStandard
-    oneof_schema_1_validator: Optional[DocSourceStandard] = None
-    # data type: DocSourceZipFile
-    oneof_schema_2_validator: Optional[DocSourceZipFile] = None
-    actual_instance: Optional[Union[DocSourceStandard, DocSourceZipFile]] = None
-    one_of_schemas: Set[str] = { "DocSourceStandard", "DocSourceZipFile" }
+    # data type: DocSourceStandardOneOf
+    oneof_schema_1_validator: Optional[DocSourceStandardOneOf] = None
+    # data type: DocSourceStandardOneOf1
+    oneof_schema_2_validator: Optional[DocSourceStandardOneOf1] = None
+    # data type: DocSourceStandardOneOf2
+    oneof_schema_3_validator: Optional[DocSourceStandardOneOf2] = None
+    # data type: ZipDocumentSourceOneOf
+    oneof_schema_4_validator: Optional[ZipDocumentSourceOneOf] = None
+    # data type: ZipDocumentSourceOneOf1
+    oneof_schema_5_validator: Optional[ZipDocumentSourceOneOf1] = None
+    actual_instance: Optional[Union[DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2, ZipDocumentSourceOneOf, ZipDocumentSourceOneOf1]] = None
+    one_of_schemas: Set[str] = { "DocSourceStandardOneOf", "DocSourceStandardOneOf1", "DocSourceStandardOneOf2", "ZipDocumentSourceOneOf", "ZipDocumentSourceOneOf1" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -57,22 +66,37 @@ class DocSourceAll(BaseModel):
         instance = DocSourceAll.model_construct()
         error_messages = []
         match = 0
-        # validate data type: DocSourceStandard
-        if not isinstance(v, DocSourceStandard):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `DocSourceStandard`")
+        # validate data type: DocSourceStandardOneOf
+        if not isinstance(v, DocSourceStandardOneOf):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `DocSourceStandardOneOf`")
         else:
             match += 1
-        # validate data type: DocSourceZipFile
-        if not isinstance(v, DocSourceZipFile):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `DocSourceZipFile`")
+        # validate data type: DocSourceStandardOneOf1
+        if not isinstance(v, DocSourceStandardOneOf1):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `DocSourceStandardOneOf1`")
+        else:
+            match += 1
+        # validate data type: DocSourceStandardOneOf2
+        if not isinstance(v, DocSourceStandardOneOf2):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `DocSourceStandardOneOf2`")
+        else:
+            match += 1
+        # validate data type: ZipDocumentSourceOneOf
+        if not isinstance(v, ZipDocumentSourceOneOf):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ZipDocumentSourceOneOf`")
+        else:
+            match += 1
+        # validate data type: ZipDocumentSourceOneOf1
+        if not isinstance(v, ZipDocumentSourceOneOf1):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ZipDocumentSourceOneOf1`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in DocSourceAll with oneOf schemas: DocSourceStandard, DocSourceZipFile. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in DocSourceAll with oneOf schemas: DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2, ZipDocumentSourceOneOf, ZipDocumentSourceOneOf1. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in DocSourceAll with oneOf schemas: DocSourceStandard, DocSourceZipFile. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in DocSourceAll with oneOf schemas: DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2, ZipDocumentSourceOneOf, ZipDocumentSourceOneOf1. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -87,25 +111,43 @@ class DocSourceAll(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into DocSourceStandard
+        # deserialize data into DocSourceStandardOneOf
         try:
-            instance.actual_instance = DocSourceStandard.from_json(json_str)
+            instance.actual_instance = DocSourceStandardOneOf.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into DocSourceZipFile
+        # deserialize data into DocSourceStandardOneOf1
         try:
-            instance.actual_instance = DocSourceZipFile.from_json(json_str)
+            instance.actual_instance = DocSourceStandardOneOf1.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into DocSourceStandardOneOf2
+        try:
+            instance.actual_instance = DocSourceStandardOneOf2.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ZipDocumentSourceOneOf
+        try:
+            instance.actual_instance = ZipDocumentSourceOneOf.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ZipDocumentSourceOneOf1
+        try:
+            instance.actual_instance = ZipDocumentSourceOneOf1.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into DocSourceAll with oneOf schemas: DocSourceStandard, DocSourceZipFile. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into DocSourceAll with oneOf schemas: DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2, ZipDocumentSourceOneOf, ZipDocumentSourceOneOf1. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into DocSourceAll with oneOf schemas: DocSourceStandard, DocSourceZipFile. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into DocSourceAll with oneOf schemas: DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2, ZipDocumentSourceOneOf, ZipDocumentSourceOneOf1. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -119,7 +161,7 @@ class DocSourceAll(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], DocSourceStandard, DocSourceZipFile]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2, ZipDocumentSourceOneOf, ZipDocumentSourceOneOf1]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

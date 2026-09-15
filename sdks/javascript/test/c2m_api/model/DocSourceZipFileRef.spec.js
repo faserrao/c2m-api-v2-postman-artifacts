@@ -54,14 +54,14 @@
       //expect(instance).to.be.a(C2MApiV2.DocSourceZipFileRef);
     });
 
-    it('should have the property zipDocumentId (base name: "zipDocumentId")', function() {
-      // uncomment below and update the code to test the property zipDocumentId
+    it('should have the property zipDocumentIdOnly (base name: "zipDocumentIdOnly")', function() {
+      // uncomment below and update the code to test the property zipDocumentIdOnly
       //var instance = new C2MApiV2.DocSourceZipFileRef();
       //expect(instance).to.be();
     });
 
-    it('should have the property requestId (base name: "requestId")', function() {
-      // uncomment below and update the code to test the property requestId
+    it('should have the property zipRequestIdOnly (base name: "zipRequestIdOnly")', function() {
+      // uncomment below and update the code to test the property zipRequestIdOnly
       //var instance = new C2MApiV2.DocSourceZipFileRef();
       //expect(instance).to.be();
     });

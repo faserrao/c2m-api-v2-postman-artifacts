@@ -54,12 +54,12 @@ namespace C2M.Api.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'AddressListId'
+        /// Test the property 'SingleAddress'
         /// </summary>
         [Fact]
-        public void AddressListIdTest()
+        public void SingleAddressTest()
         {
-            // TODO unit test for the property 'AddressListId'
+            // TODO unit test for the property 'SingleAddress'
         }
     }
 }

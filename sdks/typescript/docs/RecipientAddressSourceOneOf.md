@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addressListId** | **number** |  | [default to undefined]
+**singleAddress** | [**Address**](Address.md) |  | [default to undefined]
 
 ## Example
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 import { RecipientAddressSourceOneOf } from './api';
 
 const instance: RecipientAddressSourceOneOf = {
-    addressListId,
+    singleAddress,
 };
 ```
 

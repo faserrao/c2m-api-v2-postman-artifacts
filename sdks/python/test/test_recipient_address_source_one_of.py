@@ -35,11 +35,33 @@ class TestRecipientAddressSourceOneOf(unittest.TestCase):
         model = RecipientAddressSourceOneOf()
         if include_optional:
             return RecipientAddressSourceOneOf(
-                address_list_id = 56
+                single_address = c2m_api.models.address.address(
+                    first_name = '', 
+                    last_name = '', 
+                    address1 = '', 
+                    city = '', 
+                    state = '', 
+                    zip = '', 
+                    country = '', 
+                    address2 = '', 
+                    address3 = '', 
+                    foo1 = '', 
+                    foo2 = '', )
             )
         else:
             return RecipientAddressSourceOneOf(
-                address_list_id = 56,
+                single_address = c2m_api.models.address.address(
+                    first_name = '', 
+                    last_name = '', 
+                    address1 = '', 
+                    city = '', 
+                    state = '', 
+                    zip = '', 
+                    country = '', 
+                    address2 = '', 
+                    address3 = '', 
+                    foo1 = '', 
+                    foo2 = '', ),
         )
         """
 

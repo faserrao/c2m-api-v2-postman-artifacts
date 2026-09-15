@@ -2,7 +2,7 @@
 
 C2M API v2
 - API version: 2.0.0
-  - Build date: 2026-09-15T02:58:21.920473899Z[Etc/UTC]
+  - Build date: 2026-09-15T04:46:23.499769106Z[Etc/UTC]
   - Generator version: 7.15.0
 
 API for submitting mailing jobs with various document routing options
@@ -152,8 +152,13 @@ Class | Method | HTTP request | Description
  - [Currency](docs/Currency.md)
  - [DocSourceAll](docs/DocSourceAll.md)
  - [DocSourceStandard](docs/DocSourceStandard.md)
+ - [DocSourceStandardOneOf](docs/DocSourceStandardOneOf.md)
+ - [DocSourceStandardOneOf1](docs/DocSourceStandardOneOf1.md)
+ - [DocSourceStandardOneOf2](docs/DocSourceStandardOneOf2.md)
  - [DocSourceZipFile](docs/DocSourceZipFile.md)
  - [DocSourceZipFileRef](docs/DocSourceZipFileRef.md)
+ - [DocSourceZipFileRefOneOf](docs/DocSourceZipFileRefOneOf.md)
+ - [DocSourceZipFileRefOneOf1](docs/DocSourceZipFileRefOneOf1.md)
  - [DocumentClass](docs/DocumentClass.md)
  - [DocumentIdSource](docs/DocumentIdSource.md)
  - [Envelope](docs/Envelope.md)
@@ -171,6 +176,8 @@ Class | Method | HTTP request | Description
  - [MergeByDocumentId](docs/MergeByDocumentId.md)
  - [MergeByRequestId](docs/MergeByRequestId.md)
  - [MergeDocumentRef](docs/MergeDocumentRef.md)
+ - [MergeDocumentRefOneOf](docs/MergeDocumentRefOneOf.md)
+ - [MergeDocumentRefOneOf1](docs/MergeDocumentRefOneOf1.md)
  - [MultiDocJobItem](docs/MultiDocJobItem.md)
  - [MultiZipJobItem](docs/MultiZipJobItem.md)
  - [PaperType](docs/PaperType.md)
@@ -181,6 +188,10 @@ Class | Method | HTTP request | Description
  - [ProductionTime](docs/ProductionTime.md)
  - [RecipientAddressByList](docs/RecipientAddressByList.md)
  - [RecipientAddressSource](docs/RecipientAddressSource.md)
+ - [RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
+ - [RecipientAddressSourceOneOf1](docs/RecipientAddressSourceOneOf1.md)
+ - [RecipientAddressSourceOneOf2](docs/RecipientAddressSourceOneOf2.md)
+ - [RecipientAddressSourceOneOf3](docs/RecipientAddressSourceOneOf3.md)
  - [RequestIdSource](docs/RequestIdSource.md)
  - [ReturnAddress](docs/ReturnAddress.md)
  - [ShortTokenRequest](docs/ShortTokenRequest.md)
@@ -198,6 +209,8 @@ Class | Method | HTTP request | Description
  - [ZipDocumentIdOnly](docs/ZipDocumentIdOnly.md)
  - [ZipDocumentIdSource](docs/ZipDocumentIdSource.md)
  - [ZipDocumentSource](docs/ZipDocumentSource.md)
+ - [ZipDocumentSourceOneOf](docs/ZipDocumentSourceOneOf.md)
+ - [ZipDocumentSourceOneOf1](docs/ZipDocumentSourceOneOf1.md)
  - [ZipRequestIdOnly](docs/ZipRequestIdOnly.md)
  - [ZipRequestIdSource](docs/ZipRequestIdSource.md)
 

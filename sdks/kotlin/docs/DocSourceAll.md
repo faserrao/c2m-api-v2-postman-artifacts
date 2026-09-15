@@ -4,12 +4,11 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **documentId** | **kotlin.Int** |  |  |
-| **requestId** | **kotlin.Int** |  |  |
-| **filename** | **kotlin.String** |  |  |
-| **url** | [**java.net.URI**](java.net.URI.md) |  |  |
-| **zipDocumentId** | **kotlin.Int** |  |  |
-| **zipFilename** | **kotlin.String** |  |  |
+| **documentIdSource** | [**DocumentIdSource**](DocumentIdSource.md) |  |  |
+| **requestIdSource** | [**RequestIdSource**](RequestIdSource.md) |  |  |
+| **urlSource** | [**UrlSource**](UrlSource.md) |  |  |
+| **zipDocumentIdSource** | [**ZipDocumentIdSource**](ZipDocumentIdSource.md) |  |  |
+| **zipRequestIdSource** | [**ZipRequestIdSource**](ZipRequestIdSource.md) |  |  |
 
 
 

@@ -12,6 +12,8 @@
  */
 
 import ApiClient from '../ApiClient';
+import DocSourceZipFileRefOneOf from './DocSourceZipFileRefOneOf';
+import DocSourceZipFileRefOneOf1 from './DocSourceZipFileRefOneOf1';
 import ZipDocumentIdOnly from './ZipDocumentIdOnly';
 import ZipRequestIdOnly from './ZipRequestIdOnly';
 
@@ -24,7 +26,7 @@ class DocSourceZipFileRef {
     /**
      * Constructs a new <code>DocSourceZipFileRef</code>.
      * @alias module:c2m_api/model/DocSourceZipFileRef
-     * @param {(module:c2m_api/model/ZipDocumentIdOnly|module:c2m_api/model/ZipRequestIdOnly)} instance The actual instance to initialize DocSourceZipFileRef.
+     * @param {(module:c2m_api/model/DocSourceZipFileRefOneOf|module:c2m_api/model/DocSourceZipFileRefOneOf1)} instance The actual instance to initialize DocSourceZipFileRef.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -34,42 +36,42 @@ class DocSourceZipFileRef {
         var match = 0;
         var errorMessages = [];
         try {
-            if (typeof instance === "ZipDocumentIdOnly") {
+            if (typeof instance === "DocSourceZipFileRefOneOf") {
                 this.actualInstance = instance;
             } else {
                 // plain JS object
                 // validate the object
-                ZipDocumentIdOnly.validateJSON(instance); // throw an exception if no match
-                // create ZipDocumentIdOnly from JS object
-                this.actualInstance = ZipDocumentIdOnly.constructFromObject(instance);
+                DocSourceZipFileRefOneOf.validateJSON(instance); // throw an exception if no match
+                // create DocSourceZipFileRefOneOf from JS object
+                this.actualInstance = DocSourceZipFileRefOneOf.constructFromObject(instance);
             }
             match++;
         } catch(err) {
-            // json data failed to deserialize into ZipDocumentIdOnly
-            errorMessages.push("Failed to construct ZipDocumentIdOnly: " + err)
+            // json data failed to deserialize into DocSourceZipFileRefOneOf
+            errorMessages.push("Failed to construct DocSourceZipFileRefOneOf: " + err)
         }
 
         try {
-            if (typeof instance === "ZipRequestIdOnly") {
+            if (typeof instance === "DocSourceZipFileRefOneOf1") {
                 this.actualInstance = instance;
             } else {
                 // plain JS object
                 // validate the object
-                ZipRequestIdOnly.validateJSON(instance); // throw an exception if no match
-                // create ZipRequestIdOnly from JS object
-                this.actualInstance = ZipRequestIdOnly.constructFromObject(instance);
+                DocSourceZipFileRefOneOf1.validateJSON(instance); // throw an exception if no match
+                // create DocSourceZipFileRefOneOf1 from JS object
+                this.actualInstance = DocSourceZipFileRefOneOf1.constructFromObject(instance);
             }
             match++;
         } catch(err) {
-            // json data failed to deserialize into ZipRequestIdOnly
-            errorMessages.push("Failed to construct ZipRequestIdOnly: " + err)
+            // json data failed to deserialize into DocSourceZipFileRefOneOf1
+            errorMessages.push("Failed to construct DocSourceZipFileRefOneOf1: " + err)
         }
 
         if (match > 1) {
-            throw new Error("Multiple matches found constructing `DocSourceZipFileRef` with oneOf schemas ZipDocumentIdOnly, ZipRequestIdOnly. Input: " + JSON.stringify(instance));
+            throw new Error("Multiple matches found constructing `DocSourceZipFileRef` with oneOf schemas DocSourceZipFileRefOneOf, DocSourceZipFileRefOneOf1. Input: " + JSON.stringify(instance));
         } else if (match === 0) {
             this.actualInstance = null; // clear the actual instance in case there are multiple matches
-            throw new Error("No match found constructing `DocSourceZipFileRef` with oneOf schemas ZipDocumentIdOnly, ZipRequestIdOnly. Details: " +
+            throw new Error("No match found constructing `DocSourceZipFileRef` with oneOf schemas DocSourceZipFileRefOneOf, DocSourceZipFileRefOneOf1. Details: " +
                             errorMessages.join(", "));
         } else { // only 1 match
             // the input is valid
@@ -88,16 +90,16 @@ class DocSourceZipFileRef {
     }
 
     /**
-     * Gets the actual instance, which can be <code>ZipDocumentIdOnly</code>, <code>ZipRequestIdOnly</code>.
-     * @return {(module:c2m_api/model/ZipDocumentIdOnly|module:c2m_api/model/ZipRequestIdOnly)} The actual instance.
+     * Gets the actual instance, which can be <code>DocSourceZipFileRefOneOf</code>, <code>DocSourceZipFileRefOneOf1</code>.
+     * @return {(module:c2m_api/model/DocSourceZipFileRefOneOf|module:c2m_api/model/DocSourceZipFileRefOneOf1)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>ZipDocumentIdOnly</code>, <code>ZipRequestIdOnly</code>.
-     * @param {(module:c2m_api/model/ZipDocumentIdOnly|module:c2m_api/model/ZipRequestIdOnly)} obj The actual instance.
+     * Sets the actual instance, which can be <code>DocSourceZipFileRefOneOf</code>, <code>DocSourceZipFileRefOneOf1</code>.
+     * @param {(module:c2m_api/model/DocSourceZipFileRefOneOf|module:c2m_api/model/DocSourceZipFileRefOneOf1)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = DocSourceZipFileRef.constructFromObject(obj).getActualInstance();
@@ -122,17 +124,17 @@ class DocSourceZipFileRef {
 }
 
 /**
- * @member {Number} zipDocumentId
+ * @member {module:c2m_api/model/ZipDocumentIdOnly} zipDocumentIdOnly
  */
-DocSourceZipFileRef.prototype['zipDocumentId'] = undefined;
+DocSourceZipFileRef.prototype['zipDocumentIdOnly'] = undefined;
 
 /**
- * @member {Number} requestId
+ * @member {module:c2m_api/model/ZipRequestIdOnly} zipRequestIdOnly
  */
-DocSourceZipFileRef.prototype['requestId'] = undefined;
+DocSourceZipFileRef.prototype['zipRequestIdOnly'] = undefined;
 
 
-DocSourceZipFileRef.OneOf = ["ZipDocumentIdOnly", "ZipRequestIdOnly"];
+DocSourceZipFileRef.OneOf = ["DocSourceZipFileRefOneOf", "DocSourceZipFileRefOneOf1"];
 
 export default DocSourceZipFileRef;
 

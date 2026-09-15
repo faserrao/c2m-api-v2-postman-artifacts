@@ -4,9 +4,8 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **documentId** | **kotlin.Int** |  |  |
-| **requestId** | **kotlin.Int** |  |  |
-| **filename** | **kotlin.String** |  |  [optional] |
+| **mergeByDocumentId** | [**MergeByDocumentId**](MergeByDocumentId.md) |  |  |
+| **mergeByRequestId** | [**MergeByRequestId**](MergeByRequestId.md) |  |  |
 
 
 

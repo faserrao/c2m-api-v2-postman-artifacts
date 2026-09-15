@@ -105,8 +105,13 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.CreditCardPayment.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceAll.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceStandard.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceStandardOneOf.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceStandardOneOf1.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceStandardOneOf2.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceZipFile.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceZipFileRef.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceZipFileRefOneOf.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocSourceZipFileRefOneOf1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.DocumentIdSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ErrorResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ExpirationDate.CustomTypeAdapterFactory());
@@ -118,6 +123,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.MergeByDocumentId.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.MergeByRequestId.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.MergeDocumentRef.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.MergeDocumentRefOneOf.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.MergeDocumentRefOneOf1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.MultiDocJobItem.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.MultiZipJobItem.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.PaymentDetails.CustomTypeAdapterFactory());
@@ -125,6 +132,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.PdfSplitJobItemWithAddress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressByList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressSource.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressSourceOneOf.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressSourceOneOf1.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressSourceOneOf2.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressSourceOneOf3.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RequestIdSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ReturnAddress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ShortTokenRequest.CustomTypeAdapterFactory());
@@ -142,6 +153,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ZipDocumentIdOnly.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ZipDocumentIdSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ZipDocumentSource.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ZipDocumentSourceOneOf.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ZipDocumentSourceOneOf1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ZipRequestIdOnly.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ZipRequestIdSource.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();

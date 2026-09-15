@@ -35,57 +35,71 @@ class TestRecipientAddressSource(unittest.TestCase):
         model = RecipientAddressSource()
         if include_optional:
             return RecipientAddressSource(
-                first_name = '',
-                last_name = '',
-                address1 = '',
-                city = '',
-                state = '',
-                zip = '',
-                country = '',
-                address2 = '',
-                address3 = '',
-                foo1 = '',
-                foo2 = '',
-                mapping_id = 56,
-                address_list = [
-                    c2m_api.models.address.address(
-                        first_name = '', 
-                        last_name = '', 
-                        address1 = '', 
-                        city = '', 
-                        state = '', 
-                        zip = '', 
-                        country = '', 
-                        address2 = '', 
-                        address3 = '', 
-                        foo1 = '', 
-                        foo2 = '', )
-                    ],
-                address_list_name = ''
+                single_address = c2m_api.models.address.address(
+                    first_name = '', 
+                    last_name = '', 
+                    address1 = '', 
+                    city = '', 
+                    state = '', 
+                    zip = '', 
+                    country = '', 
+                    address2 = '', 
+                    address3 = '', 
+                    foo1 = '', 
+                    foo2 = '', ),
+                recipient_address_by_list = c2m_api.models.recipient_address_by_list.recipientAddressByList(
+                    mapping_id = 56, 
+                    address_list = [
+                        c2m_api.models.address.address(
+                            first_name = '', 
+                            last_name = '', 
+                            address1 = '', 
+                            city = '', 
+                            state = '', 
+                            zip = '', 
+                            country = '', 
+                            address2 = '', 
+                            address3 = '', 
+                            foo1 = '', 
+                            foo2 = '', )
+                        ], 
+                    address_list_name = '', ),
+                recipient_address_by_address_id = 56,
+                recipient_address_by_list_id = 56
             )
         else:
             return RecipientAddressSource(
-                first_name = '',
-                last_name = '',
-                address1 = '',
-                city = '',
-                state = '',
-                zip = '',
-                country = '',
-                address_list = [
-                    c2m_api.models.address.address(
-                        first_name = '', 
-                        last_name = '', 
-                        address1 = '', 
-                        city = '', 
-                        state = '', 
-                        zip = '', 
-                        country = '', 
-                        address2 = '', 
-                        address3 = '', 
-                        foo1 = '', 
-                        foo2 = '', )
-                    ],
+                single_address = c2m_api.models.address.address(
+                    first_name = '', 
+                    last_name = '', 
+                    address1 = '', 
+                    city = '', 
+                    state = '', 
+                    zip = '', 
+                    country = '', 
+                    address2 = '', 
+                    address3 = '', 
+                    foo1 = '', 
+                    foo2 = '', ),
+                recipient_address_by_list = c2m_api.models.recipient_address_by_list.recipientAddressByList(
+                    mapping_id = 56, 
+                    address_list = [
+                        c2m_api.models.address.address(
+                            first_name = '', 
+                            last_name = '', 
+                            address1 = '', 
+                            city = '', 
+                            state = '', 
+                            zip = '', 
+                            country = '', 
+                            address2 = '', 
+                            address3 = '', 
+                            foo1 = '', 
+                            foo2 = '', )
+                        ], 
+                    address_list_name = '', ),
+                recipient_address_by_address_id = 56,
+                recipient_address_by_list_id = 56,
         )
         """
 

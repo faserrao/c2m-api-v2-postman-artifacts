@@ -11,25 +11,40 @@ import AnyCodable
 #endif
 
 public enum DocSourceAll: Codable, JSONEncodable, Hashable {
-    case typeDocSourceStandard(DocSourceStandard)
-    case typeDocSourceZipFile(DocSourceZipFile)
+    case typeDocSourceStandardOneOf(DocSourceStandardOneOf)
+    case typeDocSourceStandardOneOf1(DocSourceStandardOneOf1)
+    case typeDocSourceStandardOneOf2(DocSourceStandardOneOf2)
+    case typeZipDocumentSourceOneOf(ZipDocumentSourceOneOf)
+    case typeZipDocumentSourceOneOf1(ZipDocumentSourceOneOf1)
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
-        case .typeDocSourceStandard(let value):
+        case .typeDocSourceStandardOneOf(let value):
             try container.encode(value)
-        case .typeDocSourceZipFile(let value):
+        case .typeDocSourceStandardOneOf1(let value):
+            try container.encode(value)
+        case .typeDocSourceStandardOneOf2(let value):
+            try container.encode(value)
+        case .typeZipDocumentSourceOneOf(let value):
+            try container.encode(value)
+        case .typeZipDocumentSourceOneOf1(let value):
             try container.encode(value)
         }
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        if let value = try? container.decode(DocSourceStandard.self) {
-            self = .typeDocSourceStandard(value)
-        } else if let value = try? container.decode(DocSourceZipFile.self) {
-            self = .typeDocSourceZipFile(value)
+        if let value = try? container.decode(DocSourceStandardOneOf.self) {
+            self = .typeDocSourceStandardOneOf(value)
+        } else if let value = try? container.decode(DocSourceStandardOneOf1.self) {
+            self = .typeDocSourceStandardOneOf1(value)
+        } else if let value = try? container.decode(DocSourceStandardOneOf2.self) {
+            self = .typeDocSourceStandardOneOf2(value)
+        } else if let value = try? container.decode(ZipDocumentSourceOneOf.self) {
+            self = .typeZipDocumentSourceOneOf(value)
+        } else if let value = try? container.decode(ZipDocumentSourceOneOf1.self) {
+            self = .typeZipDocumentSourceOneOf1(value)
         } else {
             throw DecodingError.typeMismatch(Self.Type.self, .init(codingPath: decoder.codingPath, debugDescription: "Unable to decode instance of DocSourceAll"))
         }

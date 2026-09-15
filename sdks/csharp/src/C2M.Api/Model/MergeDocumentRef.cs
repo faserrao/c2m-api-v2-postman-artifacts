@@ -33,34 +33,34 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MergeDocumentRef" /> class.
         /// </summary>
-        /// <param name="mergeByDocumentId"></param>
-        public MergeDocumentRef(MergeByDocumentId mergeByDocumentId)
+        /// <param name="mergeDocumentRefOneOf"></param>
+        public MergeDocumentRef(MergeDocumentRefOneOf mergeDocumentRefOneOf)
         {
-            MergeByDocumentId = mergeByDocumentId;
+            MergeDocumentRefOneOf = mergeDocumentRefOneOf;
             OnCreated();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MergeDocumentRef" /> class.
         /// </summary>
-        /// <param name="mergeByRequestId"></param>
-        public MergeDocumentRef(MergeByRequestId mergeByRequestId)
+        /// <param name="mergeDocumentRefOneOf1"></param>
+        public MergeDocumentRef(MergeDocumentRefOneOf1 mergeDocumentRefOneOf1)
         {
-            MergeByRequestId = mergeByRequestId;
+            MergeDocumentRefOneOf1 = mergeDocumentRefOneOf1;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets MergeByDocumentId
+        /// Gets or Sets MergeDocumentRefOneOf
         /// </summary>
-        public MergeByDocumentId? MergeByDocumentId { get; set; }
+        public MergeDocumentRefOneOf? MergeDocumentRefOneOf { get; set; }
 
         /// <summary>
-        /// Gets or Sets MergeByRequestId
+        /// Gets or Sets MergeDocumentRefOneOf1
         /// </summary>
-        public MergeByRequestId? MergeByRequestId { get; set; }
+        public MergeDocumentRefOneOf1? MergeDocumentRefOneOf1 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -107,8 +107,8 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            MergeByDocumentId? mergeByDocumentId = default;
-            MergeByRequestId? mergeByRequestId = default;
+            MergeDocumentRefOneOf? mergeDocumentRefOneOf = default;
+            MergeDocumentRefOneOf1? mergeDocumentRefOneOf1 = default;
 
             Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
             while (utf8JsonReaderOneOf.Read())
@@ -121,11 +121,11 @@ namespace C2M.Api.Model
 
                 if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
                 {
-                    Utf8JsonReader utf8JsonReaderMergeByDocumentId = utf8JsonReader;
-                    ClientUtils.TryDeserialize<MergeByDocumentId?>(ref utf8JsonReaderMergeByDocumentId, jsonSerializerOptions, out mergeByDocumentId);
+                    Utf8JsonReader utf8JsonReaderMergeDocumentRefOneOf = utf8JsonReader;
+                    ClientUtils.TryDeserialize<MergeDocumentRefOneOf?>(ref utf8JsonReaderMergeDocumentRefOneOf, jsonSerializerOptions, out mergeDocumentRefOneOf);
 
-                    Utf8JsonReader utf8JsonReaderMergeByRequestId = utf8JsonReader;
-                    ClientUtils.TryDeserialize<MergeByRequestId?>(ref utf8JsonReaderMergeByRequestId, jsonSerializerOptions, out mergeByRequestId);
+                    Utf8JsonReader utf8JsonReaderMergeDocumentRefOneOf1 = utf8JsonReader;
+                    ClientUtils.TryDeserialize<MergeDocumentRefOneOf1?>(ref utf8JsonReaderMergeDocumentRefOneOf1, jsonSerializerOptions, out mergeDocumentRefOneOf1);
                 }
             }
 
@@ -150,11 +150,11 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (mergeByDocumentId != null)
-                return new MergeDocumentRef(mergeByDocumentId);
+            if (mergeDocumentRefOneOf != null)
+                return new MergeDocumentRef(mergeDocumentRefOneOf);
 
-            if (mergeByRequestId != null)
-                return new MergeDocumentRef(mergeByRequestId);
+            if (mergeDocumentRefOneOf1 != null)
+                return new MergeDocumentRef(mergeDocumentRefOneOf1);
 
             throw new JsonException();
         }

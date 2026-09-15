@@ -19,9 +19,9 @@ module OpenapiClient
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'DocumentIdSource',
-          :'RequestIdSource',
-          :'UrlSource'
+          :'DocSourceStandardOneOf',
+          :'DocSourceStandardOneOf1',
+          :'DocSourceStandardOneOf2'
         ]
       end
 

@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * JobOptions
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T02:58:21.920473899Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T04:46:23.499769106Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class JobOptions {
   /**
    * Gets or Sets documentClass

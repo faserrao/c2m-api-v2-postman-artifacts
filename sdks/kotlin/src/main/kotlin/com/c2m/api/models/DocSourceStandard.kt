@@ -15,6 +15,9 @@
 
 package com.c2m.api.models
 
+import com.c2m.api.models.DocSourceStandardOneOf
+import com.c2m.api.models.DocSourceStandardOneOf1
+import com.c2m.api.models.DocSourceStandardOneOf2
 import com.c2m.api.models.DocumentIdSource
 import com.c2m.api.models.RequestIdSource
 import com.c2m.api.models.UrlSource
@@ -25,26 +28,22 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param documentId 
- * @param requestId 
- * @param url 
- * @param filename 
+ * @param documentIdSource 
+ * @param requestIdSource 
+ * @param urlSource 
  */
 
 
 data class DocSourceStandard (
 
-    @Json(name = "documentId")
-    val documentId: kotlin.Int,
+    @Json(name = "documentIdSource")
+    val documentIdSource: DocumentIdSource,
 
-    @Json(name = "requestId")
-    val requestId: kotlin.Int,
+    @Json(name = "requestIdSource")
+    val requestIdSource: RequestIdSource,
 
-    @Json(name = "url")
-    val url: java.net.URI,
-
-    @Json(name = "filename")
-    val filename: kotlin.String? = null
+    @Json(name = "urlSource")
+    val urlSource: UrlSource
 
 ) {
 

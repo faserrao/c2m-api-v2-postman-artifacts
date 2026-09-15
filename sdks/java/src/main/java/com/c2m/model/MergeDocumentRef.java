@@ -16,6 +16,8 @@ package com.c2m.model;
 import java.util.Objects;
 import com.c2m.model.MergeByDocumentId;
 import com.c2m.model.MergeByRequestId;
+import com.c2m.model.MergeDocumentRefOneOf;
+import com.c2m.model.MergeDocumentRefOneOf1;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -59,7 +61,7 @@ import com.google.gson.JsonParseException;
 
 import com.c2m.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T02:58:21.920473899Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T04:46:23.499769106Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class MergeDocumentRef extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(MergeDocumentRef.class.getName());
 
@@ -71,8 +73,8 @@ public class MergeDocumentRef extends AbstractOpenApiSchema {
                 return null; // this class only serializes 'MergeDocumentRef' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<MergeByDocumentId> adapterMergeByDocumentId = gson.getDelegateAdapter(this, TypeToken.get(MergeByDocumentId.class));
-            final TypeAdapter<MergeByRequestId> adapterMergeByRequestId = gson.getDelegateAdapter(this, TypeToken.get(MergeByRequestId.class));
+            final TypeAdapter<MergeDocumentRefOneOf> adapterMergeDocumentRefOneOf = gson.getDelegateAdapter(this, TypeToken.get(MergeDocumentRefOneOf.class));
+            final TypeAdapter<MergeDocumentRefOneOf1> adapterMergeDocumentRefOneOf1 = gson.getDelegateAdapter(this, TypeToken.get(MergeDocumentRefOneOf1.class));
 
             return (TypeAdapter<T>) new TypeAdapter<MergeDocumentRef>() {
                 @Override
@@ -82,19 +84,19 @@ public class MergeDocumentRef extends AbstractOpenApiSchema {
                         return;
                     }
 
-                    // check if the actual instance is of the type `MergeByDocumentId`
-                    if (value.getActualInstance() instanceof MergeByDocumentId) {
-                        JsonElement element = adapterMergeByDocumentId.toJsonTree((MergeByDocumentId)value.getActualInstance());
+                    // check if the actual instance is of the type `MergeDocumentRefOneOf`
+                    if (value.getActualInstance() instanceof MergeDocumentRefOneOf) {
+                        JsonElement element = adapterMergeDocumentRefOneOf.toJsonTree((MergeDocumentRefOneOf)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `MergeByRequestId`
-                    if (value.getActualInstance() instanceof MergeByRequestId) {
-                        JsonElement element = adapterMergeByRequestId.toJsonTree((MergeByRequestId)value.getActualInstance());
+                    // check if the actual instance is of the type `MergeDocumentRefOneOf1`
+                    if (value.getActualInstance() instanceof MergeDocumentRefOneOf1) {
+                        JsonElement element = adapterMergeDocumentRefOneOf1.toJsonTree((MergeDocumentRefOneOf1)value.getActualInstance());
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: MergeByDocumentId, MergeByRequestId");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: MergeDocumentRefOneOf, MergeDocumentRefOneOf1");
                 }
 
                 @Override
@@ -106,29 +108,29 @@ public class MergeDocumentRef extends AbstractOpenApiSchema {
                     ArrayList<String> errorMessages = new ArrayList<>();
                     TypeAdapter actualAdapter = elementAdapter;
 
-                    // deserialize MergeByDocumentId
+                    // deserialize MergeDocumentRefOneOf
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        MergeByDocumentId.validateJsonElement(jsonElement);
-                        actualAdapter = adapterMergeByDocumentId;
+                        MergeDocumentRefOneOf.validateJsonElement(jsonElement);
+                        actualAdapter = adapterMergeDocumentRefOneOf;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'MergeByDocumentId'");
+                        log.log(Level.FINER, "Input data matches schema 'MergeDocumentRefOneOf'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for MergeByDocumentId failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'MergeByDocumentId'", e);
+                        errorMessages.add(String.format("Deserialization for MergeDocumentRefOneOf failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'MergeDocumentRefOneOf'", e);
                     }
-                    // deserialize MergeByRequestId
+                    // deserialize MergeDocumentRefOneOf1
                     try {
                         // validate the JSON object to see if any exception is thrown
-                        MergeByRequestId.validateJsonElement(jsonElement);
-                        actualAdapter = adapterMergeByRequestId;
+                        MergeDocumentRefOneOf1.validateJsonElement(jsonElement);
+                        actualAdapter = adapterMergeDocumentRefOneOf1;
                         match++;
-                        log.log(Level.FINER, "Input data matches schema 'MergeByRequestId'");
+                        log.log(Level.FINER, "Input data matches schema 'MergeDocumentRefOneOf1'");
                     } catch (Exception e) {
                         // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for MergeByRequestId failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'MergeByRequestId'", e);
+                        errorMessages.add(String.format("Deserialization for MergeDocumentRefOneOf1 failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'MergeDocumentRefOneOf1'", e);
                     }
 
                     if (match == 1) {
@@ -156,8 +158,8 @@ public class MergeDocumentRef extends AbstractOpenApiSchema {
     }
 
     static {
-        schemas.put("MergeByDocumentId", MergeByDocumentId.class);
-        schemas.put("MergeByRequestId", MergeByRequestId.class);
+        schemas.put("MergeDocumentRefOneOf", MergeDocumentRefOneOf.class);
+        schemas.put("MergeDocumentRefOneOf1", MergeDocumentRefOneOf1.class);
     }
 
     @Override
@@ -168,30 +170,30 @@ public class MergeDocumentRef extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * MergeByDocumentId, MergeByRequestId
+     * MergeDocumentRefOneOf, MergeDocumentRefOneOf1
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
-        if (instance instanceof MergeByDocumentId) {
+        if (instance instanceof MergeDocumentRefOneOf) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof MergeByRequestId) {
+        if (instance instanceof MergeDocumentRefOneOf1) {
             super.setActualInstance(instance);
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be MergeByDocumentId, MergeByRequestId");
+        throw new RuntimeException("Invalid instance type. Must be MergeDocumentRefOneOf, MergeDocumentRefOneOf1");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * MergeByDocumentId, MergeByRequestId
+     * MergeDocumentRefOneOf, MergeDocumentRefOneOf1
      *
-     * @return The actual instance (MergeByDocumentId, MergeByRequestId)
+     * @return The actual instance (MergeDocumentRefOneOf, MergeDocumentRefOneOf1)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -200,25 +202,25 @@ public class MergeDocumentRef extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `MergeByDocumentId`. If the actual instance is not `MergeByDocumentId`,
+     * Get the actual instance of `MergeDocumentRefOneOf`. If the actual instance is not `MergeDocumentRefOneOf`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `MergeByDocumentId`
-     * @throws ClassCastException if the instance is not `MergeByDocumentId`
+     * @return The actual instance of `MergeDocumentRefOneOf`
+     * @throws ClassCastException if the instance is not `MergeDocumentRefOneOf`
      */
-    public MergeByDocumentId getMergeByDocumentId() throws ClassCastException {
-        return (MergeByDocumentId)super.getActualInstance();
+    public MergeDocumentRefOneOf getMergeDocumentRefOneOf() throws ClassCastException {
+        return (MergeDocumentRefOneOf)super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `MergeByRequestId`. If the actual instance is not `MergeByRequestId`,
+     * Get the actual instance of `MergeDocumentRefOneOf1`. If the actual instance is not `MergeDocumentRefOneOf1`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `MergeByRequestId`
-     * @throws ClassCastException if the instance is not `MergeByRequestId`
+     * @return The actual instance of `MergeDocumentRefOneOf1`
+     * @throws ClassCastException if the instance is not `MergeDocumentRefOneOf1`
      */
-    public MergeByRequestId getMergeByRequestId() throws ClassCastException {
-        return (MergeByRequestId)super.getActualInstance();
+    public MergeDocumentRefOneOf1 getMergeDocumentRefOneOf1() throws ClassCastException {
+        return (MergeDocumentRefOneOf1)super.getActualInstance();
     }
 
     /**
@@ -231,24 +233,24 @@ public class MergeDocumentRef extends AbstractOpenApiSchema {
         // validate oneOf schemas one by one
         int validCount = 0;
         ArrayList<String> errorMessages = new ArrayList<>();
-        // validate the json string with MergeByDocumentId
+        // validate the json string with MergeDocumentRefOneOf
         try {
-            MergeByDocumentId.validateJsonElement(jsonElement);
+            MergeDocumentRefOneOf.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for MergeByDocumentId failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for MergeDocumentRefOneOf failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with MergeByRequestId
+        // validate the json string with MergeDocumentRefOneOf1
         try {
-            MergeByRequestId.validateJsonElement(jsonElement);
+            MergeDocumentRefOneOf1.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for MergeByRequestId failed with `%s`.", e.getMessage()));
+            errorMessages.add(String.format("Deserialization for MergeDocumentRefOneOf1 failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
         if (validCount != 1) {
-            throw new IOException(String.format("The JSON string is invalid for MergeDocumentRef with oneOf schemas: MergeByDocumentId, MergeByRequestId. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            throw new IOException(String.format("The JSON string is invalid for MergeDocumentRef with oneOf schemas: MergeDocumentRefOneOf, MergeDocumentRefOneOf1. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

@@ -4,9 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**zipDocumentId** | **Number** |  | 
-**filename** | **String** |  | 
-**requestId** | **Number** |  | 
-**zipFilename** | **String** |  | 
+**zipDocumentIdSource** | [**ZipDocumentIdSource**](ZipDocumentIdSource.md) |  | 
+**zipRequestIdSource** | [**ZipRequestIdSource**](ZipRequestIdSource.md) |  | 
 
 

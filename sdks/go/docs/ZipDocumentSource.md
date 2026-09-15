@@ -4,16 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ZipDocumentId** | **int32** |  | 
-**Filename** | **string** |  | 
-**RequestId** | **int32** |  | 
-**ZipFilename** | **string** |  | 
+**ZipDocumentIdSource** | [**ZipDocumentIdSource**](ZipDocumentIdSource.md) |  | 
+**ZipRequestIdSource** | [**ZipRequestIdSource**](ZipRequestIdSource.md) |  | 
 
 ## Methods
 
 ### NewZipDocumentSource
 
-`func NewZipDocumentSource(zipDocumentId int32, filename string, requestId int32, zipFilename string, ) *ZipDocumentSource`
+`func NewZipDocumentSource(zipDocumentIdSource ZipDocumentIdSource, zipRequestIdSource ZipRequestIdSource, ) *ZipDocumentSource`
 
 NewZipDocumentSource instantiates a new ZipDocumentSource object
 This constructor will assign default values to properties that have it defined,
@@ -28,84 +26,44 @@ NewZipDocumentSourceWithDefaults instantiates a new ZipDocumentSource object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetZipDocumentId
+### GetZipDocumentIdSource
 
-`func (o *ZipDocumentSource) GetZipDocumentId() int32`
+`func (o *ZipDocumentSource) GetZipDocumentIdSource() ZipDocumentIdSource`
 
-GetZipDocumentId returns the ZipDocumentId field if non-nil, zero value otherwise.
+GetZipDocumentIdSource returns the ZipDocumentIdSource field if non-nil, zero value otherwise.
 
-### GetZipDocumentIdOk
+### GetZipDocumentIdSourceOk
 
-`func (o *ZipDocumentSource) GetZipDocumentIdOk() (*int32, bool)`
+`func (o *ZipDocumentSource) GetZipDocumentIdSourceOk() (*ZipDocumentIdSource, bool)`
 
-GetZipDocumentIdOk returns a tuple with the ZipDocumentId field if it's non-nil, zero value otherwise
+GetZipDocumentIdSourceOk returns a tuple with the ZipDocumentIdSource field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetZipDocumentId
+### SetZipDocumentIdSource
 
-`func (o *ZipDocumentSource) SetZipDocumentId(v int32)`
+`func (o *ZipDocumentSource) SetZipDocumentIdSource(v ZipDocumentIdSource)`
 
-SetZipDocumentId sets ZipDocumentId field to given value.
+SetZipDocumentIdSource sets ZipDocumentIdSource field to given value.
 
 
-### GetFilename
+### GetZipRequestIdSource
 
-`func (o *ZipDocumentSource) GetFilename() string`
+`func (o *ZipDocumentSource) GetZipRequestIdSource() ZipRequestIdSource`
 
-GetFilename returns the Filename field if non-nil, zero value otherwise.
+GetZipRequestIdSource returns the ZipRequestIdSource field if non-nil, zero value otherwise.
 
-### GetFilenameOk
+### GetZipRequestIdSourceOk
 
-`func (o *ZipDocumentSource) GetFilenameOk() (*string, bool)`
+`func (o *ZipDocumentSource) GetZipRequestIdSourceOk() (*ZipRequestIdSource, bool)`
 
-GetFilenameOk returns a tuple with the Filename field if it's non-nil, zero value otherwise
+GetZipRequestIdSourceOk returns a tuple with the ZipRequestIdSource field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFilename
+### SetZipRequestIdSource
 
-`func (o *ZipDocumentSource) SetFilename(v string)`
+`func (o *ZipDocumentSource) SetZipRequestIdSource(v ZipRequestIdSource)`
 
-SetFilename sets Filename field to given value.
-
-
-### GetRequestId
-
-`func (o *ZipDocumentSource) GetRequestId() int32`
-
-GetRequestId returns the RequestId field if non-nil, zero value otherwise.
-
-### GetRequestIdOk
-
-`func (o *ZipDocumentSource) GetRequestIdOk() (*int32, bool)`
-
-GetRequestIdOk returns a tuple with the RequestId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRequestId
-
-`func (o *ZipDocumentSource) SetRequestId(v int32)`
-
-SetRequestId sets RequestId field to given value.
-
-
-### GetZipFilename
-
-`func (o *ZipDocumentSource) GetZipFilename() string`
-
-GetZipFilename returns the ZipFilename field if non-nil, zero value otherwise.
-
-### GetZipFilenameOk
-
-`func (o *ZipDocumentSource) GetZipFilenameOk() (*string, bool)`
-
-GetZipFilenameOk returns a tuple with the ZipFilename field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetZipFilename
-
-`func (o *ZipDocumentSource) SetZipFilename(v string)`
-
-SetZipFilename sets ZipFilename field to given value.
+SetZipRequestIdSource sets ZipRequestIdSource field to given value.
 
 
 

@@ -15,8 +15,16 @@
 
 package com.c2m.api.models
 
-import com.c2m.api.models.DocSourceStandard
-import com.c2m.api.models.DocSourceZipFile
+import com.c2m.api.models.DocSourceStandardOneOf
+import com.c2m.api.models.DocSourceStandardOneOf1
+import com.c2m.api.models.DocSourceStandardOneOf2
+import com.c2m.api.models.DocumentIdSource
+import com.c2m.api.models.RequestIdSource
+import com.c2m.api.models.UrlSource
+import com.c2m.api.models.ZipDocumentIdSource
+import com.c2m.api.models.ZipDocumentSourceOneOf
+import com.c2m.api.models.ZipDocumentSourceOneOf1
+import com.c2m.api.models.ZipRequestIdSource
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -24,34 +32,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param documentId 
- * @param requestId 
- * @param filename 
- * @param url 
- * @param zipDocumentId 
- * @param zipFilename 
+ * @param documentIdSource 
+ * @param requestIdSource 
+ * @param urlSource 
+ * @param zipDocumentIdSource 
+ * @param zipRequestIdSource 
  */
 
 
 data class DocSourceAll (
 
-    @Json(name = "documentId")
-    val documentId: kotlin.Int,
+    @Json(name = "documentIdSource")
+    val documentIdSource: DocumentIdSource,
 
-    @Json(name = "requestId")
-    val requestId: kotlin.Int,
+    @Json(name = "requestIdSource")
+    val requestIdSource: RequestIdSource,
 
-    @Json(name = "filename")
-    val filename: kotlin.String,
+    @Json(name = "urlSource")
+    val urlSource: UrlSource,
 
-    @Json(name = "url")
-    val url: java.net.URI,
+    @Json(name = "zipDocumentIdSource")
+    val zipDocumentIdSource: ZipDocumentIdSource,
 
-    @Json(name = "zipDocumentId")
-    val zipDocumentId: kotlin.Int,
-
-    @Json(name = "zipFilename")
-    val zipFilename: kotlin.String
+    @Json(name = "zipRequestIdSource")
+    val zipRequestIdSource: ZipRequestIdSource
 
 ) {
 

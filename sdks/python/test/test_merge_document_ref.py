@@ -35,14 +35,19 @@ class TestMergeDocumentRef(unittest.TestCase):
         model = MergeDocumentRef()
         if include_optional:
             return MergeDocumentRef(
-                document_id = 56,
-                request_id = 56,
-                filename = ''
+                merge_by_document_id = c2m_api.models.merge_by_document_id.mergeByDocumentId(
+                    document_id = 56, ),
+                merge_by_request_id = c2m_api.models.merge_by_request_id.mergeByRequestId(
+                    request_id = 56, 
+                    filename = '', )
             )
         else:
             return MergeDocumentRef(
-                document_id = 56,
-                request_id = 56,
+                merge_by_document_id = c2m_api.models.merge_by_document_id.mergeByDocumentId(
+                    document_id = 56, ),
+                merge_by_request_id = c2m_api.models.merge_by_request_id.mergeByRequestId(
+                    request_id = 56, 
+                    filename = '', ),
         )
         """
 

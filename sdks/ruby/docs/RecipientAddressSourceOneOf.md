@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **address_list_id** | **Integer** |  |  |
+| **single_address** | [**Address**](Address.md) |  |  |
 
 ## Example
 
@@ -12,7 +12,7 @@
 require 'openapi_client'
 
 instance = OpenapiClient::RecipientAddressSourceOneOf.new(
-  address_list_id: null
+  single_address: null
 )
 ```
 

@@ -12,8 +12,16 @@
  */
 
 import ApiClient from '../ApiClient';
-import DocSourceStandard from './DocSourceStandard';
-import DocSourceZipFile from './DocSourceZipFile';
+import DocSourceStandardOneOf from './DocSourceStandardOneOf';
+import DocSourceStandardOneOf1 from './DocSourceStandardOneOf1';
+import DocSourceStandardOneOf2 from './DocSourceStandardOneOf2';
+import DocumentIdSource from './DocumentIdSource';
+import RequestIdSource from './RequestIdSource';
+import UrlSource from './UrlSource';
+import ZipDocumentIdSource from './ZipDocumentIdSource';
+import ZipDocumentSourceOneOf from './ZipDocumentSourceOneOf';
+import ZipDocumentSourceOneOf1 from './ZipDocumentSourceOneOf1';
+import ZipRequestIdSource from './ZipRequestIdSource';
 
 /**
  * The DocSourceAll model module.
@@ -24,7 +32,7 @@ class DocSourceAll {
     /**
      * Constructs a new <code>DocSourceAll</code>.
      * @alias module:c2m_api/model/DocSourceAll
-     * @param {(module:c2m_api/model/DocSourceStandard|module:c2m_api/model/DocSourceZipFile)} instance The actual instance to initialize DocSourceAll.
+     * @param {(module:c2m_api/model/DocSourceStandardOneOf|module:c2m_api/model/DocSourceStandardOneOf1|module:c2m_api/model/DocSourceStandardOneOf2|module:c2m_api/model/ZipDocumentSourceOneOf|module:c2m_api/model/ZipDocumentSourceOneOf1)} instance The actual instance to initialize DocSourceAll.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -34,42 +42,90 @@ class DocSourceAll {
         var match = 0;
         var errorMessages = [];
         try {
-            if (typeof instance === "DocSourceStandard") {
+            if (typeof instance === "DocSourceStandardOneOf") {
                 this.actualInstance = instance;
             } else {
                 // plain JS object
                 // validate the object
-                DocSourceStandard.validateJSON(instance); // throw an exception if no match
-                // create DocSourceStandard from JS object
-                this.actualInstance = DocSourceStandard.constructFromObject(instance);
+                DocSourceStandardOneOf.validateJSON(instance); // throw an exception if no match
+                // create DocSourceStandardOneOf from JS object
+                this.actualInstance = DocSourceStandardOneOf.constructFromObject(instance);
             }
             match++;
         } catch(err) {
-            // json data failed to deserialize into DocSourceStandard
-            errorMessages.push("Failed to construct DocSourceStandard: " + err)
+            // json data failed to deserialize into DocSourceStandardOneOf
+            errorMessages.push("Failed to construct DocSourceStandardOneOf: " + err)
         }
 
         try {
-            if (typeof instance === "DocSourceZipFile") {
+            if (typeof instance === "DocSourceStandardOneOf1") {
                 this.actualInstance = instance;
             } else {
                 // plain JS object
                 // validate the object
-                DocSourceZipFile.validateJSON(instance); // throw an exception if no match
-                // create DocSourceZipFile from JS object
-                this.actualInstance = DocSourceZipFile.constructFromObject(instance);
+                DocSourceStandardOneOf1.validateJSON(instance); // throw an exception if no match
+                // create DocSourceStandardOneOf1 from JS object
+                this.actualInstance = DocSourceStandardOneOf1.constructFromObject(instance);
             }
             match++;
         } catch(err) {
-            // json data failed to deserialize into DocSourceZipFile
-            errorMessages.push("Failed to construct DocSourceZipFile: " + err)
+            // json data failed to deserialize into DocSourceStandardOneOf1
+            errorMessages.push("Failed to construct DocSourceStandardOneOf1: " + err)
+        }
+
+        try {
+            if (typeof instance === "DocSourceStandardOneOf2") {
+                this.actualInstance = instance;
+            } else {
+                // plain JS object
+                // validate the object
+                DocSourceStandardOneOf2.validateJSON(instance); // throw an exception if no match
+                // create DocSourceStandardOneOf2 from JS object
+                this.actualInstance = DocSourceStandardOneOf2.constructFromObject(instance);
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into DocSourceStandardOneOf2
+            errorMessages.push("Failed to construct DocSourceStandardOneOf2: " + err)
+        }
+
+        try {
+            if (typeof instance === "ZipDocumentSourceOneOf") {
+                this.actualInstance = instance;
+            } else {
+                // plain JS object
+                // validate the object
+                ZipDocumentSourceOneOf.validateJSON(instance); // throw an exception if no match
+                // create ZipDocumentSourceOneOf from JS object
+                this.actualInstance = ZipDocumentSourceOneOf.constructFromObject(instance);
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into ZipDocumentSourceOneOf
+            errorMessages.push("Failed to construct ZipDocumentSourceOneOf: " + err)
+        }
+
+        try {
+            if (typeof instance === "ZipDocumentSourceOneOf1") {
+                this.actualInstance = instance;
+            } else {
+                // plain JS object
+                // validate the object
+                ZipDocumentSourceOneOf1.validateJSON(instance); // throw an exception if no match
+                // create ZipDocumentSourceOneOf1 from JS object
+                this.actualInstance = ZipDocumentSourceOneOf1.constructFromObject(instance);
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into ZipDocumentSourceOneOf1
+            errorMessages.push("Failed to construct ZipDocumentSourceOneOf1: " + err)
         }
 
         if (match > 1) {
-            throw new Error("Multiple matches found constructing `DocSourceAll` with oneOf schemas DocSourceStandard, DocSourceZipFile. Input: " + JSON.stringify(instance));
+            throw new Error("Multiple matches found constructing `DocSourceAll` with oneOf schemas DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2, ZipDocumentSourceOneOf, ZipDocumentSourceOneOf1. Input: " + JSON.stringify(instance));
         } else if (match === 0) {
             this.actualInstance = null; // clear the actual instance in case there are multiple matches
-            throw new Error("No match found constructing `DocSourceAll` with oneOf schemas DocSourceStandard, DocSourceZipFile. Details: " +
+            throw new Error("No match found constructing `DocSourceAll` with oneOf schemas DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2, ZipDocumentSourceOneOf, ZipDocumentSourceOneOf1. Details: " +
                             errorMessages.join(", "));
         } else { // only 1 match
             // the input is valid
@@ -88,16 +144,16 @@ class DocSourceAll {
     }
 
     /**
-     * Gets the actual instance, which can be <code>DocSourceStandard</code>, <code>DocSourceZipFile</code>.
-     * @return {(module:c2m_api/model/DocSourceStandard|module:c2m_api/model/DocSourceZipFile)} The actual instance.
+     * Gets the actual instance, which can be <code>DocSourceStandardOneOf</code>, <code>DocSourceStandardOneOf1</code>, <code>DocSourceStandardOneOf2</code>, <code>ZipDocumentSourceOneOf</code>, <code>ZipDocumentSourceOneOf1</code>.
+     * @return {(module:c2m_api/model/DocSourceStandardOneOf|module:c2m_api/model/DocSourceStandardOneOf1|module:c2m_api/model/DocSourceStandardOneOf2|module:c2m_api/model/ZipDocumentSourceOneOf|module:c2m_api/model/ZipDocumentSourceOneOf1)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>DocSourceStandard</code>, <code>DocSourceZipFile</code>.
-     * @param {(module:c2m_api/model/DocSourceStandard|module:c2m_api/model/DocSourceZipFile)} obj The actual instance.
+     * Sets the actual instance, which can be <code>DocSourceStandardOneOf</code>, <code>DocSourceStandardOneOf1</code>, <code>DocSourceStandardOneOf2</code>, <code>ZipDocumentSourceOneOf</code>, <code>ZipDocumentSourceOneOf1</code>.
+     * @param {(module:c2m_api/model/DocSourceStandardOneOf|module:c2m_api/model/DocSourceStandardOneOf1|module:c2m_api/model/DocSourceStandardOneOf2|module:c2m_api/model/ZipDocumentSourceOneOf|module:c2m_api/model/ZipDocumentSourceOneOf1)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = DocSourceAll.constructFromObject(obj).getActualInstance();
@@ -122,37 +178,32 @@ class DocSourceAll {
 }
 
 /**
- * @member {Number} documentId
+ * @member {module:c2m_api/model/DocumentIdSource} documentIdSource
  */
-DocSourceAll.prototype['documentId'] = undefined;
+DocSourceAll.prototype['documentIdSource'] = undefined;
 
 /**
- * @member {Number} requestId
+ * @member {module:c2m_api/model/RequestIdSource} requestIdSource
  */
-DocSourceAll.prototype['requestId'] = undefined;
+DocSourceAll.prototype['requestIdSource'] = undefined;
 
 /**
- * @member {String} filename
+ * @member {module:c2m_api/model/UrlSource} urlSource
  */
-DocSourceAll.prototype['filename'] = undefined;
+DocSourceAll.prototype['urlSource'] = undefined;
 
 /**
- * @member {String} url
+ * @member {module:c2m_api/model/ZipDocumentIdSource} zipDocumentIdSource
  */
-DocSourceAll.prototype['url'] = undefined;
+DocSourceAll.prototype['zipDocumentIdSource'] = undefined;
 
 /**
- * @member {Number} zipDocumentId
+ * @member {module:c2m_api/model/ZipRequestIdSource} zipRequestIdSource
  */
-DocSourceAll.prototype['zipDocumentId'] = undefined;
-
-/**
- * @member {String} zipFilename
- */
-DocSourceAll.prototype['zipFilename'] = undefined;
+DocSourceAll.prototype['zipRequestIdSource'] = undefined;
 
 
-DocSourceAll.OneOf = ["DocSourceStandard", "DocSourceZipFile"];
+DocSourceAll.OneOf = ["DocSourceStandardOneOf", "DocSourceStandardOneOf1", "DocSourceStandardOneOf2", "ZipDocumentSourceOneOf", "ZipDocumentSourceOneOf1"];
 
 export default DocSourceAll;
 

@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import Address from './Address';
 
 /**
  * The RecipientAddressSourceOneOf model module.
@@ -22,11 +23,11 @@ class RecipientAddressSourceOneOf {
     /**
      * Constructs a new <code>RecipientAddressSourceOneOf</code>.
      * @alias module:c2m_api/model/RecipientAddressSourceOneOf
-     * @param addressListId {Number} 
+     * @param singleAddress {module:c2m_api/model/Address} 
      */
-    constructor(addressListId) { 
+    constructor(singleAddress) { 
         
-        RecipientAddressSourceOneOf.initialize(this, addressListId);
+        RecipientAddressSourceOneOf.initialize(this, singleAddress);
     }
 
     /**
@@ -34,8 +35,8 @@ class RecipientAddressSourceOneOf {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, addressListId) { 
-        obj['addressListId'] = addressListId;
+    static initialize(obj, singleAddress) { 
+        obj['singleAddress'] = singleAddress;
     }
 
     /**
@@ -49,8 +50,8 @@ class RecipientAddressSourceOneOf {
         if (data) {
             obj = obj || new RecipientAddressSourceOneOf();
 
-            if (data.hasOwnProperty('addressListId')) {
-                obj['addressListId'] = ApiClient.convertToType(data['addressListId'], 'Number');
+            if (data.hasOwnProperty('singleAddress')) {
+                obj['singleAddress'] = Address.constructFromObject(data['singleAddress']);
             }
         }
         return obj;
@@ -68,6 +69,10 @@ class RecipientAddressSourceOneOf {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // validate the optional field `singleAddress`
+        if (data['singleAddress']) { // data not null
+          Address.validateJSON(data['singleAddress']);
+        }
 
         return true;
     }
@@ -75,12 +80,12 @@ class RecipientAddressSourceOneOf {
 
 }
 
-RecipientAddressSourceOneOf.RequiredProperties = ["addressListId"];
+RecipientAddressSourceOneOf.RequiredProperties = ["singleAddress"];
 
 /**
- * @member {Number} addressListId
+ * @member {module:c2m_api/model/Address} singleAddress
  */
-RecipientAddressSourceOneOf.prototype['addressListId'] = undefined;
+RecipientAddressSourceOneOf.prototype['singleAddress'] = undefined;
 
 
 

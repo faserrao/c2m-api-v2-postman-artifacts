@@ -18,29 +18,29 @@ import (
 
 // DocSourceStandard - struct for DocSourceStandard
 type DocSourceStandard struct {
-	DocumentIdSource *DocumentIdSource
-	RequestIdSource *RequestIdSource
-	UrlSource *UrlSource
+	DocSourceStandardOneOf *DocSourceStandardOneOf
+	DocSourceStandardOneOf1 *DocSourceStandardOneOf1
+	DocSourceStandardOneOf2 *DocSourceStandardOneOf2
 }
 
-// DocumentIdSourceAsDocSourceStandard is a convenience function that returns DocumentIdSource wrapped in DocSourceStandard
-func DocumentIdSourceAsDocSourceStandard(v *DocumentIdSource) DocSourceStandard {
+// DocSourceStandardOneOfAsDocSourceStandard is a convenience function that returns DocSourceStandardOneOf wrapped in DocSourceStandard
+func DocSourceStandardOneOfAsDocSourceStandard(v *DocSourceStandardOneOf) DocSourceStandard {
 	return DocSourceStandard{
-		DocumentIdSource: v,
+		DocSourceStandardOneOf: v,
 	}
 }
 
-// RequestIdSourceAsDocSourceStandard is a convenience function that returns RequestIdSource wrapped in DocSourceStandard
-func RequestIdSourceAsDocSourceStandard(v *RequestIdSource) DocSourceStandard {
+// DocSourceStandardOneOf1AsDocSourceStandard is a convenience function that returns DocSourceStandardOneOf1 wrapped in DocSourceStandard
+func DocSourceStandardOneOf1AsDocSourceStandard(v *DocSourceStandardOneOf1) DocSourceStandard {
 	return DocSourceStandard{
-		RequestIdSource: v,
+		DocSourceStandardOneOf1: v,
 	}
 }
 
-// UrlSourceAsDocSourceStandard is a convenience function that returns UrlSource wrapped in DocSourceStandard
-func UrlSourceAsDocSourceStandard(v *UrlSource) DocSourceStandard {
+// DocSourceStandardOneOf2AsDocSourceStandard is a convenience function that returns DocSourceStandardOneOf2 wrapped in DocSourceStandard
+func DocSourceStandardOneOf2AsDocSourceStandard(v *DocSourceStandardOneOf2) DocSourceStandard {
 	return DocSourceStandard{
-		UrlSource: v,
+		DocSourceStandardOneOf2: v,
 	}
 }
 
@@ -49,62 +49,62 @@ func UrlSourceAsDocSourceStandard(v *UrlSource) DocSourceStandard {
 func (dst *DocSourceStandard) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into DocumentIdSource
-	err = newStrictDecoder(data).Decode(&dst.DocumentIdSource)
+	// try to unmarshal data into DocSourceStandardOneOf
+	err = newStrictDecoder(data).Decode(&dst.DocSourceStandardOneOf)
 	if err == nil {
-		jsonDocumentIdSource, _ := json.Marshal(dst.DocumentIdSource)
-		if string(jsonDocumentIdSource) == "{}" { // empty struct
-			dst.DocumentIdSource = nil
+		jsonDocSourceStandardOneOf, _ := json.Marshal(dst.DocSourceStandardOneOf)
+		if string(jsonDocSourceStandardOneOf) == "{}" { // empty struct
+			dst.DocSourceStandardOneOf = nil
 		} else {
-			if err = validator.Validate(dst.DocumentIdSource); err != nil {
-				dst.DocumentIdSource = nil
+			if err = validator.Validate(dst.DocSourceStandardOneOf); err != nil {
+				dst.DocSourceStandardOneOf = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.DocumentIdSource = nil
+		dst.DocSourceStandardOneOf = nil
 	}
 
-	// try to unmarshal data into RequestIdSource
-	err = newStrictDecoder(data).Decode(&dst.RequestIdSource)
+	// try to unmarshal data into DocSourceStandardOneOf1
+	err = newStrictDecoder(data).Decode(&dst.DocSourceStandardOneOf1)
 	if err == nil {
-		jsonRequestIdSource, _ := json.Marshal(dst.RequestIdSource)
-		if string(jsonRequestIdSource) == "{}" { // empty struct
-			dst.RequestIdSource = nil
+		jsonDocSourceStandardOneOf1, _ := json.Marshal(dst.DocSourceStandardOneOf1)
+		if string(jsonDocSourceStandardOneOf1) == "{}" { // empty struct
+			dst.DocSourceStandardOneOf1 = nil
 		} else {
-			if err = validator.Validate(dst.RequestIdSource); err != nil {
-				dst.RequestIdSource = nil
+			if err = validator.Validate(dst.DocSourceStandardOneOf1); err != nil {
+				dst.DocSourceStandardOneOf1 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.RequestIdSource = nil
+		dst.DocSourceStandardOneOf1 = nil
 	}
 
-	// try to unmarshal data into UrlSource
-	err = newStrictDecoder(data).Decode(&dst.UrlSource)
+	// try to unmarshal data into DocSourceStandardOneOf2
+	err = newStrictDecoder(data).Decode(&dst.DocSourceStandardOneOf2)
 	if err == nil {
-		jsonUrlSource, _ := json.Marshal(dst.UrlSource)
-		if string(jsonUrlSource) == "{}" { // empty struct
-			dst.UrlSource = nil
+		jsonDocSourceStandardOneOf2, _ := json.Marshal(dst.DocSourceStandardOneOf2)
+		if string(jsonDocSourceStandardOneOf2) == "{}" { // empty struct
+			dst.DocSourceStandardOneOf2 = nil
 		} else {
-			if err = validator.Validate(dst.UrlSource); err != nil {
-				dst.UrlSource = nil
+			if err = validator.Validate(dst.DocSourceStandardOneOf2); err != nil {
+				dst.DocSourceStandardOneOf2 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.UrlSource = nil
+		dst.DocSourceStandardOneOf2 = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.DocumentIdSource = nil
-		dst.RequestIdSource = nil
-		dst.UrlSource = nil
+		dst.DocSourceStandardOneOf = nil
+		dst.DocSourceStandardOneOf1 = nil
+		dst.DocSourceStandardOneOf2 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(DocSourceStandard)")
 	} else if match == 1 {
@@ -116,16 +116,16 @@ func (dst *DocSourceStandard) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src DocSourceStandard) MarshalJSON() ([]byte, error) {
-	if src.DocumentIdSource != nil {
-		return json.Marshal(&src.DocumentIdSource)
+	if src.DocSourceStandardOneOf != nil {
+		return json.Marshal(&src.DocSourceStandardOneOf)
 	}
 
-	if src.RequestIdSource != nil {
-		return json.Marshal(&src.RequestIdSource)
+	if src.DocSourceStandardOneOf1 != nil {
+		return json.Marshal(&src.DocSourceStandardOneOf1)
 	}
 
-	if src.UrlSource != nil {
-		return json.Marshal(&src.UrlSource)
+	if src.DocSourceStandardOneOf2 != nil {
+		return json.Marshal(&src.DocSourceStandardOneOf2)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -136,16 +136,16 @@ func (obj *DocSourceStandard) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.DocumentIdSource != nil {
-		return obj.DocumentIdSource
+	if obj.DocSourceStandardOneOf != nil {
+		return obj.DocSourceStandardOneOf
 	}
 
-	if obj.RequestIdSource != nil {
-		return obj.RequestIdSource
+	if obj.DocSourceStandardOneOf1 != nil {
+		return obj.DocSourceStandardOneOf1
 	}
 
-	if obj.UrlSource != nil {
-		return obj.UrlSource
+	if obj.DocSourceStandardOneOf2 != nil {
+		return obj.DocSourceStandardOneOf2
 	}
 
 	// all schemas are nil
@@ -154,16 +154,16 @@ func (obj *DocSourceStandard) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj DocSourceStandard) GetActualInstanceValue() (interface{}) {
-	if obj.DocumentIdSource != nil {
-		return *obj.DocumentIdSource
+	if obj.DocSourceStandardOneOf != nil {
+		return *obj.DocSourceStandardOneOf
 	}
 
-	if obj.RequestIdSource != nil {
-		return *obj.RequestIdSource
+	if obj.DocSourceStandardOneOf1 != nil {
+		return *obj.DocSourceStandardOneOf1
 	}
 
-	if obj.UrlSource != nil {
-		return *obj.UrlSource
+	if obj.DocSourceStandardOneOf2 != nil {
+		return *obj.DocSourceStandardOneOf2
 	}
 
 	// all schemas are nil

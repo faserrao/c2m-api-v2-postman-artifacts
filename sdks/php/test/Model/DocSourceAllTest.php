@@ -80,54 +80,45 @@ class DocSourceAllTest extends TestCase
     }
 
     /**
-     * Test attribute "document_id"
+     * Test attribute "document_id_source"
      */
-    public function testPropertyDocumentId()
+    public function testPropertyDocumentIdSource()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "request_id"
+     * Test attribute "request_id_source"
      */
-    public function testPropertyRequestId()
+    public function testPropertyRequestIdSource()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "filename"
+     * Test attribute "url_source"
      */
-    public function testPropertyFilename()
+    public function testPropertyUrlSource()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "url"
+     * Test attribute "zip_document_id_source"
      */
-    public function testPropertyUrl()
+    public function testPropertyZipDocumentIdSource()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "zip_document_id"
+     * Test attribute "zip_request_id_source"
      */
-    public function testPropertyZipDocumentId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "zip_filename"
-     */
-    public function testPropertyZipFilename()
+    public function testPropertyZipRequestIdSource()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

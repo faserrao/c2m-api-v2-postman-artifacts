@@ -15,12 +15,12 @@ require 'time'
 
 module OpenapiClient
   class RecipientAddressSourceOneOf
-    attr_accessor :address_list_id
+    attr_accessor :single_address
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'address_list_id' => :'addressListId'
+        :'single_address' => :'singleAddress'
       }
     end
 
@@ -37,7 +37,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'address_list_id' => :'Integer'
+        :'single_address' => :'Address'
       }
     end
 
@@ -63,10 +63,10 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'address_list_id')
-        self.address_list_id = attributes[:'address_list_id']
+      if attributes.key?(:'single_address')
+        self.single_address = attributes[:'single_address']
       else
-        self.address_list_id = nil
+        self.single_address = nil
       end
     end
 
@@ -75,8 +75,8 @@ module OpenapiClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @address_list_id.nil?
-        invalid_properties.push('invalid value for "address_list_id", address_list_id cannot be nil.')
+      if @single_address.nil?
+        invalid_properties.push('invalid value for "single_address", single_address cannot be nil.')
       end
 
       invalid_properties
@@ -86,18 +86,18 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @address_list_id.nil?
+      return false if @single_address.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] address_list_id Value to be assigned
-    def address_list_id=(address_list_id)
-      if address_list_id.nil?
-        fail ArgumentError, 'address_list_id cannot be nil'
+    # @param [Object] single_address Value to be assigned
+    def single_address=(single_address)
+      if single_address.nil?
+        fail ArgumentError, 'single_address cannot be nil'
       end
 
-      @address_list_id = address_list_id
+      @single_address = single_address
     end
 
     # Checks equality by comparing each attribute.
@@ -105,7 +105,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          address_list_id == o.address_list_id
+          single_address == o.single_address
     end
 
     # @see the `==` method
@@ -117,7 +117,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [address_list_id].hash
+      [single_address].hash
     end
 
     # Builds the object from hash

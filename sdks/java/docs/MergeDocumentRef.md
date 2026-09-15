@@ -7,9 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**documentId** | **Integer** |  |  |
-|**requestId** | **Integer** |  |  |
-|**filename** | **String** |  |  [optional] |
+|**mergeByDocumentId** | [**MergeByDocumentId**](MergeByDocumentId.md) |  |  |
+|**mergeByRequestId** | [**MergeByRequestId**](MergeByRequestId.md) |  |  |
 
 
 

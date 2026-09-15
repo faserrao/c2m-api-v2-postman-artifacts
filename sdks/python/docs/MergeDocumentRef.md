@@ -5,9 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**document_id** | **int** |  | 
-**request_id** | **int** |  | 
-**filename** | **str** |  | [optional] 
+**merge_by_document_id** | [**MergeByDocumentId**](MergeByDocumentId.md) |  | 
+**merge_by_request_id** | [**MergeByRequestId**](MergeByRequestId.md) |  | 
 
 ## Example
 

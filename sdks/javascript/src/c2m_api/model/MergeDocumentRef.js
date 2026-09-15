@@ -14,6 +14,8 @@
 import ApiClient from '../ApiClient';
 import MergeByDocumentId from './MergeByDocumentId';
 import MergeByRequestId from './MergeByRequestId';
+import MergeDocumentRefOneOf from './MergeDocumentRefOneOf';
+import MergeDocumentRefOneOf1 from './MergeDocumentRefOneOf1';
 
 /**
  * The MergeDocumentRef model module.
@@ -24,7 +26,7 @@ class MergeDocumentRef {
     /**
      * Constructs a new <code>MergeDocumentRef</code>.
      * @alias module:c2m_api/model/MergeDocumentRef
-     * @param {(module:c2m_api/model/MergeByDocumentId|module:c2m_api/model/MergeByRequestId)} instance The actual instance to initialize MergeDocumentRef.
+     * @param {(module:c2m_api/model/MergeDocumentRefOneOf|module:c2m_api/model/MergeDocumentRefOneOf1)} instance The actual instance to initialize MergeDocumentRef.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -34,42 +36,42 @@ class MergeDocumentRef {
         var match = 0;
         var errorMessages = [];
         try {
-            if (typeof instance === "MergeByDocumentId") {
+            if (typeof instance === "MergeDocumentRefOneOf") {
                 this.actualInstance = instance;
             } else {
                 // plain JS object
                 // validate the object
-                MergeByDocumentId.validateJSON(instance); // throw an exception if no match
-                // create MergeByDocumentId from JS object
-                this.actualInstance = MergeByDocumentId.constructFromObject(instance);
+                MergeDocumentRefOneOf.validateJSON(instance); // throw an exception if no match
+                // create MergeDocumentRefOneOf from JS object
+                this.actualInstance = MergeDocumentRefOneOf.constructFromObject(instance);
             }
             match++;
         } catch(err) {
-            // json data failed to deserialize into MergeByDocumentId
-            errorMessages.push("Failed to construct MergeByDocumentId: " + err)
+            // json data failed to deserialize into MergeDocumentRefOneOf
+            errorMessages.push("Failed to construct MergeDocumentRefOneOf: " + err)
         }
 
         try {
-            if (typeof instance === "MergeByRequestId") {
+            if (typeof instance === "MergeDocumentRefOneOf1") {
                 this.actualInstance = instance;
             } else {
                 // plain JS object
                 // validate the object
-                MergeByRequestId.validateJSON(instance); // throw an exception if no match
-                // create MergeByRequestId from JS object
-                this.actualInstance = MergeByRequestId.constructFromObject(instance);
+                MergeDocumentRefOneOf1.validateJSON(instance); // throw an exception if no match
+                // create MergeDocumentRefOneOf1 from JS object
+                this.actualInstance = MergeDocumentRefOneOf1.constructFromObject(instance);
             }
             match++;
         } catch(err) {
-            // json data failed to deserialize into MergeByRequestId
-            errorMessages.push("Failed to construct MergeByRequestId: " + err)
+            // json data failed to deserialize into MergeDocumentRefOneOf1
+            errorMessages.push("Failed to construct MergeDocumentRefOneOf1: " + err)
         }
 
         if (match > 1) {
-            throw new Error("Multiple matches found constructing `MergeDocumentRef` with oneOf schemas MergeByDocumentId, MergeByRequestId. Input: " + JSON.stringify(instance));
+            throw new Error("Multiple matches found constructing `MergeDocumentRef` with oneOf schemas MergeDocumentRefOneOf, MergeDocumentRefOneOf1. Input: " + JSON.stringify(instance));
         } else if (match === 0) {
             this.actualInstance = null; // clear the actual instance in case there are multiple matches
-            throw new Error("No match found constructing `MergeDocumentRef` with oneOf schemas MergeByDocumentId, MergeByRequestId. Details: " +
+            throw new Error("No match found constructing `MergeDocumentRef` with oneOf schemas MergeDocumentRefOneOf, MergeDocumentRefOneOf1. Details: " +
                             errorMessages.join(", "));
         } else { // only 1 match
             // the input is valid
@@ -88,16 +90,16 @@ class MergeDocumentRef {
     }
 
     /**
-     * Gets the actual instance, which can be <code>MergeByDocumentId</code>, <code>MergeByRequestId</code>.
-     * @return {(module:c2m_api/model/MergeByDocumentId|module:c2m_api/model/MergeByRequestId)} The actual instance.
+     * Gets the actual instance, which can be <code>MergeDocumentRefOneOf</code>, <code>MergeDocumentRefOneOf1</code>.
+     * @return {(module:c2m_api/model/MergeDocumentRefOneOf|module:c2m_api/model/MergeDocumentRefOneOf1)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>MergeByDocumentId</code>, <code>MergeByRequestId</code>.
-     * @param {(module:c2m_api/model/MergeByDocumentId|module:c2m_api/model/MergeByRequestId)} obj The actual instance.
+     * Sets the actual instance, which can be <code>MergeDocumentRefOneOf</code>, <code>MergeDocumentRefOneOf1</code>.
+     * @param {(module:c2m_api/model/MergeDocumentRefOneOf|module:c2m_api/model/MergeDocumentRefOneOf1)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = MergeDocumentRef.constructFromObject(obj).getActualInstance();
@@ -122,22 +124,17 @@ class MergeDocumentRef {
 }
 
 /**
- * @member {Number} documentId
+ * @member {module:c2m_api/model/MergeByDocumentId} mergeByDocumentId
  */
-MergeDocumentRef.prototype['documentId'] = undefined;
+MergeDocumentRef.prototype['mergeByDocumentId'] = undefined;
 
 /**
- * @member {Number} requestId
+ * @member {module:c2m_api/model/MergeByRequestId} mergeByRequestId
  */
-MergeDocumentRef.prototype['requestId'] = undefined;
-
-/**
- * @member {String} filename
- */
-MergeDocumentRef.prototype['filename'] = undefined;
+MergeDocumentRef.prototype['mergeByRequestId'] = undefined;
 
 
-MergeDocumentRef.OneOf = ["MergeByDocumentId", "MergeByRequestId"];
+MergeDocumentRef.OneOf = ["MergeDocumentRefOneOf", "MergeDocumentRefOneOf1"];
 
 export default MergeDocumentRef;
 

@@ -33,49 +33,49 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocSourceStandard" /> class.
         /// </summary>
-        /// <param name="documentIdSource"></param>
-        public DocSourceStandard(DocumentIdSource documentIdSource)
+        /// <param name="docSourceStandardOneOf"></param>
+        public DocSourceStandard(DocSourceStandardOneOf docSourceStandardOneOf)
         {
-            DocumentIdSource = documentIdSource;
+            DocSourceStandardOneOf = docSourceStandardOneOf;
             OnCreated();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DocSourceStandard" /> class.
         /// </summary>
-        /// <param name="requestIdSource"></param>
-        public DocSourceStandard(RequestIdSource requestIdSource)
+        /// <param name="docSourceStandardOneOf1"></param>
+        public DocSourceStandard(DocSourceStandardOneOf1 docSourceStandardOneOf1)
         {
-            RequestIdSource = requestIdSource;
+            DocSourceStandardOneOf1 = docSourceStandardOneOf1;
             OnCreated();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DocSourceStandard" /> class.
         /// </summary>
-        /// <param name="urlSource"></param>
-        public DocSourceStandard(UrlSource urlSource)
+        /// <param name="docSourceStandardOneOf2"></param>
+        public DocSourceStandard(DocSourceStandardOneOf2 docSourceStandardOneOf2)
         {
-            UrlSource = urlSource;
+            DocSourceStandardOneOf2 = docSourceStandardOneOf2;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets DocumentIdSource
+        /// Gets or Sets DocSourceStandardOneOf
         /// </summary>
-        public DocumentIdSource? DocumentIdSource { get; set; }
+        public DocSourceStandardOneOf? DocSourceStandardOneOf { get; set; }
 
         /// <summary>
-        /// Gets or Sets RequestIdSource
+        /// Gets or Sets DocSourceStandardOneOf1
         /// </summary>
-        public RequestIdSource? RequestIdSource { get; set; }
+        public DocSourceStandardOneOf1? DocSourceStandardOneOf1 { get; set; }
 
         /// <summary>
-        /// Gets or Sets UrlSource
+        /// Gets or Sets DocSourceStandardOneOf2
         /// </summary>
-        public UrlSource? UrlSource { get; set; }
+        public DocSourceStandardOneOf2? DocSourceStandardOneOf2 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -122,9 +122,9 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            DocumentIdSource? documentIdSource = default;
-            RequestIdSource? requestIdSource = default;
-            UrlSource? urlSource = default;
+            DocSourceStandardOneOf? docSourceStandardOneOf = default;
+            DocSourceStandardOneOf1? docSourceStandardOneOf1 = default;
+            DocSourceStandardOneOf2? docSourceStandardOneOf2 = default;
 
             Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
             while (utf8JsonReaderOneOf.Read())
@@ -137,14 +137,14 @@ namespace C2M.Api.Model
 
                 if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
                 {
-                    Utf8JsonReader utf8JsonReaderDocumentIdSource = utf8JsonReader;
-                    ClientUtils.TryDeserialize<DocumentIdSource?>(ref utf8JsonReaderDocumentIdSource, jsonSerializerOptions, out documentIdSource);
+                    Utf8JsonReader utf8JsonReaderDocSourceStandardOneOf = utf8JsonReader;
+                    ClientUtils.TryDeserialize<DocSourceStandardOneOf?>(ref utf8JsonReaderDocSourceStandardOneOf, jsonSerializerOptions, out docSourceStandardOneOf);
 
-                    Utf8JsonReader utf8JsonReaderRequestIdSource = utf8JsonReader;
-                    ClientUtils.TryDeserialize<RequestIdSource?>(ref utf8JsonReaderRequestIdSource, jsonSerializerOptions, out requestIdSource);
+                    Utf8JsonReader utf8JsonReaderDocSourceStandardOneOf1 = utf8JsonReader;
+                    ClientUtils.TryDeserialize<DocSourceStandardOneOf1?>(ref utf8JsonReaderDocSourceStandardOneOf1, jsonSerializerOptions, out docSourceStandardOneOf1);
 
-                    Utf8JsonReader utf8JsonReaderUrlSource = utf8JsonReader;
-                    ClientUtils.TryDeserialize<UrlSource?>(ref utf8JsonReaderUrlSource, jsonSerializerOptions, out urlSource);
+                    Utf8JsonReader utf8JsonReaderDocSourceStandardOneOf2 = utf8JsonReader;
+                    ClientUtils.TryDeserialize<DocSourceStandardOneOf2?>(ref utf8JsonReaderDocSourceStandardOneOf2, jsonSerializerOptions, out docSourceStandardOneOf2);
                 }
             }
 
@@ -169,14 +169,14 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (documentIdSource != null)
-                return new DocSourceStandard(documentIdSource);
+            if (docSourceStandardOneOf != null)
+                return new DocSourceStandard(docSourceStandardOneOf);
 
-            if (requestIdSource != null)
-                return new DocSourceStandard(requestIdSource);
+            if (docSourceStandardOneOf1 != null)
+                return new DocSourceStandard(docSourceStandardOneOf1);
 
-            if (urlSource != null)
-                return new DocSourceStandard(urlSource);
+            if (docSourceStandardOneOf2 != null)
+                return new DocSourceStandard(docSourceStandardOneOf2);
 
             throw new JsonException();
         }

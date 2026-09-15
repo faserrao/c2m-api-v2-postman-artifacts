@@ -17,27 +17,27 @@ import json
 import pprint
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
-from c2m_api.models.document_id_source import DocumentIdSource
-from c2m_api.models.request_id_source import RequestIdSource
-from c2m_api.models.url_source import UrlSource
+from c2m_api.models.doc_source_standard_one_of import DocSourceStandardOneOf
+from c2m_api.models.doc_source_standard_one_of1 import DocSourceStandardOneOf1
+from c2m_api.models.doc_source_standard_one_of2 import DocSourceStandardOneOf2
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-DOCSOURCESTANDARD_ONE_OF_SCHEMAS = ["DocumentIdSource", "RequestIdSource", "UrlSource"]
+DOCSOURCESTANDARD_ONE_OF_SCHEMAS = ["DocSourceStandardOneOf", "DocSourceStandardOneOf1", "DocSourceStandardOneOf2"]
 
 class DocSourceStandard(BaseModel):
     """
     DocSourceStandard
     """
-    # data type: DocumentIdSource
-    oneof_schema_1_validator: Optional[DocumentIdSource] = None
-    # data type: RequestIdSource
-    oneof_schema_2_validator: Optional[RequestIdSource] = None
-    # data type: UrlSource
-    oneof_schema_3_validator: Optional[UrlSource] = None
-    actual_instance: Optional[Union[DocumentIdSource, RequestIdSource, UrlSource]] = None
-    one_of_schemas: Set[str] = { "DocumentIdSource", "RequestIdSource", "UrlSource" }
+    # data type: DocSourceStandardOneOf
+    oneof_schema_1_validator: Optional[DocSourceStandardOneOf] = None
+    # data type: DocSourceStandardOneOf1
+    oneof_schema_2_validator: Optional[DocSourceStandardOneOf1] = None
+    # data type: DocSourceStandardOneOf2
+    oneof_schema_3_validator: Optional[DocSourceStandardOneOf2] = None
+    actual_instance: Optional[Union[DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2]] = None
+    one_of_schemas: Set[str] = { "DocSourceStandardOneOf", "DocSourceStandardOneOf1", "DocSourceStandardOneOf2" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -60,27 +60,27 @@ class DocSourceStandard(BaseModel):
         instance = DocSourceStandard.model_construct()
         error_messages = []
         match = 0
-        # validate data type: DocumentIdSource
-        if not isinstance(v, DocumentIdSource):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `DocumentIdSource`")
+        # validate data type: DocSourceStandardOneOf
+        if not isinstance(v, DocSourceStandardOneOf):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `DocSourceStandardOneOf`")
         else:
             match += 1
-        # validate data type: RequestIdSource
-        if not isinstance(v, RequestIdSource):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `RequestIdSource`")
+        # validate data type: DocSourceStandardOneOf1
+        if not isinstance(v, DocSourceStandardOneOf1):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `DocSourceStandardOneOf1`")
         else:
             match += 1
-        # validate data type: UrlSource
-        if not isinstance(v, UrlSource):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `UrlSource`")
+        # validate data type: DocSourceStandardOneOf2
+        if not isinstance(v, DocSourceStandardOneOf2):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `DocSourceStandardOneOf2`")
         else:
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in DocSourceStandard with oneOf schemas: DocumentIdSource, RequestIdSource, UrlSource. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in DocSourceStandard with oneOf schemas: DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in DocSourceStandard with oneOf schemas: DocumentIdSource, RequestIdSource, UrlSource. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in DocSourceStandard with oneOf schemas: DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -95,31 +95,31 @@ class DocSourceStandard(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into DocumentIdSource
+        # deserialize data into DocSourceStandardOneOf
         try:
-            instance.actual_instance = DocumentIdSource.from_json(json_str)
+            instance.actual_instance = DocSourceStandardOneOf.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into RequestIdSource
+        # deserialize data into DocSourceStandardOneOf1
         try:
-            instance.actual_instance = RequestIdSource.from_json(json_str)
+            instance.actual_instance = DocSourceStandardOneOf1.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into UrlSource
+        # deserialize data into DocSourceStandardOneOf2
         try:
-            instance.actual_instance = UrlSource.from_json(json_str)
+            instance.actual_instance = DocSourceStandardOneOf2.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into DocSourceStandard with oneOf schemas: DocumentIdSource, RequestIdSource, UrlSource. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into DocSourceStandard with oneOf schemas: DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into DocSourceStandard with oneOf schemas: DocumentIdSource, RequestIdSource, UrlSource. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into DocSourceStandard with oneOf schemas: DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -133,7 +133,7 @@ class DocSourceStandard(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], DocumentIdSource, RequestIdSource, UrlSource]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

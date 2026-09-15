@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address_list_id** | **int** |  | 
+**single_address** | [**Address**](Address.md) |  | 
 
 ## Example
 

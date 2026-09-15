@@ -5,20 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**firstName** | **string** |  | [default to undefined]
-**lastName** | **string** |  | [default to undefined]
-**address1** | **string** |  | [default to undefined]
-**city** | **string** |  | [default to undefined]
-**state** | **string** |  | [default to undefined]
-**zip** | **string** |  | [default to undefined]
-**country** | **string** |  | [default to undefined]
-**address2** | **string** |  | [optional] [default to undefined]
-**address3** | **string** |  | [optional] [default to undefined]
-**foo1** | **string** |  | [optional] [default to undefined]
-**foo2** | **string** |  | [optional] [default to undefined]
-**mappingId** | **number** |  | [optional] [default to undefined]
-**addressList** | [**Array&lt;Address&gt;**](Address.md) |  | [default to undefined]
-**addressListName** | **string** |  | [optional] [default to undefined]
+**singleAddress** | [**Address**](Address.md) |  | [default to undefined]
+**recipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | [default to undefined]
+**recipientAddressByAddressId** | **number** |  | [default to undefined]
+**recipientAddressByListId** | **number** |  | [default to undefined]
 
 ## Example
 
@@ -26,20 +16,10 @@ Name | Type | Description | Notes
 import { RecipientAddressSource } from './api';
 
 const instance: RecipientAddressSource = {
-    firstName,
-    lastName,
-    address1,
-    city,
-    state,
-    zip,
-    country,
-    address2,
-    address3,
-    foo1,
-    foo2,
-    mappingId,
-    addressList,
-    addressListName,
+    singleAddress,
+    recipientAddressByList,
+    recipientAddressByAddressId,
+    recipientAddressByListId,
 };
 ```
 

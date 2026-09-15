@@ -4,8 +4,8 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **zipDocumentId** | **kotlin.Int** |  |  |
-| **requestId** | **kotlin.Int** |  |  |
+| **zipDocumentIdOnly** | [**ZipDocumentIdOnly**](ZipDocumentIdOnly.md) |  |  |
+| **zipRequestIdOnly** | [**ZipRequestIdOnly**](ZipRequestIdOnly.md) |  |  |
 
 
 

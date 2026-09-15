@@ -3,20 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**firstName** | **String** |  | 
-**lastName** | **String** |  | 
-**address1** | **String** |  | 
-**city** | **String** |  | 
-**state** | **String** |  | 
-**zip** | **String** |  | 
-**country** | **String** |  | 
-**address2** | **String** |  | [optional] 
-**address3** | **String** |  | [optional] 
-**foo1** | **String** |  | [optional] 
-**foo2** | **String** |  | [optional] 
-**mappingId** | **Int** |  | [optional] 
-**addressList** | [Address] |  | 
-**addressListName** | **String** |  | [optional] 
+**singleAddress** | [**Address**](Address.md) |  | 
+**recipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | 
+**recipientAddressByAddressId** | **Int** |  | 
+**recipientAddressByListId** | **Int** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

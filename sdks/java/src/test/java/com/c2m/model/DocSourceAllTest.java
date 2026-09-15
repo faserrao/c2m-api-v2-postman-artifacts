@@ -13,15 +13,22 @@
 
 package com.c2m.model;
 
-import com.c2m.model.DocSourceStandard;
-import com.c2m.model.DocSourceZipFile;
+import com.c2m.model.DocSourceStandardOneOf;
+import com.c2m.model.DocSourceStandardOneOf1;
+import com.c2m.model.DocSourceStandardOneOf2;
+import com.c2m.model.DocumentIdSource;
+import com.c2m.model.RequestIdSource;
+import com.c2m.model.UrlSource;
+import com.c2m.model.ZipDocumentIdSource;
+import com.c2m.model.ZipDocumentSourceOneOf;
+import com.c2m.model.ZipDocumentSourceOneOf1;
+import com.c2m.model.ZipRequestIdSource;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -41,51 +48,43 @@ public class DocSourceAllTest {
     }
 
     /**
-     * Test the property 'documentId'
+     * Test the property 'documentIdSource'
      */
     @Test
-    public void documentIdTest() {
-        // TODO: test documentId
+    public void documentIdSourceTest() {
+        // TODO: test documentIdSource
     }
 
     /**
-     * Test the property 'requestId'
+     * Test the property 'requestIdSource'
      */
     @Test
-    public void requestIdTest() {
-        // TODO: test requestId
+    public void requestIdSourceTest() {
+        // TODO: test requestIdSource
     }
 
     /**
-     * Test the property 'filename'
+     * Test the property 'urlSource'
      */
     @Test
-    public void filenameTest() {
-        // TODO: test filename
+    public void urlSourceTest() {
+        // TODO: test urlSource
     }
 
     /**
-     * Test the property 'url'
+     * Test the property 'zipDocumentIdSource'
      */
     @Test
-    public void urlTest() {
-        // TODO: test url
+    public void zipDocumentIdSourceTest() {
+        // TODO: test zipDocumentIdSource
     }
 
     /**
-     * Test the property 'zipDocumentId'
+     * Test the property 'zipRequestIdSource'
      */
     @Test
-    public void zipDocumentIdTest() {
-        // TODO: test zipDocumentId
-    }
-
-    /**
-     * Test the property 'zipFilename'
-     */
-    @Test
-    public void zipFilenameTest() {
-        // TODO: test zipFilename
+    public void zipRequestIdSourceTest() {
+        // TODO: test zipRequestIdSource
     }
 
 }

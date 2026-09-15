@@ -21,7 +21,7 @@ var _ MappedNullable = &RecipientAddressSourceOneOf{}
 
 // RecipientAddressSourceOneOf struct for RecipientAddressSourceOneOf
 type RecipientAddressSourceOneOf struct {
-	AddressListId int32 `json:"addressListId"`
+	SingleAddress Address `json:"singleAddress"`
 }
 
 type _RecipientAddressSourceOneOf RecipientAddressSourceOneOf
@@ -30,9 +30,9 @@ type _RecipientAddressSourceOneOf RecipientAddressSourceOneOf
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRecipientAddressSourceOneOf(addressListId int32) *RecipientAddressSourceOneOf {
+func NewRecipientAddressSourceOneOf(singleAddress Address) *RecipientAddressSourceOneOf {
 	this := RecipientAddressSourceOneOf{}
-	this.AddressListId = addressListId
+	this.SingleAddress = singleAddress
 	return &this
 }
 
@@ -44,28 +44,28 @@ func NewRecipientAddressSourceOneOfWithDefaults() *RecipientAddressSourceOneOf {
 	return &this
 }
 
-// GetAddressListId returns the AddressListId field value
-func (o *RecipientAddressSourceOneOf) GetAddressListId() int32 {
+// GetSingleAddress returns the SingleAddress field value
+func (o *RecipientAddressSourceOneOf) GetSingleAddress() Address {
 	if o == nil {
-		var ret int32
+		var ret Address
 		return ret
 	}
 
-	return o.AddressListId
+	return o.SingleAddress
 }
 
-// GetAddressListIdOk returns a tuple with the AddressListId field value
+// GetSingleAddressOk returns a tuple with the SingleAddress field value
 // and a boolean to check if the value has been set.
-func (o *RecipientAddressSourceOneOf) GetAddressListIdOk() (*int32, bool) {
+func (o *RecipientAddressSourceOneOf) GetSingleAddressOk() (*Address, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.AddressListId, true
+	return &o.SingleAddress, true
 }
 
-// SetAddressListId sets field value
-func (o *RecipientAddressSourceOneOf) SetAddressListId(v int32) {
-	o.AddressListId = v
+// SetSingleAddress sets field value
+func (o *RecipientAddressSourceOneOf) SetSingleAddress(v Address) {
+	o.SingleAddress = v
 }
 
 func (o RecipientAddressSourceOneOf) MarshalJSON() ([]byte, error) {
@@ -78,7 +78,7 @@ func (o RecipientAddressSourceOneOf) MarshalJSON() ([]byte, error) {
 
 func (o RecipientAddressSourceOneOf) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["addressListId"] = o.AddressListId
+	toSerialize["singleAddress"] = o.SingleAddress
 	return toSerialize, nil
 }
 
@@ -87,7 +87,7 @@ func (o *RecipientAddressSourceOneOf) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"addressListId",
+		"singleAddress",
 	}
 
 	allProperties := make(map[string]interface{})

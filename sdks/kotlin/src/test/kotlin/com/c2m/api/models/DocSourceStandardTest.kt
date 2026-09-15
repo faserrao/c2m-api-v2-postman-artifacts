@@ -19,6 +19,9 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.DocSourceStandard
+import com.c2m.api.models.DocSourceStandardOneOf
+import com.c2m.api.models.DocSourceStandardOneOf1
+import com.c2m.api.models.DocSourceStandardOneOf2
 import com.c2m.api.models.DocumentIdSource
 import com.c2m.api.models.RequestIdSource
 import com.c2m.api.models.UrlSource
@@ -28,28 +31,22 @@ class DocSourceStandardTest : ShouldSpec() {
         // uncomment below to create an instance of DocSourceStandard
         //val modelInstance = DocSourceStandard()
 
-        // to test the property `documentId`
-        should("test documentId") {
+        // to test the property `documentIdSource`
+        should("test documentIdSource") {
             // uncomment below to test the property
-            //modelInstance.documentId shouldBe ("TODO")
+            //modelInstance.documentIdSource shouldBe ("TODO")
         }
 
-        // to test the property `requestId`
-        should("test requestId") {
+        // to test the property `requestIdSource`
+        should("test requestIdSource") {
             // uncomment below to test the property
-            //modelInstance.requestId shouldBe ("TODO")
+            //modelInstance.requestIdSource shouldBe ("TODO")
         }
 
-        // to test the property `url`
-        should("test url") {
+        // to test the property `urlSource`
+        should("test urlSource") {
             // uncomment below to test the property
-            //modelInstance.url shouldBe ("TODO")
-        }
-
-        // to test the property `filename`
-        should("test filename") {
-            // uncomment below to test the property
-            //modelInstance.filename shouldBe ("TODO")
+            //modelInstance.urlSource shouldBe ("TODO")
         }
 
     }

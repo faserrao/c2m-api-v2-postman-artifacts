@@ -58,8 +58,13 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new CurrencyNullableJsonConverter());
             _jsonOptions.Converters.Add(new DocSourceAllJsonConverter());
             _jsonOptions.Converters.Add(new DocSourceStandardJsonConverter());
+            _jsonOptions.Converters.Add(new DocSourceStandardOneOfJsonConverter());
+            _jsonOptions.Converters.Add(new DocSourceStandardOneOf1JsonConverter());
+            _jsonOptions.Converters.Add(new DocSourceStandardOneOf2JsonConverter());
             _jsonOptions.Converters.Add(new DocSourceZipFileJsonConverter());
             _jsonOptions.Converters.Add(new DocSourceZipFileRefJsonConverter());
+            _jsonOptions.Converters.Add(new DocSourceZipFileRefOneOfJsonConverter());
+            _jsonOptions.Converters.Add(new DocSourceZipFileRefOneOf1JsonConverter());
             _jsonOptions.Converters.Add(new DocumentClassJsonConverter());
             _jsonOptions.Converters.Add(new DocumentClassNullableJsonConverter());
             _jsonOptions.Converters.Add(new DocumentIdSourceJsonConverter());
@@ -83,6 +88,8 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new MergeByDocumentIdJsonConverter());
             _jsonOptions.Converters.Add(new MergeByRequestIdJsonConverter());
             _jsonOptions.Converters.Add(new MergeDocumentRefJsonConverter());
+            _jsonOptions.Converters.Add(new MergeDocumentRefOneOfJsonConverter());
+            _jsonOptions.Converters.Add(new MergeDocumentRefOneOf1JsonConverter());
             _jsonOptions.Converters.Add(new MultiDocJobItemJsonConverter());
             _jsonOptions.Converters.Add(new MultiZipJobItemJsonConverter());
             _jsonOptions.Converters.Add(new PaperTypeJsonConverter());
@@ -96,6 +103,10 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new ProductionTimeNullableJsonConverter());
             _jsonOptions.Converters.Add(new RecipientAddressByListJsonConverter());
             _jsonOptions.Converters.Add(new RecipientAddressSourceJsonConverter());
+            _jsonOptions.Converters.Add(new RecipientAddressSourceOneOfJsonConverter());
+            _jsonOptions.Converters.Add(new RecipientAddressSourceOneOf1JsonConverter());
+            _jsonOptions.Converters.Add(new RecipientAddressSourceOneOf2JsonConverter());
+            _jsonOptions.Converters.Add(new RecipientAddressSourceOneOf3JsonConverter());
             _jsonOptions.Converters.Add(new RequestIdSourceJsonConverter());
             _jsonOptions.Converters.Add(new ReturnAddressJsonConverter());
             _jsonOptions.Converters.Add(new ShortTokenRequestJsonConverter());
@@ -113,6 +124,8 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new ZipDocumentIdOnlyJsonConverter());
             _jsonOptions.Converters.Add(new ZipDocumentIdSourceJsonConverter());
             _jsonOptions.Converters.Add(new ZipDocumentSourceJsonConverter());
+            _jsonOptions.Converters.Add(new ZipDocumentSourceOneOfJsonConverter());
+            _jsonOptions.Converters.Add(new ZipDocumentSourceOneOf1JsonConverter());
             _jsonOptions.Converters.Add(new ZipRequestIdOnlyJsonConverter());
             _jsonOptions.Converters.Add(new ZipRequestIdSourceJsonConverter());
             JsonSerializerOptionsProvider jsonSerializerOptionsProvider = new(_jsonOptions);

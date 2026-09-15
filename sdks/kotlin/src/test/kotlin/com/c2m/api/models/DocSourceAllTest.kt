@@ -19,48 +19,50 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.DocSourceAll
-import com.c2m.api.models.DocSourceStandard
-import com.c2m.api.models.DocSourceZipFile
+import com.c2m.api.models.DocSourceStandardOneOf
+import com.c2m.api.models.DocSourceStandardOneOf1
+import com.c2m.api.models.DocSourceStandardOneOf2
+import com.c2m.api.models.DocumentIdSource
+import com.c2m.api.models.RequestIdSource
+import com.c2m.api.models.UrlSource
+import com.c2m.api.models.ZipDocumentIdSource
+import com.c2m.api.models.ZipDocumentSourceOneOf
+import com.c2m.api.models.ZipDocumentSourceOneOf1
+import com.c2m.api.models.ZipRequestIdSource
 
 class DocSourceAllTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of DocSourceAll
         //val modelInstance = DocSourceAll()
 
-        // to test the property `documentId`
-        should("test documentId") {
+        // to test the property `documentIdSource`
+        should("test documentIdSource") {
             // uncomment below to test the property
-            //modelInstance.documentId shouldBe ("TODO")
+            //modelInstance.documentIdSource shouldBe ("TODO")
         }
 
-        // to test the property `requestId`
-        should("test requestId") {
+        // to test the property `requestIdSource`
+        should("test requestIdSource") {
             // uncomment below to test the property
-            //modelInstance.requestId shouldBe ("TODO")
+            //modelInstance.requestIdSource shouldBe ("TODO")
         }
 
-        // to test the property `filename`
-        should("test filename") {
+        // to test the property `urlSource`
+        should("test urlSource") {
             // uncomment below to test the property
-            //modelInstance.filename shouldBe ("TODO")
+            //modelInstance.urlSource shouldBe ("TODO")
         }
 
-        // to test the property `url`
-        should("test url") {
+        // to test the property `zipDocumentIdSource`
+        should("test zipDocumentIdSource") {
             // uncomment below to test the property
-            //modelInstance.url shouldBe ("TODO")
+            //modelInstance.zipDocumentIdSource shouldBe ("TODO")
         }
 
-        // to test the property `zipDocumentId`
-        should("test zipDocumentId") {
+        // to test the property `zipRequestIdSource`
+        should("test zipRequestIdSource") {
             // uncomment below to test the property
-            //modelInstance.zipDocumentId shouldBe ("TODO")
-        }
-
-        // to test the property `zipFilename`
-        should("test zipFilename") {
-            // uncomment below to test the property
-            //modelInstance.zipFilename shouldBe ("TODO")
+            //modelInstance.zipRequestIdSource shouldBe ("TODO")
         }
 
     }

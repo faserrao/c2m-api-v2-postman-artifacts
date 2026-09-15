@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**zipDocumentId** | **Integer** |  |  |
-|**requestId** | **Integer** |  |  |
+|**zipDocumentIdOnly** | [**ZipDocumentIdOnly**](ZipDocumentIdOnly.md) |  |  |
+|**zipRequestIdOnly** | [**ZipRequestIdOnly**](ZipRequestIdOnly.md) |  |  |
 
 
 

@@ -57,7 +57,7 @@ class RecipientAddressSourceOneOf implements ModelInterface, ArrayAccess, \JsonS
       * @var string[]
       */
     protected static $openAPITypes = [
-        'address_list_id' => 'int'
+        'single_address' => '\C2MApi\Model\Address'
     ];
 
     /**
@@ -68,7 +68,7 @@ class RecipientAddressSourceOneOf implements ModelInterface, ArrayAccess, \JsonS
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'address_list_id' => null
+        'single_address' => null
     ];
 
     /**
@@ -77,7 +77,7 @@ class RecipientAddressSourceOneOf implements ModelInterface, ArrayAccess, \JsonS
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'address_list_id' => false
+        'single_address' => false
     ];
 
     /**
@@ -166,7 +166,7 @@ class RecipientAddressSourceOneOf implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
-        'address_list_id' => 'addressListId'
+        'single_address' => 'singleAddress'
     ];
 
     /**
@@ -175,7 +175,7 @@ class RecipientAddressSourceOneOf implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
-        'address_list_id' => 'setAddressListId'
+        'single_address' => 'setSingleAddress'
     ];
 
     /**
@@ -184,7 +184,7 @@ class RecipientAddressSourceOneOf implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
-        'address_list_id' => 'getAddressListId'
+        'single_address' => 'getSingleAddress'
     ];
 
     /**
@@ -244,7 +244,7 @@ class RecipientAddressSourceOneOf implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('address_list_id', $data ?? [], null);
+        $this->setIfExists('single_address', $data ?? [], null);
     }
 
     /**
@@ -274,8 +274,8 @@ class RecipientAddressSourceOneOf implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['address_list_id'] === null) {
-            $invalidProperties[] = "'address_list_id' can't be null";
+        if ($this->container['single_address'] === null) {
+            $invalidProperties[] = "'single_address' can't be null";
         }
         return $invalidProperties;
     }
@@ -293,28 +293,28 @@ class RecipientAddressSourceOneOf implements ModelInterface, ArrayAccess, \JsonS
 
 
     /**
-     * Gets address_list_id
+     * Gets single_address
      *
-     * @return int
+     * @return \C2MApi\Model\Address
      */
-    public function getAddressListId()
+    public function getSingleAddress()
     {
-        return $this->container['address_list_id'];
+        return $this->container['single_address'];
     }
 
     /**
-     * Sets address_list_id
+     * Sets single_address
      *
-     * @param int $address_list_id address_list_id
+     * @param \C2MApi\Model\Address $single_address single_address
      *
      * @return self
      */
-    public function setAddressListId($address_list_id)
+    public function setSingleAddress($single_address)
     {
-        if (is_null($address_list_id)) {
-            throw new \InvalidArgumentException('non-nullable address_list_id cannot be null');
+        if (is_null($single_address)) {
+            throw new \InvalidArgumentException('non-nullable single_address cannot be null');
         }
-        $this->container['address_list_id'] = $address_list_id;
+        $this->container['single_address'] = $single_address;
 
         return $this;
     }

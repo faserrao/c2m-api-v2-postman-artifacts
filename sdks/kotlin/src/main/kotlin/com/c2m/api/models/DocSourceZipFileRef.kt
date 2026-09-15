@@ -15,6 +15,8 @@
 
 package com.c2m.api.models
 
+import com.c2m.api.models.DocSourceZipFileRefOneOf
+import com.c2m.api.models.DocSourceZipFileRefOneOf1
 import com.c2m.api.models.ZipDocumentIdOnly
 import com.c2m.api.models.ZipRequestIdOnly
 
@@ -24,18 +26,18 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param zipDocumentId 
- * @param requestId 
+ * @param zipDocumentIdOnly 
+ * @param zipRequestIdOnly 
  */
 
 
 data class DocSourceZipFileRef (
 
-    @Json(name = "zipDocumentId")
-    val zipDocumentId: kotlin.Int,
+    @Json(name = "zipDocumentIdOnly")
+    val zipDocumentIdOnly: ZipDocumentIdOnly,
 
-    @Json(name = "requestId")
-    val requestId: kotlin.Int
+    @Json(name = "zipRequestIdOnly")
+    val zipRequestIdOnly: ZipRequestIdOnly
 
 ) {
 

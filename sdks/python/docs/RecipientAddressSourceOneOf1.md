@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address_id** | **int** |  | 
+**recipient_address_by_list** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | 
 
 ## Example
 

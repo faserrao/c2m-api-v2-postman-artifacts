@@ -19,8 +19,11 @@ module OpenapiClient
       # List of class defined in oneOf (OpenAPI v3)
       def openapi_one_of
         [
-          :'DocSourceStandard',
-          :'DocSourceZipFile'
+          :'DocSourceStandardOneOf',
+          :'DocSourceStandardOneOf1',
+          :'DocSourceStandardOneOf2',
+          :'ZipDocumentSourceOneOf',
+          :'ZipDocumentSourceOneOf1'
         ]
       end
 
