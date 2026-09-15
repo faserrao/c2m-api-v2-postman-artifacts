@@ -49,7 +49,7 @@ import com.c2m.JSON;
 /**
  * DocSourceZipFileRefOneOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T05:45:48.766975874Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-15T07:12:48.776418424Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class DocSourceZipFileRefOneOf {
   public static final String SERIALIZED_NAME_ZIP_DOCUMENT_ID_ONLY = "zipDocumentIdOnly";
   @SerializedName(SERIALIZED_NAME_ZIP_DOCUMENT_ID_ONLY)
