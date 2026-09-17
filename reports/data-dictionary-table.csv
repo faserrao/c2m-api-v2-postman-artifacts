@@ -1,4 +1,12 @@
 component,category,endpoint,field,description,field_type,required
+submitDocParams,Endpoint,POST /static,—,Request body for POST /static — submit a single document to one or more recipients.,object,—
+submitDocParams,Endpoint,POST /static,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
+submitDocParams,Endpoint,POST /static,docSourceAll,"Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).",oneOf,Required
+submitDocParams,Endpoint,POST /static,recipientAddressSource,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
+submitDocParams,Endpoint,POST /static,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit.",oneOf,Optional
+submitDocParams,Endpoint,POST /static,returnAddress,Optional sender return address printed on the mailpiece.,object,Optional
+submitDocParams,Endpoint,POST /static,jobOptions,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,Optional
+submitDocParams,Endpoint,POST /static,tags,Optional list of user-defined string tags for reporting and filtering.,string[],Optional
 submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,—,Request body for POST /static/address-capture — recipient addresses are captured from the document by OCR rather than provided inline.,object,—
 submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,docSourceStandard,"Document source — standard (non-zip) variants only: requestId, documentId, or URL.",oneOf,Required
@@ -204,14 +212,6 @@ standardResponse,Data Structure,,—,Success response returned for all successfu
 standardResponse,Data Structure,,status,"Job status string (e.g. ""accepted"").",string,Required
 standardResponse,Data Structure,,message,"Human-readable confirmation message (e.g. ""Your request has been queued"").",string,Required
 standardResponse,Data Structure,,requestId,Integer ID of a prior file upload request. Also returned in success responses.,id,Required
-submitDocParams,Data Structure,,—,See EBNF rule `submitDocParams`.,object,—
-submitDocParams,Data Structure,,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
-submitDocParams,Data Structure,,docSourceAll,"Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).",oneOf,Required
-submitDocParams,Data Structure,,recipientAddressSource,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
-submitDocParams,Data Structure,,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit.",oneOf,Optional
-submitDocParams,Data Structure,,returnAddress,Optional sender return address printed on the mailpiece.,object,Optional
-submitDocParams,Data Structure,,jobOptions,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,Optional
-submitDocParams,Data Structure,,tags,Optional list of user-defined string tags for reporting and filtering.,string[],Optional
 userCreditPayment,Data Structure,,—,Payment deducted from the account's prepaid credit balance.,object,—
 userCreditPayment,Data Structure,,"""userCredit""",JSON property key identifying the account-credit payment variant.,"""userCredit""",Required
 userCreditPayment,Data Structure,,creditAmount,Account credit payment fields: monetary amount and ISO currency code.,object,Required

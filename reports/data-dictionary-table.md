@@ -4,6 +4,20 @@
 
 ## Endpoints
 
+### `submitDocParams`  `POST /static`
+
+Request body for POST /static — submit a single document to one or more recipients.
+
+| Field / Variant | Type | Required | Description |
+| --- | --- | --- | --- |
+| `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
+| `docSourceAll` | oneOf | Required | Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId). |
+| `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID. |
+| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. |
+| `returnAddress` | object | Optional | Optional sender return address printed on the mailpiece. |
+| `jobOptions` | object | Optional | Explicit print and mail configuration options. Mutually exclusive with jobTemplate. |
+| `tags` | string[] | Optional | Optional list of user-defined string tags for reporting and filtering. |
+
 ### `submitSinglePdfAddressCaptureParams`  `POST /static/address-capture`
 
 Request body for POST /static/address-capture — recipient addresses are captured from the document by OCR rather than provided inline.
@@ -300,20 +314,6 @@ Success response returned for all successful job submissions.
 | `status` | string | Required | Job status string (e.g. "accepted"). |
 | `message` | string | Required | Human-readable confirmation message (e.g. "Your request has been queued"). |
 | `requestId` | id | Required | Integer ID of a prior file upload request. Also returned in success responses. |
-
-### `submitDocParams`
-
-See EBNF rule `submitDocParams`.
-
-| Field / Variant | Type | Required | Description |
-| --- | --- | --- | --- |
-| `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
-| `docSourceAll` | oneOf | Required | Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId). |
-| `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID. |
-| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. |
-| `returnAddress` | object | Optional | Optional sender return address printed on the mailpiece. |
-| `jobOptions` | object | Optional | Explicit print and mail configuration options. Mutually exclusive with jobTemplate. |
-| `tags` | string[] | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ### `userCreditPayment`
 
