@@ -34,8 +34,8 @@ func NewC2MClient(clientID, clientSecret string) *C2MClient {
     return &C2MClient{
         clientID:     clientID,
         clientSecret: clientSecret,
-        baseURL:      "https://api.c2m.com/v2",
-        authURL:      "https://api.c2m.com/v2",
+        baseURL:      "https://api.click2mail.com/v2",
+        authURL:      "https://api.click2mail.com/v2",
         httpClient:   &http.Client{Timeout: 30 * time.Second},
     }
 }
@@ -119,7 +119,7 @@ func (c *C2MClient) CreateAPIClient() (*c2mapi.APIClient, context.Context, error
     }
     
     configuration := c2mapi.NewConfiguration()
-    configuration.Host = "api.c2m.com"
+    configuration.Host = "api.click2mail.com"
     configuration.Scheme = "https"
     
     apiClient := c2mapi.NewAPIClient(configuration)
