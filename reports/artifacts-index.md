@@ -1,6 +1,6 @@
 # C2M API v2 — Artifacts Index
 
-_Generated: 2026-09-19 12:10 UTC_
+_Generated: 2026-09-19 12:15 UTC_
 
 All artifacts are produced by the CI pipeline and committed to this repository on every successful build.
 
@@ -27,7 +27,7 @@ All artifacts are produced by the CI pipeline and committed to this repository o
 
 | Report Name | Link | Description |
 |---|---|---|
-| C2M API Linked Collection | [Download](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/postman/collections/c2mapiv2-linked-collection-flat.json) | Primary API collection with all endpoints linked to the live OpenAPI spec for schema validation (C2mApiV2CollectionLinked). |
+| C2mApiV2CollectionLinked | [Download](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/postman/collections/c2mapiv2-linked-collection-flat.json) | Primary API collection with all endpoints linked to the live OpenAPI spec for schema validation. |
 | Test Collection | [Download](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/postman/collections/c2mapiv2-test-collection-flat.json) | Newman-compatible test collection with pre-request auth scripts and response assertions (C2mApiV2TestCollection). |
 | Getting Started — With Examples | [Download](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/postman/collections/c2mapiv2-getting-started-with-examples-collection.json) | Getting Started collection populated with concrete example request bodies for hands-on exploration. |
 | Getting Started — Linked | [Download](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/postman/collections/c2mapiv2-getting-started-linked-collection.json) | Getting Started collection linked to the live spec for real-time schema validation. |
@@ -65,5 +65,5 @@ All artifacts are produced by the CI pipeline and committed to this repository o
 |---|---|---|
 | Conformance Gate | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/conformance-gate.md) | Postman collection conformance results — validates every request body against the generated OpenAPI spec. |
 | Golden Test Suite | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/golden-tests.txt) | Validator and resolver unit test results — positive/negative controls and synthetic fault injection. |
-| Newman Test Run (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/newman-c2mapiv2-test-collection-fixed-20260919-120625.html) | Most recent Newman end-to-end test run against the live API — HTML report with request/response details and pass/fail counts. |
-| Collection Validation Report (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/validation-20260919-121043.md) | Most recent per-endpoint conformance validation showing any fields that don't match the spec. |
+| Newman Test Run (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/newman-c2mapiv2-test-collection-fixed-20260919-121450.html) | Most recent Newman end-to-end test run against the live API — HTML report with request/response details and pass/fail counts. |
+| Collection Validation Report (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/validation-20260919-121457.md) | Most recent per-endpoint conformance validation showing any fields that don't match the spec. |
