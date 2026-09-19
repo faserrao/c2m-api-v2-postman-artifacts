@@ -8,3 +8,4 @@
 | c2mapiv2-test-collection-flat.json | 9 | 0 | 1 |
 | c2mapiv2-getting-started-linked-collection.json | 17 | 0 | 0 |
 | c2mapiv2-getting-started-test-collection.json | 17 | 0 | 0 |
+| c2mapiv2-real-world-use-cases-collection.json | 8 | 0 | 0 |
