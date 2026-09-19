@@ -49,7 +49,7 @@ import com.c2m.JSON;
 /**
  * MergeDocumentRefOneOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-19T15:19:42.303823063Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-19T15:26:57.697987027Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class MergeDocumentRefOneOf {
   public static final String SERIALIZED_NAME_MERGE_BY_DOCUMENT_ID = "mergeByDocumentId";
   @SerializedName(SERIALIZED_NAME_MERGE_BY_DOCUMENT_ID)
