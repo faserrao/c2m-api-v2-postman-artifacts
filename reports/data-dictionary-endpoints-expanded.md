@@ -54,7 +54,7 @@
 | `recipientAddressSource[recipientAddressByList].addressListName` | string | Optional | Optional name for this address list record. |
 | `recipientAddressSource[recipientAddressByAddressId].addressId` | integer | Required* | Integer ID of a previously stored individual recipient address. |
 | `recipientAddressSource[recipientAddressByListId].addressListId` | integer | Required* | Integer ID of a previously stored recipient address list. |
-| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand. Accepted values: visa, mastercard, discover, americanExpress. |
+| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand (enum values shown in kind column). |
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1–12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2027). |
@@ -65,7 +65,7 @@
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
 | `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount (numeric value). |
-| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD. |
+| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (enum values shown in kind column). |
 | `returnAddress.firstName` | string | Optional | Recipient's first name. |
 | `returnAddress.lastName` | string | Optional | Recipient's last name. |
 | `returnAddress.company` | string | Optional | Recipient's company or organisation name (optional). |
@@ -76,14 +76,14 @@
 | `returnAddress.country` | string | Optional | Country code (e.g. USA). |
 | `returnAddress.address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
 | `returnAddress.address3` | string | Optional | Tertiary address line. |
-| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. Legal values: letter, postcard, brochure, flat. |
-| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. Legal values: address_on_first_page, address_on_back_page. |
-| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. Legal values: next_day, two_day, three_day, standard, same_day. |
-| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. Legal values: standard, none, flat, double_window. |
-| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. Legal values: full_color, black_and_white. |
-| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. Legal values: white, white_24, ivory, glossy. |
-| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. Legal values: double_sided, single_sided. |
-| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. Legal values: first_class, standard, non_profit. |
+| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. |
+| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. |
+| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. |
+| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. |
+| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. |
+| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. |
+| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. |
 | `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
@@ -99,7 +99,7 @@
 | `docSourceStandard[requestIdSource].requestId` | integer | Required* | Integer ID of a prior file upload request. Also returned in success responses. |
 | `docSourceStandard[requestIdSource].filename` | string | Optional | Filename of a specific file within an upload request or ZIP archive. |
 | `docSourceStandard[urlSource].url` | string | Required* | URL from which the API will fetch the document at submission time. |
-| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand. Accepted values: visa, mastercard, discover, americanExpress. |
+| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand (enum values shown in kind column). |
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1–12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2027). |
@@ -110,7 +110,7 @@
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
 | `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount (numeric value). |
-| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD. |
+| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (enum values shown in kind column). |
 | `returnAddress.firstName` | string | Optional | Recipient's first name. |
 | `returnAddress.lastName` | string | Optional | Recipient's last name. |
 | `returnAddress.company` | string | Optional | Recipient's company or organisation name (optional). |
@@ -121,14 +121,14 @@
 | `returnAddress.country` | string | Optional | Country code (e.g. USA). |
 | `returnAddress.address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
 | `returnAddress.address3` | string | Optional | Tertiary address line. |
-| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. Legal values: letter, postcard, brochure, flat. |
-| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. Legal values: address_on_first_page, address_on_back_page. |
-| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. Legal values: next_day, two_day, three_day, standard, same_day. |
-| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. Legal values: standard, none, flat, double_window. |
-| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. Legal values: full_color, black_and_white. |
-| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. Legal values: white, white_24, ivory, glossy. |
-| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. Legal values: double_sided, single_sided. |
-| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. Legal values: first_class, standard, non_profit. |
+| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. |
+| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. |
+| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. |
+| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. |
+| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. |
+| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. |
+| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. |
 | `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
@@ -173,7 +173,7 @@
 | `pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressListName` | string | Optional | Optional name for this address list record. |
 | `pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByAddressId].addressId` | integer | Required* | Integer ID of a previously stored individual recipient address. |
 | `pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByListId].addressListId` | integer | Required* | Integer ID of a previously stored recipient address list. |
-| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand. Accepted values: visa, mastercard, discover, americanExpress. |
+| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand (enum values shown in kind column). |
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1–12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2027). |
@@ -184,7 +184,7 @@
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
 | `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount (numeric value). |
-| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD. |
+| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (enum values shown in kind column). |
 | `returnAddress.firstName` | string | Optional | Recipient's first name. |
 | `returnAddress.lastName` | string | Optional | Recipient's last name. |
 | `returnAddress.company` | string | Optional | Recipient's company or organisation name (optional). |
@@ -195,14 +195,14 @@
 | `returnAddress.country` | string | Optional | Country code (e.g. USA). |
 | `returnAddress.address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
 | `returnAddress.address3` | string | Optional | Tertiary address line. |
-| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. Legal values: letter, postcard, brochure, flat. |
-| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. Legal values: address_on_first_page, address_on_back_page. |
-| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. Legal values: next_day, two_day, three_day, standard, same_day. |
-| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. Legal values: standard, none, flat, double_window. |
-| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. Legal values: full_color, black_and_white. |
-| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. Legal values: white, white_24, ivory, glossy. |
-| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. Legal values: double_sided, single_sided. |
-| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. Legal values: first_class, standard, non_profit. |
+| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. |
+| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. |
+| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. |
+| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. |
+| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. |
+| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. |
+| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. |
 | `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
@@ -221,7 +221,7 @@
 | `pdfSplitJobsNoAddress[].jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `pdfSplitJobsNoAddress[].startPage` | integer | Required | First page of this job's page range, 1-indexed (inclusive). |
 | `pdfSplitJobsNoAddress[].endPage` | integer | Required | Last page of this job's page range (inclusive). Must be ≥ startPage. |
-| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand. Accepted values: visa, mastercard, discover, americanExpress. |
+| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand (enum values shown in kind column). |
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1–12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2027). |
@@ -232,7 +232,7 @@
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
 | `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount (numeric value). |
-| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD. |
+| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (enum values shown in kind column). |
 | `returnAddress.firstName` | string | Optional | Recipient's first name. |
 | `returnAddress.lastName` | string | Optional | Recipient's last name. |
 | `returnAddress.company` | string | Optional | Recipient's company or organisation name (optional). |
@@ -243,14 +243,14 @@
 | `returnAddress.country` | string | Optional | Country code (e.g. USA). |
 | `returnAddress.address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
 | `returnAddress.address3` | string | Optional | Tertiary address line. |
-| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. Legal values: letter, postcard, brochure, flat. |
-| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. Legal values: address_on_first_page, address_on_back_page. |
-| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. Legal values: next_day, two_day, three_day, standard, same_day. |
-| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. Legal values: standard, none, flat, double_window. |
-| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. Legal values: full_color, black_and_white. |
-| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. Legal values: white, white_24, ivory, glossy. |
-| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. Legal values: double_sided, single_sided. |
-| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. Legal values: first_class, standard, non_profit. |
+| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. |
+| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. |
+| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. |
+| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. |
+| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. |
+| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. |
+| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. |
 | `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
@@ -291,7 +291,7 @@
 | `recipientAddressSource[recipientAddressByList].addressListName` | string | Optional | Optional name for this address list record. |
 | `recipientAddressSource[recipientAddressByAddressId].addressId` | integer | Required* | Integer ID of a previously stored individual recipient address. |
 | `recipientAddressSource[recipientAddressByListId].addressListId` | integer | Required* | Integer ID of a previously stored recipient address list. |
-| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand. Accepted values: visa, mastercard, discover, americanExpress. |
+| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand (enum values shown in kind column). |
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1–12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2027). |
@@ -302,7 +302,7 @@
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
 | `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount (numeric value). |
-| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD. |
+| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (enum values shown in kind column). |
 | `returnAddress.firstName` | string | Optional | Recipient's first name. |
 | `returnAddress.lastName` | string | Optional | Recipient's last name. |
 | `returnAddress.company` | string | Optional | Recipient's company or organisation name (optional). |
@@ -313,14 +313,14 @@
 | `returnAddress.country` | string | Optional | Country code (e.g. USA). |
 | `returnAddress.address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
 | `returnAddress.address3` | string | Optional | Tertiary address line. |
-| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. Legal values: letter, postcard, brochure, flat. |
-| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. Legal values: address_on_first_page, address_on_back_page. |
-| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. Legal values: next_day, two_day, three_day, standard, same_day. |
-| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. Legal values: standard, none, flat, double_window. |
-| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. Legal values: full_color, black_and_white. |
-| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. Legal values: white, white_24, ivory, glossy. |
-| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. Legal values: double_sided, single_sided. |
-| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. Legal values: first_class, standard, non_profit. |
+| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. |
+| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. |
+| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. |
+| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. |
+| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. |
+| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. |
+| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. |
 | `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
@@ -361,7 +361,7 @@
 | `multiZipJobs[].recipientAddressSource[recipientAddressByList].addressListName` | string | Optional | Optional name for this address list record. |
 | `multiZipJobs[].recipientAddressSource[recipientAddressByAddressId].addressId` | integer | Required* | Integer ID of a previously stored individual recipient address. |
 | `multiZipJobs[].recipientAddressSource[recipientAddressByListId].addressListId` | integer | Required* | Integer ID of a previously stored recipient address list. |
-| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand. Accepted values: visa, mastercard, discover, americanExpress. |
+| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand (enum values shown in kind column). |
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1–12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2027). |
@@ -372,7 +372,7 @@
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
 | `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount (numeric value). |
-| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD. |
+| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (enum values shown in kind column). |
 | `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---
@@ -389,7 +389,7 @@
 | `zipDocumentSource[zipRequestIdSource].requestId` | integer | Required* | Integer ID of a prior file upload request. Also returned in success responses. |
 | `zipDocumentSource[zipRequestIdSource].zipFilename` | string | Required* | Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request). |
 | `zipDocumentSource[zipRequestIdSource].filename` | string | Required* | Filename of a specific file within an upload request or ZIP archive. |
-| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand. Accepted values: visa, mastercard, discover, americanExpress. |
+| `paymentDetails[creditCardPayment].creditCard.cardType` | enum: visa | mastercard | discover | americanExpress | Optional | Card brand (enum values shown in kind column). |
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1–12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2027). |
@@ -400,7 +400,7 @@
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
 | `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount (numeric value). |
-| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD. |
+| `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (enum values shown in kind column). |
 | `returnAddress.firstName` | string | Optional | Recipient's first name. |
 | `returnAddress.lastName` | string | Optional | Recipient's last name. |
 | `returnAddress.company` | string | Optional | Recipient's company or organisation name (optional). |
@@ -411,12 +411,12 @@
 | `returnAddress.country` | string | Optional | Country code (e.g. USA). |
 | `returnAddress.address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
 | `returnAddress.address3` | string | Optional | Tertiary address line. |
-| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. Legal values: letter, postcard, brochure, flat. |
-| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. Legal values: address_on_first_page, address_on_back_page. |
-| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. Legal values: next_day, two_day, three_day, standard, same_day. |
-| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. Legal values: standard, none, flat, double_window. |
-| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. Legal values: full_color, black_and_white. |
-| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. Legal values: white, white_24, ivory, glossy. |
-| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. Legal values: double_sided, single_sided. |
-| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. Legal values: first_class, standard, non_profit. |
+| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class. |
+| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout for address placement. |
+| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type. |
+| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode. |
+| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock. |
+| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting. |
+| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class. |
 | `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |

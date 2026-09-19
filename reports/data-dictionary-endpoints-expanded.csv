@@ -35,7 +35,7 @@ POST,/static,recipientAddressSource[recipientAddressByList].addressList[].foo2,U
 POST,/static,recipientAddressSource[recipientAddressByList].addressListName,Optional name for this address list record.,string,Optional
 POST,/static,recipientAddressSource[recipientAddressByAddressId].addressId,Integer ID of a previously stored individual recipient address.,integer,Required*
 POST,/static,recipientAddressSource[recipientAddressByListId].addressListId,Integer ID of a previously stored recipient address list.,integer,Required*
-POST,/static,paymentDetails[creditCardPayment].creditCard.cardType,"Card brand. Accepted values: visa, mastercard, discover, americanExpress.",enum: visa | mastercard | discover | americanExpress,Optional
+POST,/static,paymentDetails[creditCardPayment].creditCard.cardType,Card brand (enum values shown in kind column).,enum: visa | mastercard | discover | americanExpress,Optional
 POST,/static,paymentDetails[creditCardPayment].creditCard.cardNumber,Credit card number (PAN) as a string.,string,Optional
 POST,/static,paymentDetails[creditCardPayment].creditCard.expirationDate.month,Expiration month as an integer (1–12).,integer,Optional
 POST,/static,paymentDetails[creditCardPayment].creditCard.expirationDate.year,Expiration year as a four-digit integer (e.g. 2027).,integer,Optional
@@ -46,7 +46,7 @@ POST,/static,paymentDetails[achPayment].ach.routingNumber,ABA bank routing numbe
 POST,/static,paymentDetails[achPayment].ach.accountNumber,Bank account number.,string,Optional
 POST,/static,paymentDetails[achPayment].ach.checkDigit,ACH check digit.,integer,Optional
 POST,/static,paymentDetails[userCreditPayment].userCredit.amount,Monetary amount (numeric value).,number,Optional
-POST,/static,paymentDetails[userCreditPayment].userCredit.currency,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.",enum: USD | EUR | GBP | CAD | AUD,Optional
+POST,/static,paymentDetails[userCreditPayment].userCredit.currency,ISO 4217 currency code (enum values shown in kind column).,enum: USD | EUR | GBP | CAD | AUD,Optional
 POST,/static,returnAddress.firstName,Recipient's first name.,string,Optional
 POST,/static,returnAddress.lastName,Recipient's last name.,string,Optional
 POST,/static,returnAddress.company,Recipient's company or organisation name (optional).,string,Optional
@@ -57,21 +57,21 @@ POST,/static,returnAddress.zip,ZIP or postal code.,string,Optional
 POST,/static,returnAddress.country,Country code (e.g. USA).,string,Optional
 POST,/static,returnAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
 POST,/static,returnAddress.address3,Tertiary address line.,string,Optional
-POST,/static,jobOptions.documentClass,"Document class. Legal values: letter, postcard, brochure, flat.",enum: letter | postcard | brochure | flat,Optional
-POST,/static,jobOptions.layout,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum: address_on_first_page | address_on_back_page,Optional
-POST,/static,jobOptions.productionTime,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum: next_day | two_day | three_day | standard | same_day,Optional
-POST,/static,jobOptions.envelope,"Envelope type. Legal values: standard, none, flat, double_window.",enum: standard | none | flat | double_window,Optional
-POST,/static,jobOptions.color,"Color mode. Legal values: full_color, black_and_white.",enum: full_color | black_and_white,Optional
-POST,/static,jobOptions.paperType,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum: white | white_24 | ivory | glossy,Optional
-POST,/static,jobOptions.printOption,"Duplex setting. Legal values: double_sided, single_sided.",enum: double_sided | single_sided,Optional
-POST,/static,jobOptions.mailClass,"USPS mail class. Legal values: first_class, standard, non_profit.",enum: first_class | standard | non_profit,Optional
+POST,/static,jobOptions.documentClass,Document class.,enum: letter | postcard | brochure | flat,Optional
+POST,/static,jobOptions.layout,Page layout for address placement.,enum: address_on_first_page | address_on_back_page,Optional
+POST,/static,jobOptions.productionTime,Production time preference.,enum: next_day | two_day | three_day | standard | same_day,Optional
+POST,/static,jobOptions.envelope,Envelope type.,enum: standard | none | flat | double_window,Optional
+POST,/static,jobOptions.color,Color mode.,enum: full_color | black_and_white,Optional
+POST,/static,jobOptions.paperType,Paper stock.,enum: white | white_24 | ivory | glossy,Optional
+POST,/static,jobOptions.printOption,Duplex setting.,enum: double_sided | single_sided,Optional
+POST,/static,jobOptions.mailClass,USPS mail class.,enum: first_class | standard | non_profit,Optional
 POST,/static,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional
 POST,/static/address-capture,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/static/address-capture,docSourceStandard[documentIdSource].documentId,Integer ID of a previously stored or uploaded document.,integer,Required*
 POST,/static/address-capture,docSourceStandard[requestIdSource].requestId,Integer ID of a prior file upload request. Also returned in success responses.,integer,Required*
 POST,/static/address-capture,docSourceStandard[requestIdSource].filename,Filename of a specific file within an upload request or ZIP archive.,string,Optional
 POST,/static/address-capture,docSourceStandard[urlSource].url,URL from which the API will fetch the document at submission time.,string,Required*
-POST,/static/address-capture,paymentDetails[creditCardPayment].creditCard.cardType,"Card brand. Accepted values: visa, mastercard, discover, americanExpress.",enum: visa | mastercard | discover | americanExpress,Optional
+POST,/static/address-capture,paymentDetails[creditCardPayment].creditCard.cardType,Card brand (enum values shown in kind column).,enum: visa | mastercard | discover | americanExpress,Optional
 POST,/static/address-capture,paymentDetails[creditCardPayment].creditCard.cardNumber,Credit card number (PAN) as a string.,string,Optional
 POST,/static/address-capture,paymentDetails[creditCardPayment].creditCard.expirationDate.month,Expiration month as an integer (1–12).,integer,Optional
 POST,/static/address-capture,paymentDetails[creditCardPayment].creditCard.expirationDate.year,Expiration year as a four-digit integer (e.g. 2027).,integer,Optional
@@ -82,7 +82,7 @@ POST,/static/address-capture,paymentDetails[achPayment].ach.routingNumber,ABA ba
 POST,/static/address-capture,paymentDetails[achPayment].ach.accountNumber,Bank account number.,string,Optional
 POST,/static/address-capture,paymentDetails[achPayment].ach.checkDigit,ACH check digit.,integer,Optional
 POST,/static/address-capture,paymentDetails[userCreditPayment].userCredit.amount,Monetary amount (numeric value).,number,Optional
-POST,/static/address-capture,paymentDetails[userCreditPayment].userCredit.currency,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.",enum: USD | EUR | GBP | CAD | AUD,Optional
+POST,/static/address-capture,paymentDetails[userCreditPayment].userCredit.currency,ISO 4217 currency code (enum values shown in kind column).,enum: USD | EUR | GBP | CAD | AUD,Optional
 POST,/static/address-capture,returnAddress.firstName,Recipient's first name.,string,Optional
 POST,/static/address-capture,returnAddress.lastName,Recipient's last name.,string,Optional
 POST,/static/address-capture,returnAddress.company,Recipient's company or organisation name (optional).,string,Optional
@@ -93,14 +93,14 @@ POST,/static/address-capture,returnAddress.zip,ZIP or postal code.,string,Option
 POST,/static/address-capture,returnAddress.country,Country code (e.g. USA).,string,Optional
 POST,/static/address-capture,returnAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
 POST,/static/address-capture,returnAddress.address3,Tertiary address line.,string,Optional
-POST,/static/address-capture,jobOptions.documentClass,"Document class. Legal values: letter, postcard, brochure, flat.",enum: letter | postcard | brochure | flat,Optional
-POST,/static/address-capture,jobOptions.layout,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum: address_on_first_page | address_on_back_page,Optional
-POST,/static/address-capture,jobOptions.productionTime,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum: next_day | two_day | three_day | standard | same_day,Optional
-POST,/static/address-capture,jobOptions.envelope,"Envelope type. Legal values: standard, none, flat, double_window.",enum: standard | none | flat | double_window,Optional
-POST,/static/address-capture,jobOptions.color,"Color mode. Legal values: full_color, black_and_white.",enum: full_color | black_and_white,Optional
-POST,/static/address-capture,jobOptions.paperType,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum: white | white_24 | ivory | glossy,Optional
-POST,/static/address-capture,jobOptions.printOption,"Duplex setting. Legal values: double_sided, single_sided.",enum: double_sided | single_sided,Optional
-POST,/static/address-capture,jobOptions.mailClass,"USPS mail class. Legal values: first_class, standard, non_profit.",enum: first_class | standard | non_profit,Optional
+POST,/static/address-capture,jobOptions.documentClass,Document class.,enum: letter | postcard | brochure | flat,Optional
+POST,/static/address-capture,jobOptions.layout,Page layout for address placement.,enum: address_on_first_page | address_on_back_page,Optional
+POST,/static/address-capture,jobOptions.productionTime,Production time preference.,enum: next_day | two_day | three_day | standard | same_day,Optional
+POST,/static/address-capture,jobOptions.envelope,Envelope type.,enum: standard | none | flat | double_window,Optional
+POST,/static/address-capture,jobOptions.color,Color mode.,enum: full_color | black_and_white,Optional
+POST,/static/address-capture,jobOptions.paperType,Paper stock.,enum: white | white_24 | ivory | glossy,Optional
+POST,/static/address-capture,jobOptions.printOption,Duplex setting.,enum: double_sided | single_sided,Optional
+POST,/static/address-capture,jobOptions.mailClass,USPS mail class.,enum: first_class | standard | non_profit,Optional
 POST,/static/address-capture,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional
 POST,/batch/split,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/batch/split,docSourceStandard[documentIdSource].documentId,Integer ID of a previously stored or uploaded document.,integer,Required*
@@ -136,7 +136,7 @@ POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddr
 POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressListName,Optional name for this address list record.,string,Optional
 POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByAddressId].addressId,Integer ID of a previously stored individual recipient address.,integer,Required*
 POST,/batch/split,pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByListId].addressListId,Integer ID of a previously stored recipient address list.,integer,Required*
-POST,/batch/split,paymentDetails[creditCardPayment].creditCard.cardType,"Card brand. Accepted values: visa, mastercard, discover, americanExpress.",enum: visa | mastercard | discover | americanExpress,Optional
+POST,/batch/split,paymentDetails[creditCardPayment].creditCard.cardType,Card brand (enum values shown in kind column).,enum: visa | mastercard | discover | americanExpress,Optional
 POST,/batch/split,paymentDetails[creditCardPayment].creditCard.cardNumber,Credit card number (PAN) as a string.,string,Optional
 POST,/batch/split,paymentDetails[creditCardPayment].creditCard.expirationDate.month,Expiration month as an integer (1–12).,integer,Optional
 POST,/batch/split,paymentDetails[creditCardPayment].creditCard.expirationDate.year,Expiration year as a four-digit integer (e.g. 2027).,integer,Optional
@@ -147,7 +147,7 @@ POST,/batch/split,paymentDetails[achPayment].ach.routingNumber,ABA bank routing 
 POST,/batch/split,paymentDetails[achPayment].ach.accountNumber,Bank account number.,string,Optional
 POST,/batch/split,paymentDetails[achPayment].ach.checkDigit,ACH check digit.,integer,Optional
 POST,/batch/split,paymentDetails[userCreditPayment].userCredit.amount,Monetary amount (numeric value).,number,Optional
-POST,/batch/split,paymentDetails[userCreditPayment].userCredit.currency,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.",enum: USD | EUR | GBP | CAD | AUD,Optional
+POST,/batch/split,paymentDetails[userCreditPayment].userCredit.currency,ISO 4217 currency code (enum values shown in kind column).,enum: USD | EUR | GBP | CAD | AUD,Optional
 POST,/batch/split,returnAddress.firstName,Recipient's first name.,string,Optional
 POST,/batch/split,returnAddress.lastName,Recipient's last name.,string,Optional
 POST,/batch/split,returnAddress.company,Recipient's company or organisation name (optional).,string,Optional
@@ -158,14 +158,14 @@ POST,/batch/split,returnAddress.zip,ZIP or postal code.,string,Optional
 POST,/batch/split,returnAddress.country,Country code (e.g. USA).,string,Optional
 POST,/batch/split,returnAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
 POST,/batch/split,returnAddress.address3,Tertiary address line.,string,Optional
-POST,/batch/split,jobOptions.documentClass,"Document class. Legal values: letter, postcard, brochure, flat.",enum: letter | postcard | brochure | flat,Optional
-POST,/batch/split,jobOptions.layout,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum: address_on_first_page | address_on_back_page,Optional
-POST,/batch/split,jobOptions.productionTime,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum: next_day | two_day | three_day | standard | same_day,Optional
-POST,/batch/split,jobOptions.envelope,"Envelope type. Legal values: standard, none, flat, double_window.",enum: standard | none | flat | double_window,Optional
-POST,/batch/split,jobOptions.color,"Color mode. Legal values: full_color, black_and_white.",enum: full_color | black_and_white,Optional
-POST,/batch/split,jobOptions.paperType,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum: white | white_24 | ivory | glossy,Optional
-POST,/batch/split,jobOptions.printOption,"Duplex setting. Legal values: double_sided, single_sided.",enum: double_sided | single_sided,Optional
-POST,/batch/split,jobOptions.mailClass,"USPS mail class. Legal values: first_class, standard, non_profit.",enum: first_class | standard | non_profit,Optional
+POST,/batch/split,jobOptions.documentClass,Document class.,enum: letter | postcard | brochure | flat,Optional
+POST,/batch/split,jobOptions.layout,Page layout for address placement.,enum: address_on_first_page | address_on_back_page,Optional
+POST,/batch/split,jobOptions.productionTime,Production time preference.,enum: next_day | two_day | three_day | standard | same_day,Optional
+POST,/batch/split,jobOptions.envelope,Envelope type.,enum: standard | none | flat | double_window,Optional
+POST,/batch/split,jobOptions.color,Color mode.,enum: full_color | black_and_white,Optional
+POST,/batch/split,jobOptions.paperType,Paper stock.,enum: white | white_24 | ivory | glossy,Optional
+POST,/batch/split,jobOptions.printOption,Duplex setting.,enum: double_sided | single_sided,Optional
+POST,/batch/split,jobOptions.mailClass,USPS mail class.,enum: first_class | standard | non_profit,Optional
 POST,/batch/split,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional
 POST,/batch/split/address-capture,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/batch/split/address-capture,docSourceStandard[documentIdSource].documentId,Integer ID of a previously stored or uploaded document.,integer,Required*
@@ -175,7 +175,7 @@ POST,/batch/split/address-capture,docSourceStandard[urlSource].url,URL from whic
 POST,/batch/split/address-capture,pdfSplitJobsNoAddress[].jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/batch/split/address-capture,pdfSplitJobsNoAddress[].startPage,"First page of this job's page range, 1-indexed (inclusive).",integer,Required
 POST,/batch/split/address-capture,pdfSplitJobsNoAddress[].endPage,Last page of this job's page range (inclusive). Must be ≥ startPage.,integer,Required
-POST,/batch/split/address-capture,paymentDetails[creditCardPayment].creditCard.cardType,"Card brand. Accepted values: visa, mastercard, discover, americanExpress.",enum: visa | mastercard | discover | americanExpress,Optional
+POST,/batch/split/address-capture,paymentDetails[creditCardPayment].creditCard.cardType,Card brand (enum values shown in kind column).,enum: visa | mastercard | discover | americanExpress,Optional
 POST,/batch/split/address-capture,paymentDetails[creditCardPayment].creditCard.cardNumber,Credit card number (PAN) as a string.,string,Optional
 POST,/batch/split/address-capture,paymentDetails[creditCardPayment].creditCard.expirationDate.month,Expiration month as an integer (1–12).,integer,Optional
 POST,/batch/split/address-capture,paymentDetails[creditCardPayment].creditCard.expirationDate.year,Expiration year as a four-digit integer (e.g. 2027).,integer,Optional
@@ -186,7 +186,7 @@ POST,/batch/split/address-capture,paymentDetails[achPayment].ach.routingNumber,A
 POST,/batch/split/address-capture,paymentDetails[achPayment].ach.accountNumber,Bank account number.,string,Optional
 POST,/batch/split/address-capture,paymentDetails[achPayment].ach.checkDigit,ACH check digit.,integer,Optional
 POST,/batch/split/address-capture,paymentDetails[userCreditPayment].userCredit.amount,Monetary amount (numeric value).,number,Optional
-POST,/batch/split/address-capture,paymentDetails[userCreditPayment].userCredit.currency,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.",enum: USD | EUR | GBP | CAD | AUD,Optional
+POST,/batch/split/address-capture,paymentDetails[userCreditPayment].userCredit.currency,ISO 4217 currency code (enum values shown in kind column).,enum: USD | EUR | GBP | CAD | AUD,Optional
 POST,/batch/split/address-capture,returnAddress.firstName,Recipient's first name.,string,Optional
 POST,/batch/split/address-capture,returnAddress.lastName,Recipient's last name.,string,Optional
 POST,/batch/split/address-capture,returnAddress.company,Recipient's company or organisation name (optional).,string,Optional
@@ -197,14 +197,14 @@ POST,/batch/split/address-capture,returnAddress.zip,ZIP or postal code.,string,O
 POST,/batch/split/address-capture,returnAddress.country,Country code (e.g. USA).,string,Optional
 POST,/batch/split/address-capture,returnAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
 POST,/batch/split/address-capture,returnAddress.address3,Tertiary address line.,string,Optional
-POST,/batch/split/address-capture,jobOptions.documentClass,"Document class. Legal values: letter, postcard, brochure, flat.",enum: letter | postcard | brochure | flat,Optional
-POST,/batch/split/address-capture,jobOptions.layout,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum: address_on_first_page | address_on_back_page,Optional
-POST,/batch/split/address-capture,jobOptions.productionTime,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum: next_day | two_day | three_day | standard | same_day,Optional
-POST,/batch/split/address-capture,jobOptions.envelope,"Envelope type. Legal values: standard, none, flat, double_window.",enum: standard | none | flat | double_window,Optional
-POST,/batch/split/address-capture,jobOptions.color,"Color mode. Legal values: full_color, black_and_white.",enum: full_color | black_and_white,Optional
-POST,/batch/split/address-capture,jobOptions.paperType,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum: white | white_24 | ivory | glossy,Optional
-POST,/batch/split/address-capture,jobOptions.printOption,"Duplex setting. Legal values: double_sided, single_sided.",enum: double_sided | single_sided,Optional
-POST,/batch/split/address-capture,jobOptions.mailClass,"USPS mail class. Legal values: first_class, standard, non_profit.",enum: first_class | standard | non_profit,Optional
+POST,/batch/split/address-capture,jobOptions.documentClass,Document class.,enum: letter | postcard | brochure | flat,Optional
+POST,/batch/split/address-capture,jobOptions.layout,Page layout for address placement.,enum: address_on_first_page | address_on_back_page,Optional
+POST,/batch/split/address-capture,jobOptions.productionTime,Production time preference.,enum: next_day | two_day | three_day | standard | same_day,Optional
+POST,/batch/split/address-capture,jobOptions.envelope,Envelope type.,enum: standard | none | flat | double_window,Optional
+POST,/batch/split/address-capture,jobOptions.color,Color mode.,enum: full_color | black_and_white,Optional
+POST,/batch/split/address-capture,jobOptions.paperType,Paper stock.,enum: white | white_24 | ivory | glossy,Optional
+POST,/batch/split/address-capture,jobOptions.printOption,Duplex setting.,enum: double_sided | single_sided,Optional
+POST,/batch/split/address-capture,jobOptions.mailClass,USPS mail class.,enum: first_class | standard | non_profit,Optional
 POST,/batch/split/address-capture,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional
 POST,/mail-merge,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/mail-merge,mergeDocumentSource[][mergeByDocumentId].documentId,Integer ID of a previously stored or uploaded document.,integer,Required*
@@ -236,7 +236,7 @@ POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressList[].fo
 POST,/mail-merge,recipientAddressSource[recipientAddressByList].addressListName,Optional name for this address list record.,string,Optional
 POST,/mail-merge,recipientAddressSource[recipientAddressByAddressId].addressId,Integer ID of a previously stored individual recipient address.,integer,Required*
 POST,/mail-merge,recipientAddressSource[recipientAddressByListId].addressListId,Integer ID of a previously stored recipient address list.,integer,Required*
-POST,/mail-merge,paymentDetails[creditCardPayment].creditCard.cardType,"Card brand. Accepted values: visa, mastercard, discover, americanExpress.",enum: visa | mastercard | discover | americanExpress,Optional
+POST,/mail-merge,paymentDetails[creditCardPayment].creditCard.cardType,Card brand (enum values shown in kind column).,enum: visa | mastercard | discover | americanExpress,Optional
 POST,/mail-merge,paymentDetails[creditCardPayment].creditCard.cardNumber,Credit card number (PAN) as a string.,string,Optional
 POST,/mail-merge,paymentDetails[creditCardPayment].creditCard.expirationDate.month,Expiration month as an integer (1–12).,integer,Optional
 POST,/mail-merge,paymentDetails[creditCardPayment].creditCard.expirationDate.year,Expiration year as a four-digit integer (e.g. 2027).,integer,Optional
@@ -247,7 +247,7 @@ POST,/mail-merge,paymentDetails[achPayment].ach.routingNumber,ABA bank routing n
 POST,/mail-merge,paymentDetails[achPayment].ach.accountNumber,Bank account number.,string,Optional
 POST,/mail-merge,paymentDetails[achPayment].ach.checkDigit,ACH check digit.,integer,Optional
 POST,/mail-merge,paymentDetails[userCreditPayment].userCredit.amount,Monetary amount (numeric value).,number,Optional
-POST,/mail-merge,paymentDetails[userCreditPayment].userCredit.currency,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.",enum: USD | EUR | GBP | CAD | AUD,Optional
+POST,/mail-merge,paymentDetails[userCreditPayment].userCredit.currency,ISO 4217 currency code (enum values shown in kind column).,enum: USD | EUR | GBP | CAD | AUD,Optional
 POST,/mail-merge,returnAddress.firstName,Recipient's first name.,string,Optional
 POST,/mail-merge,returnAddress.lastName,Recipient's last name.,string,Optional
 POST,/mail-merge,returnAddress.company,Recipient's company or organisation name (optional).,string,Optional
@@ -258,14 +258,14 @@ POST,/mail-merge,returnAddress.zip,ZIP or postal code.,string,Optional
 POST,/mail-merge,returnAddress.country,Country code (e.g. USA).,string,Optional
 POST,/mail-merge,returnAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
 POST,/mail-merge,returnAddress.address3,Tertiary address line.,string,Optional
-POST,/mail-merge,jobOptions.documentClass,"Document class. Legal values: letter, postcard, brochure, flat.",enum: letter | postcard | brochure | flat,Optional
-POST,/mail-merge,jobOptions.layout,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum: address_on_first_page | address_on_back_page,Optional
-POST,/mail-merge,jobOptions.productionTime,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum: next_day | two_day | three_day | standard | same_day,Optional
-POST,/mail-merge,jobOptions.envelope,"Envelope type. Legal values: standard, none, flat, double_window.",enum: standard | none | flat | double_window,Optional
-POST,/mail-merge,jobOptions.color,"Color mode. Legal values: full_color, black_and_white.",enum: full_color | black_and_white,Optional
-POST,/mail-merge,jobOptions.paperType,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum: white | white_24 | ivory | glossy,Optional
-POST,/mail-merge,jobOptions.printOption,"Duplex setting. Legal values: double_sided, single_sided.",enum: double_sided | single_sided,Optional
-POST,/mail-merge,jobOptions.mailClass,"USPS mail class. Legal values: first_class, standard, non_profit.",enum: first_class | standard | non_profit,Optional
+POST,/mail-merge,jobOptions.documentClass,Document class.,enum: letter | postcard | brochure | flat,Optional
+POST,/mail-merge,jobOptions.layout,Page layout for address placement.,enum: address_on_first_page | address_on_back_page,Optional
+POST,/mail-merge,jobOptions.productionTime,Production time preference.,enum: next_day | two_day | three_day | standard | same_day,Optional
+POST,/mail-merge,jobOptions.envelope,Envelope type.,enum: standard | none | flat | double_window,Optional
+POST,/mail-merge,jobOptions.color,Color mode.,enum: full_color | black_and_white,Optional
+POST,/mail-merge,jobOptions.paperType,Paper stock.,enum: white | white_24 | ivory | glossy,Optional
+POST,/mail-merge,jobOptions.printOption,Duplex setting.,enum: double_sided | single_sided,Optional
+POST,/mail-merge,jobOptions.mailClass,USPS mail class.,enum: first_class | standard | non_profit,Optional
 POST,/mail-merge,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional
 POST,/batch/zip,docSourceZipFileRef[zipDocumentIdOnly].zipDocumentId,Integer ID of a previously stored ZIP archive.,integer,Required*
 POST,/batch/zip,docSourceZipFileRef[zipRequestIdOnly].requestId,Integer ID of a prior file upload request. Also returned in success responses.,integer,Required*
@@ -297,7 +297,7 @@ POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].ad
 POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByList].addressListName,Optional name for this address list record.,string,Optional
 POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByAddressId].addressId,Integer ID of a previously stored individual recipient address.,integer,Required*
 POST,/batch/zip,multiZipJobs[].recipientAddressSource[recipientAddressByListId].addressListId,Integer ID of a previously stored recipient address list.,integer,Required*
-POST,/batch/zip,paymentDetails[creditCardPayment].creditCard.cardType,"Card brand. Accepted values: visa, mastercard, discover, americanExpress.",enum: visa | mastercard | discover | americanExpress,Optional
+POST,/batch/zip,paymentDetails[creditCardPayment].creditCard.cardType,Card brand (enum values shown in kind column).,enum: visa | mastercard | discover | americanExpress,Optional
 POST,/batch/zip,paymentDetails[creditCardPayment].creditCard.cardNumber,Credit card number (PAN) as a string.,string,Optional
 POST,/batch/zip,paymentDetails[creditCardPayment].creditCard.expirationDate.month,Expiration month as an integer (1–12).,integer,Optional
 POST,/batch/zip,paymentDetails[creditCardPayment].creditCard.expirationDate.year,Expiration year as a four-digit integer (e.g. 2027).,integer,Optional
@@ -308,7 +308,7 @@ POST,/batch/zip,paymentDetails[achPayment].ach.routingNumber,ABA bank routing nu
 POST,/batch/zip,paymentDetails[achPayment].ach.accountNumber,Bank account number.,string,Optional
 POST,/batch/zip,paymentDetails[achPayment].ach.checkDigit,ACH check digit.,integer,Optional
 POST,/batch/zip,paymentDetails[userCreditPayment].userCredit.amount,Monetary amount (numeric value).,number,Optional
-POST,/batch/zip,paymentDetails[userCreditPayment].userCredit.currency,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.",enum: USD | EUR | GBP | CAD | AUD,Optional
+POST,/batch/zip,paymentDetails[userCreditPayment].userCredit.currency,ISO 4217 currency code (enum values shown in kind column).,enum: USD | EUR | GBP | CAD | AUD,Optional
 POST,/batch/zip,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional
 POST,/batch/zip/address-capture,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/batch/zip/address-capture,zipDocumentSource[zipDocumentIdSource].zipDocumentId,Integer ID of a previously stored ZIP archive.,integer,Required*
@@ -316,7 +316,7 @@ POST,/batch/zip/address-capture,zipDocumentSource[zipDocumentIdSource].filename,
 POST,/batch/zip/address-capture,zipDocumentSource[zipRequestIdSource].requestId,Integer ID of a prior file upload request. Also returned in success responses.,integer,Required*
 POST,/batch/zip/address-capture,zipDocumentSource[zipRequestIdSource].zipFilename,Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).,string,Required*
 POST,/batch/zip/address-capture,zipDocumentSource[zipRequestIdSource].filename,Filename of a specific file within an upload request or ZIP archive.,string,Required*
-POST,/batch/zip/address-capture,paymentDetails[creditCardPayment].creditCard.cardType,"Card brand. Accepted values: visa, mastercard, discover, americanExpress.",enum: visa | mastercard | discover | americanExpress,Optional
+POST,/batch/zip/address-capture,paymentDetails[creditCardPayment].creditCard.cardType,Card brand (enum values shown in kind column).,enum: visa | mastercard | discover | americanExpress,Optional
 POST,/batch/zip/address-capture,paymentDetails[creditCardPayment].creditCard.cardNumber,Credit card number (PAN) as a string.,string,Optional
 POST,/batch/zip/address-capture,paymentDetails[creditCardPayment].creditCard.expirationDate.month,Expiration month as an integer (1–12).,integer,Optional
 POST,/batch/zip/address-capture,paymentDetails[creditCardPayment].creditCard.expirationDate.year,Expiration year as a four-digit integer (e.g. 2027).,integer,Optional
@@ -327,7 +327,7 @@ POST,/batch/zip/address-capture,paymentDetails[achPayment].ach.routingNumber,ABA
 POST,/batch/zip/address-capture,paymentDetails[achPayment].ach.accountNumber,Bank account number.,string,Optional
 POST,/batch/zip/address-capture,paymentDetails[achPayment].ach.checkDigit,ACH check digit.,integer,Optional
 POST,/batch/zip/address-capture,paymentDetails[userCreditPayment].userCredit.amount,Monetary amount (numeric value).,number,Optional
-POST,/batch/zip/address-capture,paymentDetails[userCreditPayment].userCredit.currency,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.",enum: USD | EUR | GBP | CAD | AUD,Optional
+POST,/batch/zip/address-capture,paymentDetails[userCreditPayment].userCredit.currency,ISO 4217 currency code (enum values shown in kind column).,enum: USD | EUR | GBP | CAD | AUD,Optional
 POST,/batch/zip/address-capture,returnAddress.firstName,Recipient's first name.,string,Optional
 POST,/batch/zip/address-capture,returnAddress.lastName,Recipient's last name.,string,Optional
 POST,/batch/zip/address-capture,returnAddress.company,Recipient's company or organisation name (optional).,string,Optional
@@ -338,12 +338,12 @@ POST,/batch/zip/address-capture,returnAddress.zip,ZIP or postal code.,string,Opt
 POST,/batch/zip/address-capture,returnAddress.country,Country code (e.g. USA).,string,Optional
 POST,/batch/zip/address-capture,returnAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
 POST,/batch/zip/address-capture,returnAddress.address3,Tertiary address line.,string,Optional
-POST,/batch/zip/address-capture,jobOptions.documentClass,"Document class. Legal values: letter, postcard, brochure, flat.",enum: letter | postcard | brochure | flat,Optional
-POST,/batch/zip/address-capture,jobOptions.layout,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum: address_on_first_page | address_on_back_page,Optional
-POST,/batch/zip/address-capture,jobOptions.productionTime,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum: next_day | two_day | three_day | standard | same_day,Optional
-POST,/batch/zip/address-capture,jobOptions.envelope,"Envelope type. Legal values: standard, none, flat, double_window.",enum: standard | none | flat | double_window,Optional
-POST,/batch/zip/address-capture,jobOptions.color,"Color mode. Legal values: full_color, black_and_white.",enum: full_color | black_and_white,Optional
-POST,/batch/zip/address-capture,jobOptions.paperType,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum: white | white_24 | ivory | glossy,Optional
-POST,/batch/zip/address-capture,jobOptions.printOption,"Duplex setting. Legal values: double_sided, single_sided.",enum: double_sided | single_sided,Optional
-POST,/batch/zip/address-capture,jobOptions.mailClass,"USPS mail class. Legal values: first_class, standard, non_profit.",enum: first_class | standard | non_profit,Optional
+POST,/batch/zip/address-capture,jobOptions.documentClass,Document class.,enum: letter | postcard | brochure | flat,Optional
+POST,/batch/zip/address-capture,jobOptions.layout,Page layout for address placement.,enum: address_on_first_page | address_on_back_page,Optional
+POST,/batch/zip/address-capture,jobOptions.productionTime,Production time preference.,enum: next_day | two_day | three_day | standard | same_day,Optional
+POST,/batch/zip/address-capture,jobOptions.envelope,Envelope type.,enum: standard | none | flat | double_window,Optional
+POST,/batch/zip/address-capture,jobOptions.color,Color mode.,enum: full_color | black_and_white,Optional
+POST,/batch/zip/address-capture,jobOptions.paperType,Paper stock.,enum: white | white_24 | ivory | glossy,Optional
+POST,/batch/zip/address-capture,jobOptions.printOption,Duplex setting.,enum: double_sided | single_sided,Optional
+POST,/batch/zip/address-capture,jobOptions.mailClass,USPS mail class.,enum: first_class | standard | non_profit,Optional
 POST,/batch/zip/address-capture,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional

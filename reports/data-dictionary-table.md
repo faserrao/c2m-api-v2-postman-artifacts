@@ -143,7 +143,7 @@ Account credit payment fields: monetary amount and ISO currency code.
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
 | `amount` | number | Required | Monetary amount (numeric value). |
-| `currency` | enum (USD | EUR | GBP | CAD | AUD) | Required | ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD. |
+| `currency` | enum (USD | EUR | GBP | CAD | AUD) | Required | ISO 4217 currency code (enum values shown in kind column). |
 
 ### `creditCardDetails`
 
@@ -151,7 +151,7 @@ Credit card payment fields: card type, card number, expiration date, and CVV.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
-| `cardType` | enum (visa | mastercard | discover | americanExpress) | Required | Card brand. Accepted values: visa, mastercard, discover, americanExpress. |
+| `cardType` | enum (visa | mastercard | discover | americanExpress) | Required | Card brand (enum values shown in kind column). |
 | `cardNumber` | string | Required | Credit card number (PAN) as a string. |
 | `expirationDate` | object | Required | Card expiration date containing month and year. |
 | `cvv` | integer | Required | Card security code (CVV/CVC) as an integer. |
@@ -210,14 +210,14 @@ Explicit print and mail configuration options. Mutually exclusive with jobTempla
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
-| `documentClass` | enum (letter | postcard | brochure | flat) | Required | Document class. Legal values: letter, postcard, brochure, flat. |
-| `layout` | enum (address_on_first_page | address_on_back_page) | Required | Page layout for address placement. Legal values: address_on_first_page, address_on_back_page. |
-| `productionTime` | enum (next_day | two_day | three_day | standard | same_day) | Required | Production time preference. Legal values: next_day, two_day, three_day, standard, same_day. |
-| `envelope` | enum (standard | none | flat | double_window) | Required | Envelope type. Legal values: standard, none, flat, double_window. |
-| `color` | enum (full_color | black_and_white) | Required | Color mode. Legal values: full_color, black_and_white. |
-| `paperType` | enum (white | white_24 | ivory | glossy) | Required | Paper stock. Legal values: white, white_24, ivory, glossy. |
-| `printOption` | enum (double_sided | single_sided) | Required | Duplex setting. Legal values: double_sided, single_sided. |
-| `mailClass` | enum (first_class | standard | non_profit) | Required | USPS mail class. Legal values: first_class, standard, non_profit. |
+| `documentClass` | enum (letter | postcard | brochure | flat) | Required | Document class. |
+| `layout` | enum (address_on_first_page | address_on_back_page) | Required | Page layout for address placement. |
+| `productionTime` | enum (next_day | two_day | three_day | standard | same_day) | Required | Production time preference. |
+| `envelope` | enum (standard | none | flat | double_window) | Required | Envelope type. |
+| `color` | enum (full_color | black_and_white) | Required | Color mode. |
+| `paperType` | enum (white | white_24 | ivory | glossy) | Required | Paper stock. |
+| `printOption` | enum (double_sided | single_sided) | Required | Duplex setting. |
+| `mailClass` | enum (first_class | standard | non_profit) | Required | USPS mail class. |
 
 ### `mergeByRequestId`
 
@@ -484,7 +484,7 @@ Array of user-defined string tags.
 
 ### `cardType`
 
-Card brand. Accepted values: visa, mastercard, discover, americanExpress.
+Card brand (enum values shown in kind column).
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -495,7 +495,7 @@ Card brand. Accepted values: visa, mastercard, discover, americanExpress.
 
 ### `color`
 
-Color mode. Legal values: full_color, black_and_white.
+Color mode.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -504,7 +504,7 @@ Color mode. Legal values: full_color, black_and_white.
 
 ### `currency`
 
-ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.
+ISO 4217 currency code (enum values shown in kind column).
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -516,7 +516,7 @@ ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.
 
 ### `documentClass`
 
-Document class. Legal values: letter, postcard, brochure, flat.
+Document class.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -527,7 +527,7 @@ Document class. Legal values: letter, postcard, brochure, flat.
 
 ### `envelope`
 
-Envelope type. Legal values: standard, none, flat, double_window.
+Envelope type.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -575,7 +575,7 @@ High-level error category string (ValidationError, AuthenticationError, etc.).
 
 ### `layout`
 
-Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.
+Page layout for address placement.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -584,7 +584,7 @@ Page layout for address placement. Legal values: address_on_first_page, address_
 
 ### `mailClass`
 
-USPS mail class. Legal values: first_class, standard, non_profit.
+USPS mail class.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -594,7 +594,7 @@ USPS mail class. Legal values: first_class, standard, non_profit.
 
 ### `paperType`
 
-Paper stock. Legal values: white, white_24, ivory, glossy.
+Paper stock.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -605,7 +605,7 @@ Paper stock. Legal values: white, white_24, ivory, glossy.
 
 ### `printOption`
 
-Duplex setting. Legal values: double_sided, single_sided.
+Duplex setting.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -614,7 +614,7 @@ Duplex setting. Legal values: double_sided, single_sided.
 
 ### `productionTime`
 
-Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.
+Production time preference.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |

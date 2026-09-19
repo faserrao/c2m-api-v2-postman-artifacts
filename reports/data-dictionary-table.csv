@@ -137,9 +137,9 @@ address,Data Structure,,foo1,User-defined merge variable 1 — forwarded to the 
 address,Data Structure,,foo2,User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.,string,Optional
 creditAmount,Data Structure,,—,Account credit payment fields: monetary amount and ISO currency code.,object,—
 creditAmount,Data Structure,,amount,Monetary amount (numeric value).,number,Required
-creditAmount,Data Structure,,currency,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.",enum (USD | EUR | GBP | CAD | AUD),Required
+creditAmount,Data Structure,,currency,ISO 4217 currency code (enum values shown in kind column).,enum (USD | EUR | GBP | CAD | AUD),Required
 creditCardDetails,Data Structure,,—,"Credit card payment fields: card type, card number, expiration date, and CVV.",object,—
-creditCardDetails,Data Structure,,cardType,"Card brand. Accepted values: visa, mastercard, discover, americanExpress.",enum (visa | mastercard | discover | americanExpress),Required
+creditCardDetails,Data Structure,,cardType,Card brand (enum values shown in kind column).,enum (visa | mastercard | discover | americanExpress),Required
 creditCardDetails,Data Structure,,cardNumber,Credit card number (PAN) as a string.,string,Required
 creditCardDetails,Data Structure,,expirationDate,Card expiration date containing month and year.,object,Required
 creditCardDetails,Data Structure,,cvv,Card security code (CVV/CVC) as an integer.,integer,Required
@@ -162,14 +162,14 @@ invoicePayment,Data Structure,,—,Invoice payment — billed to an existing acc
 invoicePayment,Data Structure,,"""invoice""",JSON property key identifying the invoice payment variant.,"""invoice""",Required
 invoicePayment,Data Structure,,invoiceDetails,Invoice payment fields: invoice number and amount due.,object,Required
 jobOptions,Data Structure,,—,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,—
-jobOptions,Data Structure,,documentClass,"Document class. Legal values: letter, postcard, brochure, flat.",enum (letter | postcard | brochure | flat),Required
-jobOptions,Data Structure,,layout,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum (address_on_first_page | address_on_back_page),Required
-jobOptions,Data Structure,,productionTime,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum (next_day | two_day | three_day | standard | same_day),Required
-jobOptions,Data Structure,,envelope,"Envelope type. Legal values: standard, none, flat, double_window.",enum (standard | none | flat | double_window),Required
-jobOptions,Data Structure,,color,"Color mode. Legal values: full_color, black_and_white.",enum (full_color | black_and_white),Required
-jobOptions,Data Structure,,paperType,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum (white | white_24 | ivory | glossy),Required
-jobOptions,Data Structure,,printOption,"Duplex setting. Legal values: double_sided, single_sided.",enum (double_sided | single_sided),Required
-jobOptions,Data Structure,,mailClass,"USPS mail class. Legal values: first_class, standard, non_profit.",enum (first_class | standard | non_profit),Required
+jobOptions,Data Structure,,documentClass,Document class.,enum (letter | postcard | brochure | flat),Required
+jobOptions,Data Structure,,layout,Page layout for address placement.,enum (address_on_first_page | address_on_back_page),Required
+jobOptions,Data Structure,,productionTime,Production time preference.,enum (next_day | two_day | three_day | standard | same_day),Required
+jobOptions,Data Structure,,envelope,Envelope type.,enum (standard | none | flat | double_window),Required
+jobOptions,Data Structure,,color,Color mode.,enum (full_color | black_and_white),Required
+jobOptions,Data Structure,,paperType,Paper stock.,enum (white | white_24 | ivory | glossy),Required
+jobOptions,Data Structure,,printOption,Duplex setting.,enum (double_sided | single_sided),Required
+jobOptions,Data Structure,,mailClass,USPS mail class.,enum (first_class | standard | non_profit),Required
 mergeByRequestId,Data Structure,,—,"Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.",object,—
 mergeByRequestId,Data Structure,,requestId,Integer ID of a prior file upload request. Also returned in success responses.,id,Required
 mergeByRequestId,Data Structure,,filename,Filename of a specific file within an upload request or ZIP archive.,string,Optional
@@ -222,26 +222,26 @@ zipRequestIdSource,Data Structure,,—,"Source a specific file within an uploade
 zipRequestIdSource,Data Structure,,requestId,Integer ID of a prior file upload request. Also returned in success responses.,id,Required
 zipRequestIdSource,Data Structure,,zipFilename,Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).,string,Required
 zipRequestIdSource,Data Structure,,filename,Filename of a specific file within an upload request or ZIP archive.,string,Required
-cardType,Enumeration,,—,"Card brand. Accepted values: visa, mastercard, discover, americanExpress.",enum,—
+cardType,Enumeration,,—,Card brand (enum values shown in kind column).,enum,—
 cardType,Enumeration,,visa,,string,—
 cardType,Enumeration,,mastercard,,string,—
 cardType,Enumeration,,discover,,string,—
 cardType,Enumeration,,americanExpress,,string,—
-color,Enumeration,,—,"Color mode. Legal values: full_color, black_and_white.",enum,—
+color,Enumeration,,—,Color mode.,enum,—
 color,Enumeration,,full_color,,string,—
 color,Enumeration,,black_and_white,,string,—
-currency,Enumeration,,—,"ISO 4217 currency code. Accepted values: USD, EUR, GBP, CAD, AUD.",enum,—
+currency,Enumeration,,—,ISO 4217 currency code (enum values shown in kind column).,enum,—
 currency,Enumeration,,USD,,string,—
 currency,Enumeration,,EUR,,string,—
 currency,Enumeration,,GBP,,string,—
 currency,Enumeration,,CAD,,string,—
 currency,Enumeration,,AUD,,string,—
-documentClass,Enumeration,,—,"Document class. Legal values: letter, postcard, brochure, flat.",enum,—
+documentClass,Enumeration,,—,Document class.,enum,—
 documentClass,Enumeration,,letter,,string,—
 documentClass,Enumeration,,postcard,,string,—
 documentClass,Enumeration,,brochure,,string,—
 documentClass,Enumeration,,flat,,string,—
-envelope,Enumeration,,—,"Envelope type. Legal values: standard, none, flat, double_window.",enum,—
+envelope,Enumeration,,—,Envelope type.,enum,—
 envelope,Enumeration,,standard,,string,—
 envelope,Enumeration,,none,,string,—
 envelope,Enumeration,,flat,,string,—
@@ -271,22 +271,22 @@ errorType,Enumeration,,AuthorizationError,,string,—
 errorType,Enumeration,,ResourceNotFoundError,,string,—
 errorType,Enumeration,,RateLimitError,,string,—
 errorType,Enumeration,,ServerError,,string,—
-layout,Enumeration,,—,"Page layout for address placement. Legal values: address_on_first_page, address_on_back_page.",enum,—
+layout,Enumeration,,—,Page layout for address placement.,enum,—
 layout,Enumeration,,address_on_first_page,,string,—
 layout,Enumeration,,address_on_back_page,,string,—
-mailClass,Enumeration,,—,"USPS mail class. Legal values: first_class, standard, non_profit.",enum,—
+mailClass,Enumeration,,—,USPS mail class.,enum,—
 mailClass,Enumeration,,first_class,,string,—
 mailClass,Enumeration,,standard,,string,—
 mailClass,Enumeration,,non_profit,,string,—
-paperType,Enumeration,,—,"Paper stock. Legal values: white, white_24, ivory, glossy.",enum,—
+paperType,Enumeration,,—,Paper stock.,enum,—
 paperType,Enumeration,,white,,string,—
 paperType,Enumeration,,white_24,,string,—
 paperType,Enumeration,,ivory,,string,—
 paperType,Enumeration,,glossy,,string,—
-printOption,Enumeration,,—,"Duplex setting. Legal values: double_sided, single_sided.",enum,—
+printOption,Enumeration,,—,Duplex setting.,enum,—
 printOption,Enumeration,,double_sided,,string,—
 printOption,Enumeration,,single_sided,,string,—
-productionTime,Enumeration,,—,"Production time preference. Legal values: next_day, two_day, three_day, standard, same_day.",enum,—
+productionTime,Enumeration,,—,Production time preference.,enum,—
 productionTime,Enumeration,,next_day,,string,—
 productionTime,Enumeration,,two_day,,string,—
 productionTime,Enumeration,,three_day,,string,—
