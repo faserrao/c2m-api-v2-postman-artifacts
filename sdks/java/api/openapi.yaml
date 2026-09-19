@@ -108,27 +108,27 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{\"field\": \"docSourceAll\", \"location\": \"\
                       requestBody\"}"
-                    errorTrackingId: TRK-20260919-54ZTZ1
+                    errorTrackingId: TRK-20260919-561550
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: "{\"field\": \"docSourceAll\", \"issue\": \"exactly\
                       \ one variant must be provided\"}"
-                    errorTrackingId: TRK-20260919-CJWXMR
+                    errorTrackingId: TRK-20260919-5C233E
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: "{\"error\": \"unexpected token at position 42\"\
                       }"
-                    errorTrackingId: TRK-20260919-817QJN
+                    errorTrackingId: TRK-20260919-3B0F62
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Bad Request - Invalid request parameters
@@ -143,23 +143,23 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{\"expected\": \"Bearer <token>\", \"received\"\
                       : \"none\"}"
-                    errorTrackingId: TRK-20260919-85NAEY
+                    errorTrackingId: TRK-20260919-DD8896
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: "{\"issue\": \"token signature verification failed\"\
                       }"
-                    errorTrackingId: TRK-20260919-09PK9A
+                    errorTrackingId: TRK-20260919-E28F40
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: "{\"expiresAt\": \"2026-09-19T05:53:00Z\", \"currentTime\"\
-                      : \"2026-09-19T06:53:00Z\"}"
-                    errorTrackingId: TRK-20260919-IFSIZW
+                    errorDetails: "{\"expiresAt\": \"2026-09-19T06:47:53Z\", \"currentTime\"\
+                      : \"2026-09-19T07:47:53Z\"}"
+                    errorTrackingId: TRK-20260919-7D3E7C
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unauthorized - Missing or invalid authentication
@@ -170,19 +170,20 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this
+                      operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{\"required\": \"jobs:write\", \"provided\": \"\
                       jobs:read\"}"
-                    errorTrackingId: TRK-20260919-J1CK9Y
+                    errorTrackingId: TRK-20260919-5BB547
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: "{\"reason\": \"billing overdue\", \"contactSupport\"\
                       : \"support@click2mail.com\"}"
-                    errorTrackingId: TRK-20260919-CKYF1U
+                    errorTrackingId: TRK-20260919-17244C
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Forbidden - Insufficient permissions
@@ -193,10 +194,10 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{\"jobId\": \"JOB-12345\"}"
-                    errorTrackingId: TRK-20260919-OVDWAG
+                    errorTrackingId: TRK-20260919-E97FC8
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
@@ -204,7 +205,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{\"resourceType\": \"document\", \"resourceId\"\
                       : \"DOC-67890\"}"
-                    errorTrackingId: TRK-20260919-Y7F7WK
+                    errorTrackingId: TRK-20260919-2B1B38
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Not Found - Resource not found
@@ -215,30 +216,30 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: "{\"field\": \"docSourceAll\", \"value\": \"invalid_value\"\
                       , \"allowedValues\": [\"letter\", \"postcard\", \"brochure\"\
                       , \"flat\"]}"
-                    errorTrackingId: TRK-20260919-JVUB2H
+                    errorTrackingId: TRK-20260919-D582F9
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: "{\"fields\": [\"jobTemplate\", \"jobOptions\"],\
                       \ \"issue\": \"only one may be provided\"}"
-                    errorTrackingId: TRK-20260919-7Z47PK
+                    errorTrackingId: TRK-20260919-1BC345
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: "{\"errors\": [{\"field\": \"docSourceAll\", \"\
                       issue\": \"not found in document library\"}, {\"field\": \"\
                       recipientAddressSource.postalCode\", \"issue\": \"invalid format\
                       \ - must be 5 or 9 digits\"}]}"
-                    errorTrackingId: TRK-20260919-264DFR
+                    errorTrackingId: TRK-20260919-C6EBB2
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unprocessable Entity - Validation failed
@@ -249,26 +250,27 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the
+                      request
                     errorCode: SERVER_ERROR
                     errorDetails: "{\"message\": \"An unexpected error occurred\"}"
-                    errorTrackingId: TRK-20260919-I91K6G
+                    errorTrackingId: TRK-20260919-32EAE2
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: "{\"operation\": \"insert\", \"table\": \"jobs\"\
                       }"
-                    errorTrackingId: TRK-20260919-H5O6N2
+                    errorTrackingId: TRK-20260919-2ADE26
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{\"service\": \"payment-gateway\", \"status\":\
                       \ \"timeout\"}"
-                    errorTrackingId: TRK-20260919-MGV01S
+                    errorTrackingId: TRK-20260919-CF2BB1
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Internal Server Error - Server encountered an error
@@ -303,27 +305,27 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{\"field\": \"docSourceStandard\", \"location\"\
                       : \"requestBody\"}"
-                    errorTrackingId: TRK-20260919-23C9B2
+                    errorTrackingId: TRK-20260919-667337
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: "{\"field\": \"docSourceStandard\", \"issue\": \"\
                       exactly one variant must be provided\"}"
-                    errorTrackingId: TRK-20260919-WZ652D
+                    errorTrackingId: TRK-20260919-91F38F
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: "{\"error\": \"unexpected token at position 42\"\
                       }"
-                    errorTrackingId: TRK-20260919-U46EK0
+                    errorTrackingId: TRK-20260919-37622C
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Bad Request - Invalid request parameters
@@ -338,23 +340,23 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{\"expected\": \"Bearer <token>\", \"received\"\
                       : \"none\"}"
-                    errorTrackingId: TRK-20260919-XQJMST
+                    errorTrackingId: TRK-20260919-11D630
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: "{\"issue\": \"token signature verification failed\"\
                       }"
-                    errorTrackingId: TRK-20260919-BDQAGQ
+                    errorTrackingId: TRK-20260919-22CAE0
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: "{\"expiresAt\": \"2026-09-19T05:53:00Z\", \"currentTime\"\
-                      : \"2026-09-19T06:53:00Z\"}"
-                    errorTrackingId: TRK-20260919-GB1Z72
+                    errorDetails: "{\"expiresAt\": \"2026-09-19T06:47:53Z\", \"currentTime\"\
+                      : \"2026-09-19T07:47:53Z\"}"
+                    errorTrackingId: TRK-20260919-D07207
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unauthorized - Missing or invalid authentication
@@ -365,19 +367,20 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this
+                      operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{\"required\": \"jobs:write\", \"provided\": \"\
                       jobs:read\"}"
-                    errorTrackingId: TRK-20260919-SC291Y
+                    errorTrackingId: TRK-20260919-682F48
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: "{\"reason\": \"billing overdue\", \"contactSupport\"\
                       : \"support@click2mail.com\"}"
-                    errorTrackingId: TRK-20260919-6PZN7G
+                    errorTrackingId: TRK-20260919-EFC653
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Forbidden - Insufficient permissions
@@ -388,10 +391,10 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{\"jobId\": \"JOB-12345\"}"
-                    errorTrackingId: TRK-20260919-WXW81B
+                    errorTrackingId: TRK-20260919-2CA40D
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
@@ -399,7 +402,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{\"resourceType\": \"document\", \"resourceId\"\
                       : \"DOC-67890\"}"
-                    errorTrackingId: TRK-20260919-AXF0P1
+                    errorTrackingId: TRK-20260919-691221
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Not Found - Resource not found
@@ -410,30 +413,30 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: "{\"field\": \"docSourceStandard\", \"value\": \"\
                       invalid_value\", \"allowedValues\": [\"letter\", \"postcard\"\
                       , \"brochure\", \"flat\"]}"
-                    errorTrackingId: TRK-20260919-TYL4AK
+                    errorTrackingId: TRK-20260919-B016F3
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: "{\"fields\": [\"jobTemplate\", \"jobOptions\"],\
                       \ \"issue\": \"only one may be provided\"}"
-                    errorTrackingId: TRK-20260919-O4LUDT
+                    errorTrackingId: TRK-20260919-4B6C66
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: "{\"errors\": [{\"field\": \"docSourceStandard\"\
                       , \"issue\": \"not found in document library\"}, {\"field\"\
                       : \"returnAddress.postalCode\", \"issue\": \"invalid format\
                       \ - must be 5 or 9 digits\"}]}"
-                    errorTrackingId: TRK-20260919-H5106B
+                    errorTrackingId: TRK-20260919-3158C1
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unprocessable Entity - Validation failed
@@ -444,26 +447,27 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the
+                      request
                     errorCode: SERVER_ERROR
                     errorDetails: "{\"message\": \"An unexpected error occurred\"}"
-                    errorTrackingId: TRK-20260919-CRKFI8
+                    errorTrackingId: TRK-20260919-676B94
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: "{\"operation\": \"insert\", \"table\": \"jobs\"\
                       }"
-                    errorTrackingId: TRK-20260919-7MWUQC
+                    errorTrackingId: TRK-20260919-2FE311
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{\"service\": \"payment-gateway\", \"status\":\
                       \ \"timeout\"}"
-                    errorTrackingId: TRK-20260919-WS25NE
+                    errorTrackingId: TRK-20260919-2B1882
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Internal Server Error - Server encountered an error
@@ -498,27 +502,27 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{\"field\": \"docSourceStandard\", \"location\"\
                       : \"requestBody\"}"
-                    errorTrackingId: TRK-20260919-UUC1QJ
+                    errorTrackingId: TRK-20260919-5F4858
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: "{\"field\": \"docSourceStandard\", \"issue\": \"\
                       exactly one variant must be provided\"}"
-                    errorTrackingId: TRK-20260919-G5EGXY
+                    errorTrackingId: TRK-20260919-A377FD
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: "{\"error\": \"unexpected token at position 42\"\
                       }"
-                    errorTrackingId: TRK-20260919-W7OYI9
+                    errorTrackingId: TRK-20260919-B1D98E
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Bad Request - Invalid request parameters
@@ -533,23 +537,23 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{\"expected\": \"Bearer <token>\", \"received\"\
                       : \"none\"}"
-                    errorTrackingId: TRK-20260919-FK8OMP
+                    errorTrackingId: TRK-20260919-54C2A0
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: "{\"issue\": \"token signature verification failed\"\
                       }"
-                    errorTrackingId: TRK-20260919-5BRXQB
+                    errorTrackingId: TRK-20260919-187F05
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: "{\"expiresAt\": \"2026-09-19T05:53:00Z\", \"currentTime\"\
-                      : \"2026-09-19T06:53:00Z\"}"
-                    errorTrackingId: TRK-20260919-OQZC5V
+                    errorDetails: "{\"expiresAt\": \"2026-09-19T06:47:53Z\", \"currentTime\"\
+                      : \"2026-09-19T07:47:53Z\"}"
+                    errorTrackingId: TRK-20260919-86FEBE
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unauthorized - Missing or invalid authentication
@@ -560,19 +564,20 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this
+                      operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{\"required\": \"jobs:write\", \"provided\": \"\
                       jobs:read\"}"
-                    errorTrackingId: TRK-20260919-1WCEE3
+                    errorTrackingId: TRK-20260919-4D2906
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: "{\"reason\": \"billing overdue\", \"contactSupport\"\
                       : \"support@click2mail.com\"}"
-                    errorTrackingId: TRK-20260919-JNVB0W
+                    errorTrackingId: TRK-20260919-CDE198
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Forbidden - Insufficient permissions
@@ -583,10 +588,10 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{\"jobId\": \"JOB-12345\"}"
-                    errorTrackingId: TRK-20260919-TQT1ZI
+                    errorTrackingId: TRK-20260919-ECC97D
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
@@ -594,7 +599,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{\"resourceType\": \"document\", \"resourceId\"\
                       : \"DOC-67890\"}"
-                    errorTrackingId: TRK-20260919-6E60XA
+                    errorTrackingId: TRK-20260919-3D7526
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Not Found - Resource not found
@@ -605,30 +610,30 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: "{\"field\": \"docSourceStandard\", \"value\": \"\
                       invalid_value\", \"allowedValues\": [\"letter\", \"postcard\"\
                       , \"brochure\", \"flat\"]}"
-                    errorTrackingId: TRK-20260919-UT80T3
+                    errorTrackingId: TRK-20260919-3B0FAF
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: "{\"fields\": [\"jobTemplate\", \"jobOptions\"],\
                       \ \"issue\": \"only one may be provided\"}"
-                    errorTrackingId: TRK-20260919-IM1SBX
+                    errorTrackingId: TRK-20260919-2EA109
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: "{\"errors\": [{\"field\": \"docSourceStandard\"\
                       , \"issue\": \"not found in document library\"}, {\"field\"\
                       : \"pdfSplitJobsWithAddress.postalCode\", \"issue\": \"invalid\
                       \ format - must be 5 or 9 digits\"}]}"
-                    errorTrackingId: TRK-20260919-JT0IKL
+                    errorTrackingId: TRK-20260919-A6DF77
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unprocessable Entity - Validation failed
@@ -639,26 +644,27 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the
+                      request
                     errorCode: SERVER_ERROR
                     errorDetails: "{\"message\": \"An unexpected error occurred\"}"
-                    errorTrackingId: TRK-20260919-WY0LYN
+                    errorTrackingId: TRK-20260919-19A006
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: "{\"operation\": \"insert\", \"table\": \"jobs\"\
                       }"
-                    errorTrackingId: TRK-20260919-YP3RB6
+                    errorTrackingId: TRK-20260919-2438AE
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{\"service\": \"payment-gateway\", \"status\":\
                       \ \"timeout\"}"
-                    errorTrackingId: TRK-20260919-NS5GRH
+                    errorTrackingId: TRK-20260919-D8AD60
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Internal Server Error - Server encountered an error
@@ -693,27 +699,27 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{\"field\": \"docSourceStandard\", \"location\"\
                       : \"requestBody\"}"
-                    errorTrackingId: TRK-20260919-O2W4ZB
+                    errorTrackingId: TRK-20260919-90BBF8
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: "{\"field\": \"docSourceStandard\", \"issue\": \"\
                       exactly one variant must be provided\"}"
-                    errorTrackingId: TRK-20260919-I8W1RU
+                    errorTrackingId: TRK-20260919-009C22
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: "{\"error\": \"unexpected token at position 42\"\
                       }"
-                    errorTrackingId: TRK-20260919-S5ZOVG
+                    errorTrackingId: TRK-20260919-F12735
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Bad Request - Invalid request parameters
@@ -728,23 +734,23 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{\"expected\": \"Bearer <token>\", \"received\"\
                       : \"none\"}"
-                    errorTrackingId: TRK-20260919-831EDN
+                    errorTrackingId: TRK-20260919-98F609
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: "{\"issue\": \"token signature verification failed\"\
                       }"
-                    errorTrackingId: TRK-20260919-KOTEWZ
+                    errorTrackingId: TRK-20260919-0786D0
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: "{\"expiresAt\": \"2026-09-19T05:53:00Z\", \"currentTime\"\
-                      : \"2026-09-19T06:53:00Z\"}"
-                    errorTrackingId: TRK-20260919-TCKDKE
+                    errorDetails: "{\"expiresAt\": \"2026-09-19T06:47:53Z\", \"currentTime\"\
+                      : \"2026-09-19T07:47:53Z\"}"
+                    errorTrackingId: TRK-20260919-47CA2A
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unauthorized - Missing or invalid authentication
@@ -755,19 +761,20 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this
+                      operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{\"required\": \"jobs:write\", \"provided\": \"\
                       jobs:read\"}"
-                    errorTrackingId: TRK-20260919-DCG0LW
+                    errorTrackingId: TRK-20260919-BB4ECE
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: "{\"reason\": \"billing overdue\", \"contactSupport\"\
                       : \"support@click2mail.com\"}"
-                    errorTrackingId: TRK-20260919-RRVNZC
+                    errorTrackingId: TRK-20260919-9F76A9
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Forbidden - Insufficient permissions
@@ -778,10 +785,10 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{\"jobId\": \"JOB-12345\"}"
-                    errorTrackingId: TRK-20260919-7C8NBO
+                    errorTrackingId: TRK-20260919-153B80
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
@@ -789,7 +796,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{\"resourceType\": \"document\", \"resourceId\"\
                       : \"DOC-67890\"}"
-                    errorTrackingId: TRK-20260919-Z63OT5
+                    errorTrackingId: TRK-20260919-91ACCB
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Not Found - Resource not found
@@ -800,30 +807,30 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: "{\"field\": \"docSourceStandard\", \"value\": \"\
                       invalid_value\", \"allowedValues\": [\"letter\", \"postcard\"\
                       , \"brochure\", \"flat\"]}"
-                    errorTrackingId: TRK-20260919-B6VSEF
+                    errorTrackingId: TRK-20260919-CF3FF4
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: "{\"fields\": [\"jobTemplate\", \"jobOptions\"],\
                       \ \"issue\": \"only one may be provided\"}"
-                    errorTrackingId: TRK-20260919-BGV2VR
+                    errorTrackingId: TRK-20260919-397DC2
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: "{\"errors\": [{\"field\": \"docSourceStandard\"\
                       , \"issue\": \"not found in document library\"}, {\"field\"\
                       : \"pdfSplitJobsNoAddress.postalCode\", \"issue\": \"invalid\
                       \ format - must be 5 or 9 digits\"}]}"
-                    errorTrackingId: TRK-20260919-RZXJNM
+                    errorTrackingId: TRK-20260919-D6023F
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unprocessable Entity - Validation failed
@@ -834,26 +841,27 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the
+                      request
                     errorCode: SERVER_ERROR
                     errorDetails: "{\"message\": \"An unexpected error occurred\"}"
-                    errorTrackingId: TRK-20260919-6Y82FV
+                    errorTrackingId: TRK-20260919-43A583
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: "{\"operation\": \"insert\", \"table\": \"jobs\"\
                       }"
-                    errorTrackingId: TRK-20260919-TSRHR9
+                    errorTrackingId: TRK-20260919-BB735C
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{\"service\": \"payment-gateway\", \"status\":\
                       \ \"timeout\"}"
-                    errorTrackingId: TRK-20260919-ZIX2FI
+                    errorTrackingId: TRK-20260919-2A35E0
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Internal Server Error - Server encountered an error
@@ -888,27 +896,27 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{\"field\": \"mergeDocumentSource\", \"location\"\
                       : \"requestBody\"}"
-                    errorTrackingId: TRK-20260919-9TOZG8
+                    errorTrackingId: TRK-20260919-A15226
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: "{\"field\": \"mergeDocumentSource\", \"issue\"\
                       : \"exactly one variant must be provided\"}"
-                    errorTrackingId: TRK-20260919-5PVTDK
+                    errorTrackingId: TRK-20260919-14F690
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: "{\"error\": \"unexpected token at position 42\"\
                       }"
-                    errorTrackingId: TRK-20260919-376H6T
+                    errorTrackingId: TRK-20260919-20D6EE
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Bad Request - Invalid request parameters
@@ -923,23 +931,23 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{\"expected\": \"Bearer <token>\", \"received\"\
                       : \"none\"}"
-                    errorTrackingId: TRK-20260919-1H908V
+                    errorTrackingId: TRK-20260919-EE6041
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: "{\"issue\": \"token signature verification failed\"\
                       }"
-                    errorTrackingId: TRK-20260919-KXALGV
+                    errorTrackingId: TRK-20260919-D22A7A
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: "{\"expiresAt\": \"2026-09-19T05:53:00Z\", \"currentTime\"\
-                      : \"2026-09-19T06:53:00Z\"}"
-                    errorTrackingId: TRK-20260919-U3Z81P
+                    errorDetails: "{\"expiresAt\": \"2026-09-19T06:47:53Z\", \"currentTime\"\
+                      : \"2026-09-19T07:47:53Z\"}"
+                    errorTrackingId: TRK-20260919-8E5290
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unauthorized - Missing or invalid authentication
@@ -950,19 +958,20 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this
+                      operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{\"required\": \"jobs:write\", \"provided\": \"\
                       jobs:read\"}"
-                    errorTrackingId: TRK-20260919-CHDCAQ
+                    errorTrackingId: TRK-20260919-DC6293
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: "{\"reason\": \"billing overdue\", \"contactSupport\"\
                       : \"support@click2mail.com\"}"
-                    errorTrackingId: TRK-20260919-HU0ZZC
+                    errorTrackingId: TRK-20260919-F4D44D
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Forbidden - Insufficient permissions
@@ -973,10 +982,10 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{\"jobId\": \"JOB-12345\"}"
-                    errorTrackingId: TRK-20260919-YVQAVU
+                    errorTrackingId: TRK-20260919-E63046
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
@@ -984,7 +993,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{\"resourceType\": \"document\", \"resourceId\"\
                       : \"DOC-67890\"}"
-                    errorTrackingId: TRK-20260919-ELGNCX
+                    errorTrackingId: TRK-20260919-CD352D
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Not Found - Resource not found
@@ -995,30 +1004,30 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: "{\"field\": \"mergeDocumentSource\", \"value\"\
                       : \"invalid_value\", \"allowedValues\": [\"letter\", \"postcard\"\
                       , \"brochure\", \"flat\"]}"
-                    errorTrackingId: TRK-20260919-2ID9ZV
+                    errorTrackingId: TRK-20260919-3CDFE9
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: "{\"fields\": [\"jobTemplate\", \"jobOptions\"],\
                       \ \"issue\": \"only one may be provided\"}"
-                    errorTrackingId: TRK-20260919-BNMP57
+                    errorTrackingId: TRK-20260919-1C17F3
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: "{\"errors\": [{\"field\": \"mergeDocumentSource\"\
                       , \"issue\": \"not found in document library\"}, {\"field\"\
                       : \"recipientAddressSource.postalCode\", \"issue\": \"invalid\
                       \ format - must be 5 or 9 digits\"}]}"
-                    errorTrackingId: TRK-20260919-44SL6C
+                    errorTrackingId: TRK-20260919-22BE50
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unprocessable Entity - Validation failed
@@ -1029,26 +1038,27 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the
+                      request
                     errorCode: SERVER_ERROR
                     errorDetails: "{\"message\": \"An unexpected error occurred\"}"
-                    errorTrackingId: TRK-20260919-7O4MGV
+                    errorTrackingId: TRK-20260919-287E55
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: "{\"operation\": \"insert\", \"table\": \"jobs\"\
                       }"
-                    errorTrackingId: TRK-20260919-GCO7H2
+                    errorTrackingId: TRK-20260919-B7B918
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{\"service\": \"payment-gateway\", \"status\":\
                       \ \"timeout\"}"
-                    errorTrackingId: TRK-20260919-RB97SV
+                    errorTrackingId: TRK-20260919-3DC431
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Internal Server Error - Server encountered an error
@@ -1084,27 +1094,27 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{\"field\": \"docSourceZipFileRef\", \"location\"\
                       : \"requestBody\"}"
-                    errorTrackingId: TRK-20260919-EEA5AK
+                    errorTrackingId: TRK-20260919-542995
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: "{\"field\": \"docSourceZipFileRef\", \"issue\"\
                       : \"exactly one variant must be provided\"}"
-                    errorTrackingId: TRK-20260919-4SOZJV
+                    errorTrackingId: TRK-20260919-42A2CD
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: "{\"error\": \"unexpected token at position 42\"\
                       }"
-                    errorTrackingId: TRK-20260919-UTRCAZ
+                    errorTrackingId: TRK-20260919-509354
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Bad Request - Invalid request parameters
@@ -1119,23 +1129,23 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{\"expected\": \"Bearer <token>\", \"received\"\
                       : \"none\"}"
-                    errorTrackingId: TRK-20260919-7BOWPC
+                    errorTrackingId: TRK-20260919-7AE963
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: "{\"issue\": \"token signature verification failed\"\
                       }"
-                    errorTrackingId: TRK-20260919-D88FIQ
+                    errorTrackingId: TRK-20260919-CF2AB7
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: "{\"expiresAt\": \"2026-09-19T05:53:00Z\", \"currentTime\"\
-                      : \"2026-09-19T06:53:00Z\"}"
-                    errorTrackingId: TRK-20260919-35809H
+                    errorDetails: "{\"expiresAt\": \"2026-09-19T06:47:53Z\", \"currentTime\"\
+                      : \"2026-09-19T07:47:53Z\"}"
+                    errorTrackingId: TRK-20260919-286C8A
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unauthorized - Missing or invalid authentication
@@ -1146,19 +1156,20 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this
+                      operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{\"required\": \"jobs:write\", \"provided\": \"\
                       jobs:read\"}"
-                    errorTrackingId: TRK-20260919-9GA3RU
+                    errorTrackingId: TRK-20260919-32444C
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: "{\"reason\": \"billing overdue\", \"contactSupport\"\
                       : \"support@click2mail.com\"}"
-                    errorTrackingId: TRK-20260919-IWON09
+                    errorTrackingId: TRK-20260919-B4D981
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Forbidden - Insufficient permissions
@@ -1169,10 +1180,10 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{\"jobId\": \"JOB-12345\"}"
-                    errorTrackingId: TRK-20260919-TE7FHD
+                    errorTrackingId: TRK-20260919-3ECC3F
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
@@ -1180,7 +1191,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{\"resourceType\": \"document\", \"resourceId\"\
                       : \"DOC-67890\"}"
-                    errorTrackingId: TRK-20260919-7UH67F
+                    errorTrackingId: TRK-20260919-43B21E
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Not Found - Resource not found
@@ -1191,30 +1202,30 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: "{\"field\": \"docSourceZipFileRef\", \"value\"\
                       : \"invalid_value\", \"allowedValues\": [\"letter\", \"postcard\"\
                       , \"brochure\", \"flat\"]}"
-                    errorTrackingId: TRK-20260919-LQNVCJ
+                    errorTrackingId: TRK-20260919-36CE56
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: "{\"fields\": [\"jobTemplate\", \"jobOptions\"],\
                       \ \"issue\": \"only one may be provided\"}"
-                    errorTrackingId: TRK-20260919-M3Z2EW
+                    errorTrackingId: TRK-20260919-0EA88E
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: "{\"errors\": [{\"field\": \"docSourceZipFileRef\"\
                       , \"issue\": \"not found in document library\"}, {\"field\"\
                       : \"recipientAddress.postalCode\", \"issue\": \"invalid format\
                       \ - must be 5 or 9 digits\"}]}"
-                    errorTrackingId: TRK-20260919-QNUG3S
+                    errorTrackingId: TRK-20260919-410B91
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unprocessable Entity - Validation failed
@@ -1225,26 +1236,27 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the
+                      request
                     errorCode: SERVER_ERROR
                     errorDetails: "{\"message\": \"An unexpected error occurred\"}"
-                    errorTrackingId: TRK-20260919-TTF31O
+                    errorTrackingId: TRK-20260919-7A549B
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: "{\"operation\": \"insert\", \"table\": \"jobs\"\
                       }"
-                    errorTrackingId: TRK-20260919-EATQEW
+                    errorTrackingId: TRK-20260919-1E44F3
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{\"service\": \"payment-gateway\", \"status\":\
                       \ \"timeout\"}"
-                    errorTrackingId: TRK-20260919-6W8URU
+                    errorTrackingId: TRK-20260919-B07D77
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Internal Server Error - Server encountered an error
@@ -1279,27 +1291,27 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: "{\"field\": \"zipDocumentSource\", \"location\"\
                       : \"requestBody\"}"
-                    errorTrackingId: TRK-20260919-6BWG9N
+                    errorTrackingId: TRK-20260919-694BF2
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: "{\"field\": \"zipDocumentSource\", \"issue\": \"\
                       exactly one variant must be provided\"}"
-                    errorTrackingId: TRK-20260919-CSE8AY
+                    errorTrackingId: TRK-20260919-F6D550
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: "{\"error\": \"unexpected token at position 42\"\
                       }"
-                    errorTrackingId: TRK-20260919-MVHVJF
+                    errorTrackingId: TRK-20260919-1995CE
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Bad Request - Invalid request parameters
@@ -1314,23 +1326,23 @@ paths:
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: "{\"expected\": \"Bearer <token>\", \"received\"\
                       : \"none\"}"
-                    errorTrackingId: TRK-20260919-AA7JEJ
+                    errorTrackingId: TRK-20260919-85646E
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: "{\"issue\": \"token signature verification failed\"\
                       }"
-                    errorTrackingId: TRK-20260919-TOEVEZ
+                    errorTrackingId: TRK-20260919-E511BC
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: "{\"expiresAt\": \"2026-09-19T05:53:00Z\", \"currentTime\"\
-                      : \"2026-09-19T06:53:00Z\"}"
-                    errorTrackingId: TRK-20260919-5FJD0X
+                    errorDetails: "{\"expiresAt\": \"2026-09-19T06:47:53Z\", \"currentTime\"\
+                      : \"2026-09-19T07:47:53Z\"}"
+                    errorTrackingId: TRK-20260919-CF4C52
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unauthorized - Missing or invalid authentication
@@ -1341,19 +1353,20 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this
+                      operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: "{\"required\": \"jobs:write\", \"provided\": \"\
                       jobs:read\"}"
-                    errorTrackingId: TRK-20260919-2ADOAO
+                    errorTrackingId: TRK-20260919-191F5E
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: "{\"reason\": \"billing overdue\", \"contactSupport\"\
                       : \"support@click2mail.com\"}"
-                    errorTrackingId: TRK-20260919-MNB5AQ
+                    errorTrackingId: TRK-20260919-5F2695
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Forbidden - Insufficient permissions
@@ -1364,10 +1377,10 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
                     errorDetails: "{\"jobId\": \"JOB-12345\"}"
-                    errorTrackingId: TRK-20260919-FI6BE1
+                    errorTrackingId: TRK-20260919-47BC2C
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
@@ -1375,7 +1388,7 @@ paths:
                     errorCode: RESOURCE_NOT_FOUND
                     errorDetails: "{\"resourceType\": \"document\", \"resourceId\"\
                       : \"DOC-67890\"}"
-                    errorTrackingId: TRK-20260919-1NL2Z8
+                    errorTrackingId: TRK-20260919-4E3D4C
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Not Found - Resource not found
@@ -1386,30 +1399,30 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
                     errorDetails: "{\"field\": \"zipDocumentSource\", \"value\": \"\
                       invalid_value\", \"allowedValues\": [\"letter\", \"postcard\"\
                       , \"brochure\", \"flat\"]}"
-                    errorTrackingId: TRK-20260919-D9F6DS
+                    errorTrackingId: TRK-20260919-A372E8
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: "{\"fields\": [\"jobTemplate\", \"jobOptions\"],\
                       \ \"issue\": \"only one may be provided\"}"
-                    errorTrackingId: TRK-20260919-Q1BZPL
+                    errorTrackingId: TRK-20260919-F246EC
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: "{\"errors\": [{\"field\": \"zipDocumentSource\"\
                       , \"issue\": \"not found in document library\"}, {\"field\"\
                       : \"returnAddress.postalCode\", \"issue\": \"invalid format\
                       \ - must be 5 or 9 digits\"}]}"
-                    errorTrackingId: TRK-20260919-1FZ45H
+                    errorTrackingId: TRK-20260919-E05AF2
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Unprocessable Entity - Validation failed
@@ -1420,26 +1433,27 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the
+                      request
                     errorCode: SERVER_ERROR
                     errorDetails: "{\"message\": \"An unexpected error occurred\"}"
-                    errorTrackingId: TRK-20260919-EUUGPB
+                    errorTrackingId: TRK-20260919-C4287E
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: "{\"operation\": \"insert\", \"table\": \"jobs\"\
                       }"
-                    errorTrackingId: TRK-20260919-4KMQ2I
+                    errorTrackingId: TRK-20260919-88F35F
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
                     errorDetails: "{\"service\": \"payment-gateway\", \"status\":\
                       \ \"timeout\"}"
-                    errorTrackingId: TRK-20260919-NIYYLO
+                    errorTrackingId: TRK-20260919-204C57
               schema:
                 $ref: "#/components/schemas/errorResponse"
           description: Internal Server Error - Server encountered an error
