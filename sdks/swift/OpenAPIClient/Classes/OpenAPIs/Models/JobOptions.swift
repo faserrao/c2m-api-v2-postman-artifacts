@@ -12,16 +12,58 @@ import AnyCodable
 
 public struct JobOptions: Codable, JSONEncodable, Hashable {
 
-    public var documentClass: String
-    public var layout: String
-    public var productionTime: String
-    public var envelope: String
-    public var color: String
-    public var paperType: String
-    public var printOption: String
-    public var mailClass: String
+    public enum DocumentClass: String, Codable, CaseIterable {
+        case letter = "letter"
+        case postcard = "postcard"
+        case brochure = "brochure"
+        case flat = "flat"
+    }
+    public enum Layout: String, Codable, CaseIterable {
+        case addressOnFirstPage = "address_on_first_page"
+        case addressOnBackPage = "address_on_back_page"
+    }
+    public enum ProductionTime: String, Codable, CaseIterable {
+        case nextDay = "next_day"
+        case twoDay = "two_day"
+        case threeDay = "three_day"
+        case standard = "standard"
+        case sameDay = "same_day"
+    }
+    public enum Envelope: String, Codable, CaseIterable {
+        case standard = "standard"
+        case _none = "none"
+        case flat = "flat"
+        case doubleWindow = "double_window"
+    }
+    public enum Color: String, Codable, CaseIterable {
+        case fullColor = "full_color"
+        case blackAndWhite = "black_and_white"
+    }
+    public enum PaperType: String, Codable, CaseIterable {
+        case white = "white"
+        case white24 = "white_24"
+        case ivory = "ivory"
+        case glossy = "glossy"
+    }
+    public enum PrintOption: String, Codable, CaseIterable {
+        case doubleSided = "double_sided"
+        case singleSided = "single_sided"
+    }
+    public enum MailClass: String, Codable, CaseIterable {
+        case firstClass = "first_class"
+        case standard = "standard"
+        case nonProfit = "non_profit"
+    }
+    public var documentClass: DocumentClass
+    public var layout: Layout
+    public var productionTime: ProductionTime
+    public var envelope: Envelope
+    public var color: Color
+    public var paperType: PaperType
+    public var printOption: PrintOption
+    public var mailClass: MailClass
 
-    public init(documentClass: String, layout: String, productionTime: String, envelope: String, color: String, paperType: String, printOption: String, mailClass: String) {
+    public init(documentClass: DocumentClass, layout: Layout, productionTime: ProductionTime, envelope: Envelope, color: Color, paperType: PaperType, printOption: PrintOption, mailClass: MailClass) {
         self.documentClass = documentClass
         self.layout = layout
         self.productionTime = productionTime

@@ -33,19 +33,34 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocSourceZipFileRef" /> class.
         /// </summary>
-        /// <param name="int"></param>
-        internal DocSourceZipFileRef(int @int)
+        /// <param name="docSourceZipFileRefOneOf"></param>
+        public DocSourceZipFileRef(DocSourceZipFileRefOneOf docSourceZipFileRefOneOf)
         {
-            Int = @int;
+            DocSourceZipFileRefOneOf = docSourceZipFileRefOneOf;
+            OnCreated();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DocSourceZipFileRef" /> class.
+        /// </summary>
+        /// <param name="docSourceZipFileRefOneOf1"></param>
+        public DocSourceZipFileRef(DocSourceZipFileRefOneOf1 docSourceZipFileRefOneOf1)
+        {
+            DocSourceZipFileRefOneOf1 = docSourceZipFileRefOneOf1;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets Int
+        /// Gets or Sets DocSourceZipFileRefOneOf
         /// </summary>
-        public int? Int { get; set; }
+        public DocSourceZipFileRefOneOf? DocSourceZipFileRefOneOf { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DocSourceZipFileRefOneOf1
+        /// </summary>
+        public DocSourceZipFileRefOneOf1? DocSourceZipFileRefOneOf1 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,7 +107,27 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            int? varInt = default;
+            DocSourceZipFileRefOneOf? docSourceZipFileRefOneOf = default;
+            DocSourceZipFileRefOneOf1? docSourceZipFileRefOneOf1 = default;
+
+            Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
+            while (utf8JsonReaderOneOf.Read())
+            {
+                if (startingTokenType == JsonTokenType.StartObject && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
+                    break;
+
+                if (startingTokenType == JsonTokenType.StartArray && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndArray && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
+                    break;
+
+                if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
+                {
+                    Utf8JsonReader utf8JsonReaderDocSourceZipFileRefOneOf = utf8JsonReader;
+                    ClientUtils.TryDeserialize<DocSourceZipFileRefOneOf?>(ref utf8JsonReaderDocSourceZipFileRefOneOf, jsonSerializerOptions, out docSourceZipFileRefOneOf);
+
+                    Utf8JsonReader utf8JsonReaderDocSourceZipFileRefOneOf1 = utf8JsonReader;
+                    ClientUtils.TryDeserialize<DocSourceZipFileRefOneOf1?>(ref utf8JsonReaderDocSourceZipFileRefOneOf1, jsonSerializerOptions, out docSourceZipFileRefOneOf1);
+                }
+            }
 
             while (utf8JsonReader.Read())
             {
@@ -115,8 +150,11 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (varInt != null)
-                return new DocSourceZipFileRef(varInt.Value);
+            if (docSourceZipFileRefOneOf != null)
+                return new DocSourceZipFileRef(docSourceZipFileRefOneOf);
+
+            if (docSourceZipFileRefOneOf1 != null)
+                return new DocSourceZipFileRef(docSourceZipFileRefOneOf1);
 
             throw new JsonException();
         }

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**JobTemplate** | Pointer to **string** |  | [optional] 
 **StartPage** | **int32** |  | 
 **EndPage** | **int32** |  | 
 
@@ -25,6 +26,31 @@ will change when the set of required properties is changed
 NewPdfSplitJobItemNoAddressWithDefaults instantiates a new PdfSplitJobItemNoAddress object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetJobTemplate
+
+`func (o *PdfSplitJobItemNoAddress) GetJobTemplate() string`
+
+GetJobTemplate returns the JobTemplate field if non-nil, zero value otherwise.
+
+### GetJobTemplateOk
+
+`func (o *PdfSplitJobItemNoAddress) GetJobTemplateOk() (*string, bool)`
+
+GetJobTemplateOk returns a tuple with the JobTemplate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetJobTemplate
+
+`func (o *PdfSplitJobItemNoAddress) SetJobTemplate(v string)`
+
+SetJobTemplate sets JobTemplate field to given value.
+
+### HasJobTemplate
+
+`func (o *PdfSplitJobItemNoAddress) HasJobTemplate() bool`
+
+HasJobTemplate returns a boolean if a field has been set.
 
 ### GetStartPage
 

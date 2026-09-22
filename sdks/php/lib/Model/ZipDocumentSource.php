@@ -57,10 +57,8 @@ class ZipDocumentSource implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'zip_document_id' => 'int',
-        'filename' => 'string',
-        'request_id' => 'int',
-        'zip_filename' => 'string'
+        'zip_document_id_source' => '\C2MApi\Model\ZipDocumentIdSource',
+        'zip_request_id_source' => '\C2MApi\Model\ZipRequestIdSource'
     ];
 
     /**
@@ -71,10 +69,8 @@ class ZipDocumentSource implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'zip_document_id' => null,
-        'filename' => null,
-        'request_id' => null,
-        'zip_filename' => null
+        'zip_document_id_source' => null,
+        'zip_request_id_source' => null
     ];
 
     /**
@@ -83,10 +79,8 @@ class ZipDocumentSource implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'zip_document_id' => false,
-        'filename' => false,
-        'request_id' => false,
-        'zip_filename' => false
+        'zip_document_id_source' => false,
+        'zip_request_id_source' => false
     ];
 
     /**
@@ -175,10 +169,8 @@ class ZipDocumentSource implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'zip_document_id' => 'zipDocumentId',
-        'filename' => 'filename',
-        'request_id' => 'requestId',
-        'zip_filename' => 'zipFilename'
+        'zip_document_id_source' => 'zipDocumentIdSource',
+        'zip_request_id_source' => 'zipRequestIdSource'
     ];
 
     /**
@@ -187,10 +179,8 @@ class ZipDocumentSource implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'zip_document_id' => 'setZipDocumentId',
-        'filename' => 'setFilename',
-        'request_id' => 'setRequestId',
-        'zip_filename' => 'setZipFilename'
+        'zip_document_id_source' => 'setZipDocumentIdSource',
+        'zip_request_id_source' => 'setZipRequestIdSource'
     ];
 
     /**
@@ -199,10 +189,8 @@ class ZipDocumentSource implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'zip_document_id' => 'getZipDocumentId',
-        'filename' => 'getFilename',
-        'request_id' => 'getRequestId',
-        'zip_filename' => 'getZipFilename'
+        'zip_document_id_source' => 'getZipDocumentIdSource',
+        'zip_request_id_source' => 'getZipRequestIdSource'
     ];
 
     /**
@@ -262,10 +250,8 @@ class ZipDocumentSource implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('zip_document_id', $data ?? [], null);
-        $this->setIfExists('filename', $data ?? [], null);
-        $this->setIfExists('request_id', $data ?? [], null);
-        $this->setIfExists('zip_filename', $data ?? [], null);
+        $this->setIfExists('zip_document_id_source', $data ?? [], null);
+        $this->setIfExists('zip_request_id_source', $data ?? [], null);
     }
 
     /**
@@ -295,17 +281,11 @@ class ZipDocumentSource implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['zip_document_id'] === null) {
-            $invalidProperties[] = "'zip_document_id' can't be null";
+        if ($this->container['zip_document_id_source'] === null) {
+            $invalidProperties[] = "'zip_document_id_source' can't be null";
         }
-        if ($this->container['filename'] === null) {
-            $invalidProperties[] = "'filename' can't be null";
-        }
-        if ($this->container['request_id'] === null) {
-            $invalidProperties[] = "'request_id' can't be null";
-        }
-        if ($this->container['zip_filename'] === null) {
-            $invalidProperties[] = "'zip_filename' can't be null";
+        if ($this->container['zip_request_id_source'] === null) {
+            $invalidProperties[] = "'zip_request_id_source' can't be null";
         }
         return $invalidProperties;
     }
@@ -323,109 +303,55 @@ class ZipDocumentSource implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets zip_document_id
+     * Gets zip_document_id_source
      *
-     * @return int
+     * @return \C2MApi\Model\ZipDocumentIdSource
      */
-    public function getZipDocumentId()
+    public function getZipDocumentIdSource()
     {
-        return $this->container['zip_document_id'];
+        return $this->container['zip_document_id_source'];
     }
 
     /**
-     * Sets zip_document_id
+     * Sets zip_document_id_source
      *
-     * @param int $zip_document_id zip_document_id
+     * @param \C2MApi\Model\ZipDocumentIdSource $zip_document_id_source zip_document_id_source
      *
      * @return self
      */
-    public function setZipDocumentId($zip_document_id)
+    public function setZipDocumentIdSource($zip_document_id_source)
     {
-        if (is_null($zip_document_id)) {
-            throw new \InvalidArgumentException('non-nullable zip_document_id cannot be null');
+        if (is_null($zip_document_id_source)) {
+            throw new \InvalidArgumentException('non-nullable zip_document_id_source cannot be null');
         }
-        $this->container['zip_document_id'] = $zip_document_id;
+        $this->container['zip_document_id_source'] = $zip_document_id_source;
 
         return $this;
     }
 
     /**
-     * Gets filename
+     * Gets zip_request_id_source
      *
-     * @return string
+     * @return \C2MApi\Model\ZipRequestIdSource
      */
-    public function getFilename()
+    public function getZipRequestIdSource()
     {
-        return $this->container['filename'];
+        return $this->container['zip_request_id_source'];
     }
 
     /**
-     * Sets filename
+     * Sets zip_request_id_source
      *
-     * @param string $filename filename
+     * @param \C2MApi\Model\ZipRequestIdSource $zip_request_id_source zip_request_id_source
      *
      * @return self
      */
-    public function setFilename($filename)
+    public function setZipRequestIdSource($zip_request_id_source)
     {
-        if (is_null($filename)) {
-            throw new \InvalidArgumentException('non-nullable filename cannot be null');
+        if (is_null($zip_request_id_source)) {
+            throw new \InvalidArgumentException('non-nullable zip_request_id_source cannot be null');
         }
-        $this->container['filename'] = $filename;
-
-        return $this;
-    }
-
-    /**
-     * Gets request_id
-     *
-     * @return int
-     */
-    public function getRequestId()
-    {
-        return $this->container['request_id'];
-    }
-
-    /**
-     * Sets request_id
-     *
-     * @param int $request_id request_id
-     *
-     * @return self
-     */
-    public function setRequestId($request_id)
-    {
-        if (is_null($request_id)) {
-            throw new \InvalidArgumentException('non-nullable request_id cannot be null');
-        }
-        $this->container['request_id'] = $request_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets zip_filename
-     *
-     * @return string
-     */
-    public function getZipFilename()
-    {
-        return $this->container['zip_filename'];
-    }
-
-    /**
-     * Sets zip_filename
-     *
-     * @param string $zip_filename zip_filename
-     *
-     * @return self
-     */
-    public function setZipFilename($zip_filename)
-    {
-        if (is_null($zip_filename)) {
-            throw new \InvalidArgumentException('non-nullable zip_filename cannot be null');
-        }
-        $this->container['zip_filename'] = $zip_filename;
+        $this->container['zip_request_id_source'] = $zip_request_id_source;
 
         return $this;
     }

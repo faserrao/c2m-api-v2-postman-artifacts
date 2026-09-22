@@ -4,10 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mappingId** | **Number** |  | [optional] 
 **singleAddress** | [**Address**](Address.md) |  | 
-**addressName** | **String** |  | [optional] 
-**addressList** | [**[Address]**](Address.md) |  | 
-**addressListName** | **String** |  | [optional] 
+**recipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | 
+**recipientAddressByAddressId** | **Number** |  | 
+**recipientAddressByListId** | **Number** |  | 
 
 

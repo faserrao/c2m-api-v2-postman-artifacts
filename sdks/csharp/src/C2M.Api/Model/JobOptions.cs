@@ -42,7 +42,7 @@ namespace C2M.Api.Model
         /// <param name="printOption">printOption</param>
         /// <param name="mailClass">mailClass</param>
         [JsonConstructor]
-        public JobOptions(string documentClass, string layout, string productionTime, string envelope, string color, string paperType, string printOption, string mailClass)
+        public JobOptions(DocumentClassEnum documentClass, LayoutEnum layout, ProductionTimeEnum productionTime, EnvelopeEnum envelope, ColorEnum color, PaperTypeEnum paperType, PrintOptionEnum printOption, MailClassEnum mailClass)
         {
             DocumentClass = documentClass;
             Layout = layout;
@@ -58,52 +58,720 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
+        /// Defines DocumentClass
+        /// </summary>
+        public enum DocumentClassEnum
+        {
+            /// <summary>
+            /// Enum Letter for value: letter
+            /// </summary>
+            Letter = 1,
+
+            /// <summary>
+            /// Enum Postcard for value: postcard
+            /// </summary>
+            Postcard = 2,
+
+            /// <summary>
+            /// Enum Brochure for value: brochure
+            /// </summary>
+            Brochure = 3,
+
+            /// <summary>
+            /// Enum Flat for value: flat
+            /// </summary>
+            Flat = 4
+        }
+
+        /// <summary>
+        /// Returns a <see cref="DocumentClassEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static DocumentClassEnum DocumentClassEnumFromString(string value)
+        {
+            if (value.Equals("letter"))
+                return DocumentClassEnum.Letter;
+
+            if (value.Equals("postcard"))
+                return DocumentClassEnum.Postcard;
+
+            if (value.Equals("brochure"))
+                return DocumentClassEnum.Brochure;
+
+            if (value.Equals("flat"))
+                return DocumentClassEnum.Flat;
+
+            throw new NotImplementedException($"Could not convert value to type DocumentClassEnum: '{value}'");
+        }
+
+        /// <summary>
+        /// Returns a <see cref="DocumentClassEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static DocumentClassEnum? DocumentClassEnumFromStringOrDefault(string value)
+        {
+            if (value.Equals("letter"))
+                return DocumentClassEnum.Letter;
+
+            if (value.Equals("postcard"))
+                return DocumentClassEnum.Postcard;
+
+            if (value.Equals("brochure"))
+                return DocumentClassEnum.Brochure;
+
+            if (value.Equals("flat"))
+                return DocumentClassEnum.Flat;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="DocumentClassEnum"/> to the json value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string DocumentClassEnumToJsonValue(DocumentClassEnum value)
+        {
+            if (value == DocumentClassEnum.Letter)
+                return "letter";
+
+            if (value == DocumentClassEnum.Postcard)
+                return "postcard";
+
+            if (value == DocumentClassEnum.Brochure)
+                return "brochure";
+
+            if (value == DocumentClassEnum.Flat)
+                return "flat";
+
+            throw new NotImplementedException($"Value could not be handled: '{value}'");
+        }
+
+        /// <summary>
         /// Gets or Sets DocumentClass
         /// </summary>
         [JsonPropertyName("documentClass")]
-        public string DocumentClass { get; set; }
+        public DocumentClassEnum DocumentClass { get; set; }
+
+        /// <summary>
+        /// Defines Layout
+        /// </summary>
+        public enum LayoutEnum
+        {
+            /// <summary>
+            /// Enum AddressOnFirstPage for value: address_on_first_page
+            /// </summary>
+            AddressOnFirstPage = 1,
+
+            /// <summary>
+            /// Enum AddressOnBackPage for value: address_on_back_page
+            /// </summary>
+            AddressOnBackPage = 2
+        }
+
+        /// <summary>
+        /// Returns a <see cref="LayoutEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static LayoutEnum LayoutEnumFromString(string value)
+        {
+            if (value.Equals("address_on_first_page"))
+                return LayoutEnum.AddressOnFirstPage;
+
+            if (value.Equals("address_on_back_page"))
+                return LayoutEnum.AddressOnBackPage;
+
+            throw new NotImplementedException($"Could not convert value to type LayoutEnum: '{value}'");
+        }
+
+        /// <summary>
+        /// Returns a <see cref="LayoutEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static LayoutEnum? LayoutEnumFromStringOrDefault(string value)
+        {
+            if (value.Equals("address_on_first_page"))
+                return LayoutEnum.AddressOnFirstPage;
+
+            if (value.Equals("address_on_back_page"))
+                return LayoutEnum.AddressOnBackPage;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="LayoutEnum"/> to the json value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string LayoutEnumToJsonValue(LayoutEnum value)
+        {
+            if (value == LayoutEnum.AddressOnFirstPage)
+                return "address_on_first_page";
+
+            if (value == LayoutEnum.AddressOnBackPage)
+                return "address_on_back_page";
+
+            throw new NotImplementedException($"Value could not be handled: '{value}'");
+        }
 
         /// <summary>
         /// Gets or Sets Layout
         /// </summary>
         [JsonPropertyName("layout")]
-        public string Layout { get; set; }
+        public LayoutEnum Layout { get; set; }
+
+        /// <summary>
+        /// Defines ProductionTime
+        /// </summary>
+        public enum ProductionTimeEnum
+        {
+            /// <summary>
+            /// Enum NextDay for value: next_day
+            /// </summary>
+            NextDay = 1,
+
+            /// <summary>
+            /// Enum TwoDay for value: two_day
+            /// </summary>
+            TwoDay = 2,
+
+            /// <summary>
+            /// Enum ThreeDay for value: three_day
+            /// </summary>
+            ThreeDay = 3,
+
+            /// <summary>
+            /// Enum Standard for value: standard
+            /// </summary>
+            Standard = 4,
+
+            /// <summary>
+            /// Enum SameDay for value: same_day
+            /// </summary>
+            SameDay = 5
+        }
+
+        /// <summary>
+        /// Returns a <see cref="ProductionTimeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static ProductionTimeEnum ProductionTimeEnumFromString(string value)
+        {
+            if (value.Equals("next_day"))
+                return ProductionTimeEnum.NextDay;
+
+            if (value.Equals("two_day"))
+                return ProductionTimeEnum.TwoDay;
+
+            if (value.Equals("three_day"))
+                return ProductionTimeEnum.ThreeDay;
+
+            if (value.Equals("standard"))
+                return ProductionTimeEnum.Standard;
+
+            if (value.Equals("same_day"))
+                return ProductionTimeEnum.SameDay;
+
+            throw new NotImplementedException($"Could not convert value to type ProductionTimeEnum: '{value}'");
+        }
+
+        /// <summary>
+        /// Returns a <see cref="ProductionTimeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static ProductionTimeEnum? ProductionTimeEnumFromStringOrDefault(string value)
+        {
+            if (value.Equals("next_day"))
+                return ProductionTimeEnum.NextDay;
+
+            if (value.Equals("two_day"))
+                return ProductionTimeEnum.TwoDay;
+
+            if (value.Equals("three_day"))
+                return ProductionTimeEnum.ThreeDay;
+
+            if (value.Equals("standard"))
+                return ProductionTimeEnum.Standard;
+
+            if (value.Equals("same_day"))
+                return ProductionTimeEnum.SameDay;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="ProductionTimeEnum"/> to the json value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string ProductionTimeEnumToJsonValue(ProductionTimeEnum value)
+        {
+            if (value == ProductionTimeEnum.NextDay)
+                return "next_day";
+
+            if (value == ProductionTimeEnum.TwoDay)
+                return "two_day";
+
+            if (value == ProductionTimeEnum.ThreeDay)
+                return "three_day";
+
+            if (value == ProductionTimeEnum.Standard)
+                return "standard";
+
+            if (value == ProductionTimeEnum.SameDay)
+                return "same_day";
+
+            throw new NotImplementedException($"Value could not be handled: '{value}'");
+        }
 
         /// <summary>
         /// Gets or Sets ProductionTime
         /// </summary>
         [JsonPropertyName("productionTime")]
-        public string ProductionTime { get; set; }
+        public ProductionTimeEnum ProductionTime { get; set; }
+
+        /// <summary>
+        /// Defines Envelope
+        /// </summary>
+        public enum EnvelopeEnum
+        {
+            /// <summary>
+            /// Enum Standard for value: standard
+            /// </summary>
+            Standard = 1,
+
+            /// <summary>
+            /// Enum None for value: none
+            /// </summary>
+            None = 2,
+
+            /// <summary>
+            /// Enum Flat for value: flat
+            /// </summary>
+            Flat = 3,
+
+            /// <summary>
+            /// Enum DoubleWindow for value: double_window
+            /// </summary>
+            DoubleWindow = 4
+        }
+
+        /// <summary>
+        /// Returns a <see cref="EnvelopeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static EnvelopeEnum EnvelopeEnumFromString(string value)
+        {
+            if (value.Equals("standard"))
+                return EnvelopeEnum.Standard;
+
+            if (value.Equals("none"))
+                return EnvelopeEnum.None;
+
+            if (value.Equals("flat"))
+                return EnvelopeEnum.Flat;
+
+            if (value.Equals("double_window"))
+                return EnvelopeEnum.DoubleWindow;
+
+            throw new NotImplementedException($"Could not convert value to type EnvelopeEnum: '{value}'");
+        }
+
+        /// <summary>
+        /// Returns a <see cref="EnvelopeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static EnvelopeEnum? EnvelopeEnumFromStringOrDefault(string value)
+        {
+            if (value.Equals("standard"))
+                return EnvelopeEnum.Standard;
+
+            if (value.Equals("none"))
+                return EnvelopeEnum.None;
+
+            if (value.Equals("flat"))
+                return EnvelopeEnum.Flat;
+
+            if (value.Equals("double_window"))
+                return EnvelopeEnum.DoubleWindow;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="EnvelopeEnum"/> to the json value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string EnvelopeEnumToJsonValue(EnvelopeEnum value)
+        {
+            if (value == EnvelopeEnum.Standard)
+                return "standard";
+
+            if (value == EnvelopeEnum.None)
+                return "none";
+
+            if (value == EnvelopeEnum.Flat)
+                return "flat";
+
+            if (value == EnvelopeEnum.DoubleWindow)
+                return "double_window";
+
+            throw new NotImplementedException($"Value could not be handled: '{value}'");
+        }
 
         /// <summary>
         /// Gets or Sets Envelope
         /// </summary>
         [JsonPropertyName("envelope")]
-        public string Envelope { get; set; }
+        public EnvelopeEnum Envelope { get; set; }
+
+        /// <summary>
+        /// Defines Color
+        /// </summary>
+        public enum ColorEnum
+        {
+            /// <summary>
+            /// Enum FullColor for value: full_color
+            /// </summary>
+            FullColor = 1,
+
+            /// <summary>
+            /// Enum BlackAndWhite for value: black_and_white
+            /// </summary>
+            BlackAndWhite = 2
+        }
+
+        /// <summary>
+        /// Returns a <see cref="ColorEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static ColorEnum ColorEnumFromString(string value)
+        {
+            if (value.Equals("full_color"))
+                return ColorEnum.FullColor;
+
+            if (value.Equals("black_and_white"))
+                return ColorEnum.BlackAndWhite;
+
+            throw new NotImplementedException($"Could not convert value to type ColorEnum: '{value}'");
+        }
+
+        /// <summary>
+        /// Returns a <see cref="ColorEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static ColorEnum? ColorEnumFromStringOrDefault(string value)
+        {
+            if (value.Equals("full_color"))
+                return ColorEnum.FullColor;
+
+            if (value.Equals("black_and_white"))
+                return ColorEnum.BlackAndWhite;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="ColorEnum"/> to the json value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string ColorEnumToJsonValue(ColorEnum value)
+        {
+            if (value == ColorEnum.FullColor)
+                return "full_color";
+
+            if (value == ColorEnum.BlackAndWhite)
+                return "black_and_white";
+
+            throw new NotImplementedException($"Value could not be handled: '{value}'");
+        }
 
         /// <summary>
         /// Gets or Sets Color
         /// </summary>
         [JsonPropertyName("color")]
-        public string Color { get; set; }
+        public ColorEnum Color { get; set; }
+
+        /// <summary>
+        /// Defines PaperType
+        /// </summary>
+        public enum PaperTypeEnum
+        {
+            /// <summary>
+            /// Enum White for value: white
+            /// </summary>
+            White = 1,
+
+            /// <summary>
+            /// Enum White24 for value: white_24
+            /// </summary>
+            White24 = 2,
+
+            /// <summary>
+            /// Enum Ivory for value: ivory
+            /// </summary>
+            Ivory = 3,
+
+            /// <summary>
+            /// Enum Glossy for value: glossy
+            /// </summary>
+            Glossy = 4
+        }
+
+        /// <summary>
+        /// Returns a <see cref="PaperTypeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static PaperTypeEnum PaperTypeEnumFromString(string value)
+        {
+            if (value.Equals("white"))
+                return PaperTypeEnum.White;
+
+            if (value.Equals("white_24"))
+                return PaperTypeEnum.White24;
+
+            if (value.Equals("ivory"))
+                return PaperTypeEnum.Ivory;
+
+            if (value.Equals("glossy"))
+                return PaperTypeEnum.Glossy;
+
+            throw new NotImplementedException($"Could not convert value to type PaperTypeEnum: '{value}'");
+        }
+
+        /// <summary>
+        /// Returns a <see cref="PaperTypeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static PaperTypeEnum? PaperTypeEnumFromStringOrDefault(string value)
+        {
+            if (value.Equals("white"))
+                return PaperTypeEnum.White;
+
+            if (value.Equals("white_24"))
+                return PaperTypeEnum.White24;
+
+            if (value.Equals("ivory"))
+                return PaperTypeEnum.Ivory;
+
+            if (value.Equals("glossy"))
+                return PaperTypeEnum.Glossy;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="PaperTypeEnum"/> to the json value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string PaperTypeEnumToJsonValue(PaperTypeEnum value)
+        {
+            if (value == PaperTypeEnum.White)
+                return "white";
+
+            if (value == PaperTypeEnum.White24)
+                return "white_24";
+
+            if (value == PaperTypeEnum.Ivory)
+                return "ivory";
+
+            if (value == PaperTypeEnum.Glossy)
+                return "glossy";
+
+            throw new NotImplementedException($"Value could not be handled: '{value}'");
+        }
 
         /// <summary>
         /// Gets or Sets PaperType
         /// </summary>
         [JsonPropertyName("paperType")]
-        public string PaperType { get; set; }
+        public PaperTypeEnum PaperType { get; set; }
+
+        /// <summary>
+        /// Defines PrintOption
+        /// </summary>
+        public enum PrintOptionEnum
+        {
+            /// <summary>
+            /// Enum DoubleSided for value: double_sided
+            /// </summary>
+            DoubleSided = 1,
+
+            /// <summary>
+            /// Enum SingleSided for value: single_sided
+            /// </summary>
+            SingleSided = 2
+        }
+
+        /// <summary>
+        /// Returns a <see cref="PrintOptionEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static PrintOptionEnum PrintOptionEnumFromString(string value)
+        {
+            if (value.Equals("double_sided"))
+                return PrintOptionEnum.DoubleSided;
+
+            if (value.Equals("single_sided"))
+                return PrintOptionEnum.SingleSided;
+
+            throw new NotImplementedException($"Could not convert value to type PrintOptionEnum: '{value}'");
+        }
+
+        /// <summary>
+        /// Returns a <see cref="PrintOptionEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static PrintOptionEnum? PrintOptionEnumFromStringOrDefault(string value)
+        {
+            if (value.Equals("double_sided"))
+                return PrintOptionEnum.DoubleSided;
+
+            if (value.Equals("single_sided"))
+                return PrintOptionEnum.SingleSided;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="PrintOptionEnum"/> to the json value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string PrintOptionEnumToJsonValue(PrintOptionEnum value)
+        {
+            if (value == PrintOptionEnum.DoubleSided)
+                return "double_sided";
+
+            if (value == PrintOptionEnum.SingleSided)
+                return "single_sided";
+
+            throw new NotImplementedException($"Value could not be handled: '{value}'");
+        }
 
         /// <summary>
         /// Gets or Sets PrintOption
         /// </summary>
         [JsonPropertyName("printOption")]
-        public string PrintOption { get; set; }
+        public PrintOptionEnum PrintOption { get; set; }
+
+        /// <summary>
+        /// Defines MailClass
+        /// </summary>
+        public enum MailClassEnum
+        {
+            /// <summary>
+            /// Enum FirstClass for value: first_class
+            /// </summary>
+            FirstClass = 1,
+
+            /// <summary>
+            /// Enum Standard for value: standard
+            /// </summary>
+            Standard = 2,
+
+            /// <summary>
+            /// Enum NonProfit for value: non_profit
+            /// </summary>
+            NonProfit = 3
+        }
+
+        /// <summary>
+        /// Returns a <see cref="MailClassEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static MailClassEnum MailClassEnumFromString(string value)
+        {
+            if (value.Equals("first_class"))
+                return MailClassEnum.FirstClass;
+
+            if (value.Equals("standard"))
+                return MailClassEnum.Standard;
+
+            if (value.Equals("non_profit"))
+                return MailClassEnum.NonProfit;
+
+            throw new NotImplementedException($"Could not convert value to type MailClassEnum: '{value}'");
+        }
+
+        /// <summary>
+        /// Returns a <see cref="MailClassEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static MailClassEnum? MailClassEnumFromStringOrDefault(string value)
+        {
+            if (value.Equals("first_class"))
+                return MailClassEnum.FirstClass;
+
+            if (value.Equals("standard"))
+                return MailClassEnum.Standard;
+
+            if (value.Equals("non_profit"))
+                return MailClassEnum.NonProfit;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="MailClassEnum"/> to the json value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string MailClassEnumToJsonValue(MailClassEnum value)
+        {
+            if (value == MailClassEnum.FirstClass)
+                return "first_class";
+
+            if (value == MailClassEnum.Standard)
+                return "standard";
+
+            if (value == MailClassEnum.NonProfit)
+                return "non_profit";
+
+            throw new NotImplementedException($"Value could not be handled: '{value}'");
+        }
 
         /// <summary>
         /// Gets or Sets MailClass
         /// </summary>
         [JsonPropertyName("mailClass")]
-        public string MailClass { get; set; }
+        public MailClassEnum MailClass { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -158,14 +826,14 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<string?> documentClass = default;
-            Option<string?> layout = default;
-            Option<string?> productionTime = default;
-            Option<string?> envelope = default;
-            Option<string?> color = default;
-            Option<string?> paperType = default;
-            Option<string?> printOption = default;
-            Option<string?> mailClass = default;
+            Option<JobOptions.DocumentClassEnum?> documentClass = default;
+            Option<JobOptions.LayoutEnum?> layout = default;
+            Option<JobOptions.ProductionTimeEnum?> productionTime = default;
+            Option<JobOptions.EnvelopeEnum?> envelope = default;
+            Option<JobOptions.ColorEnum?> color = default;
+            Option<JobOptions.PaperTypeEnum?> paperType = default;
+            Option<JobOptions.PrintOptionEnum?> printOption = default;
+            Option<JobOptions.MailClassEnum?> mailClass = default;
 
             while (utf8JsonReader.Read())
             {
@@ -183,28 +851,44 @@ namespace C2M.Api.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "documentClass":
-                            documentClass = new Option<string?>(utf8JsonReader.GetString()!);
+                            string? documentClassRawValue = utf8JsonReader.GetString();
+                            if (documentClassRawValue != null)
+                                documentClass = new Option<JobOptions.DocumentClassEnum?>(JobOptions.DocumentClassEnumFromStringOrDefault(documentClassRawValue));
                             break;
                         case "layout":
-                            layout = new Option<string?>(utf8JsonReader.GetString()!);
+                            string? layoutRawValue = utf8JsonReader.GetString();
+                            if (layoutRawValue != null)
+                                layout = new Option<JobOptions.LayoutEnum?>(JobOptions.LayoutEnumFromStringOrDefault(layoutRawValue));
                             break;
                         case "productionTime":
-                            productionTime = new Option<string?>(utf8JsonReader.GetString()!);
+                            string? productionTimeRawValue = utf8JsonReader.GetString();
+                            if (productionTimeRawValue != null)
+                                productionTime = new Option<JobOptions.ProductionTimeEnum?>(JobOptions.ProductionTimeEnumFromStringOrDefault(productionTimeRawValue));
                             break;
                         case "envelope":
-                            envelope = new Option<string?>(utf8JsonReader.GetString()!);
+                            string? envelopeRawValue = utf8JsonReader.GetString();
+                            if (envelopeRawValue != null)
+                                envelope = new Option<JobOptions.EnvelopeEnum?>(JobOptions.EnvelopeEnumFromStringOrDefault(envelopeRawValue));
                             break;
                         case "color":
-                            color = new Option<string?>(utf8JsonReader.GetString()!);
+                            string? colorRawValue = utf8JsonReader.GetString();
+                            if (colorRawValue != null)
+                                color = new Option<JobOptions.ColorEnum?>(JobOptions.ColorEnumFromStringOrDefault(colorRawValue));
                             break;
                         case "paperType":
-                            paperType = new Option<string?>(utf8JsonReader.GetString()!);
+                            string? paperTypeRawValue = utf8JsonReader.GetString();
+                            if (paperTypeRawValue != null)
+                                paperType = new Option<JobOptions.PaperTypeEnum?>(JobOptions.PaperTypeEnumFromStringOrDefault(paperTypeRawValue));
                             break;
                         case "printOption":
-                            printOption = new Option<string?>(utf8JsonReader.GetString()!);
+                            string? printOptionRawValue = utf8JsonReader.GetString();
+                            if (printOptionRawValue != null)
+                                printOption = new Option<JobOptions.PrintOptionEnum?>(JobOptions.PrintOptionEnumFromStringOrDefault(printOptionRawValue));
                             break;
                         case "mailClass":
-                            mailClass = new Option<string?>(utf8JsonReader.GetString()!);
+                            string? mailClassRawValue = utf8JsonReader.GetString();
+                            if (mailClassRawValue != null)
+                                mailClass = new Option<JobOptions.MailClassEnum?>(JobOptions.MailClassEnumFromStringOrDefault(mailClassRawValue));
                             break;
                         default:
                             break;
@@ -260,7 +944,7 @@ namespace C2M.Api.Model
             if (mailClass.IsSet && mailClass.Value == null)
                 throw new ArgumentNullException(nameof(mailClass), "Property is not nullable for class JobOptions.");
 
-            return new JobOptions(documentClass.Value!, layout.Value!, productionTime.Value!, envelope.Value!, color.Value!, paperType.Value!, printOption.Value!, mailClass.Value!);
+            return new JobOptions(documentClass.Value!.Value!, layout.Value!.Value!, productionTime.Value!.Value!, envelope.Value!.Value!, color.Value!.Value!, paperType.Value!.Value!, printOption.Value!.Value!, mailClass.Value!.Value!);
         }
 
         /// <summary>
@@ -287,45 +971,22 @@ namespace C2M.Api.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, JobOptions jobOptions, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (jobOptions.DocumentClass == null)
-                throw new ArgumentNullException(nameof(jobOptions.DocumentClass), "Property is required for class JobOptions.");
-
-            if (jobOptions.Layout == null)
-                throw new ArgumentNullException(nameof(jobOptions.Layout), "Property is required for class JobOptions.");
-
-            if (jobOptions.ProductionTime == null)
-                throw new ArgumentNullException(nameof(jobOptions.ProductionTime), "Property is required for class JobOptions.");
-
-            if (jobOptions.Envelope == null)
-                throw new ArgumentNullException(nameof(jobOptions.Envelope), "Property is required for class JobOptions.");
-
-            if (jobOptions.Color == null)
-                throw new ArgumentNullException(nameof(jobOptions.Color), "Property is required for class JobOptions.");
-
-            if (jobOptions.PaperType == null)
-                throw new ArgumentNullException(nameof(jobOptions.PaperType), "Property is required for class JobOptions.");
-
-            if (jobOptions.PrintOption == null)
-                throw new ArgumentNullException(nameof(jobOptions.PrintOption), "Property is required for class JobOptions.");
-
-            if (jobOptions.MailClass == null)
-                throw new ArgumentNullException(nameof(jobOptions.MailClass), "Property is required for class JobOptions.");
-
-            writer.WriteString("documentClass", jobOptions.DocumentClass);
-
-            writer.WriteString("layout", jobOptions.Layout);
-
-            writer.WriteString("productionTime", jobOptions.ProductionTime);
-
-            writer.WriteString("envelope", jobOptions.Envelope);
-
-            writer.WriteString("color", jobOptions.Color);
-
-            writer.WriteString("paperType", jobOptions.PaperType);
-
-            writer.WriteString("printOption", jobOptions.PrintOption);
-
-            writer.WriteString("mailClass", jobOptions.MailClass);
+            var documentClassRawValue = JobOptions.DocumentClassEnumToJsonValue(jobOptions.DocumentClass);
+            writer.WriteString("documentClass", documentClassRawValue);
+            var layoutRawValue = JobOptions.LayoutEnumToJsonValue(jobOptions.Layout);
+            writer.WriteString("layout", layoutRawValue);
+            var productionTimeRawValue = JobOptions.ProductionTimeEnumToJsonValue(jobOptions.ProductionTime);
+            writer.WriteString("productionTime", productionTimeRawValue);
+            var envelopeRawValue = JobOptions.EnvelopeEnumToJsonValue(jobOptions.Envelope);
+            writer.WriteString("envelope", envelopeRawValue);
+            var colorRawValue = JobOptions.ColorEnumToJsonValue(jobOptions.Color);
+            writer.WriteString("color", colorRawValue);
+            var paperTypeRawValue = JobOptions.PaperTypeEnumToJsonValue(jobOptions.PaperType);
+            writer.WriteString("paperType", paperTypeRawValue);
+            var printOptionRawValue = JobOptions.PrintOptionEnumToJsonValue(jobOptions.PrintOption);
+            writer.WriteString("printOption", printOptionRawValue);
+            var mailClassRawValue = JobOptions.MailClassEnumToJsonValue(jobOptions.MailClass);
+            writer.WriteString("mailClass", mailClassRawValue);
         }
     }
 }

@@ -22,6 +22,8 @@ pub enum ErrorType {
     AuthorizationError,
     #[serde(rename = "ResourceNotFoundError")]
     ResourceNotFoundError,
+    #[serde(rename = "RateLimitError")]
+    RateLimitError,
     #[serde(rename = "ServerError")]
     ServerError,
 
@@ -34,6 +36,7 @@ impl std::fmt::Display for ErrorType {
             Self::AuthenticationError => write!(f, "AuthenticationError"),
             Self::AuthorizationError => write!(f, "AuthorizationError"),
             Self::ResourceNotFoundError => write!(f, "ResourceNotFoundError"),
+            Self::RateLimitError => write!(f, "RateLimitError"),
             Self::ServerError => write!(f, "ServerError"),
         }
     }

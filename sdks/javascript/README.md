@@ -112,7 +112,7 @@ ClientKey.apiKey = "YOUR API KEY"
 //ClientKey.apiKeyPrefix['X-Client-Id'] = "Token"
 
 var api = new C2MApiV2.AuthApi()
-var longTokenRequest = {"grant_type":"client_credentials","client_id":"c2m_abc123","client_secret":"supersecret123","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000}; // {LongTokenRequest} 
+var longTokenRequest = {"grant_type":"client_credentials","client_id":"{{clientId}}","client_secret":"{{clientSecret}}","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000}; // {LongTokenRequest} 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -133,10 +133,10 @@ Class | Method | HTTP request | Description
 *C2MApiV2.AuthApi* | [**issueLongTermToken**](docs/AuthApi.md#issueLongTermToken) | **POST** /auth/tokens/long | Issue or rotate a long-term token
 *C2MApiV2.AuthApi* | [**issueShortTermToken**](docs/AuthApi.md#issueShortTermToken) | **POST** /auth/tokens/short | Issue a short-term access token
 *C2MApiV2.AuthApi* | [**revokeToken**](docs/AuthApi.md#revokeToken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
+*C2MApiV2.JobsApi* | [**submitDocParams**](docs/JobsApi.md#submitDocParams) | **POST** /static | Submit single document
 *C2MApiV2.JobsApi* | [**submitMultiDocMergeParams**](docs/JobsApi.md#submitMultiDocMergeParams) | **POST** /mail-merge | Submit mail merge
 *C2MApiV2.JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
 *C2MApiV2.JobsApi* | [**submitMultiZipParams**](docs/JobsApi.md#submitMultiZipParams) | **POST** /batch/zip | Submit ZIP batch
-*C2MApiV2.JobsApi* | [**submitSingleDocParams**](docs/JobsApi.md#submitSingleDocParams) | **POST** /static | Submit single document
 *C2MApiV2.JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfAddressCaptureParams) | **POST** /static/address-capture | Submit single document — address capture
 *C2MApiV2.JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfSplitAddressCaptureParams) | **POST** /batch/split/address-capture | Submit PDF split — address capture
 *C2MApiV2.JobsApi* | [**submitSinglePdfSplitParams**](docs/JobsApi.md#submitSinglePdfSplitParams) | **POST** /batch/split | Submit PDF split
@@ -149,14 +149,23 @@ Class | Method | HTTP request | Description
  - [C2MApiV2.Address](docs/Address.md)
  - [C2MApiV2.AuthError](docs/AuthError.md)
  - [C2MApiV2.CardType](docs/CardType.md)
+ - [C2MApiV2.Color](docs/Color.md)
  - [C2MApiV2.CreditAmount](docs/CreditAmount.md)
  - [C2MApiV2.CreditCardDetails](docs/CreditCardDetails.md)
  - [C2MApiV2.CreditCardPayment](docs/CreditCardPayment.md)
  - [C2MApiV2.Currency](docs/Currency.md)
  - [C2MApiV2.DocSourceAll](docs/DocSourceAll.md)
  - [C2MApiV2.DocSourceStandard](docs/DocSourceStandard.md)
+ - [C2MApiV2.DocSourceStandardOneOf](docs/DocSourceStandardOneOf.md)
+ - [C2MApiV2.DocSourceStandardOneOf1](docs/DocSourceStandardOneOf1.md)
+ - [C2MApiV2.DocSourceStandardOneOf2](docs/DocSourceStandardOneOf2.md)
  - [C2MApiV2.DocSourceZipFile](docs/DocSourceZipFile.md)
  - [C2MApiV2.DocSourceZipFileRef](docs/DocSourceZipFileRef.md)
+ - [C2MApiV2.DocSourceZipFileRefOneOf](docs/DocSourceZipFileRefOneOf.md)
+ - [C2MApiV2.DocSourceZipFileRefOneOf1](docs/DocSourceZipFileRefOneOf1.md)
+ - [C2MApiV2.DocumentClass](docs/DocumentClass.md)
+ - [C2MApiV2.DocumentIdSource](docs/DocumentIdSource.md)
+ - [C2MApiV2.Envelope](docs/Envelope.md)
  - [C2MApiV2.ErrorCode](docs/ErrorCode.md)
  - [C2MApiV2.ErrorResponse](docs/ErrorResponse.md)
  - [C2MApiV2.ErrorType](docs/ErrorType.md)
@@ -164,33 +173,49 @@ Class | Method | HTTP request | Description
  - [C2MApiV2.InvoiceDetails](docs/InvoiceDetails.md)
  - [C2MApiV2.InvoicePayment](docs/InvoicePayment.md)
  - [C2MApiV2.JobOptions](docs/JobOptions.md)
+ - [C2MApiV2.Layout](docs/Layout.md)
  - [C2MApiV2.LongTokenRequest](docs/LongTokenRequest.md)
  - [C2MApiV2.LongTokenResponse](docs/LongTokenResponse.md)
+ - [C2MApiV2.MailClass](docs/MailClass.md)
+ - [C2MApiV2.MergeByDocumentId](docs/MergeByDocumentId.md)
  - [C2MApiV2.MergeByRequestId](docs/MergeByRequestId.md)
  - [C2MApiV2.MergeDocumentRef](docs/MergeDocumentRef.md)
+ - [C2MApiV2.MergeDocumentRefOneOf](docs/MergeDocumentRefOneOf.md)
+ - [C2MApiV2.MergeDocumentRefOneOf1](docs/MergeDocumentRefOneOf1.md)
  - [C2MApiV2.MultiDocJobItem](docs/MultiDocJobItem.md)
  - [C2MApiV2.MultiZipJobItem](docs/MultiZipJobItem.md)
+ - [C2MApiV2.PaperType](docs/PaperType.md)
  - [C2MApiV2.PaymentDetails](docs/PaymentDetails.md)
  - [C2MApiV2.PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [C2MApiV2.PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
+ - [C2MApiV2.PrintOption](docs/PrintOption.md)
+ - [C2MApiV2.ProductionTime](docs/ProductionTime.md)
  - [C2MApiV2.RecipientAddressByList](docs/RecipientAddressByList.md)
- - [C2MApiV2.RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [C2MApiV2.RecipientAddressSource](docs/RecipientAddressSource.md)
+ - [C2MApiV2.RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
+ - [C2MApiV2.RecipientAddressSourceOneOf1](docs/RecipientAddressSourceOneOf1.md)
+ - [C2MApiV2.RecipientAddressSourceOneOf2](docs/RecipientAddressSourceOneOf2.md)
+ - [C2MApiV2.RecipientAddressSourceOneOf3](docs/RecipientAddressSourceOneOf3.md)
  - [C2MApiV2.RequestIdSource](docs/RequestIdSource.md)
  - [C2MApiV2.ReturnAddress](docs/ReturnAddress.md)
  - [C2MApiV2.ShortTokenRequest](docs/ShortTokenRequest.md)
  - [C2MApiV2.ShortTokenResponse](docs/ShortTokenResponse.md)
  - [C2MApiV2.StandardResponse](docs/StandardResponse.md)
+ - [C2MApiV2.SubmitDocParams](docs/SubmitDocParams.md)
  - [C2MApiV2.SubmitMultiDocMergeParams](docs/SubmitMultiDocMergeParams.md)
  - [C2MApiV2.SubmitMultiZipAddressCaptureParams](docs/SubmitMultiZipAddressCaptureParams.md)
  - [C2MApiV2.SubmitMultiZipParams](docs/SubmitMultiZipParams.md)
- - [C2MApiV2.SubmitSingleDocParams](docs/SubmitSingleDocParams.md)
  - [C2MApiV2.SubmitSinglePdfAddressCaptureParams](docs/SubmitSinglePdfAddressCaptureParams.md)
  - [C2MApiV2.SubmitSinglePdfSplitAddressCaptureParams](docs/SubmitSinglePdfSplitAddressCaptureParams.md)
  - [C2MApiV2.SubmitSinglePdfSplitParams](docs/SubmitSinglePdfSplitParams.md)
+ - [C2MApiV2.UrlSource](docs/UrlSource.md)
  - [C2MApiV2.UserCreditPayment](docs/UserCreditPayment.md)
+ - [C2MApiV2.ZipDocumentIdOnly](docs/ZipDocumentIdOnly.md)
  - [C2MApiV2.ZipDocumentIdSource](docs/ZipDocumentIdSource.md)
  - [C2MApiV2.ZipDocumentSource](docs/ZipDocumentSource.md)
+ - [C2MApiV2.ZipDocumentSourceOneOf](docs/ZipDocumentSourceOneOf.md)
+ - [C2MApiV2.ZipDocumentSourceOneOf1](docs/ZipDocumentSourceOneOf1.md)
+ - [C2MApiV2.ZipRequestIdOnly](docs/ZipRequestIdOnly.md)
  - [C2MApiV2.ZipRequestIdSource](docs/ZipRequestIdSource.md)
 
 

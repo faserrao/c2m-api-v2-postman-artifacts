@@ -21,7 +21,10 @@ import io.kotlintest.specs.ShouldSpec
 import com.c2m.api.models.RecipientAddressSource
 import com.c2m.api.models.Address
 import com.c2m.api.models.RecipientAddressByList
-import com.c2m.api.models.RecipientAddressBySingle
+import com.c2m.api.models.RecipientAddressSourceOneOf
+import com.c2m.api.models.RecipientAddressSourceOneOf1
+import com.c2m.api.models.RecipientAddressSourceOneOf2
+import com.c2m.api.models.RecipientAddressSourceOneOf3
 
 class RecipientAddressSourceTest : ShouldSpec() {
     init {
@@ -34,28 +37,22 @@ class RecipientAddressSourceTest : ShouldSpec() {
             //modelInstance.singleAddress shouldBe ("TODO")
         }
 
-        // to test the property `addressList`
-        should("test addressList") {
+        // to test the property `recipientAddressByList`
+        should("test recipientAddressByList") {
             // uncomment below to test the property
-            //modelInstance.addressList shouldBe ("TODO")
+            //modelInstance.recipientAddressByList shouldBe ("TODO")
         }
 
-        // to test the property `mappingId`
-        should("test mappingId") {
+        // to test the property `recipientAddressByAddressId`
+        should("test recipientAddressByAddressId") {
             // uncomment below to test the property
-            //modelInstance.mappingId shouldBe ("TODO")
+            //modelInstance.recipientAddressByAddressId shouldBe ("TODO")
         }
 
-        // to test the property `addressName`
-        should("test addressName") {
+        // to test the property `recipientAddressByListId`
+        should("test recipientAddressByListId") {
             // uncomment below to test the property
-            //modelInstance.addressName shouldBe ("TODO")
-        }
-
-        // to test the property `addressListName`
-        should("test addressListName") {
-            // uncomment below to test the property
-            //modelInstance.addressListName shouldBe ("TODO")
+            //modelInstance.recipientAddressByListId shouldBe ("TODO")
         }
 
     }

@@ -20,7 +20,7 @@ class C2MClient {
     private shortToken: string | null = null;
     private tokenExpiry: Date | null = null;
     
-    constructor(clientId: string, clientSecret: string, baseUrl = 'https://api.c2m.com/v2') {
+    constructor(clientId: string, clientSecret: string, baseUrl = 'https://api.click2mail.com/v2') {
         this.clientId = clientId;
         this.clientSecret = clientSecret;
         this.baseUrl = baseUrl;

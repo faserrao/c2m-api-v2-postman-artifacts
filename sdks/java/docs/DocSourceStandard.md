@@ -7,8 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**requestId** | **Integer** |  |  |
-|**filename** | **String** |  |  [optional] |
+|**documentIdSource** | [**DocumentIdSource**](DocumentIdSource.md) |  |  |
+|**requestIdSource** | [**RequestIdSource**](RequestIdSource.md) |  |  |
+|**urlSource** | [**UrlSource**](UrlSource.md) |  |  |
 
 
 

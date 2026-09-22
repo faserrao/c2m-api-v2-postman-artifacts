@@ -37,6 +37,8 @@ public enum ErrorType {
   
   RESOURCE_NOT_FOUND_ERROR("ResourceNotFoundError"),
   
+  RATE_LIMIT_ERROR("RateLimitError"),
+  
   SERVER_ERROR("ServerError");
 
   private String value;

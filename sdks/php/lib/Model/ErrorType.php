@@ -50,6 +50,8 @@ class ErrorType
 
     public const RESOURCE_NOT_FOUND_ERROR = 'ResourceNotFoundError';
 
+    public const RATE_LIMIT_ERROR = 'RateLimitError';
+
     public const SERVER_ERROR = 'ServerError';
 
     /**
@@ -63,6 +65,7 @@ class ErrorType
             self::AUTHENTICATION_ERROR,
             self::AUTHORIZATION_ERROR,
             self::RESOURCE_NOT_FOUND_ERROR,
+            self::RATE_LIMIT_ERROR,
             self::SERVER_ERROR
         ];
     }

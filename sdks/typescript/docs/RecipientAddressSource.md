@@ -5,11 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mappingId** | **number** |  | [optional] [default to undefined]
 **singleAddress** | [**Address**](Address.md) |  | [default to undefined]
-**addressName** | **string** |  | [optional] [default to undefined]
-**addressList** | [**Array&lt;Address&gt;**](Address.md) |  | [default to undefined]
-**addressListName** | **string** |  | [optional] [default to undefined]
+**recipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | [default to undefined]
+**recipientAddressByAddressId** | **number** |  | [default to undefined]
+**recipientAddressByListId** | **number** |  | [default to undefined]
 
 ## Example
 
@@ -17,11 +16,10 @@ Name | Type | Description | Notes
 import { RecipientAddressSource } from './api';
 
 const instance: RecipientAddressSource = {
-    mappingId,
     singleAddress,
-    addressName,
-    addressList,
-    addressListName,
+    recipientAddressByList,
+    recipientAddressByAddressId,
+    recipientAddressByListId,
 };
 ```
 

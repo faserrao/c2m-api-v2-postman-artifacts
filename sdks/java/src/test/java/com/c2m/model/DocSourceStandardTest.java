@@ -13,7 +13,12 @@
 
 package com.c2m.model;
 
+import com.c2m.model.DocSourceStandardOneOf;
+import com.c2m.model.DocSourceStandardOneOf1;
+import com.c2m.model.DocSourceStandardOneOf2;
+import com.c2m.model.DocumentIdSource;
 import com.c2m.model.RequestIdSource;
+import com.c2m.model.UrlSource;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -39,19 +44,27 @@ public class DocSourceStandardTest {
     }
 
     /**
-     * Test the property 'requestId'
+     * Test the property 'documentIdSource'
      */
     @Test
-    public void requestIdTest() {
-        // TODO: test requestId
+    public void documentIdSourceTest() {
+        // TODO: test documentIdSource
     }
 
     /**
-     * Test the property 'filename'
+     * Test the property 'requestIdSource'
      */
     @Test
-    public void filenameTest() {
-        // TODO: test filename
+    public void requestIdSourceTest() {
+        // TODO: test requestIdSource
+    }
+
+    /**
+     * Test the property 'urlSource'
+     */
+    @Test
+    public void urlSourceTest() {
+        // TODO: test urlSource
     }
 
 }

@@ -14,15 +14,15 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RecipientAddressSource {
-    RecipientAddressBySingle(Box<models::RecipientAddressBySingle>),
-    RecipientAddressByList(Box<models::RecipientAddressByList>),
-    RecipientAddressByAddressId(i32),
-    RecipientAddressByListId(i32),
+    RecipientAddressSourceOneOf(Box<models::RecipientAddressSourceOneOf>),
+    RecipientAddressSourceOneOf1(Box<models::RecipientAddressSourceOneOf1>),
+    RecipientAddressSourceOneOf2(Box<models::RecipientAddressSourceOneOf2>),
+    RecipientAddressSourceOneOf3(Box<models::RecipientAddressSourceOneOf3>),
 }
 
 impl Default for RecipientAddressSource {
     fn default() -> Self {
-        Self::RecipientAddressBySingle(Default::default())
+        Self::RecipientAddressSourceOneOf(Default::default())
     }
 }
 

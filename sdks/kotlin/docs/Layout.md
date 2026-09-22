@@ -4,9 +4,9 @@
 ## Enum
 
 
-    * `portrait` (value: `"portrait"`)
+    * `address_on_first_page` (value: `"address_on_first_page"`)
 
-    * `landscape` (value: `"landscape"`)
+    * `address_on_back_page` (value: `"address_on_back_page"`)
 
 
 

@@ -18,21 +18,21 @@ import (
 
 // MergeDocumentRef - struct for MergeDocumentRef
 type MergeDocumentRef struct {
-	MergeByRequestId *MergeByRequestId
-	Int32 *int32
+	MergeDocumentRefOneOf *MergeDocumentRefOneOf
+	MergeDocumentRefOneOf1 *MergeDocumentRefOneOf1
 }
 
-// MergeByRequestIdAsMergeDocumentRef is a convenience function that returns MergeByRequestId wrapped in MergeDocumentRef
-func MergeByRequestIdAsMergeDocumentRef(v *MergeByRequestId) MergeDocumentRef {
+// MergeDocumentRefOneOfAsMergeDocumentRef is a convenience function that returns MergeDocumentRefOneOf wrapped in MergeDocumentRef
+func MergeDocumentRefOneOfAsMergeDocumentRef(v *MergeDocumentRefOneOf) MergeDocumentRef {
 	return MergeDocumentRef{
-		MergeByRequestId: v,
+		MergeDocumentRefOneOf: v,
 	}
 }
 
-// int32AsMergeDocumentRef is a convenience function that returns int32 wrapped in MergeDocumentRef
-func Int32AsMergeDocumentRef(v *int32) MergeDocumentRef {
+// MergeDocumentRefOneOf1AsMergeDocumentRef is a convenience function that returns MergeDocumentRefOneOf1 wrapped in MergeDocumentRef
+func MergeDocumentRefOneOf1AsMergeDocumentRef(v *MergeDocumentRefOneOf1) MergeDocumentRef {
 	return MergeDocumentRef{
-		Int32: v,
+		MergeDocumentRefOneOf1: v,
 	}
 }
 
@@ -41,44 +41,44 @@ func Int32AsMergeDocumentRef(v *int32) MergeDocumentRef {
 func (dst *MergeDocumentRef) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into MergeByRequestId
-	err = newStrictDecoder(data).Decode(&dst.MergeByRequestId)
+	// try to unmarshal data into MergeDocumentRefOneOf
+	err = newStrictDecoder(data).Decode(&dst.MergeDocumentRefOneOf)
 	if err == nil {
-		jsonMergeByRequestId, _ := json.Marshal(dst.MergeByRequestId)
-		if string(jsonMergeByRequestId) == "{}" { // empty struct
-			dst.MergeByRequestId = nil
+		jsonMergeDocumentRefOneOf, _ := json.Marshal(dst.MergeDocumentRefOneOf)
+		if string(jsonMergeDocumentRefOneOf) == "{}" { // empty struct
+			dst.MergeDocumentRefOneOf = nil
 		} else {
-			if err = validator.Validate(dst.MergeByRequestId); err != nil {
-				dst.MergeByRequestId = nil
+			if err = validator.Validate(dst.MergeDocumentRefOneOf); err != nil {
+				dst.MergeDocumentRefOneOf = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.MergeByRequestId = nil
+		dst.MergeDocumentRefOneOf = nil
 	}
 
-	// try to unmarshal data into Int32
-	err = newStrictDecoder(data).Decode(&dst.Int32)
+	// try to unmarshal data into MergeDocumentRefOneOf1
+	err = newStrictDecoder(data).Decode(&dst.MergeDocumentRefOneOf1)
 	if err == nil {
-		jsonInt32, _ := json.Marshal(dst.Int32)
-		if string(jsonInt32) == "{}" { // empty struct
-			dst.Int32 = nil
+		jsonMergeDocumentRefOneOf1, _ := json.Marshal(dst.MergeDocumentRefOneOf1)
+		if string(jsonMergeDocumentRefOneOf1) == "{}" { // empty struct
+			dst.MergeDocumentRefOneOf1 = nil
 		} else {
-			if err = validator.Validate(dst.Int32); err != nil {
-				dst.Int32 = nil
+			if err = validator.Validate(dst.MergeDocumentRefOneOf1); err != nil {
+				dst.MergeDocumentRefOneOf1 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.Int32 = nil
+		dst.MergeDocumentRefOneOf1 = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.MergeByRequestId = nil
-		dst.Int32 = nil
+		dst.MergeDocumentRefOneOf = nil
+		dst.MergeDocumentRefOneOf1 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(MergeDocumentRef)")
 	} else if match == 1 {
@@ -90,12 +90,12 @@ func (dst *MergeDocumentRef) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src MergeDocumentRef) MarshalJSON() ([]byte, error) {
-	if src.MergeByRequestId != nil {
-		return json.Marshal(&src.MergeByRequestId)
+	if src.MergeDocumentRefOneOf != nil {
+		return json.Marshal(&src.MergeDocumentRefOneOf)
 	}
 
-	if src.Int32 != nil {
-		return json.Marshal(&src.Int32)
+	if src.MergeDocumentRefOneOf1 != nil {
+		return json.Marshal(&src.MergeDocumentRefOneOf1)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -106,12 +106,12 @@ func (obj *MergeDocumentRef) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.MergeByRequestId != nil {
-		return obj.MergeByRequestId
+	if obj.MergeDocumentRefOneOf != nil {
+		return obj.MergeDocumentRefOneOf
 	}
 
-	if obj.Int32 != nil {
-		return obj.Int32
+	if obj.MergeDocumentRefOneOf1 != nil {
+		return obj.MergeDocumentRefOneOf1
 	}
 
 	// all schemas are nil
@@ -120,12 +120,12 @@ func (obj *MergeDocumentRef) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj MergeDocumentRef) GetActualInstanceValue() (interface{}) {
-	if obj.MergeByRequestId != nil {
-		return *obj.MergeByRequestId
+	if obj.MergeDocumentRefOneOf != nil {
+		return *obj.MergeDocumentRefOneOf
 	}
 
-	if obj.Int32 != nil {
-		return *obj.Int32
+	if obj.MergeDocumentRefOneOf1 != nil {
+		return *obj.MergeDocumentRefOneOf1
 	}
 
 	// all schemas are nil

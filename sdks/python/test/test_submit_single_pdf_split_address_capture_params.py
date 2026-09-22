@@ -39,6 +39,7 @@ class TestSubmitSinglePdfSplitAddressCaptureParams(unittest.TestCase):
                 doc_source_standard = None,
                 pdf_split_jobs_no_address = [
                     c2m_api.models.pdf_split_job_item_no_address.pdfSplitJobItemNoAddress(
+                        job_template = '', 
                         start_page = 56, 
                         end_page = 56, )
                     ],
@@ -55,14 +56,14 @@ class TestSubmitSinglePdfSplitAddressCaptureParams(unittest.TestCase):
                     address2 = '', 
                     address3 = '', ),
                 job_options = c2m_api.models.job_options.jobOptions(
-                    document_class = '', 
-                    layout = '', 
-                    production_time = '', 
-                    envelope = '', 
-                    color = '', 
-                    paper_type = '', 
-                    print_option = '', 
-                    mail_class = '', ),
+                    document_class = 'letter', 
+                    layout = 'address_on_first_page', 
+                    production_time = 'next_day', 
+                    envelope = 'standard', 
+                    color = 'full_color', 
+                    paper_type = 'white', 
+                    print_option = 'double_sided', 
+                    mail_class = 'first_class', ),
                 tags = [
                     ''
                     ]
@@ -72,6 +73,7 @@ class TestSubmitSinglePdfSplitAddressCaptureParams(unittest.TestCase):
                 doc_source_standard = None,
                 pdf_split_jobs_no_address = [
                     c2m_api.models.pdf_split_job_item_no_address.pdfSplitJobItemNoAddress(
+                        job_template = '', 
                         start_page = 56, 
                         end_page = 56, )
                     ],

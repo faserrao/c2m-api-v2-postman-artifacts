@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AddressId** | **int32** |  | 
+**RecipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | 
 
 ## Methods
 
 ### NewRecipientAddressSourceOneOf1
 
-`func NewRecipientAddressSourceOneOf1(addressId int32, ) *RecipientAddressSourceOneOf1`
+`func NewRecipientAddressSourceOneOf1(recipientAddressByList RecipientAddressByList, ) *RecipientAddressSourceOneOf1`
 
 NewRecipientAddressSourceOneOf1 instantiates a new RecipientAddressSourceOneOf1 object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewRecipientAddressSourceOneOf1WithDefaults instantiates a new RecipientAddressS
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetAddressId
+### GetRecipientAddressByList
 
-`func (o *RecipientAddressSourceOneOf1) GetAddressId() int32`
+`func (o *RecipientAddressSourceOneOf1) GetRecipientAddressByList() RecipientAddressByList`
 
-GetAddressId returns the AddressId field if non-nil, zero value otherwise.
+GetRecipientAddressByList returns the RecipientAddressByList field if non-nil, zero value otherwise.
 
-### GetAddressIdOk
+### GetRecipientAddressByListOk
 
-`func (o *RecipientAddressSourceOneOf1) GetAddressIdOk() (*int32, bool)`
+`func (o *RecipientAddressSourceOneOf1) GetRecipientAddressByListOk() (*RecipientAddressByList, bool)`
 
-GetAddressIdOk returns a tuple with the AddressId field if it's non-nil, zero value otherwise
+GetRecipientAddressByListOk returns a tuple with the RecipientAddressByList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAddressId
+### SetRecipientAddressByList
 
-`func (o *RecipientAddressSourceOneOf1) SetAddressId(v int32)`
+`func (o *RecipientAddressSourceOneOf1) SetRecipientAddressByList(v RecipientAddressByList)`
 
-SetAddressId sets AddressId field to given value.
+SetRecipientAddressByList sets RecipientAddressByList field to given value.
 
 
 

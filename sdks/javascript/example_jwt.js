@@ -6,7 +6,7 @@ const C2mApi = require('c2m_api');
 const axios = require('axios');
 
 class C2MClient {
-    constructor(clientId, clientSecret, baseUrl = 'https://api.c2m.com/v2') {
+    constructor(clientId, clientSecret, baseUrl = 'https://api.click2mail.com/v2') {
         this.clientId = clientId;
         this.clientSecret = clientSecret;
         this.baseUrl = baseUrl;

@@ -4,8 +4,9 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **requestId** | **kotlin.Int** |  |  |
-| **filename** | **kotlin.String** |  |  [optional] |
+| **documentIdSource** | [**DocumentIdSource**](DocumentIdSource.md) |  |  |
+| **requestIdSource** | [**RequestIdSource**](RequestIdSource.md) |  |  |
+| **urlSource** | [**UrlSource**](UrlSource.md) |  |  |
 
 
 

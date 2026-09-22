@@ -22,17 +22,17 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: portrait,landscape
+ * Values: address_on_first_page,address_on_back_page
  */
 
 @JsonClass(generateAdapter = false)
 enum class Layout(val value: kotlin.String) {
 
-    @Json(name = "portrait")
-    portrait("portrait"),
+    @Json(name = "address_on_first_page")
+    address_on_first_page("address_on_first_page"),
 
-    @Json(name = "landscape")
-    landscape("landscape");
+    @Json(name = "address_on_back_page")
+    address_on_back_page("address_on_back_page");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

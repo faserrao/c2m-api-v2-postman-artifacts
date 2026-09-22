@@ -14,13 +14,16 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DocSourceAll {
-    DocSourceStandard(Box<models::DocSourceStandard>),
-    DocSourceZipFile(Box<models::DocSourceZipFile>),
+    DocSourceStandardOneOf(Box<models::DocSourceStandardOneOf>),
+    DocSourceStandardOneOf1(Box<models::DocSourceStandardOneOf1>),
+    DocSourceStandardOneOf2(Box<models::DocSourceStandardOneOf2>),
+    ZipDocumentSourceOneOf(Box<models::ZipDocumentSourceOneOf>),
+    ZipDocumentSourceOneOf1(Box<models::ZipDocumentSourceOneOf1>),
 }
 
 impl Default for DocSourceAll {
     fn default() -> Self {
-        Self::DocSourceStandard(Default::default())
+        Self::DocSourceStandardOneOf(Default::default())
     }
 }
 

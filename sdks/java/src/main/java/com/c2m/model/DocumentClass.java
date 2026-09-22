@@ -1,6 +1,6 @@
 /*
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -29,9 +29,13 @@ import com.google.gson.stream.JsonWriter;
 @JsonAdapter(DocumentClass.Adapter.class)
 public enum DocumentClass {
   
-  BUSINESS_LETTER("businessLetter"),
+  LETTER("letter"),
   
-  PERSONAL_LETTER("personalLetter");
+  POSTCARD("postcard"),
+  
+  BROCHURE("brochure"),
+  
+  FLAT("flat");
 
   private String value;
 

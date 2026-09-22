@@ -13,6 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PdfSplitJobItemNoAddress {
+    #[serde(rename = "jobTemplate", skip_serializing_if = "Option::is_none")]
+    pub job_template: Option<String>,
     #[serde(rename = "startPage")]
     pub start_page: i32,
     #[serde(rename = "endPage")]
@@ -22,6 +24,7 @@ pub struct PdfSplitJobItemNoAddress {
 impl PdfSplitJobItemNoAddress {
     pub fn new(start_page: i32, end_page: i32) -> PdfSplitJobItemNoAddress {
         PdfSplitJobItemNoAddress {
+            job_template: None,
             start_page,
             end_page,
         }

@@ -54,14 +54,14 @@
       //expect(instance).to.be.a(C2MApiV2.MergeDocumentRef);
     });
 
-    it('should have the property requestId (base name: "requestId")', function() {
-      // uncomment below and update the code to test the property requestId
+    it('should have the property mergeByDocumentId (base name: "mergeByDocumentId")', function() {
+      // uncomment below and update the code to test the property mergeByDocumentId
       //var instance = new C2MApiV2.MergeDocumentRef();
       //expect(instance).to.be();
     });
 
-    it('should have the property filename (base name: "filename")', function() {
-      // uncomment below and update the code to test the property filename
+    it('should have the property mergeByRequestId (base name: "mergeByRequestId")', function() {
+      // uncomment below and update the code to test the property mergeByRequestId
       //var instance = new C2MApiV2.MergeDocumentRef();
       //expect(instance).to.be();
     });

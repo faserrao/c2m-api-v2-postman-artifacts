@@ -4,13 +4,55 @@ All URIs are relative to *https://api.click2mail.com/v2*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**SubmitDocParams**](JobsApi.md#submitdocparams) | **POST** /static | Submit single document |
 | [**SubmitMultiDocMergeParams**](JobsApi.md#submitmultidocmergeparams) | **POST** /mail-merge | Submit mail merge |
 | [**SubmitMultiZipAddressCaptureParams**](JobsApi.md#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture |
 | [**SubmitMultiZipParams**](JobsApi.md#submitmultizipparams) | **POST** /batch/zip | Submit ZIP batch |
-| [**SubmitSingleDocParams**](JobsApi.md#submitsingledocparams) | **POST** /static | Submit single document |
 | [**SubmitSinglePdfAddressCaptureParams**](JobsApi.md#submitsinglepdfaddresscaptureparams) | **POST** /static/address-capture | Submit single document — address capture |
 | [**SubmitSinglePdfSplitAddressCaptureParams**](JobsApi.md#submitsinglepdfsplitaddresscaptureparams) | **POST** /batch/split/address-capture | Submit PDF split — address capture |
 | [**SubmitSinglePdfSplitParams**](JobsApi.md#submitsinglepdfsplitparams) | **POST** /batch/split | Submit PDF split |
+
+<a id="submitdocparams"></a>
+# **SubmitDocParams**
+> StandardResponse SubmitDocParams (SubmitDocParams submitDocParams)
+
+Submit single document
+
+Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **submitDocParams** | [**SubmitDocParams**](SubmitDocParams.md) |  |  |
+
+### Return type
+
+[**StandardResponse**](StandardResponse.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request - Invalid request parameters |  -  |
+| **401** | Unauthorized - Missing or invalid authentication |  -  |
+| **403** | Forbidden - Insufficient permissions |  -  |
+| **404** | Not Found - Resource not found |  -  |
+| **422** | Unprocessable Entity - Validation failed |  -  |
+| **500** | Internal Server Error - Server encountered an error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 <a id="submitmultidocmergeparams"></a>
 # **SubmitMultiDocMergeParams**
@@ -110,48 +152,6 @@ Submits multiple mailing jobs sourced from files inside a single ZIP archive. Ea
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **submitMultiZipParams** | [**SubmitMultiZipParams**](SubmitMultiZipParams.md) |  |  |
-
-### Return type
-
-[**StandardResponse**](StandardResponse.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request - Invalid request parameters |  -  |
-| **401** | Unauthorized - Missing or invalid authentication |  -  |
-| **403** | Forbidden - Insufficient permissions |  -  |
-| **404** | Not Found - Resource not found |  -  |
-| **422** | Unprocessable Entity - Validation failed |  -  |
-| **500** | Internal Server Error - Server encountered an error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-<a id="submitsingledocparams"></a>
-# **SubmitSingleDocParams**
-> StandardResponse SubmitSingleDocParams (SubmitSingleDocParams submitSingleDocParams)
-
-Submit single document
-
-Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **submitSingleDocParams** | [**SubmitSingleDocParams**](SubmitSingleDocParams.md) |  |  |
 
 ### Return type
 

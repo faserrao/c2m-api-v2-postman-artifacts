@@ -1,7 +1,7 @@
 /*
- * C2M API v2 - Auth Overlay
+ * C2M API v2
  *
- * API for submitting documents with various routing options
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -14,28 +14,25 @@ use serde::{Deserialize, Serialize};
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum PrintOption {
-    #[serde(rename = "none")]
-    None,
-    #[serde(rename = "color")]
-    Color,
-    #[serde(rename = "grayscale")]
-    Grayscale,
+    #[serde(rename = "double_sided")]
+    DoubleSided,
+    #[serde(rename = "single_sided")]
+    SingleSided,
 
 }
 
 impl std::fmt::Display for PrintOption {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::None => write!(f, "none"),
-            Self::Color => write!(f, "color"),
-            Self::Grayscale => write!(f, "grayscale"),
+            Self::DoubleSided => write!(f, "double_sided"),
+            Self::SingleSided => write!(f, "single_sided"),
         }
     }
 }
 
 impl Default for PrintOption {
     fn default() -> PrintOption {
-        Self::None
+        Self::DoubleSided
     }
 }
 

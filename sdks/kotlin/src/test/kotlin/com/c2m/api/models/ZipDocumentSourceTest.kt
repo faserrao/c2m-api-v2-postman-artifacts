@@ -20,6 +20,8 @@ import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.ZipDocumentSource
 import com.c2m.api.models.ZipDocumentIdSource
+import com.c2m.api.models.ZipDocumentSourceOneOf
+import com.c2m.api.models.ZipDocumentSourceOneOf1
 import com.c2m.api.models.ZipRequestIdSource
 
 class ZipDocumentSourceTest : ShouldSpec() {
@@ -27,28 +29,16 @@ class ZipDocumentSourceTest : ShouldSpec() {
         // uncomment below to create an instance of ZipDocumentSource
         //val modelInstance = ZipDocumentSource()
 
-        // to test the property `zipDocumentId`
-        should("test zipDocumentId") {
+        // to test the property `zipDocumentIdSource`
+        should("test zipDocumentIdSource") {
             // uncomment below to test the property
-            //modelInstance.zipDocumentId shouldBe ("TODO")
+            //modelInstance.zipDocumentIdSource shouldBe ("TODO")
         }
 
-        // to test the property `filename`
-        should("test filename") {
+        // to test the property `zipRequestIdSource`
+        should("test zipRequestIdSource") {
             // uncomment below to test the property
-            //modelInstance.filename shouldBe ("TODO")
-        }
-
-        // to test the property `requestId`
-        should("test requestId") {
-            // uncomment below to test the property
-            //modelInstance.requestId shouldBe ("TODO")
-        }
-
-        // to test the property `zipFilename`
-        should("test zipFilename") {
-            // uncomment below to test the property
-            //modelInstance.zipFilename shouldBe ("TODO")
+            //modelInstance.zipRequestIdSource shouldBe ("TODO")
         }
 
     }

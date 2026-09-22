@@ -1,12 +1,10 @@
-# C2MApiV2AuthOverlay.PrintOption
+# C2MApiV2.PrintOption
 
 ## Enum
 
 
-* `none` (value: `"none"`)
+* `double_sided` (value: `"double_sided"`)
 
-* `color` (value: `"color"`)
-
-* `grayscale` (value: `"grayscale"`)
+* `single_sided` (value: `"single_sided"`)
 
 

@@ -14,14 +14,14 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DocSourceStandard {
-    DocumentIdSource(i32),
-    RequestIdSource(Box<models::RequestIdSource>),
-    UrlSource(String),
+    DocSourceStandardOneOf(Box<models::DocSourceStandardOneOf>),
+    DocSourceStandardOneOf1(Box<models::DocSourceStandardOneOf1>),
+    DocSourceStandardOneOf2(Box<models::DocSourceStandardOneOf2>),
 }
 
 impl Default for DocSourceStandard {
     fn default() -> Self {
-        Self::DocumentIdSource(Default::default())
+        Self::DocSourceStandardOneOf(Default::default())
     }
 }
 

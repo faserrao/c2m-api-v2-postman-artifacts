@@ -19,23 +19,26 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.MergeDocumentRef
+import com.c2m.api.models.MergeByDocumentId
 import com.c2m.api.models.MergeByRequestId
+import com.c2m.api.models.MergeDocumentRefOneOf
+import com.c2m.api.models.MergeDocumentRefOneOf1
 
 class MergeDocumentRefTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of MergeDocumentRef
         //val modelInstance = MergeDocumentRef()
 
-        // to test the property `requestId`
-        should("test requestId") {
+        // to test the property `mergeByDocumentId`
+        should("test mergeByDocumentId") {
             // uncomment below to test the property
-            //modelInstance.requestId shouldBe ("TODO")
+            //modelInstance.mergeByDocumentId shouldBe ("TODO")
         }
 
-        // to test the property `filename`
-        should("test filename") {
+        // to test the property `mergeByRequestId`
+        should("test mergeByRequestId") {
             // uncomment below to test the property
-            //modelInstance.filename shouldBe ("TODO")
+            //modelInstance.mergeByRequestId shouldBe ("TODO")
         }
 
     }

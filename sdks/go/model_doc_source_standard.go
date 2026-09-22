@@ -18,29 +18,29 @@ import (
 
 // DocSourceStandard - struct for DocSourceStandard
 type DocSourceStandard struct {
-	RequestIdSource *RequestIdSource
-	Int32 *int32
-	String *string
+	DocSourceStandardOneOf *DocSourceStandardOneOf
+	DocSourceStandardOneOf1 *DocSourceStandardOneOf1
+	DocSourceStandardOneOf2 *DocSourceStandardOneOf2
 }
 
-// RequestIdSourceAsDocSourceStandard is a convenience function that returns RequestIdSource wrapped in DocSourceStandard
-func RequestIdSourceAsDocSourceStandard(v *RequestIdSource) DocSourceStandard {
+// DocSourceStandardOneOfAsDocSourceStandard is a convenience function that returns DocSourceStandardOneOf wrapped in DocSourceStandard
+func DocSourceStandardOneOfAsDocSourceStandard(v *DocSourceStandardOneOf) DocSourceStandard {
 	return DocSourceStandard{
-		RequestIdSource: v,
+		DocSourceStandardOneOf: v,
 	}
 }
 
-// int32AsDocSourceStandard is a convenience function that returns int32 wrapped in DocSourceStandard
-func Int32AsDocSourceStandard(v *int32) DocSourceStandard {
+// DocSourceStandardOneOf1AsDocSourceStandard is a convenience function that returns DocSourceStandardOneOf1 wrapped in DocSourceStandard
+func DocSourceStandardOneOf1AsDocSourceStandard(v *DocSourceStandardOneOf1) DocSourceStandard {
 	return DocSourceStandard{
-		Int32: v,
+		DocSourceStandardOneOf1: v,
 	}
 }
 
-// stringAsDocSourceStandard is a convenience function that returns string wrapped in DocSourceStandard
-func StringAsDocSourceStandard(v *string) DocSourceStandard {
+// DocSourceStandardOneOf2AsDocSourceStandard is a convenience function that returns DocSourceStandardOneOf2 wrapped in DocSourceStandard
+func DocSourceStandardOneOf2AsDocSourceStandard(v *DocSourceStandardOneOf2) DocSourceStandard {
 	return DocSourceStandard{
-		String: v,
+		DocSourceStandardOneOf2: v,
 	}
 }
 
@@ -49,62 +49,62 @@ func StringAsDocSourceStandard(v *string) DocSourceStandard {
 func (dst *DocSourceStandard) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into RequestIdSource
-	err = newStrictDecoder(data).Decode(&dst.RequestIdSource)
+	// try to unmarshal data into DocSourceStandardOneOf
+	err = newStrictDecoder(data).Decode(&dst.DocSourceStandardOneOf)
 	if err == nil {
-		jsonRequestIdSource, _ := json.Marshal(dst.RequestIdSource)
-		if string(jsonRequestIdSource) == "{}" { // empty struct
-			dst.RequestIdSource = nil
+		jsonDocSourceStandardOneOf, _ := json.Marshal(dst.DocSourceStandardOneOf)
+		if string(jsonDocSourceStandardOneOf) == "{}" { // empty struct
+			dst.DocSourceStandardOneOf = nil
 		} else {
-			if err = validator.Validate(dst.RequestIdSource); err != nil {
-				dst.RequestIdSource = nil
+			if err = validator.Validate(dst.DocSourceStandardOneOf); err != nil {
+				dst.DocSourceStandardOneOf = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.RequestIdSource = nil
+		dst.DocSourceStandardOneOf = nil
 	}
 
-	// try to unmarshal data into Int32
-	err = newStrictDecoder(data).Decode(&dst.Int32)
+	// try to unmarshal data into DocSourceStandardOneOf1
+	err = newStrictDecoder(data).Decode(&dst.DocSourceStandardOneOf1)
 	if err == nil {
-		jsonInt32, _ := json.Marshal(dst.Int32)
-		if string(jsonInt32) == "{}" { // empty struct
-			dst.Int32 = nil
+		jsonDocSourceStandardOneOf1, _ := json.Marshal(dst.DocSourceStandardOneOf1)
+		if string(jsonDocSourceStandardOneOf1) == "{}" { // empty struct
+			dst.DocSourceStandardOneOf1 = nil
 		} else {
-			if err = validator.Validate(dst.Int32); err != nil {
-				dst.Int32 = nil
+			if err = validator.Validate(dst.DocSourceStandardOneOf1); err != nil {
+				dst.DocSourceStandardOneOf1 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.Int32 = nil
+		dst.DocSourceStandardOneOf1 = nil
 	}
 
-	// try to unmarshal data into String
-	err = newStrictDecoder(data).Decode(&dst.String)
+	// try to unmarshal data into DocSourceStandardOneOf2
+	err = newStrictDecoder(data).Decode(&dst.DocSourceStandardOneOf2)
 	if err == nil {
-		jsonString, _ := json.Marshal(dst.String)
-		if string(jsonString) == "{}" { // empty struct
-			dst.String = nil
+		jsonDocSourceStandardOneOf2, _ := json.Marshal(dst.DocSourceStandardOneOf2)
+		if string(jsonDocSourceStandardOneOf2) == "{}" { // empty struct
+			dst.DocSourceStandardOneOf2 = nil
 		} else {
-			if err = validator.Validate(dst.String); err != nil {
-				dst.String = nil
+			if err = validator.Validate(dst.DocSourceStandardOneOf2); err != nil {
+				dst.DocSourceStandardOneOf2 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.String = nil
+		dst.DocSourceStandardOneOf2 = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.RequestIdSource = nil
-		dst.Int32 = nil
-		dst.String = nil
+		dst.DocSourceStandardOneOf = nil
+		dst.DocSourceStandardOneOf1 = nil
+		dst.DocSourceStandardOneOf2 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(DocSourceStandard)")
 	} else if match == 1 {
@@ -116,16 +116,16 @@ func (dst *DocSourceStandard) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src DocSourceStandard) MarshalJSON() ([]byte, error) {
-	if src.RequestIdSource != nil {
-		return json.Marshal(&src.RequestIdSource)
+	if src.DocSourceStandardOneOf != nil {
+		return json.Marshal(&src.DocSourceStandardOneOf)
 	}
 
-	if src.Int32 != nil {
-		return json.Marshal(&src.Int32)
+	if src.DocSourceStandardOneOf1 != nil {
+		return json.Marshal(&src.DocSourceStandardOneOf1)
 	}
 
-	if src.String != nil {
-		return json.Marshal(&src.String)
+	if src.DocSourceStandardOneOf2 != nil {
+		return json.Marshal(&src.DocSourceStandardOneOf2)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -136,16 +136,16 @@ func (obj *DocSourceStandard) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.RequestIdSource != nil {
-		return obj.RequestIdSource
+	if obj.DocSourceStandardOneOf != nil {
+		return obj.DocSourceStandardOneOf
 	}
 
-	if obj.Int32 != nil {
-		return obj.Int32
+	if obj.DocSourceStandardOneOf1 != nil {
+		return obj.DocSourceStandardOneOf1
 	}
 
-	if obj.String != nil {
-		return obj.String
+	if obj.DocSourceStandardOneOf2 != nil {
+		return obj.DocSourceStandardOneOf2
 	}
 
 	// all schemas are nil
@@ -154,16 +154,16 @@ func (obj *DocSourceStandard) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj DocSourceStandard) GetActualInstanceValue() (interface{}) {
-	if obj.RequestIdSource != nil {
-		return *obj.RequestIdSource
+	if obj.DocSourceStandardOneOf != nil {
+		return *obj.DocSourceStandardOneOf
 	}
 
-	if obj.Int32 != nil {
-		return *obj.Int32
+	if obj.DocSourceStandardOneOf1 != nil {
+		return *obj.DocSourceStandardOneOf1
 	}
 
-	if obj.String != nil {
-		return *obj.String
+	if obj.DocSourceStandardOneOf2 != nil {
+		return *obj.DocSourceStandardOneOf2
 	}
 
 	// all schemas are nil

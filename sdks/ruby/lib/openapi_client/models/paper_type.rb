@@ -1,7 +1,7 @@
 =begin
-#C2M API v2 - Auth Overlay
+#C2M API v2
 
-#API for submitting documents with various routing options
+#API for submitting mailing jobs with various document routing options
 
 The version of the OpenAPI document: 2.0.0
 
@@ -15,12 +15,13 @@ require 'time'
 
 module OpenapiClient
   class PaperType
-    LETTER = "letter".freeze
-    LEGAL = "legal".freeze
-    POSTCARD = "postcard".freeze
+    WHITE = "white".freeze
+    WHITE_24 = "white_24".freeze
+    IVORY = "ivory".freeze
+    GLOSSY = "glossy".freeze
 
     def self.all_vars
-      @all_vars ||= [LETTER, LEGAL, POSTCARD].freeze
+      @all_vars ||= [WHITE, WHITE_24, IVORY, GLOSSY].freeze
     end
 
     # Builds the enum from string

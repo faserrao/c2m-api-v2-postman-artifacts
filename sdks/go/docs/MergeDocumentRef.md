@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** | **int32** |  | 
-**Filename** | Pointer to **string** |  | [optional] 
+**MergeByDocumentId** | [**MergeByDocumentId**](MergeByDocumentId.md) |  | 
+**MergeByRequestId** | [**MergeByRequestId**](MergeByRequestId.md) |  | 
 
 ## Methods
 
 ### NewMergeDocumentRef
 
-`func NewMergeDocumentRef(requestId int32, ) *MergeDocumentRef`
+`func NewMergeDocumentRef(mergeByDocumentId MergeByDocumentId, mergeByRequestId MergeByRequestId, ) *MergeDocumentRef`
 
 NewMergeDocumentRef instantiates a new MergeDocumentRef object
 This constructor will assign default values to properties that have it defined,
@@ -26,50 +26,45 @@ NewMergeDocumentRefWithDefaults instantiates a new MergeDocumentRef object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetRequestId
+### GetMergeByDocumentId
 
-`func (o *MergeDocumentRef) GetRequestId() int32`
+`func (o *MergeDocumentRef) GetMergeByDocumentId() MergeByDocumentId`
 
-GetRequestId returns the RequestId field if non-nil, zero value otherwise.
+GetMergeByDocumentId returns the MergeByDocumentId field if non-nil, zero value otherwise.
 
-### GetRequestIdOk
+### GetMergeByDocumentIdOk
 
-`func (o *MergeDocumentRef) GetRequestIdOk() (*int32, bool)`
+`func (o *MergeDocumentRef) GetMergeByDocumentIdOk() (*MergeByDocumentId, bool)`
 
-GetRequestIdOk returns a tuple with the RequestId field if it's non-nil, zero value otherwise
+GetMergeByDocumentIdOk returns a tuple with the MergeByDocumentId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRequestId
+### SetMergeByDocumentId
 
-`func (o *MergeDocumentRef) SetRequestId(v int32)`
+`func (o *MergeDocumentRef) SetMergeByDocumentId(v MergeByDocumentId)`
 
-SetRequestId sets RequestId field to given value.
+SetMergeByDocumentId sets MergeByDocumentId field to given value.
 
 
-### GetFilename
+### GetMergeByRequestId
 
-`func (o *MergeDocumentRef) GetFilename() string`
+`func (o *MergeDocumentRef) GetMergeByRequestId() MergeByRequestId`
 
-GetFilename returns the Filename field if non-nil, zero value otherwise.
+GetMergeByRequestId returns the MergeByRequestId field if non-nil, zero value otherwise.
 
-### GetFilenameOk
+### GetMergeByRequestIdOk
 
-`func (o *MergeDocumentRef) GetFilenameOk() (*string, bool)`
+`func (o *MergeDocumentRef) GetMergeByRequestIdOk() (*MergeByRequestId, bool)`
 
-GetFilenameOk returns a tuple with the Filename field if it's non-nil, zero value otherwise
+GetMergeByRequestIdOk returns a tuple with the MergeByRequestId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFilename
+### SetMergeByRequestId
 
-`func (o *MergeDocumentRef) SetFilename(v string)`
+`func (o *MergeDocumentRef) SetMergeByRequestId(v MergeByRequestId)`
 
-SetFilename sets Filename field to given value.
+SetMergeByRequestId sets MergeByRequestId field to given value.
 
-### HasFilename
-
-`func (o *MergeDocumentRef) HasFilename() bool`
-
-HasFilename returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

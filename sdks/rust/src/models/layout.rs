@@ -1,7 +1,7 @@
 /*
- * C2M API v2 - Auth Overlay
+ * C2M API v2
  *
- * API for submitting documents with various routing options
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -14,25 +14,25 @@ use serde::{Deserialize, Serialize};
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Layout {
-    #[serde(rename = "portrait")]
-    Portrait,
-    #[serde(rename = "landscape")]
-    Landscape,
+    #[serde(rename = "address_on_first_page")]
+    AddressOnFirstPage,
+    #[serde(rename = "address_on_back_page")]
+    AddressOnBackPage,
 
 }
 
 impl std::fmt::Display for Layout {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Self::Portrait => write!(f, "portrait"),
-            Self::Landscape => write!(f, "landscape"),
+            Self::AddressOnFirstPage => write!(f, "address_on_first_page"),
+            Self::AddressOnBackPage => write!(f, "address_on_back_page"),
         }
     }
 }
 
 impl Default for Layout {
     fn default() -> Layout {
-        Self::Portrait
+        Self::AddressOnFirstPage
     }
 }
 

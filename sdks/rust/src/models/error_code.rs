@@ -46,6 +46,8 @@ pub enum ErrorCode {
     DatabaseError,
     #[serde(rename = "EXTERNAL_SERVICE_ERROR")]
     ExternalServiceError,
+    #[serde(rename = "RATE_LIMIT_EXCEEDED")]
+    RateLimitExceeded,
 
 }
 
@@ -68,6 +70,7 @@ impl std::fmt::Display for ErrorCode {
             Self::ServerError => write!(f, "SERVER_ERROR"),
             Self::DatabaseError => write!(f, "DATABASE_ERROR"),
             Self::ExternalServiceError => write!(f, "EXTERNAL_SERVICE_ERROR"),
+            Self::RateLimitExceeded => write!(f, "RATE_LIMIT_EXCEEDED"),
         }
     }
 }

@@ -4,17 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MappingId** | Pointer to **int32** |  | [optional] 
 **SingleAddress** | [**Address**](Address.md) |  | 
-**AddressName** | Pointer to **string** |  | [optional] 
-**AddressList** | [**[]Address**](Address.md) |  | 
-**AddressListName** | Pointer to **string** |  | [optional] 
+**RecipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | 
+**RecipientAddressByAddressId** | **int32** |  | 
+**RecipientAddressByListId** | **int32** |  | 
 
 ## Methods
 
 ### NewRecipientAddressSource
 
-`func NewRecipientAddressSource(singleAddress Address, addressList []Address, ) *RecipientAddressSource`
+`func NewRecipientAddressSource(singleAddress Address, recipientAddressByList RecipientAddressByList, recipientAddressByAddressId int32, recipientAddressByListId int32, ) *RecipientAddressSource`
 
 NewRecipientAddressSource instantiates a new RecipientAddressSource object
 This constructor will assign default values to properties that have it defined,
@@ -28,31 +27,6 @@ will change when the set of required properties is changed
 NewRecipientAddressSourceWithDefaults instantiates a new RecipientAddressSource object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetMappingId
-
-`func (o *RecipientAddressSource) GetMappingId() int32`
-
-GetMappingId returns the MappingId field if non-nil, zero value otherwise.
-
-### GetMappingIdOk
-
-`func (o *RecipientAddressSource) GetMappingIdOk() (*int32, bool)`
-
-GetMappingIdOk returns a tuple with the MappingId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMappingId
-
-`func (o *RecipientAddressSource) SetMappingId(v int32)`
-
-SetMappingId sets MappingId field to given value.
-
-### HasMappingId
-
-`func (o *RecipientAddressSource) HasMappingId() bool`
-
-HasMappingId returns a boolean if a field has been set.
 
 ### GetSingleAddress
 
@@ -74,75 +48,65 @@ and a boolean to check if the value has been set.
 SetSingleAddress sets SingleAddress field to given value.
 
 
-### GetAddressName
+### GetRecipientAddressByList
 
-`func (o *RecipientAddressSource) GetAddressName() string`
+`func (o *RecipientAddressSource) GetRecipientAddressByList() RecipientAddressByList`
 
-GetAddressName returns the AddressName field if non-nil, zero value otherwise.
+GetRecipientAddressByList returns the RecipientAddressByList field if non-nil, zero value otherwise.
 
-### GetAddressNameOk
+### GetRecipientAddressByListOk
 
-`func (o *RecipientAddressSource) GetAddressNameOk() (*string, bool)`
+`func (o *RecipientAddressSource) GetRecipientAddressByListOk() (*RecipientAddressByList, bool)`
 
-GetAddressNameOk returns a tuple with the AddressName field if it's non-nil, zero value otherwise
+GetRecipientAddressByListOk returns a tuple with the RecipientAddressByList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAddressName
+### SetRecipientAddressByList
 
-`func (o *RecipientAddressSource) SetAddressName(v string)`
+`func (o *RecipientAddressSource) SetRecipientAddressByList(v RecipientAddressByList)`
 
-SetAddressName sets AddressName field to given value.
+SetRecipientAddressByList sets RecipientAddressByList field to given value.
 
-### HasAddressName
 
-`func (o *RecipientAddressSource) HasAddressName() bool`
+### GetRecipientAddressByAddressId
 
-HasAddressName returns a boolean if a field has been set.
+`func (o *RecipientAddressSource) GetRecipientAddressByAddressId() int32`
 
-### GetAddressList
+GetRecipientAddressByAddressId returns the RecipientAddressByAddressId field if non-nil, zero value otherwise.
 
-`func (o *RecipientAddressSource) GetAddressList() []Address`
+### GetRecipientAddressByAddressIdOk
 
-GetAddressList returns the AddressList field if non-nil, zero value otherwise.
+`func (o *RecipientAddressSource) GetRecipientAddressByAddressIdOk() (*int32, bool)`
 
-### GetAddressListOk
-
-`func (o *RecipientAddressSource) GetAddressListOk() (*[]Address, bool)`
-
-GetAddressListOk returns a tuple with the AddressList field if it's non-nil, zero value otherwise
+GetRecipientAddressByAddressIdOk returns a tuple with the RecipientAddressByAddressId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAddressList
+### SetRecipientAddressByAddressId
 
-`func (o *RecipientAddressSource) SetAddressList(v []Address)`
+`func (o *RecipientAddressSource) SetRecipientAddressByAddressId(v int32)`
 
-SetAddressList sets AddressList field to given value.
+SetRecipientAddressByAddressId sets RecipientAddressByAddressId field to given value.
 
 
-### GetAddressListName
+### GetRecipientAddressByListId
 
-`func (o *RecipientAddressSource) GetAddressListName() string`
+`func (o *RecipientAddressSource) GetRecipientAddressByListId() int32`
 
-GetAddressListName returns the AddressListName field if non-nil, zero value otherwise.
+GetRecipientAddressByListId returns the RecipientAddressByListId field if non-nil, zero value otherwise.
 
-### GetAddressListNameOk
+### GetRecipientAddressByListIdOk
 
-`func (o *RecipientAddressSource) GetAddressListNameOk() (*string, bool)`
+`func (o *RecipientAddressSource) GetRecipientAddressByListIdOk() (*int32, bool)`
 
-GetAddressListNameOk returns a tuple with the AddressListName field if it's non-nil, zero value otherwise
+GetRecipientAddressByListIdOk returns a tuple with the RecipientAddressByListId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAddressListName
+### SetRecipientAddressByListId
 
-`func (o *RecipientAddressSource) SetAddressListName(v string)`
+`func (o *RecipientAddressSource) SetRecipientAddressByListId(v int32)`
 
-SetAddressListName sets AddressListName field to given value.
+SetRecipientAddressByListId sets RecipientAddressByListId field to given value.
 
-### HasAddressListName
-
-`func (o *RecipientAddressSource) HasAddressListName() bool`
-
-HasAddressListName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

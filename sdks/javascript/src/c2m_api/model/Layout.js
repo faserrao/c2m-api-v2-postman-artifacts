@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,17 +20,17 @@ import ApiClient from '../ApiClient';
 export default class Layout {
     
         /**
-         * value: "portrait"
+         * value: "address_on_first_page"
          * @const
          */
-        "portrait" = "portrait";
+        "address_on_first_page" = "address_on_first_page";
 
     
         /**
-         * value: "landscape"
+         * value: "address_on_back_page"
          * @const
          */
-        "landscape" = "landscape";
+        "address_on_back_page" = "address_on_back_page";
 
     
 

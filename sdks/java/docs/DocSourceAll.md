@@ -7,10 +7,11 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**requestId** | **Integer** |  |  |
-|**filename** | **String** |  |  |
-|**zipDocumentId** | **Integer** |  |  |
-|**zipFilename** | **String** |  |  |
+|**documentIdSource** | [**DocumentIdSource**](DocumentIdSource.md) |  |  |
+|**requestIdSource** | [**RequestIdSource**](RequestIdSource.md) |  |  |
+|**urlSource** | [**UrlSource**](UrlSource.md) |  |  |
+|**zipDocumentIdSource** | [**ZipDocumentIdSource**](ZipDocumentIdSource.md) |  |  |
+|**zipRequestIdSource** | [**ZipRequestIdSource**](ZipRequestIdSource.md) |  |  |
 
 
 

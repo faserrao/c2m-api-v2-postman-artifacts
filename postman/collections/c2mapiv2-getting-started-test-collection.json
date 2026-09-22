@@ -10,11 +10,11 @@
       "description": "The most common API usage patterns",
       "item": [
         {
-          "name": "/static - single recipient",
+          "name": "/static - single or list of recipient",
           "request": {
-            "name": "/static - single recipient",
+            "name": "/static - single or list of recipient",
             "description": {
-              "content": "/static - single recipient",
+              "content": "/static - single or list of recipient",
               "type": "text/plain"
             },
             "url": {
@@ -25,7 +25,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -40,7 +41,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": 27453,\n    \"filename\": \"document.pdf\"\n  },\n  \"recipientAddressSource\": {\n    \"mappingId\": 5001,\n    \"singleAddress\": {\n      \"firstName\": \"Victoria\",\n      \"lastName\": \"Harris\",\n      \"address1\": \"4770 Warner Lock Suite 017\",\n      \"city\": \"Houstonmouth\",\n      \"state\": \"MP\",\n      \"zip\": \"83843\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    },\n    \"addressName\": \"example_addressName\"\n  },\n  \"jobTemplate\": \"standard_letter\"\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": 37577,\n      \"filename\": \"document.pdf\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"recipientAddressByList\": {\n      \"mappingId\": 5001,\n      \"addressList\": [\n        {\n          \"firstName\": \"Juan\",\n          \"lastName\": \"Cook\",\n          \"address1\": \"2721 Amy Key\",\n          \"city\": \"Kathystad\",\n          \"state\": \"SC\",\n          \"zip\": \"97344\",\n          \"country\": \"USA\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"foo1\": \"Custom Field 1\",\n          \"foo2\": \"Custom Field 2\"\n        }\n      ],\n      \"addressListName\": \"Marketing Campaign Q1\"\n    }\n  },\n  \"jobTemplate\": \"standard_letter\"\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -53,22 +54,23 @@
           "response": []
         },
         {
-          "name": "/static - mail merge",
+          "name": "/mail-merge - to address list",
           "request": {
-            "name": "/static - mail merge",
+            "name": "/mail-merge - to address list",
             "description": {
-              "content": "/static - mail merge",
+              "content": "/mail-merge - to address list",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "static"
+                "mail-merge"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/mail-merge"
             },
             "header": [
               {
@@ -83,7 +85,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": 17942,\n    \"filename\": \"document.pdf\"\n  },\n  \"recipientAddressSource\": {\n    \"mappingId\": 5001,\n    \"addressList\": [\n      {\n        \"firstName\": \"April\",\n        \"lastName\": \"Gilmore\",\n        \"address1\": \"46074 Michael Trail\",\n        \"city\": \"West Cassandraview\",\n        \"state\": \"PR\",\n        \"zip\": \"65848\",\n        \"country\": \"USA\",\n        \"address2\": \"Suite 100\",\n        \"address3\": \"\",\n        \"foo1\": \"Custom Field 1\",\n        \"foo2\": \"Custom Field 2\"\n      }\n    ],\n    \"addressListName\": \"Marketing Campaign Q1\"\n  },\n  \"jobTemplate\": \"standard_letter\"\n}",
+              "raw": "{\n  \"recipientAddressSource\": {\n    \"recipientAddressByList\": {\n      \"mappingId\": 5001,\n      \"addressList\": [\n        {\n          \"firstName\": \"Gina\",\n          \"lastName\": \"Lee\",\n          \"address1\": \"571 Ross Grove\",\n          \"city\": \"West Cynthiafurt\",\n          \"state\": \"NV\",\n          \"zip\": \"17604\",\n          \"country\": \"USA\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"foo1\": \"Custom Field 1\",\n          \"foo2\": \"Custom Field 2\"\n        }\n      ],\n      \"addressListName\": \"Marketing Campaign Q1\"\n    }\n  },\n  \"jobTemplate\": \"standard_letter\",\n  \"mergeDocumentSource\": [\n    {\n      \"mergeByRequestId\": {\n        \"requestId\": 38865\n      }\n    },\n    {\n      \"mergeByDocumentId\": {\n        \"documentId\": 61457\n      }\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -112,7 +114,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static/address-capture"
             },
             "header": [
               {
@@ -127,7 +130,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceStandard\": {\n    \"requestId\": 76242,\n    \"filename\": \"document.pdf\"\n  },\n  \"jobTemplate\": \"standard_letter\"\n}",
+              "raw": "{\n  \"docSourceStandard\": {\n    \"requestIdSource\": {\n      \"requestId\": 17300,\n      \"filename\": \"document.pdf\"\n    }\n  },\n  \"jobTemplate\": \"standard_letter\"\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -163,7 +166,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/batch/split/address-capture"
             },
             "header": [
               {
@@ -178,7 +182,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceStandard\": {\n    \"requestId\": 92354,\n    \"filename\": \"document.pdf\"\n  },\n  \"jobTemplate\": \"standard_letter\",\n  \"pdfSplitJobsNoAddress\": [\n    {\n      \"startPage\": 1,\n      \"endPage\": 5\n    },\n    {\n      \"startPage\": 1,\n      \"endPage\": 5\n    }\n  ]\n}",
+              "raw": "{\n  \"docSourceStandard\": {\n    \"requestIdSource\": {\n      \"requestId\": 88405,\n      \"filename\": \"document.pdf\"\n    }\n  },\n  \"jobTemplate\": \"standard_letter\",\n  \"pdfSplitJobsNoAddress\": [\n    {\n      \"jobTemplate\": \"standard_letter\",\n      \"startPage\": 4,\n      \"endPage\": 7\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -208,7 +212,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/batch/zip/address-capture"
             },
             "header": [
               {
@@ -223,7 +228,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"standard_letter\",\n  \"zipDocumentSource\": {\n    \"requestId\": 59838\n  }\n}",
+              "raw": "{\n  \"jobTemplate\": \"standard_letter\",\n  \"zipDocumentSource\": {\n    \"zipRequestIdSource\": {\n      \"requestId\": 74327,\n      \"zipFilename\": \"documents.zip\",\n      \"filename\": \"document.pdf\"\n    }\n  }\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -252,7 +257,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/batch/split"
             },
             "header": [
               {
@@ -267,7 +273,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceStandard\": {\n    \"requestId\": 22373,\n    \"filename\": \"document.pdf\"\n  },\n  \"pdfSplitJobsWithAddress\": [\n    {\n      \"jobTemplate\": \"standard_letter\",\n      \"startPage\": 1,\n      \"endPage\": 5,\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"Samantha\",\n          \"lastName\": \"Downs\",\n          \"address1\": \"26131 Theresa Cliff\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"city\": \"Maryside\",\n          \"state\": \"NM\",\n          \"zip\": \"02081\",\n          \"country\": \"USA\"\n        }\n      }\n    },\n    {\n      \"jobTemplate\": \"standard_letter\",\n      \"startPage\": 1,\n      \"endPage\": 5,\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"Don\",\n          \"lastName\": \"Hall\",\n          \"address1\": \"0169 Diaz Ports Apt. 045\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"city\": \"South Tracytown\",\n          \"state\": \"LA\",\n          \"zip\": \"55713\",\n          \"country\": \"USA\"\n        }\n      }\n    },\n    {\n      \"jobTemplate\": \"standard_letter\",\n      \"startPage\": 1,\n      \"endPage\": 5,\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"Christine\",\n          \"lastName\": \"Robbins\",\n          \"address1\": \"26511 Thompson Union\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"city\": \"Hendersonberg\",\n          \"state\": \"CO\",\n          \"zip\": \"17082\",\n          \"country\": \"USA\"\n        }\n      }\n    }\n  ]\n}",
+              "raw": "{\n  \"docSourceStandard\": {\n    \"requestIdSource\": {\n      \"requestId\": 40214,\n      \"filename\": \"document.pdf\"\n    }\n  },\n  \"pdfSplitJobsWithAddress\": [\n    {\n      \"jobTemplate\": \"standard_letter\",\n      \"startPage\": 5,\n      \"endPage\": 8,\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"Scott\",\n          \"lastName\": \"Richards\",\n          \"address1\": \"1274 Fitzgerald Ways Suite 882\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"city\": \"East Michele\",\n          \"state\": \"AK\",\n          \"zip\": \"55005\",\n          \"country\": \"USA\"\n        }\n      }\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -301,7 +307,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/mail-merge"
             },
             "header": [
               {
@@ -316,7 +323,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"recipientAddressSource\": {\n    \"mappingId\": 5001,\n    \"singleAddress\": {\n      \"firstName\": \"Nicholas\",\n      \"lastName\": \"Hensley\",\n      \"address1\": \"6482 Johnson Port\",\n      \"city\": \"North Jody\",\n      \"state\": \"WV\",\n      \"zip\": \"52511\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    },\n    \"addressName\": \"example_addressName\"\n  },\n  \"jobTemplate\": \"standard_letter\",\n  \"mergeDocumentSource\": [\n    {\n      \"requestId\": 91915\n    },\n    {\n      \"documentId\": 47165\n    },\n    {\n      \"documentId\": 77785\n    }\n  ]\n}",
+              "raw": "{\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"Nicole\",\n      \"lastName\": \"Johnson\",\n      \"address1\": \"883 Michael Curve\",\n      \"city\": \"Victoriaburgh\",\n      \"state\": \"DC\",\n      \"zip\": \"14696\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    }\n  },\n  \"jobTemplate\": \"standard_letter\",\n  \"mergeDocumentSource\": [\n    {\n      \"mergeByRequestId\": {\n        \"requestId\": 47244\n      }\n    },\n    {\n      \"mergeByDocumentId\": {\n        \"documentId\": 34076\n      }\n    },\n    {\n      \"mergeByDocumentId\": {\n        \"documentId\": 95630\n      }\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -344,7 +351,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -359,7 +367,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": 87661,\n    \"filename\": \"document.pdf\"\n  },\n  \"recipientAddressSource\": {\n    \"mappingId\": 5001,\n    \"singleAddress\": {\n      \"firstName\": \"Megan\",\n      \"lastName\": \"Anderson\",\n      \"address1\": \"5168 Green Valleys\",\n      \"city\": \"Rangeltown\",\n      \"state\": \"NJ\",\n      \"zip\": \"98741\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    },\n    \"addressName\": \"example_addressName\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"letter\",\n    \"layout\": \"address_on_top\",\n    \"productionTime\": \"next_day\",\n    \"envelope\": \"standard\",\n    \"color\": \"full_color\",\n    \"paperType\": \"white\",\n    \"printOption\": \"double_sided\",\n    \"mailClass\": \"first_class\"\n  }\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": 26514,\n      \"filename\": \"document.pdf\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"Daniel\",\n      \"lastName\": \"Pacheco\",\n      \"address1\": \"4878 Steven Viaduct\",\n      \"city\": \"North Maryberg\",\n      \"state\": \"ID\",\n      \"zip\": \"62477\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    }\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"letter\",\n    \"layout\": \"address_on_first_page\",\n    \"productionTime\": \"next_day\",\n    \"envelope\": \"standard\",\n    \"color\": \"full_color\",\n    \"paperType\": \"white\",\n    \"printOption\": \"double_sided\",\n    \"mailClass\": \"first_class\"\n  }\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -387,7 +395,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -402,7 +411,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": \"example_docSourceAll\",\n  \"recipientAddressSource\": {\n    \"mappingId\": 5001,\n    \"singleAddress\": {\n      \"firstName\": \"Caitlin\",\n      \"lastName\": \"Bray\",\n      \"address1\": \"2082 Burton Parks Suite 845\",\n      \"city\": \"North Andrea\",\n      \"state\": \"CO\",\n      \"zip\": \"08878\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    },\n    \"addressName\": \"example_addressName\"\n  },\n  \"jobTemplate\": \"standard_letter\"\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"urlSource\": {\n      \"url\": \"https://example.com/documents/sample.pdf\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"Linda\",\n      \"lastName\": \"Rivera\",\n      \"address1\": \"8161 Long Rest Suite 884\",\n      \"city\": \"Sandratown\",\n      \"state\": \"MH\",\n      \"zip\": \"05090\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    }\n  },\n  \"jobTemplate\": \"standard_letter\"\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -430,7 +439,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -445,7 +455,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": 50383,\n    \"filename\": \"document.pdf\"\n  },\n  \"recipientAddressSource\": {\n    \"mappingId\": 5001,\n    \"singleAddress\": {\n      \"firstName\": \"Bradley\",\n      \"lastName\": \"Sweeney\",\n      \"address1\": \"2749 Hannah Lane\",\n      \"city\": \"Weisstown\",\n      \"state\": \"NC\",\n      \"zip\": \"98831\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    },\n    \"addressName\": \"example_addressName\"\n  },\n  \"jobTemplate\": \"standard_letter\",\n  \"tags\": [\n    \"example_tags\",\n    \"example_tags\",\n    \"example_tags\"\n  ]\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": 90456,\n      \"filename\": \"document.pdf\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"Angela\",\n      \"lastName\": \"Mendoza\",\n      \"address1\": \"94048 Sharp Canyon\",\n      \"city\": \"Courtneyberg\",\n      \"state\": \"VI\",\n      \"zip\": \"16625\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    }\n  },\n  \"jobTemplate\": \"standard_letter\",\n  \"tags\": [\n    \"example_tags\",\n    \"example_tags\",\n    \"example_tags\"\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -473,7 +483,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -488,7 +499,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": 98936,\n    \"filename\": \"document.pdf\"\n  },\n  \"jobTemplate\": \"standard_letter\",\n  \"recipientAddressSource\": {\n    \"mappingId\": 5001,\n    \"addressList\": [\n      {\n        \"firstName\": \"Eric\",\n        \"lastName\": \"Barnes\",\n        \"address1\": \"17719 Green Fort\",\n        \"city\": \"Benjamintown\",\n        \"state\": \"OR\",\n        \"zip\": \"66756\",\n        \"country\": \"USA\"\n      }\n    ],\n    \"addressListName\": \"Marketing Campaign Q1\"\n  }\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": 68134,\n      \"filename\": \"document.pdf\"\n    }\n  },\n  \"jobTemplate\": \"standard_letter\",\n  \"recipientAddressSource\": {\n    \"recipientAddressByList\": {\n      \"mappingId\": 5001,\n      \"addressList\": [\n        {\n          \"firstName\": \"Rebecca\",\n          \"lastName\": \"Gonzales\",\n          \"address1\": \"93161 Jacqueline Plains Apt. 424\",\n          \"city\": \"New Sheriville\",\n          \"state\": \"ME\",\n          \"zip\": \"10014\",\n          \"country\": \"USA\"\n        }\n      ],\n      \"addressListName\": \"Marketing Campaign Q1\"\n    }\n  }\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -516,7 +527,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -531,7 +543,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": 29957,\n    \"filename\": \"document.pdf\"\n  },\n  \"recipientAddressSource\": {\n    \"mappingId\": 5001,\n    \"singleAddress\": {\n      \"firstName\": \"James\",\n      \"lastName\": \"Scott\",\n      \"address1\": \"33587 Johnston Isle\",\n      \"city\": \"South Lancetown\",\n      \"state\": \"KS\",\n      \"zip\": \"11521\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    },\n    \"addressName\": \"example_addressName\"\n  },\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"visa\",\n      \"cardNumber\": \"4111111111111111\",\n      \"expirationDate\": {\n        \"month\": 123,\n        \"year\": 123\n      },\n      \"cvv\": 123\n    }\n  },\n  \"jobTemplate\": \"standard_letter\"\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": 89571,\n      \"filename\": \"document.pdf\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"Lori\",\n      \"lastName\": \"Stokes\",\n      \"address1\": \"272 Isaiah Center\",\n      \"city\": \"West Cherylburgh\",\n      \"state\": \"PR\",\n      \"zip\": \"29825\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    }\n  },\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"visa\",\n      \"cardNumber\": \"4111111111111111\",\n      \"expirationDate\": {\n        \"month\": 12,\n        \"year\": 2029\n      },\n      \"cvv\": 123\n    }\n  },\n  \"jobTemplate\": \"standard_letter\"\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -560,7 +572,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/batch/zip"
             },
             "header": [
               {
@@ -575,7 +588,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceZipFileRef\": {\n    \"requestId\": 47046\n  },\n  \"multiZipJobs\": [\n    {\n      \"jobTemplate\": \"standard_letter\",\n      \"filename\": \"document.pdf\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"Timothy\",\n          \"lastName\": \"Evans\",\n          \"address1\": \"738 Jennifer Heights\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"city\": \"South Abigailland\",\n          \"state\": \"SC\",\n          \"zip\": \"63362\",\n          \"country\": \"USA\"\n        }\n      }\n    },\n    {\n      \"jobTemplate\": \"standard_letter\",\n      \"filename\": \"document.pdf\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"Andrew\",\n          \"lastName\": \"Jones\",\n          \"address1\": \"20152 James Stream Apt. 212\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"city\": \"North Russelltown\",\n          \"state\": \"VA\",\n          \"zip\": \"03987\",\n          \"country\": \"USA\"\n        }\n      }\n    },\n    {\n      \"jobTemplate\": \"standard_letter\",\n      \"filename\": \"document.pdf\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"Samantha\",\n          \"lastName\": \"Wallace\",\n          \"address1\": \"539 Griffin Locks\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"city\": \"North Alicia\",\n          \"state\": \"GU\",\n          \"zip\": \"03076\",\n          \"country\": \"USA\"\n        }\n      }\n    }\n  ]\n}",
+              "raw": "{\n  \"docSourceZipFileRef\": {\n    \"zipRequestIdOnly\": {\n      \"requestId\": 26043\n    }\n  },\n  \"multiZipJobs\": [\n    {\n      \"jobTemplate\": \"standard_letter\",\n      \"filename\": \"document.pdf\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"Ralph\",\n          \"lastName\": \"Simmons\",\n          \"address1\": \"44929 Amanda Ville\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"city\": \"Nicoleshire\",\n          \"state\": \"SD\",\n          \"zip\": \"19520\",\n          \"country\": \"USA\"\n        }\n      }\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -604,7 +617,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/batch/zip"
             },
             "header": [
               {
@@ -619,7 +633,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceZipFileRef\": {\n    \"documentId\": 87274\n  },\n  \"multiZipJobs\": [\n    {\n      \"jobTemplate\": \"standard_letter\",\n      \"filename\": \"document.pdf\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"Vanessa\",\n          \"lastName\": \"Williams\",\n          \"address1\": \"9019 Donald Row Suite 107\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"city\": \"West Michelletown\",\n          \"state\": \"MO\",\n          \"zip\": \"67829\",\n          \"country\": \"USA\"\n        }\n      }\n    },\n    {\n      \"jobTemplate\": \"standard_letter\",\n      \"filename\": \"document.pdf\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"Paula\",\n          \"lastName\": \"Williams\",\n          \"address1\": \"484 Glover Underpass\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"city\": \"West Emily\",\n          \"state\": \"DC\",\n          \"zip\": \"76441\",\n          \"country\": \"USA\"\n        }\n      }\n    },\n    {\n      \"jobTemplate\": \"standard_letter\",\n      \"filename\": \"document.pdf\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"Timothy\",\n          \"lastName\": \"Watson\",\n          \"address1\": \"715 Bridget Ridge Apt. 466\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"city\": \"Kimport\",\n          \"state\": \"MN\",\n          \"zip\": \"03921\",\n          \"country\": \"USA\"\n        }\n      }\n    }\n  ]\n}",
+              "raw": "{\n  \"docSourceZipFileRef\": {\n    \"zipDocumentIdOnly\": {\n      \"zipDocumentId\": 93619\n    }\n  },\n  \"multiZipJobs\": [\n    {\n      \"jobTemplate\": \"standard_letter\",\n      \"filename\": \"document.pdf\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"Cody\",\n          \"lastName\": \"Lynch\",\n          \"address1\": \"8219 Roberto Row\",\n          \"address2\": \"Suite 100\",\n          \"address3\": \"\",\n          \"city\": \"East Debra\",\n          \"state\": \"NJ\",\n          \"zip\": \"58689\",\n          \"country\": \"USA\"\n        }\n      }\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -647,7 +661,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -662,7 +677,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": 123,\n  \"recipientAddressSource\": {\n    \"mappingId\": 5001,\n    \"singleAddress\": {\n      \"firstName\": \"John\",\n      \"lastName\": \"Dougherty\",\n      \"address1\": \"5952 Taylor Plain Suite 722\",\n      \"city\": \"Jameschester\",\n      \"state\": \"DC\",\n      \"zip\": \"67984\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    },\n    \"addressName\": \"example_addressName\"\n  },\n  \"jobTemplate\": \"standard_letter\"\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"documentIdSource\": {\n      \"documentId\": 57943\n    }\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"Benjamin\",\n      \"lastName\": \"Nguyen\",\n      \"address1\": \"4179 Carr Forks\",\n      \"city\": \"Port Thomaston\",\n      \"state\": \"AL\",\n      \"zip\": \"37928\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    }\n  },\n  \"jobTemplate\": \"standard_letter\"\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -690,7 +705,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -705,7 +721,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": 29098,\n    \"filename\": \"document.pdf\"\n  },\n  \"recipientAddressSource\": 123,\n  \"jobTemplate\": \"standard_letter\"\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": 11818,\n      \"filename\": \"document.pdf\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"recipientAddressByListId\": 123\n  },\n  \"jobTemplate\": \"standard_letter\"\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -733,7 +749,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -748,7 +765,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": 16696,\n    \"filename\": \"document.pdf\"\n  },\n  \"recipientAddressSource\": {\n    \"mappingId\": 5001,\n    \"singleAddress\": {\n      \"firstName\": \"Danielle\",\n      \"lastName\": \"Scott\",\n      \"address1\": \"3280 Curry Neck Apt. 474\",\n      \"city\": \"South Ian\",\n      \"state\": \"RI\",\n      \"zip\": \"55322\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    },\n    \"addressName\": \"example_addressName\"\n  },\n  \"jobTemplate\": \"standard_letter\",\n  \"returnAddress\": {\n    \"firstName\": \"Michael\",\n    \"lastName\": \"Cox\",\n    \"address1\": \"3557 Jones Grove\",\n    \"address2\": \"Suite 100\",\n    \"address3\": \"\",\n    \"city\": \"Jamesland\",\n    \"state\": \"IA\",\n    \"zip\": \"76358\",\n    \"country\": \"USA\"\n  }\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": 69933,\n      \"filename\": \"document.pdf\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"Johnathan\",\n      \"lastName\": \"Richards\",\n      \"address1\": \"55745 Figueroa Meadow Apt. 816\",\n      \"city\": \"South Madisonbury\",\n      \"state\": \"NC\",\n      \"zip\": \"69725\",\n      \"country\": \"USA\",\n      \"address2\": \"Suite 100\",\n      \"address3\": \"\",\n      \"foo1\": \"Custom Field 1\",\n      \"foo2\": \"Custom Field 2\"\n    }\n  },\n  \"jobTemplate\": \"standard_letter\",\n  \"returnAddress\": {\n    \"firstName\": \"Danielle\",\n    \"lastName\": \"Scott\",\n    \"address1\": \"407 Jennifer Bridge\",\n    \"address2\": \"Suite 100\",\n    \"address3\": \"\",\n    \"city\": \"Hernandezton\",\n    \"state\": \"UT\",\n    \"zip\": \"22121\",\n    \"country\": \"USA\"\n  }\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -775,8 +792,8 @@
           "// Configuration - Set these in your Postman environment",
           "const config = {",
           "    // Use authUrl for authentication endpoints, fallback to baseUrl for compatibility",
-          "    authUrl: pm.environment.get('authUrl') || pm.environment.get('baseUrl') || 'http://localhost:4010',",
-          "    baseUrl: pm.environment.get('baseUrl') || 'http://localhost:4010',",
+          "    authUrl: pm.environment.get('authUrl') || pm.environment.get('baseUrl') || '',",
+          "    baseUrl: pm.environment.get('baseUrl') || '',",
           "    clientId: pm.environment.get('clientId'),",
           "    clientSecret: pm.environment.get('clientSecret'),",
           "    longTokenVar: 'longTermToken',",
@@ -784,6 +801,15 @@
           "    tokenExpiryVar: 'tokenExpiry',",
           "    tokenIdVar: 'currentTokenId'",
           "};",
+          "",
+          "// Helper: read a JSON-array env var, falling back to defaultArr.",
+          "// Env vars are strings; store as JSON e.g. '[\"jobs:submit\",\"templates:read\"]'.",
+          "// Optional overrides: longTokenScopes, shortTokenScopes (arrays), longTokenTtl (seconds).",
+          "function envArray(key, defaultArr) {",
+          "    const raw = pm.environment.get(key);",
+          "    if (!raw) return defaultArr;",
+          "    try { return JSON.parse(raw); } catch { return defaultArr; }",
+          "}",
           "",
           "// Helper function to check if token is expired",
           "function isTokenExpired(expiryTime) {",
@@ -811,8 +837,8 @@
           "                grant_type: 'client_credentials',",
           "                client_id: config.clientId,",
           "                client_secret: config.clientSecret,",
-          "                scopes: ['jobs:submit', 'templates:read', 'tokens:revoke'],",
-          "                ttl_seconds: 2592000 // 30 days",
+          "                scopes: envArray('longTokenScopes', ['jobs:submit', 'templates:read', 'tokens:revoke']),",
+          "                ttl_seconds: parseInt(pm.environment.get('longTokenTtl') || '2592000', 10)",
           "            })",
           "        }",
           "    };",
@@ -854,7 +880,7 @@
           "        body: {",
           "            mode: 'raw',",
           "            raw: JSON.stringify({",
-          "                scopes: ['jobs:submit'] // Narrow scope for actual API calls",
+          "                scopes: envArray('shortTokenScopes', ['jobs:submit'])",
           "            })",
           "        }",
           "    };",
@@ -892,6 +918,12 @@
           "            return;",
           "        }",
           "        ",
+          "        // Guard: no environment selected or baseUrl/authUrl not configured",
+          "        if (!config.authUrl) {",
+          "            console.warn('No authUrl or baseUrl configured in environment. Skipping authentication.');",
+          "            return;",
+          "        }",
+          "",
           "        // Check if we need client credentials",
           "        if (!config.clientId || !config.clientSecret) {",
           "            console.warn('Client credentials not configured. Set clientId and clientSecret in environment.');",
@@ -928,7 +960,7 @@
           "        const isMockServer = urlHost.includes('mock.pstmn.io') ||",
           "                           urlHost.includes('localhost') ||",
           "                           baseUrlVar.includes('mock.pstmn.io') ||",
-          "                           baseUrlVar.includes('localhost:4010') ||",
+          "                           baseUrlVar.includes('localhost') ||",
           "                           pm.environment.get('isMockServer') === 'true';",
           "",
           "        // Enhanced logging for debugging",

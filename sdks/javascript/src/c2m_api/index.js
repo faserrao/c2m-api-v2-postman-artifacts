@@ -18,14 +18,23 @@ import AchPayment from './model/AchPayment';
 import Address from './model/Address';
 import AuthError from './model/AuthError';
 import CardType from './model/CardType';
+import Color from './model/Color';
 import CreditAmount from './model/CreditAmount';
 import CreditCardDetails from './model/CreditCardDetails';
 import CreditCardPayment from './model/CreditCardPayment';
 import Currency from './model/Currency';
 import DocSourceAll from './model/DocSourceAll';
 import DocSourceStandard from './model/DocSourceStandard';
+import DocSourceStandardOneOf from './model/DocSourceStandardOneOf';
+import DocSourceStandardOneOf1 from './model/DocSourceStandardOneOf1';
+import DocSourceStandardOneOf2 from './model/DocSourceStandardOneOf2';
 import DocSourceZipFile from './model/DocSourceZipFile';
 import DocSourceZipFileRef from './model/DocSourceZipFileRef';
+import DocSourceZipFileRefOneOf from './model/DocSourceZipFileRefOneOf';
+import DocSourceZipFileRefOneOf1 from './model/DocSourceZipFileRefOneOf1';
+import DocumentClass from './model/DocumentClass';
+import DocumentIdSource from './model/DocumentIdSource';
+import Envelope from './model/Envelope';
 import ErrorCode from './model/ErrorCode';
 import ErrorResponse from './model/ErrorResponse';
 import ErrorType from './model/ErrorType';
@@ -33,33 +42,49 @@ import ExpirationDate from './model/ExpirationDate';
 import InvoiceDetails from './model/InvoiceDetails';
 import InvoicePayment from './model/InvoicePayment';
 import JobOptions from './model/JobOptions';
+import Layout from './model/Layout';
 import LongTokenRequest from './model/LongTokenRequest';
 import LongTokenResponse from './model/LongTokenResponse';
+import MailClass from './model/MailClass';
+import MergeByDocumentId from './model/MergeByDocumentId';
 import MergeByRequestId from './model/MergeByRequestId';
 import MergeDocumentRef from './model/MergeDocumentRef';
+import MergeDocumentRefOneOf from './model/MergeDocumentRefOneOf';
+import MergeDocumentRefOneOf1 from './model/MergeDocumentRefOneOf1';
 import MultiDocJobItem from './model/MultiDocJobItem';
 import MultiZipJobItem from './model/MultiZipJobItem';
+import PaperType from './model/PaperType';
 import PaymentDetails from './model/PaymentDetails';
 import PdfSplitJobItemNoAddress from './model/PdfSplitJobItemNoAddress';
 import PdfSplitJobItemWithAddress from './model/PdfSplitJobItemWithAddress';
+import PrintOption from './model/PrintOption';
+import ProductionTime from './model/ProductionTime';
 import RecipientAddressByList from './model/RecipientAddressByList';
-import RecipientAddressBySingle from './model/RecipientAddressBySingle';
 import RecipientAddressSource from './model/RecipientAddressSource';
+import RecipientAddressSourceOneOf from './model/RecipientAddressSourceOneOf';
+import RecipientAddressSourceOneOf1 from './model/RecipientAddressSourceOneOf1';
+import RecipientAddressSourceOneOf2 from './model/RecipientAddressSourceOneOf2';
+import RecipientAddressSourceOneOf3 from './model/RecipientAddressSourceOneOf3';
 import RequestIdSource from './model/RequestIdSource';
 import ReturnAddress from './model/ReturnAddress';
 import ShortTokenRequest from './model/ShortTokenRequest';
 import ShortTokenResponse from './model/ShortTokenResponse';
 import StandardResponse from './model/StandardResponse';
+import SubmitDocParams from './model/SubmitDocParams';
 import SubmitMultiDocMergeParams from './model/SubmitMultiDocMergeParams';
 import SubmitMultiZipAddressCaptureParams from './model/SubmitMultiZipAddressCaptureParams';
 import SubmitMultiZipParams from './model/SubmitMultiZipParams';
-import SubmitSingleDocParams from './model/SubmitSingleDocParams';
 import SubmitSinglePdfAddressCaptureParams from './model/SubmitSinglePdfAddressCaptureParams';
 import SubmitSinglePdfSplitAddressCaptureParams from './model/SubmitSinglePdfSplitAddressCaptureParams';
 import SubmitSinglePdfSplitParams from './model/SubmitSinglePdfSplitParams';
+import UrlSource from './model/UrlSource';
 import UserCreditPayment from './model/UserCreditPayment';
+import ZipDocumentIdOnly from './model/ZipDocumentIdOnly';
 import ZipDocumentIdSource from './model/ZipDocumentIdSource';
 import ZipDocumentSource from './model/ZipDocumentSource';
+import ZipDocumentSourceOneOf from './model/ZipDocumentSourceOneOf';
+import ZipDocumentSourceOneOf1 from './model/ZipDocumentSourceOneOf1';
+import ZipRequestIdOnly from './model/ZipRequestIdOnly';
 import ZipRequestIdSource from './model/ZipRequestIdSource';
 import AuthApi from './api/AuthApi';
 import JobsApi from './api/JobsApi';
@@ -134,6 +159,12 @@ export {
     CardType,
 
     /**
+     * The Color model constructor.
+     * @property {module:c2m_api/model/Color}
+     */
+    Color,
+
+    /**
      * The CreditAmount model constructor.
      * @property {module:c2m_api/model/CreditAmount}
      */
@@ -170,6 +201,24 @@ export {
     DocSourceStandard,
 
     /**
+     * The DocSourceStandardOneOf model constructor.
+     * @property {module:c2m_api/model/DocSourceStandardOneOf}
+     */
+    DocSourceStandardOneOf,
+
+    /**
+     * The DocSourceStandardOneOf1 model constructor.
+     * @property {module:c2m_api/model/DocSourceStandardOneOf1}
+     */
+    DocSourceStandardOneOf1,
+
+    /**
+     * The DocSourceStandardOneOf2 model constructor.
+     * @property {module:c2m_api/model/DocSourceStandardOneOf2}
+     */
+    DocSourceStandardOneOf2,
+
+    /**
      * The DocSourceZipFile model constructor.
      * @property {module:c2m_api/model/DocSourceZipFile}
      */
@@ -180,6 +229,36 @@ export {
      * @property {module:c2m_api/model/DocSourceZipFileRef}
      */
     DocSourceZipFileRef,
+
+    /**
+     * The DocSourceZipFileRefOneOf model constructor.
+     * @property {module:c2m_api/model/DocSourceZipFileRefOneOf}
+     */
+    DocSourceZipFileRefOneOf,
+
+    /**
+     * The DocSourceZipFileRefOneOf1 model constructor.
+     * @property {module:c2m_api/model/DocSourceZipFileRefOneOf1}
+     */
+    DocSourceZipFileRefOneOf1,
+
+    /**
+     * The DocumentClass model constructor.
+     * @property {module:c2m_api/model/DocumentClass}
+     */
+    DocumentClass,
+
+    /**
+     * The DocumentIdSource model constructor.
+     * @property {module:c2m_api/model/DocumentIdSource}
+     */
+    DocumentIdSource,
+
+    /**
+     * The Envelope model constructor.
+     * @property {module:c2m_api/model/Envelope}
+     */
+    Envelope,
 
     /**
      * The ErrorCode model constructor.
@@ -224,6 +303,12 @@ export {
     JobOptions,
 
     /**
+     * The Layout model constructor.
+     * @property {module:c2m_api/model/Layout}
+     */
+    Layout,
+
+    /**
      * The LongTokenRequest model constructor.
      * @property {module:c2m_api/model/LongTokenRequest}
      */
@@ -234,6 +319,18 @@ export {
      * @property {module:c2m_api/model/LongTokenResponse}
      */
     LongTokenResponse,
+
+    /**
+     * The MailClass model constructor.
+     * @property {module:c2m_api/model/MailClass}
+     */
+    MailClass,
+
+    /**
+     * The MergeByDocumentId model constructor.
+     * @property {module:c2m_api/model/MergeByDocumentId}
+     */
+    MergeByDocumentId,
 
     /**
      * The MergeByRequestId model constructor.
@@ -248,6 +345,18 @@ export {
     MergeDocumentRef,
 
     /**
+     * The MergeDocumentRefOneOf model constructor.
+     * @property {module:c2m_api/model/MergeDocumentRefOneOf}
+     */
+    MergeDocumentRefOneOf,
+
+    /**
+     * The MergeDocumentRefOneOf1 model constructor.
+     * @property {module:c2m_api/model/MergeDocumentRefOneOf1}
+     */
+    MergeDocumentRefOneOf1,
+
+    /**
      * The MultiDocJobItem model constructor.
      * @property {module:c2m_api/model/MultiDocJobItem}
      */
@@ -258,6 +367,12 @@ export {
      * @property {module:c2m_api/model/MultiZipJobItem}
      */
     MultiZipJobItem,
+
+    /**
+     * The PaperType model constructor.
+     * @property {module:c2m_api/model/PaperType}
+     */
+    PaperType,
 
     /**
      * The PaymentDetails model constructor.
@@ -278,22 +393,52 @@ export {
     PdfSplitJobItemWithAddress,
 
     /**
+     * The PrintOption model constructor.
+     * @property {module:c2m_api/model/PrintOption}
+     */
+    PrintOption,
+
+    /**
+     * The ProductionTime model constructor.
+     * @property {module:c2m_api/model/ProductionTime}
+     */
+    ProductionTime,
+
+    /**
      * The RecipientAddressByList model constructor.
      * @property {module:c2m_api/model/RecipientAddressByList}
      */
     RecipientAddressByList,
 
     /**
-     * The RecipientAddressBySingle model constructor.
-     * @property {module:c2m_api/model/RecipientAddressBySingle}
-     */
-    RecipientAddressBySingle,
-
-    /**
      * The RecipientAddressSource model constructor.
      * @property {module:c2m_api/model/RecipientAddressSource}
      */
     RecipientAddressSource,
+
+    /**
+     * The RecipientAddressSourceOneOf model constructor.
+     * @property {module:c2m_api/model/RecipientAddressSourceOneOf}
+     */
+    RecipientAddressSourceOneOf,
+
+    /**
+     * The RecipientAddressSourceOneOf1 model constructor.
+     * @property {module:c2m_api/model/RecipientAddressSourceOneOf1}
+     */
+    RecipientAddressSourceOneOf1,
+
+    /**
+     * The RecipientAddressSourceOneOf2 model constructor.
+     * @property {module:c2m_api/model/RecipientAddressSourceOneOf2}
+     */
+    RecipientAddressSourceOneOf2,
+
+    /**
+     * The RecipientAddressSourceOneOf3 model constructor.
+     * @property {module:c2m_api/model/RecipientAddressSourceOneOf3}
+     */
+    RecipientAddressSourceOneOf3,
 
     /**
      * The RequestIdSource model constructor.
@@ -326,6 +471,12 @@ export {
     StandardResponse,
 
     /**
+     * The SubmitDocParams model constructor.
+     * @property {module:c2m_api/model/SubmitDocParams}
+     */
+    SubmitDocParams,
+
+    /**
      * The SubmitMultiDocMergeParams model constructor.
      * @property {module:c2m_api/model/SubmitMultiDocMergeParams}
      */
@@ -342,12 +493,6 @@ export {
      * @property {module:c2m_api/model/SubmitMultiZipParams}
      */
     SubmitMultiZipParams,
-
-    /**
-     * The SubmitSingleDocParams model constructor.
-     * @property {module:c2m_api/model/SubmitSingleDocParams}
-     */
-    SubmitSingleDocParams,
 
     /**
      * The SubmitSinglePdfAddressCaptureParams model constructor.
@@ -368,10 +513,22 @@ export {
     SubmitSinglePdfSplitParams,
 
     /**
+     * The UrlSource model constructor.
+     * @property {module:c2m_api/model/UrlSource}
+     */
+    UrlSource,
+
+    /**
      * The UserCreditPayment model constructor.
      * @property {module:c2m_api/model/UserCreditPayment}
      */
     UserCreditPayment,
+
+    /**
+     * The ZipDocumentIdOnly model constructor.
+     * @property {module:c2m_api/model/ZipDocumentIdOnly}
+     */
+    ZipDocumentIdOnly,
 
     /**
      * The ZipDocumentIdSource model constructor.
@@ -384,6 +541,24 @@ export {
      * @property {module:c2m_api/model/ZipDocumentSource}
      */
     ZipDocumentSource,
+
+    /**
+     * The ZipDocumentSourceOneOf model constructor.
+     * @property {module:c2m_api/model/ZipDocumentSourceOneOf}
+     */
+    ZipDocumentSourceOneOf,
+
+    /**
+     * The ZipDocumentSourceOneOf1 model constructor.
+     * @property {module:c2m_api/model/ZipDocumentSourceOneOf1}
+     */
+    ZipDocumentSourceOneOf1,
+
+    /**
+     * The ZipRequestIdOnly model constructor.
+     * @property {module:c2m_api/model/ZipRequestIdOnly}
+     */
+    ZipRequestIdOnly,
 
     /**
      * The ZipRequestIdSource model constructor.

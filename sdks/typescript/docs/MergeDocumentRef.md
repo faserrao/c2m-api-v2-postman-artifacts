@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requestId** | **number** |  | [default to undefined]
-**filename** | **string** |  | [optional] [default to undefined]
+**mergeByDocumentId** | [**MergeByDocumentId**](MergeByDocumentId.md) |  | [default to undefined]
+**mergeByRequestId** | [**MergeByRequestId**](MergeByRequestId.md) |  | [default to undefined]
 
 ## Example
 
@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 import { MergeDocumentRef } from './api';
 
 const instance: MergeDocumentRef = {
-    requestId,
-    filename,
+    mergeByDocumentId,
+    mergeByRequestId,
 };
 ```
 

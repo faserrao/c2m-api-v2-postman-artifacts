@@ -14,25 +14,25 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct JobOptions {
     #[serde(rename = "documentClass")]
-    pub document_class: String,
+    pub document_class: DocumentClass,
     #[serde(rename = "layout")]
-    pub layout: String,
+    pub layout: Layout,
     #[serde(rename = "productionTime")]
-    pub production_time: String,
+    pub production_time: ProductionTime,
     #[serde(rename = "envelope")]
-    pub envelope: String,
+    pub envelope: Envelope,
     #[serde(rename = "color")]
-    pub color: String,
+    pub color: Color,
     #[serde(rename = "paperType")]
-    pub paper_type: String,
+    pub paper_type: PaperType,
     #[serde(rename = "printOption")]
-    pub print_option: String,
+    pub print_option: PrintOption,
     #[serde(rename = "mailClass")]
-    pub mail_class: String,
+    pub mail_class: MailClass,
 }
 
 impl JobOptions {
-    pub fn new(document_class: String, layout: String, production_time: String, envelope: String, color: String, paper_type: String, print_option: String, mail_class: String) -> JobOptions {
+    pub fn new(document_class: DocumentClass, layout: Layout, production_time: ProductionTime, envelope: Envelope, color: Color, paper_type: PaperType, print_option: PrintOption, mail_class: MailClass) -> JobOptions {
         JobOptions {
             document_class,
             layout,
@@ -43,6 +43,138 @@ impl JobOptions {
             print_option,
             mail_class,
         }
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum DocumentClass {
+    #[serde(rename = "letter")]
+    Letter,
+    #[serde(rename = "postcard")]
+    Postcard,
+    #[serde(rename = "brochure")]
+    Brochure,
+    #[serde(rename = "flat")]
+    Flat,
+}
+
+impl Default for DocumentClass {
+    fn default() -> DocumentClass {
+        Self::Letter
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Layout {
+    #[serde(rename = "address_on_first_page")]
+    AddressOnFirstPage,
+    #[serde(rename = "address_on_back_page")]
+    AddressOnBackPage,
+}
+
+impl Default for Layout {
+    fn default() -> Layout {
+        Self::AddressOnFirstPage
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum ProductionTime {
+    #[serde(rename = "next_day")]
+    NextDay,
+    #[serde(rename = "two_day")]
+    TwoDay,
+    #[serde(rename = "three_day")]
+    ThreeDay,
+    #[serde(rename = "standard")]
+    Standard,
+    #[serde(rename = "same_day")]
+    SameDay,
+}
+
+impl Default for ProductionTime {
+    fn default() -> ProductionTime {
+        Self::NextDay
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Envelope {
+    #[serde(rename = "standard")]
+    Standard,
+    #[serde(rename = "none")]
+    None,
+    #[serde(rename = "flat")]
+    Flat,
+    #[serde(rename = "double_window")]
+    DoubleWindow,
+}
+
+impl Default for Envelope {
+    fn default() -> Envelope {
+        Self::Standard
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Color {
+    #[serde(rename = "full_color")]
+    FullColor,
+    #[serde(rename = "black_and_white")]
+    BlackAndWhite,
+}
+
+impl Default for Color {
+    fn default() -> Color {
+        Self::FullColor
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum PaperType {
+    #[serde(rename = "white")]
+    White,
+    #[serde(rename = "white_24")]
+    White24,
+    #[serde(rename = "ivory")]
+    Ivory,
+    #[serde(rename = "glossy")]
+    Glossy,
+}
+
+impl Default for PaperType {
+    fn default() -> PaperType {
+        Self::White
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum PrintOption {
+    #[serde(rename = "double_sided")]
+    DoubleSided,
+    #[serde(rename = "single_sided")]
+    SingleSided,
+}
+
+impl Default for PrintOption {
+    fn default() -> PrintOption {
+        Self::DoubleSided
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum MailClass {
+    #[serde(rename = "first_class")]
+    FirstClass,
+    #[serde(rename = "standard")]
+    Standard,
+    #[serde(rename = "non_profit")]
+    NonProfit,
+}
+
+impl Default for MailClass {
+    fn default() -> MailClass {
+        Self::FirstClass
     }
 }
 

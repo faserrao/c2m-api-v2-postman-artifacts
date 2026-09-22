@@ -54,14 +54,20 @@
       //expect(instance).to.be.a(C2MApiV2.DocSourceStandard);
     });
 
-    it('should have the property requestId (base name: "requestId")', function() {
-      // uncomment below and update the code to test the property requestId
+    it('should have the property documentIdSource (base name: "documentIdSource")', function() {
+      // uncomment below and update the code to test the property documentIdSource
       //var instance = new C2MApiV2.DocSourceStandard();
       //expect(instance).to.be();
     });
 
-    it('should have the property filename (base name: "filename")', function() {
-      // uncomment below and update the code to test the property filename
+    it('should have the property requestIdSource (base name: "requestIdSource")', function() {
+      // uncomment below and update the code to test the property requestIdSource
+      //var instance = new C2MApiV2.DocSourceStandard();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property urlSource (base name: "urlSource")', function() {
+      // uncomment below and update the code to test the property urlSource
       //var instance = new C2MApiV2.DocSourceStandard();
       //expect(instance).to.be();
     });

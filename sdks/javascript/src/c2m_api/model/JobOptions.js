@@ -22,14 +22,14 @@ class JobOptions {
     /**
      * Constructs a new <code>JobOptions</code>.
      * @alias module:c2m_api/model/JobOptions
-     * @param documentClass {String} 
-     * @param layout {String} 
-     * @param productionTime {String} 
-     * @param envelope {String} 
-     * @param color {String} 
-     * @param paperType {String} 
-     * @param printOption {String} 
-     * @param mailClass {String} 
+     * @param documentClass {module:c2m_api/model/JobOptions.DocumentClassEnum} 
+     * @param layout {module:c2m_api/model/JobOptions.LayoutEnum} 
+     * @param productionTime {module:c2m_api/model/JobOptions.ProductionTimeEnum} 
+     * @param envelope {module:c2m_api/model/JobOptions.EnvelopeEnum} 
+     * @param color {module:c2m_api/model/JobOptions.ColorEnum} 
+     * @param paperType {module:c2m_api/model/JobOptions.PaperTypeEnum} 
+     * @param printOption {module:c2m_api/model/JobOptions.PrintOptionEnum} 
+     * @param mailClass {module:c2m_api/model/JobOptions.MailClassEnum} 
      */
     constructor(documentClass, layout, productionTime, envelope, color, paperType, printOption, mailClass) { 
         
@@ -145,47 +145,275 @@ class JobOptions {
 JobOptions.RequiredProperties = ["documentClass", "layout", "productionTime", "envelope", "color", "paperType", "printOption", "mailClass"];
 
 /**
- * @member {String} documentClass
+ * @member {module:c2m_api/model/JobOptions.DocumentClassEnum} documentClass
  */
 JobOptions.prototype['documentClass'] = undefined;
 
 /**
- * @member {String} layout
+ * @member {module:c2m_api/model/JobOptions.LayoutEnum} layout
  */
 JobOptions.prototype['layout'] = undefined;
 
 /**
- * @member {String} productionTime
+ * @member {module:c2m_api/model/JobOptions.ProductionTimeEnum} productionTime
  */
 JobOptions.prototype['productionTime'] = undefined;
 
 /**
- * @member {String} envelope
+ * @member {module:c2m_api/model/JobOptions.EnvelopeEnum} envelope
  */
 JobOptions.prototype['envelope'] = undefined;
 
 /**
- * @member {String} color
+ * @member {module:c2m_api/model/JobOptions.ColorEnum} color
  */
 JobOptions.prototype['color'] = undefined;
 
 /**
- * @member {String} paperType
+ * @member {module:c2m_api/model/JobOptions.PaperTypeEnum} paperType
  */
 JobOptions.prototype['paperType'] = undefined;
 
 /**
- * @member {String} printOption
+ * @member {module:c2m_api/model/JobOptions.PrintOptionEnum} printOption
  */
 JobOptions.prototype['printOption'] = undefined;
 
 /**
- * @member {String} mailClass
+ * @member {module:c2m_api/model/JobOptions.MailClassEnum} mailClass
  */
 JobOptions.prototype['mailClass'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>documentClass</code> property.
+ * @enum {String}
+ * @readonly
+ */
+JobOptions['DocumentClassEnum'] = {
+
+    /**
+     * value: "letter"
+     * @const
+     */
+    "letter": "letter",
+
+    /**
+     * value: "postcard"
+     * @const
+     */
+    "postcard": "postcard",
+
+    /**
+     * value: "brochure"
+     * @const
+     */
+    "brochure": "brochure",
+
+    /**
+     * value: "flat"
+     * @const
+     */
+    "flat": "flat"
+};
+
+
+/**
+ * Allowed values for the <code>layout</code> property.
+ * @enum {String}
+ * @readonly
+ */
+JobOptions['LayoutEnum'] = {
+
+    /**
+     * value: "address_on_first_page"
+     * @const
+     */
+    "address_on_first_page": "address_on_first_page",
+
+    /**
+     * value: "address_on_back_page"
+     * @const
+     */
+    "address_on_back_page": "address_on_back_page"
+};
+
+
+/**
+ * Allowed values for the <code>productionTime</code> property.
+ * @enum {String}
+ * @readonly
+ */
+JobOptions['ProductionTimeEnum'] = {
+
+    /**
+     * value: "next_day"
+     * @const
+     */
+    "next_day": "next_day",
+
+    /**
+     * value: "two_day"
+     * @const
+     */
+    "two_day": "two_day",
+
+    /**
+     * value: "three_day"
+     * @const
+     */
+    "three_day": "three_day",
+
+    /**
+     * value: "standard"
+     * @const
+     */
+    "standard": "standard",
+
+    /**
+     * value: "same_day"
+     * @const
+     */
+    "same_day": "same_day"
+};
+
+
+/**
+ * Allowed values for the <code>envelope</code> property.
+ * @enum {String}
+ * @readonly
+ */
+JobOptions['EnvelopeEnum'] = {
+
+    /**
+     * value: "standard"
+     * @const
+     */
+    "standard": "standard",
+
+    /**
+     * value: "none"
+     * @const
+     */
+    "none": "none",
+
+    /**
+     * value: "flat"
+     * @const
+     */
+    "flat": "flat",
+
+    /**
+     * value: "double_window"
+     * @const
+     */
+    "double_window": "double_window"
+};
+
+
+/**
+ * Allowed values for the <code>color</code> property.
+ * @enum {String}
+ * @readonly
+ */
+JobOptions['ColorEnum'] = {
+
+    /**
+     * value: "full_color"
+     * @const
+     */
+    "full_color": "full_color",
+
+    /**
+     * value: "black_and_white"
+     * @const
+     */
+    "black_and_white": "black_and_white"
+};
+
+
+/**
+ * Allowed values for the <code>paperType</code> property.
+ * @enum {String}
+ * @readonly
+ */
+JobOptions['PaperTypeEnum'] = {
+
+    /**
+     * value: "white"
+     * @const
+     */
+    "white": "white",
+
+    /**
+     * value: "white_24"
+     * @const
+     */
+    "white_24": "white_24",
+
+    /**
+     * value: "ivory"
+     * @const
+     */
+    "ivory": "ivory",
+
+    /**
+     * value: "glossy"
+     * @const
+     */
+    "glossy": "glossy"
+};
+
+
+/**
+ * Allowed values for the <code>printOption</code> property.
+ * @enum {String}
+ * @readonly
+ */
+JobOptions['PrintOptionEnum'] = {
+
+    /**
+     * value: "double_sided"
+     * @const
+     */
+    "double_sided": "double_sided",
+
+    /**
+     * value: "single_sided"
+     * @const
+     */
+    "single_sided": "single_sided"
+};
+
+
+/**
+ * Allowed values for the <code>mailClass</code> property.
+ * @enum {String}
+ * @readonly
+ */
+JobOptions['MailClassEnum'] = {
+
+    /**
+     * value: "first_class"
+     * @const
+     */
+    "first_class": "first_class",
+
+    /**
+     * value: "standard"
+     * @const
+     */
+    "standard": "standard",
+
+    /**
+     * value: "non_profit"
+     * @const
+     */
+    "non_profit": "non_profit"
+};
 
 
 

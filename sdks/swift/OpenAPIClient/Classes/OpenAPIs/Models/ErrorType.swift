@@ -15,5 +15,6 @@ public enum ErrorType: String, Codable, CaseIterable {
     case authenticationError = "AuthenticationError"
     case authorizationError = "AuthorizationError"
     case resourceNotFoundError = "ResourceNotFoundError"
+    case rateLimitError = "RateLimitError"
     case serverError = "ServerError"
 }

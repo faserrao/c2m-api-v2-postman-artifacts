@@ -4,16 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** | **int32** |  | 
-**Filename** | **string** |  | 
-**ZipDocumentId** | **int32** |  | 
-**ZipFilename** | **string** |  | 
+**DocumentIdSource** | [**DocumentIdSource**](DocumentIdSource.md) |  | 
+**RequestIdSource** | [**RequestIdSource**](RequestIdSource.md) |  | 
+**UrlSource** | [**UrlSource**](UrlSource.md) |  | 
+**ZipDocumentIdSource** | [**ZipDocumentIdSource**](ZipDocumentIdSource.md) |  | 
+**ZipRequestIdSource** | [**ZipRequestIdSource**](ZipRequestIdSource.md) |  | 
 
 ## Methods
 
 ### NewDocSourceAll
 
-`func NewDocSourceAll(requestId int32, filename string, zipDocumentId int32, zipFilename string, ) *DocSourceAll`
+`func NewDocSourceAll(documentIdSource DocumentIdSource, requestIdSource RequestIdSource, urlSource UrlSource, zipDocumentIdSource ZipDocumentIdSource, zipRequestIdSource ZipRequestIdSource, ) *DocSourceAll`
 
 NewDocSourceAll instantiates a new DocSourceAll object
 This constructor will assign default values to properties that have it defined,
@@ -28,84 +29,104 @@ NewDocSourceAllWithDefaults instantiates a new DocSourceAll object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetRequestId
+### GetDocumentIdSource
 
-`func (o *DocSourceAll) GetRequestId() int32`
+`func (o *DocSourceAll) GetDocumentIdSource() DocumentIdSource`
 
-GetRequestId returns the RequestId field if non-nil, zero value otherwise.
+GetDocumentIdSource returns the DocumentIdSource field if non-nil, zero value otherwise.
 
-### GetRequestIdOk
+### GetDocumentIdSourceOk
 
-`func (o *DocSourceAll) GetRequestIdOk() (*int32, bool)`
+`func (o *DocSourceAll) GetDocumentIdSourceOk() (*DocumentIdSource, bool)`
 
-GetRequestIdOk returns a tuple with the RequestId field if it's non-nil, zero value otherwise
+GetDocumentIdSourceOk returns a tuple with the DocumentIdSource field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRequestId
+### SetDocumentIdSource
 
-`func (o *DocSourceAll) SetRequestId(v int32)`
+`func (o *DocSourceAll) SetDocumentIdSource(v DocumentIdSource)`
 
-SetRequestId sets RequestId field to given value.
+SetDocumentIdSource sets DocumentIdSource field to given value.
 
 
-### GetFilename
+### GetRequestIdSource
 
-`func (o *DocSourceAll) GetFilename() string`
+`func (o *DocSourceAll) GetRequestIdSource() RequestIdSource`
 
-GetFilename returns the Filename field if non-nil, zero value otherwise.
+GetRequestIdSource returns the RequestIdSource field if non-nil, zero value otherwise.
 
-### GetFilenameOk
+### GetRequestIdSourceOk
 
-`func (o *DocSourceAll) GetFilenameOk() (*string, bool)`
+`func (o *DocSourceAll) GetRequestIdSourceOk() (*RequestIdSource, bool)`
 
-GetFilenameOk returns a tuple with the Filename field if it's non-nil, zero value otherwise
+GetRequestIdSourceOk returns a tuple with the RequestIdSource field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFilename
+### SetRequestIdSource
 
-`func (o *DocSourceAll) SetFilename(v string)`
+`func (o *DocSourceAll) SetRequestIdSource(v RequestIdSource)`
 
-SetFilename sets Filename field to given value.
+SetRequestIdSource sets RequestIdSource field to given value.
 
 
-### GetZipDocumentId
+### GetUrlSource
 
-`func (o *DocSourceAll) GetZipDocumentId() int32`
+`func (o *DocSourceAll) GetUrlSource() UrlSource`
 
-GetZipDocumentId returns the ZipDocumentId field if non-nil, zero value otherwise.
+GetUrlSource returns the UrlSource field if non-nil, zero value otherwise.
 
-### GetZipDocumentIdOk
+### GetUrlSourceOk
 
-`func (o *DocSourceAll) GetZipDocumentIdOk() (*int32, bool)`
+`func (o *DocSourceAll) GetUrlSourceOk() (*UrlSource, bool)`
 
-GetZipDocumentIdOk returns a tuple with the ZipDocumentId field if it's non-nil, zero value otherwise
+GetUrlSourceOk returns a tuple with the UrlSource field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetZipDocumentId
+### SetUrlSource
 
-`func (o *DocSourceAll) SetZipDocumentId(v int32)`
+`func (o *DocSourceAll) SetUrlSource(v UrlSource)`
 
-SetZipDocumentId sets ZipDocumentId field to given value.
+SetUrlSource sets UrlSource field to given value.
 
 
-### GetZipFilename
+### GetZipDocumentIdSource
 
-`func (o *DocSourceAll) GetZipFilename() string`
+`func (o *DocSourceAll) GetZipDocumentIdSource() ZipDocumentIdSource`
 
-GetZipFilename returns the ZipFilename field if non-nil, zero value otherwise.
+GetZipDocumentIdSource returns the ZipDocumentIdSource field if non-nil, zero value otherwise.
 
-### GetZipFilenameOk
+### GetZipDocumentIdSourceOk
 
-`func (o *DocSourceAll) GetZipFilenameOk() (*string, bool)`
+`func (o *DocSourceAll) GetZipDocumentIdSourceOk() (*ZipDocumentIdSource, bool)`
 
-GetZipFilenameOk returns a tuple with the ZipFilename field if it's non-nil, zero value otherwise
+GetZipDocumentIdSourceOk returns a tuple with the ZipDocumentIdSource field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetZipFilename
+### SetZipDocumentIdSource
 
-`func (o *DocSourceAll) SetZipFilename(v string)`
+`func (o *DocSourceAll) SetZipDocumentIdSource(v ZipDocumentIdSource)`
 
-SetZipFilename sets ZipFilename field to given value.
+SetZipDocumentIdSource sets ZipDocumentIdSource field to given value.
+
+
+### GetZipRequestIdSource
+
+`func (o *DocSourceAll) GetZipRequestIdSource() ZipRequestIdSource`
+
+GetZipRequestIdSource returns the ZipRequestIdSource field if non-nil, zero value otherwise.
+
+### GetZipRequestIdSourceOk
+
+`func (o *DocSourceAll) GetZipRequestIdSourceOk() (*ZipRequestIdSource, bool)`
+
+GetZipRequestIdSourceOk returns a tuple with the ZipRequestIdSource field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetZipRequestIdSource
+
+`func (o *DocSourceAll) SetZipRequestIdSource(v ZipRequestIdSource)`
+
+SetZipRequestIdSource sets ZipRequestIdSource field to given value.
 
 
 

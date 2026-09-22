@@ -1,7 +1,7 @@
 /*
- * C2M API v2 - Auth Overlay
+ * C2M API v2
  *
- * API for submitting documents with various routing options
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -13,14 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RecipientAddressSourceOneOf1 {
-    #[serde(rename = "addressId")]
-    pub address_id: i32,
+    #[serde(rename = "recipientAddressByList")]
+    pub recipient_address_by_list: Box<models::RecipientAddressByList>,
 }
 
 impl RecipientAddressSourceOneOf1 {
-    pub fn new(address_id: i32) -> RecipientAddressSourceOneOf1 {
+    pub fn new(recipient_address_by_list: models::RecipientAddressByList) -> RecipientAddressSourceOneOf1 {
         RecipientAddressSourceOneOf1 {
-            address_id,
+            recipient_address_by_list: Box::new(recipient_address_by_list),
         }
     }
 }

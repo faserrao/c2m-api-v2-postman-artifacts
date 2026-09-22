@@ -33,21 +33,21 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecipientAddressSourceOneOf" /> class.
         /// </summary>
-        /// <param name="addressListId">addressListId</param>
+        /// <param name="singleAddress">singleAddress</param>
         [JsonConstructor]
-        public RecipientAddressSourceOneOf(int addressListId)
+        public RecipientAddressSourceOneOf(Address singleAddress)
         {
-            AddressListId = addressListId;
+            SingleAddress = singleAddress;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets AddressListId
+        /// Gets or Sets SingleAddress
         /// </summary>
-        [JsonPropertyName("addressListId")]
-        public int AddressListId { get; set; }
+        [JsonPropertyName("singleAddress")]
+        public Address SingleAddress { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -57,7 +57,7 @@ namespace C2M.Api.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class RecipientAddressSourceOneOf {\n");
-            sb.Append("  AddressListId: ").Append(AddressListId).Append("\n");
+            sb.Append("  SingleAddress: ").Append(SingleAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,7 +95,7 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> addressListId = default;
+            Option<Address?> singleAddress = default;
 
             while (utf8JsonReader.Read())
             {
@@ -112,8 +112,8 @@ namespace C2M.Api.Model
 
                     switch (localVarJsonPropertyName)
                     {
-                        case "addressListId":
-                            addressListId = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                        case "singleAddress":
+                            singleAddress = new Option<Address?>(JsonSerializer.Deserialize<Address>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
@@ -121,13 +121,13 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (!addressListId.IsSet)
-                throw new ArgumentException("Property is required for class RecipientAddressSourceOneOf.", nameof(addressListId));
+            if (!singleAddress.IsSet)
+                throw new ArgumentException("Property is required for class RecipientAddressSourceOneOf.", nameof(singleAddress));
 
-            if (addressListId.IsSet && addressListId.Value == null)
-                throw new ArgumentNullException(nameof(addressListId), "Property is not nullable for class RecipientAddressSourceOneOf.");
+            if (singleAddress.IsSet && singleAddress.Value == null)
+                throw new ArgumentNullException(nameof(singleAddress), "Property is not nullable for class RecipientAddressSourceOneOf.");
 
-            return new RecipientAddressSourceOneOf(addressListId.Value!.Value!);
+            return new RecipientAddressSourceOneOf(singleAddress.Value!);
         }
 
         /// <summary>
@@ -154,7 +154,11 @@ namespace C2M.Api.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RecipientAddressSourceOneOf recipientAddressSourceOneOf, JsonSerializerOptions jsonSerializerOptions)
         {
-            writer.WriteNumber("addressListId", recipientAddressSourceOneOf.AddressListId);
+            if (recipientAddressSourceOneOf.SingleAddress == null)
+                throw new ArgumentNullException(nameof(recipientAddressSourceOneOf.SingleAddress), "Property is required for class RecipientAddressSourceOneOf.");
+
+            writer.WritePropertyName("singleAddress");
+            JsonSerializer.Serialize(writer, recipientAddressSourceOneOf.SingleAddress, jsonSerializerOptions);
         }
     }
 }

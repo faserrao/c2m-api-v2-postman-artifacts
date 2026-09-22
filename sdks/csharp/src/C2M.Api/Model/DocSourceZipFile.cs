@@ -33,34 +33,34 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocSourceZipFile" /> class.
         /// </summary>
-        /// <param name="zipDocumentIdSource"></param>
-        public DocSourceZipFile(ZipDocumentIdSource zipDocumentIdSource)
+        /// <param name="zipDocumentSourceOneOf"></param>
+        public DocSourceZipFile(ZipDocumentSourceOneOf zipDocumentSourceOneOf)
         {
-            ZipDocumentIdSource = zipDocumentIdSource;
+            ZipDocumentSourceOneOf = zipDocumentSourceOneOf;
             OnCreated();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DocSourceZipFile" /> class.
         /// </summary>
-        /// <param name="zipRequestIdSource"></param>
-        public DocSourceZipFile(ZipRequestIdSource zipRequestIdSource)
+        /// <param name="zipDocumentSourceOneOf1"></param>
+        public DocSourceZipFile(ZipDocumentSourceOneOf1 zipDocumentSourceOneOf1)
         {
-            ZipRequestIdSource = zipRequestIdSource;
+            ZipDocumentSourceOneOf1 = zipDocumentSourceOneOf1;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets ZipDocumentIdSource
+        /// Gets or Sets ZipDocumentSourceOneOf
         /// </summary>
-        public ZipDocumentIdSource? ZipDocumentIdSource { get; set; }
+        public ZipDocumentSourceOneOf? ZipDocumentSourceOneOf { get; set; }
 
         /// <summary>
-        /// Gets or Sets ZipRequestIdSource
+        /// Gets or Sets ZipDocumentSourceOneOf1
         /// </summary>
-        public ZipRequestIdSource? ZipRequestIdSource { get; set; }
+        public ZipDocumentSourceOneOf1? ZipDocumentSourceOneOf1 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -107,8 +107,8 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            ZipDocumentIdSource? zipDocumentIdSource = default;
-            ZipRequestIdSource? zipRequestIdSource = default;
+            ZipDocumentSourceOneOf? zipDocumentSourceOneOf = default;
+            ZipDocumentSourceOneOf1? zipDocumentSourceOneOf1 = default;
 
             Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
             while (utf8JsonReaderOneOf.Read())
@@ -121,11 +121,11 @@ namespace C2M.Api.Model
 
                 if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
                 {
-                    Utf8JsonReader utf8JsonReaderZipDocumentIdSource = utf8JsonReader;
-                    ClientUtils.TryDeserialize<ZipDocumentIdSource?>(ref utf8JsonReaderZipDocumentIdSource, jsonSerializerOptions, out zipDocumentIdSource);
+                    Utf8JsonReader utf8JsonReaderZipDocumentSourceOneOf = utf8JsonReader;
+                    ClientUtils.TryDeserialize<ZipDocumentSourceOneOf?>(ref utf8JsonReaderZipDocumentSourceOneOf, jsonSerializerOptions, out zipDocumentSourceOneOf);
 
-                    Utf8JsonReader utf8JsonReaderZipRequestIdSource = utf8JsonReader;
-                    ClientUtils.TryDeserialize<ZipRequestIdSource?>(ref utf8JsonReaderZipRequestIdSource, jsonSerializerOptions, out zipRequestIdSource);
+                    Utf8JsonReader utf8JsonReaderZipDocumentSourceOneOf1 = utf8JsonReader;
+                    ClientUtils.TryDeserialize<ZipDocumentSourceOneOf1?>(ref utf8JsonReaderZipDocumentSourceOneOf1, jsonSerializerOptions, out zipDocumentSourceOneOf1);
                 }
             }
 
@@ -150,11 +150,11 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (zipDocumentIdSource != null)
-                return new DocSourceZipFile(zipDocumentIdSource);
+            if (zipDocumentSourceOneOf != null)
+                return new DocSourceZipFile(zipDocumentSourceOneOf);
 
-            if (zipRequestIdSource != null)
-                return new DocSourceZipFile(zipRequestIdSource);
+            if (zipDocumentSourceOneOf1 != null)
+                return new DocSourceZipFile(zipDocumentSourceOneOf1);
 
             throw new JsonException();
         }

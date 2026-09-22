@@ -32,12 +32,52 @@ info:
       - INVALID_ENUM_VALUE
       - MUTUAL_EXCLUSION_VIOLATION
       - INVALID_FORMAT
+    '429':
+      errorType: RateLimitError
+      errorCodes:
+      - RATE_LIMIT_EXCEEDED
     '500':
       errorType: ServerError
       errorCodes:
       - SERVER_ERROR
       - DATABASE_ERROR
       - EXTERNAL_SERVICE_ERROR
+  x-numeric-constraints:
+    month:
+      minimum: 1
+      maximum: 12
+    year:
+      minimum: 2000
+      maximum: 2099
+    quantity:
+      minimum: 1
+    startPage:
+      minimum: 1
+    endPage:
+      minimum: 1
+  x-valid-combinations:
+  - when_field: color
+    when_value: black_and_white
+    then_field: paperType
+    then_values:
+    - white
+    - white_24
+    - ivory
+  - when_field: mailClass
+    when_value: non_profit
+    then_field: documentClass
+    then_values:
+    - letter
+    - flat
+  - when_field: envelope
+    when_value: none
+    then_field: layout
+    then_values:
+    - address_on_first_page
+    - address_on_back_page
+  x-mutual-exclusion:
+  - jobTemplate
+  - jobOptions
 servers:
 - url: https://api.click2mail.com/v2
   description: Production server
@@ -52,7 +92,17 @@ components:
       type: integer
       minimum: 1
       maximum: 12
-    submitSingleDocParams:
+    year:
+      type: integer
+      minimum: 2000
+      maximum: 2099
+    startPage:
+      type: integer
+      minimum: 1
+    endPage:
+      type: integer
+      minimum: 1
+    submitDocParams:
       type: object
       properties:
         jobTemplate:
@@ -218,20 +268,54 @@ components:
       properties:
         documentClass:
           type: string
+          enum:
+          - letter
+          - postcard
+          - brochure
+          - flat
         layout:
           type: string
+          enum:
+          - address_on_first_page
+          - address_on_back_page
         productionTime:
           type: string
+          enum:
+          - next_day
+          - two_day
+          - three_day
+          - standard
+          - same_day
         envelope:
           type: string
+          enum:
+          - standard
+          - none
+          - flat
+          - double_window
         color:
           type: string
+          enum:
+          - full_color
+          - black_and_white
         paperType:
           type: string
+          enum:
+          - white
+          - white_24
+          - ivory
+          - glossy
         printOption:
           type: string
+          enum:
+          - double_sided
+          - single_sided
         mailClass:
           type: string
+          enum:
+          - first_class
+          - standard
+          - non_profit
       required:
       - documentClass
       - layout
@@ -243,20 +327,54 @@ components:
       - mailClass
     documentClass:
       type: string
+      enum:
+      - letter
+      - postcard
+      - brochure
+      - flat
     layout:
       type: string
+      enum:
+      - address_on_first_page
+      - address_on_back_page
     productionTime:
       type: string
+      enum:
+      - next_day
+      - two_day
+      - three_day
+      - standard
+      - same_day
     envelope:
       type: string
+      enum:
+      - standard
+      - none
+      - flat
+      - double_window
     color:
       type: string
+      enum:
+      - full_color
+      - black_and_white
     paperType:
       type: string
+      enum:
+      - white
+      - white_24
+      - ivory
+      - glossy
     printOption:
       type: string
+      enum:
+      - double_sided
+      - single_sided
     mailClass:
       type: string
+      enum:
+      - first_class
+      - standard
+      - non_profit
     tags:
       $ref: '#/components/schemas/tagsList'
     tagsList:
@@ -266,6 +384,8 @@ components:
     firstName:
       type: string
     lastName:
+      type: string
+    company:
       type: string
     address1:
       type: string
@@ -320,21 +440,32 @@ components:
       - country
     recipientAddressSource:
       oneOf:
-      - $ref: '#/components/schemas/recipientAddressBySingle'
-      - $ref: '#/components/schemas/recipientAddressByList'
-      - $ref: '#/components/schemas/recipientAddressByAddressId'
-      - $ref: '#/components/schemas/recipientAddressByListId'
-    recipientAddressBySingle:
-      type: object
-      properties:
-        mappingId:
-          type: integer
-        singleAddress:
-          $ref: '#/components/schemas/singleAddress'
-        addressName:
-          type: string
-      required:
-      - singleAddress
+      - type: object
+        properties:
+          singleAddress:
+            $ref: '#/components/schemas/singleAddress'
+        required:
+        - singleAddress
+      - type: object
+        properties:
+          recipientAddressByList:
+            $ref: '#/components/schemas/recipientAddressByList'
+        required:
+        - recipientAddressByList
+      - type: object
+        properties:
+          recipientAddressByAddressId:
+            $ref: '#/components/schemas/recipientAddressByAddressId'
+        required:
+        - recipientAddressByAddressId
+      - type: object
+        properties:
+          recipientAddressByListId:
+            $ref: '#/components/schemas/recipientAddressByListId'
+        required:
+        - recipientAddressByListId
+    singleAddress:
+      $ref: '#/components/schemas/address'
     recipientAddressByList:
       type: object
       properties:
@@ -360,14 +491,17 @@ components:
       $ref: '#/components/schemas/id'
     addressId:
       $ref: '#/components/schemas/id'
-    singleAddress:
-      $ref: '#/components/schemas/address'
     addressList:
       type: array
       items:
         $ref: '#/components/schemas/address'
     documentIdSource:
-      $ref: '#/components/schemas/documentId'
+      type: object
+      properties:
+        documentId:
+          type: integer
+      required:
+      - documentId
     documentId:
       $ref: '#/components/schemas/id'
     requestIdSource:
@@ -384,7 +518,13 @@ components:
     filename:
       type: string
     urlSource:
-      $ref: '#/components/schemas/url'
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
     url:
       type: string
     zipDocumentIdSource:
@@ -415,30 +555,113 @@ components:
     zipFilename:
       type: string
     zipDocumentIdOnly:
-      $ref: '#/components/schemas/zipDocumentId'
+      type: object
+      properties:
+        zipDocumentId:
+          type: integer
+      required:
+      - zipDocumentId
     zipRequestIdOnly:
-      $ref: '#/components/schemas/requestId'
+      type: object
+      properties:
+        requestId:
+          type: integer
+      required:
+      - requestId
     zipDocumentSource:
       oneOf:
-      - $ref: '#/components/schemas/zipDocumentIdSource'
-      - $ref: '#/components/schemas/zipRequestIdSource'
+      - type: object
+        properties:
+          zipDocumentIdSource:
+            $ref: '#/components/schemas/zipDocumentIdSource'
+        required:
+        - zipDocumentIdSource
+      - type: object
+        properties:
+          zipRequestIdSource:
+            $ref: '#/components/schemas/zipRequestIdSource'
+        required:
+        - zipRequestIdSource
     docSourceStandard:
       oneOf:
-      - $ref: '#/components/schemas/documentIdSource'
-      - $ref: '#/components/schemas/requestIdSource'
-      - $ref: '#/components/schemas/urlSource'
+      - type: object
+        properties:
+          documentIdSource:
+            $ref: '#/components/schemas/documentIdSource'
+        required:
+        - documentIdSource
+      - type: object
+        properties:
+          requestIdSource:
+            $ref: '#/components/schemas/requestIdSource'
+        required:
+        - requestIdSource
+      - type: object
+        properties:
+          urlSource:
+            $ref: '#/components/schemas/urlSource'
+        required:
+        - urlSource
     docSourceZipFile:
       oneOf:
-      - $ref: '#/components/schemas/zipDocumentIdSource'
-      - $ref: '#/components/schemas/zipRequestIdSource'
+      - type: object
+        properties:
+          zipDocumentIdSource:
+            $ref: '#/components/schemas/zipDocumentIdSource'
+        required:
+        - zipDocumentIdSource
+      - type: object
+        properties:
+          zipRequestIdSource:
+            $ref: '#/components/schemas/zipRequestIdSource'
+        required:
+        - zipRequestIdSource
     docSourceZipFileRef:
       oneOf:
-      - $ref: '#/components/schemas/zipDocumentIdOnly'
-      - $ref: '#/components/schemas/zipRequestIdOnly'
+      - type: object
+        properties:
+          zipDocumentIdOnly:
+            $ref: '#/components/schemas/zipDocumentIdOnly'
+        required:
+        - zipDocumentIdOnly
+      - type: object
+        properties:
+          zipRequestIdOnly:
+            $ref: '#/components/schemas/zipRequestIdOnly'
+        required:
+        - zipRequestIdOnly
     docSourceAll:
       oneOf:
-      - $ref: '#/components/schemas/docSourceStandard'
-      - $ref: '#/components/schemas/docSourceZipFile'
+      - type: object
+        properties:
+          documentIdSource:
+            $ref: '#/components/schemas/documentIdSource'
+        required:
+        - documentIdSource
+      - type: object
+        properties:
+          requestIdSource:
+            $ref: '#/components/schemas/requestIdSource'
+        required:
+        - requestIdSource
+      - type: object
+        properties:
+          urlSource:
+            $ref: '#/components/schemas/urlSource'
+        required:
+        - urlSource
+      - type: object
+        properties:
+          zipDocumentIdSource:
+            $ref: '#/components/schemas/zipDocumentIdSource'
+        required:
+        - zipDocumentIdSource
+      - type: object
+        properties:
+          zipRequestIdSource:
+            $ref: '#/components/schemas/zipRequestIdSource'
+        required:
+        - zipRequestIdSource
     mergeDocumentSource:
       $ref: '#/components/schemas/documentsToMerge'
     documentsToMerge:
@@ -447,10 +670,25 @@ components:
         $ref: '#/components/schemas/mergeDocumentRef'
     mergeDocumentRef:
       oneOf:
-      - $ref: '#/components/schemas/mergeByDocumentId'
-      - $ref: '#/components/schemas/mergeByRequestId'
+      - type: object
+        properties:
+          mergeByDocumentId:
+            $ref: '#/components/schemas/mergeByDocumentId'
+        required:
+        - mergeByDocumentId
+      - type: object
+        properties:
+          mergeByRequestId:
+            $ref: '#/components/schemas/mergeByRequestId'
+        required:
+        - mergeByRequestId
     mergeByDocumentId:
-      $ref: '#/components/schemas/documentId'
+      type: object
+      properties:
+        documentId:
+          type: integer
+      required:
+      - documentId
     mergeByRequestId:
       type: object
       properties:
@@ -502,6 +740,8 @@ components:
     pdfSplitJobItemNoAddress:
       type: object
       properties:
+        jobTemplate:
+          type: string
         startPage:
           type: integer
         endPage:
@@ -509,10 +749,6 @@ components:
       required:
       - startPage
       - endPage
-    startPage:
-      type: integer
-    endPage:
-      type: integer
     multiZipJobs:
       type: array
       items:
@@ -647,8 +883,6 @@ components:
       required:
       - month
       - year
-    year:
-      type: integer
     cvv:
       type: integer
     routingNumber:
@@ -695,6 +929,7 @@ components:
           - AuthenticationError
           - AuthorizationError
           - ResourceNotFoundError
+          - RateLimitError
           - ServerError
         errorMessage:
           type: string
@@ -717,6 +952,7 @@ components:
           - SERVER_ERROR
           - DATABASE_ERROR
           - EXTERNAL_SERVICE_ERROR
+          - RATE_LIMIT_EXCEEDED
         errorDetails:
           type: string
         errorTrackingId:
@@ -732,6 +968,7 @@ components:
       - AuthenticationError
       - AuthorizationError
       - ResourceNotFoundError
+      - RateLimitError
       - ServerError
     errorMessage:
       type: string
@@ -754,6 +991,7 @@ components:
       - SERVER_ERROR
       - DATABASE_ERROR
       - EXTERNAL_SERVICE_ERROR
+      - RATE_LIMIT_EXCEEDED
     errorDetails:
       type: string
     errorTrackingId:
@@ -767,6 +1005,8 @@ components:
     HTTP_404_NOT_FOUND:
       $ref: '#/components/schemas/errorResponse'
     HTTP_422_UNPROCESSABLE_ENTITY:
+      $ref: '#/components/schemas/errorResponse'
+    HTTP_429_TOO_MANY_REQUESTS:
       $ref: '#/components/schemas/errorResponse'
     HTTP_500_INTERNAL_SERVER_ERROR:
       $ref: '#/components/schemas/errorResponse'
@@ -1007,13 +1247,13 @@ paths:
       summary: Submit single document
       description: Submits a mailing job for a single document to one or more recipients. The request body must include a
         document source, recipient address information, and payment details.
-      operationId: submitSingleDocParams
+      operationId: submitDocParams
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/submitSingleDocParams'
+              $ref: '#/components/schemas/submitDocParams'
       responses:
         '200':
           description: Success
@@ -1031,24 +1271,24 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "docSourceAll", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260911-JKGIKF
+                    errorTrackingId: TRK-20260922-CC2AF9
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "docSourceAll", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260911-YZ0UQ5
+                    errorTrackingId: TRK-20260922-615BF4
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260911-N8HXSP
+                    errorTrackingId: TRK-20260922-F4A1C8
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -1062,21 +1302,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260911-N6BJ8B
+                    errorTrackingId: TRK-20260922-98FDA1
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260911-GS7RFF
+                    errorTrackingId: TRK-20260922-E7DE7B
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260911-ZCBO1C
+                    errorDetails: '{"expiresAt": "2026-09-22T03:30:06Z", "currentTime": "2026-09-22T04:30:06Z"}'
+                    errorTrackingId: TRK-20260922-C9A26A
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -1087,17 +1327,17 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260911-L59QPZ
+                    errorTrackingId: TRK-20260922-115C80
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260911-YIQEAO
+                    errorTrackingId: TRK-20260922-C12692
         '404':
           description: Not Found - Resource not found
           content:
@@ -1108,17 +1348,17 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
-                    errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260911-F4E9FM
+                    errorDetails: '{"jobId": "JOB-20260922-BCE2"}'
+                    errorTrackingId: TRK-20260922-D21AFF
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
-                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260911-46PFSA
+                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-20260922-ED36"}'
+                    errorTrackingId: TRK-20260922-D6410B
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -1129,25 +1369,26 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
-                    errorDetails: '{"field": "docSourceAll", "value": "invalid_value", "allowedValues": ["pdf", "doc", "docx"]}'
-                    errorTrackingId: TRK-20260911-GJCYZB
+                    errorDetails: '{"field": "docSourceAll", "value": "invalid_value", "allowedValues": ["letter", "postcard",
+                      "brochure", "flat"]}'
+                    errorTrackingId: TRK-20260922-5252C2
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260911-RMYAED
+                    errorTrackingId: TRK-20260922-D38FEB
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "docSourceAll", "issue": "not found in document library"}, {"field":
                       "recipientAddressSource.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260911-SLR3I7
+                    errorTrackingId: TRK-20260922-A05F6F
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -1158,37 +1399,37 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the request
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260911-FB80NW
+                    errorTrackingId: TRK-20260922-D56D54
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260911-H9KISX
+                    errorTrackingId: TRK-20260922-BCEF2F
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
-                    errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260911-UZT6X4
+                    errorDetails: '{"service": "address-validation", "status": "timeout"}'
+                    errorTrackingId: TRK-20260922-3FD0B2
       x-codeSamples:
-      - lang: curl
+      - lang: bash
         label: cURL
-        source: "curl -X POST \\\n  \"https://api.c2m.com/v2/static\" \\\n  -H \"Authorization: Bearer <your-jwt-token>\"\
+        source: "curl -X POST \\\n  \"https://api.click2mail.com/v2/static\" \\\n  -H \"Authorization: Bearer <your-jwt-token>\"\
           \ \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}'"
       - lang: python
         label: Python
-        source: "import requests\n\nurl = f\"https://api.c2m.com/v2/static\"\nheaders = {\n    \"Authorization\": \"Bearer\
-          \ <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    # Add your request body here\n\
-          }\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
+        source: "import requests\n\nurl = f\"https://api.click2mail.com/v2/static\"\nheaders = {\n    \"Authorization\": \"\
+          Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    # Add your request body\
+          \ here\n}\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
       - lang: javascript
         label: JavaScript
-        source: "const url = `https://api.c2m.com/v2/static`;\nconst headers = {\n    'Authorization': 'Bearer <your-jwt-token>',\n\
+        source: "const url = `https://api.click2mail.com/v2/static`;\nconst headers = {\n    'Authorization': 'Bearer <your-jwt-token>',\n\
           \    'Content-Type': 'application/json'\n};\n\nconst data = {\n    // Add your request body here\n};\n\nconst response\
           \ = await fetch(url, {\n    method: 'POST',\n    headers: headers,\n    body: JSON.stringify(data)\n});\n\nconst\
           \ result = await response.json();\nconsole.log(result);"
@@ -1196,28 +1437,53 @@ paths:
         label: Java
         source: "import com.c2m.ApiClient;\nimport com.c2m.ApiException;\nimport com.c2m.Configuration;\nimport com.c2m.auth.*;\n\
           import com.c2m.api.*;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient\
-          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token\n        HttpBearerAuth\
-          \ bearer = (HttpBearerAuth) defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\"\
-          );\n        \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n       \
-          \     // Call the API\n            var result = apiInstance.submitSingleDocParams();\n            System.out.println(result);\n\
-          \        } catch (ApiException e) {\n            System.err.println(\"Exception when calling API\");\n         \
-          \   e.printStackTrace();\n        }\n    }\n}"
+          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token  // J1: \"bearerAuth\"\
+          \ must match _SECURITY_SCHEME_NAME in ebnf_to_openapi_dynamic_v3.py\n        HttpBearerAuth bearer = (HttpBearerAuth)\
+          \ defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\");\n     \
+          \   \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n            // Call\
+          \ the API\n            var result = apiInstance.submitDocParams();\n            System.out.println(result);\n  \
+          \      } catch (ApiException e) {\n            System.err.println(\"Exception when calling API\");\n           \
+          \ e.printStackTrace();\n        }\n    }\n}"
+      - lang: go
+        label: Go
+        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
+          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
+          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitDocParams(ctx).Execute()\n\
+          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
+          Response: %v\\n\", resp)\n}"
       - lang: csharp
         label: C#
         source: "using System;\nusing C2M.Api;\nusing C2M.Client;\nusing C2M.Model;\n\nnamespace Example\n{\n    public class\
           \ Program\n    {\n        public static void Main()\n        {\n            Configuration config = new Configuration();\n\
           \            config.AccessToken = \"<your-jwt-token>\";\n            \n            var apiInstance = new DefaultApi(config);\n\
-          \            \n            try\n            {\n                // Call the API\n                var result = apiInstance.submitSingleDocParams();\n\
+          \            \n            try\n            {\n                // Call the API\n                var result = apiInstance.submitDocParams();\n\
           \                Console.WriteLine(result);\n            }\n            catch (ApiException e)\n            {\n\
           \                Console.WriteLine(\"Exception: \" + e.Message);\n                Console.WriteLine(\"Status Code:\
           \ \" + e.ErrorCode);\n            }\n        }\n    }\n}"
-      - lang: go
-        label: Go
-        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
-          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
-          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitSingleDocParams(ctx).Execute()\n\
-          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
-          Response: %v\\n\", resp)\n}"
+      - lang: swift
+        label: Swift
+        source: "import Foundation\n\nlet url = URL(string: \"https://api.click2mail.com/v2/static\")!\nvar request = URLRequest(url:\
+          \ url)\nrequest.httpMethod = \"POST\"\nrequest.setValue(\"Bearer <your-jwt-token>\", forHTTPHeaderField: \"Authorization\"\
+          )\nrequest.setValue(\"application/json\", forHTTPHeaderField: \"Content-Type\")\n\nlet body: [String: Any] = [\n\
+          \    // Add your request body here\n]\nrequest.httpBody = try? JSONSerialization.data(withJSONObject: body)\n\n\
+          let task = URLSession.shared.dataTask(with: request) { data, response, error in\n    if let data = data,\n     \
+          \  let json = try? JSONSerialization.jsonObject(with: data) {\n        print(json)\n    }\n}\ntask.resume()"
+      - lang: kotlin
+        label: Kotlin
+        source: "import okhttp3.*\nimport okhttp3.MediaType.Companion.toMediaType\nimport okhttp3.RequestBody.Companion.toRequestBody\n\
+          \nval client = OkHttpClient()\nval url = \"https://api.click2mail.com/v2/static\"\n\nval body = \"\"\"\n    {{\n\
+          \        // Add your request body here\n    }}\n\"\"\".trimIndent().toRequestBody(\"application/json\".toMediaType())\n\
+          \nval request = Request.Builder()\n    .url(url)\n    .addHeader(\"Authorization\", \"Bearer <your-jwt-token>\"\
+          )\n    .addHeader(\"Content-Type\", \"application/json\")\n    .post(body)\n    .build()\n\nval response = client.newCall(request).execute()\n\
+          println(response.body?.string())"
+      - lang: rust
+        label: Rust
+        source: "use reqwest::header;\nuse serde_json::json;\n\n#[tokio::main]\nasync fn main() -> Result<(), Box<dyn std::error::Error>>\
+          \ {\n    let client = reqwest::Client::new();\n    let url = \"https://api.click2mail.com/v2/static\";\n\n    let\
+          \ body = json!({\n        // Add your request body here\n    });\n\n    let response = client\n        .post(url)\n\
+          \        .header(header::AUTHORIZATION, \"Bearer <your-jwt-token>\")\n        .header(header::CONTENT_TYPE, \"application/json\"\
+          )\n        .json(&body)\n        .send()\n        .await?;\n\n    let result: serde_json::Value = response.json().await?;\n\
+          \    println!(\"{:#?}\", result);\n    Ok(())\n}"
   /static/address-capture:
     post:
       tags:
@@ -1249,24 +1515,24 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "docSourceStandard", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260911-3N6C96
+                    errorTrackingId: TRK-20260922-EDA200
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "docSourceStandard", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260911-HFXSE0
+                    errorTrackingId: TRK-20260922-02735A
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260911-5XXYGL
+                    errorTrackingId: TRK-20260922-BD6CD9
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -1280,21 +1546,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260911-7QM7VE
+                    errorTrackingId: TRK-20260922-161A37
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260911-A26I1F
+                    errorTrackingId: TRK-20260922-4D1B52
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260911-GCMM49
+                    errorDetails: '{"expiresAt": "2026-09-22T03:30:06Z", "currentTime": "2026-09-22T04:30:06Z"}'
+                    errorTrackingId: TRK-20260922-DD05B5
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -1305,17 +1571,17 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260911-C9WE14
+                    errorTrackingId: TRK-20260922-ADCC25
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260911-SKFMFM
+                    errorTrackingId: TRK-20260922-631CA5
         '404':
           description: Not Found - Resource not found
           content:
@@ -1326,17 +1592,17 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
-                    errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260911-6WQJ9R
+                    errorDetails: '{"jobId": "JOB-20260922-6393"}'
+                    errorTrackingId: TRK-20260922-5670A6
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
-                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260911-BGIAWX
+                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-20260922-C1B8"}'
+                    errorTrackingId: TRK-20260922-9F4323
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -1347,26 +1613,26 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
-                    errorDetails: '{"field": "docSourceStandard", "value": "invalid_value", "allowedValues": ["pdf", "doc",
-                      "docx"]}'
-                    errorTrackingId: TRK-20260911-B5S5LX
+                    errorDetails: '{"field": "docSourceStandard", "value": "invalid_value", "allowedValues": ["letter", "postcard",
+                      "brochure", "flat"]}'
+                    errorTrackingId: TRK-20260922-C96099
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260911-EM9YF7
+                    errorTrackingId: TRK-20260922-324D6F
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "docSourceStandard", "issue": "not found in document library"}, {"field":
                       "returnAddress.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260911-R3F3IN
+                    errorTrackingId: TRK-20260922-9A0CDD
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -1377,50 +1643,58 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the request
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260911-BND85M
+                    errorTrackingId: TRK-20260922-F74011
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260911-OEZK0F
+                    errorTrackingId: TRK-20260922-32289F
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
-                    errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260911-FKEH8Q
+                    errorDetails: '{"service": "address-validation", "status": "timeout"}'
+                    errorTrackingId: TRK-20260922-33CD92
       x-codeSamples:
-      - lang: curl
+      - lang: bash
         label: cURL
-        source: "curl -X POST \\\n  \"https://api.c2m.com/v2/static/address-capture\" \\\n  -H \"Authorization: Bearer <your-jwt-token>\"\
-          \ \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}'"
+        source: "curl -X POST \\\n  \"https://api.click2mail.com/v2/static/address-capture\" \\\n  -H \"Authorization: Bearer\
+          \ <your-jwt-token>\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}'"
       - lang: python
         label: Python
-        source: "import requests\n\nurl = f\"https://api.c2m.com/v2/static/address-capture\"\nheaders = {\n    \"Authorization\"\
+        source: "import requests\n\nurl = f\"https://api.click2mail.com/v2/static/address-capture\"\nheaders = {\n    \"Authorization\"\
           : \"Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    # Add your request\
           \ body here\n}\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
       - lang: javascript
         label: JavaScript
-        source: "const url = `https://api.c2m.com/v2/static/address-capture`;\nconst headers = {\n    'Authorization': 'Bearer\
-          \ <your-jwt-token>',\n    'Content-Type': 'application/json'\n};\n\nconst data = {\n    // Add your request body\
-          \ here\n};\n\nconst response = await fetch(url, {\n    method: 'POST',\n    headers: headers,\n    body: JSON.stringify(data)\n\
+        source: "const url = `https://api.click2mail.com/v2/static/address-capture`;\nconst headers = {\n    'Authorization':\
+          \ 'Bearer <your-jwt-token>',\n    'Content-Type': 'application/json'\n};\n\nconst data = {\n    // Add your request\
+          \ body here\n};\n\nconst response = await fetch(url, {\n    method: 'POST',\n    headers: headers,\n    body: JSON.stringify(data)\n\
           });\n\nconst result = await response.json();\nconsole.log(result);"
       - lang: java
         label: Java
         source: "import com.c2m.ApiClient;\nimport com.c2m.ApiException;\nimport com.c2m.Configuration;\nimport com.c2m.auth.*;\n\
           import com.c2m.api.*;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient\
-          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token\n        HttpBearerAuth\
-          \ bearer = (HttpBearerAuth) defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\"\
-          );\n        \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n       \
-          \     // Call the API\n            var result = apiInstance.submitSinglePdfAddressCaptureParams();\n           \
-          \ System.out.println(result);\n        } catch (ApiException e) {\n            System.err.println(\"Exception when\
-          \ calling API\");\n            e.printStackTrace();\n        }\n    }\n}"
+          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token  // J1: \"bearerAuth\"\
+          \ must match _SECURITY_SCHEME_NAME in ebnf_to_openapi_dynamic_v3.py\n        HttpBearerAuth bearer = (HttpBearerAuth)\
+          \ defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\");\n     \
+          \   \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n            // Call\
+          \ the API\n            var result = apiInstance.submitSinglePdfAddressCaptureParams();\n            System.out.println(result);\n\
+          \        } catch (ApiException e) {\n            System.err.println(\"Exception when calling API\");\n         \
+          \   e.printStackTrace();\n        }\n    }\n}"
+      - lang: go
+        label: Go
+        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
+          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
+          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitSinglePdfAddressCaptureParams(ctx).Execute()\n\
+          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
+          Response: %v\\n\", resp)\n}"
       - lang: csharp
         label: C#
         source: "using System;\nusing C2M.Api;\nusing C2M.Client;\nusing C2M.Model;\n\nnamespace Example\n{\n    public class\
@@ -1430,13 +1704,30 @@ paths:
           \                Console.WriteLine(result);\n            }\n            catch (ApiException e)\n            {\n\
           \                Console.WriteLine(\"Exception: \" + e.Message);\n                Console.WriteLine(\"Status Code:\
           \ \" + e.ErrorCode);\n            }\n        }\n    }\n}"
-      - lang: go
-        label: Go
-        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
-          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
-          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitSinglePdfAddressCaptureParams(ctx).Execute()\n\
-          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
-          Response: %v\\n\", resp)\n}"
+      - lang: swift
+        label: Swift
+        source: "import Foundation\n\nlet url = URL(string: \"https://api.click2mail.com/v2/static/address-capture\")!\nvar\
+          \ request = URLRequest(url: url)\nrequest.httpMethod = \"POST\"\nrequest.setValue(\"Bearer <your-jwt-token>\", forHTTPHeaderField:\
+          \ \"Authorization\")\nrequest.setValue(\"application/json\", forHTTPHeaderField: \"Content-Type\")\n\nlet body:\
+          \ [String: Any] = [\n    // Add your request body here\n]\nrequest.httpBody = try? JSONSerialization.data(withJSONObject:\
+          \ body)\n\nlet task = URLSession.shared.dataTask(with: request) { data, response, error in\n    if let data = data,\n\
+          \       let json = try? JSONSerialization.jsonObject(with: data) {\n        print(json)\n    }\n}\ntask.resume()"
+      - lang: kotlin
+        label: Kotlin
+        source: "import okhttp3.*\nimport okhttp3.MediaType.Companion.toMediaType\nimport okhttp3.RequestBody.Companion.toRequestBody\n\
+          \nval client = OkHttpClient()\nval url = \"https://api.click2mail.com/v2/static/address-capture\"\n\nval body =\
+          \ \"\"\"\n    {{\n        // Add your request body here\n    }}\n\"\"\".trimIndent().toRequestBody(\"application/json\"\
+          .toMediaType())\n\nval request = Request.Builder()\n    .url(url)\n    .addHeader(\"Authorization\", \"Bearer <your-jwt-token>\"\
+          )\n    .addHeader(\"Content-Type\", \"application/json\")\n    .post(body)\n    .build()\n\nval response = client.newCall(request).execute()\n\
+          println(response.body?.string())"
+      - lang: rust
+        label: Rust
+        source: "use reqwest::header;\nuse serde_json::json;\n\n#[tokio::main]\nasync fn main() -> Result<(), Box<dyn std::error::Error>>\
+          \ {\n    let client = reqwest::Client::new();\n    let url = \"https://api.click2mail.com/v2/static/address-capture\"\
+          ;\n\n    let body = json!({\n        // Add your request body here\n    });\n\n    let response = client\n     \
+          \   .post(url)\n        .header(header::AUTHORIZATION, \"Bearer <your-jwt-token>\")\n        .header(header::CONTENT_TYPE,\
+          \ \"application/json\")\n        .json(&body)\n        .send()\n        .await?;\n\n    let result: serde_json::Value\
+          \ = response.json().await?;\n    println!(\"{:#?}\", result);\n    Ok(())\n}"
   /batch/split:
     post:
       tags:
@@ -1468,24 +1759,24 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "docSourceStandard", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260911-FEWY57
+                    errorTrackingId: TRK-20260922-797F3B
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "docSourceStandard", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260911-RLROQB
+                    errorTrackingId: TRK-20260922-161E83
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260911-27WTMP
+                    errorTrackingId: TRK-20260922-5BA29F
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -1499,21 +1790,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260911-KYGENU
+                    errorTrackingId: TRK-20260922-F53FAF
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260911-X7XIR4
+                    errorTrackingId: TRK-20260922-A92DD3
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260911-G9PWUP
+                    errorDetails: '{"expiresAt": "2026-09-22T03:30:06Z", "currentTime": "2026-09-22T04:30:06Z"}'
+                    errorTrackingId: TRK-20260922-A0FD3F
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -1524,17 +1815,17 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260911-OLADWI
+                    errorTrackingId: TRK-20260922-7B29A8
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260911-45K5O1
+                    errorTrackingId: TRK-20260922-D57D1E
         '404':
           description: Not Found - Resource not found
           content:
@@ -1545,17 +1836,17 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
-                    errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260911-AD3K33
+                    errorDetails: '{"jobId": "JOB-20260922-552F"}'
+                    errorTrackingId: TRK-20260922-0C1D8D
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
-                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260911-2BKS1K
+                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-20260922-E613"}'
+                    errorTrackingId: TRK-20260922-588BF7
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -1566,26 +1857,26 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
-                    errorDetails: '{"field": "docSourceStandard", "value": "invalid_value", "allowedValues": ["pdf", "doc",
-                      "docx"]}'
-                    errorTrackingId: TRK-20260911-BP9UUS
+                    errorDetails: '{"field": "docSourceStandard", "value": "invalid_value", "allowedValues": ["letter", "postcard",
+                      "brochure", "flat"]}'
+                    errorTrackingId: TRK-20260922-B86141
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260911-FNM5WY
+                    errorTrackingId: TRK-20260922-ED6B7E
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "docSourceStandard", "issue": "not found in document library"}, {"field":
                       "pdfSplitJobsWithAddress.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260911-W4AH8H
+                    errorTrackingId: TRK-20260922-62C73A
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -1596,50 +1887,58 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the request
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260911-880LP2
+                    errorTrackingId: TRK-20260922-256EC2
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260911-PYITV2
+                    errorTrackingId: TRK-20260922-F90AF2
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
-                    errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260911-SFLW1Z
+                    errorDetails: '{"service": "address-validation", "status": "timeout"}'
+                    errorTrackingId: TRK-20260922-EE78BB
       x-codeSamples:
-      - lang: curl
+      - lang: bash
         label: cURL
-        source: "curl -X POST \\\n  \"https://api.c2m.com/v2/batch/split\" \\\n  -H \"Authorization: Bearer <your-jwt-token>\"\
+        source: "curl -X POST \\\n  \"https://api.click2mail.com/v2/batch/split\" \\\n  -H \"Authorization: Bearer <your-jwt-token>\"\
           \ \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}'"
       - lang: python
         label: Python
-        source: "import requests\n\nurl = f\"https://api.c2m.com/v2/batch/split\"\nheaders = {\n    \"Authorization\": \"\
-          Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    # Add your request body\
-          \ here\n}\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
+        source: "import requests\n\nurl = f\"https://api.click2mail.com/v2/batch/split\"\nheaders = {\n    \"Authorization\"\
+          : \"Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    # Add your request\
+          \ body here\n}\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
       - lang: javascript
         label: JavaScript
-        source: "const url = `https://api.c2m.com/v2/batch/split`;\nconst headers = {\n    'Authorization': 'Bearer <your-jwt-token>',\n\
-          \    'Content-Type': 'application/json'\n};\n\nconst data = {\n    // Add your request body here\n};\n\nconst response\
-          \ = await fetch(url, {\n    method: 'POST',\n    headers: headers,\n    body: JSON.stringify(data)\n});\n\nconst\
-          \ result = await response.json();\nconsole.log(result);"
+        source: "const url = `https://api.click2mail.com/v2/batch/split`;\nconst headers = {\n    'Authorization': 'Bearer\
+          \ <your-jwt-token>',\n    'Content-Type': 'application/json'\n};\n\nconst data = {\n    // Add your request body\
+          \ here\n};\n\nconst response = await fetch(url, {\n    method: 'POST',\n    headers: headers,\n    body: JSON.stringify(data)\n\
+          });\n\nconst result = await response.json();\nconsole.log(result);"
       - lang: java
         label: Java
         source: "import com.c2m.ApiClient;\nimport com.c2m.ApiException;\nimport com.c2m.Configuration;\nimport com.c2m.auth.*;\n\
           import com.c2m.api.*;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient\
-          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token\n        HttpBearerAuth\
-          \ bearer = (HttpBearerAuth) defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\"\
-          );\n        \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n       \
-          \     // Call the API\n            var result = apiInstance.submitSinglePdfSplitParams();\n            System.out.println(result);\n\
+          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token  // J1: \"bearerAuth\"\
+          \ must match _SECURITY_SCHEME_NAME in ebnf_to_openapi_dynamic_v3.py\n        HttpBearerAuth bearer = (HttpBearerAuth)\
+          \ defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\");\n     \
+          \   \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n            // Call\
+          \ the API\n            var result = apiInstance.submitSinglePdfSplitParams();\n            System.out.println(result);\n\
           \        } catch (ApiException e) {\n            System.err.println(\"Exception when calling API\");\n         \
           \   e.printStackTrace();\n        }\n    }\n}"
+      - lang: go
+        label: Go
+        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
+          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
+          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitSinglePdfSplitParams(ctx).Execute()\n\
+          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
+          Response: %v\\n\", resp)\n}"
       - lang: csharp
         label: C#
         source: "using System;\nusing C2M.Api;\nusing C2M.Client;\nusing C2M.Model;\n\nnamespace Example\n{\n    public class\
@@ -1649,13 +1948,30 @@ paths:
           \                Console.WriteLine(result);\n            }\n            catch (ApiException e)\n            {\n\
           \                Console.WriteLine(\"Exception: \" + e.Message);\n                Console.WriteLine(\"Status Code:\
           \ \" + e.ErrorCode);\n            }\n        }\n    }\n}"
-      - lang: go
-        label: Go
-        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
-          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
-          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitSinglePdfSplitParams(ctx).Execute()\n\
-          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
-          Response: %v\\n\", resp)\n}"
+      - lang: swift
+        label: Swift
+        source: "import Foundation\n\nlet url = URL(string: \"https://api.click2mail.com/v2/batch/split\")!\nvar request =\
+          \ URLRequest(url: url)\nrequest.httpMethod = \"POST\"\nrequest.setValue(\"Bearer <your-jwt-token>\", forHTTPHeaderField:\
+          \ \"Authorization\")\nrequest.setValue(\"application/json\", forHTTPHeaderField: \"Content-Type\")\n\nlet body:\
+          \ [String: Any] = [\n    // Add your request body here\n]\nrequest.httpBody = try? JSONSerialization.data(withJSONObject:\
+          \ body)\n\nlet task = URLSession.shared.dataTask(with: request) { data, response, error in\n    if let data = data,\n\
+          \       let json = try? JSONSerialization.jsonObject(with: data) {\n        print(json)\n    }\n}\ntask.resume()"
+      - lang: kotlin
+        label: Kotlin
+        source: "import okhttp3.*\nimport okhttp3.MediaType.Companion.toMediaType\nimport okhttp3.RequestBody.Companion.toRequestBody\n\
+          \nval client = OkHttpClient()\nval url = \"https://api.click2mail.com/v2/batch/split\"\n\nval body = \"\"\"\n  \
+          \  {{\n        // Add your request body here\n    }}\n\"\"\".trimIndent().toRequestBody(\"application/json\".toMediaType())\n\
+          \nval request = Request.Builder()\n    .url(url)\n    .addHeader(\"Authorization\", \"Bearer <your-jwt-token>\"\
+          )\n    .addHeader(\"Content-Type\", \"application/json\")\n    .post(body)\n    .build()\n\nval response = client.newCall(request).execute()\n\
+          println(response.body?.string())"
+      - lang: rust
+        label: Rust
+        source: "use reqwest::header;\nuse serde_json::json;\n\n#[tokio::main]\nasync fn main() -> Result<(), Box<dyn std::error::Error>>\
+          \ {\n    let client = reqwest::Client::new();\n    let url = \"https://api.click2mail.com/v2/batch/split\";\n\n\
+          \    let body = json!({\n        // Add your request body here\n    });\n\n    let response = client\n        .post(url)\n\
+          \        .header(header::AUTHORIZATION, \"Bearer <your-jwt-token>\")\n        .header(header::CONTENT_TYPE, \"application/json\"\
+          )\n        .json(&body)\n        .send()\n        .await?;\n\n    let result: serde_json::Value = response.json().await?;\n\
+          \    println!(\"{:#?}\", result);\n    Ok(())\n}"
   /batch/split/address-capture:
     post:
       tags:
@@ -1687,24 +2003,24 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "docSourceStandard", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260911-OUJ2MZ
+                    errorTrackingId: TRK-20260922-1F3CFD
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "docSourceStandard", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260911-56WOT8
+                    errorTrackingId: TRK-20260922-965A57
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260911-VSKWKA
+                    errorTrackingId: TRK-20260922-7157BF
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -1718,21 +2034,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260911-MXCYH4
+                    errorTrackingId: TRK-20260922-970619
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260911-2RRT6X
+                    errorTrackingId: TRK-20260922-33943C
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260911-K7N5QL
+                    errorDetails: '{"expiresAt": "2026-09-22T03:30:06Z", "currentTime": "2026-09-22T04:30:06Z"}'
+                    errorTrackingId: TRK-20260922-63A883
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -1743,17 +2059,17 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260911-XQ6I7F
+                    errorTrackingId: TRK-20260922-CEB4DA
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260911-W629XU
+                    errorTrackingId: TRK-20260922-B56B71
         '404':
           description: Not Found - Resource not found
           content:
@@ -1764,17 +2080,17 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
-                    errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260911-3LIRGP
+                    errorDetails: '{"jobId": "JOB-20260922-C59C"}'
+                    errorTrackingId: TRK-20260922-4A4816
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
-                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260911-L64WRR
+                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-20260922-02CB"}'
+                    errorTrackingId: TRK-20260922-2E3325
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -1785,26 +2101,26 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
-                    errorDetails: '{"field": "docSourceStandard", "value": "invalid_value", "allowedValues": ["pdf", "doc",
-                      "docx"]}'
-                    errorTrackingId: TRK-20260911-19D7FC
+                    errorDetails: '{"field": "docSourceStandard", "value": "invalid_value", "allowedValues": ["letter", "postcard",
+                      "brochure", "flat"]}'
+                    errorTrackingId: TRK-20260922-13C4DC
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260911-6RAQ8V
+                    errorTrackingId: TRK-20260922-703DAD
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "docSourceStandard", "issue": "not found in document library"}, {"field":
                       "pdfSplitJobsNoAddress.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260911-8CY6BH
+                    errorTrackingId: TRK-20260922-0BF982
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -1815,37 +2131,37 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the request
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260911-2J6ZM7
+                    errorTrackingId: TRK-20260922-E727C5
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260911-1ZOQD3
+                    errorTrackingId: TRK-20260922-2E09A6
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
-                    errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260911-ESCB1V
+                    errorDetails: '{"service": "address-validation", "status": "timeout"}'
+                    errorTrackingId: TRK-20260922-0DA19C
       x-codeSamples:
-      - lang: curl
+      - lang: bash
         label: cURL
-        source: "curl -X POST \\\n  \"https://api.c2m.com/v2/batch/split/address-capture\" \\\n  -H \"Authorization: Bearer\
-          \ <your-jwt-token>\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}'"
+        source: "curl -X POST \\\n  \"https://api.click2mail.com/v2/batch/split/address-capture\" \\\n  -H \"Authorization:\
+          \ Bearer <your-jwt-token>\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}'"
       - lang: python
         label: Python
-        source: "import requests\n\nurl = f\"https://api.c2m.com/v2/batch/split/address-capture\"\nheaders = {\n    \"Authorization\"\
-          : \"Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    # Add your request\
-          \ body here\n}\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
+        source: "import requests\n\nurl = f\"https://api.click2mail.com/v2/batch/split/address-capture\"\nheaders = {\n  \
+          \  \"Authorization\": \"Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n\
+          \    # Add your request body here\n}\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
       - lang: javascript
         label: JavaScript
-        source: "const url = `https://api.c2m.com/v2/batch/split/address-capture`;\nconst headers = {\n    'Authorization':\
+        source: "const url = `https://api.click2mail.com/v2/batch/split/address-capture`;\nconst headers = {\n    'Authorization':\
           \ 'Bearer <your-jwt-token>',\n    'Content-Type': 'application/json'\n};\n\nconst data = {\n    // Add your request\
           \ body here\n};\n\nconst response = await fetch(url, {\n    method: 'POST',\n    headers: headers,\n    body: JSON.stringify(data)\n\
           });\n\nconst result = await response.json();\nconsole.log(result);"
@@ -1853,12 +2169,20 @@ paths:
         label: Java
         source: "import com.c2m.ApiClient;\nimport com.c2m.ApiException;\nimport com.c2m.Configuration;\nimport com.c2m.auth.*;\n\
           import com.c2m.api.*;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient\
-          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token\n        HttpBearerAuth\
-          \ bearer = (HttpBearerAuth) defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\"\
-          );\n        \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n       \
-          \     // Call the API\n            var result = apiInstance.submitSinglePdfSplitAddressCaptureParams();\n      \
-          \      System.out.println(result);\n        } catch (ApiException e) {\n            System.err.println(\"Exception\
-          \ when calling API\");\n            e.printStackTrace();\n        }\n    }\n}"
+          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token  // J1: \"bearerAuth\"\
+          \ must match _SECURITY_SCHEME_NAME in ebnf_to_openapi_dynamic_v3.py\n        HttpBearerAuth bearer = (HttpBearerAuth)\
+          \ defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\");\n     \
+          \   \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n            // Call\
+          \ the API\n            var result = apiInstance.submitSinglePdfSplitAddressCaptureParams();\n            System.out.println(result);\n\
+          \        } catch (ApiException e) {\n            System.err.println(\"Exception when calling API\");\n         \
+          \   e.printStackTrace();\n        }\n    }\n}"
+      - lang: go
+        label: Go
+        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
+          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
+          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitSinglePdfSplitAddressCaptureParams(ctx).Execute()\n\
+          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
+          Response: %v\\n\", resp)\n}"
       - lang: csharp
         label: C#
         source: "using System;\nusing C2M.Api;\nusing C2M.Client;\nusing C2M.Model;\n\nnamespace Example\n{\n    public class\
@@ -1868,13 +2192,30 @@ paths:
           \                Console.WriteLine(result);\n            }\n            catch (ApiException e)\n            {\n\
           \                Console.WriteLine(\"Exception: \" + e.Message);\n                Console.WriteLine(\"Status Code:\
           \ \" + e.ErrorCode);\n            }\n        }\n    }\n}"
-      - lang: go
-        label: Go
-        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
-          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
-          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitSinglePdfSplitAddressCaptureParams(ctx).Execute()\n\
-          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
-          Response: %v\\n\", resp)\n}"
+      - lang: swift
+        label: Swift
+        source: "import Foundation\n\nlet url = URL(string: \"https://api.click2mail.com/v2/batch/split/address-capture\"\
+          )!\nvar request = URLRequest(url: url)\nrequest.httpMethod = \"POST\"\nrequest.setValue(\"Bearer <your-jwt-token>\"\
+          , forHTTPHeaderField: \"Authorization\")\nrequest.setValue(\"application/json\", forHTTPHeaderField: \"Content-Type\"\
+          )\n\nlet body: [String: Any] = [\n    // Add your request body here\n]\nrequest.httpBody = try? JSONSerialization.data(withJSONObject:\
+          \ body)\n\nlet task = URLSession.shared.dataTask(with: request) { data, response, error in\n    if let data = data,\n\
+          \       let json = try? JSONSerialization.jsonObject(with: data) {\n        print(json)\n    }\n}\ntask.resume()"
+      - lang: kotlin
+        label: Kotlin
+        source: "import okhttp3.*\nimport okhttp3.MediaType.Companion.toMediaType\nimport okhttp3.RequestBody.Companion.toRequestBody\n\
+          \nval client = OkHttpClient()\nval url = \"https://api.click2mail.com/v2/batch/split/address-capture\"\n\nval body\
+          \ = \"\"\"\n    {{\n        // Add your request body here\n    }}\n\"\"\".trimIndent().toRequestBody(\"application/json\"\
+          .toMediaType())\n\nval request = Request.Builder()\n    .url(url)\n    .addHeader(\"Authorization\", \"Bearer <your-jwt-token>\"\
+          )\n    .addHeader(\"Content-Type\", \"application/json\")\n    .post(body)\n    .build()\n\nval response = client.newCall(request).execute()\n\
+          println(response.body?.string())"
+      - lang: rust
+        label: Rust
+        source: "use reqwest::header;\nuse serde_json::json;\n\n#[tokio::main]\nasync fn main() -> Result<(), Box<dyn std::error::Error>>\
+          \ {\n    let client = reqwest::Client::new();\n    let url = \"https://api.click2mail.com/v2/batch/split/address-capture\"\
+          ;\n\n    let body = json!({\n        // Add your request body here\n    });\n\n    let response = client\n     \
+          \   .post(url)\n        .header(header::AUTHORIZATION, \"Bearer <your-jwt-token>\")\n        .header(header::CONTENT_TYPE,\
+          \ \"application/json\")\n        .json(&body)\n        .send()\n        .await?;\n\n    let result: serde_json::Value\
+          \ = response.json().await?;\n    println!(\"{:#?}\", result);\n    Ok(())\n}"
   /mail-merge:
     post:
       tags:
@@ -1906,24 +2247,24 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "mergeDocumentSource", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260911-R68ZM1
+                    errorTrackingId: TRK-20260922-90A224
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "mergeDocumentSource", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260911-YXHLLE
+                    errorTrackingId: TRK-20260922-9143AF
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260911-B43A9B
+                    errorTrackingId: TRK-20260922-96B218
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -1937,21 +2278,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260911-IS5TXO
+                    errorTrackingId: TRK-20260922-3E5596
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260911-A776LP
+                    errorTrackingId: TRK-20260922-65A222
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260911-UNJ68L
+                    errorDetails: '{"expiresAt": "2026-09-22T03:30:06Z", "currentTime": "2026-09-22T04:30:06Z"}'
+                    errorTrackingId: TRK-20260922-B7E9D2
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -1962,17 +2303,17 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260911-EEVG5L
+                    errorTrackingId: TRK-20260922-4238F3
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260911-Y0E9WN
+                    errorTrackingId: TRK-20260922-12AE48
         '404':
           description: Not Found - Resource not found
           content:
@@ -1983,17 +2324,17 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
-                    errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260911-0WE5ZX
+                    errorDetails: '{"jobId": "JOB-20260922-5A4A"}'
+                    errorTrackingId: TRK-20260922-2D71AC
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
-                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260911-WTW191
+                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-20260922-7997"}'
+                    errorTrackingId: TRK-20260922-86D10A
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -2004,26 +2345,26 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
-                    errorDetails: '{"field": "mergeDocumentSource", "value": "invalid_value", "allowedValues": ["pdf", "doc",
-                      "docx"]}'
-                    errorTrackingId: TRK-20260911-I16JHG
+                    errorDetails: '{"field": "mergeDocumentSource", "value": "invalid_value", "allowedValues": ["letter",
+                      "postcard", "brochure", "flat"]}'
+                    errorTrackingId: TRK-20260922-CD1F7B
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260911-YLO3TA
+                    errorTrackingId: TRK-20260922-38D6B7
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "mergeDocumentSource", "issue": "not found in document library"},
                       {"field": "recipientAddressSource.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260911-0ODY3Q
+                    errorTrackingId: TRK-20260922-1070C9
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -2034,50 +2375,58 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the request
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260911-0FV6UI
+                    errorTrackingId: TRK-20260922-4198D7
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260911-X0E9PJ
+                    errorTrackingId: TRK-20260922-F71E61
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
-                    errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260911-DSCNBD
+                    errorDetails: '{"service": "address-validation", "status": "timeout"}'
+                    errorTrackingId: TRK-20260922-5413B7
       x-codeSamples:
-      - lang: curl
+      - lang: bash
         label: cURL
-        source: "curl -X POST \\\n  \"https://api.c2m.com/v2/mail-merge\" \\\n  -H \"Authorization: Bearer <your-jwt-token>\"\
+        source: "curl -X POST \\\n  \"https://api.click2mail.com/v2/mail-merge\" \\\n  -H \"Authorization: Bearer <your-jwt-token>\"\
           \ \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}'"
       - lang: python
         label: Python
-        source: "import requests\n\nurl = f\"https://api.c2m.com/v2/mail-merge\"\nheaders = {\n    \"Authorization\": \"Bearer\
-          \ <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    # Add your request body here\n\
-          }\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
+        source: "import requests\n\nurl = f\"https://api.click2mail.com/v2/mail-merge\"\nheaders = {\n    \"Authorization\"\
+          : \"Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    # Add your request\
+          \ body here\n}\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
       - lang: javascript
         label: JavaScript
-        source: "const url = `https://api.c2m.com/v2/mail-merge`;\nconst headers = {\n    'Authorization': 'Bearer <your-jwt-token>',\n\
-          \    'Content-Type': 'application/json'\n};\n\nconst data = {\n    // Add your request body here\n};\n\nconst response\
-          \ = await fetch(url, {\n    method: 'POST',\n    headers: headers,\n    body: JSON.stringify(data)\n});\n\nconst\
-          \ result = await response.json();\nconsole.log(result);"
+        source: "const url = `https://api.click2mail.com/v2/mail-merge`;\nconst headers = {\n    'Authorization': 'Bearer\
+          \ <your-jwt-token>',\n    'Content-Type': 'application/json'\n};\n\nconst data = {\n    // Add your request body\
+          \ here\n};\n\nconst response = await fetch(url, {\n    method: 'POST',\n    headers: headers,\n    body: JSON.stringify(data)\n\
+          });\n\nconst result = await response.json();\nconsole.log(result);"
       - lang: java
         label: Java
         source: "import com.c2m.ApiClient;\nimport com.c2m.ApiException;\nimport com.c2m.Configuration;\nimport com.c2m.auth.*;\n\
           import com.c2m.api.*;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient\
-          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token\n        HttpBearerAuth\
-          \ bearer = (HttpBearerAuth) defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\"\
-          );\n        \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n       \
-          \     // Call the API\n            var result = apiInstance.submitMultiDocMergeParams();\n            System.out.println(result);\n\
+          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token  // J1: \"bearerAuth\"\
+          \ must match _SECURITY_SCHEME_NAME in ebnf_to_openapi_dynamic_v3.py\n        HttpBearerAuth bearer = (HttpBearerAuth)\
+          \ defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\");\n     \
+          \   \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n            // Call\
+          \ the API\n            var result = apiInstance.submitMultiDocMergeParams();\n            System.out.println(result);\n\
           \        } catch (ApiException e) {\n            System.err.println(\"Exception when calling API\");\n         \
           \   e.printStackTrace();\n        }\n    }\n}"
+      - lang: go
+        label: Go
+        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
+          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
+          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitMultiDocMergeParams(ctx).Execute()\n\
+          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
+          Response: %v\\n\", resp)\n}"
       - lang: csharp
         label: C#
         source: "using System;\nusing C2M.Api;\nusing C2M.Client;\nusing C2M.Model;\n\nnamespace Example\n{\n    public class\
@@ -2087,13 +2436,30 @@ paths:
           \                Console.WriteLine(result);\n            }\n            catch (ApiException e)\n            {\n\
           \                Console.WriteLine(\"Exception: \" + e.Message);\n                Console.WriteLine(\"Status Code:\
           \ \" + e.ErrorCode);\n            }\n        }\n    }\n}"
-      - lang: go
-        label: Go
-        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
-          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
-          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitMultiDocMergeParams(ctx).Execute()\n\
-          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
-          Response: %v\\n\", resp)\n}"
+      - lang: swift
+        label: Swift
+        source: "import Foundation\n\nlet url = URL(string: \"https://api.click2mail.com/v2/mail-merge\")!\nvar request =\
+          \ URLRequest(url: url)\nrequest.httpMethod = \"POST\"\nrequest.setValue(\"Bearer <your-jwt-token>\", forHTTPHeaderField:\
+          \ \"Authorization\")\nrequest.setValue(\"application/json\", forHTTPHeaderField: \"Content-Type\")\n\nlet body:\
+          \ [String: Any] = [\n    // Add your request body here\n]\nrequest.httpBody = try? JSONSerialization.data(withJSONObject:\
+          \ body)\n\nlet task = URLSession.shared.dataTask(with: request) { data, response, error in\n    if let data = data,\n\
+          \       let json = try? JSONSerialization.jsonObject(with: data) {\n        print(json)\n    }\n}\ntask.resume()"
+      - lang: kotlin
+        label: Kotlin
+        source: "import okhttp3.*\nimport okhttp3.MediaType.Companion.toMediaType\nimport okhttp3.RequestBody.Companion.toRequestBody\n\
+          \nval client = OkHttpClient()\nval url = \"https://api.click2mail.com/v2/mail-merge\"\n\nval body = \"\"\"\n   \
+          \ {{\n        // Add your request body here\n    }}\n\"\"\".trimIndent().toRequestBody(\"application/json\".toMediaType())\n\
+          \nval request = Request.Builder()\n    .url(url)\n    .addHeader(\"Authorization\", \"Bearer <your-jwt-token>\"\
+          )\n    .addHeader(\"Content-Type\", \"application/json\")\n    .post(body)\n    .build()\n\nval response = client.newCall(request).execute()\n\
+          println(response.body?.string())"
+      - lang: rust
+        label: Rust
+        source: "use reqwest::header;\nuse serde_json::json;\n\n#[tokio::main]\nasync fn main() -> Result<(), Box<dyn std::error::Error>>\
+          \ {\n    let client = reqwest::Client::new();\n    let url = \"https://api.click2mail.com/v2/mail-merge\";\n\n \
+          \   let body = json!({\n        // Add your request body here\n    });\n\n    let response = client\n        .post(url)\n\
+          \        .header(header::AUTHORIZATION, \"Bearer <your-jwt-token>\")\n        .header(header::CONTENT_TYPE, \"application/json\"\
+          )\n        .json(&body)\n        .send()\n        .await?;\n\n    let result: serde_json::Value = response.json().await?;\n\
+          \    println!(\"{:#?}\", result);\n    Ok(())\n}"
   /batch/zip:
     post:
       tags:
@@ -2125,24 +2491,24 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "docSourceZipFileRef", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260911-02GTPC
+                    errorTrackingId: TRK-20260922-FD9E2C
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "docSourceZipFileRef", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260911-Y4MM3C
+                    errorTrackingId: TRK-20260922-F6D944
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260911-M6S3G9
+                    errorTrackingId: TRK-20260922-0ED251
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -2156,21 +2522,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260911-MVOVXO
+                    errorTrackingId: TRK-20260922-F0E38C
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260911-7NCO8D
+                    errorTrackingId: TRK-20260922-590300
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260911-1TEIFK
+                    errorDetails: '{"expiresAt": "2026-09-22T03:30:06Z", "currentTime": "2026-09-22T04:30:06Z"}'
+                    errorTrackingId: TRK-20260922-BBA776
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -2181,17 +2547,17 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260911-571Q9W
+                    errorTrackingId: TRK-20260922-B5CDFD
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260911-RHANNT
+                    errorTrackingId: TRK-20260922-5E3CDF
         '404':
           description: Not Found - Resource not found
           content:
@@ -2202,17 +2568,17 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
-                    errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260911-9J9GVC
+                    errorDetails: '{"jobId": "JOB-20260922-7FE2"}'
+                    errorTrackingId: TRK-20260922-AA0284
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
-                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260911-T4071U
+                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-20260922-A754"}'
+                    errorTrackingId: TRK-20260922-52EE2E
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -2223,26 +2589,26 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
-                    errorDetails: '{"field": "docSourceZipFileRef", "value": "invalid_value", "allowedValues": ["pdf", "doc",
-                      "docx"]}'
-                    errorTrackingId: TRK-20260911-53I8RN
+                    errorDetails: '{"field": "docSourceZipFileRef", "value": "invalid_value", "allowedValues": ["letter",
+                      "postcard", "brochure", "flat"]}'
+                    errorTrackingId: TRK-20260922-EF3072
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260911-BNFV1K
+                    errorTrackingId: TRK-20260922-345891
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "docSourceZipFileRef", "issue": "not found in document library"},
                       {"field": "recipientAddress.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260911-35SACY
+                    errorTrackingId: TRK-20260922-70C269
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -2253,37 +2619,37 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the request
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260911-L73KFV
+                    errorTrackingId: TRK-20260922-FCBAAF
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260911-74W7K1
+                    errorTrackingId: TRK-20260922-E5AFEA
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
-                    errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260911-I0VPS2
+                    errorDetails: '{"service": "address-validation", "status": "timeout"}'
+                    errorTrackingId: TRK-20260922-3AA4E9
       x-codeSamples:
-      - lang: curl
+      - lang: bash
         label: cURL
-        source: "curl -X POST \\\n  \"https://api.c2m.com/v2/batch/zip\" \\\n  -H \"Authorization: Bearer <your-jwt-token>\"\
+        source: "curl -X POST \\\n  \"https://api.click2mail.com/v2/batch/zip\" \\\n  -H \"Authorization: Bearer <your-jwt-token>\"\
           \ \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}'"
       - lang: python
         label: Python
-        source: "import requests\n\nurl = f\"https://api.c2m.com/v2/batch/zip\"\nheaders = {\n    \"Authorization\": \"Bearer\
-          \ <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    # Add your request body here\n\
-          }\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
+        source: "import requests\n\nurl = f\"https://api.click2mail.com/v2/batch/zip\"\nheaders = {\n    \"Authorization\"\
+          : \"Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    # Add your request\
+          \ body here\n}\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
       - lang: javascript
         label: JavaScript
-        source: "const url = `https://api.c2m.com/v2/batch/zip`;\nconst headers = {\n    'Authorization': 'Bearer <your-jwt-token>',\n\
+        source: "const url = `https://api.click2mail.com/v2/batch/zip`;\nconst headers = {\n    'Authorization': 'Bearer <your-jwt-token>',\n\
           \    'Content-Type': 'application/json'\n};\n\nconst data = {\n    // Add your request body here\n};\n\nconst response\
           \ = await fetch(url, {\n    method: 'POST',\n    headers: headers,\n    body: JSON.stringify(data)\n});\n\nconst\
           \ result = await response.json();\nconsole.log(result);"
@@ -2291,12 +2657,20 @@ paths:
         label: Java
         source: "import com.c2m.ApiClient;\nimport com.c2m.ApiException;\nimport com.c2m.Configuration;\nimport com.c2m.auth.*;\n\
           import com.c2m.api.*;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient\
-          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token\n        HttpBearerAuth\
-          \ bearer = (HttpBearerAuth) defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\"\
-          );\n        \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n       \
-          \     // Call the API\n            var result = apiInstance.submitMultiZipParams();\n            System.out.println(result);\n\
+          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token  // J1: \"bearerAuth\"\
+          \ must match _SECURITY_SCHEME_NAME in ebnf_to_openapi_dynamic_v3.py\n        HttpBearerAuth bearer = (HttpBearerAuth)\
+          \ defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\");\n     \
+          \   \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n            // Call\
+          \ the API\n            var result = apiInstance.submitMultiZipParams();\n            System.out.println(result);\n\
           \        } catch (ApiException e) {\n            System.err.println(\"Exception when calling API\");\n         \
           \   e.printStackTrace();\n        }\n    }\n}"
+      - lang: go
+        label: Go
+        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
+          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
+          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitMultiZipParams(ctx).Execute()\n\
+          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
+          Response: %v\\n\", resp)\n}"
       - lang: csharp
         label: C#
         source: "using System;\nusing C2M.Api;\nusing C2M.Client;\nusing C2M.Model;\n\nnamespace Example\n{\n    public class\
@@ -2306,13 +2680,30 @@ paths:
           \                Console.WriteLine(result);\n            }\n            catch (ApiException e)\n            {\n\
           \                Console.WriteLine(\"Exception: \" + e.Message);\n                Console.WriteLine(\"Status Code:\
           \ \" + e.ErrorCode);\n            }\n        }\n    }\n}"
-      - lang: go
-        label: Go
-        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
-          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
-          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitMultiZipParams(ctx).Execute()\n\
-          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
-          Response: %v\\n\", resp)\n}"
+      - lang: swift
+        label: Swift
+        source: "import Foundation\n\nlet url = URL(string: \"https://api.click2mail.com/v2/batch/zip\")!\nvar request = URLRequest(url:\
+          \ url)\nrequest.httpMethod = \"POST\"\nrequest.setValue(\"Bearer <your-jwt-token>\", forHTTPHeaderField: \"Authorization\"\
+          )\nrequest.setValue(\"application/json\", forHTTPHeaderField: \"Content-Type\")\n\nlet body: [String: Any] = [\n\
+          \    // Add your request body here\n]\nrequest.httpBody = try? JSONSerialization.data(withJSONObject: body)\n\n\
+          let task = URLSession.shared.dataTask(with: request) { data, response, error in\n    if let data = data,\n     \
+          \  let json = try? JSONSerialization.jsonObject(with: data) {\n        print(json)\n    }\n}\ntask.resume()"
+      - lang: kotlin
+        label: Kotlin
+        source: "import okhttp3.*\nimport okhttp3.MediaType.Companion.toMediaType\nimport okhttp3.RequestBody.Companion.toRequestBody\n\
+          \nval client = OkHttpClient()\nval url = \"https://api.click2mail.com/v2/batch/zip\"\n\nval body = \"\"\"\n    {{\n\
+          \        // Add your request body here\n    }}\n\"\"\".trimIndent().toRequestBody(\"application/json\".toMediaType())\n\
+          \nval request = Request.Builder()\n    .url(url)\n    .addHeader(\"Authorization\", \"Bearer <your-jwt-token>\"\
+          )\n    .addHeader(\"Content-Type\", \"application/json\")\n    .post(body)\n    .build()\n\nval response = client.newCall(request).execute()\n\
+          println(response.body?.string())"
+      - lang: rust
+        label: Rust
+        source: "use reqwest::header;\nuse serde_json::json;\n\n#[tokio::main]\nasync fn main() -> Result<(), Box<dyn std::error::Error>>\
+          \ {\n    let client = reqwest::Client::new();\n    let url = \"https://api.click2mail.com/v2/batch/zip\";\n\n  \
+          \  let body = json!({\n        // Add your request body here\n    });\n\n    let response = client\n        .post(url)\n\
+          \        .header(header::AUTHORIZATION, \"Bearer <your-jwt-token>\")\n        .header(header::CONTENT_TYPE, \"application/json\"\
+          )\n        .json(&body)\n        .send()\n        .await?;\n\n    let result: serde_json::Value = response.json().await?;\n\
+          \    println!(\"{:#?}\", result);\n    Ok(())\n}"
   /batch/zip/address-capture:
     post:
       tags:
@@ -2344,24 +2735,24 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Missing required field in request
+                    errorMessage: Required field is missing from request body
                     errorCode: MISSING_REQUIRED_FIELD
                     errorDetails: '{"field": "zipDocumentSource", "location": "requestBody"}'
-                    errorTrackingId: TRK-20260911-J0X0B9
+                    errorTrackingId: TRK-20260922-32A8EE
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid oneOf field value
+                    errorMessage: Request must match exactly one of the defined schemas
                     errorCode: INVALID_ONEOF
                     errorDetails: '{"field": "zipDocumentSource", "issue": "exactly one variant must be provided"}'
-                    errorTrackingId: TRK-20260911-HWQVBW
+                    errorTrackingId: TRK-20260922-E9792C
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Malformed JSON in request body
+                    errorMessage: Request body contains malformed JSON
                     errorCode: INVALID_JSON
                     errorDetails: '{"error": "unexpected token at position 42"}'
-                    errorTrackingId: TRK-20260911-ITMGGK
+                    errorTrackingId: TRK-20260922-F89738
         '401':
           description: Unauthorized - Missing or invalid authentication
           content:
@@ -2375,21 +2766,21 @@ paths:
                     errorMessage: Authorization header is missing or invalid
                     errorCode: MISSING_AUTH_HEADER
                     errorDetails: '{"expected": "Bearer <token>", "received": "none"}'
-                    errorTrackingId: TRK-20260911-K7QQA5
+                    errorTrackingId: TRK-20260922-486E49
                 example-2:
                   value:
                     errorType: AuthenticationError
-                    errorMessage: Authentication token is invalid
+                    errorMessage: Authentication token is invalid or malformed
                     errorCode: INVALID_TOKEN
                     errorDetails: '{"issue": "token signature verification failed"}'
-                    errorTrackingId: TRK-20260911-KJIL53
+                    errorTrackingId: TRK-20260922-CAABE8
                 example-3:
                   value:
                     errorType: AuthenticationError
                     errorMessage: Authentication token has expired
                     errorCode: EXPIRED_TOKEN
-                    errorDetails: '{"expiresAt": "2026-02-15T10:30:00Z", "currentTime": "2026-02-16T14:00:00Z"}'
-                    errorTrackingId: TRK-20260911-5K81HK
+                    errorDetails: '{"expiresAt": "2026-09-22T03:30:06Z", "currentTime": "2026-09-22T04:30:06Z"}'
+                    errorTrackingId: TRK-20260922-9F3AC3
         '403':
           description: Forbidden - Insufficient permissions
           content:
@@ -2400,17 +2791,17 @@ paths:
                 example-1:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Insufficient permissions to access this resource
+                    errorMessage: User does not have required permissions for this operation
                     errorCode: INSUFFICIENT_PERMISSIONS
                     errorDetails: '{"required": "jobs:write", "provided": "jobs:read"}'
-                    errorTrackingId: TRK-20260911-V33UM8
+                    errorTrackingId: TRK-20260922-561B11
                 example-2:
                   value:
                     errorType: AuthorizationError
-                    errorMessage: Account has been suspended
+                    errorMessage: User account has been suspended
                     errorCode: ACCOUNT_SUSPENDED
                     errorDetails: '{"reason": "billing overdue", "contactSupport": "support@click2mail.com"}'
-                    errorTrackingId: TRK-20260911-MV6R0P
+                    errorTrackingId: TRK-20260922-BA6C40
         '404':
           description: Not Found - Resource not found
           content:
@@ -2421,17 +2812,17 @@ paths:
                 example-1:
                   value:
                     errorType: ResourceNotFoundError
-                    errorMessage: Job not found
+                    errorMessage: The specified job does not exist
                     errorCode: JOB_NOT_FOUND
-                    errorDetails: '{"jobId": "JOB-12345"}'
-                    errorTrackingId: TRK-20260911-I90KSK
+                    errorDetails: '{"jobId": "JOB-20260922-77F0"}'
+                    errorTrackingId: TRK-20260922-1FD2FD
                 example-2:
                   value:
                     errorType: ResourceNotFoundError
                     errorMessage: Requested resource does not exist
                     errorCode: RESOURCE_NOT_FOUND
-                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-67890"}'
-                    errorTrackingId: TRK-20260911-29MUAR
+                    errorDetails: '{"resourceType": "document", "resourceId": "DOC-20260922-BCAD"}'
+                    errorTrackingId: TRK-20260922-81631A
         '422':
           description: Unprocessable Entity - Validation failed
           content:
@@ -2442,26 +2833,26 @@ paths:
                 example-1:
                   value:
                     errorType: ValidationError
-                    errorMessage: Invalid enum value provided
+                    errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
-                    errorDetails: '{"field": "zipDocumentSource", "value": "invalid_value", "allowedValues": ["pdf", "doc",
-                      "docx"]}'
-                    errorTrackingId: TRK-20260911-KA7PFA
+                    errorDetails: '{"field": "zipDocumentSource", "value": "invalid_value", "allowedValues": ["letter", "postcard",
+                      "brochure", "flat"]}'
+                    errorTrackingId: TRK-20260922-428AA2
                 example-2:
                   value:
                     errorType: ValidationError
-                    errorMessage: Mutually exclusive fields both present
+                    errorMessage: Request contains mutually exclusive fields
                     errorCode: MUTUAL_EXCLUSION_VIOLATION
                     errorDetails: '{"fields": ["jobTemplate", "jobOptions"], "issue": "only one may be provided"}'
-                    errorTrackingId: TRK-20260911-0YL4LU
+                    errorTrackingId: TRK-20260922-096CCA
                 example-3:
                   value:
                     errorType: ValidationError
-                    errorMessage: Field format validation failed
+                    errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
                     errorDetails: '{"errors": [{"field": "zipDocumentSource", "issue": "not found in document library"}, {"field":
                       "returnAddress.postalCode", "issue": "invalid format - must be 5 or 9 digits"}]}'
-                    errorTrackingId: TRK-20260911-QAE14I
+                    errorTrackingId: TRK-20260922-C6AC56
         '500':
           description: Internal Server Error - Server encountered an error
           content:
@@ -2472,37 +2863,37 @@ paths:
                 example-1:
                   value:
                     errorType: ServerError
-                    errorMessage: Internal server error occurred
+                    errorMessage: An unexpected error occurred while processing the request
                     errorCode: SERVER_ERROR
                     errorDetails: '{"message": "An unexpected error occurred"}'
-                    errorTrackingId: TRK-20260911-18DP3O
+                    errorTrackingId: TRK-20260922-F252F9
                 example-2:
                   value:
                     errorType: ServerError
-                    errorMessage: Database error occurred
+                    errorMessage: Database operation failed
                     errorCode: DATABASE_ERROR
                     errorDetails: '{"operation": "insert", "table": "jobs"}'
-                    errorTrackingId: TRK-20260911-W8FS18
+                    errorTrackingId: TRK-20260922-FD5ADB
                 example-3:
                   value:
                     errorType: ServerError
-                    errorMessage: External service error
+                    errorMessage: External service call failed
                     errorCode: EXTERNAL_SERVICE_ERROR
-                    errorDetails: '{"service": "payment-gateway", "status": "timeout"}'
-                    errorTrackingId: TRK-20260911-XKFHNR
+                    errorDetails: '{"service": "address-validation", "status": "timeout"}'
+                    errorTrackingId: TRK-20260922-4D790B
       x-codeSamples:
-      - lang: curl
+      - lang: bash
         label: cURL
-        source: "curl -X POST \\\n  \"https://api.c2m.com/v2/batch/zip/address-capture\" \\\n  -H \"Authorization: Bearer\
-          \ <your-jwt-token>\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}'"
+        source: "curl -X POST \\\n  \"https://api.click2mail.com/v2/batch/zip/address-capture\" \\\n  -H \"Authorization:\
+          \ Bearer <your-jwt-token>\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}'"
       - lang: python
         label: Python
-        source: "import requests\n\nurl = f\"https://api.c2m.com/v2/batch/zip/address-capture\"\nheaders = {\n    \"Authorization\"\
-          : \"Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    # Add your request\
-          \ body here\n}\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
+        source: "import requests\n\nurl = f\"https://api.click2mail.com/v2/batch/zip/address-capture\"\nheaders = {\n    \"\
+          Authorization\": \"Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    #\
+          \ Add your request body here\n}\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
       - lang: javascript
         label: JavaScript
-        source: "const url = `https://api.c2m.com/v2/batch/zip/address-capture`;\nconst headers = {\n    'Authorization':\
+        source: "const url = `https://api.click2mail.com/v2/batch/zip/address-capture`;\nconst headers = {\n    'Authorization':\
           \ 'Bearer <your-jwt-token>',\n    'Content-Type': 'application/json'\n};\n\nconst data = {\n    // Add your request\
           \ body here\n};\n\nconst response = await fetch(url, {\n    method: 'POST',\n    headers: headers,\n    body: JSON.stringify(data)\n\
           });\n\nconst result = await response.json();\nconsole.log(result);"
@@ -2510,12 +2901,20 @@ paths:
         label: Java
         source: "import com.c2m.ApiClient;\nimport com.c2m.ApiException;\nimport com.c2m.Configuration;\nimport com.c2m.auth.*;\n\
           import com.c2m.api.*;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient\
-          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token\n        HttpBearerAuth\
-          \ bearer = (HttpBearerAuth) defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\"\
-          );\n        \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n       \
-          \     // Call the API\n            var result = apiInstance.submitMultiZipAddressCaptureParams();\n            System.out.println(result);\n\
+          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token  // J1: \"bearerAuth\"\
+          \ must match _SECURITY_SCHEME_NAME in ebnf_to_openapi_dynamic_v3.py\n        HttpBearerAuth bearer = (HttpBearerAuth)\
+          \ defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\");\n     \
+          \   \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n            // Call\
+          \ the API\n            var result = apiInstance.submitMultiZipAddressCaptureParams();\n            System.out.println(result);\n\
           \        } catch (ApiException e) {\n            System.err.println(\"Exception when calling API\");\n         \
           \   e.printStackTrace();\n        }\n    }\n}"
+      - lang: go
+        label: Go
+        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
+          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
+          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitMultiZipAddressCaptureParams(ctx).Execute()\n\
+          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
+          Response: %v\\n\", resp)\n}"
       - lang: csharp
         label: C#
         source: "using System;\nusing C2M.Api;\nusing C2M.Client;\nusing C2M.Model;\n\nnamespace Example\n{\n    public class\
@@ -2525,13 +2924,30 @@ paths:
           \                Console.WriteLine(result);\n            }\n            catch (ApiException e)\n            {\n\
           \                Console.WriteLine(\"Exception: \" + e.Message);\n                Console.WriteLine(\"Status Code:\
           \ \" + e.ErrorCode);\n            }\n        }\n    }\n}"
-      - lang: go
-        label: Go
-        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
-          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
-          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.submitMultiZipAddressCaptureParams(ctx).Execute()\n\
-          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
-          Response: %v\\n\", resp)\n}"
+      - lang: swift
+        label: Swift
+        source: "import Foundation\n\nlet url = URL(string: \"https://api.click2mail.com/v2/batch/zip/address-capture\")!\n\
+          var request = URLRequest(url: url)\nrequest.httpMethod = \"POST\"\nrequest.setValue(\"Bearer <your-jwt-token>\"\
+          , forHTTPHeaderField: \"Authorization\")\nrequest.setValue(\"application/json\", forHTTPHeaderField: \"Content-Type\"\
+          )\n\nlet body: [String: Any] = [\n    // Add your request body here\n]\nrequest.httpBody = try? JSONSerialization.data(withJSONObject:\
+          \ body)\n\nlet task = URLSession.shared.dataTask(with: request) { data, response, error in\n    if let data = data,\n\
+          \       let json = try? JSONSerialization.jsonObject(with: data) {\n        print(json)\n    }\n}\ntask.resume()"
+      - lang: kotlin
+        label: Kotlin
+        source: "import okhttp3.*\nimport okhttp3.MediaType.Companion.toMediaType\nimport okhttp3.RequestBody.Companion.toRequestBody\n\
+          \nval client = OkHttpClient()\nval url = \"https://api.click2mail.com/v2/batch/zip/address-capture\"\n\nval body\
+          \ = \"\"\"\n    {{\n        // Add your request body here\n    }}\n\"\"\".trimIndent().toRequestBody(\"application/json\"\
+          .toMediaType())\n\nval request = Request.Builder()\n    .url(url)\n    .addHeader(\"Authorization\", \"Bearer <your-jwt-token>\"\
+          )\n    .addHeader(\"Content-Type\", \"application/json\")\n    .post(body)\n    .build()\n\nval response = client.newCall(request).execute()\n\
+          println(response.body?.string())"
+      - lang: rust
+        label: Rust
+        source: "use reqwest::header;\nuse serde_json::json;\n\n#[tokio::main]\nasync fn main() -> Result<(), Box<dyn std::error::Error>>\
+          \ {\n    let client = reqwest::Client::new();\n    let url = \"https://api.click2mail.com/v2/batch/zip/address-capture\"\
+          ;\n\n    let body = json!({\n        // Add your request body here\n    });\n\n    let response = client\n     \
+          \   .post(url)\n        .header(header::AUTHORIZATION, \"Bearer <your-jwt-token>\")\n        .header(header::CONTENT_TYPE,\
+          \ \"application/json\")\n        .json(&body)\n        .send()\n        .await?;\n\n    let result: serde_json::Value\
+          \ = response.json().await?;\n    println!(\"{:#?}\", result);\n    Ok(())\n}"
   /auth/tokens/short:
     post:
       tags:
@@ -2570,7 +2986,7 @@ paths:
                     token_type: Bearer
                     access_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
                     expires_in: 900
-                    expires_at: '2025-08-26T22:45:00Z'
+                    expires_at: '2099-12-31T00:00:00Z'
                     scopes:
                     - jobs:submit
                     - templates:read
@@ -2582,18 +2998,18 @@ paths:
         '429':
           $ref: '#/components/responses/Error429'
       x-codeSamples:
-      - lang: curl
+      - lang: bash
         label: cURL
-        source: "curl -X POST \\\n  \"https://api.c2m.com/v2/auth/tokens/short\" \\\n  -H \"Authorization: Bearer <your-jwt-token>\"\
+        source: "curl -X POST \\\n  \"https://api.click2mail.com/v2/auth/tokens/short\" \\\n  -H \"Authorization: Bearer <your-jwt-token>\"\
           \ \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}'"
       - lang: python
         label: Python
-        source: "import requests\n\nurl = f\"https://api.c2m.com/v2/auth/tokens/short\"\nheaders = {\n    \"Authorization\"\
+        source: "import requests\n\nurl = f\"https://api.click2mail.com/v2/auth/tokens/short\"\nheaders = {\n    \"Authorization\"\
           : \"Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    # Add your request\
           \ body here\n}\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
       - lang: javascript
         label: JavaScript
-        source: "const url = `https://api.c2m.com/v2/auth/tokens/short`;\nconst headers = {\n    'Authorization': 'Bearer\
+        source: "const url = `https://api.click2mail.com/v2/auth/tokens/short`;\nconst headers = {\n    'Authorization': 'Bearer\
           \ <your-jwt-token>',\n    'Content-Type': 'application/json'\n};\n\nconst data = {\n    // Add your request body\
           \ here\n};\n\nconst response = await fetch(url, {\n    method: 'POST',\n    headers: headers,\n    body: JSON.stringify(data)\n\
           });\n\nconst result = await response.json();\nconsole.log(result);"
@@ -2601,12 +3017,20 @@ paths:
         label: Java
         source: "import com.c2m.ApiClient;\nimport com.c2m.ApiException;\nimport com.c2m.Configuration;\nimport com.c2m.auth.*;\n\
           import com.c2m.api.*;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient\
-          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token\n        HttpBearerAuth\
-          \ bearer = (HttpBearerAuth) defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\"\
-          );\n        \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n       \
-          \     // Call the API\n            var result = apiInstance.issueShortTermToken();\n            System.out.println(result);\n\
+          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token  // J1: \"bearerAuth\"\
+          \ must match _SECURITY_SCHEME_NAME in ebnf_to_openapi_dynamic_v3.py\n        HttpBearerAuth bearer = (HttpBearerAuth)\
+          \ defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\");\n     \
+          \   \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n            // Call\
+          \ the API\n            var result = apiInstance.issueShortTermToken();\n            System.out.println(result);\n\
           \        } catch (ApiException e) {\n            System.err.println(\"Exception when calling API\");\n         \
           \   e.printStackTrace();\n        }\n    }\n}"
+      - lang: go
+        label: Go
+        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
+          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
+          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.issueShortTermToken(ctx).Execute()\n\
+          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
+          Response: %v\\n\", resp)\n}"
       - lang: csharp
         label: C#
         source: "using System;\nusing C2M.Api;\nusing C2M.Client;\nusing C2M.Model;\n\nnamespace Example\n{\n    public class\
@@ -2616,13 +3040,30 @@ paths:
           \                Console.WriteLine(result);\n            }\n            catch (ApiException e)\n            {\n\
           \                Console.WriteLine(\"Exception: \" + e.Message);\n                Console.WriteLine(\"Status Code:\
           \ \" + e.ErrorCode);\n            }\n        }\n    }\n}"
-      - lang: go
-        label: Go
-        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
-          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
-          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.issueShortTermToken(ctx).Execute()\n\
-          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
-          Response: %v\\n\", resp)\n}"
+      - lang: swift
+        label: Swift
+        source: "import Foundation\n\nlet url = URL(string: \"https://api.click2mail.com/v2/auth/tokens/short\")!\nvar request\
+          \ = URLRequest(url: url)\nrequest.httpMethod = \"POST\"\nrequest.setValue(\"Bearer <your-jwt-token>\", forHTTPHeaderField:\
+          \ \"Authorization\")\nrequest.setValue(\"application/json\", forHTTPHeaderField: \"Content-Type\")\n\nlet body:\
+          \ [String: Any] = [\n    // Add your request body here\n]\nrequest.httpBody = try? JSONSerialization.data(withJSONObject:\
+          \ body)\n\nlet task = URLSession.shared.dataTask(with: request) { data, response, error in\n    if let data = data,\n\
+          \       let json = try? JSONSerialization.jsonObject(with: data) {\n        print(json)\n    }\n}\ntask.resume()"
+      - lang: kotlin
+        label: Kotlin
+        source: "import okhttp3.*\nimport okhttp3.MediaType.Companion.toMediaType\nimport okhttp3.RequestBody.Companion.toRequestBody\n\
+          \nval client = OkHttpClient()\nval url = \"https://api.click2mail.com/v2/auth/tokens/short\"\n\nval body = \"\"\"\
+          \n    {{\n        // Add your request body here\n    }}\n\"\"\".trimIndent().toRequestBody(\"application/json\"\
+          .toMediaType())\n\nval request = Request.Builder()\n    .url(url)\n    .addHeader(\"Authorization\", \"Bearer <your-jwt-token>\"\
+          )\n    .addHeader(\"Content-Type\", \"application/json\")\n    .post(body)\n    .build()\n\nval response = client.newCall(request).execute()\n\
+          println(response.body?.string())"
+      - lang: rust
+        label: Rust
+        source: "use reqwest::header;\nuse serde_json::json;\n\n#[tokio::main]\nasync fn main() -> Result<(), Box<dyn std::error::Error>>\
+          \ {\n    let client = reqwest::Client::new();\n    let url = \"https://api.click2mail.com/v2/auth/tokens/short\"\
+          ;\n\n    let body = json!({\n        // Add your request body here\n    });\n\n    let response = client\n     \
+          \   .post(url)\n        .header(header::AUTHORIZATION, \"Bearer <your-jwt-token>\")\n        .header(header::CONTENT_TYPE,\
+          \ \"application/json\")\n        .json(&body)\n        .send()\n        .await?;\n\n    let result: serde_json::Value\
+          \ = response.json().await?;\n    println!(\"{:#?}\", result);\n    Ok(())\n}"
   /auth/tokens/long:
     post:
       tags:
@@ -2660,8 +3101,8 @@ paths:
               clientSecret:
                 value:
                   grant_type: client_credentials
-                  client_id: c2m_abc123
-                  client_secret: supersecret123
+                  client_id: '{{clientId}}'
+                  client_secret: '{{clientSecret}}'
                   scopes:
                   - jobs:submit
                   - templates:read
@@ -2669,17 +3110,17 @@ paths:
               otp:
                 value:
                   grant_type: client_credentials
-                  client_id: c2m_abc123
-                  otp_code: '123456'
+                  client_id: '{{clientId}}'
+                  otp_code: '{{otpCode}}'
                   scopes:
                   - jobs:*
                   ttl_seconds: 2592000
               assertion:
                 value:
                   grant_type: assertion
-                  client_id: c2m_abc123
+                  client_id: '{{clientId}}'
                   assertion_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-                  assertion: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...
+                  assertion: '{{assertionJwt}}'
                   scopes:
                   - jobs:submit
                   - templates:read
@@ -2701,7 +3142,7 @@ paths:
                     token_type: Bearer
                     access_token: lt_0d51e9bd2f6449cf...
                     expires_in: 2592000
-                    expires_at: '2025-09-25T22:45:00Z'
+                    expires_at: '2099-12-31T00:00:00Z'
                     scopes:
                     - jobs:*
                     token_id: tok_lt_b8e0aa
@@ -2714,31 +3155,39 @@ paths:
         '429':
           $ref: '#/components/responses/Error429'
       x-codeSamples:
-      - lang: curl
+      - lang: bash
         label: cURL
-        source: "curl -X POST \\\n  \"https://api.c2m.com/v2/auth/tokens/long\" \\\n  -H \"Authorization: Bearer <your-jwt-token>\"\
+        source: "curl -X POST \\\n  \"https://api.click2mail.com/v2/auth/tokens/long\" \\\n  -H \"Authorization: Bearer <your-jwt-token>\"\
           \ \\\n  -H \"Content-Type: application/json\" \\\n  -d '{}'"
       - lang: python
         label: Python
-        source: "import requests\n\nurl = f\"https://api.c2m.com/v2/auth/tokens/long\"\nheaders = {\n    \"Authorization\"\
+        source: "import requests\n\nurl = f\"https://api.click2mail.com/v2/auth/tokens/long\"\nheaders = {\n    \"Authorization\"\
           : \"Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\ndata = {\n    # Add your request\
           \ body here\n}\n\nresponse = requests.post(url, headers=headers, json=data)\nprint(response.json())"
       - lang: javascript
         label: JavaScript
-        source: "const url = `https://api.c2m.com/v2/auth/tokens/long`;\nconst headers = {\n    'Authorization': 'Bearer <your-jwt-token>',\n\
-          \    'Content-Type': 'application/json'\n};\n\nconst data = {\n    // Add your request body here\n};\n\nconst response\
-          \ = await fetch(url, {\n    method: 'POST',\n    headers: headers,\n    body: JSON.stringify(data)\n});\n\nconst\
-          \ result = await response.json();\nconsole.log(result);"
+        source: "const url = `https://api.click2mail.com/v2/auth/tokens/long`;\nconst headers = {\n    'Authorization': 'Bearer\
+          \ <your-jwt-token>',\n    'Content-Type': 'application/json'\n};\n\nconst data = {\n    // Add your request body\
+          \ here\n};\n\nconst response = await fetch(url, {\n    method: 'POST',\n    headers: headers,\n    body: JSON.stringify(data)\n\
+          });\n\nconst result = await response.json();\nconsole.log(result);"
       - lang: java
         label: Java
         source: "import com.c2m.ApiClient;\nimport com.c2m.ApiException;\nimport com.c2m.Configuration;\nimport com.c2m.auth.*;\n\
           import com.c2m.api.*;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient\
-          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token\n        HttpBearerAuth\
-          \ bearer = (HttpBearerAuth) defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\"\
-          );\n        \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n       \
-          \     // Call the API\n            var result = apiInstance.issueLongTermToken();\n            System.out.println(result);\n\
+          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token  // J1: \"bearerAuth\"\
+          \ must match _SECURITY_SCHEME_NAME in ebnf_to_openapi_dynamic_v3.py\n        HttpBearerAuth bearer = (HttpBearerAuth)\
+          \ defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\");\n     \
+          \   \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n            // Call\
+          \ the API\n            var result = apiInstance.issueLongTermToken();\n            System.out.println(result);\n\
           \        } catch (ApiException e) {\n            System.err.println(\"Exception when calling API\");\n         \
           \   e.printStackTrace();\n        }\n    }\n}"
+      - lang: go
+        label: Go
+        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
+          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
+          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.issueLongTermToken(ctx).Execute()\n\
+          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
+          Response: %v\\n\", resp)\n}"
       - lang: csharp
         label: C#
         source: "using System;\nusing C2M.Api;\nusing C2M.Client;\nusing C2M.Model;\n\nnamespace Example\n{\n    public class\
@@ -2748,13 +3197,30 @@ paths:
           \                Console.WriteLine(result);\n            }\n            catch (ApiException e)\n            {\n\
           \                Console.WriteLine(\"Exception: \" + e.Message);\n                Console.WriteLine(\"Status Code:\
           \ \" + e.ErrorCode);\n            }\n        }\n    }\n}"
-      - lang: go
-        label: Go
-        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
-          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
-          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.issueLongTermToken(ctx).Execute()\n\
-          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
-          Response: %v\\n\", resp)\n}"
+      - lang: swift
+        label: Swift
+        source: "import Foundation\n\nlet url = URL(string: \"https://api.click2mail.com/v2/auth/tokens/long\")!\nvar request\
+          \ = URLRequest(url: url)\nrequest.httpMethod = \"POST\"\nrequest.setValue(\"Bearer <your-jwt-token>\", forHTTPHeaderField:\
+          \ \"Authorization\")\nrequest.setValue(\"application/json\", forHTTPHeaderField: \"Content-Type\")\n\nlet body:\
+          \ [String: Any] = [\n    // Add your request body here\n]\nrequest.httpBody = try? JSONSerialization.data(withJSONObject:\
+          \ body)\n\nlet task = URLSession.shared.dataTask(with: request) { data, response, error in\n    if let data = data,\n\
+          \       let json = try? JSONSerialization.jsonObject(with: data) {\n        print(json)\n    }\n}\ntask.resume()"
+      - lang: kotlin
+        label: Kotlin
+        source: "import okhttp3.*\nimport okhttp3.MediaType.Companion.toMediaType\nimport okhttp3.RequestBody.Companion.toRequestBody\n\
+          \nval client = OkHttpClient()\nval url = \"https://api.click2mail.com/v2/auth/tokens/long\"\n\nval body = \"\"\"\
+          \n    {{\n        // Add your request body here\n    }}\n\"\"\".trimIndent().toRequestBody(\"application/json\"\
+          .toMediaType())\n\nval request = Request.Builder()\n    .url(url)\n    .addHeader(\"Authorization\", \"Bearer <your-jwt-token>\"\
+          )\n    .addHeader(\"Content-Type\", \"application/json\")\n    .post(body)\n    .build()\n\nval response = client.newCall(request).execute()\n\
+          println(response.body?.string())"
+      - lang: rust
+        label: Rust
+        source: "use reqwest::header;\nuse serde_json::json;\n\n#[tokio::main]\nasync fn main() -> Result<(), Box<dyn std::error::Error>>\
+          \ {\n    let client = reqwest::Client::new();\n    let url = \"https://api.click2mail.com/v2/auth/tokens/long\"\
+          ;\n\n    let body = json!({\n        // Add your request body here\n    });\n\n    let response = client\n     \
+          \   .post(url)\n        .header(header::AUTHORIZATION, \"Bearer <your-jwt-token>\")\n        .header(header::CONTENT_TYPE,\
+          \ \"application/json\")\n        .json(&body)\n        .send()\n        .await?;\n\n    let result: serde_json::Value\
+          \ = response.json().await?;\n    println!(\"{:#?}\", result);\n    Ok(())\n}"
   /auth/tokens/{tokenId}/revoke:
     post:
       tags:
@@ -2782,30 +3248,38 @@ paths:
         '404':
           $ref: '#/components/responses/Error404'
       x-codeSamples:
-      - lang: curl
+      - lang: bash
         label: cURL
-        source: "curl -X POST \\\n  \"https://api.c2m.com/v2/auth/tokens/<tokenId>/revoke\" \\\n  -H \"Authorization: Bearer\
-          \ <your-jwt-token>\" \\\n  -H \"Content-Type: application/json\""
+        source: "curl -X POST \\\n  \"https://api.click2mail.com/v2/auth/tokens/<tokenId>/revoke\" \\\n  -H \"Authorization:\
+          \ Bearer <your-jwt-token>\" \\\n  -H \"Content-Type: application/json\""
       - lang: python
         label: Python
-        source: "import requests\n\nurl = f\"https://api.c2m.com/v2/auth/tokens/{tokenId}/revoke\"\nheaders = {\n    \"Authorization\"\
-          : \"Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\nresponse = requests.post(url, headers=headers)\n\
-          print(response.json())"
+        source: "import requests\n\nurl = f\"https://api.click2mail.com/v2/auth/tokens/{tokenId}/revoke\"\nheaders = {\n \
+          \   \"Authorization\": \"Bearer <your-jwt-token>\",\n    \"Content-Type\": \"application/json\"\n}\n\nresponse =\
+          \ requests.post(url, headers=headers)\nprint(response.json())"
       - lang: javascript
         label: JavaScript
-        source: "const url = `https://api.c2m.com/v2/auth/tokens/${tokenId}/revoke`;\nconst headers = {\n    'Authorization':\
+        source: "const url = `https://api.click2mail.com/v2/auth/tokens/${tokenId}/revoke`;\nconst headers = {\n    'Authorization':\
           \ 'Bearer <your-jwt-token>',\n    'Content-Type': 'application/json'\n};\n\nconst response = await fetch(url, {\n\
           \    method: 'POST',\n    headers: headers\n});\n\nconst result = await response.json();\nconsole.log(result);"
       - lang: java
         label: Java
         source: "import com.c2m.ApiClient;\nimport com.c2m.ApiException;\nimport com.c2m.Configuration;\nimport com.c2m.auth.*;\n\
           import com.c2m.api.*;\n\npublic class Example {\n    public static void main(String[] args) {\n        ApiClient\
-          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token\n        HttpBearerAuth\
-          \ bearer = (HttpBearerAuth) defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\"\
-          );\n        \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n       \
-          \     // Call the API\n            var result = apiInstance.revokeToken();\n            System.out.println(result);\n\
-          \        } catch (ApiException e) {\n            System.err.println(\"Exception when calling API\");\n         \
-          \   e.printStackTrace();\n        }\n    }\n}"
+          \ defaultClient = Configuration.getDefaultApiClient();\n        \n        // Configure Bearer token  // J1: \"bearerAuth\"\
+          \ must match _SECURITY_SCHEME_NAME in ebnf_to_openapi_dynamic_v3.py\n        HttpBearerAuth bearer = (HttpBearerAuth)\
+          \ defaultClient.getAuthentication(\"bearerAuth\");\n        bearer.setBearerToken(\"<your-jwt-token>\");\n     \
+          \   \n        DefaultApi apiInstance = new DefaultApi(defaultClient);\n        \n        try {\n            // Call\
+          \ the API\n            var result = apiInstance.revokeToken();\n            System.out.println(result);\n      \
+          \  } catch (ApiException e) {\n            System.err.println(\"Exception when calling API\");\n            e.printStackTrace();\n\
+          \        }\n    }\n}"
+      - lang: go
+        label: Go
+        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
+          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
+          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.revokeToken(ctx).Execute()\n\
+          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
+          Response: %v\\n\", resp)\n}"
       - lang: csharp
         label: C#
         source: "using System;\nusing C2M.Api;\nusing C2M.Client;\nusing C2M.Model;\n\nnamespace Example\n{\n    public class\
@@ -2815,10 +3289,23 @@ paths:
           \                Console.WriteLine(result);\n            }\n            catch (ApiException e)\n            {\n\
           \                Console.WriteLine(\"Exception: \" + e.Message);\n                Console.WriteLine(\"Status Code:\
           \ \" + e.ErrorCode);\n            }\n        }\n    }\n}"
-      - lang: go
-        label: Go
-        source: "package main\n\nimport (\n    \"context\"\n    \"fmt\"\n    \"github.com/c2m/go-sdk\"\n)\n\nfunc main() {\n\
-          \    cfg := c2m.NewConfiguration()\n    cfg.AddDefaultHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
-          \   \n    client := c2m.NewAPIClient(cfg)\n    ctx := context.Background()\n    \n    resp, r, err := client.DefaultApi.revokeToken(ctx).Execute()\n\
-          \    if err != nil {\n        fmt.Printf(\"Error: %v\\n\", err)\n        return\n    }\n    \n    fmt.Printf(\"\
-          Response: %v\\n\", resp)\n}"
+      - lang: swift
+        label: Swift
+        source: "import Foundation\n\nlet url = URL(string: \"https://api.click2mail.com/v2/auth/tokens/\\(<tokenId>)/revoke\"\
+          )!\nvar request = URLRequest(url: url)\nrequest.httpMethod = \"POST\"\nrequest.setValue(\"Bearer <your-jwt-token>\"\
+          , forHTTPHeaderField: \"Authorization\")\nrequest.setValue(\"application/json\", forHTTPHeaderField: \"Content-Type\"\
+          )\n\nlet task = URLSession.shared.dataTask(with: request) { data, response, error in\n    if let data = data,\n\
+          \       let json = try? JSONSerialization.jsonObject(with: data) {\n        print(json)\n    }\n}\ntask.resume()"
+      - lang: kotlin
+        label: Kotlin
+        source: "import okhttp3.*\nimport okhttp3.MediaType.Companion.toMediaType\nimport okhttp3.RequestBody.Companion.toRequestBody\n\
+          \nval client = OkHttpClient()\nval url = \"https://api.click2mail.com/v2/auth/tokens/${tokenId}/revoke\"\n\nval\
+          \ request = Request.Builder()\n    .url(url)\n    .addHeader(\"Authorization\", \"Bearer <your-jwt-token>\")\n \
+          \   .get()\n    .build()\n\nval response = client.newCall(request).execute()\nprintln(response.body?.string())"
+      - lang: rust
+        label: Rust
+        source: "use reqwest::header;\nuse serde_json::json;\n\n#[tokio::main]\nasync fn main() -> Result<(), Box<dyn std::error::Error>>\
+          \ {\n    let client = reqwest::Client::new();\n    let url = \"https://api.click2mail.com/v2/auth/tokens/{tokenId}/revoke\"\
+          ;\n\n    let response = client\n        .post(url)\n        .header(header::AUTHORIZATION, \"Bearer <your-jwt-token>\"\
+          )\n        .send()\n        .await?;\n\n    let result: serde_json::Value = response.json().await?;\n    println!(\"\
+          {:#?}\", result);\n    Ok(())\n}"

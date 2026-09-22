@@ -14,8 +14,8 @@ require 'openapi_client'
 OpenapiClient::ZipDocumentSource.openapi_one_of
 # =>
 # [
-#   :'ZipDocumentIdSource',
-#   :'ZipRequestIdSource'
+#   :'ZipDocumentSourceOneOf',
+#   :'ZipDocumentSourceOneOf1'
 # ]
 ```
 
@@ -29,7 +29,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'openapi_client'
 
 OpenapiClient::ZipDocumentSource.build(data)
-# => #<ZipDocumentIdSource:0x00007fdd4aab02a0>
+# => #<ZipDocumentSourceOneOf:0x00007fdd4aab02a0>
 
 OpenapiClient::ZipDocumentSource.build(data_that_doesnt_match)
 # => nil
@@ -43,7 +43,7 @@ OpenapiClient::ZipDocumentSource.build(data_that_doesnt_match)
 
 #### Return type
 
-- `ZipDocumentIdSource`
-- `ZipRequestIdSource`
+- `ZipDocumentSourceOneOf`
+- `ZipDocumentSourceOneOf1`
 - `nil` (if no type matches)
 

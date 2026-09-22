@@ -5,10 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request_id** | **int** |  | 
-**filename** | **str** |  | 
-**zip_document_id** | **int** |  | 
-**zip_filename** | **str** |  | 
+**document_id_source** | [**DocumentIdSource**](DocumentIdSource.md) |  | 
+**request_id_source** | [**RequestIdSource**](RequestIdSource.md) |  | 
+**url_source** | [**UrlSource**](UrlSource.md) |  | 
+**zip_document_id_source** | [**ZipDocumentIdSource**](ZipDocumentIdSource.md) |  | 
+**zip_request_id_source** | [**ZipRequestIdSource**](ZipRequestIdSource.md) |  | 
 
 ## Example
 

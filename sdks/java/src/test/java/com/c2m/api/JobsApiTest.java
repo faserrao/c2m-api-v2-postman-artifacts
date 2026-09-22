@@ -16,10 +16,10 @@ package com.c2m.api;
 import com.c2m.ApiException;
 import com.c2m.model.ErrorResponse;
 import com.c2m.model.StandardResponse;
+import com.c2m.model.SubmitDocParams;
 import com.c2m.model.SubmitMultiDocMergeParams;
 import com.c2m.model.SubmitMultiZipAddressCaptureParams;
 import com.c2m.model.SubmitMultiZipParams;
-import com.c2m.model.SubmitSingleDocParams;
 import com.c2m.model.SubmitSinglePdfAddressCaptureParams;
 import com.c2m.model.SubmitSinglePdfSplitAddressCaptureParams;
 import com.c2m.model.SubmitSinglePdfSplitParams;
@@ -38,6 +38,20 @@ import java.util.Map;
 public class JobsApiTest {
 
     private final JobsApi api = new JobsApi();
+
+    /**
+     * Submit single document
+     *
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void submitDocParamsTest() throws ApiException {
+        SubmitDocParams submitDocParams = null;
+        StandardResponse response = api.submitDocParams(submitDocParams);
+        // TODO: test validations
+    }
 
     /**
      * Submit mail merge
@@ -78,20 +92,6 @@ public class JobsApiTest {
     public void submitMultiZipParamsTest() throws ApiException {
         SubmitMultiZipParams submitMultiZipParams = null;
         StandardResponse response = api.submitMultiZipParams(submitMultiZipParams);
-        // TODO: test validations
-    }
-
-    /**
-     * Submit single document
-     *
-     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void submitSingleDocParamsTest() throws ApiException {
-        SubmitSingleDocParams submitSingleDocParams = null;
-        StandardResponse response = api.submitSingleDocParams(submitSingleDocParams);
         // TODO: test validations
     }
 

@@ -57,11 +57,10 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'mapping_id' => 'int',
         'single_address' => '\C2MApi\Model\Address',
-        'address_name' => 'string',
-        'address_list' => '\C2MApi\Model\Address[]',
-        'address_list_name' => 'string'
+        'recipient_address_by_list' => '\C2MApi\Model\RecipientAddressByList',
+        'recipient_address_by_address_id' => 'int',
+        'recipient_address_by_list_id' => 'int'
     ];
 
     /**
@@ -72,11 +71,10 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'mapping_id' => null,
         'single_address' => null,
-        'address_name' => null,
-        'address_list' => null,
-        'address_list_name' => null
+        'recipient_address_by_list' => null,
+        'recipient_address_by_address_id' => null,
+        'recipient_address_by_list_id' => null
     ];
 
     /**
@@ -85,11 +83,10 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'mapping_id' => false,
         'single_address' => false,
-        'address_name' => false,
-        'address_list' => false,
-        'address_list_name' => false
+        'recipient_address_by_list' => false,
+        'recipient_address_by_address_id' => false,
+        'recipient_address_by_list_id' => false
     ];
 
     /**
@@ -178,11 +175,10 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'mapping_id' => 'mappingId',
         'single_address' => 'singleAddress',
-        'address_name' => 'addressName',
-        'address_list' => 'addressList',
-        'address_list_name' => 'addressListName'
+        'recipient_address_by_list' => 'recipientAddressByList',
+        'recipient_address_by_address_id' => 'recipientAddressByAddressId',
+        'recipient_address_by_list_id' => 'recipientAddressByListId'
     ];
 
     /**
@@ -191,11 +187,10 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'mapping_id' => 'setMappingId',
         'single_address' => 'setSingleAddress',
-        'address_name' => 'setAddressName',
-        'address_list' => 'setAddressList',
-        'address_list_name' => 'setAddressListName'
+        'recipient_address_by_list' => 'setRecipientAddressByList',
+        'recipient_address_by_address_id' => 'setRecipientAddressByAddressId',
+        'recipient_address_by_list_id' => 'setRecipientAddressByListId'
     ];
 
     /**
@@ -204,11 +199,10 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'mapping_id' => 'getMappingId',
         'single_address' => 'getSingleAddress',
-        'address_name' => 'getAddressName',
-        'address_list' => 'getAddressList',
-        'address_list_name' => 'getAddressListName'
+        'recipient_address_by_list' => 'getRecipientAddressByList',
+        'recipient_address_by_address_id' => 'getRecipientAddressByAddressId',
+        'recipient_address_by_list_id' => 'getRecipientAddressByListId'
     ];
 
     /**
@@ -268,11 +262,10 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('mapping_id', $data ?? [], null);
         $this->setIfExists('single_address', $data ?? [], null);
-        $this->setIfExists('address_name', $data ?? [], null);
-        $this->setIfExists('address_list', $data ?? [], null);
-        $this->setIfExists('address_list_name', $data ?? [], null);
+        $this->setIfExists('recipient_address_by_list', $data ?? [], null);
+        $this->setIfExists('recipient_address_by_address_id', $data ?? [], null);
+        $this->setIfExists('recipient_address_by_list_id', $data ?? [], null);
     }
 
     /**
@@ -305,8 +298,14 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['single_address'] === null) {
             $invalidProperties[] = "'single_address' can't be null";
         }
-        if ($this->container['address_list'] === null) {
-            $invalidProperties[] = "'address_list' can't be null";
+        if ($this->container['recipient_address_by_list'] === null) {
+            $invalidProperties[] = "'recipient_address_by_list' can't be null";
+        }
+        if ($this->container['recipient_address_by_address_id'] === null) {
+            $invalidProperties[] = "'recipient_address_by_address_id' can't be null";
+        }
+        if ($this->container['recipient_address_by_list_id'] === null) {
+            $invalidProperties[] = "'recipient_address_by_list_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -322,33 +321,6 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets mapping_id
-     *
-     * @return int|null
-     */
-    public function getMappingId()
-    {
-        return $this->container['mapping_id'];
-    }
-
-    /**
-     * Sets mapping_id
-     *
-     * @param int|null $mapping_id mapping_id
-     *
-     * @return self
-     */
-    public function setMappingId($mapping_id)
-    {
-        if (is_null($mapping_id)) {
-            throw new \InvalidArgumentException('non-nullable mapping_id cannot be null');
-        }
-        $this->container['mapping_id'] = $mapping_id;
-
-        return $this;
-    }
 
     /**
      * Gets single_address
@@ -378,82 +350,82 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets address_name
+     * Gets recipient_address_by_list
      *
-     * @return string|null
+     * @return \C2MApi\Model\RecipientAddressByList
      */
-    public function getAddressName()
+    public function getRecipientAddressByList()
     {
-        return $this->container['address_name'];
+        return $this->container['recipient_address_by_list'];
     }
 
     /**
-     * Sets address_name
+     * Sets recipient_address_by_list
      *
-     * @param string|null $address_name address_name
+     * @param \C2MApi\Model\RecipientAddressByList $recipient_address_by_list recipient_address_by_list
      *
      * @return self
      */
-    public function setAddressName($address_name)
+    public function setRecipientAddressByList($recipient_address_by_list)
     {
-        if (is_null($address_name)) {
-            throw new \InvalidArgumentException('non-nullable address_name cannot be null');
+        if (is_null($recipient_address_by_list)) {
+            throw new \InvalidArgumentException('non-nullable recipient_address_by_list cannot be null');
         }
-        $this->container['address_name'] = $address_name;
+        $this->container['recipient_address_by_list'] = $recipient_address_by_list;
 
         return $this;
     }
 
     /**
-     * Gets address_list
+     * Gets recipient_address_by_address_id
      *
-     * @return \C2MApi\Model\Address[]
+     * @return int
      */
-    public function getAddressList()
+    public function getRecipientAddressByAddressId()
     {
-        return $this->container['address_list'];
+        return $this->container['recipient_address_by_address_id'];
     }
 
     /**
-     * Sets address_list
+     * Sets recipient_address_by_address_id
      *
-     * @param \C2MApi\Model\Address[] $address_list address_list
+     * @param int $recipient_address_by_address_id recipient_address_by_address_id
      *
      * @return self
      */
-    public function setAddressList($address_list)
+    public function setRecipientAddressByAddressId($recipient_address_by_address_id)
     {
-        if (is_null($address_list)) {
-            throw new \InvalidArgumentException('non-nullable address_list cannot be null');
+        if (is_null($recipient_address_by_address_id)) {
+            throw new \InvalidArgumentException('non-nullable recipient_address_by_address_id cannot be null');
         }
-        $this->container['address_list'] = $address_list;
+        $this->container['recipient_address_by_address_id'] = $recipient_address_by_address_id;
 
         return $this;
     }
 
     /**
-     * Gets address_list_name
+     * Gets recipient_address_by_list_id
      *
-     * @return string|null
+     * @return int
      */
-    public function getAddressListName()
+    public function getRecipientAddressByListId()
     {
-        return $this->container['address_list_name'];
+        return $this->container['recipient_address_by_list_id'];
     }
 
     /**
-     * Sets address_list_name
+     * Sets recipient_address_by_list_id
      *
-     * @param string|null $address_list_name address_list_name
+     * @param int $recipient_address_by_list_id recipient_address_by_list_id
      *
      * @return self
      */
-    public function setAddressListName($address_list_name)
+    public function setRecipientAddressByListId($recipient_address_by_list_id)
     {
-        if (is_null($address_list_name)) {
-            throw new \InvalidArgumentException('non-nullable address_list_name cannot be null');
+        if (is_null($recipient_address_by_list_id)) {
+            throw new \InvalidArgumentException('non-nullable recipient_address_by_list_id cannot be null');
         }
-        $this->container['address_list_name'] = $address_list_name;
+        $this->container['recipient_address_by_list_id'] = $recipient_address_by_list_id;
 
         return $this;
     }

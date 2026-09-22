@@ -30,48 +30,80 @@ describe OpenapiClient::JobOptions do
   describe 'test attribute "document_class"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["letter", "postcard", "brochure", "flat"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.document_class = value }.not_to raise_error
+      # end
     end
   end
 
   describe 'test attribute "layout"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["address_on_first_page", "address_on_back_page"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.layout = value }.not_to raise_error
+      # end
     end
   end
 
   describe 'test attribute "production_time"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["next_day", "two_day", "three_day", "standard", "same_day"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.production_time = value }.not_to raise_error
+      # end
     end
   end
 
   describe 'test attribute "envelope"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["standard", "none", "flat", "double_window"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.envelope = value }.not_to raise_error
+      # end
     end
   end
 
   describe 'test attribute "color"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["full_color", "black_and_white"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.color = value }.not_to raise_error
+      # end
     end
   end
 
   describe 'test attribute "paper_type"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["white", "white_24", "ivory", "glossy"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.paper_type = value }.not_to raise_error
+      # end
     end
   end
 
   describe 'test attribute "print_option"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["double_sided", "single_sided"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.print_option = value }.not_to raise_error
+      # end
     end
   end
 
   describe 'test attribute "mail_class"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["first_class", "standard", "non_profit"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.mail_class = value }.not_to raise_error
+      # end
     end
   end
 

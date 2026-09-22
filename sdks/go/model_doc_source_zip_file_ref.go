@@ -18,13 +18,21 @@ import (
 
 // DocSourceZipFileRef - struct for DocSourceZipFileRef
 type DocSourceZipFileRef struct {
-	Int32 *int32
+	DocSourceZipFileRefOneOf *DocSourceZipFileRefOneOf
+	DocSourceZipFileRefOneOf1 *DocSourceZipFileRefOneOf1
 }
 
-// int32AsDocSourceZipFileRef is a convenience function that returns int32 wrapped in DocSourceZipFileRef
-func Int32AsDocSourceZipFileRef(v *int32) DocSourceZipFileRef {
+// DocSourceZipFileRefOneOfAsDocSourceZipFileRef is a convenience function that returns DocSourceZipFileRefOneOf wrapped in DocSourceZipFileRef
+func DocSourceZipFileRefOneOfAsDocSourceZipFileRef(v *DocSourceZipFileRefOneOf) DocSourceZipFileRef {
 	return DocSourceZipFileRef{
-		Int32: v,
+		DocSourceZipFileRefOneOf: v,
+	}
+}
+
+// DocSourceZipFileRefOneOf1AsDocSourceZipFileRef is a convenience function that returns DocSourceZipFileRefOneOf1 wrapped in DocSourceZipFileRef
+func DocSourceZipFileRefOneOf1AsDocSourceZipFileRef(v *DocSourceZipFileRefOneOf1) DocSourceZipFileRef {
+	return DocSourceZipFileRef{
+		DocSourceZipFileRefOneOf1: v,
 	}
 }
 
@@ -33,26 +41,44 @@ func Int32AsDocSourceZipFileRef(v *int32) DocSourceZipFileRef {
 func (dst *DocSourceZipFileRef) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into Int32
-	err = newStrictDecoder(data).Decode(&dst.Int32)
+	// try to unmarshal data into DocSourceZipFileRefOneOf
+	err = newStrictDecoder(data).Decode(&dst.DocSourceZipFileRefOneOf)
 	if err == nil {
-		jsonInt32, _ := json.Marshal(dst.Int32)
-		if string(jsonInt32) == "{}" { // empty struct
-			dst.Int32 = nil
+		jsonDocSourceZipFileRefOneOf, _ := json.Marshal(dst.DocSourceZipFileRefOneOf)
+		if string(jsonDocSourceZipFileRefOneOf) == "{}" { // empty struct
+			dst.DocSourceZipFileRefOneOf = nil
 		} else {
-			if err = validator.Validate(dst.Int32); err != nil {
-				dst.Int32 = nil
+			if err = validator.Validate(dst.DocSourceZipFileRefOneOf); err != nil {
+				dst.DocSourceZipFileRefOneOf = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.Int32 = nil
+		dst.DocSourceZipFileRefOneOf = nil
+	}
+
+	// try to unmarshal data into DocSourceZipFileRefOneOf1
+	err = newStrictDecoder(data).Decode(&dst.DocSourceZipFileRefOneOf1)
+	if err == nil {
+		jsonDocSourceZipFileRefOneOf1, _ := json.Marshal(dst.DocSourceZipFileRefOneOf1)
+		if string(jsonDocSourceZipFileRefOneOf1) == "{}" { // empty struct
+			dst.DocSourceZipFileRefOneOf1 = nil
+		} else {
+			if err = validator.Validate(dst.DocSourceZipFileRefOneOf1); err != nil {
+				dst.DocSourceZipFileRefOneOf1 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.DocSourceZipFileRefOneOf1 = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.Int32 = nil
+		dst.DocSourceZipFileRefOneOf = nil
+		dst.DocSourceZipFileRefOneOf1 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(DocSourceZipFileRef)")
 	} else if match == 1 {
@@ -64,8 +90,12 @@ func (dst *DocSourceZipFileRef) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src DocSourceZipFileRef) MarshalJSON() ([]byte, error) {
-	if src.Int32 != nil {
-		return json.Marshal(&src.Int32)
+	if src.DocSourceZipFileRefOneOf != nil {
+		return json.Marshal(&src.DocSourceZipFileRefOneOf)
+	}
+
+	if src.DocSourceZipFileRefOneOf1 != nil {
+		return json.Marshal(&src.DocSourceZipFileRefOneOf1)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -76,8 +106,12 @@ func (obj *DocSourceZipFileRef) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.Int32 != nil {
-		return obj.Int32
+	if obj.DocSourceZipFileRefOneOf != nil {
+		return obj.DocSourceZipFileRefOneOf
+	}
+
+	if obj.DocSourceZipFileRefOneOf1 != nil {
+		return obj.DocSourceZipFileRefOneOf1
 	}
 
 	// all schemas are nil
@@ -86,8 +120,12 @@ func (obj *DocSourceZipFileRef) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj DocSourceZipFileRef) GetActualInstanceValue() (interface{}) {
-	if obj.Int32 != nil {
-		return *obj.Int32
+	if obj.DocSourceZipFileRefOneOf != nil {
+		return *obj.DocSourceZipFileRefOneOf
+	}
+
+	if obj.DocSourceZipFileRefOneOf1 != nil {
+		return *obj.DocSourceZipFileRefOneOf1
 	}
 
 	// all schemas are nil

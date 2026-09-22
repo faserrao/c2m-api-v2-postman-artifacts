@@ -15,10 +15,10 @@
 import ApiClient from "../ApiClient";
 import ErrorResponse from '../model/ErrorResponse';
 import StandardResponse from '../model/StandardResponse';
+import SubmitDocParams from '../model/SubmitDocParams';
 import SubmitMultiDocMergeParams from '../model/SubmitMultiDocMergeParams';
 import SubmitMultiZipAddressCaptureParams from '../model/SubmitMultiZipAddressCaptureParams';
 import SubmitMultiZipParams from '../model/SubmitMultiZipParams';
-import SubmitSingleDocParams from '../model/SubmitSingleDocParams';
 import SubmitSinglePdfAddressCaptureParams from '../model/SubmitSinglePdfAddressCaptureParams';
 import SubmitSinglePdfSplitAddressCaptureParams from '../model/SubmitSinglePdfSplitAddressCaptureParams';
 import SubmitSinglePdfSplitParams from '../model/SubmitSinglePdfSplitParams';
@@ -41,6 +41,48 @@ export default class JobsApi {
         this.apiClient = apiClient || ApiClient.instance;
     }
 
+
+    /**
+     * Callback function to receive the result of the submitDocParams operation.
+     * @callback module:c2m_api/api/JobsApi~submitDocParamsCallback
+     * @param {String} error Error message, if any.
+     * @param {module:c2m_api/model/StandardResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Submit single document
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+     * @param {module:c2m_api/model/SubmitDocParams} submitDocParams 
+     * @param {module:c2m_api/api/JobsApi~submitDocParamsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:c2m_api/model/StandardResponse}
+     */
+    submitDocParams(submitDocParams, callback) {
+      let postBody = submitDocParams;
+      // verify the required parameter 'submitDocParams' is set
+      if (submitDocParams === undefined || submitDocParams === null) {
+        throw new Error("Missing the required parameter 'submitDocParams' when calling submitDocParams");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['bearerAuth'];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = StandardResponse;
+      return this.apiClient.callApi(
+        '/static', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
 
     /**
      * Callback function to receive the result of the submitMultiDocMergeParams operation.
@@ -163,48 +205,6 @@ export default class JobsApi {
       let returnType = StandardResponse;
       return this.apiClient.callApi(
         '/batch/zip', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the submitSingleDocParams operation.
-     * @callback module:c2m_api/api/JobsApi~submitSingleDocParamsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:c2m_api/model/StandardResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Submit single document
-     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-     * @param {module:c2m_api/model/SubmitSingleDocParams} submitSingleDocParams 
-     * @param {module:c2m_api/api/JobsApi~submitSingleDocParamsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:c2m_api/model/StandardResponse}
-     */
-    submitSingleDocParams(submitSingleDocParams, callback) {
-      let postBody = submitSingleDocParams;
-      // verify the required parameter 'submitSingleDocParams' is set
-      if (submitSingleDocParams === undefined || submitSingleDocParams === null) {
-        throw new Error("Missing the required parameter 'submitSingleDocParams' when calling submitSingleDocParams");
-      }
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = ['bearerAuth'];
-      let contentTypes = ['application/json'];
-      let accepts = ['application/json'];
-      let returnType = StandardResponse;
-      return this.apiClient.callApi(
-        '/static', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null, callback
       );

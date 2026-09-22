@@ -35,9 +35,17 @@ class TestDocSourceZipFileRef(unittest.TestCase):
         model = DocSourceZipFileRef()
         if include_optional:
             return DocSourceZipFileRef(
+                zip_document_id_only = c2m_api.models.zip_document_id_only.zipDocumentIdOnly(
+                    zip_document_id = 56, ),
+                zip_request_id_only = c2m_api.models.zip_request_id_only.zipRequestIdOnly(
+                    request_id = 56, )
             )
         else:
             return DocSourceZipFileRef(
+                zip_document_id_only = c2m_api.models.zip_document_id_only.zipDocumentIdOnly(
+                    zip_document_id = 56, ),
+                zip_request_id_only = c2m_api.models.zip_request_id_only.zipRequestIdOnly(
+                    request_id = 56, ),
         )
         """
 

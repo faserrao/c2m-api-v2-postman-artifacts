@@ -72,6 +72,18 @@ class JobsApiTest extends TestCase
     }
 
     /**
+     * Test case for submitDocParams
+     *
+     * Submit single document.
+     *
+     */
+    public function testSubmitDocParams()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for submitMultiDocMergeParams
      *
      * Submit mail merge.
@@ -102,18 +114,6 @@ class JobsApiTest extends TestCase
      *
      */
     public function testSubmitMultiZipParams()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for submitSingleDocParams
-     *
-     * Submit single document.
-     *
-     */
-    public function testSubmitSingleDocParams()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

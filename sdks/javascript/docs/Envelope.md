@@ -1,16 +1,14 @@
-# C2MApiV2AuthOverlay.Envelope
+# C2MApiV2.Envelope
 
 ## Enum
 
 
+* `standard` (value: `"standard"`)
+
+* `none` (value: `"none"`)
+
 * `flat` (value: `"flat"`)
 
-* `windowedFlat` (value: `"windowedFlat"`)
-
-* `letter` (value: `"letter"`)
-
-* `legal` (value: `"legal"`)
-
-* `postcard` (value: `"postcard"`)
+* `double_window` (value: `"double_window"`)
 
 

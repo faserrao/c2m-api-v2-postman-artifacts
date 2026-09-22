@@ -21,10 +21,10 @@ import okhttp3.HttpUrl
 
 import com.c2m.api.models.ErrorResponse
 import com.c2m.api.models.StandardResponse
+import com.c2m.api.models.SubmitDocParams
 import com.c2m.api.models.SubmitMultiDocMergeParams
 import com.c2m.api.models.SubmitMultiZipAddressCaptureParams
 import com.c2m.api.models.SubmitMultiZipParams
-import com.c2m.api.models.SubmitSingleDocParams
 import com.c2m.api.models.SubmitSinglePdfAddressCaptureParams
 import com.c2m.api.models.SubmitSinglePdfSplitAddressCaptureParams
 import com.c2m.api.models.SubmitSinglePdfSplitParams
@@ -51,6 +51,80 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
         val defaultBasePath: String by lazy {
             System.getProperties().getProperty(ApiClient.baseUrlKey, "https://api.click2mail.com/v2")
         }
+    }
+
+    /**
+     * POST /static
+     * Submit single document
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+     * @param submitDocParams 
+     * @return StandardResponse
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     * @throws UnsupportedOperationException If the API returns an informational or redirection response
+     * @throws ClientException If the API returns a client error response
+     * @throws ServerException If the API returns a server error response
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
+    fun submitDocParams(submitDocParams: SubmitDocParams) : StandardResponse {
+        val localVarResponse = submitDocParamsWithHttpInfo(submitDocParams = submitDocParams)
+
+        return when (localVarResponse.responseType) {
+            ResponseType.Success -> (localVarResponse as Success<*>).data as StandardResponse
+            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
+            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
+            ResponseType.ClientError -> {
+                val localVarError = localVarResponse as ClientError<*>
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
+            }
+            ResponseType.ServerError -> {
+                val localVarError = localVarResponse as ServerError<*>
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
+            }
+        }
+    }
+
+    /**
+     * POST /static
+     * Submit single document
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+     * @param submitDocParams 
+     * @return ApiResponse<StandardResponse?>
+     * @throws IllegalStateException If the request is not correctly configured
+     * @throws IOException Rethrows the OkHttp execute method exception
+     */
+    @Suppress("UNCHECKED_CAST")
+    @Throws(IllegalStateException::class, IOException::class)
+    fun submitDocParamsWithHttpInfo(submitDocParams: SubmitDocParams) : ApiResponse<StandardResponse?> {
+        val localVariableConfig = submitDocParamsRequestConfig(submitDocParams = submitDocParams)
+
+        return request<SubmitDocParams, StandardResponse>(
+            localVariableConfig
+        )
+    }
+
+    /**
+     * To obtain the request config of the operation submitDocParams
+     *
+     * @param submitDocParams 
+     * @return RequestConfig
+     */
+    fun submitDocParamsRequestConfig(submitDocParams: SubmitDocParams) : RequestConfig<SubmitDocParams> {
+        val localVariableBody = submitDocParams
+        val localVariableQuery: MultiValueMap = mutableMapOf()
+        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
+        localVariableHeaders["Content-Type"] = "application/json"
+        localVariableHeaders["Accept"] = "application/json"
+
+        return RequestConfig(
+            method = RequestMethod.POST,
+            path = "/static",
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = true,
+            body = localVariableBody
+        )
     }
 
     /**
@@ -268,80 +342,6 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
         return RequestConfig(
             method = RequestMethod.POST,
             path = "/batch/zip",
-            query = localVariableQuery,
-            headers = localVariableHeaders,
-            requiresAuthentication = true,
-            body = localVariableBody
-        )
-    }
-
-    /**
-     * POST /static
-     * Submit single document
-     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-     * @param submitSingleDocParams 
-     * @return StandardResponse
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     * @throws UnsupportedOperationException If the API returns an informational or redirection response
-     * @throws ClientException If the API returns a client error response
-     * @throws ServerException If the API returns a server error response
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun submitSingleDocParams(submitSingleDocParams: SubmitSingleDocParams) : StandardResponse {
-        val localVarResponse = submitSingleDocParamsWithHttpInfo(submitSingleDocParams = submitSingleDocParams)
-
-        return when (localVarResponse.responseType) {
-            ResponseType.Success -> (localVarResponse as Success<*>).data as StandardResponse
-            ResponseType.Informational -> throw UnsupportedOperationException("Client does not support Informational responses.")
-            ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
-            ResponseType.ClientError -> {
-                val localVarError = localVarResponse as ClientError<*>
-                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
-            }
-            ResponseType.ServerError -> {
-                val localVarError = localVarResponse as ServerError<*>
-                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} ${localVarError.body}", localVarError.statusCode, localVarResponse)
-            }
-        }
-    }
-
-    /**
-     * POST /static
-     * Submit single document
-     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-     * @param submitSingleDocParams 
-     * @return ApiResponse<StandardResponse?>
-     * @throws IllegalStateException If the request is not correctly configured
-     * @throws IOException Rethrows the OkHttp execute method exception
-     */
-    @Suppress("UNCHECKED_CAST")
-    @Throws(IllegalStateException::class, IOException::class)
-    fun submitSingleDocParamsWithHttpInfo(submitSingleDocParams: SubmitSingleDocParams) : ApiResponse<StandardResponse?> {
-        val localVariableConfig = submitSingleDocParamsRequestConfig(submitSingleDocParams = submitSingleDocParams)
-
-        return request<SubmitSingleDocParams, StandardResponse>(
-            localVariableConfig
-        )
-    }
-
-    /**
-     * To obtain the request config of the operation submitSingleDocParams
-     *
-     * @param submitSingleDocParams 
-     * @return RequestConfig
-     */
-    fun submitSingleDocParamsRequestConfig(submitSingleDocParams: SubmitSingleDocParams) : RequestConfig<SubmitSingleDocParams> {
-        val localVariableBody = submitSingleDocParams
-        val localVariableQuery: MultiValueMap = mutableMapOf()
-        val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        localVariableHeaders["Content-Type"] = "application/json"
-        localVariableHeaders["Accept"] = "application/json"
-
-        return RequestConfig(
-            method = RequestMethod.POST,
-            path = "/static",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,

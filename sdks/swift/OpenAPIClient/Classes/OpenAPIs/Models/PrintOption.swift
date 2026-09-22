@@ -11,7 +11,6 @@ import AnyCodable
 #endif
 
 public enum PrintOption: String, Codable, CaseIterable {
-    case _none = "none"
-    case color = "color"
-    case grayscale = "grayscale"
+    case doubleSided = "double_sided"
+    case singleSided = "single_sided"
 }

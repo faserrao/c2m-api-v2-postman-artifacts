@@ -51,6 +51,9 @@ class PdfSplitJobItemNoAddress {
         if (data) {
             obj = obj || new PdfSplitJobItemNoAddress();
 
+            if (data.hasOwnProperty('jobTemplate')) {
+                obj['jobTemplate'] = ApiClient.convertToType(data['jobTemplate'], 'String');
+            }
             if (data.hasOwnProperty('startPage')) {
                 obj['startPage'] = ApiClient.convertToType(data['startPage'], 'Number');
             }
@@ -73,6 +76,10 @@ class PdfSplitJobItemNoAddress {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // ensure the json data is a string
+        if (data['jobTemplate'] && !(typeof data['jobTemplate'] === 'string' || data['jobTemplate'] instanceof String)) {
+            throw new Error("Expected the field `jobTemplate` to be a primitive type in the JSON string but got " + data['jobTemplate']);
+        }
 
         return true;
     }
@@ -81,6 +88,11 @@ class PdfSplitJobItemNoAddress {
 }
 
 PdfSplitJobItemNoAddress.RequiredProperties = ["startPage", "endPage"];
+
+/**
+ * @member {String} jobTemplate
+ */
+PdfSplitJobItemNoAddress.prototype['jobTemplate'] = undefined;
 
 /**
  * @member {Number} startPage

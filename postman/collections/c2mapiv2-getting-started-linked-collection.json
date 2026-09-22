@@ -10,11 +10,11 @@
       "description": "The most common API usage patterns",
       "item": [
         {
-          "name": "/static - single recipient",
+          "name": "/static - single or list of recipient",
           "request": {
-            "name": "/static - single recipient",
+            "name": "/static - single or list of recipient",
             "description": {
-              "content": "/static - single recipient",
+              "content": "/static - single or list of recipient",
               "type": "text/plain"
             },
             "url": {
@@ -25,7 +25,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -40,7 +41,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": \"<Integer>\",\n    \"filename\": \"<String>\"\n  },\n  \"recipientAddressSource\": {\n    \"mappingId\": \"<Integer>\",\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    },\n    \"addressName\": \"<String>\"\n  },\n  \"jobTemplate\": \"<String>\"\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": \"<Integer>\",\n      \"filename\": \"<String>\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"recipientAddressByList\": {\n      \"mappingId\": \"<Integer>\",\n      \"addressList\": [\n        {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"foo1\": \"<String>\",\n          \"foo2\": \"<String>\"\n        }\n      ],\n      \"addressListName\": \"<String>\"\n    }\n  },\n  \"jobTemplate\": \"<String>\"\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -53,22 +54,23 @@
           "response": []
         },
         {
-          "name": "/static - mail merge",
+          "name": "/mail-merge - to address list",
           "request": {
-            "name": "/static - mail merge",
+            "name": "/mail-merge - to address list",
             "description": {
-              "content": "/static - mail merge",
+              "content": "/mail-merge - to address list",
               "type": "text/plain"
             },
             "url": {
               "path": [
-                "static"
+                "mail-merge"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/mail-merge"
             },
             "header": [
               {
@@ -83,7 +85,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": \"<Integer>\",\n    \"filename\": \"<String>\"\n  },\n  \"recipientAddressSource\": {\n    \"mappingId\": \"<Integer>\",\n    \"addressList\": [\n      {\n        \"firstName\": \"<String>\",\n        \"lastName\": \"<String>\",\n        \"address1\": \"<String>\",\n        \"city\": \"<String>\",\n        \"state\": \"<String>\",\n        \"zip\": \"<String>\",\n        \"country\": \"<String>\",\n        \"address2\": \"<String>\",\n        \"address3\": \"<String>\",\n        \"foo1\": \"<String>\",\n        \"foo2\": \"<String>\"\n      }\n    ],\n    \"addressListName\": \"<String>\"\n  },\n  \"jobTemplate\": \"<String>\"\n}",
+              "raw": "{\n  \"recipientAddressSource\": {\n    \"recipientAddressByList\": {\n      \"mappingId\": \"<Integer>\",\n      \"addressList\": [\n        {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"foo1\": \"<String>\",\n          \"foo2\": \"<String>\"\n        }\n      ],\n      \"addressListName\": \"<String>\"\n    }\n  },\n  \"jobTemplate\": \"<String>\",\n  \"mergeDocumentSource\": [\n    {\n      \"mergeByRequestId\": {\n        \"requestId\": \"<Integer>\"\n      }\n    },\n    {\n      \"mergeByDocumentId\": {\n        \"documentId\": \"<Integer>\"\n      }\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -112,7 +114,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static/address-capture"
             },
             "header": [
               {
@@ -127,7 +130,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceStandard\": {\n    \"requestId\": \"<Integer>\",\n    \"filename\": \"<String>\"\n  },\n  \"jobTemplate\": \"<String>\"\n}",
+              "raw": "{\n  \"docSourceStandard\": {\n    \"requestIdSource\": {\n      \"requestId\": \"<Integer>\",\n      \"filename\": \"<String>\"\n    }\n  },\n  \"jobTemplate\": \"<String>\"\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -163,7 +166,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/batch/split/address-capture"
             },
             "header": [
               {
@@ -178,7 +182,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceStandard\": {\n    \"requestId\": \"<Integer>\",\n    \"filename\": \"<String>\"\n  },\n  \"jobTemplate\": \"<String>\",\n  \"pdfSplitJobsNoAddress\": [\n    {\n      \"startPage\": \"<Integer>\",\n      \"endPage\": \"<Integer>\"\n    },\n    {\n      \"startPage\": \"<Integer>\",\n      \"endPage\": \"<Integer>\"\n    }\n  ]\n}",
+              "raw": "{\n  \"docSourceStandard\": {\n    \"requestIdSource\": {\n      \"requestId\": \"<Integer>\",\n      \"filename\": \"<String>\"\n    }\n  },\n  \"jobTemplate\": \"<String>\",\n  \"pdfSplitJobsNoAddress\": [\n    {\n      \"jobTemplate\": \"<String>\",\n      \"startPage\": \"<Integer>\",\n      \"endPage\": \"<Integer>\"\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -208,7 +212,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/batch/zip/address-capture"
             },
             "header": [
               {
@@ -223,7 +228,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"jobTemplate\": \"<String>\",\n  \"zipDocumentSource\": {\n    \"requestId\": \"<Integer>\"\n  }\n}",
+              "raw": "{\n  \"jobTemplate\": \"<String>\",\n  \"zipDocumentSource\": {\n    \"zipRequestIdSource\": {\n      \"requestId\": \"<Integer>\",\n      \"zipFilename\": \"<String>\",\n      \"filename\": \"<String>\"\n    }\n  }\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -252,7 +257,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/batch/split"
             },
             "header": [
               {
@@ -267,7 +273,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceStandard\": {\n    \"requestId\": \"<Integer>\",\n    \"filename\": \"<String>\"\n  },\n  \"pdfSplitJobsWithAddress\": [\n    {\n      \"jobTemplate\": \"<String>\",\n      \"startPage\": \"<Integer>\",\n      \"endPage\": \"<Integer>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\"\n        }\n      }\n    },\n    {\n      \"jobTemplate\": \"<String>\",\n      \"startPage\": \"<Integer>\",\n      \"endPage\": \"<Integer>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\"\n        }\n      }\n    },\n    {\n      \"jobTemplate\": \"<String>\",\n      \"startPage\": \"<Integer>\",\n      \"endPage\": \"<Integer>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\"\n        }\n      }\n    }\n  ]\n}",
+              "raw": "{\n  \"docSourceStandard\": {\n    \"requestIdSource\": {\n      \"requestId\": \"<Integer>\",\n      \"filename\": \"<String>\"\n    }\n  },\n  \"pdfSplitJobsWithAddress\": [\n    {\n      \"jobTemplate\": \"<String>\",\n      \"startPage\": \"<Integer>\",\n      \"endPage\": \"<Integer>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\"\n        }\n      }\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -301,7 +307,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/mail-merge"
             },
             "header": [
               {
@@ -316,7 +323,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"recipientAddressSource\": {\n    \"mappingId\": \"<Integer>\",\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    },\n    \"addressName\": \"<String>\"\n  },\n  \"jobTemplate\": \"<String>\",\n  \"mergeDocumentSource\": [\n    {\n      \"requestId\": \"<Integer>\"\n    },\n    {\n      \"documentId\": \"<Integer>\"\n    },\n    {\n      \"documentId\": \"<Integer>\"\n    }\n  ]\n}",
+              "raw": "{\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    }\n  },\n  \"jobTemplate\": \"<String>\",\n  \"mergeDocumentSource\": [\n    {\n      \"mergeByRequestId\": {\n        \"requestId\": \"<Integer>\"\n      }\n    },\n    {\n      \"mergeByDocumentId\": {\n        \"documentId\": \"<Integer>\"\n      }\n    },\n    {\n      \"mergeByDocumentId\": {\n        \"documentId\": \"<Integer>\"\n      }\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -344,7 +351,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -359,7 +367,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": \"<Integer>\",\n    \"filename\": \"<String>\"\n  },\n  \"recipientAddressSource\": {\n    \"mappingId\": \"<Integer>\",\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    },\n    \"addressName\": \"<String>\"\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<String>\",\n    \"layout\": \"<String>\",\n    \"productionTime\": \"<String>\",\n    \"envelope\": \"<String>\",\n    \"color\": \"<String>\",\n    \"paperType\": \"<String>\",\n    \"printOption\": \"<String>\",\n    \"mailClass\": \"<String>\"\n  }\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": \"<Integer>\",\n      \"filename\": \"<String>\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    }\n  },\n  \"jobOptions\": {\n    \"documentClass\": \"<String>\",\n    \"layout\": \"<String>\",\n    \"productionTime\": \"<String>\",\n    \"envelope\": \"<String>\",\n    \"color\": \"<String>\",\n    \"paperType\": \"<String>\",\n    \"printOption\": \"<String>\",\n    \"mailClass\": \"<String>\"\n  }\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -387,7 +395,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -402,7 +411,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": \"<String>\",\n  \"recipientAddressSource\": {\n    \"mappingId\": \"<Integer>\",\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    },\n    \"addressName\": \"<String>\"\n  },\n  \"jobTemplate\": \"<String>\"\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"urlSource\": {\n      \"url\": \"<String>\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    }\n  },\n  \"jobTemplate\": \"<String>\"\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -430,7 +439,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -445,7 +455,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": \"<Integer>\",\n    \"filename\": \"<String>\"\n  },\n  \"recipientAddressSource\": {\n    \"mappingId\": \"<Integer>\",\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    },\n    \"addressName\": \"<String>\"\n  },\n  \"jobTemplate\": \"<String>\",\n  \"tags\": [\n    \"<String>\",\n    \"<String>\",\n    \"<String>\"\n  ]\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": \"<Integer>\",\n      \"filename\": \"<String>\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    }\n  },\n  \"jobTemplate\": \"<String>\",\n  \"tags\": [\n    \"<String>\",\n    \"<String>\",\n    \"<String>\"\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -473,7 +483,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -488,7 +499,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": \"<Integer>\",\n    \"filename\": \"<String>\"\n  },\n  \"jobTemplate\": \"<String>\",\n  \"recipientAddressSource\": {\n    \"mappingId\": \"<Integer>\",\n    \"addressList\": [\n      {\n        \"firstName\": \"<String>\",\n        \"lastName\": \"<String>\",\n        \"address1\": \"<String>\",\n        \"city\": \"<String>\",\n        \"state\": \"<String>\",\n        \"zip\": \"<String>\",\n        \"country\": \"<String>\"\n      }\n    ],\n    \"addressListName\": \"<String>\"\n  }\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": \"<Integer>\",\n      \"filename\": \"<String>\"\n    }\n  },\n  \"jobTemplate\": \"<String>\",\n  \"recipientAddressSource\": {\n    \"recipientAddressByList\": {\n      \"mappingId\": \"<Integer>\",\n      \"addressList\": [\n        {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\"\n        }\n      ],\n      \"addressListName\": \"<String>\"\n    }\n  }\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -516,7 +527,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -531,7 +543,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": \"<Integer>\",\n    \"filename\": \"<String>\"\n  },\n  \"recipientAddressSource\": {\n    \"mappingId\": \"<Integer>\",\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    },\n    \"addressName\": \"<String>\"\n  },\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"<visa|mastercard|discover|americanExpress>\",\n      \"cardNumber\": \"<String>\",\n      \"expirationDate\": {\n        \"month\": \"<Integer>\",\n        \"year\": \"<Integer>\"\n      },\n      \"cvv\": \"<Integer>\"\n    }\n  },\n  \"jobTemplate\": \"<String>\"\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": \"<Integer>\",\n      \"filename\": \"<String>\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    }\n  },\n  \"paymentDetails\": {\n    \"creditCardDetails\": {\n      \"cardType\": \"<visa|mastercard|discover|americanExpress>\",\n      \"cardNumber\": \"<String>\",\n      \"expirationDate\": {\n        \"month\": \"<Integer>\",\n        \"year\": \"<Integer>\"\n      },\n      \"cvv\": \"<Integer>\"\n    }\n  },\n  \"jobTemplate\": \"<String>\"\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -560,7 +572,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/batch/zip"
             },
             "header": [
               {
@@ -575,7 +588,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceZipFileRef\": {\n    \"requestId\": \"<Integer>\"\n  },\n  \"multiZipJobs\": [\n    {\n      \"jobTemplate\": \"<String>\",\n      \"filename\": \"<String>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\"\n        }\n      }\n    },\n    {\n      \"jobTemplate\": \"<String>\",\n      \"filename\": \"<String>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\"\n        }\n      }\n    },\n    {\n      \"jobTemplate\": \"<String>\",\n      \"filename\": \"<String>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\"\n        }\n      }\n    }\n  ]\n}",
+              "raw": "{\n  \"docSourceZipFileRef\": {\n    \"zipRequestIdOnly\": {\n      \"requestId\": \"<Integer>\"\n    }\n  },\n  \"multiZipJobs\": [\n    {\n      \"jobTemplate\": \"<String>\",\n      \"filename\": \"<String>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\"\n        }\n      }\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -604,7 +617,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/batch/zip"
             },
             "header": [
               {
@@ -619,7 +633,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceZipFileRef\": {\n    \"documentId\": \"<Integer>\"\n  },\n  \"multiZipJobs\": [\n    {\n      \"jobTemplate\": \"<String>\",\n      \"filename\": \"<String>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\"\n        }\n      }\n    },\n    {\n      \"jobTemplate\": \"<String>\",\n      \"filename\": \"<String>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\"\n        }\n      }\n    },\n    {\n      \"jobTemplate\": \"<String>\",\n      \"filename\": \"<String>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\"\n        }\n      }\n    }\n  ]\n}",
+              "raw": "{\n  \"docSourceZipFileRef\": {\n    \"zipDocumentIdOnly\": {\n      \"zipDocumentId\": \"<Integer>\"\n    }\n  },\n  \"multiZipJobs\": [\n    {\n      \"jobTemplate\": \"<String>\",\n      \"filename\": \"<String>\",\n      \"recipientAddressSource\": {\n        \"singleAddress\": {\n          \"firstName\": \"<String>\",\n          \"lastName\": \"<String>\",\n          \"address1\": \"<String>\",\n          \"address2\": \"<String>\",\n          \"address3\": \"<String>\",\n          \"city\": \"<String>\",\n          \"state\": \"<String>\",\n          \"zip\": \"<String>\",\n          \"country\": \"<String>\"\n        }\n      }\n    }\n  ]\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -647,7 +661,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -662,7 +677,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": \"<Integer>\",\n  \"recipientAddressSource\": {\n    \"mappingId\": \"<Integer>\",\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    },\n    \"addressName\": \"<String>\"\n  },\n  \"jobTemplate\": \"<String>\"\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"documentIdSource\": {\n      \"documentId\": \"<Integer>\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    }\n  },\n  \"jobTemplate\": \"<String>\"\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -690,7 +705,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -705,7 +721,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": \"<Integer>\",\n    \"filename\": \"<String>\"\n  },\n  \"recipientAddressSource\": \"<Integer>\",\n  \"jobTemplate\": \"<String>\"\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": \"<Integer>\",\n      \"filename\": \"<String>\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"recipientAddressByListId\": \"<Integer>\"\n  },\n  \"jobTemplate\": \"<String>\"\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -733,7 +749,8 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": []
+              "variable": [],
+              "raw": "{{baseUrl}}/static"
             },
             "header": [
               {
@@ -748,7 +765,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"docSourceAll\": {\n    \"requestId\": \"<Integer>\",\n    \"filename\": \"<String>\"\n  },\n  \"recipientAddressSource\": {\n    \"mappingId\": \"<Integer>\",\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    },\n    \"addressName\": \"<String>\"\n  },\n  \"jobTemplate\": \"<String>\",\n  \"returnAddress\": {\n    \"firstName\": \"<String>\",\n    \"lastName\": \"<String>\",\n    \"address1\": \"<String>\",\n    \"address2\": \"<String>\",\n    \"address3\": \"<String>\",\n    \"city\": \"<String>\",\n    \"state\": \"<String>\",\n    \"zip\": \"<String>\",\n    \"country\": \"<String>\"\n  }\n}",
+              "raw": "{\n  \"docSourceAll\": {\n    \"requestIdSource\": {\n      \"requestId\": \"<Integer>\",\n      \"filename\": \"<String>\"\n    }\n  },\n  \"recipientAddressSource\": {\n    \"singleAddress\": {\n      \"firstName\": \"<String>\",\n      \"lastName\": \"<String>\",\n      \"address1\": \"<String>\",\n      \"city\": \"<String>\",\n      \"state\": \"<String>\",\n      \"zip\": \"<String>\",\n      \"country\": \"<String>\",\n      \"address2\": \"<String>\",\n      \"address3\": \"<String>\",\n      \"foo1\": \"<String>\",\n      \"foo2\": \"<String>\"\n    }\n  },\n  \"jobTemplate\": \"<String>\",\n  \"returnAddress\": {\n    \"firstName\": \"<String>\",\n    \"lastName\": \"<String>\",\n    \"address1\": \"<String>\",\n    \"address2\": \"<String>\",\n    \"address3\": \"<String>\",\n    \"city\": \"<String>\",\n    \"state\": \"<String>\",\n    \"zip\": \"<String>\",\n    \"country\": \"<String>\"\n  }\n}",
               "options": {
                 "raw": {
                   "headerFamily": "json",
@@ -775,8 +792,8 @@
           "// Configuration - Set these in your Postman environment",
           "const config = {",
           "    // Use authUrl for authentication endpoints, fallback to baseUrl for compatibility",
-          "    authUrl: pm.environment.get('authUrl') || pm.environment.get('baseUrl') || 'http://localhost:4010',",
-          "    baseUrl: pm.environment.get('baseUrl') || 'http://localhost:4010',",
+          "    authUrl: pm.environment.get('authUrl') || pm.environment.get('baseUrl') || '',",
+          "    baseUrl: pm.environment.get('baseUrl') || '',",
           "    clientId: pm.environment.get('clientId'),",
           "    clientSecret: pm.environment.get('clientSecret'),",
           "    longTokenVar: 'longTermToken',",
@@ -784,6 +801,15 @@
           "    tokenExpiryVar: 'tokenExpiry',",
           "    tokenIdVar: 'currentTokenId'",
           "};",
+          "",
+          "// Helper: read a JSON-array env var, falling back to defaultArr.",
+          "// Env vars are strings; store as JSON e.g. '[\"jobs:submit\",\"templates:read\"]'.",
+          "// Optional overrides: longTokenScopes, shortTokenScopes (arrays), longTokenTtl (seconds).",
+          "function envArray(key, defaultArr) {",
+          "    const raw = pm.environment.get(key);",
+          "    if (!raw) return defaultArr;",
+          "    try { return JSON.parse(raw); } catch { return defaultArr; }",
+          "}",
           "",
           "// Helper function to check if token is expired",
           "function isTokenExpired(expiryTime) {",
@@ -811,8 +837,8 @@
           "                grant_type: 'client_credentials',",
           "                client_id: config.clientId,",
           "                client_secret: config.clientSecret,",
-          "                scopes: ['jobs:submit', 'templates:read', 'tokens:revoke'],",
-          "                ttl_seconds: 2592000 // 30 days",
+          "                scopes: envArray('longTokenScopes', ['jobs:submit', 'templates:read', 'tokens:revoke']),",
+          "                ttl_seconds: parseInt(pm.environment.get('longTokenTtl') || '2592000', 10)",
           "            })",
           "        }",
           "    };",
@@ -854,7 +880,7 @@
           "        body: {",
           "            mode: 'raw',",
           "            raw: JSON.stringify({",
-          "                scopes: ['jobs:submit'] // Narrow scope for actual API calls",
+          "                scopes: envArray('shortTokenScopes', ['jobs:submit'])",
           "            })",
           "        }",
           "    };",
@@ -892,6 +918,12 @@
           "            return;",
           "        }",
           "        ",
+          "        // Guard: no environment selected or baseUrl/authUrl not configured",
+          "        if (!config.authUrl) {",
+          "            console.warn('No authUrl or baseUrl configured in environment. Skipping authentication.');",
+          "            return;",
+          "        }",
+          "",
           "        // Check if we need client credentials",
           "        if (!config.clientId || !config.clientSecret) {",
           "            console.warn('Client credentials not configured. Set clientId and clientSecret in environment.');",
@@ -928,7 +960,7 @@
           "        const isMockServer = urlHost.includes('mock.pstmn.io') ||",
           "                           urlHost.includes('localhost') ||",
           "                           baseUrlVar.includes('mock.pstmn.io') ||",
-          "                           baseUrlVar.includes('localhost:4010') ||",
+          "                           baseUrlVar.includes('localhost') ||",
           "                           pm.environment.get('isMockServer') === 'true';",
           "",
           "        // Enhanced logging for debugging",

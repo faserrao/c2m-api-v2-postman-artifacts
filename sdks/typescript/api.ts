@@ -69,6 +69,15 @@ export const CardType = {
 export type CardType = typeof CardType[keyof typeof CardType];
 
 
+
+export const Color = {
+    FullColor: 'full_color',
+    BlackAndWhite: 'black_and_white'
+} as const;
+
+export type Color = typeof Color[keyof typeof Color];
+
+
 export interface CreditAmount {
     'amount': number;
     'currency': CreditAmountCurrencyEnum;
@@ -118,22 +127,62 @@ export type Currency = typeof Currency[keyof typeof Currency];
 /**
  * @type DocSourceAll
  */
-export type DocSourceAll = DocSourceStandard | DocSourceZipFile;
+export type DocSourceAll = DocSourceStandardOneOf | DocSourceStandardOneOf1 | DocSourceStandardOneOf2 | ZipDocumentSourceOneOf | ZipDocumentSourceOneOf1;
 
 /**
  * @type DocSourceStandard
  */
-export type DocSourceStandard = RequestIdSource | number | string;
+export type DocSourceStandard = DocSourceStandardOneOf | DocSourceStandardOneOf1 | DocSourceStandardOneOf2;
 
+export interface DocSourceStandardOneOf {
+    'documentIdSource': DocumentIdSource;
+}
+export interface DocSourceStandardOneOf1 {
+    'requestIdSource': RequestIdSource;
+}
+export interface DocSourceStandardOneOf2 {
+    'urlSource': UrlSource;
+}
 /**
  * @type DocSourceZipFile
  */
-export type DocSourceZipFile = ZipDocumentIdSource | ZipRequestIdSource;
+export type DocSourceZipFile = ZipDocumentSourceOneOf | ZipDocumentSourceOneOf1;
 
 /**
  * @type DocSourceZipFileRef
  */
-export type DocSourceZipFileRef = number;
+export type DocSourceZipFileRef = DocSourceZipFileRefOneOf | DocSourceZipFileRefOneOf1;
+
+export interface DocSourceZipFileRefOneOf {
+    'zipDocumentIdOnly': ZipDocumentIdOnly;
+}
+export interface DocSourceZipFileRefOneOf1 {
+    'zipRequestIdOnly': ZipRequestIdOnly;
+}
+
+export const DocumentClass = {
+    Letter: 'letter',
+    Postcard: 'postcard',
+    Brochure: 'brochure',
+    Flat: 'flat'
+} as const;
+
+export type DocumentClass = typeof DocumentClass[keyof typeof DocumentClass];
+
+
+export interface DocumentIdSource {
+    'documentId': number;
+}
+
+export const Envelope = {
+    Standard: 'standard',
+    None: 'none',
+    Flat: 'flat',
+    DoubleWindow: 'double_window'
+} as const;
+
+export type Envelope = typeof Envelope[keyof typeof Envelope];
+
 
 
 export const ErrorCode = {
@@ -152,7 +201,8 @@ export const ErrorCode = {
     InvalidFormat: 'INVALID_FORMAT',
     ServerError: 'SERVER_ERROR',
     DatabaseError: 'DATABASE_ERROR',
-    ExternalServiceError: 'EXTERNAL_SERVICE_ERROR'
+    ExternalServiceError: 'EXTERNAL_SERVICE_ERROR',
+    RateLimitExceeded: 'RATE_LIMIT_EXCEEDED'
 } as const;
 
 export type ErrorCode = typeof ErrorCode[keyof typeof ErrorCode];
@@ -171,6 +221,7 @@ export const ErrorResponseErrorTypeEnum = {
     AuthenticationError: 'AuthenticationError',
     AuthorizationError: 'AuthorizationError',
     ResourceNotFoundError: 'ResourceNotFoundError',
+    RateLimitError: 'RateLimitError',
     ServerError: 'ServerError'
 } as const;
 
@@ -191,7 +242,8 @@ export const ErrorResponseErrorCodeEnum = {
     InvalidFormat: 'INVALID_FORMAT',
     ServerError: 'SERVER_ERROR',
     DatabaseError: 'DATABASE_ERROR',
-    ExternalServiceError: 'EXTERNAL_SERVICE_ERROR'
+    ExternalServiceError: 'EXTERNAL_SERVICE_ERROR',
+    RateLimitExceeded: 'RATE_LIMIT_EXCEEDED'
 } as const;
 
 export type ErrorResponseErrorCodeEnum = typeof ErrorResponseErrorCodeEnum[keyof typeof ErrorResponseErrorCodeEnum];
@@ -202,6 +254,7 @@ export const ErrorType = {
     AuthenticationError: 'AuthenticationError',
     AuthorizationError: 'AuthorizationError',
     ResourceNotFoundError: 'ResourceNotFoundError',
+    RateLimitError: 'RateLimitError',
     ServerError: 'ServerError'
 } as const;
 
@@ -220,15 +273,84 @@ export interface InvoicePayment {
     'invoiceDetails': InvoiceDetails;
 }
 export interface JobOptions {
-    'documentClass': string;
-    'layout': string;
-    'productionTime': string;
-    'envelope': string;
-    'color': string;
-    'paperType': string;
-    'printOption': string;
-    'mailClass': string;
+    'documentClass': JobOptionsDocumentClassEnum;
+    'layout': JobOptionsLayoutEnum;
+    'productionTime': JobOptionsProductionTimeEnum;
+    'envelope': JobOptionsEnvelopeEnum;
+    'color': JobOptionsColorEnum;
+    'paperType': JobOptionsPaperTypeEnum;
+    'printOption': JobOptionsPrintOptionEnum;
+    'mailClass': JobOptionsMailClassEnum;
 }
+
+export const JobOptionsDocumentClassEnum = {
+    Letter: 'letter',
+    Postcard: 'postcard',
+    Brochure: 'brochure',
+    Flat: 'flat'
+} as const;
+
+export type JobOptionsDocumentClassEnum = typeof JobOptionsDocumentClassEnum[keyof typeof JobOptionsDocumentClassEnum];
+export const JobOptionsLayoutEnum = {
+    AddressOnFirstPage: 'address_on_first_page',
+    AddressOnBackPage: 'address_on_back_page'
+} as const;
+
+export type JobOptionsLayoutEnum = typeof JobOptionsLayoutEnum[keyof typeof JobOptionsLayoutEnum];
+export const JobOptionsProductionTimeEnum = {
+    NextDay: 'next_day',
+    TwoDay: 'two_day',
+    ThreeDay: 'three_day',
+    Standard: 'standard',
+    SameDay: 'same_day'
+} as const;
+
+export type JobOptionsProductionTimeEnum = typeof JobOptionsProductionTimeEnum[keyof typeof JobOptionsProductionTimeEnum];
+export const JobOptionsEnvelopeEnum = {
+    Standard: 'standard',
+    None: 'none',
+    Flat: 'flat',
+    DoubleWindow: 'double_window'
+} as const;
+
+export type JobOptionsEnvelopeEnum = typeof JobOptionsEnvelopeEnum[keyof typeof JobOptionsEnvelopeEnum];
+export const JobOptionsColorEnum = {
+    FullColor: 'full_color',
+    BlackAndWhite: 'black_and_white'
+} as const;
+
+export type JobOptionsColorEnum = typeof JobOptionsColorEnum[keyof typeof JobOptionsColorEnum];
+export const JobOptionsPaperTypeEnum = {
+    White: 'white',
+    White24: 'white_24',
+    Ivory: 'ivory',
+    Glossy: 'glossy'
+} as const;
+
+export type JobOptionsPaperTypeEnum = typeof JobOptionsPaperTypeEnum[keyof typeof JobOptionsPaperTypeEnum];
+export const JobOptionsPrintOptionEnum = {
+    DoubleSided: 'double_sided',
+    SingleSided: 'single_sided'
+} as const;
+
+export type JobOptionsPrintOptionEnum = typeof JobOptionsPrintOptionEnum[keyof typeof JobOptionsPrintOptionEnum];
+export const JobOptionsMailClassEnum = {
+    FirstClass: 'first_class',
+    Standard: 'standard',
+    NonProfit: 'non_profit'
+} as const;
+
+export type JobOptionsMailClassEnum = typeof JobOptionsMailClassEnum[keyof typeof JobOptionsMailClassEnum];
+
+
+export const Layout = {
+    AddressOnFirstPage: 'address_on_first_page',
+    AddressOnBackPage: 'address_on_back_page'
+} as const;
+
+export type Layout = typeof Layout[keyof typeof Layout];
+
+
 /**
  * One of several credential mechanisms must be provided.
  */
@@ -304,6 +426,19 @@ export const LongTokenResponseTokenTypeEnum = {
 
 export type LongTokenResponseTokenTypeEnum = typeof LongTokenResponseTokenTypeEnum[keyof typeof LongTokenResponseTokenTypeEnum];
 
+
+export const MailClass = {
+    FirstClass: 'first_class',
+    Standard: 'standard',
+    NonProfit: 'non_profit'
+} as const;
+
+export type MailClass = typeof MailClass[keyof typeof MailClass];
+
+
+export interface MergeByDocumentId {
+    'documentId': number;
+}
 export interface MergeByRequestId {
     'requestId': number;
     'filename'?: string;
@@ -311,8 +446,14 @@ export interface MergeByRequestId {
 /**
  * @type MergeDocumentRef
  */
-export type MergeDocumentRef = MergeByRequestId | number;
+export type MergeDocumentRef = MergeDocumentRefOneOf | MergeDocumentRefOneOf1;
 
+export interface MergeDocumentRefOneOf {
+    'mergeByDocumentId': MergeByDocumentId;
+}
+export interface MergeDocumentRefOneOf1 {
+    'mergeByRequestId': MergeByRequestId;
+}
 export interface MultiDocJobItem {
     'jobTemplate'?: string;
     'docSourceAll': DocSourceAll;
@@ -323,12 +464,24 @@ export interface MultiZipJobItem {
     'filename': string;
     'recipientAddressSource': RecipientAddressSource;
 }
+
+export const PaperType = {
+    White: 'white',
+    White24: 'white_24',
+    Ivory: 'ivory',
+    Glossy: 'glossy'
+} as const;
+
+export type PaperType = typeof PaperType[keyof typeof PaperType];
+
+
 /**
  * @type PaymentDetails
  */
 export type PaymentDetails = AchPayment | CreditCardPayment | InvoicePayment | UserCreditPayment;
 
 export interface PdfSplitJobItemNoAddress {
+    'jobTemplate'?: string;
     'startPage': number;
     'endPage': number;
 }
@@ -338,21 +491,49 @@ export interface PdfSplitJobItemWithAddress {
     'endPage': number;
     'recipientAddressSource': RecipientAddressSource;
 }
+
+export const PrintOption = {
+    DoubleSided: 'double_sided',
+    SingleSided: 'single_sided'
+} as const;
+
+export type PrintOption = typeof PrintOption[keyof typeof PrintOption];
+
+
+
+export const ProductionTime = {
+    NextDay: 'next_day',
+    TwoDay: 'two_day',
+    ThreeDay: 'three_day',
+    Standard: 'standard',
+    SameDay: 'same_day'
+} as const;
+
+export type ProductionTime = typeof ProductionTime[keyof typeof ProductionTime];
+
+
 export interface RecipientAddressByList {
     'mappingId'?: number;
     'addressList': Array<Address>;
     'addressListName'?: string;
 }
-export interface RecipientAddressBySingle {
-    'mappingId'?: number;
-    'singleAddress': Address;
-    'addressName'?: string;
-}
 /**
  * @type RecipientAddressSource
  */
-export type RecipientAddressSource = RecipientAddressByList | RecipientAddressBySingle | number;
+export type RecipientAddressSource = RecipientAddressSourceOneOf | RecipientAddressSourceOneOf1 | RecipientAddressSourceOneOf2 | RecipientAddressSourceOneOf3;
 
+export interface RecipientAddressSourceOneOf {
+    'singleAddress': Address;
+}
+export interface RecipientAddressSourceOneOf1 {
+    'recipientAddressByList': RecipientAddressByList;
+}
+export interface RecipientAddressSourceOneOf2 {
+    'recipientAddressByAddressId': number;
+}
+export interface RecipientAddressSourceOneOf3 {
+    'recipientAddressByListId': number;
+}
 export interface RequestIdSource {
     'requestId': number;
     'filename'?: string;
@@ -414,6 +595,15 @@ export interface StandardResponse {
     'message': string;
     'requestId': number;
 }
+export interface SubmitDocParams {
+    'jobTemplate'?: string;
+    'docSourceAll': DocSourceAll;
+    'recipientAddressSource': RecipientAddressSource;
+    'paymentDetails'?: PaymentDetails;
+    'returnAddress'?: ReturnAddress;
+    'jobOptions'?: JobOptions;
+    'tags'?: Array<string>;
+}
 export interface SubmitMultiDocMergeParams {
     'jobTemplate'?: string;
     'mergeDocumentSource': Array<MergeDocumentRef>;
@@ -435,15 +625,6 @@ export interface SubmitMultiZipParams {
     'docSourceZipFileRef': DocSourceZipFileRef;
     'multiZipJobs': Array<MultiZipJobItem>;
     'paymentDetails'?: PaymentDetails;
-    'tags'?: Array<string>;
-}
-export interface SubmitSingleDocParams {
-    'jobTemplate'?: string;
-    'docSourceAll': DocSourceAll;
-    'recipientAddressSource': RecipientAddressSource;
-    'paymentDetails'?: PaymentDetails;
-    'returnAddress'?: ReturnAddress;
-    'jobOptions'?: JobOptions;
     'tags'?: Array<string>;
 }
 export interface SubmitSinglePdfAddressCaptureParams {
@@ -472,8 +653,14 @@ export interface SubmitSinglePdfSplitParams {
     'jobOptions'?: JobOptions;
     'tags'?: Array<string>;
 }
+export interface UrlSource {
+    'url': string;
+}
 export interface UserCreditPayment {
     'creditAmount': CreditAmount;
+}
+export interface ZipDocumentIdOnly {
+    'zipDocumentId': number;
 }
 export interface ZipDocumentIdSource {
     'zipDocumentId': number;
@@ -482,8 +669,17 @@ export interface ZipDocumentIdSource {
 /**
  * @type ZipDocumentSource
  */
-export type ZipDocumentSource = ZipDocumentIdSource | ZipRequestIdSource;
+export type ZipDocumentSource = ZipDocumentSourceOneOf | ZipDocumentSourceOneOf1;
 
+export interface ZipDocumentSourceOneOf {
+    'zipDocumentIdSource': ZipDocumentIdSource;
+}
+export interface ZipDocumentSourceOneOf1 {
+    'zipRequestIdSource': ZipRequestIdSource;
+}
+export interface ZipRequestIdOnly {
+    'requestId': number;
+}
 export interface ZipRequestIdSource {
     'requestId': number;
     'zipFilename': string;
@@ -754,6 +950,46 @@ export class AuthApi extends BaseAPI {
 export const JobsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+         * @summary Submit single document
+         * @param {SubmitDocParams} submitDocParams 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitDocParams: async (submitDocParams: SubmitDocParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'submitDocParams' is not null or undefined
+            assertParamExists('submitDocParams', 'submitDocParams', submitDocParams)
+            const localVarPath = `/static`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication bearerAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(submitDocParams, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
          * @summary Submit mail merge
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
@@ -867,46 +1103,6 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(submitMultiZipParams, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-         * @summary Submit single document
-         * @param {SubmitSingleDocParams} submitSingleDocParams 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        submitSingleDocParams: async (submitSingleDocParams: SubmitSingleDocParams, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'submitSingleDocParams' is not null or undefined
-            assertParamExists('submitSingleDocParams', 'submitSingleDocParams', submitSingleDocParams)
-            const localVarPath = `/static`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication bearerAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(submitSingleDocParams, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1043,6 +1239,19 @@ export const JobsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = JobsApiAxiosParamCreator(configuration)
     return {
         /**
+         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+         * @summary Submit single document
+         * @param {SubmitDocParams} submitDocParams 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async submitDocParams(submitDocParams: SubmitDocParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitDocParams(submitDocParams, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['JobsApi.submitDocParams']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
          * @summary Submit mail merge
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
@@ -1079,19 +1288,6 @@ export const JobsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.submitMultiZipParams(submitMultiZipParams, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['JobsApi.submitMultiZipParams']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
-        },
-        /**
-         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-         * @summary Submit single document
-         * @param {SubmitSingleDocParams} submitSingleDocParams 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async submitSingleDocParams(submitSingleDocParams: SubmitSingleDocParams, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StandardResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSingleDocParams(submitSingleDocParams, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['JobsApi.submitSingleDocParams']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
@@ -1143,6 +1339,16 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
     const localVarFp = JobsApiFp(configuration)
     return {
         /**
+         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+         * @summary Submit single document
+         * @param {SubmitDocParams} submitDocParams 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitDocParams(submitDocParams: SubmitDocParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
+            return localVarFp.submitDocParams(submitDocParams, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
          * @summary Submit mail merge
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
@@ -1171,16 +1377,6 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
          */
         submitMultiZipParams(submitMultiZipParams: SubmitMultiZipParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
             return localVarFp.submitMultiZipParams(submitMultiZipParams, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-         * @summary Submit single document
-         * @param {SubmitSingleDocParams} submitSingleDocParams 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        submitSingleDocParams(submitSingleDocParams: SubmitSingleDocParams, options?: RawAxiosRequestConfig): AxiosPromise<StandardResponse> {
-            return localVarFp.submitSingleDocParams(submitSingleDocParams, options).then((request) => request(axios, basePath));
         },
         /**
          * Submits a mailing job for a single PDF where recipient addresses are captured from the document via OCR. No inline recipient address is required.
@@ -1220,6 +1416,17 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
  */
 export class JobsApi extends BaseAPI {
     /**
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+     * @summary Submit single document
+     * @param {SubmitDocParams} submitDocParams 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public submitDocParams(submitDocParams: SubmitDocParams, options?: RawAxiosRequestConfig) {
+        return JobsApiFp(this.configuration).submitDocParams(submitDocParams, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
      * @summary Submit mail merge
      * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
@@ -1250,17 +1457,6 @@ export class JobsApi extends BaseAPI {
      */
     public submitMultiZipParams(submitMultiZipParams: SubmitMultiZipParams, options?: RawAxiosRequestConfig) {
         return JobsApiFp(this.configuration).submitMultiZipParams(submitMultiZipParams, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-     * @summary Submit single document
-     * @param {SubmitSingleDocParams} submitSingleDocParams 
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    public submitSingleDocParams(submitSingleDocParams: SubmitSingleDocParams, options?: RawAxiosRequestConfig) {
-        return JobsApiFp(this.configuration).submitSingleDocParams(submitSingleDocParams, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

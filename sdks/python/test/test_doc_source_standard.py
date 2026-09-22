@@ -35,12 +35,23 @@ class TestDocSourceStandard(unittest.TestCase):
         model = DocSourceStandard()
         if include_optional:
             return DocSourceStandard(
-                request_id = 56,
-                filename = ''
+                document_id_source = c2m_api.models.document_id_source.documentIdSource(
+                    document_id = 56, ),
+                request_id_source = c2m_api.models.request_id_source.requestIdSource(
+                    request_id = 56, 
+                    filename = '', ),
+                url_source = c2m_api.models.url_source.urlSource(
+                    url = '', )
             )
         else:
             return DocSourceStandard(
-                request_id = 56,
+                document_id_source = c2m_api.models.document_id_source.documentIdSource(
+                    document_id = 56, ),
+                request_id_source = c2m_api.models.request_id_source.requestIdSource(
+                    request_id = 56, 
+                    filename = '', ),
+                url_source = c2m_api.models.url_source.urlSource(
+                    url = '', ),
         )
         """
 

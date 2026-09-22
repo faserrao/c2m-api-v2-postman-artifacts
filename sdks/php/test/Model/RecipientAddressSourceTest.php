@@ -80,15 +80,6 @@ class RecipientAddressSourceTest extends TestCase
     }
 
     /**
-     * Test attribute "mapping_id"
-     */
-    public function testPropertyMappingId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "single_address"
      */
     public function testPropertySingleAddress()
@@ -98,27 +89,27 @@ class RecipientAddressSourceTest extends TestCase
     }
 
     /**
-     * Test attribute "address_name"
+     * Test attribute "recipient_address_by_list"
      */
-    public function testPropertyAddressName()
+    public function testPropertyRecipientAddressByList()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "address_list"
+     * Test attribute "recipient_address_by_address_id"
      */
-    public function testPropertyAddressList()
+    public function testPropertyRecipientAddressByAddressId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "address_list_name"
+     * Test attribute "recipient_address_by_list_id"
      */
-    public function testPropertyAddressListName()
+    public function testPropertyRecipientAddressByListId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

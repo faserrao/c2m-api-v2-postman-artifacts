@@ -36,15 +36,15 @@ class ErrorResponse(BaseModel):
     @field_validator('error_type')
     def error_type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['ValidationError', 'AuthenticationError', 'AuthorizationError', 'ResourceNotFoundError', 'ServerError']):
-            raise ValueError("must be one of enum values ('ValidationError', 'AuthenticationError', 'AuthorizationError', 'ResourceNotFoundError', 'ServerError')")
+        if value not in set(['ValidationError', 'AuthenticationError', 'AuthorizationError', 'ResourceNotFoundError', 'RateLimitError', 'ServerError']):
+            raise ValueError("must be one of enum values ('ValidationError', 'AuthenticationError', 'AuthorizationError', 'ResourceNotFoundError', 'RateLimitError', 'ServerError')")
         return value
 
     @field_validator('error_code')
     def error_code_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['MISSING_REQUIRED_FIELD', 'INVALID_ONEOF', 'INVALID_JSON', 'MISSING_AUTH_HEADER', 'INVALID_TOKEN', 'EXPIRED_TOKEN', 'INSUFFICIENT_PERMISSIONS', 'ACCOUNT_SUSPENDED', 'JOB_NOT_FOUND', 'RESOURCE_NOT_FOUND', 'INVALID_ENUM_VALUE', 'MUTUAL_EXCLUSION_VIOLATION', 'INVALID_FORMAT', 'SERVER_ERROR', 'DATABASE_ERROR', 'EXTERNAL_SERVICE_ERROR']):
-            raise ValueError("must be one of enum values ('MISSING_REQUIRED_FIELD', 'INVALID_ONEOF', 'INVALID_JSON', 'MISSING_AUTH_HEADER', 'INVALID_TOKEN', 'EXPIRED_TOKEN', 'INSUFFICIENT_PERMISSIONS', 'ACCOUNT_SUSPENDED', 'JOB_NOT_FOUND', 'RESOURCE_NOT_FOUND', 'INVALID_ENUM_VALUE', 'MUTUAL_EXCLUSION_VIOLATION', 'INVALID_FORMAT', 'SERVER_ERROR', 'DATABASE_ERROR', 'EXTERNAL_SERVICE_ERROR')")
+        if value not in set(['MISSING_REQUIRED_FIELD', 'INVALID_ONEOF', 'INVALID_JSON', 'MISSING_AUTH_HEADER', 'INVALID_TOKEN', 'EXPIRED_TOKEN', 'INSUFFICIENT_PERMISSIONS', 'ACCOUNT_SUSPENDED', 'JOB_NOT_FOUND', 'RESOURCE_NOT_FOUND', 'INVALID_ENUM_VALUE', 'MUTUAL_EXCLUSION_VIOLATION', 'INVALID_FORMAT', 'SERVER_ERROR', 'DATABASE_ERROR', 'EXTERNAL_SERVICE_ERROR', 'RATE_LIMIT_EXCEEDED']):
+            raise ValueError("must be one of enum values ('MISSING_REQUIRED_FIELD', 'INVALID_ONEOF', 'INVALID_JSON', 'MISSING_AUTH_HEADER', 'INVALID_TOKEN', 'EXPIRED_TOKEN', 'INSUFFICIENT_PERMISSIONS', 'ACCOUNT_SUSPENDED', 'JOB_NOT_FOUND', 'RESOURCE_NOT_FOUND', 'INVALID_ENUM_VALUE', 'MUTUAL_EXCLUSION_VIOLATION', 'INVALID_FORMAT', 'SERVER_ERROR', 'DATABASE_ERROR', 'EXTERNAL_SERVICE_ERROR', 'RATE_LIMIT_EXCEEDED')")
         return value
 
     model_config = ConfigDict(

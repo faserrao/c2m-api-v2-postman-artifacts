@@ -48,6 +48,16 @@
   }
 
   describe('JobsApi', function() {
+    describe('submitDocParams', function() {
+      it('should call submitDocParams successfully', function(done) {
+        //uncomment below and update the code to test submitDocParams
+        //instance.submitDocParams(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('submitMultiDocMergeParams', function() {
       it('should call submitMultiDocMergeParams successfully', function(done) {
         //uncomment below and update the code to test submitMultiDocMergeParams
@@ -72,16 +82,6 @@
       it('should call submitMultiZipParams successfully', function(done) {
         //uncomment below and update the code to test submitMultiZipParams
         //instance.submitMultiZipParams(function(error) {
-        //  if (error) throw error;
-        //expect().to.be();
-        //});
-        done();
-      });
-    });
-    describe('submitSingleDocParams', function() {
-      it('should call submitSingleDocParams successfully', function(done) {
-        //uncomment below and update the code to test submitSingleDocParams
-        //instance.submitSingleDocParams(function(error) {
         //  if (error) throw error;
         //expect().to.be();
         //});

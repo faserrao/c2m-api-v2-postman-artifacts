@@ -23,6 +23,8 @@ Name | Type | Description | Notes
 
 * `ResourceNotFoundError` (value: `"ResourceNotFoundError"`)
 
+* `RateLimitError` (value: `"RateLimitError"`)
+
 * `ServerError` (value: `"ServerError"`)
 
 
@@ -63,6 +65,8 @@ Name | Type | Description | Notes
 * `DATABASE_ERROR` (value: `"DATABASE_ERROR"`)
 
 * `EXTERNAL_SERVICE_ERROR` (value: `"EXTERNAL_SERVICE_ERROR"`)
+
+* `RATE_LIMIT_EXCEEDED` (value: `"RATE_LIMIT_EXCEEDED"`)
 
 
 

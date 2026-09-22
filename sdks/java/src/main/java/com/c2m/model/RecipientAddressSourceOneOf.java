@@ -14,6 +14,7 @@
 package com.c2m.model;
 
 import java.util.Objects;
+import com.c2m.model.Address;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,32 +49,32 @@ import com.c2m.JSON;
 /**
  * RecipientAddressSourceOneOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-17T06:30:30.813627398Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-22T04:30:49.083276225Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class RecipientAddressSourceOneOf {
-  public static final String SERIALIZED_NAME_ADDRESS_LIST_ID = "addressListId";
-  @SerializedName(SERIALIZED_NAME_ADDRESS_LIST_ID)
+  public static final String SERIALIZED_NAME_SINGLE_ADDRESS = "singleAddress";
+  @SerializedName(SERIALIZED_NAME_SINGLE_ADDRESS)
   @javax.annotation.Nonnull
-  private Integer addressListId;
+  private Address singleAddress;
 
   public RecipientAddressSourceOneOf() {
   }
 
-  public RecipientAddressSourceOneOf addressListId(@javax.annotation.Nonnull Integer addressListId) {
-    this.addressListId = addressListId;
+  public RecipientAddressSourceOneOf singleAddress(@javax.annotation.Nonnull Address singleAddress) {
+    this.singleAddress = singleAddress;
     return this;
   }
 
   /**
-   * Get addressListId
-   * @return addressListId
+   * Get singleAddress
+   * @return singleAddress
    */
   @javax.annotation.Nonnull
-  public Integer getAddressListId() {
-    return addressListId;
+  public Address getSingleAddress() {
+    return singleAddress;
   }
 
-  public void setAddressListId(@javax.annotation.Nonnull Integer addressListId) {
-    this.addressListId = addressListId;
+  public void setSingleAddress(@javax.annotation.Nonnull Address singleAddress) {
+    this.singleAddress = singleAddress;
   }
 
 
@@ -87,19 +88,19 @@ public class RecipientAddressSourceOneOf {
       return false;
     }
     RecipientAddressSourceOneOf recipientAddressSourceOneOf = (RecipientAddressSourceOneOf) o;
-    return Objects.equals(this.addressListId, recipientAddressSourceOneOf.addressListId);
+    return Objects.equals(this.singleAddress, recipientAddressSourceOneOf.singleAddress);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressListId);
+    return Objects.hash(singleAddress);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RecipientAddressSourceOneOf {\n");
-    sb.append("    addressListId: ").append(toIndentedString(addressListId)).append("\n");
+    sb.append("    singleAddress: ").append(toIndentedString(singleAddress)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -121,10 +122,10 @@ public class RecipientAddressSourceOneOf {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("addressListId"));
+    openapiFields = new HashSet<String>(Arrays.asList("singleAddress"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("addressListId"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("singleAddress"));
   }
 
   /**
@@ -155,6 +156,8 @@ public class RecipientAddressSourceOneOf {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `singleAddress`
+      Address.validateJsonElement(jsonObj.get("singleAddress"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

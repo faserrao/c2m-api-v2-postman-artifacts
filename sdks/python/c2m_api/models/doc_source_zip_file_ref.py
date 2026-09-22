@@ -15,24 +15,26 @@
 from __future__ import annotations
 import json
 import pprint
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, ValidationError, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import Any, List, Optional
+from c2m_api.models.doc_source_zip_file_ref_one_of import DocSourceZipFileRefOneOf
+from c2m_api.models.doc_source_zip_file_ref_one_of1 import DocSourceZipFileRefOneOf1
 from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-DOCSOURCEZIPFILEREF_ONE_OF_SCHEMAS = ["int"]
+DOCSOURCEZIPFILEREF_ONE_OF_SCHEMAS = ["DocSourceZipFileRefOneOf", "DocSourceZipFileRefOneOf1"]
 
 class DocSourceZipFileRef(BaseModel):
     """
     DocSourceZipFileRef
     """
-    # data type: int
-    oneof_schema_1_validator: Optional[StrictInt] = None
-    # data type: int
-    oneof_schema_2_validator: Optional[StrictInt] = None
-    actual_instance: Optional[Union[int]] = None
-    one_of_schemas: Set[str] = { "int" }
+    # data type: DocSourceZipFileRefOneOf
+    oneof_schema_1_validator: Optional[DocSourceZipFileRefOneOf] = None
+    # data type: DocSourceZipFileRefOneOf1
+    oneof_schema_2_validator: Optional[DocSourceZipFileRefOneOf1] = None
+    actual_instance: Optional[Union[DocSourceZipFileRefOneOf, DocSourceZipFileRefOneOf1]] = None
+    one_of_schemas: Set[str] = { "DocSourceZipFileRefOneOf", "DocSourceZipFileRefOneOf1" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -55,24 +57,22 @@ class DocSourceZipFileRef(BaseModel):
         instance = DocSourceZipFileRef.model_construct()
         error_messages = []
         match = 0
-        # validate data type: int
-        try:
-            instance.oneof_schema_1_validator = v
+        # validate data type: DocSourceZipFileRefOneOf
+        if not isinstance(v, DocSourceZipFileRefOneOf):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `DocSourceZipFileRefOneOf`")
+        else:
             match += 1
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
-        # validate data type: int
-        try:
-            instance.oneof_schema_2_validator = v
+        # validate data type: DocSourceZipFileRefOneOf1
+        if not isinstance(v, DocSourceZipFileRefOneOf1):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `DocSourceZipFileRefOneOf1`")
+        else:
             match += 1
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in DocSourceZipFileRef with oneOf schemas: int. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in DocSourceZipFileRef with oneOf schemas: DocSourceZipFileRefOneOf, DocSourceZipFileRefOneOf1. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in DocSourceZipFileRef with oneOf schemas: int. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in DocSourceZipFileRef with oneOf schemas: DocSourceZipFileRefOneOf, DocSourceZipFileRefOneOf1. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -87,31 +87,25 @@ class DocSourceZipFileRef(BaseModel):
         error_messages = []
         match = 0
 
-        # deserialize data into int
+        # deserialize data into DocSourceZipFileRefOneOf
         try:
-            # validation
-            instance.oneof_schema_1_validator = json.loads(json_str)
-            # assign value to actual_instance
-            instance.actual_instance = instance.oneof_schema_1_validator
+            instance.actual_instance = DocSourceZipFileRefOneOf.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into int
+        # deserialize data into DocSourceZipFileRefOneOf1
         try:
-            # validation
-            instance.oneof_schema_2_validator = json.loads(json_str)
-            # assign value to actual_instance
-            instance.actual_instance = instance.oneof_schema_2_validator
+            instance.actual_instance = DocSourceZipFileRefOneOf1.from_json(json_str)
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into DocSourceZipFileRef with oneOf schemas: int. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into DocSourceZipFileRef with oneOf schemas: DocSourceZipFileRefOneOf, DocSourceZipFileRefOneOf1. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into DocSourceZipFileRef with oneOf schemas: int. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into DocSourceZipFileRef with oneOf schemas: DocSourceZipFileRefOneOf, DocSourceZipFileRefOneOf1. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -125,7 +119,7 @@ class DocSourceZipFileRef(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], int]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], DocSourceZipFileRefOneOf, DocSourceZipFileRefOneOf1]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

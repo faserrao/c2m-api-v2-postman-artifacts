@@ -31,6 +31,28 @@ module OpenapiClient
 
     attr_accessor :mail_class
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -185,93 +207,109 @@ module OpenapiClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @document_class.nil?
+      document_class_validator = EnumAttributeValidator.new('String', ["letter", "postcard", "brochure", "flat"])
+      return false unless document_class_validator.valid?(@document_class)
       return false if @layout.nil?
+      layout_validator = EnumAttributeValidator.new('String', ["address_on_first_page", "address_on_back_page"])
+      return false unless layout_validator.valid?(@layout)
       return false if @production_time.nil?
+      production_time_validator = EnumAttributeValidator.new('String', ["next_day", "two_day", "three_day", "standard", "same_day"])
+      return false unless production_time_validator.valid?(@production_time)
       return false if @envelope.nil?
+      envelope_validator = EnumAttributeValidator.new('String', ["standard", "none", "flat", "double_window"])
+      return false unless envelope_validator.valid?(@envelope)
       return false if @color.nil?
+      color_validator = EnumAttributeValidator.new('String', ["full_color", "black_and_white"])
+      return false unless color_validator.valid?(@color)
       return false if @paper_type.nil?
+      paper_type_validator = EnumAttributeValidator.new('String', ["white", "white_24", "ivory", "glossy"])
+      return false unless paper_type_validator.valid?(@paper_type)
       return false if @print_option.nil?
+      print_option_validator = EnumAttributeValidator.new('String', ["double_sided", "single_sided"])
+      return false unless print_option_validator.valid?(@print_option)
       return false if @mail_class.nil?
+      mail_class_validator = EnumAttributeValidator.new('String', ["first_class", "standard", "non_profit"])
+      return false unless mail_class_validator.valid?(@mail_class)
       true
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] document_class Value to be assigned
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] document_class Object to be assigned
     def document_class=(document_class)
-      if document_class.nil?
-        fail ArgumentError, 'document_class cannot be nil'
+      validator = EnumAttributeValidator.new('String', ["letter", "postcard", "brochure", "flat"])
+      unless validator.valid?(document_class)
+        fail ArgumentError, "invalid value for \"document_class\", must be one of #{validator.allowable_values}."
       end
-
       @document_class = document_class
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] layout Value to be assigned
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] layout Object to be assigned
     def layout=(layout)
-      if layout.nil?
-        fail ArgumentError, 'layout cannot be nil'
+      validator = EnumAttributeValidator.new('String', ["address_on_first_page", "address_on_back_page"])
+      unless validator.valid?(layout)
+        fail ArgumentError, "invalid value for \"layout\", must be one of #{validator.allowable_values}."
       end
-
       @layout = layout
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] production_time Value to be assigned
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] production_time Object to be assigned
     def production_time=(production_time)
-      if production_time.nil?
-        fail ArgumentError, 'production_time cannot be nil'
+      validator = EnumAttributeValidator.new('String', ["next_day", "two_day", "three_day", "standard", "same_day"])
+      unless validator.valid?(production_time)
+        fail ArgumentError, "invalid value for \"production_time\", must be one of #{validator.allowable_values}."
       end
-
       @production_time = production_time
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] envelope Value to be assigned
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] envelope Object to be assigned
     def envelope=(envelope)
-      if envelope.nil?
-        fail ArgumentError, 'envelope cannot be nil'
+      validator = EnumAttributeValidator.new('String', ["standard", "none", "flat", "double_window"])
+      unless validator.valid?(envelope)
+        fail ArgumentError, "invalid value for \"envelope\", must be one of #{validator.allowable_values}."
       end
-
       @envelope = envelope
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] color Value to be assigned
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] color Object to be assigned
     def color=(color)
-      if color.nil?
-        fail ArgumentError, 'color cannot be nil'
+      validator = EnumAttributeValidator.new('String', ["full_color", "black_and_white"])
+      unless validator.valid?(color)
+        fail ArgumentError, "invalid value for \"color\", must be one of #{validator.allowable_values}."
       end
-
       @color = color
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] paper_type Value to be assigned
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] paper_type Object to be assigned
     def paper_type=(paper_type)
-      if paper_type.nil?
-        fail ArgumentError, 'paper_type cannot be nil'
+      validator = EnumAttributeValidator.new('String', ["white", "white_24", "ivory", "glossy"])
+      unless validator.valid?(paper_type)
+        fail ArgumentError, "invalid value for \"paper_type\", must be one of #{validator.allowable_values}."
       end
-
       @paper_type = paper_type
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] print_option Value to be assigned
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] print_option Object to be assigned
     def print_option=(print_option)
-      if print_option.nil?
-        fail ArgumentError, 'print_option cannot be nil'
+      validator = EnumAttributeValidator.new('String', ["double_sided", "single_sided"])
+      unless validator.valid?(print_option)
+        fail ArgumentError, "invalid value for \"print_option\", must be one of #{validator.allowable_values}."
       end
-
       @print_option = print_option
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] mail_class Value to be assigned
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] mail_class Object to be assigned
     def mail_class=(mail_class)
-      if mail_class.nil?
-        fail ArgumentError, 'mail_class cannot be nil'
+      validator = EnumAttributeValidator.new('String', ["first_class", "standard", "non_profit"])
+      unless validator.valid?(mail_class)
+        fail ArgumentError, "invalid value for \"mail_class\", must be one of #{validator.allowable_values}."
       end
-
       @mail_class = mail_class
     end
 

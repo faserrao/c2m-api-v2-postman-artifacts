@@ -14,13 +14,13 @@ use serde::{Deserialize, Serialize};
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum MergeDocumentRef {
-    MergeByDocumentId(i32),
-    MergeByRequestId(Box<models::MergeByRequestId>),
+    MergeDocumentRefOneOf(Box<models::MergeDocumentRefOneOf>),
+    MergeDocumentRefOneOf1(Box<models::MergeDocumentRefOneOf1>),
 }
 
 impl Default for MergeDocumentRef {
     fn default() -> Self {
-        Self::MergeByDocumentId(Default::default())
+        Self::MergeDocumentRefOneOf(Default::default())
     }
 }
 

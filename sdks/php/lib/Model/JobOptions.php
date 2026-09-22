@@ -270,6 +270,146 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const DOCUMENT_CLASS_LETTER = 'letter';
+    public const DOCUMENT_CLASS_POSTCARD = 'postcard';
+    public const DOCUMENT_CLASS_BROCHURE = 'brochure';
+    public const DOCUMENT_CLASS_FLAT = 'flat';
+    public const LAYOUT_ADDRESS_ON_FIRST_PAGE = 'address_on_first_page';
+    public const LAYOUT_ADDRESS_ON_BACK_PAGE = 'address_on_back_page';
+    public const PRODUCTION_TIME_NEXT_DAY = 'next_day';
+    public const PRODUCTION_TIME_TWO_DAY = 'two_day';
+    public const PRODUCTION_TIME_THREE_DAY = 'three_day';
+    public const PRODUCTION_TIME_STANDARD = 'standard';
+    public const PRODUCTION_TIME_SAME_DAY = 'same_day';
+    public const ENVELOPE_STANDARD = 'standard';
+    public const ENVELOPE_NONE = 'none';
+    public const ENVELOPE_FLAT = 'flat';
+    public const ENVELOPE_DOUBLE_WINDOW = 'double_window';
+    public const COLOR_FULL_COLOR = 'full_color';
+    public const COLOR_BLACK_AND_WHITE = 'black_and_white';
+    public const PAPER_TYPE_WHITE = 'white';
+    public const PAPER_TYPE_WHITE_24 = 'white_24';
+    public const PAPER_TYPE_IVORY = 'ivory';
+    public const PAPER_TYPE_GLOSSY = 'glossy';
+    public const PRINT_OPTION_DOUBLE_SIDED = 'double_sided';
+    public const PRINT_OPTION_SINGLE_SIDED = 'single_sided';
+    public const MAIL_CLASS_FIRST_CLASS = 'first_class';
+    public const MAIL_CLASS_STANDARD = 'standard';
+    public const MAIL_CLASS_NON_PROFIT = 'non_profit';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDocumentClassAllowableValues()
+    {
+        return [
+            self::DOCUMENT_CLASS_LETTER,
+            self::DOCUMENT_CLASS_POSTCARD,
+            self::DOCUMENT_CLASS_BROCHURE,
+            self::DOCUMENT_CLASS_FLAT,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLayoutAllowableValues()
+    {
+        return [
+            self::LAYOUT_ADDRESS_ON_FIRST_PAGE,
+            self::LAYOUT_ADDRESS_ON_BACK_PAGE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getProductionTimeAllowableValues()
+    {
+        return [
+            self::PRODUCTION_TIME_NEXT_DAY,
+            self::PRODUCTION_TIME_TWO_DAY,
+            self::PRODUCTION_TIME_THREE_DAY,
+            self::PRODUCTION_TIME_STANDARD,
+            self::PRODUCTION_TIME_SAME_DAY,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getEnvelopeAllowableValues()
+    {
+        return [
+            self::ENVELOPE_STANDARD,
+            self::ENVELOPE_NONE,
+            self::ENVELOPE_FLAT,
+            self::ENVELOPE_DOUBLE_WINDOW,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getColorAllowableValues()
+    {
+        return [
+            self::COLOR_FULL_COLOR,
+            self::COLOR_BLACK_AND_WHITE,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPaperTypeAllowableValues()
+    {
+        return [
+            self::PAPER_TYPE_WHITE,
+            self::PAPER_TYPE_WHITE_24,
+            self::PAPER_TYPE_IVORY,
+            self::PAPER_TYPE_GLOSSY,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPrintOptionAllowableValues()
+    {
+        return [
+            self::PRINT_OPTION_DOUBLE_SIDED,
+            self::PRINT_OPTION_SINGLE_SIDED,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMailClassAllowableValues()
+    {
+        return [
+            self::MAIL_CLASS_FIRST_CLASS,
+            self::MAIL_CLASS_STANDARD,
+            self::MAIL_CLASS_NON_PROFIT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -326,27 +466,99 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['document_class'] === null) {
             $invalidProperties[] = "'document_class' can't be null";
         }
+        $allowedValues = $this->getDocumentClassAllowableValues();
+        if (!is_null($this->container['document_class']) && !in_array($this->container['document_class'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'document_class', must be one of '%s'",
+                $this->container['document_class'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['layout'] === null) {
             $invalidProperties[] = "'layout' can't be null";
         }
+        $allowedValues = $this->getLayoutAllowableValues();
+        if (!is_null($this->container['layout']) && !in_array($this->container['layout'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'layout', must be one of '%s'",
+                $this->container['layout'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['production_time'] === null) {
             $invalidProperties[] = "'production_time' can't be null";
         }
+        $allowedValues = $this->getProductionTimeAllowableValues();
+        if (!is_null($this->container['production_time']) && !in_array($this->container['production_time'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'production_time', must be one of '%s'",
+                $this->container['production_time'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['envelope'] === null) {
             $invalidProperties[] = "'envelope' can't be null";
         }
+        $allowedValues = $this->getEnvelopeAllowableValues();
+        if (!is_null($this->container['envelope']) && !in_array($this->container['envelope'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'envelope', must be one of '%s'",
+                $this->container['envelope'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['color'] === null) {
             $invalidProperties[] = "'color' can't be null";
         }
+        $allowedValues = $this->getColorAllowableValues();
+        if (!is_null($this->container['color']) && !in_array($this->container['color'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'color', must be one of '%s'",
+                $this->container['color'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['paper_type'] === null) {
             $invalidProperties[] = "'paper_type' can't be null";
         }
+        $allowedValues = $this->getPaperTypeAllowableValues();
+        if (!is_null($this->container['paper_type']) && !in_array($this->container['paper_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'paper_type', must be one of '%s'",
+                $this->container['paper_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['print_option'] === null) {
             $invalidProperties[] = "'print_option' can't be null";
         }
+        $allowedValues = $this->getPrintOptionAllowableValues();
+        if (!is_null($this->container['print_option']) && !in_array($this->container['print_option'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'print_option', must be one of '%s'",
+                $this->container['print_option'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['mail_class'] === null) {
             $invalidProperties[] = "'mail_class' can't be null";
         }
+        $allowedValues = $this->getMailClassAllowableValues();
+        if (!is_null($this->container['mail_class']) && !in_array($this->container['mail_class'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'mail_class', must be one of '%s'",
+                $this->container['mail_class'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -384,6 +596,16 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($document_class)) {
             throw new \InvalidArgumentException('non-nullable document_class cannot be null');
         }
+        $allowedValues = $this->getDocumentClassAllowableValues();
+        if (!in_array($document_class, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'document_class', must be one of '%s'",
+                    $document_class,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['document_class'] = $document_class;
 
         return $this;
@@ -410,6 +632,16 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($layout)) {
             throw new \InvalidArgumentException('non-nullable layout cannot be null');
+        }
+        $allowedValues = $this->getLayoutAllowableValues();
+        if (!in_array($layout, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'layout', must be one of '%s'",
+                    $layout,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['layout'] = $layout;
 
@@ -438,6 +670,16 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($production_time)) {
             throw new \InvalidArgumentException('non-nullable production_time cannot be null');
         }
+        $allowedValues = $this->getProductionTimeAllowableValues();
+        if (!in_array($production_time, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'production_time', must be one of '%s'",
+                    $production_time,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['production_time'] = $production_time;
 
         return $this;
@@ -464,6 +706,16 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($envelope)) {
             throw new \InvalidArgumentException('non-nullable envelope cannot be null');
+        }
+        $allowedValues = $this->getEnvelopeAllowableValues();
+        if (!in_array($envelope, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'envelope', must be one of '%s'",
+                    $envelope,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['envelope'] = $envelope;
 
@@ -492,6 +744,16 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($color)) {
             throw new \InvalidArgumentException('non-nullable color cannot be null');
         }
+        $allowedValues = $this->getColorAllowableValues();
+        if (!in_array($color, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'color', must be one of '%s'",
+                    $color,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['color'] = $color;
 
         return $this;
@@ -518,6 +780,16 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($paper_type)) {
             throw new \InvalidArgumentException('non-nullable paper_type cannot be null');
+        }
+        $allowedValues = $this->getPaperTypeAllowableValues();
+        if (!in_array($paper_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'paper_type', must be one of '%s'",
+                    $paper_type,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['paper_type'] = $paper_type;
 
@@ -546,6 +818,16 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($print_option)) {
             throw new \InvalidArgumentException('non-nullable print_option cannot be null');
         }
+        $allowedValues = $this->getPrintOptionAllowableValues();
+        if (!in_array($print_option, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'print_option', must be one of '%s'",
+                    $print_option,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['print_option'] = $print_option;
 
         return $this;
@@ -572,6 +854,16 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         if (is_null($mail_class)) {
             throw new \InvalidArgumentException('non-nullable mail_class cannot be null');
+        }
+        $allowedValues = $this->getMailClassAllowableValues();
+        if (!in_array($mail_class, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'mail_class', must be one of '%s'",
+                    $mail_class,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['mail_class'] = $mail_class;
 

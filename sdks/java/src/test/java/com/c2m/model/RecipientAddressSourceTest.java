@@ -15,16 +15,17 @@ package com.c2m.model;
 
 import com.c2m.model.Address;
 import com.c2m.model.RecipientAddressByList;
-import com.c2m.model.RecipientAddressBySingle;
+import com.c2m.model.RecipientAddressSourceOneOf;
+import com.c2m.model.RecipientAddressSourceOneOf1;
+import com.c2m.model.RecipientAddressSourceOneOf2;
+import com.c2m.model.RecipientAddressSourceOneOf3;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -43,14 +44,6 @@ public class RecipientAddressSourceTest {
     }
 
     /**
-     * Test the property 'mappingId'
-     */
-    @Test
-    public void mappingIdTest() {
-        // TODO: test mappingId
-    }
-
-    /**
      * Test the property 'singleAddress'
      */
     @Test
@@ -59,27 +52,27 @@ public class RecipientAddressSourceTest {
     }
 
     /**
-     * Test the property 'addressName'
+     * Test the property 'recipientAddressByList'
      */
     @Test
-    public void addressNameTest() {
-        // TODO: test addressName
+    public void recipientAddressByListTest() {
+        // TODO: test recipientAddressByList
     }
 
     /**
-     * Test the property 'addressList'
+     * Test the property 'recipientAddressByAddressId'
      */
     @Test
-    public void addressListTest() {
-        // TODO: test addressList
+    public void recipientAddressByAddressIdTest() {
+        // TODO: test recipientAddressByAddressId
     }
 
     /**
-     * Test the property 'addressListName'
+     * Test the property 'recipientAddressByListId'
      */
     @Test
-    public void addressListNameTest() {
-        // TODO: test addressListName
+    public void recipientAddressByListIdTest() {
+        // TODO: test recipientAddressByListId
     }
 
 }

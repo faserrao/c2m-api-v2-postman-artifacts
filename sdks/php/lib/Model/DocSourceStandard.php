@@ -57,8 +57,9 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'request_id' => 'int',
-        'filename' => 'string'
+        'document_id_source' => '\C2MApi\Model\DocumentIdSource',
+        'request_id_source' => '\C2MApi\Model\RequestIdSource',
+        'url_source' => '\C2MApi\Model\UrlSource'
     ];
 
     /**
@@ -69,8 +70,9 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'request_id' => null,
-        'filename' => null
+        'document_id_source' => null,
+        'request_id_source' => null,
+        'url_source' => null
     ];
 
     /**
@@ -79,8 +81,9 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'request_id' => false,
-        'filename' => false
+        'document_id_source' => false,
+        'request_id_source' => false,
+        'url_source' => false
     ];
 
     /**
@@ -169,8 +172,9 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'request_id' => 'requestId',
-        'filename' => 'filename'
+        'document_id_source' => 'documentIdSource',
+        'request_id_source' => 'requestIdSource',
+        'url_source' => 'urlSource'
     ];
 
     /**
@@ -179,8 +183,9 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'request_id' => 'setRequestId',
-        'filename' => 'setFilename'
+        'document_id_source' => 'setDocumentIdSource',
+        'request_id_source' => 'setRequestIdSource',
+        'url_source' => 'setUrlSource'
     ];
 
     /**
@@ -189,8 +194,9 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'request_id' => 'getRequestId',
-        'filename' => 'getFilename'
+        'document_id_source' => 'getDocumentIdSource',
+        'request_id_source' => 'getRequestIdSource',
+        'url_source' => 'getUrlSource'
     ];
 
     /**
@@ -250,8 +256,9 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('request_id', $data ?? [], null);
-        $this->setIfExists('filename', $data ?? [], null);
+        $this->setIfExists('document_id_source', $data ?? [], null);
+        $this->setIfExists('request_id_source', $data ?? [], null);
+        $this->setIfExists('url_source', $data ?? [], null);
     }
 
     /**
@@ -281,8 +288,14 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['request_id'] === null) {
-            $invalidProperties[] = "'request_id' can't be null";
+        if ($this->container['document_id_source'] === null) {
+            $invalidProperties[] = "'document_id_source' can't be null";
+        }
+        if ($this->container['request_id_source'] === null) {
+            $invalidProperties[] = "'request_id_source' can't be null";
+        }
+        if ($this->container['url_source'] === null) {
+            $invalidProperties[] = "'url_source' can't be null";
         }
         return $invalidProperties;
     }
@@ -300,55 +313,82 @@ class DocSourceStandard implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets request_id
+     * Gets document_id_source
      *
-     * @return int
+     * @return \C2MApi\Model\DocumentIdSource
      */
-    public function getRequestId()
+    public function getDocumentIdSource()
     {
-        return $this->container['request_id'];
+        return $this->container['document_id_source'];
     }
 
     /**
-     * Sets request_id
+     * Sets document_id_source
      *
-     * @param int $request_id request_id
+     * @param \C2MApi\Model\DocumentIdSource $document_id_source document_id_source
      *
      * @return self
      */
-    public function setRequestId($request_id)
+    public function setDocumentIdSource($document_id_source)
     {
-        if (is_null($request_id)) {
-            throw new \InvalidArgumentException('non-nullable request_id cannot be null');
+        if (is_null($document_id_source)) {
+            throw new \InvalidArgumentException('non-nullable document_id_source cannot be null');
         }
-        $this->container['request_id'] = $request_id;
+        $this->container['document_id_source'] = $document_id_source;
 
         return $this;
     }
 
     /**
-     * Gets filename
+     * Gets request_id_source
      *
-     * @return string|null
+     * @return \C2MApi\Model\RequestIdSource
      */
-    public function getFilename()
+    public function getRequestIdSource()
     {
-        return $this->container['filename'];
+        return $this->container['request_id_source'];
     }
 
     /**
-     * Sets filename
+     * Sets request_id_source
      *
-     * @param string|null $filename filename
+     * @param \C2MApi\Model\RequestIdSource $request_id_source request_id_source
      *
      * @return self
      */
-    public function setFilename($filename)
+    public function setRequestIdSource($request_id_source)
     {
-        if (is_null($filename)) {
-            throw new \InvalidArgumentException('non-nullable filename cannot be null');
+        if (is_null($request_id_source)) {
+            throw new \InvalidArgumentException('non-nullable request_id_source cannot be null');
         }
-        $this->container['filename'] = $filename;
+        $this->container['request_id_source'] = $request_id_source;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_source
+     *
+     * @return \C2MApi\Model\UrlSource
+     */
+    public function getUrlSource()
+    {
+        return $this->container['url_source'];
+    }
+
+    /**
+     * Sets url_source
+     *
+     * @param \C2MApi\Model\UrlSource $url_source url_source
+     *
+     * @return self
+     */
+    public function setUrlSource($url_source)
+    {
+        if (is_null($url_source)) {
+            throw new \InvalidArgumentException('non-nullable url_source cannot be null');
+        }
+        $this->container['url_source'] = $url_source;
 
         return $this;
     }

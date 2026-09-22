@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**addressListId** | **Integer** |  |  |
+|**singleAddress** | [**Address**](Address.md) |  |  |
 
 
 

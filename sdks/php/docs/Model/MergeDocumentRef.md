@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request_id** | **int** |  |
-**filename** | **string** |  | [optional]
+**merge_by_document_id** | [**\C2MApi\Model\MergeByDocumentId**](MergeByDocumentId.md) |  |
+**merge_by_request_id** | [**\C2MApi\Model\MergeByRequestId**](MergeByRequestId.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

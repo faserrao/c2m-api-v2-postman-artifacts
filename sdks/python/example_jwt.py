@@ -10,7 +10,7 @@ import time
 from datetime import datetime, timedelta
 
 class C2MClient:
-    def __init__(self, client_id, client_secret, base_url="https://api.c2m.com/v2"):
+    def __init__(self, client_id, client_secret, base_url="https://api.click2mail.com/v2"):
         self.client_id = client_id
         self.client_secret = client_secret
         self.base_url = base_url

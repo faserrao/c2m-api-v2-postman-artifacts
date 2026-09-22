@@ -5,8 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requestId** | **number** |  | [default to undefined]
-**filename** | **string** |  | [optional] [default to undefined]
+**documentIdSource** | [**DocumentIdSource**](DocumentIdSource.md) |  | [default to undefined]
+**requestIdSource** | [**RequestIdSource**](RequestIdSource.md) |  | [default to undefined]
+**urlSource** | [**UrlSource**](UrlSource.md) |  | [default to undefined]
 
 ## Example
 
@@ -14,8 +15,9 @@ Name | Type | Description | Notes
 import { DocSourceStandard } from './api';
 
 const instance: DocSourceStandard = {
-    requestId,
-    filename,
+    documentIdSource,
+    requestIdSource,
+    urlSource,
 };
 ```
 

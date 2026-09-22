@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from c2m_api.models.address import Address
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,8 +27,8 @@ class RecipientAddressSourceOneOf(BaseModel):
     """
     RecipientAddressSourceOneOf
     """ # noqa: E501
-    address_list_id: StrictInt = Field(alias="addressListId")
-    __properties: ClassVar[List[str]] = ["addressListId"]
+    single_address: Address = Field(alias="singleAddress")
+    __properties: ClassVar[List[str]] = ["singleAddress"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -68,6 +69,9 @@ class RecipientAddressSourceOneOf(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of single_address
+        if self.single_address:
+            _dict['singleAddress'] = self.single_address.to_dict()
         return _dict
 
     @classmethod
@@ -80,7 +84,7 @@ class RecipientAddressSourceOneOf(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "addressListId": obj.get("addressListId")
+            "singleAddress": Address.from_dict(obj["singleAddress"]) if obj.get("singleAddress") is not None else None
         })
         return _obj
 

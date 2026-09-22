@@ -1,6 +1,6 @@
 /**
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -20,24 +20,17 @@ import ApiClient from '../ApiClient';
 export default class PrintOption {
     
         /**
-         * value: "none"
+         * value: "double_sided"
          * @const
          */
-        "none" = "none";
+        "double_sided" = "double_sided";
 
     
         /**
-         * value: "color"
+         * value: "single_sided"
          * @const
          */
-        "color" = "color";
-
-    
-        /**
-         * value: "grayscale"
-         * @const
-         */
-        "grayscale" = "grayscale";
+        "single_sided" = "single_sided";
 
     
 

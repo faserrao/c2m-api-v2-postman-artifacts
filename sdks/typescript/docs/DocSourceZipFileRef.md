@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**zipDocumentIdOnly** | [**ZipDocumentIdOnly**](ZipDocumentIdOnly.md) |  | [default to undefined]
+**zipRequestIdOnly** | [**ZipRequestIdOnly**](ZipRequestIdOnly.md) |  | [default to undefined]
 
 ## Example
 
@@ -12,6 +14,8 @@ Name | Type | Description | Notes
 import { DocSourceZipFileRef } from './api';
 
 const instance: DocSourceZipFileRef = {
+    zipDocumentIdOnly,
+    zipRequestIdOnly,
 };
 ```
 

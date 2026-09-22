@@ -13,6 +13,8 @@
 
 import ApiClient from '../ApiClient';
 import ZipDocumentIdSource from './ZipDocumentIdSource';
+import ZipDocumentSourceOneOf from './ZipDocumentSourceOneOf';
+import ZipDocumentSourceOneOf1 from './ZipDocumentSourceOneOf1';
 import ZipRequestIdSource from './ZipRequestIdSource';
 
 /**
@@ -24,7 +26,7 @@ class DocSourceZipFile {
     /**
      * Constructs a new <code>DocSourceZipFile</code>.
      * @alias module:c2m_api/model/DocSourceZipFile
-     * @param {(module:c2m_api/model/ZipDocumentIdSource|module:c2m_api/model/ZipRequestIdSource)} instance The actual instance to initialize DocSourceZipFile.
+     * @param {(module:c2m_api/model/ZipDocumentSourceOneOf|module:c2m_api/model/ZipDocumentSourceOneOf1)} instance The actual instance to initialize DocSourceZipFile.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -34,42 +36,42 @@ class DocSourceZipFile {
         var match = 0;
         var errorMessages = [];
         try {
-            if (typeof instance === "ZipDocumentIdSource") {
+            if (typeof instance === "ZipDocumentSourceOneOf") {
                 this.actualInstance = instance;
             } else {
                 // plain JS object
                 // validate the object
-                ZipDocumentIdSource.validateJSON(instance); // throw an exception if no match
-                // create ZipDocumentIdSource from JS object
-                this.actualInstance = ZipDocumentIdSource.constructFromObject(instance);
+                ZipDocumentSourceOneOf.validateJSON(instance); // throw an exception if no match
+                // create ZipDocumentSourceOneOf from JS object
+                this.actualInstance = ZipDocumentSourceOneOf.constructFromObject(instance);
             }
             match++;
         } catch(err) {
-            // json data failed to deserialize into ZipDocumentIdSource
-            errorMessages.push("Failed to construct ZipDocumentIdSource: " + err)
+            // json data failed to deserialize into ZipDocumentSourceOneOf
+            errorMessages.push("Failed to construct ZipDocumentSourceOneOf: " + err)
         }
 
         try {
-            if (typeof instance === "ZipRequestIdSource") {
+            if (typeof instance === "ZipDocumentSourceOneOf1") {
                 this.actualInstance = instance;
             } else {
                 // plain JS object
                 // validate the object
-                ZipRequestIdSource.validateJSON(instance); // throw an exception if no match
-                // create ZipRequestIdSource from JS object
-                this.actualInstance = ZipRequestIdSource.constructFromObject(instance);
+                ZipDocumentSourceOneOf1.validateJSON(instance); // throw an exception if no match
+                // create ZipDocumentSourceOneOf1 from JS object
+                this.actualInstance = ZipDocumentSourceOneOf1.constructFromObject(instance);
             }
             match++;
         } catch(err) {
-            // json data failed to deserialize into ZipRequestIdSource
-            errorMessages.push("Failed to construct ZipRequestIdSource: " + err)
+            // json data failed to deserialize into ZipDocumentSourceOneOf1
+            errorMessages.push("Failed to construct ZipDocumentSourceOneOf1: " + err)
         }
 
         if (match > 1) {
-            throw new Error("Multiple matches found constructing `DocSourceZipFile` with oneOf schemas ZipDocumentIdSource, ZipRequestIdSource. Input: " + JSON.stringify(instance));
+            throw new Error("Multiple matches found constructing `DocSourceZipFile` with oneOf schemas ZipDocumentSourceOneOf, ZipDocumentSourceOneOf1. Input: " + JSON.stringify(instance));
         } else if (match === 0) {
             this.actualInstance = null; // clear the actual instance in case there are multiple matches
-            throw new Error("No match found constructing `DocSourceZipFile` with oneOf schemas ZipDocumentIdSource, ZipRequestIdSource. Details: " +
+            throw new Error("No match found constructing `DocSourceZipFile` with oneOf schemas ZipDocumentSourceOneOf, ZipDocumentSourceOneOf1. Details: " +
                             errorMessages.join(", "));
         } else { // only 1 match
             // the input is valid
@@ -88,16 +90,16 @@ class DocSourceZipFile {
     }
 
     /**
-     * Gets the actual instance, which can be <code>ZipDocumentIdSource</code>, <code>ZipRequestIdSource</code>.
-     * @return {(module:c2m_api/model/ZipDocumentIdSource|module:c2m_api/model/ZipRequestIdSource)} The actual instance.
+     * Gets the actual instance, which can be <code>ZipDocumentSourceOneOf</code>, <code>ZipDocumentSourceOneOf1</code>.
+     * @return {(module:c2m_api/model/ZipDocumentSourceOneOf|module:c2m_api/model/ZipDocumentSourceOneOf1)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>ZipDocumentIdSource</code>, <code>ZipRequestIdSource</code>.
-     * @param {(module:c2m_api/model/ZipDocumentIdSource|module:c2m_api/model/ZipRequestIdSource)} obj The actual instance.
+     * Sets the actual instance, which can be <code>ZipDocumentSourceOneOf</code>, <code>ZipDocumentSourceOneOf1</code>.
+     * @param {(module:c2m_api/model/ZipDocumentSourceOneOf|module:c2m_api/model/ZipDocumentSourceOneOf1)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = DocSourceZipFile.constructFromObject(obj).getActualInstance();
@@ -122,27 +124,17 @@ class DocSourceZipFile {
 }
 
 /**
- * @member {Number} zipDocumentId
+ * @member {module:c2m_api/model/ZipDocumentIdSource} zipDocumentIdSource
  */
-DocSourceZipFile.prototype['zipDocumentId'] = undefined;
+DocSourceZipFile.prototype['zipDocumentIdSource'] = undefined;
 
 /**
- * @member {String} filename
+ * @member {module:c2m_api/model/ZipRequestIdSource} zipRequestIdSource
  */
-DocSourceZipFile.prototype['filename'] = undefined;
-
-/**
- * @member {Number} requestId
- */
-DocSourceZipFile.prototype['requestId'] = undefined;
-
-/**
- * @member {String} zipFilename
- */
-DocSourceZipFile.prototype['zipFilename'] = undefined;
+DocSourceZipFile.prototype['zipRequestIdSource'] = undefined;
 
 
-DocSourceZipFile.OneOf = ["ZipDocumentIdSource", "ZipRequestIdSource"];
+DocSourceZipFile.OneOf = ["ZipDocumentSourceOneOf", "ZipDocumentSourceOneOf1"];
 
 export default DocSourceZipFile;
 

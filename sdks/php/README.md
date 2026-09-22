@@ -63,7 +63,7 @@ $apiInstance = new C2MApi\Api\AuthApi(
     new GuzzleHttp\Client(),
     $config
 );
-$long_token_request = {"grant_type":"client_credentials","client_id":"c2m_abc123","client_secret":"supersecret123","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000}; // \C2MApi\Model\LongTokenRequest
+$long_token_request = {"grant_type":"client_credentials","client_id":"{{clientId}}","client_secret":"{{clientSecret}}","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000}; // \C2MApi\Model\LongTokenRequest
 
 try {
     $result = $apiInstance->issueLongTermToken($long_token_request);
@@ -83,10 +83,10 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**issueLongTermToken**](docs/Api/AuthApi.md#issuelongtermtoken) | **POST** /auth/tokens/long | Issue or rotate a long-term token
 *AuthApi* | [**issueShortTermToken**](docs/Api/AuthApi.md#issueshorttermtoken) | **POST** /auth/tokens/short | Issue a short-term access token
 *AuthApi* | [**revokeToken**](docs/Api/AuthApi.md#revoketoken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
+*JobsApi* | [**submitDocParams**](docs/Api/JobsApi.md#submitdocparams) | **POST** /static | Submit single document
 *JobsApi* | [**submitMultiDocMergeParams**](docs/Api/JobsApi.md#submitmultidocmergeparams) | **POST** /mail-merge | Submit mail merge
 *JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/Api/JobsApi.md#submitmultizipaddresscaptureparams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
 *JobsApi* | [**submitMultiZipParams**](docs/Api/JobsApi.md#submitmultizipparams) | **POST** /batch/zip | Submit ZIP batch
-*JobsApi* | [**submitSingleDocParams**](docs/Api/JobsApi.md#submitsingledocparams) | **POST** /static | Submit single document
 *JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/Api/JobsApi.md#submitsinglepdfaddresscaptureparams) | **POST** /static/address-capture | Submit single document — address capture
 *JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/Api/JobsApi.md#submitsinglepdfsplitaddresscaptureparams) | **POST** /batch/split/address-capture | Submit PDF split — address capture
 *JobsApi* | [**submitSinglePdfSplitParams**](docs/Api/JobsApi.md#submitsinglepdfsplitparams) | **POST** /batch/split | Submit PDF split
@@ -98,14 +98,23 @@ Class | Method | HTTP request | Description
 - [Address](docs/Model/Address.md)
 - [AuthError](docs/Model/AuthError.md)
 - [CardType](docs/Model/CardType.md)
+- [Color](docs/Model/Color.md)
 - [CreditAmount](docs/Model/CreditAmount.md)
 - [CreditCardDetails](docs/Model/CreditCardDetails.md)
 - [CreditCardPayment](docs/Model/CreditCardPayment.md)
 - [Currency](docs/Model/Currency.md)
 - [DocSourceAll](docs/Model/DocSourceAll.md)
 - [DocSourceStandard](docs/Model/DocSourceStandard.md)
+- [DocSourceStandardOneOf](docs/Model/DocSourceStandardOneOf.md)
+- [DocSourceStandardOneOf1](docs/Model/DocSourceStandardOneOf1.md)
+- [DocSourceStandardOneOf2](docs/Model/DocSourceStandardOneOf2.md)
 - [DocSourceZipFile](docs/Model/DocSourceZipFile.md)
 - [DocSourceZipFileRef](docs/Model/DocSourceZipFileRef.md)
+- [DocSourceZipFileRefOneOf](docs/Model/DocSourceZipFileRefOneOf.md)
+- [DocSourceZipFileRefOneOf1](docs/Model/DocSourceZipFileRefOneOf1.md)
+- [DocumentClass](docs/Model/DocumentClass.md)
+- [DocumentIdSource](docs/Model/DocumentIdSource.md)
+- [Envelope](docs/Model/Envelope.md)
 - [ErrorCode](docs/Model/ErrorCode.md)
 - [ErrorResponse](docs/Model/ErrorResponse.md)
 - [ErrorType](docs/Model/ErrorType.md)
@@ -113,33 +122,49 @@ Class | Method | HTTP request | Description
 - [InvoiceDetails](docs/Model/InvoiceDetails.md)
 - [InvoicePayment](docs/Model/InvoicePayment.md)
 - [JobOptions](docs/Model/JobOptions.md)
+- [Layout](docs/Model/Layout.md)
 - [LongTokenRequest](docs/Model/LongTokenRequest.md)
 - [LongTokenResponse](docs/Model/LongTokenResponse.md)
+- [MailClass](docs/Model/MailClass.md)
+- [MergeByDocumentId](docs/Model/MergeByDocumentId.md)
 - [MergeByRequestId](docs/Model/MergeByRequestId.md)
 - [MergeDocumentRef](docs/Model/MergeDocumentRef.md)
+- [MergeDocumentRefOneOf](docs/Model/MergeDocumentRefOneOf.md)
+- [MergeDocumentRefOneOf1](docs/Model/MergeDocumentRefOneOf1.md)
 - [MultiDocJobItem](docs/Model/MultiDocJobItem.md)
 - [MultiZipJobItem](docs/Model/MultiZipJobItem.md)
+- [PaperType](docs/Model/PaperType.md)
 - [PaymentDetails](docs/Model/PaymentDetails.md)
 - [PdfSplitJobItemNoAddress](docs/Model/PdfSplitJobItemNoAddress.md)
 - [PdfSplitJobItemWithAddress](docs/Model/PdfSplitJobItemWithAddress.md)
+- [PrintOption](docs/Model/PrintOption.md)
+- [ProductionTime](docs/Model/ProductionTime.md)
 - [RecipientAddressByList](docs/Model/RecipientAddressByList.md)
-- [RecipientAddressBySingle](docs/Model/RecipientAddressBySingle.md)
 - [RecipientAddressSource](docs/Model/RecipientAddressSource.md)
+- [RecipientAddressSourceOneOf](docs/Model/RecipientAddressSourceOneOf.md)
+- [RecipientAddressSourceOneOf1](docs/Model/RecipientAddressSourceOneOf1.md)
+- [RecipientAddressSourceOneOf2](docs/Model/RecipientAddressSourceOneOf2.md)
+- [RecipientAddressSourceOneOf3](docs/Model/RecipientAddressSourceOneOf3.md)
 - [RequestIdSource](docs/Model/RequestIdSource.md)
 - [ReturnAddress](docs/Model/ReturnAddress.md)
 - [ShortTokenRequest](docs/Model/ShortTokenRequest.md)
 - [ShortTokenResponse](docs/Model/ShortTokenResponse.md)
 - [StandardResponse](docs/Model/StandardResponse.md)
+- [SubmitDocParams](docs/Model/SubmitDocParams.md)
 - [SubmitMultiDocMergeParams](docs/Model/SubmitMultiDocMergeParams.md)
 - [SubmitMultiZipAddressCaptureParams](docs/Model/SubmitMultiZipAddressCaptureParams.md)
 - [SubmitMultiZipParams](docs/Model/SubmitMultiZipParams.md)
-- [SubmitSingleDocParams](docs/Model/SubmitSingleDocParams.md)
 - [SubmitSinglePdfAddressCaptureParams](docs/Model/SubmitSinglePdfAddressCaptureParams.md)
 - [SubmitSinglePdfSplitAddressCaptureParams](docs/Model/SubmitSinglePdfSplitAddressCaptureParams.md)
 - [SubmitSinglePdfSplitParams](docs/Model/SubmitSinglePdfSplitParams.md)
+- [UrlSource](docs/Model/UrlSource.md)
 - [UserCreditPayment](docs/Model/UserCreditPayment.md)
+- [ZipDocumentIdOnly](docs/Model/ZipDocumentIdOnly.md)
 - [ZipDocumentIdSource](docs/Model/ZipDocumentIdSource.md)
 - [ZipDocumentSource](docs/Model/ZipDocumentSource.md)
+- [ZipDocumentSourceOneOf](docs/Model/ZipDocumentSourceOneOf.md)
+- [ZipDocumentSourceOneOf1](docs/Model/ZipDocumentSourceOneOf1.md)
+- [ZipRequestIdOnly](docs/Model/ZipRequestIdOnly.md)
 - [ZipRequestIdSource](docs/Model/ZipRequestIdSource.md)
 
 ## Authorization

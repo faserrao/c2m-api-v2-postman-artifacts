@@ -5,11 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mapping_id** | **int** |  | [optional] 
 **single_address** | [**Address**](Address.md) |  | 
-**address_name** | **str** |  | [optional] 
-**address_list** | [**List[Address]**](Address.md) |  | 
-**address_list_name** | **str** |  | [optional] 
+**recipient_address_by_list** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | 
+**recipient_address_by_address_id** | **int** |  | 
+**recipient_address_by_list_id** | **int** |  | 
 
 ## Example
 

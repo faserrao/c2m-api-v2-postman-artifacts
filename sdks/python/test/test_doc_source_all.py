@@ -35,17 +35,37 @@ class TestDocSourceAll(unittest.TestCase):
         model = DocSourceAll()
         if include_optional:
             return DocSourceAll(
-                request_id = 56,
-                filename = '',
-                zip_document_id = 56,
-                zip_filename = ''
+                document_id_source = c2m_api.models.document_id_source.documentIdSource(
+                    document_id = 56, ),
+                request_id_source = c2m_api.models.request_id_source.requestIdSource(
+                    request_id = 56, 
+                    filename = '', ),
+                url_source = c2m_api.models.url_source.urlSource(
+                    url = '', ),
+                zip_document_id_source = c2m_api.models.zip_document_id_source.zipDocumentIdSource(
+                    zip_document_id = 56, 
+                    filename = '', ),
+                zip_request_id_source = c2m_api.models.zip_request_id_source.zipRequestIdSource(
+                    request_id = 56, 
+                    zip_filename = '', 
+                    filename = '', )
             )
         else:
             return DocSourceAll(
-                request_id = 56,
-                filename = '',
-                zip_document_id = 56,
-                zip_filename = '',
+                document_id_source = c2m_api.models.document_id_source.documentIdSource(
+                    document_id = 56, ),
+                request_id_source = c2m_api.models.request_id_source.requestIdSource(
+                    request_id = 56, 
+                    filename = '', ),
+                url_source = c2m_api.models.url_source.urlSource(
+                    url = '', ),
+                zip_document_id_source = c2m_api.models.zip_document_id_source.zipDocumentIdSource(
+                    zip_document_id = 56, 
+                    filename = '', ),
+                zip_request_id_source = c2m_api.models.zip_request_id_source.zipRequestIdSource(
+                    request_id = 56, 
+                    zip_filename = '', 
+                    filename = '', ),
         )
         """
 

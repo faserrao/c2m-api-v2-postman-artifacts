@@ -22,26 +22,23 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * Values: flat,windowedFlat,letter,legal,postcard
+ * Values: standard,none,flat,double_window
  */
 
 @JsonClass(generateAdapter = false)
 enum class Envelope(val value: kotlin.String) {
 
+    @Json(name = "standard")
+    standard("standard"),
+
+    @Json(name = "none")
+    none("none"),
+
     @Json(name = "flat")
     flat("flat"),
 
-    @Json(name = "windowedFlat")
-    windowedFlat("windowedFlat"),
-
-    @Json(name = "letter")
-    letter("letter"),
-
-    @Json(name = "legal")
-    legal("legal"),
-
-    @Json(name = "postcard")
-    postcard("postcard");
+    @Json(name = "double_window")
+    double_window("double_window");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

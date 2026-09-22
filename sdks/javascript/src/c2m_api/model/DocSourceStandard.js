@@ -12,7 +12,12 @@
  */
 
 import ApiClient from '../ApiClient';
+import DocSourceStandardOneOf from './DocSourceStandardOneOf';
+import DocSourceStandardOneOf1 from './DocSourceStandardOneOf1';
+import DocSourceStandardOneOf2 from './DocSourceStandardOneOf2';
+import DocumentIdSource from './DocumentIdSource';
 import RequestIdSource from './RequestIdSource';
+import UrlSource from './UrlSource';
 
 /**
  * The DocSourceStandard model module.
@@ -23,7 +28,7 @@ class DocSourceStandard {
     /**
      * Constructs a new <code>DocSourceStandard</code>.
      * @alias module:c2m_api/model/DocSourceStandard
-     * @param {(module:c2m_api/model/Number|module:c2m_api/model/RequestIdSource|module:c2m_api/model/String)} instance The actual instance to initialize DocSourceStandard.
+     * @param {(module:c2m_api/model/DocSourceStandardOneOf|module:c2m_api/model/DocSourceStandardOneOf1|module:c2m_api/model/DocSourceStandardOneOf2)} instance The actual instance to initialize DocSourceStandard.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -33,50 +38,58 @@ class DocSourceStandard {
         var match = 0;
         var errorMessages = [];
         try {
-            // validate integer
-            if (!(typeof instance === 'number' && instance % 1 === 0)) {
-                throw new Error("Invalid value. Must be integer. Input: " + JSON.stringify(instance));
-            }
-            this.actualInstance = instance;
-            match++;
-        } catch(err) {
-            // json data failed to deserialize into Number
-            errorMessages.push("Failed to construct Number: " + err)
-        }
-
-        try {
-            if (typeof instance === "RequestIdSource") {
+            if (typeof instance === "DocSourceStandardOneOf") {
                 this.actualInstance = instance;
             } else {
                 // plain JS object
                 // validate the object
-                RequestIdSource.validateJSON(instance); // throw an exception if no match
-                // create RequestIdSource from JS object
-                this.actualInstance = RequestIdSource.constructFromObject(instance);
+                DocSourceStandardOneOf.validateJSON(instance); // throw an exception if no match
+                // create DocSourceStandardOneOf from JS object
+                this.actualInstance = DocSourceStandardOneOf.constructFromObject(instance);
             }
             match++;
         } catch(err) {
-            // json data failed to deserialize into RequestIdSource
-            errorMessages.push("Failed to construct RequestIdSource: " + err)
+            // json data failed to deserialize into DocSourceStandardOneOf
+            errorMessages.push("Failed to construct DocSourceStandardOneOf: " + err)
         }
 
         try {
-            // validate string
-            if (!(typeof instance === 'string')) {
-                throw new Error("Invalid value. Must be string. Input: " + JSON.stringify(instance));
+            if (typeof instance === "DocSourceStandardOneOf1") {
+                this.actualInstance = instance;
+            } else {
+                // plain JS object
+                // validate the object
+                DocSourceStandardOneOf1.validateJSON(instance); // throw an exception if no match
+                // create DocSourceStandardOneOf1 from JS object
+                this.actualInstance = DocSourceStandardOneOf1.constructFromObject(instance);
             }
-            this.actualInstance = instance;
             match++;
         } catch(err) {
-            // json data failed to deserialize into String
-            errorMessages.push("Failed to construct String: " + err)
+            // json data failed to deserialize into DocSourceStandardOneOf1
+            errorMessages.push("Failed to construct DocSourceStandardOneOf1: " + err)
+        }
+
+        try {
+            if (typeof instance === "DocSourceStandardOneOf2") {
+                this.actualInstance = instance;
+            } else {
+                // plain JS object
+                // validate the object
+                DocSourceStandardOneOf2.validateJSON(instance); // throw an exception if no match
+                // create DocSourceStandardOneOf2 from JS object
+                this.actualInstance = DocSourceStandardOneOf2.constructFromObject(instance);
+            }
+            match++;
+        } catch(err) {
+            // json data failed to deserialize into DocSourceStandardOneOf2
+            errorMessages.push("Failed to construct DocSourceStandardOneOf2: " + err)
         }
 
         if (match > 1) {
-            throw new Error("Multiple matches found constructing `DocSourceStandard` with oneOf schemas Number, RequestIdSource, String. Input: " + JSON.stringify(instance));
+            throw new Error("Multiple matches found constructing `DocSourceStandard` with oneOf schemas DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2. Input: " + JSON.stringify(instance));
         } else if (match === 0) {
             this.actualInstance = null; // clear the actual instance in case there are multiple matches
-            throw new Error("No match found constructing `DocSourceStandard` with oneOf schemas Number, RequestIdSource, String. Details: " +
+            throw new Error("No match found constructing `DocSourceStandard` with oneOf schemas DocSourceStandardOneOf, DocSourceStandardOneOf1, DocSourceStandardOneOf2. Details: " +
                             errorMessages.join(", "));
         } else { // only 1 match
             // the input is valid
@@ -95,16 +108,16 @@ class DocSourceStandard {
     }
 
     /**
-     * Gets the actual instance, which can be <code>Number</code>, <code>RequestIdSource</code>, <code>String</code>.
-     * @return {(module:c2m_api/model/Number|module:c2m_api/model/RequestIdSource|module:c2m_api/model/String)} The actual instance.
+     * Gets the actual instance, which can be <code>DocSourceStandardOneOf</code>, <code>DocSourceStandardOneOf1</code>, <code>DocSourceStandardOneOf2</code>.
+     * @return {(module:c2m_api/model/DocSourceStandardOneOf|module:c2m_api/model/DocSourceStandardOneOf1|module:c2m_api/model/DocSourceStandardOneOf2)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>Number</code>, <code>RequestIdSource</code>, <code>String</code>.
-     * @param {(module:c2m_api/model/Number|module:c2m_api/model/RequestIdSource|module:c2m_api/model/String)} obj The actual instance.
+     * Sets the actual instance, which can be <code>DocSourceStandardOneOf</code>, <code>DocSourceStandardOneOf1</code>, <code>DocSourceStandardOneOf2</code>.
+     * @param {(module:c2m_api/model/DocSourceStandardOneOf|module:c2m_api/model/DocSourceStandardOneOf1|module:c2m_api/model/DocSourceStandardOneOf2)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = DocSourceStandard.constructFromObject(obj).getActualInstance();
@@ -129,17 +142,22 @@ class DocSourceStandard {
 }
 
 /**
- * @member {Number} requestId
+ * @member {module:c2m_api/model/DocumentIdSource} documentIdSource
  */
-DocSourceStandard.prototype['requestId'] = undefined;
+DocSourceStandard.prototype['documentIdSource'] = undefined;
 
 /**
- * @member {String} filename
+ * @member {module:c2m_api/model/RequestIdSource} requestIdSource
  */
-DocSourceStandard.prototype['filename'] = undefined;
+DocSourceStandard.prototype['requestIdSource'] = undefined;
+
+/**
+ * @member {module:c2m_api/model/UrlSource} urlSource
+ */
+DocSourceStandard.prototype['urlSource'] = undefined;
 
 
-DocSourceStandard.OneOf = ["Number", "RequestIdSource", "String"];
+DocSourceStandard.OneOf = ["DocSourceStandardOneOf", "DocSourceStandardOneOf1", "DocSourceStandardOneOf2"];
 
 export default DocSourceStandard;
 

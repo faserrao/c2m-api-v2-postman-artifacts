@@ -52,7 +52,7 @@ data class ErrorResponse (
     /**
      * 
      *
-     * Values: ValidationError,AuthenticationError,AuthorizationError,ResourceNotFoundError,ServerError
+     * Values: ValidationError,AuthenticationError,AuthorizationError,ResourceNotFoundError,RateLimitError,ServerError
      */
     @JsonClass(generateAdapter = false)
     enum class ErrorType(val value: kotlin.String) {
@@ -60,12 +60,13 @@ data class ErrorResponse (
         @Json(name = "AuthenticationError") AuthenticationError("AuthenticationError"),
         @Json(name = "AuthorizationError") AuthorizationError("AuthorizationError"),
         @Json(name = "ResourceNotFoundError") ResourceNotFoundError("ResourceNotFoundError"),
+        @Json(name = "RateLimitError") RateLimitError("RateLimitError"),
         @Json(name = "ServerError") ServerError("ServerError");
     }
     /**
      * 
      *
-     * Values: MISSING_REQUIRED_FIELD,INVALID_ONEOF,INVALID_JSON,MISSING_AUTH_HEADER,INVALID_TOKEN,EXPIRED_TOKEN,INSUFFICIENT_PERMISSIONS,ACCOUNT_SUSPENDED,JOB_NOT_FOUND,RESOURCE_NOT_FOUND,INVALID_ENUM_VALUE,MUTUAL_EXCLUSION_VIOLATION,INVALID_FORMAT,SERVER_ERROR,DATABASE_ERROR,EXTERNAL_SERVICE_ERROR
+     * Values: MISSING_REQUIRED_FIELD,INVALID_ONEOF,INVALID_JSON,MISSING_AUTH_HEADER,INVALID_TOKEN,EXPIRED_TOKEN,INSUFFICIENT_PERMISSIONS,ACCOUNT_SUSPENDED,JOB_NOT_FOUND,RESOURCE_NOT_FOUND,INVALID_ENUM_VALUE,MUTUAL_EXCLUSION_VIOLATION,INVALID_FORMAT,SERVER_ERROR,DATABASE_ERROR,EXTERNAL_SERVICE_ERROR,RATE_LIMIT_EXCEEDED
      */
     @JsonClass(generateAdapter = false)
     enum class ErrorCode(val value: kotlin.String) {
@@ -84,7 +85,8 @@ data class ErrorResponse (
         @Json(name = "INVALID_FORMAT") INVALID_FORMAT("INVALID_FORMAT"),
         @Json(name = "SERVER_ERROR") SERVER_ERROR("SERVER_ERROR"),
         @Json(name = "DATABASE_ERROR") DATABASE_ERROR("DATABASE_ERROR"),
-        @Json(name = "EXTERNAL_SERVICE_ERROR") EXTERNAL_SERVICE_ERROR("EXTERNAL_SERVICE_ERROR");
+        @Json(name = "EXTERNAL_SERVICE_ERROR") EXTERNAL_SERVICE_ERROR("EXTERNAL_SERVICE_ERROR"),
+        @Json(name = "RATE_LIMIT_EXCEEDED") RATE_LIMIT_EXCEEDED("RATE_LIMIT_EXCEEDED");
     }
 
 }

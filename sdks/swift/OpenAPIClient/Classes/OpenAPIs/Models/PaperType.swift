@@ -11,7 +11,8 @@ import AnyCodable
 #endif
 
 public enum PaperType: String, Codable, CaseIterable {
-    case letter = "letter"
-    case legal = "legal"
-    case postcard = "postcard"
+    case white = "white"
+    case white24 = "white_24"
+    case ivory = "ivory"
+    case glossy = "glossy"
 }

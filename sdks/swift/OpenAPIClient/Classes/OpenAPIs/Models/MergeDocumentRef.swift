@@ -11,25 +11,25 @@ import AnyCodable
 #endif
 
 public enum MergeDocumentRef: Codable, JSONEncodable, Hashable {
-    case typeInt(Int)
-    case typeMergeByRequestId(MergeByRequestId)
+    case typeMergeDocumentRefOneOf(MergeDocumentRefOneOf)
+    case typeMergeDocumentRefOneOf1(MergeDocumentRefOneOf1)
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
-        case .typeInt(let value):
+        case .typeMergeDocumentRefOneOf(let value):
             try container.encode(value)
-        case .typeMergeByRequestId(let value):
+        case .typeMergeDocumentRefOneOf1(let value):
             try container.encode(value)
         }
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        if let value = try? container.decode(Int.self) {
-            self = .typeInt(value)
-        } else if let value = try? container.decode(MergeByRequestId.self) {
-            self = .typeMergeByRequestId(value)
+        if let value = try? container.decode(MergeDocumentRefOneOf.self) {
+            self = .typeMergeDocumentRefOneOf(value)
+        } else if let value = try? container.decode(MergeDocumentRefOneOf1.self) {
+            self = .typeMergeDocumentRefOneOf1(value)
         } else {
             throw DecodingError.typeMismatch(Self.Type.self, .init(codingPath: decoder.codingPath, debugDescription: "Unable to decode instance of MergeDocumentRef"))
         }

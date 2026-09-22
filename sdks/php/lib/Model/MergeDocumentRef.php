@@ -57,8 +57,8 @@ class MergeDocumentRef implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'request_id' => 'int',
-        'filename' => 'string'
+        'merge_by_document_id' => '\C2MApi\Model\MergeByDocumentId',
+        'merge_by_request_id' => '\C2MApi\Model\MergeByRequestId'
     ];
 
     /**
@@ -69,8 +69,8 @@ class MergeDocumentRef implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'request_id' => null,
-        'filename' => null
+        'merge_by_document_id' => null,
+        'merge_by_request_id' => null
     ];
 
     /**
@@ -79,8 +79,8 @@ class MergeDocumentRef implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'request_id' => false,
-        'filename' => false
+        'merge_by_document_id' => false,
+        'merge_by_request_id' => false
     ];
 
     /**
@@ -169,8 +169,8 @@ class MergeDocumentRef implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'request_id' => 'requestId',
-        'filename' => 'filename'
+        'merge_by_document_id' => 'mergeByDocumentId',
+        'merge_by_request_id' => 'mergeByRequestId'
     ];
 
     /**
@@ -179,8 +179,8 @@ class MergeDocumentRef implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'request_id' => 'setRequestId',
-        'filename' => 'setFilename'
+        'merge_by_document_id' => 'setMergeByDocumentId',
+        'merge_by_request_id' => 'setMergeByRequestId'
     ];
 
     /**
@@ -189,8 +189,8 @@ class MergeDocumentRef implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'request_id' => 'getRequestId',
-        'filename' => 'getFilename'
+        'merge_by_document_id' => 'getMergeByDocumentId',
+        'merge_by_request_id' => 'getMergeByRequestId'
     ];
 
     /**
@@ -250,8 +250,8 @@ class MergeDocumentRef implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('request_id', $data ?? [], null);
-        $this->setIfExists('filename', $data ?? [], null);
+        $this->setIfExists('merge_by_document_id', $data ?? [], null);
+        $this->setIfExists('merge_by_request_id', $data ?? [], null);
     }
 
     /**
@@ -281,8 +281,11 @@ class MergeDocumentRef implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['request_id'] === null) {
-            $invalidProperties[] = "'request_id' can't be null";
+        if ($this->container['merge_by_document_id'] === null) {
+            $invalidProperties[] = "'merge_by_document_id' can't be null";
+        }
+        if ($this->container['merge_by_request_id'] === null) {
+            $invalidProperties[] = "'merge_by_request_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -300,55 +303,55 @@ class MergeDocumentRef implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets request_id
+     * Gets merge_by_document_id
      *
-     * @return int
+     * @return \C2MApi\Model\MergeByDocumentId
      */
-    public function getRequestId()
+    public function getMergeByDocumentId()
     {
-        return $this->container['request_id'];
+        return $this->container['merge_by_document_id'];
     }
 
     /**
-     * Sets request_id
+     * Sets merge_by_document_id
      *
-     * @param int $request_id request_id
+     * @param \C2MApi\Model\MergeByDocumentId $merge_by_document_id merge_by_document_id
      *
      * @return self
      */
-    public function setRequestId($request_id)
+    public function setMergeByDocumentId($merge_by_document_id)
     {
-        if (is_null($request_id)) {
-            throw new \InvalidArgumentException('non-nullable request_id cannot be null');
+        if (is_null($merge_by_document_id)) {
+            throw new \InvalidArgumentException('non-nullable merge_by_document_id cannot be null');
         }
-        $this->container['request_id'] = $request_id;
+        $this->container['merge_by_document_id'] = $merge_by_document_id;
 
         return $this;
     }
 
     /**
-     * Gets filename
+     * Gets merge_by_request_id
      *
-     * @return string|null
+     * @return \C2MApi\Model\MergeByRequestId
      */
-    public function getFilename()
+    public function getMergeByRequestId()
     {
-        return $this->container['filename'];
+        return $this->container['merge_by_request_id'];
     }
 
     /**
-     * Sets filename
+     * Sets merge_by_request_id
      *
-     * @param string|null $filename filename
+     * @param \C2MApi\Model\MergeByRequestId $merge_by_request_id merge_by_request_id
      *
      * @return self
      */
-    public function setFilename($filename)
+    public function setMergeByRequestId($merge_by_request_id)
     {
-        if (is_null($filename)) {
-            throw new \InvalidArgumentException('non-nullable filename cannot be null');
+        if (is_null($merge_by_request_id)) {
+            throw new \InvalidArgumentException('non-nullable merge_by_request_id cannot be null');
         }
-        $this->container['filename'] = $filename;
+        $this->container['merge_by_request_id'] = $merge_by_request_id;
 
         return $this;
     }

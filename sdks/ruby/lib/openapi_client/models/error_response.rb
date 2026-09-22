@@ -153,11 +153,11 @@ module OpenapiClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @error_type.nil?
-      error_type_validator = EnumAttributeValidator.new('String', ["ValidationError", "AuthenticationError", "AuthorizationError", "ResourceNotFoundError", "ServerError"])
+      error_type_validator = EnumAttributeValidator.new('String', ["ValidationError", "AuthenticationError", "AuthorizationError", "ResourceNotFoundError", "RateLimitError", "ServerError"])
       return false unless error_type_validator.valid?(@error_type)
       return false if @error_message.nil?
       return false if @error_code.nil?
-      error_code_validator = EnumAttributeValidator.new('String', ["MISSING_REQUIRED_FIELD", "INVALID_ONEOF", "INVALID_JSON", "MISSING_AUTH_HEADER", "INVALID_TOKEN", "EXPIRED_TOKEN", "INSUFFICIENT_PERMISSIONS", "ACCOUNT_SUSPENDED", "JOB_NOT_FOUND", "RESOURCE_NOT_FOUND", "INVALID_ENUM_VALUE", "MUTUAL_EXCLUSION_VIOLATION", "INVALID_FORMAT", "SERVER_ERROR", "DATABASE_ERROR", "EXTERNAL_SERVICE_ERROR"])
+      error_code_validator = EnumAttributeValidator.new('String', ["MISSING_REQUIRED_FIELD", "INVALID_ONEOF", "INVALID_JSON", "MISSING_AUTH_HEADER", "INVALID_TOKEN", "EXPIRED_TOKEN", "INSUFFICIENT_PERMISSIONS", "ACCOUNT_SUSPENDED", "JOB_NOT_FOUND", "RESOURCE_NOT_FOUND", "INVALID_ENUM_VALUE", "MUTUAL_EXCLUSION_VIOLATION", "INVALID_FORMAT", "SERVER_ERROR", "DATABASE_ERROR", "EXTERNAL_SERVICE_ERROR", "RATE_LIMIT_EXCEEDED"])
       return false unless error_code_validator.valid?(@error_code)
       true
     end
@@ -165,7 +165,7 @@ module OpenapiClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] error_type Object to be assigned
     def error_type=(error_type)
-      validator = EnumAttributeValidator.new('String', ["ValidationError", "AuthenticationError", "AuthorizationError", "ResourceNotFoundError", "ServerError"])
+      validator = EnumAttributeValidator.new('String', ["ValidationError", "AuthenticationError", "AuthorizationError", "ResourceNotFoundError", "RateLimitError", "ServerError"])
       unless validator.valid?(error_type)
         fail ArgumentError, "invalid value for \"error_type\", must be one of #{validator.allowable_values}."
       end
@@ -185,7 +185,7 @@ module OpenapiClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] error_code Object to be assigned
     def error_code=(error_code)
-      validator = EnumAttributeValidator.new('String', ["MISSING_REQUIRED_FIELD", "INVALID_ONEOF", "INVALID_JSON", "MISSING_AUTH_HEADER", "INVALID_TOKEN", "EXPIRED_TOKEN", "INSUFFICIENT_PERMISSIONS", "ACCOUNT_SUSPENDED", "JOB_NOT_FOUND", "RESOURCE_NOT_FOUND", "INVALID_ENUM_VALUE", "MUTUAL_EXCLUSION_VIOLATION", "INVALID_FORMAT", "SERVER_ERROR", "DATABASE_ERROR", "EXTERNAL_SERVICE_ERROR"])
+      validator = EnumAttributeValidator.new('String', ["MISSING_REQUIRED_FIELD", "INVALID_ONEOF", "INVALID_JSON", "MISSING_AUTH_HEADER", "INVALID_TOKEN", "EXPIRED_TOKEN", "INSUFFICIENT_PERMISSIONS", "ACCOUNT_SUSPENDED", "JOB_NOT_FOUND", "RESOURCE_NOT_FOUND", "INVALID_ENUM_VALUE", "MUTUAL_EXCLUSION_VIOLATION", "INVALID_FORMAT", "SERVER_ERROR", "DATABASE_ERROR", "EXTERNAL_SERVICE_ERROR", "RATE_LIMIT_EXCEEDED"])
       unless validator.valid?(error_code)
         fail ArgumentError, "invalid value for \"error_code\", must be one of #{validator.allowable_values}."
       end

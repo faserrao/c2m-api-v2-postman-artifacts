@@ -18,21 +18,45 @@ import (
 
 // DocSourceAll - struct for DocSourceAll
 type DocSourceAll struct {
-	DocSourceStandard *DocSourceStandard
-	DocSourceZipFile *DocSourceZipFile
+	DocSourceStandardOneOf *DocSourceStandardOneOf
+	DocSourceStandardOneOf1 *DocSourceStandardOneOf1
+	DocSourceStandardOneOf2 *DocSourceStandardOneOf2
+	ZipDocumentSourceOneOf *ZipDocumentSourceOneOf
+	ZipDocumentSourceOneOf1 *ZipDocumentSourceOneOf1
 }
 
-// DocSourceStandardAsDocSourceAll is a convenience function that returns DocSourceStandard wrapped in DocSourceAll
-func DocSourceStandardAsDocSourceAll(v *DocSourceStandard) DocSourceAll {
+// DocSourceStandardOneOfAsDocSourceAll is a convenience function that returns DocSourceStandardOneOf wrapped in DocSourceAll
+func DocSourceStandardOneOfAsDocSourceAll(v *DocSourceStandardOneOf) DocSourceAll {
 	return DocSourceAll{
-		DocSourceStandard: v,
+		DocSourceStandardOneOf: v,
 	}
 }
 
-// DocSourceZipFileAsDocSourceAll is a convenience function that returns DocSourceZipFile wrapped in DocSourceAll
-func DocSourceZipFileAsDocSourceAll(v *DocSourceZipFile) DocSourceAll {
+// DocSourceStandardOneOf1AsDocSourceAll is a convenience function that returns DocSourceStandardOneOf1 wrapped in DocSourceAll
+func DocSourceStandardOneOf1AsDocSourceAll(v *DocSourceStandardOneOf1) DocSourceAll {
 	return DocSourceAll{
-		DocSourceZipFile: v,
+		DocSourceStandardOneOf1: v,
+	}
+}
+
+// DocSourceStandardOneOf2AsDocSourceAll is a convenience function that returns DocSourceStandardOneOf2 wrapped in DocSourceAll
+func DocSourceStandardOneOf2AsDocSourceAll(v *DocSourceStandardOneOf2) DocSourceAll {
+	return DocSourceAll{
+		DocSourceStandardOneOf2: v,
+	}
+}
+
+// ZipDocumentSourceOneOfAsDocSourceAll is a convenience function that returns ZipDocumentSourceOneOf wrapped in DocSourceAll
+func ZipDocumentSourceOneOfAsDocSourceAll(v *ZipDocumentSourceOneOf) DocSourceAll {
+	return DocSourceAll{
+		ZipDocumentSourceOneOf: v,
+	}
+}
+
+// ZipDocumentSourceOneOf1AsDocSourceAll is a convenience function that returns ZipDocumentSourceOneOf1 wrapped in DocSourceAll
+func ZipDocumentSourceOneOf1AsDocSourceAll(v *ZipDocumentSourceOneOf1) DocSourceAll {
+	return DocSourceAll{
+		ZipDocumentSourceOneOf1: v,
 	}
 }
 
@@ -41,44 +65,98 @@ func DocSourceZipFileAsDocSourceAll(v *DocSourceZipFile) DocSourceAll {
 func (dst *DocSourceAll) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
-	// try to unmarshal data into DocSourceStandard
-	err = newStrictDecoder(data).Decode(&dst.DocSourceStandard)
+	// try to unmarshal data into DocSourceStandardOneOf
+	err = newStrictDecoder(data).Decode(&dst.DocSourceStandardOneOf)
 	if err == nil {
-		jsonDocSourceStandard, _ := json.Marshal(dst.DocSourceStandard)
-		if string(jsonDocSourceStandard) == "{}" { // empty struct
-			dst.DocSourceStandard = nil
+		jsonDocSourceStandardOneOf, _ := json.Marshal(dst.DocSourceStandardOneOf)
+		if string(jsonDocSourceStandardOneOf) == "{}" { // empty struct
+			dst.DocSourceStandardOneOf = nil
 		} else {
-			if err = validator.Validate(dst.DocSourceStandard); err != nil {
-				dst.DocSourceStandard = nil
+			if err = validator.Validate(dst.DocSourceStandardOneOf); err != nil {
+				dst.DocSourceStandardOneOf = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.DocSourceStandard = nil
+		dst.DocSourceStandardOneOf = nil
 	}
 
-	// try to unmarshal data into DocSourceZipFile
-	err = newStrictDecoder(data).Decode(&dst.DocSourceZipFile)
+	// try to unmarshal data into DocSourceStandardOneOf1
+	err = newStrictDecoder(data).Decode(&dst.DocSourceStandardOneOf1)
 	if err == nil {
-		jsonDocSourceZipFile, _ := json.Marshal(dst.DocSourceZipFile)
-		if string(jsonDocSourceZipFile) == "{}" { // empty struct
-			dst.DocSourceZipFile = nil
+		jsonDocSourceStandardOneOf1, _ := json.Marshal(dst.DocSourceStandardOneOf1)
+		if string(jsonDocSourceStandardOneOf1) == "{}" { // empty struct
+			dst.DocSourceStandardOneOf1 = nil
 		} else {
-			if err = validator.Validate(dst.DocSourceZipFile); err != nil {
-				dst.DocSourceZipFile = nil
+			if err = validator.Validate(dst.DocSourceStandardOneOf1); err != nil {
+				dst.DocSourceStandardOneOf1 = nil
 			} else {
 				match++
 			}
 		}
 	} else {
-		dst.DocSourceZipFile = nil
+		dst.DocSourceStandardOneOf1 = nil
+	}
+
+	// try to unmarshal data into DocSourceStandardOneOf2
+	err = newStrictDecoder(data).Decode(&dst.DocSourceStandardOneOf2)
+	if err == nil {
+		jsonDocSourceStandardOneOf2, _ := json.Marshal(dst.DocSourceStandardOneOf2)
+		if string(jsonDocSourceStandardOneOf2) == "{}" { // empty struct
+			dst.DocSourceStandardOneOf2 = nil
+		} else {
+			if err = validator.Validate(dst.DocSourceStandardOneOf2); err != nil {
+				dst.DocSourceStandardOneOf2 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.DocSourceStandardOneOf2 = nil
+	}
+
+	// try to unmarshal data into ZipDocumentSourceOneOf
+	err = newStrictDecoder(data).Decode(&dst.ZipDocumentSourceOneOf)
+	if err == nil {
+		jsonZipDocumentSourceOneOf, _ := json.Marshal(dst.ZipDocumentSourceOneOf)
+		if string(jsonZipDocumentSourceOneOf) == "{}" { // empty struct
+			dst.ZipDocumentSourceOneOf = nil
+		} else {
+			if err = validator.Validate(dst.ZipDocumentSourceOneOf); err != nil {
+				dst.ZipDocumentSourceOneOf = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.ZipDocumentSourceOneOf = nil
+	}
+
+	// try to unmarshal data into ZipDocumentSourceOneOf1
+	err = newStrictDecoder(data).Decode(&dst.ZipDocumentSourceOneOf1)
+	if err == nil {
+		jsonZipDocumentSourceOneOf1, _ := json.Marshal(dst.ZipDocumentSourceOneOf1)
+		if string(jsonZipDocumentSourceOneOf1) == "{}" { // empty struct
+			dst.ZipDocumentSourceOneOf1 = nil
+		} else {
+			if err = validator.Validate(dst.ZipDocumentSourceOneOf1); err != nil {
+				dst.ZipDocumentSourceOneOf1 = nil
+			} else {
+				match++
+			}
+		}
+	} else {
+		dst.ZipDocumentSourceOneOf1 = nil
 	}
 
 	if match > 1 { // more than 1 match
 		// reset to nil
-		dst.DocSourceStandard = nil
-		dst.DocSourceZipFile = nil
+		dst.DocSourceStandardOneOf = nil
+		dst.DocSourceStandardOneOf1 = nil
+		dst.DocSourceStandardOneOf2 = nil
+		dst.ZipDocumentSourceOneOf = nil
+		dst.ZipDocumentSourceOneOf1 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(DocSourceAll)")
 	} else if match == 1 {
@@ -90,12 +168,24 @@ func (dst *DocSourceAll) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src DocSourceAll) MarshalJSON() ([]byte, error) {
-	if src.DocSourceStandard != nil {
-		return json.Marshal(&src.DocSourceStandard)
+	if src.DocSourceStandardOneOf != nil {
+		return json.Marshal(&src.DocSourceStandardOneOf)
 	}
 
-	if src.DocSourceZipFile != nil {
-		return json.Marshal(&src.DocSourceZipFile)
+	if src.DocSourceStandardOneOf1 != nil {
+		return json.Marshal(&src.DocSourceStandardOneOf1)
+	}
+
+	if src.DocSourceStandardOneOf2 != nil {
+		return json.Marshal(&src.DocSourceStandardOneOf2)
+	}
+
+	if src.ZipDocumentSourceOneOf != nil {
+		return json.Marshal(&src.ZipDocumentSourceOneOf)
+	}
+
+	if src.ZipDocumentSourceOneOf1 != nil {
+		return json.Marshal(&src.ZipDocumentSourceOneOf1)
 	}
 
 	return nil, nil // no data in oneOf schemas
@@ -106,12 +196,24 @@ func (obj *DocSourceAll) GetActualInstance() (interface{}) {
 	if obj == nil {
 		return nil
 	}
-	if obj.DocSourceStandard != nil {
-		return obj.DocSourceStandard
+	if obj.DocSourceStandardOneOf != nil {
+		return obj.DocSourceStandardOneOf
 	}
 
-	if obj.DocSourceZipFile != nil {
-		return obj.DocSourceZipFile
+	if obj.DocSourceStandardOneOf1 != nil {
+		return obj.DocSourceStandardOneOf1
+	}
+
+	if obj.DocSourceStandardOneOf2 != nil {
+		return obj.DocSourceStandardOneOf2
+	}
+
+	if obj.ZipDocumentSourceOneOf != nil {
+		return obj.ZipDocumentSourceOneOf
+	}
+
+	if obj.ZipDocumentSourceOneOf1 != nil {
+		return obj.ZipDocumentSourceOneOf1
 	}
 
 	// all schemas are nil
@@ -120,12 +222,24 @@ func (obj *DocSourceAll) GetActualInstance() (interface{}) {
 
 // Get the actual instance value
 func (obj DocSourceAll) GetActualInstanceValue() (interface{}) {
-	if obj.DocSourceStandard != nil {
-		return *obj.DocSourceStandard
+	if obj.DocSourceStandardOneOf != nil {
+		return *obj.DocSourceStandardOneOf
 	}
 
-	if obj.DocSourceZipFile != nil {
-		return *obj.DocSourceZipFile
+	if obj.DocSourceStandardOneOf1 != nil {
+		return *obj.DocSourceStandardOneOf1
+	}
+
+	if obj.DocSourceStandardOneOf2 != nil {
+		return *obj.DocSourceStandardOneOf2
+	}
+
+	if obj.ZipDocumentSourceOneOf != nil {
+		return *obj.ZipDocumentSourceOneOf
+	}
+
+	if obj.ZipDocumentSourceOneOf1 != nil {
+		return *obj.ZipDocumentSourceOneOf1
 	}
 
 	// all schemas are nil

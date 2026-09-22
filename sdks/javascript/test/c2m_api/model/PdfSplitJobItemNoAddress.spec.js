@@ -54,6 +54,12 @@
       //expect(instance).to.be.a(C2MApiV2.PdfSplitJobItemNoAddress);
     });
 
+    it('should have the property jobTemplate (base name: "jobTemplate")', function() {
+      // uncomment below and update the code to test the property jobTemplate
+      //var instance = new C2MApiV2.PdfSplitJobItemNoAddress();
+      //expect(instance).to.be();
+    });
+
     it('should have the property startPage (base name: "startPage")', function() {
       // uncomment below and update the code to test the property startPage
       //var instance = new C2MApiV2.PdfSplitJobItemNoAddress();

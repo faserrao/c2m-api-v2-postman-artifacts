@@ -33,34 +33,79 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocSourceAll" /> class.
         /// </summary>
-        /// <param name="docSourceStandard"></param>
-        public DocSourceAll(DocSourceStandard docSourceStandard)
+        /// <param name="docSourceStandardOneOf"></param>
+        public DocSourceAll(DocSourceStandardOneOf docSourceStandardOneOf)
         {
-            DocSourceStandard = docSourceStandard;
+            DocSourceStandardOneOf = docSourceStandardOneOf;
             OnCreated();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DocSourceAll" /> class.
         /// </summary>
-        /// <param name="docSourceZipFile"></param>
-        public DocSourceAll(DocSourceZipFile docSourceZipFile)
+        /// <param name="docSourceStandardOneOf1"></param>
+        public DocSourceAll(DocSourceStandardOneOf1 docSourceStandardOneOf1)
         {
-            DocSourceZipFile = docSourceZipFile;
+            DocSourceStandardOneOf1 = docSourceStandardOneOf1;
+            OnCreated();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DocSourceAll" /> class.
+        /// </summary>
+        /// <param name="docSourceStandardOneOf2"></param>
+        public DocSourceAll(DocSourceStandardOneOf2 docSourceStandardOneOf2)
+        {
+            DocSourceStandardOneOf2 = docSourceStandardOneOf2;
+            OnCreated();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DocSourceAll" /> class.
+        /// </summary>
+        /// <param name="zipDocumentSourceOneOf"></param>
+        public DocSourceAll(ZipDocumentSourceOneOf zipDocumentSourceOneOf)
+        {
+            ZipDocumentSourceOneOf = zipDocumentSourceOneOf;
+            OnCreated();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DocSourceAll" /> class.
+        /// </summary>
+        /// <param name="zipDocumentSourceOneOf1"></param>
+        public DocSourceAll(ZipDocumentSourceOneOf1 zipDocumentSourceOneOf1)
+        {
+            ZipDocumentSourceOneOf1 = zipDocumentSourceOneOf1;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets DocSourceStandard
+        /// Gets or Sets DocSourceStandardOneOf
         /// </summary>
-        public DocSourceStandard? DocSourceStandard { get; set; }
+        public DocSourceStandardOneOf? DocSourceStandardOneOf { get; set; }
 
         /// <summary>
-        /// Gets or Sets DocSourceZipFile
+        /// Gets or Sets DocSourceStandardOneOf1
         /// </summary>
-        public DocSourceZipFile? DocSourceZipFile { get; set; }
+        public DocSourceStandardOneOf1? DocSourceStandardOneOf1 { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DocSourceStandardOneOf2
+        /// </summary>
+        public DocSourceStandardOneOf2? DocSourceStandardOneOf2 { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ZipDocumentSourceOneOf
+        /// </summary>
+        public ZipDocumentSourceOneOf? ZipDocumentSourceOneOf { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ZipDocumentSourceOneOf1
+        /// </summary>
+        public ZipDocumentSourceOneOf1? ZipDocumentSourceOneOf1 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -107,8 +152,11 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            DocSourceStandard? docSourceStandard = default;
-            DocSourceZipFile? docSourceZipFile = default;
+            DocSourceStandardOneOf? docSourceStandardOneOf = default;
+            DocSourceStandardOneOf1? docSourceStandardOneOf1 = default;
+            DocSourceStandardOneOf2? docSourceStandardOneOf2 = default;
+            ZipDocumentSourceOneOf? zipDocumentSourceOneOf = default;
+            ZipDocumentSourceOneOf1? zipDocumentSourceOneOf1 = default;
 
             Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
             while (utf8JsonReaderOneOf.Read())
@@ -121,11 +169,20 @@ namespace C2M.Api.Model
 
                 if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
                 {
-                    Utf8JsonReader utf8JsonReaderDocSourceStandard = utf8JsonReader;
-                    ClientUtils.TryDeserialize<DocSourceStandard?>(ref utf8JsonReaderDocSourceStandard, jsonSerializerOptions, out docSourceStandard);
+                    Utf8JsonReader utf8JsonReaderDocSourceStandardOneOf = utf8JsonReader;
+                    ClientUtils.TryDeserialize<DocSourceStandardOneOf?>(ref utf8JsonReaderDocSourceStandardOneOf, jsonSerializerOptions, out docSourceStandardOneOf);
 
-                    Utf8JsonReader utf8JsonReaderDocSourceZipFile = utf8JsonReader;
-                    ClientUtils.TryDeserialize<DocSourceZipFile?>(ref utf8JsonReaderDocSourceZipFile, jsonSerializerOptions, out docSourceZipFile);
+                    Utf8JsonReader utf8JsonReaderDocSourceStandardOneOf1 = utf8JsonReader;
+                    ClientUtils.TryDeserialize<DocSourceStandardOneOf1?>(ref utf8JsonReaderDocSourceStandardOneOf1, jsonSerializerOptions, out docSourceStandardOneOf1);
+
+                    Utf8JsonReader utf8JsonReaderDocSourceStandardOneOf2 = utf8JsonReader;
+                    ClientUtils.TryDeserialize<DocSourceStandardOneOf2?>(ref utf8JsonReaderDocSourceStandardOneOf2, jsonSerializerOptions, out docSourceStandardOneOf2);
+
+                    Utf8JsonReader utf8JsonReaderZipDocumentSourceOneOf = utf8JsonReader;
+                    ClientUtils.TryDeserialize<ZipDocumentSourceOneOf?>(ref utf8JsonReaderZipDocumentSourceOneOf, jsonSerializerOptions, out zipDocumentSourceOneOf);
+
+                    Utf8JsonReader utf8JsonReaderZipDocumentSourceOneOf1 = utf8JsonReader;
+                    ClientUtils.TryDeserialize<ZipDocumentSourceOneOf1?>(ref utf8JsonReaderZipDocumentSourceOneOf1, jsonSerializerOptions, out zipDocumentSourceOneOf1);
                 }
             }
 
@@ -150,11 +207,20 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (docSourceStandard != null)
-                return new DocSourceAll(docSourceStandard);
+            if (docSourceStandardOneOf != null)
+                return new DocSourceAll(docSourceStandardOneOf);
 
-            if (docSourceZipFile != null)
-                return new DocSourceAll(docSourceZipFile);
+            if (docSourceStandardOneOf1 != null)
+                return new DocSourceAll(docSourceStandardOneOf1);
+
+            if (docSourceStandardOneOf2 != null)
+                return new DocSourceAll(docSourceStandardOneOf2);
+
+            if (zipDocumentSourceOneOf != null)
+                return new DocSourceAll(zipDocumentSourceOneOf);
+
+            if (zipDocumentSourceOneOf1 != null)
+                return new DocSourceAll(zipDocumentSourceOneOf1);
 
             throw new JsonException();
         }

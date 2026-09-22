@@ -26,7 +26,7 @@ public class C2MClientJWT {
     private final ObjectMapper objectMapper;
     
     public C2MClientJWT(String clientId, String clientSecret) {
-        this(clientId, clientSecret, "https://api.c2m.com/v2");
+        this(clientId, clientSecret, "https://api.click2mail.com/v2");
     }
     
     public C2MClientJWT(String clientId, String clientSecret, String baseUrl) {

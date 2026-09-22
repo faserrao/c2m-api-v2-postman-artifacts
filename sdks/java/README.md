@@ -2,7 +2,7 @@
 
 C2M API v2
 - API version: 2.0.0
-  - Build date: 2026-09-11T07:19:26.667665855Z[Etc/UTC]
+  - Build date: 2026-09-22T04:30:49.083276225Z[Etc/UTC]
   - Generator version: 7.15.0
 
 API for submitting mailing jobs with various document routing options
@@ -129,10 +129,10 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**issueLongTermToken**](docs/AuthApi.md#issueLongTermToken) | **POST** /auth/tokens/long | Issue or rotate a long-term token
 *AuthApi* | [**issueShortTermToken**](docs/AuthApi.md#issueShortTermToken) | **POST** /auth/tokens/short | Issue a short-term access token
 *AuthApi* | [**revokeToken**](docs/AuthApi.md#revokeToken) | **POST** /auth/tokens/{tokenId}/revoke | Revoke a token
+*JobsApi* | [**submitDocParams**](docs/JobsApi.md#submitDocParams) | **POST** /static | Submit single document
 *JobsApi* | [**submitMultiDocMergeParams**](docs/JobsApi.md#submitMultiDocMergeParams) | **POST** /mail-merge | Submit mail merge
 *JobsApi* | [**submitMultiZipAddressCaptureParams**](docs/JobsApi.md#submitMultiZipAddressCaptureParams) | **POST** /batch/zip/address-capture | Submit ZIP batch — address capture
 *JobsApi* | [**submitMultiZipParams**](docs/JobsApi.md#submitMultiZipParams) | **POST** /batch/zip | Submit ZIP batch
-*JobsApi* | [**submitSingleDocParams**](docs/JobsApi.md#submitSingleDocParams) | **POST** /static | Submit single document
 *JobsApi* | [**submitSinglePdfAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfAddressCaptureParams) | **POST** /static/address-capture | Submit single document — address capture
 *JobsApi* | [**submitSinglePdfSplitAddressCaptureParams**](docs/JobsApi.md#submitSinglePdfSplitAddressCaptureParams) | **POST** /batch/split/address-capture | Submit PDF split — address capture
 *JobsApi* | [**submitSinglePdfSplitParams**](docs/JobsApi.md#submitSinglePdfSplitParams) | **POST** /batch/split | Submit PDF split
@@ -145,14 +145,23 @@ Class | Method | HTTP request | Description
  - [Address](docs/Address.md)
  - [AuthError](docs/AuthError.md)
  - [CardType](docs/CardType.md)
+ - [Color](docs/Color.md)
  - [CreditAmount](docs/CreditAmount.md)
  - [CreditCardDetails](docs/CreditCardDetails.md)
  - [CreditCardPayment](docs/CreditCardPayment.md)
  - [Currency](docs/Currency.md)
  - [DocSourceAll](docs/DocSourceAll.md)
  - [DocSourceStandard](docs/DocSourceStandard.md)
+ - [DocSourceStandardOneOf](docs/DocSourceStandardOneOf.md)
+ - [DocSourceStandardOneOf1](docs/DocSourceStandardOneOf1.md)
+ - [DocSourceStandardOneOf2](docs/DocSourceStandardOneOf2.md)
  - [DocSourceZipFile](docs/DocSourceZipFile.md)
  - [DocSourceZipFileRef](docs/DocSourceZipFileRef.md)
+ - [DocSourceZipFileRefOneOf](docs/DocSourceZipFileRefOneOf.md)
+ - [DocSourceZipFileRefOneOf1](docs/DocSourceZipFileRefOneOf1.md)
+ - [DocumentClass](docs/DocumentClass.md)
+ - [DocumentIdSource](docs/DocumentIdSource.md)
+ - [Envelope](docs/Envelope.md)
  - [ErrorCode](docs/ErrorCode.md)
  - [ErrorResponse](docs/ErrorResponse.md)
  - [ErrorType](docs/ErrorType.md)
@@ -160,33 +169,49 @@ Class | Method | HTTP request | Description
  - [InvoiceDetails](docs/InvoiceDetails.md)
  - [InvoicePayment](docs/InvoicePayment.md)
  - [JobOptions](docs/JobOptions.md)
+ - [Layout](docs/Layout.md)
  - [LongTokenRequest](docs/LongTokenRequest.md)
  - [LongTokenResponse](docs/LongTokenResponse.md)
+ - [MailClass](docs/MailClass.md)
+ - [MergeByDocumentId](docs/MergeByDocumentId.md)
  - [MergeByRequestId](docs/MergeByRequestId.md)
  - [MergeDocumentRef](docs/MergeDocumentRef.md)
+ - [MergeDocumentRefOneOf](docs/MergeDocumentRefOneOf.md)
+ - [MergeDocumentRefOneOf1](docs/MergeDocumentRefOneOf1.md)
  - [MultiDocJobItem](docs/MultiDocJobItem.md)
  - [MultiZipJobItem](docs/MultiZipJobItem.md)
+ - [PaperType](docs/PaperType.md)
  - [PaymentDetails](docs/PaymentDetails.md)
  - [PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
+ - [PrintOption](docs/PrintOption.md)
+ - [ProductionTime](docs/ProductionTime.md)
  - [RecipientAddressByList](docs/RecipientAddressByList.md)
- - [RecipientAddressBySingle](docs/RecipientAddressBySingle.md)
  - [RecipientAddressSource](docs/RecipientAddressSource.md)
+ - [RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
+ - [RecipientAddressSourceOneOf1](docs/RecipientAddressSourceOneOf1.md)
+ - [RecipientAddressSourceOneOf2](docs/RecipientAddressSourceOneOf2.md)
+ - [RecipientAddressSourceOneOf3](docs/RecipientAddressSourceOneOf3.md)
  - [RequestIdSource](docs/RequestIdSource.md)
  - [ReturnAddress](docs/ReturnAddress.md)
  - [ShortTokenRequest](docs/ShortTokenRequest.md)
  - [ShortTokenResponse](docs/ShortTokenResponse.md)
  - [StandardResponse](docs/StandardResponse.md)
+ - [SubmitDocParams](docs/SubmitDocParams.md)
  - [SubmitMultiDocMergeParams](docs/SubmitMultiDocMergeParams.md)
  - [SubmitMultiZipAddressCaptureParams](docs/SubmitMultiZipAddressCaptureParams.md)
  - [SubmitMultiZipParams](docs/SubmitMultiZipParams.md)
- - [SubmitSingleDocParams](docs/SubmitSingleDocParams.md)
  - [SubmitSinglePdfAddressCaptureParams](docs/SubmitSinglePdfAddressCaptureParams.md)
  - [SubmitSinglePdfSplitAddressCaptureParams](docs/SubmitSinglePdfSplitAddressCaptureParams.md)
  - [SubmitSinglePdfSplitParams](docs/SubmitSinglePdfSplitParams.md)
+ - [UrlSource](docs/UrlSource.md)
  - [UserCreditPayment](docs/UserCreditPayment.md)
+ - [ZipDocumentIdOnly](docs/ZipDocumentIdOnly.md)
  - [ZipDocumentIdSource](docs/ZipDocumentIdSource.md)
  - [ZipDocumentSource](docs/ZipDocumentSource.md)
+ - [ZipDocumentSourceOneOf](docs/ZipDocumentSourceOneOf.md)
+ - [ZipDocumentSourceOneOf1](docs/ZipDocumentSourceOneOf1.md)
+ - [ZipRequestIdOnly](docs/ZipRequestIdOnly.md)
  - [ZipRequestIdSource](docs/ZipRequestIdSource.md)
 
 

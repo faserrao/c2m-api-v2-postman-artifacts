@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AddressListId** | **int32** |  | 
+**SingleAddress** | [**Address**](Address.md) |  | 
 
 ## Methods
 
 ### NewRecipientAddressSourceOneOf
 
-`func NewRecipientAddressSourceOneOf(addressListId int32, ) *RecipientAddressSourceOneOf`
+`func NewRecipientAddressSourceOneOf(singleAddress Address, ) *RecipientAddressSourceOneOf`
 
 NewRecipientAddressSourceOneOf instantiates a new RecipientAddressSourceOneOf object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewRecipientAddressSourceOneOfWithDefaults instantiates a new RecipientAddressSo
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetAddressListId
+### GetSingleAddress
 
-`func (o *RecipientAddressSourceOneOf) GetAddressListId() int32`
+`func (o *RecipientAddressSourceOneOf) GetSingleAddress() Address`
 
-GetAddressListId returns the AddressListId field if non-nil, zero value otherwise.
+GetSingleAddress returns the SingleAddress field if non-nil, zero value otherwise.
 
-### GetAddressListIdOk
+### GetSingleAddressOk
 
-`func (o *RecipientAddressSourceOneOf) GetAddressListIdOk() (*int32, bool)`
+`func (o *RecipientAddressSourceOneOf) GetSingleAddressOk() (*Address, bool)`
 
-GetAddressListIdOk returns a tuple with the AddressListId field if it's non-nil, zero value otherwise
+GetSingleAddressOk returns a tuple with the SingleAddress field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAddressListId
+### SetSingleAddress
 
-`func (o *RecipientAddressSourceOneOf) SetAddressListId(v int32)`
+`func (o *RecipientAddressSourceOneOf) SetSingleAddress(v Address)`
 
-SetAddressListId sets AddressListId field to given value.
+SetSingleAddress sets SingleAddress field to given value.
 
 
 

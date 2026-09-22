@@ -1,9 +1,9 @@
-# C2MApiV2AuthOverlay.RecipientAddressSourceOneOf1
+# C2MApiV2.RecipientAddressSourceOneOf1
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addressId** | **Number** |  | 
+**recipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | 
 
 

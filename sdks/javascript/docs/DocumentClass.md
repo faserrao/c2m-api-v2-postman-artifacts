@@ -1,10 +1,14 @@
-# C2MApiV2AuthOverlay.DocumentClass
+# C2MApiV2.DocumentClass
 
 ## Enum
 
 
-* `businessLetter` (value: `"businessLetter"`)
+* `letter` (value: `"letter"`)
 
-* `personalLetter` (value: `"personalLetter"`)
+* `postcard` (value: `"postcard"`)
+
+* `brochure` (value: `"brochure"`)
+
+* `flat` (value: `"flat"`)
 
 

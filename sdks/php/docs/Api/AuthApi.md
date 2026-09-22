@@ -41,7 +41,7 @@ $apiInstance = new C2MApi\Api\AuthApi(
     new GuzzleHttp\Client(),
     $config
 );
-$long_token_request = {"grant_type":"client_credentials","client_id":"c2m_abc123","client_secret":"supersecret123","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000}; // \C2MApi\Model\LongTokenRequest
+$long_token_request = {"grant_type":"client_credentials","client_id":"{{clientId}}","client_secret":"{{clientSecret}}","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000}; // \C2MApi\Model\LongTokenRequest
 
 try {
     $result = $apiInstance->issueLongTermToken($long_token_request);

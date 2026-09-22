@@ -13,6 +13,7 @@
 
 package com.c2m.model;
 
+import com.c2m.model.Address;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -38,11 +39,11 @@ public class RecipientAddressSourceOneOfTest {
     }
 
     /**
-     * Test the property 'addressListId'
+     * Test the property 'singleAddress'
      */
     @Test
-    public void addressListIdTest() {
-        // TODO: test addressListId
+    public void singleAddressTest() {
+        // TODO: test singleAddress
     }
 
 }

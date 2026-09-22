@@ -54,32 +54,26 @@
       //expect(instance).to.be.a(C2MApiV2.RecipientAddressSource);
     });
 
-    it('should have the property mappingId (base name: "mappingId")', function() {
-      // uncomment below and update the code to test the property mappingId
-      //var instance = new C2MApiV2.RecipientAddressSource();
-      //expect(instance).to.be();
-    });
-
     it('should have the property singleAddress (base name: "singleAddress")', function() {
       // uncomment below and update the code to test the property singleAddress
       //var instance = new C2MApiV2.RecipientAddressSource();
       //expect(instance).to.be();
     });
 
-    it('should have the property addressName (base name: "addressName")', function() {
-      // uncomment below and update the code to test the property addressName
+    it('should have the property recipientAddressByList (base name: "recipientAddressByList")', function() {
+      // uncomment below and update the code to test the property recipientAddressByList
       //var instance = new C2MApiV2.RecipientAddressSource();
       //expect(instance).to.be();
     });
 
-    it('should have the property addressList (base name: "addressList")', function() {
-      // uncomment below and update the code to test the property addressList
+    it('should have the property recipientAddressByAddressId (base name: "recipientAddressByAddressId")', function() {
+      // uncomment below and update the code to test the property recipientAddressByAddressId
       //var instance = new C2MApiV2.RecipientAddressSource();
       //expect(instance).to.be();
     });
 
-    it('should have the property addressListName (base name: "addressListName")', function() {
-      // uncomment below and update the code to test the property addressListName
+    it('should have the property recipientAddressByListId (base name: "recipientAddressByListId")', function() {
+      // uncomment below and update the code to test the property recipientAddressByListId
       //var instance = new C2MApiV2.RecipientAddressSource();
       //expect(instance).to.be();
     });

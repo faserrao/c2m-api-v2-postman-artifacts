@@ -13,6 +13,8 @@
 
 * `RESOURCE_NOT_FOUND_ERROR` (value: `"ResourceNotFoundError"`)
 
+* `RATE_LIMIT_ERROR` (value: `"RateLimitError"`)
+
 * `SERVER_ERROR` (value: `"ServerError"`)
 
 

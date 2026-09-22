@@ -1,6 +1,6 @@
 /*
- * C2M API v2 - Auth Overlay
- * API for submitting documents with various routing options
+ * C2M API v2
+ * API for submitting mailing jobs with various document routing options
  *
  * The version of the OpenAPI document: 2.0.0
  * 
@@ -14,6 +14,7 @@
 package com.c2m.model;
 
 import java.util.Objects;
+import com.c2m.model.RecipientAddressByList;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,32 +49,32 @@ import com.c2m.JSON;
 /**
  * RecipientAddressSourceOneOf1
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-11-05T02:45:53.394297139Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-22T04:30:49.083276225Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class RecipientAddressSourceOneOf1 {
-  public static final String SERIALIZED_NAME_ADDRESS_ID = "addressId";
-  @SerializedName(SERIALIZED_NAME_ADDRESS_ID)
+  public static final String SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_LIST = "recipientAddressByList";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_LIST)
   @javax.annotation.Nonnull
-  private Integer addressId;
+  private RecipientAddressByList recipientAddressByList;
 
   public RecipientAddressSourceOneOf1() {
   }
 
-  public RecipientAddressSourceOneOf1 addressId(@javax.annotation.Nonnull Integer addressId) {
-    this.addressId = addressId;
+  public RecipientAddressSourceOneOf1 recipientAddressByList(@javax.annotation.Nonnull RecipientAddressByList recipientAddressByList) {
+    this.recipientAddressByList = recipientAddressByList;
     return this;
   }
 
   /**
-   * Get addressId
-   * @return addressId
+   * Get recipientAddressByList
+   * @return recipientAddressByList
    */
   @javax.annotation.Nonnull
-  public Integer getAddressId() {
-    return addressId;
+  public RecipientAddressByList getRecipientAddressByList() {
+    return recipientAddressByList;
   }
 
-  public void setAddressId(@javax.annotation.Nonnull Integer addressId) {
-    this.addressId = addressId;
+  public void setRecipientAddressByList(@javax.annotation.Nonnull RecipientAddressByList recipientAddressByList) {
+    this.recipientAddressByList = recipientAddressByList;
   }
 
 
@@ -87,19 +88,19 @@ public class RecipientAddressSourceOneOf1 {
       return false;
     }
     RecipientAddressSourceOneOf1 recipientAddressSourceOneOf1 = (RecipientAddressSourceOneOf1) o;
-    return Objects.equals(this.addressId, recipientAddressSourceOneOf1.addressId);
+    return Objects.equals(this.recipientAddressByList, recipientAddressSourceOneOf1.recipientAddressByList);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(addressId);
+    return Objects.hash(recipientAddressByList);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RecipientAddressSourceOneOf1 {\n");
-    sb.append("    addressId: ").append(toIndentedString(addressId)).append("\n");
+    sb.append("    recipientAddressByList: ").append(toIndentedString(recipientAddressByList)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -121,10 +122,10 @@ public class RecipientAddressSourceOneOf1 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("addressId"));
+    openapiFields = new HashSet<String>(Arrays.asList("recipientAddressByList"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("addressId"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("recipientAddressByList"));
   }
 
   /**
@@ -155,6 +156,8 @@ public class RecipientAddressSourceOneOf1 {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `recipientAddressByList`
+      RecipientAddressByList.validateJsonElement(jsonObj.get("recipientAddressByList"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -5,6 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**zip_document_id_only** | [**ZipDocumentIdOnly**](ZipDocumentIdOnly.md) |  | 
+**zip_request_id_only** | [**ZipRequestIdOnly**](ZipRequestIdOnly.md) |  | 
 
 ## Example
 

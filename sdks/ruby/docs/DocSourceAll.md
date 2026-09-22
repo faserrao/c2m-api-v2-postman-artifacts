@@ -14,8 +14,11 @@ require 'openapi_client'
 OpenapiClient::DocSourceAll.openapi_one_of
 # =>
 # [
-#   :'DocSourceStandard',
-#   :'DocSourceZipFile'
+#   :'DocSourceStandardOneOf',
+#   :'DocSourceStandardOneOf1',
+#   :'DocSourceStandardOneOf2',
+#   :'ZipDocumentSourceOneOf',
+#   :'ZipDocumentSourceOneOf1'
 # ]
 ```
 
@@ -29,7 +32,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'openapi_client'
 
 OpenapiClient::DocSourceAll.build(data)
-# => #<DocSourceStandard:0x00007fdd4aab02a0>
+# => #<DocSourceStandardOneOf:0x00007fdd4aab02a0>
 
 OpenapiClient::DocSourceAll.build(data_that_doesnt_match)
 # => nil
@@ -43,7 +46,10 @@ OpenapiClient::DocSourceAll.build(data_that_doesnt_match)
 
 #### Return type
 
-- `DocSourceStandard`
-- `DocSourceZipFile`
+- `DocSourceStandardOneOf`
+- `DocSourceStandardOneOf1`
+- `DocSourceStandardOneOf2`
+- `ZipDocumentSourceOneOf`
+- `ZipDocumentSourceOneOf1`
 - `nil` (if no type matches)
 

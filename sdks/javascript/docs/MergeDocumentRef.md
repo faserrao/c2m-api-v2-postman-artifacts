@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requestId** | **Number** |  | 
-**filename** | **String** |  | [optional] 
+**mergeByDocumentId** | [**MergeByDocumentId**](MergeByDocumentId.md) |  | 
+**mergeByRequestId** | [**MergeByRequestId**](MergeByRequestId.md) |  | 
 
 

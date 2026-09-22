@@ -57,7 +57,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        
+        'zip_document_id_only' => '\C2MApi\Model\ZipDocumentIdOnly',
+        'zip_request_id_only' => '\C2MApi\Model\ZipRequestIdOnly'
     ];
 
     /**
@@ -68,7 +69,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        
+        'zip_document_id_only' => null,
+        'zip_request_id_only' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        
+        'zip_document_id_only' => false,
+        'zip_request_id_only' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'zip_document_id_only' => 'zipDocumentIdOnly',
+        'zip_request_id_only' => 'zipRequestIdOnly'
     ];
 
     /**
@@ -175,7 +179,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        
+        'zip_document_id_only' => 'setZipDocumentIdOnly',
+        'zip_request_id_only' => 'setZipRequestIdOnly'
     ];
 
     /**
@@ -184,7 +189,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        
+        'zip_document_id_only' => 'getZipDocumentIdOnly',
+        'zip_request_id_only' => 'getZipRequestIdOnly'
     ];
 
     /**
@@ -244,6 +250,8 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('zip_document_id_only', $data ?? [], null);
+        $this->setIfExists('zip_request_id_only', $data ?? [], null);
     }
 
     /**
@@ -273,6 +281,12 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
+        if ($this->container['zip_document_id_only'] === null) {
+            $invalidProperties[] = "'zip_document_id_only' can't be null";
+        }
+        if ($this->container['zip_request_id_only'] === null) {
+            $invalidProperties[] = "'zip_request_id_only' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -287,6 +301,60 @@ class DocSourceZipFileRef implements ModelInterface, ArrayAccess, \JsonSerializa
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets zip_document_id_only
+     *
+     * @return \C2MApi\Model\ZipDocumentIdOnly
+     */
+    public function getZipDocumentIdOnly()
+    {
+        return $this->container['zip_document_id_only'];
+    }
+
+    /**
+     * Sets zip_document_id_only
+     *
+     * @param \C2MApi\Model\ZipDocumentIdOnly $zip_document_id_only zip_document_id_only
+     *
+     * @return self
+     */
+    public function setZipDocumentIdOnly($zip_document_id_only)
+    {
+        if (is_null($zip_document_id_only)) {
+            throw new \InvalidArgumentException('non-nullable zip_document_id_only cannot be null');
+        }
+        $this->container['zip_document_id_only'] = $zip_document_id_only;
+
+        return $this;
+    }
+
+    /**
+     * Gets zip_request_id_only
+     *
+     * @return \C2MApi\Model\ZipRequestIdOnly
+     */
+    public function getZipRequestIdOnly()
+    {
+        return $this->container['zip_request_id_only'];
+    }
+
+    /**
+     * Sets zip_request_id_only
+     *
+     * @param \C2MApi\Model\ZipRequestIdOnly $zip_request_id_only zip_request_id_only
+     *
+     * @return self
+     */
+    public function setZipRequestIdOnly($zip_request_id_only)
+    {
+        if (is_null($zip_request_id_only)) {
+            throw new \InvalidArgumentException('non-nullable zip_request_id_only cannot be null');
+        }
+        $this->container['zip_request_id_only'] = $zip_request_id_only;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

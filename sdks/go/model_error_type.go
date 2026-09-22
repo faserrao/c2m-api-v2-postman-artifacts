@@ -24,6 +24,7 @@ const (
 	AUTHENTICATION_ERROR ErrorType = "AuthenticationError"
 	AUTHORIZATION_ERROR ErrorType = "AuthorizationError"
 	RESOURCE_NOT_FOUND_ERROR ErrorType = "ResourceNotFoundError"
+	RATE_LIMIT_ERROR ErrorType = "RateLimitError"
 	SERVER_ERROR ErrorType = "ServerError"
 )
 
@@ -33,6 +34,7 @@ var AllowedErrorTypeEnumValues = []ErrorType{
 	"AuthenticationError",
 	"AuthorizationError",
 	"ResourceNotFoundError",
+	"RateLimitError",
 	"ServerError",
 }
 

@@ -47,6 +47,8 @@ pub enum ErrorType {
     AuthorizationError,
     #[serde(rename = "ResourceNotFoundError")]
     ResourceNotFoundError,
+    #[serde(rename = "RateLimitError")]
+    RateLimitError,
     #[serde(rename = "ServerError")]
     ServerError,
 }
@@ -91,6 +93,8 @@ pub enum ErrorCode {
     DatabaseError,
     #[serde(rename = "EXTERNAL_SERVICE_ERROR")]
     ExternalServiceError,
+    #[serde(rename = "RATE_LIMIT_EXCEEDED")]
+    RateLimitExceeded,
 }
 
 impl Default for ErrorCode {

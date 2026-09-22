@@ -26,6 +26,13 @@ class TestJobsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_submit_doc_params(self) -> None:
+        """Test case for submit_doc_params
+
+        Submit single document
+        """
+        pass
+
     def test_submit_multi_doc_merge_params(self) -> None:
         """Test case for submit_multi_doc_merge_params
 
@@ -44,13 +51,6 @@ class TestJobsApi(unittest.TestCase):
         """Test case for submit_multi_zip_params
 
         Submit ZIP batch
-        """
-        pass
-
-    def test_submit_single_doc_params(self) -> None:
-        """Test case for submit_single_doc_params
-
-        Submit single document
         """
         pass
 

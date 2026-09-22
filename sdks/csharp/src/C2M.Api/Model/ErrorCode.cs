@@ -108,7 +108,12 @@ namespace C2M.Api.Model
         /// <summary>
         /// Enum EXTERNALSERVICEERROR for value: EXTERNAL_SERVICE_ERROR
         /// </summary>
-        EXTERNALSERVICEERROR = 16
+        EXTERNALSERVICEERROR = 16,
+
+        /// <summary>
+        /// Enum RATELIMITEXCEEDED for value: RATE_LIMIT_EXCEEDED
+        /// </summary>
+        RATELIMITEXCEEDED = 17
     }
 
     /// <summary>
@@ -171,6 +176,9 @@ namespace C2M.Api.Model
             if (value.Equals("EXTERNAL_SERVICE_ERROR"))
                 return ErrorCode.EXTERNALSERVICEERROR;
 
+            if (value.Equals("RATE_LIMIT_EXCEEDED"))
+                return ErrorCode.RATELIMITEXCEEDED;
+
             throw new NotImplementedException($"Could not convert value to type ErrorCode: '{value}'");
         }
 
@@ -228,6 +236,9 @@ namespace C2M.Api.Model
 
             if (value.Equals("EXTERNAL_SERVICE_ERROR"))
                 return ErrorCode.EXTERNALSERVICEERROR;
+
+            if (value.Equals("RATE_LIMIT_EXCEEDED"))
+                return ErrorCode.RATELIMITEXCEEDED;
 
             return null;
         }
@@ -287,6 +298,9 @@ namespace C2M.Api.Model
 
             if (value == ErrorCode.EXTERNALSERVICEERROR)
                 return "EXTERNAL_SERVICE_ERROR";
+
+            if (value == ErrorCode.RATELIMITEXCEEDED)
+                return "RATE_LIMIT_EXCEEDED";
 
             throw new NotImplementedException($"Value could not be handled: '{value}'");
         }

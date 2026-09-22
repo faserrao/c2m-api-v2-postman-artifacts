@@ -3,10 +3,8 @@
 
 ## Enum
 
-* `None` (value: `'none'`)
+* `DoubleSided` (value: `'double_sided'`)
 
-* `Color` (value: `'color'`)
-
-* `Grayscale` (value: `'grayscale'`)
+* `SingleSided` (value: `'single_sided'`)
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -1,15 +1,14 @@
 cat: postman/postman_linked_collection_uid.txt: No such file or directory
-cat: postman/postman_env_uid.txt: No such file or directory
+❌ Mock server URL not found: run 'make postman-mock-create' first
 ==========================================================================
 GOLDEN TEST SUITE — validate_collections_against_spec.py
 ==========================================================================
 
-[1] Positive controls (System A, EBNF-driven) — expect ZERO real failures
-    (known gap: jobTemplate false-positive filtered — see translator TODO)
+[1] Positive controls (System A, EBNF-driven) — expect ZERO failures
     [ok  ] c2mapiv2-linked-collection-flat.json: 0 failures (expected 0)
     [ok  ] c2mapiv2-test-collection-flat.json: 0 failures (expected 0)
 
-[2] Negative controls (System B, Getting Started) — must be fully clean
+[2] Integration controls (System B, Getting Started) — must be fully clean
     (false-negative coverage provided by test 3 synthetic fault injection)
   c2mapiv2-getting-started-linked-collection.json
     [ok  ] /static: 0 failures (expected 0)
@@ -34,28 +33,87 @@ GOLDEN TEST SUITE — validate_collections_against_spec.py
     [ok  ] /static missing recipientAddressSource -> flagged
     [ok  ] placeholder /static body -> no false positives
     [ok  ] /batch/split wrong names -> flags both missing required fields
+    [ok  ] V5: startPage > endPage -> caught
+    [ok  ] V5: startPage = 0 -> caught
+    [ok  ] V5: placeholder startPage/endPage -> no false positives
+    [ok  ] V5: valid startPage < endPage -> no errors
+    [ok  ] /static with empty docSourceAll -> should flag error
+    [ok  ] K-V4: invalid mailClass enum value -> flagged
+    [ok  ] K-V4: complete valid jobOptions -> no errors
 
 ==========================================================================
 RESULT: ✅ ALL golden assertions passed — validator is trustworthy
-test_nested_object (__main__.TestBuildVariantPlaceholderStructure.test_nested_object) ... ok
-test_simple_object (__main__.TestBuildVariantPlaceholderStructure.test_simple_object) ... ok
-test_unknown_schema_returns_none (__main__.TestBuildVariantPlaceholderStructure.test_unknown_schema_returns_none) ... ok
-test_address_list_variant (__main__.TestFindVariantByDiscriminatorKey.test_address_list_variant) ... ok
-test_direct_oneof_match (__main__.TestFindVariantByDiscriminatorKey.test_direct_oneof_match) ... ok
-test_nested_oneof_match (__main__.TestFindVariantByDiscriminatorKey.test_nested_oneof_match)
-docSourceAll → docSourceStandard → requestIdSource (two levels deep) ... ok
-test_nested_oneof_url_variant (__main__.TestFindVariantByDiscriminatorKey.test_nested_oneof_url_variant) ... ok
-test_payment_variant (__main__.TestFindVariantByDiscriminatorKey.test_payment_variant) ... ok
-test_unknown_discriminator_key_returns_none (__main__.TestFindVariantByDiscriminatorKey.test_unknown_discriminator_key_returns_none) ... ok
-test_unknown_field_returns_none (__main__.TestFindVariantByDiscriminatorKey.test_unknown_field_returns_none) ... ok
-test_all_known_variants_resolve (__main__.TestWithRealSpec.test_all_known_variants_resolve)
-Ensure every variant that the YAML configs use resolves correctly. ... ok
-test_credit_card (__main__.TestWithRealSpec.test_credit_card) ... ok
-test_document_id_source (__main__.TestWithRealSpec.test_document_id_source) ... ok
-test_request_id_source (__main__.TestWithRealSpec.test_request_id_source) ... ok
-test_single_address (__main__.TestWithRealSpec.test_single_address) ... ok
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /home/runner/work/c2m-api-v2-postman/c2m-api-v2-postman/scripts/python_env/e2o.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/runner/work/c2m-api-v2-postman/c2m-api-v2-postman
+plugins: anyio-4.9.0, Faker-33.1.0
+collecting ... collected 20 items
 
-----------------------------------------------------------------------
-Ran 15 tests in 0.097s
+scripts/validation/tests/test_oneof_resolver.py::TestNamedWrapperResolver::test_find_second_wrapper_by_type_name PASSED [  5%]
+scripts/validation/tests/test_oneof_resolver.py::TestNamedWrapperResolver::test_find_wrapper_by_type_name PASSED [ 10%]
+scripts/validation/tests/test_oneof_resolver.py::TestNamedWrapperResolver::test_placeholder_structure_for_inline_wrapper PASSED [ 15%]
+scripts/validation/tests/test_oneof_resolver.py::TestNamedWrapperResolver::test_unknown_wrapper_returns_none PASSED [ 20%]
+scripts/validation/tests/test_oneof_resolver.py::TestFindVariantByDiscriminatorKey::test_address_list_variant PASSED [ 25%]
+scripts/validation/tests/test_oneof_resolver.py::TestFindVariantByDiscriminatorKey::test_direct_oneof_match PASSED [ 30%]
+scripts/validation/tests/test_oneof_resolver.py::TestFindVariantByDiscriminatorKey::test_nested_oneof_match PASSED [ 35%]
+scripts/validation/tests/test_oneof_resolver.py::TestFindVariantByDiscriminatorKey::test_nested_oneof_url_variant PASSED [ 40%]
+scripts/validation/tests/test_oneof_resolver.py::TestFindVariantByDiscriminatorKey::test_non_oneof_field_returns_none PASSED [ 45%]
+scripts/validation/tests/test_oneof_resolver.py::TestFindVariantByDiscriminatorKey::test_payment_variant PASSED [ 50%]
+scripts/validation/tests/test_oneof_resolver.py::TestFindVariantByDiscriminatorKey::test_unknown_discriminator_key_returns_none PASSED [ 55%]
+scripts/validation/tests/test_oneof_resolver.py::TestFindVariantByDiscriminatorKey::test_unknown_field_returns_none PASSED [ 60%]
+scripts/validation/tests/test_oneof_resolver.py::TestBuildVariantPlaceholderStructure::test_nested_object PASSED [ 65%]
+scripts/validation/tests/test_oneof_resolver.py::TestBuildVariantPlaceholderStructure::test_simple_object PASSED [ 70%]
+scripts/validation/tests/test_oneof_resolver.py::TestBuildVariantPlaceholderStructure::test_unknown_schema_returns_none PASSED [ 75%]
+scripts/validation/tests/test_oneof_resolver.py::TestWithRealSpec::test_all_known_variants_resolve PASSED [ 80%]
+scripts/validation/tests/test_oneof_resolver.py::TestWithRealSpec::test_credit_card PASSED [ 85%]
+scripts/validation/tests/test_oneof_resolver.py::TestWithRealSpec::test_document_id_source PASSED [ 90%]
+scripts/validation/tests/test_oneof_resolver.py::TestWithRealSpec::test_request_id_source PASSED [ 95%]
+scripts/validation/tests/test_oneof_resolver.py::TestWithRealSpec::test_single_address PASSED [100%]
 
-OK
+============================== 20 passed in 0.18s ==============================
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /home/runner/work/c2m-api-v2-postman/c2m-api-v2-postman/scripts/python_env/e2o.venv/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/runner/work/c2m-api-v2-postman/c2m-api-v2-postman
+plugins: anyio-4.9.0, Faker-33.1.0
+collecting ... collected 31 items
+
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_color_is_enum PASSED [  3%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_documentClass_is_enum PASSED [  6%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_ebnf_has_no_unexpected_warnings PASSED [  9%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_ebnf_parses_without_errors PASSED [ 12%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_endPage_constraints PASSED [ 16%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_enum_schemas_are_string_type 
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_enum_schemas_are_string_type PASSED [ 19%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_envelope_is_enum PASSED [ 22%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_getting_started_template_uses_canonical_layout PASSED [ 25%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_layout_alias_maps_to_canonical PASSED [ 29%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_layout_is_enum PASSED [ 32%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_mailClass_is_enum PASSED [ 35%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_month_constraints PASSED [ 38%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_month_schema_has_constraints PASSED [ 41%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_numeric_constraints_parsed PASSED [ 45%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_paperType_is_enum PASSED [ 48%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_printOption_is_enum PASSED [ 51%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_productionTime_is_enum PASSED [ 54%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_provider_aliases_file_exists PASSED [ 58%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_provider_aliases_values_are_canonical 
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_provider_aliases_values_are_canonical PASSED [ 61%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_provider_mappings_canonical_values_match_ebnf 
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_provider_mappings_canonical_values_match_ebnf PASSED [ 64%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_provider_mappings_covers_all_enum_fields 
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_provider_mappings_covers_all_enum_fields PASSED [ 67%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_provider_mappings_file_exists PASSED [ 70%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_provider_mappings_is_generated PASSED [ 74%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_quantity_minimum PASSED [ 77%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_spec_info_has_numeric_constraints PASSED [ 80%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_spec_info_has_valid_combinations PASSED [ 83%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_spec_info_still_has_http_error_map PASSED [ 87%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_startPage_constraints PASSED [ 90%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_valid_combinations_parsed PASSED [ 93%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_valid_combinations_structure 
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_valid_combinations_structure PASSED [ 96%]
+scripts/validation/tests/test_dd_constraints.py::TestDDConstraints::test_year_constraints PASSED [100%]
+
+==================== 31 passed, 43 subtests passed in 0.18s ====================

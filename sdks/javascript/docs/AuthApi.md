@@ -33,7 +33,7 @@ ClientKey.apiKey = 'YOUR API KEY';
 //ClientKey.apiKeyPrefix = 'Token';
 
 let apiInstance = new C2MApiV2.AuthApi();
-let longTokenRequest = {"grant_type":"client_credentials","client_id":"c2m_abc123","client_secret":"supersecret123","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000}; // LongTokenRequest | 
+let longTokenRequest = {"grant_type":"client_credentials","client_id":"{{clientId}}","client_secret":"{{clientSecret}}","scopes":["jobs:submit","templates:read"],"ttl_seconds":7776000}; // LongTokenRequest | 
 apiInstance.issueLongTermToken(longTokenRequest, (error, data, response) => {
   if (error) {
     console.error(error);

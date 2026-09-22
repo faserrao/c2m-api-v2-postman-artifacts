@@ -139,12 +139,18 @@ namespace C2M.Api.Client
                     : "false";
             if (obj is CardType cardType)
                 return CardTypeValueConverter.ToJsonValue(cardType);
+            if (obj is Color color)
+                return ColorValueConverter.ToJsonValue(color);
             if (obj is CreditAmount.CurrencyEnum creditAmountCurrencyEnum)
                 return CreditAmount.CurrencyEnumToJsonValue(creditAmountCurrencyEnum);
             if (obj is CreditCardDetails.CardTypeEnum creditCardDetailsCardTypeEnum)
                 return CreditCardDetails.CardTypeEnumToJsonValue(creditCardDetailsCardTypeEnum);
             if (obj is Currency currency)
                 return CurrencyValueConverter.ToJsonValue(currency);
+            if (obj is DocumentClass documentClass)
+                return DocumentClassValueConverter.ToJsonValue(documentClass);
+            if (obj is Envelope envelope)
+                return EnvelopeValueConverter.ToJsonValue(envelope);
             if (obj is ErrorCode errorCode)
                 return ErrorCodeValueConverter.ToJsonValue(errorCode);
             if (obj is ErrorResponse.ErrorTypeEnum errorResponseErrorTypeEnum)
@@ -153,10 +159,36 @@ namespace C2M.Api.Client
                 return ErrorResponse.ErrorCodeEnumToJsonValue(errorResponseErrorCodeEnum);
             if (obj is ErrorType errorType)
                 return ErrorTypeValueConverter.ToJsonValue(errorType);
+            if (obj is JobOptions.DocumentClassEnum jobOptionsDocumentClassEnum)
+                return JobOptions.DocumentClassEnumToJsonValue(jobOptionsDocumentClassEnum);
+            if (obj is JobOptions.LayoutEnum jobOptionsLayoutEnum)
+                return JobOptions.LayoutEnumToJsonValue(jobOptionsLayoutEnum);
+            if (obj is JobOptions.ProductionTimeEnum jobOptionsProductionTimeEnum)
+                return JobOptions.ProductionTimeEnumToJsonValue(jobOptionsProductionTimeEnum);
+            if (obj is JobOptions.EnvelopeEnum jobOptionsEnvelopeEnum)
+                return JobOptions.EnvelopeEnumToJsonValue(jobOptionsEnvelopeEnum);
+            if (obj is JobOptions.ColorEnum jobOptionsColorEnum)
+                return JobOptions.ColorEnumToJsonValue(jobOptionsColorEnum);
+            if (obj is JobOptions.PaperTypeEnum jobOptionsPaperTypeEnum)
+                return JobOptions.PaperTypeEnumToJsonValue(jobOptionsPaperTypeEnum);
+            if (obj is JobOptions.PrintOptionEnum jobOptionsPrintOptionEnum)
+                return JobOptions.PrintOptionEnumToJsonValue(jobOptionsPrintOptionEnum);
+            if (obj is JobOptions.MailClassEnum jobOptionsMailClassEnum)
+                return JobOptions.MailClassEnumToJsonValue(jobOptionsMailClassEnum);
+            if (obj is Layout layout)
+                return LayoutValueConverter.ToJsonValue(layout);
             if (obj is LongTokenRequest.GrantTypeEnum longTokenRequestGrantTypeEnum)
                 return LongTokenRequest.GrantTypeEnumToJsonValue(longTokenRequestGrantTypeEnum);
             if (obj is LongTokenResponse.TokenTypeEnum longTokenResponseTokenTypeEnum)
                 return LongTokenResponse.TokenTypeEnumToJsonValue(longTokenResponseTokenTypeEnum);
+            if (obj is MailClass mailClass)
+                return MailClassValueConverter.ToJsonValue(mailClass);
+            if (obj is PaperType paperType)
+                return PaperTypeValueConverter.ToJsonValue(paperType);
+            if (obj is PrintOption printOption)
+                return PrintOptionValueConverter.ToJsonValue(printOption);
+            if (obj is ProductionTime productionTime)
+                return ProductionTimeValueConverter.ToJsonValue(productionTime);
             if (obj is ShortTokenResponse.TokenTypeEnum shortTokenResponseTokenTypeEnum)
                 return ShortTokenResponse.TokenTypeEnumToJsonValue(shortTokenResponseTokenTypeEnum);
             if (obj is ICollection collection)

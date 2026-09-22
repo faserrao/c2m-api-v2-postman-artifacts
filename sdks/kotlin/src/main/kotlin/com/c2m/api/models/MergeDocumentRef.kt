@@ -15,7 +15,10 @@
 
 package com.c2m.api.models
 
+import com.c2m.api.models.MergeByDocumentId
 import com.c2m.api.models.MergeByRequestId
+import com.c2m.api.models.MergeDocumentRefOneOf
+import com.c2m.api.models.MergeDocumentRefOneOf1
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -23,18 +26,18 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param requestId 
- * @param filename 
+ * @param mergeByDocumentId 
+ * @param mergeByRequestId 
  */
 
 
 data class MergeDocumentRef (
 
-    @Json(name = "requestId")
-    val requestId: kotlin.Int,
+    @Json(name = "mergeByDocumentId")
+    val mergeByDocumentId: MergeByDocumentId,
 
-    @Json(name = "filename")
-    val filename: kotlin.String? = null
+    @Json(name = "mergeByRequestId")
+    val mergeByRequestId: MergeByRequestId
 
 ) {
 

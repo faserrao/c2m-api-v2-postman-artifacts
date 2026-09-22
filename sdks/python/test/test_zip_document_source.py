@@ -35,17 +35,23 @@ class TestZipDocumentSource(unittest.TestCase):
         model = ZipDocumentSource()
         if include_optional:
             return ZipDocumentSource(
-                zip_document_id = 56,
-                filename = '',
-                request_id = 56,
-                zip_filename = ''
+                zip_document_id_source = c2m_api.models.zip_document_id_source.zipDocumentIdSource(
+                    zip_document_id = 56, 
+                    filename = '', ),
+                zip_request_id_source = c2m_api.models.zip_request_id_source.zipRequestIdSource(
+                    request_id = 56, 
+                    zip_filename = '', 
+                    filename = '', )
             )
         else:
             return ZipDocumentSource(
-                zip_document_id = 56,
-                filename = '',
-                request_id = 56,
-                zip_filename = '',
+                zip_document_id_source = c2m_api.models.zip_document_id_source.zipDocumentIdSource(
+                    zip_document_id = 56, 
+                    filename = '', ),
+                zip_request_id_source = c2m_api.models.zip_request_id_source.zipRequestIdSource(
+                    request_id = 56, 
+                    zip_filename = '', 
+                    filename = '', ),
         )
         """
 

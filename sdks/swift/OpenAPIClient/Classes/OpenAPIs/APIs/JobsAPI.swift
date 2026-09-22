@@ -13,6 +13,53 @@ import AnyCodable
 open class JobsAPI {
 
     /**
+     Submit single document
+     
+     - parameter submitDocParams: (body)  
+     - parameter apiResponseQueue: The queue on which api response is dispatched.
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    @discardableResult
+    open class func submitDocParams(submitDocParams: SubmitDocParams, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: StandardResponse?, _ error: Error?) -> Void)) -> RequestTask {
+        return submitDocParamsWithRequestBuilder(submitDocParams: submitDocParams).execute(apiResponseQueue) { result in
+            switch result {
+            case let .success(response):
+                completion(response.body, nil)
+            case let .failure(error):
+                completion(nil, error)
+            }
+        }
+    }
+
+    /**
+     Submit single document
+     - POST /static
+     - Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+     - Bearer Token:
+       - type: http
+       - name: bearerAuth
+     - parameter submitDocParams: (body)  
+     - returns: RequestBuilder<StandardResponse> 
+     */
+    open class func submitDocParamsWithRequestBuilder(submitDocParams: SubmitDocParams) -> RequestBuilder<StandardResponse> {
+        let localVariablePath = "/static"
+        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
+        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: submitDocParams)
+
+        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
+
+        let localVariableNillableHeaders: [String: Any?] = [
+            "Content-Type": "application/json",
+        ]
+
+        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
+
+        let localVariableRequestBuilder: RequestBuilder<StandardResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
+
+        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
+    }
+
+    /**
      Submit mail merge
      
      - parameter submitMultiDocMergeParams: (body)  
@@ -139,53 +186,6 @@ open class JobsAPI {
         let localVariablePath = "/batch/zip"
         let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
         let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: submitMultiZipParams)
-
-        let localVariableUrlComponents = URLComponents(string: localVariableURLString)
-
-        let localVariableNillableHeaders: [String: Any?] = [
-            "Content-Type": "application/json",
-        ]
-
-        let localVariableHeaderParameters = APIHelper.rejectNilHeaders(localVariableNillableHeaders)
-
-        let localVariableRequestBuilder: RequestBuilder<StandardResponse>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
-
-        return localVariableRequestBuilder.init(method: "POST", URLString: (localVariableUrlComponents?.string ?? localVariableURLString), parameters: localVariableParameters, headers: localVariableHeaderParameters, requiresAuthentication: true)
-    }
-
-    /**
-     Submit single document
-     
-     - parameter submitSingleDocParams: (body)  
-     - parameter apiResponseQueue: The queue on which api response is dispatched.
-     - parameter completion: completion handler to receive the data and the error objects
-     */
-    @discardableResult
-    open class func submitSingleDocParams(submitSingleDocParams: SubmitSingleDocParams, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: StandardResponse?, _ error: Error?) -> Void)) -> RequestTask {
-        return submitSingleDocParamsWithRequestBuilder(submitSingleDocParams: submitSingleDocParams).execute(apiResponseQueue) { result in
-            switch result {
-            case let .success(response):
-                completion(response.body, nil)
-            case let .failure(error):
-                completion(nil, error)
-            }
-        }
-    }
-
-    /**
-     Submit single document
-     - POST /static
-     - Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
-     - Bearer Token:
-       - type: http
-       - name: bearerAuth
-     - parameter submitSingleDocParams: (body)  
-     - returns: RequestBuilder<StandardResponse> 
-     */
-    open class func submitSingleDocParamsWithRequestBuilder(submitSingleDocParams: SubmitSingleDocParams) -> RequestBuilder<StandardResponse> {
-        let localVariablePath = "/static"
-        let localVariableURLString = OpenAPIClientAPI.basePath + localVariablePath
-        let localVariableParameters = JSONEncodingHelper.encodingParameters(forEncodableObject: submitSingleDocParams)
 
         let localVariableUrlComponents = URLComponents(string: localVariableURLString)
 

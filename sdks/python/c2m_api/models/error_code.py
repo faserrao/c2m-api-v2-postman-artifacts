@@ -42,6 +42,7 @@ class ErrorCode(str, Enum):
     SERVER_ERROR = 'SERVER_ERROR'
     DATABASE_ERROR = 'DATABASE_ERROR'
     EXTERNAL_SERVICE_ERROR = 'EXTERNAL_SERVICE_ERROR'
+    RATE_LIMIT_EXCEEDED = 'RATE_LIMIT_EXCEEDED'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:

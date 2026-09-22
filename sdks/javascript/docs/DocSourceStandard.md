@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requestId** | **Number** |  | 
-**filename** | **String** |  | [optional] 
+**documentIdSource** | [**DocumentIdSource**](DocumentIdSource.md) |  | 
+**requestIdSource** | [**RequestIdSource**](RequestIdSource.md) |  | 
+**urlSource** | [**UrlSource**](UrlSource.md) |  | 
 
 

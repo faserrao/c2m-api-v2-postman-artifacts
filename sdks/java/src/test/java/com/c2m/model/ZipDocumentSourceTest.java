@@ -14,6 +14,8 @@
 package com.c2m.model;
 
 import com.c2m.model.ZipDocumentIdSource;
+import com.c2m.model.ZipDocumentSourceOneOf;
+import com.c2m.model.ZipDocumentSourceOneOf1;
 import com.c2m.model.ZipRequestIdSource;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -40,35 +42,19 @@ public class ZipDocumentSourceTest {
     }
 
     /**
-     * Test the property 'zipDocumentId'
+     * Test the property 'zipDocumentIdSource'
      */
     @Test
-    public void zipDocumentIdTest() {
-        // TODO: test zipDocumentId
+    public void zipDocumentIdSourceTest() {
+        // TODO: test zipDocumentIdSource
     }
 
     /**
-     * Test the property 'filename'
+     * Test the property 'zipRequestIdSource'
      */
     @Test
-    public void filenameTest() {
-        // TODO: test filename
-    }
-
-    /**
-     * Test the property 'requestId'
-     */
-    @Test
-    public void requestIdTest() {
-        // TODO: test requestId
-    }
-
-    /**
-     * Test the property 'zipFilename'
-     */
-    @Test
-    public void zipFilenameTest() {
-        // TODO: test zipFilename
+    public void zipRequestIdSourceTest() {
+        // TODO: test zipRequestIdSource
     }
 
 }
