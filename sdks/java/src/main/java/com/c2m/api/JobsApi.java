@@ -96,6 +96,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -171,6 +172,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -195,6 +197,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -221,6 +224,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -247,6 +251,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -322,6 +327,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -346,6 +352,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -372,6 +379,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -398,6 +406,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -473,6 +482,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -497,6 +507,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -523,6 +534,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -549,6 +561,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -624,6 +637,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -648,6 +662,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -674,6 +689,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -700,6 +716,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -775,6 +792,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -799,6 +817,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -825,6 +844,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -851,6 +871,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -926,6 +947,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -950,6 +972,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -976,6 +999,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -1002,6 +1026,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -1077,6 +1102,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -1101,6 +1127,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */
@@ -1127,6 +1154,7 @@ public class JobsApi {
         <tr><td> 403 </td><td> Forbidden - Insufficient permissions </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Not Found - Resource not found </td><td>  -  </td></tr>
         <tr><td> 422 </td><td> Unprocessable Entity - Validation failed </td><td>  -  </td></tr>
+        <tr><td> 429 </td><td> Too Many Requests - Rate limit exceeded </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error - Server encountered an error </td><td>  -  </td></tr>
      </table>
      */

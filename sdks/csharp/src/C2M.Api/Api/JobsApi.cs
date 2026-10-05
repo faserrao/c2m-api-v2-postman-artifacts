@@ -200,7 +200,7 @@ namespace C2M.Api.Api
     /// <summary>
     /// The <see cref="ISubmitDocParamsApiResponse"/>
     /// </summary>
-    public interface ISubmitDocParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
+    public interface ISubmitDocParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, ITooManyRequests<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -237,6 +237,12 @@ namespace C2M.Api.Api
         /// </summary>
         /// <returns></returns>
         bool IsUnprocessableContent { get; }
+
+        /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
 
         /// <summary>
         /// Returns true if the response is 500 InternalServerError
@@ -248,7 +254,7 @@ namespace C2M.Api.Api
     /// <summary>
     /// The <see cref="ISubmitMultiDocMergeParamsApiResponse"/>
     /// </summary>
-    public interface ISubmitMultiDocMergeParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
+    public interface ISubmitMultiDocMergeParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, ITooManyRequests<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -285,6 +291,12 @@ namespace C2M.Api.Api
         /// </summary>
         /// <returns></returns>
         bool IsUnprocessableContent { get; }
+
+        /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
 
         /// <summary>
         /// Returns true if the response is 500 InternalServerError
@@ -296,7 +308,7 @@ namespace C2M.Api.Api
     /// <summary>
     /// The <see cref="ISubmitMultiZipAddressCaptureParamsApiResponse"/>
     /// </summary>
-    public interface ISubmitMultiZipAddressCaptureParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
+    public interface ISubmitMultiZipAddressCaptureParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, ITooManyRequests<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -333,6 +345,12 @@ namespace C2M.Api.Api
         /// </summary>
         /// <returns></returns>
         bool IsUnprocessableContent { get; }
+
+        /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
 
         /// <summary>
         /// Returns true if the response is 500 InternalServerError
@@ -344,7 +362,7 @@ namespace C2M.Api.Api
     /// <summary>
     /// The <see cref="ISubmitMultiZipParamsApiResponse"/>
     /// </summary>
-    public interface ISubmitMultiZipParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
+    public interface ISubmitMultiZipParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, ITooManyRequests<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -381,6 +399,12 @@ namespace C2M.Api.Api
         /// </summary>
         /// <returns></returns>
         bool IsUnprocessableContent { get; }
+
+        /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
 
         /// <summary>
         /// Returns true if the response is 500 InternalServerError
@@ -392,7 +416,7 @@ namespace C2M.Api.Api
     /// <summary>
     /// The <see cref="ISubmitSinglePdfAddressCaptureParamsApiResponse"/>
     /// </summary>
-    public interface ISubmitSinglePdfAddressCaptureParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
+    public interface ISubmitSinglePdfAddressCaptureParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, ITooManyRequests<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -429,6 +453,12 @@ namespace C2M.Api.Api
         /// </summary>
         /// <returns></returns>
         bool IsUnprocessableContent { get; }
+
+        /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
 
         /// <summary>
         /// Returns true if the response is 500 InternalServerError
@@ -440,7 +470,7 @@ namespace C2M.Api.Api
     /// <summary>
     /// The <see cref="ISubmitSinglePdfSplitAddressCaptureParamsApiResponse"/>
     /// </summary>
-    public interface ISubmitSinglePdfSplitAddressCaptureParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
+    public interface ISubmitSinglePdfSplitAddressCaptureParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, ITooManyRequests<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -477,6 +507,12 @@ namespace C2M.Api.Api
         /// </summary>
         /// <returns></returns>
         bool IsUnprocessableContent { get; }
+
+        /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
 
         /// <summary>
         /// Returns true if the response is 500 InternalServerError
@@ -488,7 +524,7 @@ namespace C2M.Api.Api
     /// <summary>
     /// The <see cref="ISubmitSinglePdfSplitParamsApiResponse"/>
     /// </summary>
-    public interface ISubmitSinglePdfSplitParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
+    public interface ISubmitSinglePdfSplitParamsApiResponse : C2M.Api.Client.IApiResponse, IOk<C2M.Api.Model.StandardResponse?>, IBadRequest<C2M.Api.Model.ErrorResponse?>, IUnauthorized<C2M.Api.Model.ErrorResponse?>, IForbidden<C2M.Api.Model.ErrorResponse?>, INotFound<C2M.Api.Model.ErrorResponse?>, IUnprocessableContent<C2M.Api.Model.ErrorResponse?>, ITooManyRequests<C2M.Api.Model.ErrorResponse?>, IInternalServerError<C2M.Api.Model.ErrorResponse?>
     {
         /// <summary>
         /// Returns true if the response is 200 Ok
@@ -525,6 +561,12 @@ namespace C2M.Api.Api
         /// </summary>
         /// <returns></returns>
         bool IsUnprocessableContent { get; }
+
+        /// <summary>
+        /// Returns true if the response is 429 TooManyRequests
+        /// </summary>
+        /// <returns></returns>
+        bool IsTooManyRequests { get; }
 
         /// <summary>
         /// Returns true if the response is 500 InternalServerError
@@ -1185,6 +1227,44 @@ namespace C2M.Api.Api
             }
 
             /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public C2M.Api.Model.ErrorResponse? TooManyRequests()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsTooManyRequests
+                    ? System.Text.Json.JsonSerializer.Deserialize<C2M.Api.Model.ErrorResponse>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryTooManyRequests([NotNullWhen(true)]out C2M.Api.Model.ErrorResponse? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = TooManyRequests();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)429);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
             /// Returns true if the response is 500 InternalServerError
             /// </summary>
             /// <returns></returns>
@@ -1672,6 +1752,44 @@ namespace C2M.Api.Api
                 } catch (Exception e)
                 {
                     OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)422);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public C2M.Api.Model.ErrorResponse? TooManyRequests()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsTooManyRequests
+                    ? System.Text.Json.JsonSerializer.Deserialize<C2M.Api.Model.ErrorResponse>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryTooManyRequests([NotNullWhen(true)]out C2M.Api.Model.ErrorResponse? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = TooManyRequests();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)429);
                 }
 
                 return result != null;
@@ -2171,6 +2289,44 @@ namespace C2M.Api.Api
             }
 
             /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public C2M.Api.Model.ErrorResponse? TooManyRequests()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsTooManyRequests
+                    ? System.Text.Json.JsonSerializer.Deserialize<C2M.Api.Model.ErrorResponse>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryTooManyRequests([NotNullWhen(true)]out C2M.Api.Model.ErrorResponse? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = TooManyRequests();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)429);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
             /// Returns true if the response is 500 InternalServerError
             /// </summary>
             /// <returns></returns>
@@ -2658,6 +2814,44 @@ namespace C2M.Api.Api
                 } catch (Exception e)
                 {
                     OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)422);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public C2M.Api.Model.ErrorResponse? TooManyRequests()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsTooManyRequests
+                    ? System.Text.Json.JsonSerializer.Deserialize<C2M.Api.Model.ErrorResponse>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryTooManyRequests([NotNullWhen(true)]out C2M.Api.Model.ErrorResponse? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = TooManyRequests();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)429);
                 }
 
                 return result != null;
@@ -3157,6 +3351,44 @@ namespace C2M.Api.Api
             }
 
             /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public C2M.Api.Model.ErrorResponse? TooManyRequests()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsTooManyRequests
+                    ? System.Text.Json.JsonSerializer.Deserialize<C2M.Api.Model.ErrorResponse>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryTooManyRequests([NotNullWhen(true)]out C2M.Api.Model.ErrorResponse? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = TooManyRequests();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)429);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
             /// Returns true if the response is 500 InternalServerError
             /// </summary>
             /// <returns></returns>
@@ -3650,6 +3882,44 @@ namespace C2M.Api.Api
             }
 
             /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public C2M.Api.Model.ErrorResponse? TooManyRequests()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsTooManyRequests
+                    ? System.Text.Json.JsonSerializer.Deserialize<C2M.Api.Model.ErrorResponse>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryTooManyRequests([NotNullWhen(true)]out C2M.Api.Model.ErrorResponse? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = TooManyRequests();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)429);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
             /// Returns true if the response is 500 InternalServerError
             /// </summary>
             /// <returns></returns>
@@ -4137,6 +4407,44 @@ namespace C2M.Api.Api
                 } catch (Exception e)
                 {
                     OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)422);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public bool IsTooManyRequests => 429 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 429 TooManyRequests
+            /// </summary>
+            /// <returns></returns>
+            public C2M.Api.Model.ErrorResponse? TooManyRequests()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsTooManyRequests
+                    ? System.Text.Json.JsonSerializer.Deserialize<C2M.Api.Model.ErrorResponse>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 429 TooManyRequests and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryTooManyRequests([NotNullWhen(true)]out C2M.Api.Model.ErrorResponse? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = TooManyRequests();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)429);
                 }
 
                 return result != null;

@@ -50,6 +50,7 @@ Submits a mailing job for a single document to one or more recipients. The reque
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -92,6 +93,7 @@ Merges multiple documents into a single mailing sent to one recipient. Useful fo
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -134,6 +136,7 @@ Submits a ZIP-based mailing batch where recipient addresses are captured externa
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -176,6 +179,7 @@ Submits multiple mailing jobs sourced from files inside a single ZIP archive. Ea
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -218,6 +222,7 @@ Submits a mailing job for a single PDF where recipient addresses are captured fr
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -260,6 +265,7 @@ Splits a single PDF into page ranges where recipient addresses are captured from
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -302,6 +308,7 @@ Splits a single PDF into page ranges and mails each range to a different recipie
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

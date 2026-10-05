@@ -24,6 +24,7 @@ pub enum SubmitDocParamsError {
     Status403(models::ErrorResponse),
     Status404(models::ErrorResponse),
     Status422(models::ErrorResponse),
+    Status429(models::ErrorResponse),
     Status500(models::ErrorResponse),
     UnknownValue(serde_json::Value),
 }
@@ -37,6 +38,7 @@ pub enum SubmitMultiDocMergeParamsError {
     Status403(models::ErrorResponse),
     Status404(models::ErrorResponse),
     Status422(models::ErrorResponse),
+    Status429(models::ErrorResponse),
     Status500(models::ErrorResponse),
     UnknownValue(serde_json::Value),
 }
@@ -50,6 +52,7 @@ pub enum SubmitMultiZipAddressCaptureParamsError {
     Status403(models::ErrorResponse),
     Status404(models::ErrorResponse),
     Status422(models::ErrorResponse),
+    Status429(models::ErrorResponse),
     Status500(models::ErrorResponse),
     UnknownValue(serde_json::Value),
 }
@@ -63,6 +66,7 @@ pub enum SubmitMultiZipParamsError {
     Status403(models::ErrorResponse),
     Status404(models::ErrorResponse),
     Status422(models::ErrorResponse),
+    Status429(models::ErrorResponse),
     Status500(models::ErrorResponse),
     UnknownValue(serde_json::Value),
 }
@@ -76,6 +80,7 @@ pub enum SubmitSinglePdfAddressCaptureParamsError {
     Status403(models::ErrorResponse),
     Status404(models::ErrorResponse),
     Status422(models::ErrorResponse),
+    Status429(models::ErrorResponse),
     Status500(models::ErrorResponse),
     UnknownValue(serde_json::Value),
 }
@@ -89,6 +94,7 @@ pub enum SubmitSinglePdfSplitAddressCaptureParamsError {
     Status403(models::ErrorResponse),
     Status404(models::ErrorResponse),
     Status422(models::ErrorResponse),
+    Status429(models::ErrorResponse),
     Status500(models::ErrorResponse),
     UnknownValue(serde_json::Value),
 }
@@ -102,6 +108,7 @@ pub enum SubmitSinglePdfSplitParamsError {
     Status403(models::ErrorResponse),
     Status404(models::ErrorResponse),
     Status422(models::ErrorResponse),
+    Status429(models::ErrorResponse),
     Status500(models::ErrorResponse),
     UnknownValue(serde_json::Value),
 }

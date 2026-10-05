@@ -84,6 +84,7 @@ public class Example {
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 
 <a id="submitMultiDocMergeParams"></a>
@@ -157,6 +158,7 @@ public class Example {
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 
 <a id="submitMultiZipAddressCaptureParams"></a>
@@ -230,6 +232,7 @@ public class Example {
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 
 <a id="submitMultiZipParams"></a>
@@ -303,6 +306,7 @@ public class Example {
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 
 <a id="submitSinglePdfAddressCaptureParams"></a>
@@ -376,6 +380,7 @@ public class Example {
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 
 <a id="submitSinglePdfSplitAddressCaptureParams"></a>
@@ -449,6 +454,7 @@ public class Example {
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 
 <a id="submitSinglePdfSplitParams"></a>
@@ -522,5 +528,6 @@ public class Example {
 | **403** | Forbidden - Insufficient permissions |  -  |
 | **404** | Not Found - Resource not found |  -  |
 | **422** | Unprocessable Entity - Validation failed |  -  |
+| **429** | Too Many Requests - Rate limit exceeded |  -  |
 | **500** | Internal Server Error - Server encountered an error |  -  |
 

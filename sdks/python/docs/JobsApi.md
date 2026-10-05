@@ -94,6 +94,7 @@ Name | Type | Description  | Notes
 **403** | Forbidden - Insufficient permissions |  -  |
 **404** | Not Found - Resource not found |  -  |
 **422** | Unprocessable Entity - Validation failed |  -  |
+**429** | Too Many Requests - Rate limit exceeded |  -  |
 **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,6 +180,7 @@ Name | Type | Description  | Notes
 **403** | Forbidden - Insufficient permissions |  -  |
 **404** | Not Found - Resource not found |  -  |
 **422** | Unprocessable Entity - Validation failed |  -  |
+**429** | Too Many Requests - Rate limit exceeded |  -  |
 **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -264,6 +266,7 @@ Name | Type | Description  | Notes
 **403** | Forbidden - Insufficient permissions |  -  |
 **404** | Not Found - Resource not found |  -  |
 **422** | Unprocessable Entity - Validation failed |  -  |
+**429** | Too Many Requests - Rate limit exceeded |  -  |
 **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -349,6 +352,7 @@ Name | Type | Description  | Notes
 **403** | Forbidden - Insufficient permissions |  -  |
 **404** | Not Found - Resource not found |  -  |
 **422** | Unprocessable Entity - Validation failed |  -  |
+**429** | Too Many Requests - Rate limit exceeded |  -  |
 **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -434,6 +438,7 @@ Name | Type | Description  | Notes
 **403** | Forbidden - Insufficient permissions |  -  |
 **404** | Not Found - Resource not found |  -  |
 **422** | Unprocessable Entity - Validation failed |  -  |
+**429** | Too Many Requests - Rate limit exceeded |  -  |
 **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -519,6 +524,7 @@ Name | Type | Description  | Notes
 **403** | Forbidden - Insufficient permissions |  -  |
 **404** | Not Found - Resource not found |  -  |
 **422** | Unprocessable Entity - Validation failed |  -  |
+**429** | Too Many Requests - Rate limit exceeded |  -  |
 **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -604,6 +610,7 @@ Name | Type | Description  | Notes
 **403** | Forbidden - Insufficient permissions |  -  |
 **404** | Not Found - Resource not found |  -  |
 **422** | Unprocessable Entity - Validation failed |  -  |
+**429** | Too Many Requests - Rate limit exceeded |  -  |
 **500** | Internal Server Error - Server encountered an error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

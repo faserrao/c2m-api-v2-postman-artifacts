@@ -103,6 +103,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -176,6 +177,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -249,6 +251,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -395,6 +398,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -468,6 +472,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -541,6 +546,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -687,6 +693,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -760,6 +767,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -833,6 +841,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -979,6 +988,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1052,6 +1062,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1125,6 +1136,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1271,6 +1283,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1344,6 +1357,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1417,6 +1431,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1563,6 +1578,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1636,6 +1652,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1709,6 +1726,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1855,6 +1873,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -1928,6 +1947,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
@@ -2001,6 +2021,7 @@ class JobsApi:
             '403': "ErrorResponse",
             '404': "ErrorResponse",
             '422': "ErrorResponse",
+            '429': "ErrorResponse",
             '500': "ErrorResponse",
         }
         response_data = self.api_client.call_api(
