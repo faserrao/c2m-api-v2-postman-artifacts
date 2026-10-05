@@ -284,9 +284,25 @@ class ExpirationDate implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['month'] === null) {
             $invalidProperties[] = "'month' can't be null";
         }
+        if (($this->container['month'] > 12)) {
+            $invalidProperties[] = "invalid value for 'month', must be smaller than or equal to 12.";
+        }
+
+        if (($this->container['month'] < 1)) {
+            $invalidProperties[] = "invalid value for 'month', must be bigger than or equal to 1.";
+        }
+
         if ($this->container['year'] === null) {
             $invalidProperties[] = "'year' can't be null";
         }
+        if (($this->container['year'] > 2099)) {
+            $invalidProperties[] = "invalid value for 'year', must be smaller than or equal to 2099.";
+        }
+
+        if (($this->container['year'] < 2000)) {
+            $invalidProperties[] = "invalid value for 'year', must be bigger than or equal to 2000.";
+        }
+
         return $invalidProperties;
     }
 
@@ -324,6 +340,14 @@ class ExpirationDate implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($month)) {
             throw new \InvalidArgumentException('non-nullable month cannot be null');
         }
+
+        if (($month > 12)) {
+            throw new \InvalidArgumentException('invalid value for $month when calling ExpirationDate., must be smaller than or equal to 12.');
+        }
+        if (($month < 1)) {
+            throw new \InvalidArgumentException('invalid value for $month when calling ExpirationDate., must be bigger than or equal to 1.');
+        }
+
         $this->container['month'] = $month;
 
         return $this;
@@ -351,6 +375,14 @@ class ExpirationDate implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($year)) {
             throw new \InvalidArgumentException('non-nullable year cannot be null');
         }
+
+        if (($year > 2099)) {
+            throw new \InvalidArgumentException('invalid value for $year when calling ExpirationDate., must be smaller than or equal to 2099.');
+        }
+        if (($year < 2000)) {
+            throw new \InvalidArgumentException('invalid value for $year when calling ExpirationDate., must be bigger than or equal to 2000.');
+        }
+
         $this->container['year'] = $year;
 
         return $this;

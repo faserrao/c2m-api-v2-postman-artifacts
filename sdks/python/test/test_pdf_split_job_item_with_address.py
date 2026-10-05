@@ -36,14 +36,14 @@ class TestPdfSplitJobItemWithAddress(unittest.TestCase):
         if include_optional:
             return PdfSplitJobItemWithAddress(
                 job_template = '',
-                start_page = 56,
-                end_page = 56,
+                start_page = 1,
+                end_page = 1,
                 recipient_address_source = None
             )
         else:
             return PdfSplitJobItemWithAddress(
-                start_page = 56,
-                end_page = 56,
+                start_page = 1,
+                end_page = 1,
                 recipient_address_source = None,
         )
         """

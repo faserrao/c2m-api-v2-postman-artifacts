@@ -89,8 +89,24 @@ module OpenapiClient
         invalid_properties.push('invalid value for "month", month cannot be nil.')
       end
 
+      if @month > 12
+        invalid_properties.push('invalid value for "month", must be smaller than or equal to 12.')
+      end
+
+      if @month < 1
+        invalid_properties.push('invalid value for "month", must be greater than or equal to 1.')
+      end
+
       if @year.nil?
         invalid_properties.push('invalid value for "year", year cannot be nil.')
+      end
+
+      if @year > 2099
+        invalid_properties.push('invalid value for "year", must be smaller than or equal to 2099.')
+      end
+
+      if @year < 2000
+        invalid_properties.push('invalid value for "year", must be greater than or equal to 2000.')
       end
 
       invalid_properties
@@ -101,7 +117,11 @@ module OpenapiClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @month.nil?
+      return false if @month > 12
+      return false if @month < 1
       return false if @year.nil?
+      return false if @year > 2099
+      return false if @year < 2000
       true
     end
 
@@ -112,6 +132,14 @@ module OpenapiClient
         fail ArgumentError, 'month cannot be nil'
       end
 
+      if month > 12
+        fail ArgumentError, 'invalid value for "month", must be smaller than or equal to 12.'
+      end
+
+      if month < 1
+        fail ArgumentError, 'invalid value for "month", must be greater than or equal to 1.'
+      end
+
       @month = month
     end
 
@@ -120,6 +148,14 @@ module OpenapiClient
     def year=(year)
       if year.nil?
         fail ArgumentError, 'year cannot be nil'
+      end
+
+      if year > 2099
+        fail ArgumentError, 'invalid value for "year", must be smaller than or equal to 2099.'
+      end
+
+      if year < 2000
+        fail ArgumentError, 'invalid value for "year", must be greater than or equal to 2000.'
       end
 
       @year = year

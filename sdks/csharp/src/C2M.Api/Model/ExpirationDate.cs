@@ -78,6 +78,30 @@ namespace C2M.Api.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Month (int) maximum
+            if (this.Month > (int)12)
+            {
+                yield return new ValidationResult("Invalid value for Month, must be a value less than or equal to 12.", new [] { "Month" });
+            }
+
+            // Month (int) minimum
+            if (this.Month < (int)1)
+            {
+                yield return new ValidationResult("Invalid value for Month, must be a value greater than or equal to 1.", new [] { "Month" });
+            }
+
+            // Year (int) maximum
+            if (this.Year > (int)2099)
+            {
+                yield return new ValidationResult("Invalid value for Year, must be a value less than or equal to 2099.", new [] { "Year" });
+            }
+
+            // Year (int) minimum
+            if (this.Year < (int)2000)
+            {
+                yield return new ValidationResult("Invalid value for Year, must be a value greater than or equal to 2000.", new [] { "Year" });
+            }
+
             yield break;
         }
     }

@@ -97,8 +97,16 @@ module OpenapiClient
         invalid_properties.push('invalid value for "start_page", start_page cannot be nil.')
       end
 
+      if @start_page < 1
+        invalid_properties.push('invalid value for "start_page", must be greater than or equal to 1.')
+      end
+
       if @end_page.nil?
         invalid_properties.push('invalid value for "end_page", end_page cannot be nil.')
+      end
+
+      if @end_page < 1
+        invalid_properties.push('invalid value for "end_page", must be greater than or equal to 1.')
       end
 
       invalid_properties
@@ -109,7 +117,9 @@ module OpenapiClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @start_page.nil?
+      return false if @start_page < 1
       return false if @end_page.nil?
+      return false if @end_page < 1
       true
     end
 
@@ -120,6 +130,10 @@ module OpenapiClient
         fail ArgumentError, 'start_page cannot be nil'
       end
 
+      if start_page < 1
+        fail ArgumentError, 'invalid value for "start_page", must be greater than or equal to 1.'
+      end
+
       @start_page = start_page
     end
 
@@ -128,6 +142,10 @@ module OpenapiClient
     def end_page=(end_page)
       if end_page.nil?
         fail ArgumentError, 'end_page cannot be nil'
+      end
+
+      if end_page < 1
+        fail ArgumentError, 'invalid value for "end_page", must be greater than or equal to 1.'
       end
 
       @end_page = end_page

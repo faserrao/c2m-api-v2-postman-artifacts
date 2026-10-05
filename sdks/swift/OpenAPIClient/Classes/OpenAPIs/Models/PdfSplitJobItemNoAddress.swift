@@ -12,6 +12,8 @@ import AnyCodable
 
 public struct PdfSplitJobItemNoAddress: Codable, JSONEncodable, Hashable {
 
+    public static let startPageRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    public static let endPageRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public var jobTemplate: String?
     public var startPage: Int
     public var endPage: Int

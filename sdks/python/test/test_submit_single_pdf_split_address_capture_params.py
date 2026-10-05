@@ -40,8 +40,8 @@ class TestSubmitSinglePdfSplitAddressCaptureParams(unittest.TestCase):
                 pdf_split_jobs_no_address = [
                     c2m_api.models.pdf_split_job_item_no_address.pdfSplitJobItemNoAddress(
                         job_template = '', 
-                        start_page = 56, 
-                        end_page = 56, )
+                        start_page = 1, 
+                        end_page = 1, )
                     ],
                 payment_details = None,
                 return_address = c2m_api.models.return_address.returnAddress(
@@ -74,8 +74,8 @@ class TestSubmitSinglePdfSplitAddressCaptureParams(unittest.TestCase):
                 pdf_split_jobs_no_address = [
                     c2m_api.models.pdf_split_job_item_no_address.pdfSplitJobItemNoAddress(
                         job_template = '', 
-                        start_page = 56, 
-                        end_page = 56, )
+                        start_page = 1, 
+                        end_page = 1, )
                     ],
         )
         """

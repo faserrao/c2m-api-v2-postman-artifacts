@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from c2m_api.models.recipient_address_source import RecipientAddressSource
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,8 +29,8 @@ class PdfSplitJobItemWithAddress(BaseModel):
     PdfSplitJobItemWithAddress
     """ # noqa: E501
     job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
-    start_page: StrictInt = Field(alias="startPage")
-    end_page: StrictInt = Field(alias="endPage")
+    start_page: Annotated[int, Field(strict=True, ge=1)] = Field(alias="startPage")
+    end_page: Annotated[int, Field(strict=True, ge=1)] = Field(alias="endPage")
     recipient_address_source: RecipientAddressSource = Field(alias="recipientAddressSource")
     __properties: ClassVar[List[str]] = ["jobTemplate", "startPage", "endPage", "recipientAddressSource"]
 

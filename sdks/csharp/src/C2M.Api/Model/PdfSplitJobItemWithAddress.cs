@@ -103,6 +103,18 @@ namespace C2M.Api.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // StartPage (int) minimum
+            if (this.StartPage < (int)1)
+            {
+                yield return new ValidationResult("Invalid value for StartPage, must be a value greater than or equal to 1.", new [] { "StartPage" });
+            }
+
+            // EndPage (int) minimum
+            if (this.EndPage < (int)1)
+            {
+                yield return new ValidationResult("Invalid value for EndPage, must be a value greater than or equal to 1.", new [] { "EndPage" });
+            }
+
             yield break;
         }
     }

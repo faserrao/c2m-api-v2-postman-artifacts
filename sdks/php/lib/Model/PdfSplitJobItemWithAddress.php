@@ -298,9 +298,17 @@ class PdfSplitJobItemWithAddress implements ModelInterface, ArrayAccess, \JsonSe
         if ($this->container['start_page'] === null) {
             $invalidProperties[] = "'start_page' can't be null";
         }
+        if (($this->container['start_page'] < 1)) {
+            $invalidProperties[] = "invalid value for 'start_page', must be bigger than or equal to 1.";
+        }
+
         if ($this->container['end_page'] === null) {
             $invalidProperties[] = "'end_page' can't be null";
         }
+        if (($this->container['end_page'] < 1)) {
+            $invalidProperties[] = "invalid value for 'end_page', must be bigger than or equal to 1.";
+        }
+
         if ($this->container['recipient_address_source'] === null) {
             $invalidProperties[] = "'recipient_address_source' can't be null";
         }
@@ -368,6 +376,11 @@ class PdfSplitJobItemWithAddress implements ModelInterface, ArrayAccess, \JsonSe
         if (is_null($start_page)) {
             throw new \InvalidArgumentException('non-nullable start_page cannot be null');
         }
+
+        if (($start_page < 1)) {
+            throw new \InvalidArgumentException('invalid value for $start_page when calling PdfSplitJobItemWithAddress., must be bigger than or equal to 1.');
+        }
+
         $this->container['start_page'] = $start_page;
 
         return $this;
@@ -395,6 +408,11 @@ class PdfSplitJobItemWithAddress implements ModelInterface, ArrayAccess, \JsonSe
         if (is_null($end_page)) {
             throw new \InvalidArgumentException('non-nullable end_page cannot be null');
         }
+
+        if (($end_page < 1)) {
+            throw new \InvalidArgumentException('invalid value for $end_page when calling PdfSplitJobItemWithAddress., must be bigger than or equal to 1.');
+        }
+
         $this->container['end_page'] = $end_page;
 
         return $this;
