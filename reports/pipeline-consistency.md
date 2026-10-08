@@ -1,6 +1,6 @@
 # Pipeline consistency (DD → spec → Postman)
 
-ERROR categories: 0  ·  known-open WARN categories: 30  ·  stale allowances: 0
+ERROR categories: 0  ·  known-open WARN categories: 28  ·  stale allowances: 1
 
 ## ⚠️ Known open (tracked)
 - **A-DOC-CARDINALITY-UNENFORCED** [*] (1) — X9 / decision D4 (array minimums)
@@ -43,65 +43,65 @@ ERROR categories: 0  ·  known-open WARN categories: 30  ·  stale allowances: 0
     - Reseller - Multi-ZIP Batch Processing / 'Success' (200): requestId: '<integer>' is not of type 'integer'
     - Non-Profit - Fundraising Appeal / 'Success' (200): requestId: '<integer>' is not of type 'integer'
 - **B-EXAMPLE-ERROR-COVERAGE** [Linked] (7) — X1 (converter writes one example per status, not per DD code)
-    - POST /static: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
-    - POST /static/address-capture: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
-    - POST /batch/split: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
-    - POST /batch/split/address-capture: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
-    - POST /batch/zip: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
-    - POST /batch/zip/address-capture: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
-    - POST /mail-merge: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
+    - POST /static: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
+    - POST /static/address-capture: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
+    - POST /batch/split: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
+    - POST /batch/split/address-capture: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
+    - POST /batch/zip: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
+    - POST /batch/zip/address-capture: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
+    - POST /mail-merge: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
 - **B-EXAMPLE-ERROR-COVERAGE** [Real-World] (8) — X1/X2 (saved responses copied from Linked)
-    - Legal Firm - Court Notices: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
-    - Real Estate Agent - Property Marketing: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
-    - Medical Agency - Patient Reminders: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
-    - Monthly Newsletters - Bulk Distribution: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
-    - E-commerce Company - Product Catalog: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
-    - Marketing Agency - Multi-Document Campaign: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
-    - Reseller - Multi-ZIP Batch Processing: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
-    - Non-Profit - Fundraising Appeal: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 EXPIRED_TOKEN, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR
+    - Legal Firm - Court Notices: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
+    - Real Estate Agent - Property Marketing: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
+    - Medical Agency - Patient Reminders: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
+    - Monthly Newsletters - Bulk Distribution: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
+    - E-commerce Company - Product Catalog: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
+    - Marketing Agency - Multi-Document Campaign: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
+    - Reseller - Multi-ZIP Batch Processing: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
+    - Non-Profit - Fundraising Appeal: no saved example for 400 INVALID_FORMAT, 400 INVALID_JSON, 400 INVALID_ONEOF, 400 MISSING_REQUIRED_FIELD, 401 INVALID_TOKEN, 401 MISSING_AUTH_HEADER, 403 ACCOUNT_SUSPENDED, 403 INSUFFICIENT_PERMISSIONS, 404 JOB_NOT_FOUND, 404 RESOURCE_NOT_FOUND, 422 INVALID_ENUM_VALUE, 422 INVALID_FORMAT, 422 MUTUAL_EXCLUSION_VIOLATION, 429 RATE_LIMIT_EXCEEDED, 500 DATABASE_ERROR, 500 EXTERNAL_SERVICE_ERROR, 500 SERVER_ERROR
 - **B-EXAMPLE-ERROR-MAP** [Linked] (58) — X1 (converter synthesises error examples)
-    - POST /static / 'Bad Request - Invalid request parameters' (400): ResourceNotFoundError/SERVER_ERROR
-    - POST /static / 'Unauthorized - Missing or invalid authentication' (401): ResourceNotFoundError/SERVER_ERROR
-    - POST /static / 'Forbidden - Insufficient permissions' (403): ResourceNotFoundError/SERVER_ERROR
-    - POST /static / 'Not Found - Resource not found' (404): ResourceNotFoundError/SERVER_ERROR
-    - POST /static / 'Unprocessable Entity - Validation failed' (422): ResourceNotFoundError/SERVER_ERROR
-    - POST /static / 'Too Many Requests - Rate limit exceeded' (429): ResourceNotFoundError/SERVER_ERROR
-    - POST /static / 'Internal Server Error - Server encountered an error' (500): ResourceNotFoundError/SERVER_ERROR
-    - POST /static/address-capture / 'Bad Request - Invalid request parameters' (400): ResourceNotFoundError/SERVER_ERROR
-    - POST /static/address-capture / 'Unauthorized - Missing or invalid authentication' (401): ResourceNotFoundError/SERVER_ERROR
-    - POST /static/address-capture / 'Forbidden - Insufficient permissions' (403): ResourceNotFoundError/SERVER_ERROR
-    - POST /static/address-capture / 'Not Found - Resource not found' (404): ResourceNotFoundError/SERVER_ERROR
-    - POST /static/address-capture / 'Unprocessable Entity - Validation failed' (422): ResourceNotFoundError/SERVER_ERROR
-    - POST /static/address-capture / 'Too Many Requests - Rate limit exceeded' (429): ResourceNotFoundError/SERVER_ERROR
-    - POST /static/address-capture / 'Internal Server Error - Server encountered an error' (500): ResourceNotFoundError/SERVER_ERROR
-    - POST /batch/split / 'Bad Request - Invalid request parameters' (400): ResourceNotFoundError/SERVER_ERROR
-    - POST /batch/split / 'Unauthorized - Missing or invalid authentication' (401): ResourceNotFoundError/SERVER_ERROR
-    - POST /batch/split / 'Forbidden - Insufficient permissions' (403): ResourceNotFoundError/SERVER_ERROR
-    - POST /batch/split / 'Not Found - Resource not found' (404): ResourceNotFoundError/SERVER_ERROR
-    - POST /batch/split / 'Unprocessable Entity - Validation failed' (422): ResourceNotFoundError/SERVER_ERROR
-    - POST /batch/split / 'Too Many Requests - Rate limit exceeded' (429): ResourceNotFoundError/SERVER_ERROR
+    - POST /static / 'Bad Request - Invalid request parameters' (400): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /static / 'Unauthorized - Missing or invalid authentication' (401): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /static / 'Forbidden - Insufficient permissions' (403): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /static / 'Not Found - Resource not found' (404): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /static / 'Unprocessable Entity - Validation failed' (422): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /static / 'Too Many Requests - Rate limit exceeded' (429): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /static / 'Internal Server Error - Server encountered an error' (500): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /static/address-capture / 'Bad Request - Invalid request parameters' (400): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /static/address-capture / 'Unauthorized - Missing or invalid authentication' (401): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /static/address-capture / 'Forbidden - Insufficient permissions' (403): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /static/address-capture / 'Not Found - Resource not found' (404): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /static/address-capture / 'Unprocessable Entity - Validation failed' (422): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /static/address-capture / 'Too Many Requests - Rate limit exceeded' (429): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /static/address-capture / 'Internal Server Error - Server encountered an error' (500): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /batch/split / 'Bad Request - Invalid request parameters' (400): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /batch/split / 'Unauthorized - Missing or invalid authentication' (401): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /batch/split / 'Forbidden - Insufficient permissions' (403): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /batch/split / 'Not Found - Resource not found' (404): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /batch/split / 'Unprocessable Entity - Validation failed' (422): ResourceNotFoundError/EXPIRED_TOKEN
+    - POST /batch/split / 'Too Many Requests - Rate limit exceeded' (429): ResourceNotFoundError/EXPIRED_TOKEN
     - … 38 more
 - **B-EXAMPLE-ERROR-MAP** [Real-World] (56) — X1/X2 (copied from Linked)
-    - Legal Firm - Court Notices / 'Bad Request - Invalid request parameters' (400): ResourceNotFoundError/SERVER_ERROR
-    - Legal Firm - Court Notices / 'Unauthorized - Missing or invalid authentication' (401): ResourceNotFoundError/SERVER_ERROR
-    - Legal Firm - Court Notices / 'Forbidden - Insufficient permissions' (403): ResourceNotFoundError/SERVER_ERROR
-    - Legal Firm - Court Notices / 'Not Found - Resource not found' (404): ResourceNotFoundError/SERVER_ERROR
-    - Legal Firm - Court Notices / 'Unprocessable Entity - Validation failed' (422): ResourceNotFoundError/SERVER_ERROR
-    - Legal Firm - Court Notices / 'Too Many Requests - Rate limit exceeded' (429): ResourceNotFoundError/SERVER_ERROR
-    - Legal Firm - Court Notices / 'Internal Server Error - Server encountered an error' (500): ResourceNotFoundError/SERVER_ERROR
-    - Real Estate Agent - Property Marketing / 'Bad Request - Invalid request parameters' (400): ResourceNotFoundError/SERVER_ERROR
-    - Real Estate Agent - Property Marketing / 'Unauthorized - Missing or invalid authentication' (401): ResourceNotFoundError/SERVER_ERROR
-    - Real Estate Agent - Property Marketing / 'Forbidden - Insufficient permissions' (403): ResourceNotFoundError/SERVER_ERROR
-    - Real Estate Agent - Property Marketing / 'Not Found - Resource not found' (404): ResourceNotFoundError/SERVER_ERROR
-    - Real Estate Agent - Property Marketing / 'Unprocessable Entity - Validation failed' (422): ResourceNotFoundError/SERVER_ERROR
-    - Real Estate Agent - Property Marketing / 'Too Many Requests - Rate limit exceeded' (429): ResourceNotFoundError/SERVER_ERROR
-    - Real Estate Agent - Property Marketing / 'Internal Server Error - Server encountered an error' (500): ResourceNotFoundError/SERVER_ERROR
-    - Medical Agency - Patient Reminders / 'Bad Request - Invalid request parameters' (400): ResourceNotFoundError/SERVER_ERROR
-    - Medical Agency - Patient Reminders / 'Unauthorized - Missing or invalid authentication' (401): ResourceNotFoundError/SERVER_ERROR
-    - Medical Agency - Patient Reminders / 'Forbidden - Insufficient permissions' (403): ResourceNotFoundError/SERVER_ERROR
-    - Medical Agency - Patient Reminders / 'Not Found - Resource not found' (404): ResourceNotFoundError/SERVER_ERROR
-    - Medical Agency - Patient Reminders / 'Unprocessable Entity - Validation failed' (422): ResourceNotFoundError/SERVER_ERROR
-    - Medical Agency - Patient Reminders / 'Too Many Requests - Rate limit exceeded' (429): ResourceNotFoundError/SERVER_ERROR
+    - Legal Firm - Court Notices / 'Bad Request - Invalid request parameters' (400): ResourceNotFoundError/EXPIRED_TOKEN
+    - Legal Firm - Court Notices / 'Unauthorized - Missing or invalid authentication' (401): ResourceNotFoundError/EXPIRED_TOKEN
+    - Legal Firm - Court Notices / 'Forbidden - Insufficient permissions' (403): ResourceNotFoundError/EXPIRED_TOKEN
+    - Legal Firm - Court Notices / 'Not Found - Resource not found' (404): ResourceNotFoundError/EXPIRED_TOKEN
+    - Legal Firm - Court Notices / 'Unprocessable Entity - Validation failed' (422): ResourceNotFoundError/EXPIRED_TOKEN
+    - Legal Firm - Court Notices / 'Too Many Requests - Rate limit exceeded' (429): ResourceNotFoundError/EXPIRED_TOKEN
+    - Legal Firm - Court Notices / 'Internal Server Error - Server encountered an error' (500): ResourceNotFoundError/EXPIRED_TOKEN
+    - Real Estate Agent - Property Marketing / 'Bad Request - Invalid request parameters' (400): ResourceNotFoundError/EXPIRED_TOKEN
+    - Real Estate Agent - Property Marketing / 'Unauthorized - Missing or invalid authentication' (401): ResourceNotFoundError/EXPIRED_TOKEN
+    - Real Estate Agent - Property Marketing / 'Forbidden - Insufficient permissions' (403): ResourceNotFoundError/EXPIRED_TOKEN
+    - Real Estate Agent - Property Marketing / 'Not Found - Resource not found' (404): ResourceNotFoundError/EXPIRED_TOKEN
+    - Real Estate Agent - Property Marketing / 'Unprocessable Entity - Validation failed' (422): ResourceNotFoundError/EXPIRED_TOKEN
+    - Real Estate Agent - Property Marketing / 'Too Many Requests - Rate limit exceeded' (429): ResourceNotFoundError/EXPIRED_TOKEN
+    - Real Estate Agent - Property Marketing / 'Internal Server Error - Server encountered an error' (500): ResourceNotFoundError/EXPIRED_TOKEN
+    - Medical Agency - Patient Reminders / 'Bad Request - Invalid request parameters' (400): ResourceNotFoundError/EXPIRED_TOKEN
+    - Medical Agency - Patient Reminders / 'Unauthorized - Missing or invalid authentication' (401): ResourceNotFoundError/EXPIRED_TOKEN
+    - Medical Agency - Patient Reminders / 'Forbidden - Insufficient permissions' (403): ResourceNotFoundError/EXPIRED_TOKEN
+    - Medical Agency - Patient Reminders / 'Not Found - Resource not found' (404): ResourceNotFoundError/EXPIRED_TOKEN
+    - Medical Agency - Patient Reminders / 'Unprocessable Entity - Validation failed' (422): ResourceNotFoundError/EXPIRED_TOKEN
+    - Medical Agency - Patient Reminders / 'Too Many Requests - Rate limit exceeded' (429): ResourceNotFoundError/EXPIRED_TOKEN
     - … 36 more
 - **B-EXAMPLE-FIELD-NOT-IN-BODY** [Test] (41) — N5 / decision D10 (static field names in error-response-examples.yaml)
     - POST /batch/split / 'Missing required field' (400): MISSING_REQUIRED_FIELD: field 'documentId' is not in this endpoint's request body
@@ -156,8 +156,6 @@ ERROR categories: 0  ·  known-open WARN categories: 30  ·  stale allowances: 0
     - Legal Firm - Court Notices / 'Too Many Requests - Rate limit exceeded' (429): docSourceAll: '<oneOf>' is not of type 'object'
     - Legal Firm - Court Notices / 'Too Many Requests - Rate limit exceeded' (429): paymentDetails: '<oneOf>' is not of type 'object'
     - … 180 more
-- **B-EXAMPLE-ORIGINAL-REQUEST** [Test] (1) — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
-    - POST /auth/tokens/long / 'Long-term token issued' (201): ttl_seconds: 502 is less than the minimum of 3600
 - **B-FILLER-VALUE** [GS-Test] (3) — L7 (example_ filler values)
     - [Less frequently used] /static - setting tags: body/tags[0]='example_tags'
     - [Less frequently used] /static - setting tags: body/tags[1]='example_tags'
@@ -225,12 +223,9 @@ ERROR categories: 0  ·  known-open WARN categories: 30  ·  stale allowances: 0
     - POST /batch/split/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /batch/zip: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /batch/zip/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
+    - POST /mail-merge: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /static: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /static/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
-    - POST /mail-merge: accepts ['201', '204'] undeclared, rejects [] declared
-- **C-EXAMPLE-IMPOSSIBLE-ERROR** [*] (2) — N5 / decision D10 (mutual-exclusion example on /batch/zip)
-    - POST /batch/zip 422: MUTUAL_EXCLUSION_VIOLATION: field 'jobTemplate' is not in this endpoint's request body
-    - POST /batch/zip 422: MUTUAL_EXCLUSION_VIOLATION: field 'jobOptions' is not in this endpoint's request body
 - **C-REQUEST-EXAMPLE-MISSING** [*] (7) — C1 (no request-example generator for job endpoints)
     - POST /static
     - POST /static/address-capture
@@ -239,5 +234,8 @@ ERROR categories: 0  ·  known-open WARN categories: 30  ·  stale allowances: 0
     - POST /mail-merge
     - POST /batch/zip
     - POST /batch/zip/address-capture
+
+## 🧹 Stale KNOWN_OPEN entries (no longer occur — remove them)
+- B-EXAMPLE-ORIGINAL-REQUEST [Test] — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
 
 ✅ No ERROR findings
