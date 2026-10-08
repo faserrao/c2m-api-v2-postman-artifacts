@@ -49,7 +49,7 @@ import com.c2m.JSON;
 /**
  * DocSourceStandardOneOf2
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-06T20:00:40.482071934Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-08T00:54:34.198308664Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class DocSourceStandardOneOf2 {
   public static final String SERIALIZED_NAME_URL_SOURCE = "urlSource";
   @SerializedName(SERIALIZED_NAME_URL_SOURCE)
