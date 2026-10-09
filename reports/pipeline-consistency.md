@@ -50,11 +50,11 @@ ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 0
     - POST /mail-merge / 'Database error' (500): mergeDocumentSource has 1 entry
     - POST /mail-merge / 'External service error' (500): mergeDocumentSource has 1 entry
 - **B-EXAMPLE-ORIGINAL-REQUEST** [Test] (5) — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
-    - POST /auth/tokens/long / 'Long-term token issued' (201): ttl_seconds: 1790 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Bad request' (400): ttl_seconds: 1790 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Unauthorized' (401): ttl_seconds: 1790 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Forbidden' (403): ttl_seconds: 1790 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Too Many Requests' (429): ttl_seconds: 1790 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Long-term token issued' (201): ttl_seconds: 992 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Bad request' (400): ttl_seconds: 992 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Unauthorized' (401): ttl_seconds: 992 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Forbidden' (403): ttl_seconds: 992 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Too Many Requests' (429): ttl_seconds: 992 is less than the minimum of 3600
 - **B-FILLER-VALUE** [GS-Test] (3) — L7 (example_ filler values)
     - [Less frequently used] /static - setting tags: body/tags[0]='example_tags'
     - [Less frequently used] /static - setting tags: body/tags[1]='example_tags'
@@ -98,9 +98,9 @@ ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 0
     - POST /batch/split/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /batch/zip: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /batch/zip/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
+    - POST /mail-merge: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /static: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /static/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
-    - POST /mail-merge: accepts ['201', '204'] undeclared, rejects [] declared
 - **C-REQUEST-EXAMPLE-MISSING** [*] (7) — C1 (no request-example generator for job endpoints)
     - POST /static
     - POST /static/address-capture
