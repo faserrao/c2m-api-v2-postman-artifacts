@@ -1,6 +1,6 @@
 # C2M API v2 — Artifacts Index
 
-_Generated: 2026-10-09 03:23 UTC_
+_Generated: 2026-10-09 12:38 UTC_
 
 All artifacts are produced by the CI pipeline and committed to this repository on every successful build.
 
@@ -65,5 +65,5 @@ All artifacts are produced by the CI pipeline and committed to this repository o
 |---|---|---|
 | Conformance Gate | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/conformance-gate.md) | Postman collection conformance results — validates every request body against the generated OpenAPI spec. |
 | Golden Test Suite | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/golden-tests.txt) | Validator and resolver unit test results — positive/negative controls and synthetic fault injection. |
-| Newman Test Run (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/newman-c2mapiv2-test-collection-fixed-20261009-032303.html) | Most recent Newman end-to-end test run against the live API — HTML report with request/response details and pass/fail counts. |
-| Collection Validation Report (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/validation-20261009-032309.md) | Most recent per-endpoint conformance validation showing any fields that don't match the spec. |
+| Newman Test Run (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/newman-c2mapiv2-test-collection-fixed-20261009-123800.html) | Most recent Newman end-to-end test run against the live API — HTML report with request/response details and pass/fail counts. |
+| Collection Validation Report (latest) | [View](https://github.com/faserrao/c2m-api-v2-postman-artifacts/blob/main/reports/validation-20261009-123806.md) | Most recent per-endpoint conformance validation showing any fields that don't match the spec. |
