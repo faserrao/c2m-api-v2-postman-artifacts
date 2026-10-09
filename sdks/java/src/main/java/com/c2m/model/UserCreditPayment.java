@@ -49,8 +49,63 @@ import com.c2m.JSON;
 /**
  * UserCreditPayment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T12:36:08.186856794Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T12:49:28.453128539Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class UserCreditPayment {
+  /**
+   * Gets or Sets paymentType
+   */
+  @JsonAdapter(PaymentTypeEnum.Adapter.class)
+  public enum PaymentTypeEnum {
+    USER_CREDIT("userCredit");
+
+    private String value;
+
+    PaymentTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static PaymentTypeEnum fromValue(String value) {
+      for (PaymentTypeEnum b : PaymentTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<PaymentTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final PaymentTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public PaymentTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return PaymentTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      PaymentTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_PAYMENT_TYPE = "paymentType";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_TYPE)
+  @javax.annotation.Nonnull
+  private PaymentTypeEnum paymentType;
+
   public static final String SERIALIZED_NAME_CREDIT_AMOUNT = "creditAmount";
   @SerializedName(SERIALIZED_NAME_CREDIT_AMOUNT)
   @javax.annotation.Nonnull
@@ -58,6 +113,25 @@ public class UserCreditPayment {
 
   public UserCreditPayment() {
   }
+
+  public UserCreditPayment paymentType(@javax.annotation.Nonnull PaymentTypeEnum paymentType) {
+    this.paymentType = paymentType;
+    return this;
+  }
+
+  /**
+   * Get paymentType
+   * @return paymentType
+   */
+  @javax.annotation.Nonnull
+  public PaymentTypeEnum getPaymentType() {
+    return paymentType;
+  }
+
+  public void setPaymentType(@javax.annotation.Nonnull PaymentTypeEnum paymentType) {
+    this.paymentType = paymentType;
+  }
+
 
   public UserCreditPayment creditAmount(@javax.annotation.Nonnull CreditAmount creditAmount) {
     this.creditAmount = creditAmount;
@@ -88,18 +162,20 @@ public class UserCreditPayment {
       return false;
     }
     UserCreditPayment userCreditPayment = (UserCreditPayment) o;
-    return Objects.equals(this.creditAmount, userCreditPayment.creditAmount);
+    return Objects.equals(this.paymentType, userCreditPayment.paymentType) &&
+        Objects.equals(this.creditAmount, userCreditPayment.creditAmount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(creditAmount);
+    return Objects.hash(paymentType, creditAmount);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class UserCreditPayment {\n");
+    sb.append("    paymentType: ").append(toIndentedString(paymentType)).append("\n");
     sb.append("    creditAmount: ").append(toIndentedString(creditAmount)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -122,10 +198,10 @@ public class UserCreditPayment {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("creditAmount"));
+    openapiFields = new HashSet<String>(Arrays.asList("paymentType", "creditAmount"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("creditAmount"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("paymentType", "creditAmount"));
   }
 
   /**
@@ -156,6 +232,11 @@ public class UserCreditPayment {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("paymentType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `paymentType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("paymentType").toString()));
+      }
+      // validate the required field `paymentType`
+      PaymentTypeEnum.validateJsonElement(jsonObj.get("paymentType"));
       // validate the required field `creditAmount`
       CreditAmount.validateJsonElement(jsonObj.get("creditAmount"));
   }

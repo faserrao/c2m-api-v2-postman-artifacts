@@ -102,6 +102,7 @@ All URIs are relative to *https://api.click2mail.com/v2*
  - [com.c2m.api.models.MultiZipJobItem](docs/MultiZipJobItem.md)
  - [com.c2m.api.models.PaperType](docs/PaperType.md)
  - [com.c2m.api.models.PaymentDetails](docs/PaymentDetails.md)
+ - [com.c2m.api.models.PaymentType](docs/PaymentType.md)
  - [com.c2m.api.models.PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [com.c2m.api.models.PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
  - [com.c2m.api.models.PrintOption](docs/PrintOption.md)

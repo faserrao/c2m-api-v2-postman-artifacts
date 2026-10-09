@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**paymentType** | **String** |  | 
 **creditCardDetails** | [**CreditCardDetails**](CreditCardDetails.md) |  | 
 **invoiceDetails** | [**InvoiceDetails**](InvoiceDetails.md) |  | 
 **achDetails** | [**AchDetails**](AchDetails.md) |  | 

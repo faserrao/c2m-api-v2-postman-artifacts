@@ -12,13 +12,19 @@ import AnyCodable
 
 public struct AchPayment: Codable, JSONEncodable, Hashable {
 
+    public enum PaymentType: String, Codable, CaseIterable {
+        case ach = "ach"
+    }
+    public var paymentType: PaymentType
     public var achDetails: AchDetails
 
-    public init(achDetails: AchDetails) {
+    public init(paymentType: PaymentType, achDetails: AchDetails) {
+        self.paymentType = paymentType
         self.achDetails = achDetails
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case paymentType
         case achDetails
     }
 
@@ -26,6 +32,7 @@ public struct AchPayment: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(paymentType, forKey: .paymentType)
         try container.encode(achDetails, forKey: .achDetails)
     }
 }

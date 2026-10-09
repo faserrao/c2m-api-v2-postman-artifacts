@@ -13,7 +13,7 @@ Request body for POST /static — submit a single document to one or more recipi
 | `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `docSourceAll` | oneOf | Required | Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId). |
 | `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID. |
-| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. |
+| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data. |
 | `returnAddress` | object | Optional | Optional sender return address printed on the mailpiece. |
 | `jobOptions` | object | Optional | Explicit print and mail configuration options. Mutually exclusive with jobTemplate. |
 | `tags` | string[] | Optional | Optional list of user-defined string tags for reporting and filtering. |
@@ -26,7 +26,7 @@ Request body for POST /static/address-capture — recipient addresses are captur
 | --- | --- | --- | --- |
 | `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `docSourceStandard` | oneOf | Required | Document source — standard (non-zip) variants only: requestId, documentId, or URL. |
-| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. |
+| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data. |
 | `returnAddress` | object | Optional | Optional sender return address printed on the mailpiece. |
 | `jobOptions` | object | Optional | Explicit print and mail configuration options. Mutually exclusive with jobTemplate. |
 | `tags` | string[] | Optional | Optional list of user-defined string tags for reporting and filtering. |
@@ -40,7 +40,7 @@ Request body for POST /batch/split — split a single PDF into page ranges and m
 | `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `docSourceStandard` | oneOf | Required | Document source — standard (non-zip) variants only: requestId, documentId, or URL. |
 | `pdfSplitJobsWithAddress` | object[] | Required | List of page-range job items, each with its own inline recipient address. |
-| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. |
+| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data. |
 | `returnAddress` | object | Optional | Optional sender return address printed on the mailpiece. |
 | `jobOptions` | object | Optional | Explicit print and mail configuration options. Mutually exclusive with jobTemplate. |
 | `tags` | string[] | Optional | Optional list of user-defined string tags for reporting and filtering. |
@@ -54,7 +54,7 @@ Request body for POST /batch/split/address-capture — page-range PDF split with
 | `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `docSourceStandard` | oneOf | Required | Document source — standard (non-zip) variants only: requestId, documentId, or URL. |
 | `pdfSplitJobsNoAddress` | object[] | Required | List of page-range job items without inline addresses — addresses are captured externally (POST /batch/split/address-capture). |
-| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. |
+| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data. |
 | `returnAddress` | object | Optional | Optional sender return address printed on the mailpiece. |
 | `jobOptions` | object | Optional | Explicit print and mail configuration options. Mutually exclusive with jobTemplate. |
 | `tags` | string[] | Optional | Optional list of user-defined string tags for reporting and filtering. |
@@ -68,7 +68,7 @@ Request body for POST /mail-merge — merge multiple documents into one mailing 
 | `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `mergeDocumentSource` | oneOf[] | Required | Ordered list of document references to merge into one output document (POST /mail-merge). |
 | `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID. |
-| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. |
+| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data. |
 | `returnAddress` | object | Optional | Optional sender return address printed on the mailpiece. |
 | `jobOptions` | object | Optional | Explicit print and mail configuration options. Mutually exclusive with jobTemplate. |
 | `tags` | string[] | Optional | Optional list of user-defined string tags for reporting and filtering. |
@@ -81,7 +81,7 @@ Request body for POST /batch/zip — mail individual files from a ZIP archive, e
 | --- | --- | --- | --- |
 | `docSourceZipFileRef` | oneOf | Required | Top-level ZIP archive reference for batch endpoints — identifies the archive itself, not a file within it. No filename is required at this level. |
 | `multiZipJobs` | object[] | Required | List of per-file job items extracted from a ZIP archive (POST /batch/zip). |
-| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. |
+| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data. |
 | `tags` | string[] | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ### `submitMultiZipAddressCaptureParams`  `POST /batch/zip/address-capture`
@@ -92,7 +92,7 @@ Request body for POST /batch/zip/address-capture — ZIP-based mailing batch wit
 | --- | --- | --- | --- |
 | `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `zipDocumentSource` | oneOf | Required | ZIP document source — either a stored zip archive (zipDocumentId) or an uploaded zip archive (requestId). |
-| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. |
+| `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data. |
 | `returnAddress` | object | Optional | Optional sender return address printed on the mailpiece. |
 | `jobOptions` | object | Optional | Explicit print and mail configuration options. Mutually exclusive with jobTemplate. |
 | `tags` | string[] | Optional | Optional list of user-defined string tags for reporting and filtering. |
@@ -393,7 +393,7 @@ A single document to include in the merge — either a stored document ID or an 
 
 ### `paymentDetails`
 
-Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit.
+Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -602,6 +602,17 @@ Paper stock for printing.
 | `white_24` | string | — |  |
 | `ivory` | string | — |  |
 | `glossy` | string | — |  |
+
+### `paymentType`
+
+Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
+
+| Field / Variant | Type | Required | Description |
+| --- | --- | --- | --- |
+| `creditCard` | string | — |  |
+| `invoice` | string | — |  |
+| `ach` | string | — |  |
+| `userCredit` | string | — |  |
 
 ### `printOption`
 

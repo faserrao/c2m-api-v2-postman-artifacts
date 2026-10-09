@@ -80,6 +80,15 @@ class AchPaymentTest extends TestCase
     }
 
     /**
+     * Test attribute "payment_type"
+     */
+    public function testPropertyPaymentType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "ach_details"
      */
     public function testPropertyAchDetails()

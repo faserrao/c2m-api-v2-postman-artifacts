@@ -73,6 +73,58 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
+        /// Defines PaymentType
+        /// </summary>
+        public enum PaymentTypeEnum
+        {
+            /// <summary>
+            /// Enum UserCredit for value: userCredit
+            /// </summary>
+            UserCredit = 1
+        }
+
+        /// <summary>
+        /// Returns a <see cref="PaymentTypeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static PaymentTypeEnum PaymentTypeEnumFromString(string value)
+        {
+            if (value.Equals("userCredit"))
+                return PaymentTypeEnum.UserCredit;
+
+            throw new NotImplementedException($"Could not convert value to type PaymentTypeEnum: '{value}'");
+        }
+
+        /// <summary>
+        /// Returns a <see cref="PaymentTypeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static PaymentTypeEnum? PaymentTypeEnumFromStringOrDefault(string value)
+        {
+            if (value.Equals("userCredit"))
+                return PaymentTypeEnum.UserCredit;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="PaymentTypeEnum"/> to the json value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string PaymentTypeEnumToJsonValue(PaymentTypeEnum value)
+        {
+            if (value == PaymentTypeEnum.UserCredit)
+                return "userCredit";
+
+            throw new NotImplementedException($"Value could not be handled: '{value}'");
+        }
+
+        /// <summary>
         /// Gets or Sets CreditCardPayment
         /// </summary>
         public CreditCardPayment? CreditCardPayment { get; set; }
@@ -111,6 +163,16 @@ namespace C2M.Api.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<ValidationResult> BaseValidate(ValidationContext validationContext)
+        {
             yield break;
         }
     }
@@ -137,33 +199,50 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            CreditCardPayment? creditCardPayment = default;
-            InvoicePayment? invoicePayment = default;
-            AchPayment? achPayment = default;
-            UserCreditPayment? userCreditPayment = default;
+            Option<PaymentDetails.PaymentTypeEnum?> paymentType = default;
 
-            Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
-            while (utf8JsonReaderOneOf.Read())
+            AchPayment? achPayment = null;
+            CreditCardPayment? creditCardPayment = null;
+            InvoicePayment? invoicePayment = null;
+            UserCreditPayment? userCreditPayment = null;
+
+            Utf8JsonReader utf8JsonReaderDiscriminator = utf8JsonReader;
+            while (utf8JsonReaderDiscriminator.Read())
             {
-                if (startingTokenType == JsonTokenType.StartObject && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
+                if (startingTokenType == JsonTokenType.StartObject && utf8JsonReaderDiscriminator.TokenType == JsonTokenType.EndObject && currentDepth == utf8JsonReaderDiscriminator.CurrentDepth)
                     break;
 
-                if (startingTokenType == JsonTokenType.StartArray && utf8JsonReaderOneOf.TokenType == JsonTokenType.EndArray && currentDepth == utf8JsonReaderOneOf.CurrentDepth)
+                if (startingTokenType == JsonTokenType.StartArray && utf8JsonReaderDiscriminator.TokenType == JsonTokenType.EndArray && currentDepth == utf8JsonReaderDiscriminator.CurrentDepth)
                     break;
 
-                if (utf8JsonReaderOneOf.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderOneOf.CurrentDepth - 1)
+                if (utf8JsonReaderDiscriminator.TokenType == JsonTokenType.PropertyName && currentDepth == utf8JsonReaderDiscriminator.CurrentDepth - 1)
                 {
-                    Utf8JsonReader utf8JsonReaderCreditCardPayment = utf8JsonReader;
-                    ClientUtils.TryDeserialize<CreditCardPayment?>(ref utf8JsonReaderCreditCardPayment, jsonSerializerOptions, out creditCardPayment);
-
-                    Utf8JsonReader utf8JsonReaderInvoicePayment = utf8JsonReader;
-                    ClientUtils.TryDeserialize<InvoicePayment?>(ref utf8JsonReaderInvoicePayment, jsonSerializerOptions, out invoicePayment);
-
-                    Utf8JsonReader utf8JsonReaderAchPayment = utf8JsonReader;
-                    ClientUtils.TryDeserialize<AchPayment?>(ref utf8JsonReaderAchPayment, jsonSerializerOptions, out achPayment);
-
-                    Utf8JsonReader utf8JsonReaderUserCreditPayment = utf8JsonReader;
-                    ClientUtils.TryDeserialize<UserCreditPayment?>(ref utf8JsonReaderUserCreditPayment, jsonSerializerOptions, out userCreditPayment);
+                    string? localVarJsonPropertyName = utf8JsonReaderDiscriminator.GetString();
+                    utf8JsonReaderDiscriminator.Read();
+                    if (localVarJsonPropertyName?.Equals("paymentType") ?? false)
+                    {
+                        string? discriminator = utf8JsonReaderDiscriminator.GetString();
+                        if (discriminator?.Equals("ach") ?? false)
+                        {
+                            Utf8JsonReader utf8JsonReaderAchPayment = utf8JsonReader;
+                            achPayment = JsonSerializer.Deserialize<AchPayment>(ref utf8JsonReaderAchPayment, jsonSerializerOptions);
+                        }
+                        if (discriminator?.Equals("creditCard") ?? false)
+                        {
+                            Utf8JsonReader utf8JsonReaderCreditCardPayment = utf8JsonReader;
+                            creditCardPayment = JsonSerializer.Deserialize<CreditCardPayment>(ref utf8JsonReaderCreditCardPayment, jsonSerializerOptions);
+                        }
+                        if (discriminator?.Equals("invoice") ?? false)
+                        {
+                            Utf8JsonReader utf8JsonReaderInvoicePayment = utf8JsonReader;
+                            invoicePayment = JsonSerializer.Deserialize<InvoicePayment>(ref utf8JsonReaderInvoicePayment, jsonSerializerOptions);
+                        }
+                        if (discriminator?.Equals("userCredit") ?? false)
+                        {
+                            Utf8JsonReader utf8JsonReaderUserCreditPayment = utf8JsonReader;
+                            userCreditPayment = JsonSerializer.Deserialize<UserCreditPayment>(ref utf8JsonReaderUserCreditPayment, jsonSerializerOptions);
+                        }
+                    }
                 }
             }
 
@@ -182,20 +261,31 @@ namespace C2M.Api.Model
 
                     switch (localVarJsonPropertyName)
                     {
+                        case "paymentType":
+                            string? paymentTypeRawValue = utf8JsonReader.GetString();
+                            if (paymentTypeRawValue != null)
+                                paymentType = new Option<PaymentDetails.PaymentTypeEnum?>(PaymentDetails.PaymentTypeEnumFromStringOrDefault(paymentTypeRawValue));
+                            break;
                         default:
                             break;
                     }
                 }
             }
 
+            if (!paymentType.IsSet)
+                throw new ArgumentException("Property is required for class PaymentDetails.", nameof(paymentType));
+
+            if (paymentType.IsSet && paymentType.Value == null)
+                throw new ArgumentNullException(nameof(paymentType), "Property is not nullable for class PaymentDetails.");
+
+            if (achPayment != null)
+                return new PaymentDetails(achPayment);
+
             if (creditCardPayment != null)
                 return new PaymentDetails(creditCardPayment);
 
             if (invoicePayment != null)
                 return new PaymentDetails(invoicePayment);
-
-            if (achPayment != null)
-                return new PaymentDetails(achPayment);
 
             if (userCreditPayment != null)
                 return new PaymentDetails(userCreditPayment);
@@ -213,6 +303,30 @@ namespace C2M.Api.Model
         public override void Write(Utf8JsonWriter writer, PaymentDetails paymentDetails, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
+
+            if (paymentDetails.CreditCardPayment != null)
+            {
+                CreditCardPaymentJsonConverter creditCardPaymentJsonConverter = (CreditCardPaymentJsonConverter) jsonSerializerOptions.Converters.First(c => c.CanConvert(paymentDetails.CreditCardPayment.GetType()));
+                creditCardPaymentJsonConverter.WriteProperties(writer, paymentDetails.CreditCardPayment, jsonSerializerOptions);
+            }
+
+            if (paymentDetails.InvoicePayment != null)
+            {
+                InvoicePaymentJsonConverter invoicePaymentJsonConverter = (InvoicePaymentJsonConverter) jsonSerializerOptions.Converters.First(c => c.CanConvert(paymentDetails.InvoicePayment.GetType()));
+                invoicePaymentJsonConverter.WriteProperties(writer, paymentDetails.InvoicePayment, jsonSerializerOptions);
+            }
+
+            if (paymentDetails.AchPayment != null)
+            {
+                AchPaymentJsonConverter achPaymentJsonConverter = (AchPaymentJsonConverter) jsonSerializerOptions.Converters.First(c => c.CanConvert(paymentDetails.AchPayment.GetType()));
+                achPaymentJsonConverter.WriteProperties(writer, paymentDetails.AchPayment, jsonSerializerOptions);
+            }
+
+            if (paymentDetails.UserCreditPayment != null)
+            {
+                UserCreditPaymentJsonConverter userCreditPaymentJsonConverter = (UserCreditPaymentJsonConverter) jsonSerializerOptions.Converters.First(c => c.CanConvert(paymentDetails.UserCreditPayment.GetType()));
+                userCreditPaymentJsonConverter.WriteProperties(writer, paymentDetails.UserCreditPayment, jsonSerializerOptions);
+            }
 
             WriteProperties(writer, paymentDetails, jsonSerializerOptions);
             writer.WriteEndObject();

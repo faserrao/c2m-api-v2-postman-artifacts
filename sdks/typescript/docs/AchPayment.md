@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**paymentType** | **string** |  | [default to undefined]
 **achDetails** | [**AchDetails**](AchDetails.md) |  | [default to undefined]
 
 ## Example
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 import { AchPayment } from './api';
 
 const instance: AchPayment = {
+    paymentType,
     achDetails,
 };
 ```

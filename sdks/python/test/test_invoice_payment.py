@@ -35,12 +35,14 @@ class TestInvoicePayment(unittest.TestCase):
         model = InvoicePayment()
         if include_optional:
             return InvoicePayment(
+                payment_type = 'invoice',
                 invoice_details = c2m_api.models.invoice_details.invoiceDetails(
                     invoice_number = '', 
                     amount_due = 1.337, )
             )
         else:
             return InvoicePayment(
+                payment_type = 'invoice',
                 invoice_details = c2m_api.models.invoice_details.invoiceDetails(
                     invoice_number = '', 
                     amount_due = 1.337, ),

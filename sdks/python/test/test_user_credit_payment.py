@@ -35,12 +35,14 @@ class TestUserCreditPayment(unittest.TestCase):
         model = UserCreditPayment()
         if include_optional:
             return UserCreditPayment(
+                payment_type = 'userCredit',
                 credit_amount = c2m_api.models.credit_amount.creditAmount(
                     amount = 1.337, 
                     currency = 'USD', )
             )
         else:
             return UserCreditPayment(
+                payment_type = 'userCredit',
                 credit_amount = c2m_api.models.credit_amount.creditAmount(
                     amount = 1.337, 
                     currency = 'USD', ),

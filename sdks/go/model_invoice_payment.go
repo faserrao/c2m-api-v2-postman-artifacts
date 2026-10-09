@@ -21,6 +21,7 @@ var _ MappedNullable = &InvoicePayment{}
 
 // InvoicePayment struct for InvoicePayment
 type InvoicePayment struct {
+	PaymentType string `json:"paymentType"`
 	InvoiceDetails InvoiceDetails `json:"invoiceDetails"`
 }
 
@@ -30,8 +31,9 @@ type _InvoicePayment InvoicePayment
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInvoicePayment(invoiceDetails InvoiceDetails) *InvoicePayment {
+func NewInvoicePayment(paymentType string, invoiceDetails InvoiceDetails) *InvoicePayment {
 	this := InvoicePayment{}
+	this.PaymentType = paymentType
 	this.InvoiceDetails = invoiceDetails
 	return &this
 }
@@ -42,6 +44,30 @@ func NewInvoicePayment(invoiceDetails InvoiceDetails) *InvoicePayment {
 func NewInvoicePaymentWithDefaults() *InvoicePayment {
 	this := InvoicePayment{}
 	return &this
+}
+
+// GetPaymentType returns the PaymentType field value
+func (o *InvoicePayment) GetPaymentType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PaymentType
+}
+
+// GetPaymentTypeOk returns a tuple with the PaymentType field value
+// and a boolean to check if the value has been set.
+func (o *InvoicePayment) GetPaymentTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PaymentType, true
+}
+
+// SetPaymentType sets field value
+func (o *InvoicePayment) SetPaymentType(v string) {
+	o.PaymentType = v
 }
 
 // GetInvoiceDetails returns the InvoiceDetails field value
@@ -78,6 +104,7 @@ func (o InvoicePayment) MarshalJSON() ([]byte, error) {
 
 func (o InvoicePayment) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["paymentType"] = o.PaymentType
 	toSerialize["invoiceDetails"] = o.InvoiceDetails
 	return toSerialize, nil
 }
@@ -87,6 +114,7 @@ func (o *InvoicePayment) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"paymentType",
 		"invoiceDetails",
 	}
 

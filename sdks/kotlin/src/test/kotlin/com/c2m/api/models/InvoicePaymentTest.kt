@@ -26,6 +26,12 @@ class InvoicePaymentTest : ShouldSpec() {
         // uncomment below to create an instance of InvoicePayment
         //val modelInstance = InvoicePayment()
 
+        // to test the property `paymentType`
+        should("test paymentType") {
+            // uncomment below to test the property
+            //modelInstance.paymentType shouldBe ("TODO")
+        }
+
         // to test the property `invoiceDetails`
         should("test invoiceDetails") {
             // uncomment below to test the property

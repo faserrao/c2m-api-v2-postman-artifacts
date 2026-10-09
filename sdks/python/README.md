@@ -153,6 +153,7 @@ Class | Method | HTTP request | Description
  - [MultiZipJobItem](docs/MultiZipJobItem.md)
  - [PaperType](docs/PaperType.md)
  - [PaymentDetails](docs/PaymentDetails.md)
+ - [PaymentType](docs/PaymentType.md)
  - [PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
  - [PrintOption](docs/PrintOption.md)

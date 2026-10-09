@@ -13,15 +13,30 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreditCardPayment {
+    #[serde(rename = "paymentType")]
+    pub payment_type: PaymentType,
     #[serde(rename = "creditCardDetails")]
     pub credit_card_details: Box<models::CreditCardDetails>,
 }
 
 impl CreditCardPayment {
-    pub fn new(credit_card_details: models::CreditCardDetails) -> CreditCardPayment {
+    pub fn new(payment_type: PaymentType, credit_card_details: models::CreditCardDetails) -> CreditCardPayment {
         CreditCardPayment {
+            payment_type,
             credit_card_details: Box::new(credit_card_details),
         }
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum PaymentType {
+    #[serde(rename = "creditCard")]
+    CreditCard,
+}
+
+impl Default for PaymentType {
+    fn default() -> PaymentType {
+        Self::CreditCard
     }
 }
 

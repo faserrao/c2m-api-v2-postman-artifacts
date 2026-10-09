@@ -21,6 +21,7 @@ var _ MappedNullable = &AchPayment{}
 
 // AchPayment struct for AchPayment
 type AchPayment struct {
+	PaymentType string `json:"paymentType"`
 	AchDetails AchDetails `json:"achDetails"`
 }
 
@@ -30,8 +31,9 @@ type _AchPayment AchPayment
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAchPayment(achDetails AchDetails) *AchPayment {
+func NewAchPayment(paymentType string, achDetails AchDetails) *AchPayment {
 	this := AchPayment{}
+	this.PaymentType = paymentType
 	this.AchDetails = achDetails
 	return &this
 }
@@ -42,6 +44,30 @@ func NewAchPayment(achDetails AchDetails) *AchPayment {
 func NewAchPaymentWithDefaults() *AchPayment {
 	this := AchPayment{}
 	return &this
+}
+
+// GetPaymentType returns the PaymentType field value
+func (o *AchPayment) GetPaymentType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PaymentType
+}
+
+// GetPaymentTypeOk returns a tuple with the PaymentType field value
+// and a boolean to check if the value has been set.
+func (o *AchPayment) GetPaymentTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PaymentType, true
+}
+
+// SetPaymentType sets field value
+func (o *AchPayment) SetPaymentType(v string) {
+	o.PaymentType = v
 }
 
 // GetAchDetails returns the AchDetails field value
@@ -78,6 +104,7 @@ func (o AchPayment) MarshalJSON() ([]byte, error) {
 
 func (o AchPayment) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["paymentType"] = o.PaymentType
 	toSerialize["achDetails"] = o.AchDetails
 	return toSerialize, nil
 }
@@ -87,6 +114,7 @@ func (o *AchPayment) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"paymentType",
 		"achDetails",
 	}
 

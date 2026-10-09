@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PaymentType** | **string** |  | 
 **AchDetails** | [**AchDetails**](AchDetails.md) |  | 
 
 ## Methods
 
 ### NewAchPayment
 
-`func NewAchPayment(achDetails AchDetails, ) *AchPayment`
+`func NewAchPayment(paymentType string, achDetails AchDetails, ) *AchPayment`
 
 NewAchPayment instantiates a new AchPayment object
 This constructor will assign default values to properties that have it defined,
@@ -24,6 +25,26 @@ will change when the set of required properties is changed
 NewAchPaymentWithDefaults instantiates a new AchPayment object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPaymentType
+
+`func (o *AchPayment) GetPaymentType() string`
+
+GetPaymentType returns the PaymentType field if non-nil, zero value otherwise.
+
+### GetPaymentTypeOk
+
+`func (o *AchPayment) GetPaymentTypeOk() (*string, bool)`
+
+GetPaymentTypeOk returns a tuple with the PaymentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentType
+
+`func (o *AchPayment) SetPaymentType(v string)`
+
+SetPaymentType sets PaymentType field to given value.
+
 
 ### GetAchDetails
 

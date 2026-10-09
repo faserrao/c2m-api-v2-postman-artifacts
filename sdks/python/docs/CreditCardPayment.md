@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**payment_type** | **str** |  | 
 **credit_card_details** | [**CreditCardDetails**](CreditCardDetails.md) |  | 
 
 ## Example

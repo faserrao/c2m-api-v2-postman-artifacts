@@ -23,11 +23,12 @@ class AchPayment {
     /**
      * Constructs a new <code>AchPayment</code>.
      * @alias module:c2m_api/model/AchPayment
+     * @param paymentType {module:c2m_api/model/AchPayment.PaymentTypeEnum} 
      * @param achDetails {module:c2m_api/model/AchDetails} 
      */
-    constructor(achDetails) { 
+    constructor(paymentType, achDetails) { 
         
-        AchPayment.initialize(this, achDetails);
+        AchPayment.initialize(this, paymentType, achDetails);
     }
 
     /**
@@ -35,7 +36,8 @@ class AchPayment {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, achDetails) { 
+    static initialize(obj, paymentType, achDetails) { 
+        obj['paymentType'] = paymentType;
         obj['achDetails'] = achDetails;
     }
 
@@ -50,6 +52,9 @@ class AchPayment {
         if (data) {
             obj = obj || new AchPayment();
 
+            if (data.hasOwnProperty('paymentType')) {
+                obj['paymentType'] = ApiClient.convertToType(data['paymentType'], 'String');
+            }
             if (data.hasOwnProperty('achDetails')) {
                 obj['achDetails'] = AchDetails.constructFromObject(data['achDetails']);
             }
@@ -69,6 +74,10 @@ class AchPayment {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // ensure the json data is a string
+        if (data['paymentType'] && !(typeof data['paymentType'] === 'string' || data['paymentType'] instanceof String)) {
+            throw new Error("Expected the field `paymentType` to be a primitive type in the JSON string but got " + data['paymentType']);
+        }
         // validate the optional field `achDetails`
         if (data['achDetails']) { // data not null
           AchDetails.validateJSON(data['achDetails']);
@@ -80,7 +89,12 @@ class AchPayment {
 
 }
 
-AchPayment.RequiredProperties = ["achDetails"];
+AchPayment.RequiredProperties = ["paymentType", "achDetails"];
+
+/**
+ * @member {module:c2m_api/model/AchPayment.PaymentTypeEnum} paymentType
+ */
+AchPayment.prototype['paymentType'] = undefined;
 
 /**
  * @member {module:c2m_api/model/AchDetails} achDetails
@@ -89,6 +103,21 @@ AchPayment.prototype['achDetails'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>paymentType</code> property.
+ * @enum {String}
+ * @readonly
+ */
+AchPayment['PaymentTypeEnum'] = {
+
+    /**
+     * value: "ach"
+     * @const
+     */
+    "ach": "ach"
+};
 
 
 

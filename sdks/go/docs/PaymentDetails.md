@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PaymentType** | **string** |  | 
 **CreditCardDetails** | [**CreditCardDetails**](CreditCardDetails.md) |  | 
 **InvoiceDetails** | [**InvoiceDetails**](InvoiceDetails.md) |  | 
 **AchDetails** | [**AchDetails**](AchDetails.md) |  | 
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 
 ### NewPaymentDetails
 
-`func NewPaymentDetails(creditCardDetails CreditCardDetails, invoiceDetails InvoiceDetails, achDetails AchDetails, creditAmount CreditAmount, ) *PaymentDetails`
+`func NewPaymentDetails(paymentType string, creditCardDetails CreditCardDetails, invoiceDetails InvoiceDetails, achDetails AchDetails, creditAmount CreditAmount, ) *PaymentDetails`
 
 NewPaymentDetails instantiates a new PaymentDetails object
 This constructor will assign default values to properties that have it defined,
@@ -27,6 +28,26 @@ will change when the set of required properties is changed
 NewPaymentDetailsWithDefaults instantiates a new PaymentDetails object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPaymentType
+
+`func (o *PaymentDetails) GetPaymentType() string`
+
+GetPaymentType returns the PaymentType field if non-nil, zero value otherwise.
+
+### GetPaymentTypeOk
+
+`func (o *PaymentDetails) GetPaymentTypeOk() (*string, bool)`
+
+GetPaymentTypeOk returns a tuple with the PaymentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentType
+
+`func (o *PaymentDetails) SetPaymentType(v string)`
+
+SetPaymentType sets PaymentType field to given value.
+
 
 ### GetCreditCardDetails
 

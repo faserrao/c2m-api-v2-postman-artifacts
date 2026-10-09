@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PaymentType** | **string** |  | 
 **InvoiceDetails** | [**InvoiceDetails**](InvoiceDetails.md) |  | 
 
 ## Methods
 
 ### NewInvoicePayment
 
-`func NewInvoicePayment(invoiceDetails InvoiceDetails, ) *InvoicePayment`
+`func NewInvoicePayment(paymentType string, invoiceDetails InvoiceDetails, ) *InvoicePayment`
 
 NewInvoicePayment instantiates a new InvoicePayment object
 This constructor will assign default values to properties that have it defined,
@@ -24,6 +25,26 @@ will change when the set of required properties is changed
 NewInvoicePaymentWithDefaults instantiates a new InvoicePayment object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPaymentType
+
+`func (o *InvoicePayment) GetPaymentType() string`
+
+GetPaymentType returns the PaymentType field if non-nil, zero value otherwise.
+
+### GetPaymentTypeOk
+
+`func (o *InvoicePayment) GetPaymentTypeOk() (*string, bool)`
+
+GetPaymentTypeOk returns a tuple with the PaymentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentType
+
+`func (o *InvoicePayment) SetPaymentType(v string)`
+
+SetPaymentType sets PaymentType field to given value.
+
 
 ### GetInvoiceDetails
 

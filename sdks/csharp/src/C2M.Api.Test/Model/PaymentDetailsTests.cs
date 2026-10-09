@@ -52,5 +52,14 @@ namespace C2M.Api.Test.Model
             // TODO uncomment below to test "IsType" PaymentDetails
             //Assert.IsType<PaymentDetails>(instance);
         }
+
+        /// <summary>
+        /// Test the property 'PaymentType'
+        /// </summary>
+        [Fact]
+        public void PaymentTypeTest()
+        {
+            // TODO unit test for the property 'PaymentType'
+        }
     }
 }

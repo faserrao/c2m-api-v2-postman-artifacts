@@ -39,6 +39,14 @@ public class InvoicePaymentTest {
     }
 
     /**
+     * Test the property 'paymentType'
+     */
+    @Test
+    public void paymentTypeTest() {
+        // TODO: test paymentType
+    }
+
+    /**
      * Test the property 'invoiceDetails'
      */
     @Test

@@ -55,6 +55,7 @@ import MultiDocJobItem from './model/MultiDocJobItem';
 import MultiZipJobItem from './model/MultiZipJobItem';
 import PaperType from './model/PaperType';
 import PaymentDetails from './model/PaymentDetails';
+import PaymentType from './model/PaymentType';
 import PdfSplitJobItemNoAddress from './model/PdfSplitJobItemNoAddress';
 import PdfSplitJobItemWithAddress from './model/PdfSplitJobItemWithAddress';
 import PrintOption from './model/PrintOption';
@@ -379,6 +380,12 @@ export {
      * @property {module:c2m_api/model/PaymentDetails}
      */
     PaymentDetails,
+
+    /**
+     * The PaymentType model constructor.
+     * @property {module:c2m_api/model/PaymentType}
+     */
+    PaymentType,
 
     /**
      * The PdfSplitJobItemNoAddress model constructor.

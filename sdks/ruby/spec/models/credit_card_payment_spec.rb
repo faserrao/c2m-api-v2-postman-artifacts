@@ -27,6 +27,16 @@ describe OpenapiClient::CreditCardPayment do
     end
   end
 
+  describe 'test attribute "payment_type"' do
+    it 'should work' do
+      # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["creditCard"])
+      # validator.allowable_values.each do |value|
+      #   expect { instance.payment_type = value }.not_to raise_error
+      # end
+    end
+  end
+
   describe 'test attribute "credit_card_details"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/

@@ -33,15 +33,75 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserCreditPayment" /> class.
         /// </summary>
+        /// <param name="paymentType">paymentType</param>
         /// <param name="creditAmount">creditAmount</param>
         [JsonConstructor]
-        public UserCreditPayment(CreditAmount creditAmount)
+        public UserCreditPayment(PaymentTypeEnum paymentType, CreditAmount creditAmount)
         {
+            PaymentType = paymentType;
             CreditAmount = creditAmount;
             OnCreated();
         }
 
         partial void OnCreated();
+
+        /// <summary>
+        /// Defines PaymentType
+        /// </summary>
+        public enum PaymentTypeEnum
+        {
+            /// <summary>
+            /// Enum UserCredit for value: userCredit
+            /// </summary>
+            UserCredit = 1
+        }
+
+        /// <summary>
+        /// Returns a <see cref="PaymentTypeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static PaymentTypeEnum PaymentTypeEnumFromString(string value)
+        {
+            if (value.Equals("userCredit"))
+                return PaymentTypeEnum.UserCredit;
+
+            throw new NotImplementedException($"Could not convert value to type PaymentTypeEnum: '{value}'");
+        }
+
+        /// <summary>
+        /// Returns a <see cref="PaymentTypeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static PaymentTypeEnum? PaymentTypeEnumFromStringOrDefault(string value)
+        {
+            if (value.Equals("userCredit"))
+                return PaymentTypeEnum.UserCredit;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="PaymentTypeEnum"/> to the json value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string PaymentTypeEnumToJsonValue(PaymentTypeEnum value)
+        {
+            if (value == PaymentTypeEnum.UserCredit)
+                return "userCredit";
+
+            throw new NotImplementedException($"Value could not be handled: '{value}'");
+        }
+
+        /// <summary>
+        /// Gets or Sets PaymentType
+        /// </summary>
+        [JsonPropertyName("paymentType")]
+        public PaymentTypeEnum PaymentType { get; set; }
 
         /// <summary>
         /// Gets or Sets CreditAmount
@@ -57,6 +117,7 @@ namespace C2M.Api.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UserCreditPayment {\n");
+            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             sb.Append("  CreditAmount: ").Append(CreditAmount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -95,6 +156,7 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
+            Option<UserCreditPayment.PaymentTypeEnum?> paymentType = default;
             Option<CreditAmount?> creditAmount = default;
 
             while (utf8JsonReader.Read())
@@ -112,6 +174,11 @@ namespace C2M.Api.Model
 
                     switch (localVarJsonPropertyName)
                     {
+                        case "paymentType":
+                            string? paymentTypeRawValue = utf8JsonReader.GetString();
+                            if (paymentTypeRawValue != null)
+                                paymentType = new Option<UserCreditPayment.PaymentTypeEnum?>(UserCreditPayment.PaymentTypeEnumFromStringOrDefault(paymentTypeRawValue));
+                            break;
                         case "creditAmount":
                             creditAmount = new Option<CreditAmount?>(JsonSerializer.Deserialize<CreditAmount>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
@@ -121,13 +188,19 @@ namespace C2M.Api.Model
                 }
             }
 
+            if (!paymentType.IsSet)
+                throw new ArgumentException("Property is required for class UserCreditPayment.", nameof(paymentType));
+
             if (!creditAmount.IsSet)
                 throw new ArgumentException("Property is required for class UserCreditPayment.", nameof(creditAmount));
+
+            if (paymentType.IsSet && paymentType.Value == null)
+                throw new ArgumentNullException(nameof(paymentType), "Property is not nullable for class UserCreditPayment.");
 
             if (creditAmount.IsSet && creditAmount.Value == null)
                 throw new ArgumentNullException(nameof(creditAmount), "Property is not nullable for class UserCreditPayment.");
 
-            return new UserCreditPayment(creditAmount.Value!);
+            return new UserCreditPayment(paymentType.Value!.Value!, creditAmount.Value!);
         }
 
         /// <summary>
@@ -157,6 +230,8 @@ namespace C2M.Api.Model
             if (userCreditPayment.CreditAmount == null)
                 throw new ArgumentNullException(nameof(userCreditPayment.CreditAmount), "Property is required for class UserCreditPayment.");
 
+            var paymentTypeRawValue = UserCreditPayment.PaymentTypeEnumToJsonValue(userCreditPayment.PaymentType);
+            writer.WriteString("paymentType", paymentTypeRawValue);
             writer.WritePropertyName("creditAmount");
             JsonSerializer.Serialize(writer, userCreditPayment.CreditAmount, jsonSerializerOptions);
         }

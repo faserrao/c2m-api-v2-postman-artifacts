@@ -12,17 +12,22 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-#[serde(untagged)]
+#[serde(tag = "paymentType")]
 pub enum PaymentDetails {
-    CreditCardPayment(Box<models::CreditCardPayment>),
-    InvoicePayment(Box<models::InvoicePayment>),
-    AchPayment(Box<models::AchPayment>),
-    UserCreditPayment(Box<models::UserCreditPayment>),
+    #[serde(rename="creditCard")]
+    CreditCard(Box<models::CreditCardPayment>),
+    #[serde(rename="invoice")]
+    Invoice(Box<models::InvoicePayment>),
+    #[serde(rename="ach")]
+    Ach(Box<models::AchPayment>),
+    #[serde(rename="userCredit")]
+    UserCredit(Box<models::UserCreditPayment>),
 }
 
 impl Default for PaymentDetails {
     fn default() -> Self {
-        Self::CreditCardPayment(Default::default())
+        Self::CreditCard(Default::default())
     }
 }
+
 

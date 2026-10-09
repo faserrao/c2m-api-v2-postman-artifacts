@@ -1478,9 +1478,9 @@ paths:
                     errorType: ValidationError
                     errorMessage: Field contains a value not allowed by the enumeration
                     errorCode: INVALID_ENUM_VALUE
-                    errorDetails: "{\"field\": \"paymentDetails.creditCardDetails.cardType\"\
-                      , \"value\": \"invalid_value\", \"allowedValues\": [\"visa\"\
-                      , \"mastercard\", \"discover\", \"americanExpress\"]}"
+                    errorDetails: "{\"field\": \"paymentDetails.paymentType\", \"\
+                      value\": \"invalid_value\", \"allowedValues\": [\"creditCard\"\
+                      , \"invoice\", \"ach\", \"userCredit\"]}"
                     errorTrackingId: TRK-20260115-34E184
                 invalid-format:
                   summary: Validation failed
@@ -2722,38 +2722,72 @@ components:
     id:
       type: integer
     paymentDetails:
+      discriminator:
+        mapping:
+          creditCard: "#/components/schemas/creditCardPayment"
+          invoice: "#/components/schemas/invoicePayment"
+          ach: "#/components/schemas/achPayment"
+          userCredit: "#/components/schemas/userCreditPayment"
+        propertyName: paymentType
       oneOf:
       - $ref: "#/components/schemas/creditCardPayment"
       - $ref: "#/components/schemas/invoicePayment"
       - $ref: "#/components/schemas/achPayment"
       - $ref: "#/components/schemas/userCreditPayment"
+    paymentType:
+      enum:
+      - creditCard
+      - invoice
+      - ach
+      - userCredit
+      type: string
     creditCardPayment:
       properties:
+        paymentType:
+          enum:
+          - creditCard
+          type: string
         creditCardDetails:
           $ref: "#/components/schemas/creditCardDetails"
       required:
       - creditCardDetails
+      - paymentType
       type: object
     invoicePayment:
       properties:
+        paymentType:
+          enum:
+          - invoice
+          type: string
         invoiceDetails:
           $ref: "#/components/schemas/invoiceDetails"
       required:
       - invoiceDetails
+      - paymentType
       type: object
     achPayment:
       properties:
+        paymentType:
+          enum:
+          - ach
+          type: string
         achDetails:
           $ref: "#/components/schemas/achDetails"
       required:
       - achDetails
+      - paymentType
       type: object
     userCreditPayment:
       properties:
+        paymentType:
+          enum:
+          - userCredit
+          type: string
         creditAmount:
           $ref: "#/components/schemas/creditAmount"
       required:
       - creditAmount
+      - paymentType
       type: object
     creditCardDetails:
       properties:

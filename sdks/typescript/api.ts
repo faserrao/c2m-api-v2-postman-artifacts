@@ -29,8 +29,16 @@ export interface AchDetails {
     'checkDigit': number;
 }
 export interface AchPayment {
+    'paymentType': AchPaymentPaymentTypeEnum;
     'achDetails': AchDetails;
 }
+
+export const AchPaymentPaymentTypeEnum = {
+    Ach: 'ach'
+} as const;
+
+export type AchPaymentPaymentTypeEnum = typeof AchPaymentPaymentTypeEnum[keyof typeof AchPaymentPaymentTypeEnum];
+
 export interface Address {
     'firstName': string;
     'lastName': string;
@@ -110,8 +118,16 @@ export const CreditCardDetailsCardTypeEnum = {
 export type CreditCardDetailsCardTypeEnum = typeof CreditCardDetailsCardTypeEnum[keyof typeof CreditCardDetailsCardTypeEnum];
 
 export interface CreditCardPayment {
+    'paymentType': CreditCardPaymentPaymentTypeEnum;
     'creditCardDetails': CreditCardDetails;
 }
+
+export const CreditCardPaymentPaymentTypeEnum = {
+    CreditCard: 'creditCard'
+} as const;
+
+export type CreditCardPaymentPaymentTypeEnum = typeof CreditCardPaymentPaymentTypeEnum[keyof typeof CreditCardPaymentPaymentTypeEnum];
+
 
 export const Currency = {
     Usd: 'USD',
@@ -270,8 +286,16 @@ export interface InvoiceDetails {
     'amountDue': number;
 }
 export interface InvoicePayment {
+    'paymentType': InvoicePaymentPaymentTypeEnum;
     'invoiceDetails': InvoiceDetails;
 }
+
+export const InvoicePaymentPaymentTypeEnum = {
+    Invoice: 'invoice'
+} as const;
+
+export type InvoicePaymentPaymentTypeEnum = typeof InvoicePaymentPaymentTypeEnum[keyof typeof InvoicePaymentPaymentTypeEnum];
+
 export interface JobOptions {
     'documentClass': JobOptionsDocumentClassEnum;
     'layout': JobOptionsLayoutEnum;
@@ -478,7 +502,18 @@ export type PaperType = typeof PaperType[keyof typeof PaperType];
 /**
  * @type PaymentDetails
  */
-export type PaymentDetails = AchPayment | CreditCardPayment | InvoicePayment | UserCreditPayment;
+export type PaymentDetails = { paymentType: 'ach' } & AchPayment | { paymentType: 'creditCard' } & CreditCardPayment | { paymentType: 'invoice' } & InvoicePayment | { paymentType: 'userCredit' } & UserCreditPayment;
+
+
+export const PaymentType = {
+    CreditCard: 'creditCard',
+    Invoice: 'invoice',
+    Ach: 'ach',
+    UserCredit: 'userCredit'
+} as const;
+
+export type PaymentType = typeof PaymentType[keyof typeof PaymentType];
+
 
 export interface PdfSplitJobItemNoAddress {
     'jobTemplate'?: string;
@@ -657,8 +692,16 @@ export interface UrlSource {
     'url': string;
 }
 export interface UserCreditPayment {
+    'paymentType': UserCreditPaymentPaymentTypeEnum;
     'creditAmount': CreditAmount;
 }
+
+export const UserCreditPaymentPaymentTypeEnum = {
+    UserCredit: 'userCredit'
+} as const;
+
+export type UserCreditPaymentPaymentTypeEnum = typeof UserCreditPaymentPaymentTypeEnum[keyof typeof UserCreditPaymentPaymentTypeEnum];
+
 export interface ZipDocumentIdOnly {
     'zipDocumentId': number;
 }

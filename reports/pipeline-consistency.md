@@ -1,12 +1,12 @@
 # Pipeline consistency (DD → spec → Postman)
 
-ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 1
+ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 0
 
 ## ⚠️ Known open (tracked)
 - **A-DOC-CARDINALITY-UNENFORCED** [*] (1) — X9 / decision D4 (array minimums)
     - documentsToMerge: 'Ordered array of document references to merge into one output document'
 - **A-DOC-NOT-IN-SPEC** [*] (1) — X4 (@doc not emitted as spec descriptions)
-    - 102 of 102 @doc descriptions not emitted
+    - 103 of 103 @doc descriptions not emitted
 - **A-DOC-TYPE-CLAIM** [*] (1) — L2 / decision D6 (errorDetails object vs string)
     - errorDetails: @doc says JSON object, DD type is string
 - **A-HINT-EMPTY-STATIC** [*] (1) — L1 (address3 empty static hint)
@@ -15,12 +15,7 @@ ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 1
     - routingNumber: '@hint aba_routing_number'
 - **A-PRIMER-ENDPOINT-UNDEFINED** [*] (1) — /static/multi is PLANNED in the DD primer
     - /static/multi
-- **A-TAG-LITERAL-DROPPED** [*] (4) — X5 / decision D1 (payment type tags)
-    - creditCardPayment: DD literal(s) ['creditCard'] not in spec
-    - invoicePayment: DD literal(s) ['invoice'] not in spec
-    - achPayment: DD literal(s) ['ach'] not in spec
-    - userCreditPayment: DD literal(s) ['userCredit'] not in spec
-- **A-UNREACHABLE-RULE** [*] (10) — X6 / D2 (addressName orphan); multiDocJobs reserved for /static/multi; HTTP_* aliases
+- **A-UNREACHABLE-RULE** [*] (11) — X6 / D2 (addressName orphan); multiDocJobs reserved for /static/multi; HTTP_* aliases
     - HTTP_400_BAD_REQUEST
     - HTTP_401_UNAUTHORIZED
     - HTTP_403_FORBIDDEN
@@ -31,6 +26,7 @@ ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 1
     - addressName
     - multiDocJobItem
     - multiDocJobs
+    - paymentType
 - **A-VALID-COMBINATION-NOOP** [*] (1) — X11 / decision D5 (envelope=none rule)
     - {"when_field": "envelope", "when_value": "none", "then_field": "layout", "then_values": ["address_on_first_page", "address_on_back_page"]}
 - **B-EXAMPLE-ORIGINAL-REQUEST** [Linked] (19) — X9b (merge minimum in saved examples)
@@ -53,6 +49,12 @@ ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 1
     - POST /mail-merge / 'Internal server error' (500): mergeDocumentSource has 1 entry
     - POST /mail-merge / 'Database error' (500): mergeDocumentSource has 1 entry
     - POST /mail-merge / 'External service error' (500): mergeDocumentSource has 1 entry
+- **B-EXAMPLE-ORIGINAL-REQUEST** [Test] (5) — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
+    - POST /auth/tokens/long / 'Long-term token issued' (201): ttl_seconds: 1790 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Bad request' (400): ttl_seconds: 1790 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Unauthorized' (401): ttl_seconds: 1790 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Forbidden' (403): ttl_seconds: 1790 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Too Many Requests' (429): ttl_seconds: 1790 is less than the minimum of 3600
 - **B-FILLER-VALUE** [GS-Test] (3) — L7 (example_ filler values)
     - [Less frequently used] /static - setting tags: body/tags[0]='example_tags'
     - [Less frequently used] /static - setting tags: body/tags[1]='example_tags'
@@ -107,8 +109,5 @@ ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 1
     - POST /mail-merge
     - POST /batch/zip
     - POST /batch/zip/address-capture
-
-## 🧹 Stale KNOWN_OPEN entries (no longer occur — remove them)
-- B-EXAMPLE-ORIGINAL-REQUEST [Test] — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
 
 ✅ No ERROR findings

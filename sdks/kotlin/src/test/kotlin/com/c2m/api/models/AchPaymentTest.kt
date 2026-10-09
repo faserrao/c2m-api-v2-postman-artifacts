@@ -26,6 +26,12 @@ class AchPaymentTest : ShouldSpec() {
         // uncomment below to create an instance of AchPayment
         //val modelInstance = AchPayment()
 
+        // to test the property `paymentType`
+        should("test paymentType") {
+            // uncomment below to test the property
+            //modelInstance.paymentType shouldBe ("TODO")
+        }
+
         // to test the property `achDetails`
         should("test achDetails") {
             // uncomment below to test the property

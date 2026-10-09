@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**payment_type** | **str** |  | 
 **invoice_details** | [**InvoiceDetails**](InvoiceDetails.md) |  | 
 
 ## Example

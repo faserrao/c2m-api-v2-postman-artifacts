@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**payment_type** | **string** |  |
 **credit_card_details** | [**\C2MApi\Model\CreditCardDetails**](CreditCardDetails.md) |  |
 **invoice_details** | [**\C2MApi\Model\InvoiceDetails**](InvoiceDetails.md) |  |
 **ach_details** | [**\C2MApi\Model\AchDetails**](AchDetails.md) |  |

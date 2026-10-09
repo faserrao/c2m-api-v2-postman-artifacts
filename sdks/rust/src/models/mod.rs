@@ -82,6 +82,8 @@ pub mod paper_type;
 pub use self::paper_type::PaperType;
 pub mod payment_details;
 pub use self::payment_details::PaymentDetails;
+pub mod payment_type;
+pub use self::payment_type::PaymentType;
 pub mod pdf_split_job_item_no_address;
 pub use self::pdf_split_job_item_no_address::PdfSplitJobItemNoAddress;
 pub mod pdf_split_job_item_with_address;

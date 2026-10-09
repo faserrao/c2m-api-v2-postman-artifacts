@@ -80,6 +80,15 @@ class InvoicePaymentTest extends TestCase
     }
 
     /**
+     * Test attribute "payment_type"
+     */
+    public function testPropertyPaymentType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "invoice_details"
      */
     public function testPropertyInvoiceDetails()

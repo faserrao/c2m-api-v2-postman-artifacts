@@ -80,6 +80,15 @@ class CreditCardPaymentTest extends TestCase
     }
 
     /**
+     * Test attribute "payment_type"
+     */
+    public function testPropertyPaymentType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "credit_card_details"
      */
     public function testPropertyCreditCardDetails()

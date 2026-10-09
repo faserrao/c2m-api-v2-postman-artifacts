@@ -137,6 +137,8 @@ namespace C2M.Api.Client
                 return boolean
                     ? "true"
                     : "false";
+            if (obj is AchPayment.PaymentTypeEnum achPaymentPaymentTypeEnum)
+                return AchPayment.PaymentTypeEnumToJsonValue(achPaymentPaymentTypeEnum);
             if (obj is CardType cardType)
                 return CardTypeValueConverter.ToJsonValue(cardType);
             if (obj is Color color)
@@ -145,6 +147,8 @@ namespace C2M.Api.Client
                 return CreditAmount.CurrencyEnumToJsonValue(creditAmountCurrencyEnum);
             if (obj is CreditCardDetails.CardTypeEnum creditCardDetailsCardTypeEnum)
                 return CreditCardDetails.CardTypeEnumToJsonValue(creditCardDetailsCardTypeEnum);
+            if (obj is CreditCardPayment.PaymentTypeEnum creditCardPaymentPaymentTypeEnum)
+                return CreditCardPayment.PaymentTypeEnumToJsonValue(creditCardPaymentPaymentTypeEnum);
             if (obj is Currency currency)
                 return CurrencyValueConverter.ToJsonValue(currency);
             if (obj is DocumentClass documentClass)
@@ -159,6 +163,8 @@ namespace C2M.Api.Client
                 return ErrorResponse.ErrorCodeEnumToJsonValue(errorResponseErrorCodeEnum);
             if (obj is ErrorType errorType)
                 return ErrorTypeValueConverter.ToJsonValue(errorType);
+            if (obj is InvoicePayment.PaymentTypeEnum invoicePaymentPaymentTypeEnum)
+                return InvoicePayment.PaymentTypeEnumToJsonValue(invoicePaymentPaymentTypeEnum);
             if (obj is JobOptions.DocumentClassEnum jobOptionsDocumentClassEnum)
                 return JobOptions.DocumentClassEnumToJsonValue(jobOptionsDocumentClassEnum);
             if (obj is JobOptions.LayoutEnum jobOptionsLayoutEnum)
@@ -185,12 +191,18 @@ namespace C2M.Api.Client
                 return MailClassValueConverter.ToJsonValue(mailClass);
             if (obj is PaperType paperType)
                 return PaperTypeValueConverter.ToJsonValue(paperType);
+            if (obj is PaymentDetails.PaymentTypeEnum paymentDetailsPaymentTypeEnum)
+                return PaymentDetails.PaymentTypeEnumToJsonValue(paymentDetailsPaymentTypeEnum);
+            if (obj is PaymentType paymentType)
+                return PaymentTypeValueConverter.ToJsonValue(paymentType);
             if (obj is PrintOption printOption)
                 return PrintOptionValueConverter.ToJsonValue(printOption);
             if (obj is ProductionTime productionTime)
                 return ProductionTimeValueConverter.ToJsonValue(productionTime);
             if (obj is ShortTokenResponse.TokenTypeEnum shortTokenResponseTokenTypeEnum)
                 return ShortTokenResponse.TokenTypeEnumToJsonValue(shortTokenResponseTokenTypeEnum);
+            if (obj is UserCreditPayment.PaymentTypeEnum userCreditPaymentPaymentTypeEnum)
+                return UserCreditPayment.PaymentTypeEnumToJsonValue(userCreditPaymentPaymentTypeEnum);
             if (obj is ICollection collection)
             {
                 List<string?> entries = new();

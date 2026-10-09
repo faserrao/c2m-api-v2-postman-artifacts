@@ -54,6 +54,15 @@ namespace C2M.Api.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'PaymentType'
+        /// </summary>
+        [Fact]
+        public void PaymentTypeTest()
+        {
+            // TODO unit test for the property 'PaymentType'
+        }
+
+        /// <summary>
         /// Test the property 'CreditAmount'
         /// </summary>
         [Fact]

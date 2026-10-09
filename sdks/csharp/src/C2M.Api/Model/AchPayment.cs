@@ -33,15 +33,75 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AchPayment" /> class.
         /// </summary>
+        /// <param name="paymentType">paymentType</param>
         /// <param name="achDetails">achDetails</param>
         [JsonConstructor]
-        public AchPayment(AchDetails achDetails)
+        public AchPayment(PaymentTypeEnum paymentType, AchDetails achDetails)
         {
+            PaymentType = paymentType;
             AchDetails = achDetails;
             OnCreated();
         }
 
         partial void OnCreated();
+
+        /// <summary>
+        /// Defines PaymentType
+        /// </summary>
+        public enum PaymentTypeEnum
+        {
+            /// <summary>
+            /// Enum Ach for value: ach
+            /// </summary>
+            Ach = 1
+        }
+
+        /// <summary>
+        /// Returns a <see cref="PaymentTypeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static PaymentTypeEnum PaymentTypeEnumFromString(string value)
+        {
+            if (value.Equals("ach"))
+                return PaymentTypeEnum.Ach;
+
+            throw new NotImplementedException($"Could not convert value to type PaymentTypeEnum: '{value}'");
+        }
+
+        /// <summary>
+        /// Returns a <see cref="PaymentTypeEnum"/>
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static PaymentTypeEnum? PaymentTypeEnumFromStringOrDefault(string value)
+        {
+            if (value.Equals("ach"))
+                return PaymentTypeEnum.Ach;
+
+            return null;
+        }
+
+        /// <summary>
+        /// Converts the <see cref="PaymentTypeEnum"/> to the json value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public static string PaymentTypeEnumToJsonValue(PaymentTypeEnum value)
+        {
+            if (value == PaymentTypeEnum.Ach)
+                return "ach";
+
+            throw new NotImplementedException($"Value could not be handled: '{value}'");
+        }
+
+        /// <summary>
+        /// Gets or Sets PaymentType
+        /// </summary>
+        [JsonPropertyName("paymentType")]
+        public PaymentTypeEnum PaymentType { get; set; }
 
         /// <summary>
         /// Gets or Sets AchDetails
@@ -57,6 +117,7 @@ namespace C2M.Api.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class AchPayment {\n");
+            sb.Append("  PaymentType: ").Append(PaymentType).Append("\n");
             sb.Append("  AchDetails: ").Append(AchDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -95,6 +156,7 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
+            Option<AchPayment.PaymentTypeEnum?> paymentType = default;
             Option<AchDetails?> achDetails = default;
 
             while (utf8JsonReader.Read())
@@ -112,6 +174,11 @@ namespace C2M.Api.Model
 
                     switch (localVarJsonPropertyName)
                     {
+                        case "paymentType":
+                            string? paymentTypeRawValue = utf8JsonReader.GetString();
+                            if (paymentTypeRawValue != null)
+                                paymentType = new Option<AchPayment.PaymentTypeEnum?>(AchPayment.PaymentTypeEnumFromStringOrDefault(paymentTypeRawValue));
+                            break;
                         case "achDetails":
                             achDetails = new Option<AchDetails?>(JsonSerializer.Deserialize<AchDetails>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
@@ -121,13 +188,19 @@ namespace C2M.Api.Model
                 }
             }
 
+            if (!paymentType.IsSet)
+                throw new ArgumentException("Property is required for class AchPayment.", nameof(paymentType));
+
             if (!achDetails.IsSet)
                 throw new ArgumentException("Property is required for class AchPayment.", nameof(achDetails));
+
+            if (paymentType.IsSet && paymentType.Value == null)
+                throw new ArgumentNullException(nameof(paymentType), "Property is not nullable for class AchPayment.");
 
             if (achDetails.IsSet && achDetails.Value == null)
                 throw new ArgumentNullException(nameof(achDetails), "Property is not nullable for class AchPayment.");
 
-            return new AchPayment(achDetails.Value!);
+            return new AchPayment(paymentType.Value!.Value!, achDetails.Value!);
         }
 
         /// <summary>
@@ -157,6 +230,8 @@ namespace C2M.Api.Model
             if (achPayment.AchDetails == null)
                 throw new ArgumentNullException(nameof(achPayment.AchDetails), "Property is required for class AchPayment.");
 
+            var paymentTypeRawValue = AchPayment.PaymentTypeEnumToJsonValue(achPayment.PaymentType);
+            writer.WriteString("paymentType", paymentTypeRawValue);
             writer.WritePropertyName("achDetails");
             JsonSerializer.Serialize(writer, achPayment.AchDetails, jsonSerializerOptions);
         }

@@ -26,6 +26,12 @@ class CreditCardPaymentTest : ShouldSpec() {
         // uncomment below to create an instance of CreditCardPayment
         //val modelInstance = CreditCardPayment()
 
+        // to test the property `paymentType`
+        should("test paymentType") {
+            // uncomment below to test the property
+            //modelInstance.paymentType shouldBe ("TODO")
+        }
+
         // to test the property `creditCardDetails`
         should("test creditCardDetails") {
             // uncomment below to test the property

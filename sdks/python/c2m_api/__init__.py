@@ -71,6 +71,7 @@ __all__ = [
     "MultiZipJobItem",
     "PaperType",
     "PaymentDetails",
+    "PaymentType",
     "PdfSplitJobItemNoAddress",
     "PdfSplitJobItemWithAddress",
     "PrintOption",
@@ -163,6 +164,7 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.multi_zip_job_item import MultiZipJobItem as MultiZipJobItem
     from c2m_api.models.paper_type import PaperType as PaperType
     from c2m_api.models.payment_details import PaymentDetails as PaymentDetails
+    from c2m_api.models.payment_type import PaymentType as PaymentType
     from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress as PdfSplitJobItemNoAddress
     from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress as PdfSplitJobItemWithAddress
     from c2m_api.models.print_option import PrintOption as PrintOption
@@ -261,6 +263,7 @@ from c2m_api.models.multi_doc_job_item import MultiDocJobItem as MultiDocJobItem
 from c2m_api.models.multi_zip_job_item import MultiZipJobItem as MultiZipJobItem
 from c2m_api.models.paper_type import PaperType as PaperType
 from c2m_api.models.payment_details import PaymentDetails as PaymentDetails
+from c2m_api.models.payment_type import PaymentType as PaymentType
 from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress as PdfSplitJobItemNoAddress
 from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress as PdfSplitJobItemWithAddress
 from c2m_api.models.print_option import PrintOption as PrintOption

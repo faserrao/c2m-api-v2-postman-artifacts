@@ -15,11 +15,36 @@ require 'time'
 
 module OpenapiClient
   class UserCreditPayment
+    attr_accessor :payment_type
+
     attr_accessor :credit_amount
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'payment_type' => :'paymentType',
         :'credit_amount' => :'creditAmount'
       }
     end
@@ -37,6 +62,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'payment_type' => :'String',
         :'credit_amount' => :'CreditAmount'
       }
     end
@@ -63,6 +89,12 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'payment_type')
+        self.payment_type = attributes[:'payment_type']
+      else
+        self.payment_type = nil
+      end
+
       if attributes.key?(:'credit_amount')
         self.credit_amount = attributes[:'credit_amount']
       else
@@ -75,6 +107,10 @@ module OpenapiClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @payment_type.nil?
+        invalid_properties.push('invalid value for "payment_type", payment_type cannot be nil.')
+      end
+
       if @credit_amount.nil?
         invalid_properties.push('invalid value for "credit_amount", credit_amount cannot be nil.')
       end
@@ -86,8 +122,21 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @payment_type.nil?
+      payment_type_validator = EnumAttributeValidator.new('String', ["userCredit"])
+      return false unless payment_type_validator.valid?(@payment_type)
       return false if @credit_amount.nil?
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] payment_type Object to be assigned
+    def payment_type=(payment_type)
+      validator = EnumAttributeValidator.new('String', ["userCredit"])
+      unless validator.valid?(payment_type)
+        fail ArgumentError, "invalid value for \"payment_type\", must be one of #{validator.allowable_values}."
+      end
+      @payment_type = payment_type
     end
 
     # Custom attribute writer method with validation
@@ -105,6 +154,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          payment_type == o.payment_type &&
           credit_amount == o.credit_amount
     end
 
@@ -117,7 +167,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [credit_amount].hash
+      [payment_type, credit_amount].hash
     end
 
     # Builds the object from hash

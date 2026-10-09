@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**paymentType** | **string** |  | [default to undefined]
 **creditCardDetails** | [**CreditCardDetails**](CreditCardDetails.md) |  | [default to undefined]
 **invoiceDetails** | [**InvoiceDetails**](InvoiceDetails.md) |  | [default to undefined]
 **achDetails** | [**AchDetails**](AchDetails.md) |  | [default to undefined]
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 import { PaymentDetails } from './api';
 
 const instance: PaymentDetails = {
+    paymentType,
     creditCardDetails,
     invoiceDetails,
     achDetails,

@@ -35,6 +35,7 @@ class TestPaymentDetails(unittest.TestCase):
         model = PaymentDetails()
         if include_optional:
             return PaymentDetails(
+                payment_type = 'userCredit',
                 credit_card_details = c2m_api.models.credit_card_details.creditCardDetails(
                     card_type = 'visa', 
                     card_number = '', 
@@ -55,6 +56,7 @@ class TestPaymentDetails(unittest.TestCase):
             )
         else:
             return PaymentDetails(
+                payment_type = 'userCredit',
                 credit_card_details = c2m_api.models.credit_card_details.creditCardDetails(
                     card_type = 'visa', 
                     card_number = '', 

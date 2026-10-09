@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from c2m_api.models.credit_amount import CreditAmount
 from typing import Optional, Set
@@ -27,8 +27,16 @@ class UserCreditPayment(BaseModel):
     """
     UserCreditPayment
     """ # noqa: E501
+    payment_type: StrictStr = Field(alias="paymentType")
     credit_amount: CreditAmount = Field(alias="creditAmount")
-    __properties: ClassVar[List[str]] = ["creditAmount"]
+    __properties: ClassVar[List[str]] = ["paymentType", "creditAmount"]
+
+    @field_validator('payment_type')
+    def payment_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['userCredit']):
+            raise ValueError("must be one of enum values ('userCredit')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,6 +92,7 @@ class UserCreditPayment(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "paymentType": obj.get("paymentType"),
             "creditAmount": CreditAmount.from_dict(obj["creditAmount"]) if obj.get("creditAmount") is not None else None
         })
         return _obj

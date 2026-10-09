@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**payment_type** | **str** |  | 
 **ach_details** | [**AchDetails**](AchDetails.md) |  | 
 
 ## Example

@@ -95,6 +95,8 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new PaperTypeJsonConverter());
             _jsonOptions.Converters.Add(new PaperTypeNullableJsonConverter());
             _jsonOptions.Converters.Add(new PaymentDetailsJsonConverter());
+            _jsonOptions.Converters.Add(new PaymentTypeJsonConverter());
+            _jsonOptions.Converters.Add(new PaymentTypeNullableJsonConverter());
             _jsonOptions.Converters.Add(new PdfSplitJobItemNoAddressJsonConverter());
             _jsonOptions.Converters.Add(new PdfSplitJobItemWithAddressJsonConverter());
             _jsonOptions.Converters.Add(new PrintOptionJsonConverter());

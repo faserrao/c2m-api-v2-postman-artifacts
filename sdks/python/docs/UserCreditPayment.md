@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**payment_type** | **str** |  | 
 **credit_amount** | [**CreditAmount**](CreditAmount.md) |  | 
 
 ## Example

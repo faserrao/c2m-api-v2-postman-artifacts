@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**paymentType** | **string** |  | [default to undefined]
 **creditCardDetails** | [**CreditCardDetails**](CreditCardDetails.md) |  | [default to undefined]
 
 ## Example
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 import { CreditCardPayment } from './api';
 
 const instance: CreditCardPayment = {
+    paymentType,
     creditCardDetails,
 };
 ```

@@ -54,6 +54,12 @@
       //expect(instance).to.be.a(C2MApiV2.InvoicePayment);
     });
 
+    it('should have the property paymentType (base name: "paymentType")', function() {
+      // uncomment below and update the code to test the property paymentType
+      //var instance = new C2MApiV2.InvoicePayment();
+      //expect(instance).to.be();
+    });
+
     it('should have the property invoiceDetails (base name: "invoiceDetails")', function() {
       // uncomment below and update the code to test the property invoiceDetails
       //var instance = new C2MApiV2.InvoicePayment();

@@ -160,6 +160,11 @@ class PaymentDetails {
 }
 
 /**
+ * @member {module:c2m_api/model/PaymentDetails.PaymentTypeEnum} paymentType
+ */
+PaymentDetails.prototype['paymentType'] = undefined;
+
+/**
  * @member {module:c2m_api/model/CreditCardDetails} creditCardDetails
  */
 PaymentDetails.prototype['creditCardDetails'] = undefined;

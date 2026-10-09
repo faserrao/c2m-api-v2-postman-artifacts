@@ -4,6 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**paymentType** | **String** |  | 
 **invoiceDetails** | [**InvoiceDetails**](InvoiceDetails.md) |  | 
+
+
+
+## Enum: PaymentTypeEnum
+
+
+* `invoice` (value: `"invoice"`)
+
+
 
 

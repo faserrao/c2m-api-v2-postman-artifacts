@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **payment_type** | **String** |  |  |
 | **credit_amount** | [**CreditAmount**](CreditAmount.md) |  |  |
 
 ## Example
@@ -12,6 +13,7 @@
 require 'openapi_client'
 
 instance = OpenapiClient::UserCreditPayment.new(
+  payment_type: null,
   credit_amount: null
 )
 ```

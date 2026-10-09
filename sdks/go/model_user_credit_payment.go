@@ -21,6 +21,7 @@ var _ MappedNullable = &UserCreditPayment{}
 
 // UserCreditPayment struct for UserCreditPayment
 type UserCreditPayment struct {
+	PaymentType string `json:"paymentType"`
 	CreditAmount CreditAmount `json:"creditAmount"`
 }
 
@@ -30,8 +31,9 @@ type _UserCreditPayment UserCreditPayment
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewUserCreditPayment(creditAmount CreditAmount) *UserCreditPayment {
+func NewUserCreditPayment(paymentType string, creditAmount CreditAmount) *UserCreditPayment {
 	this := UserCreditPayment{}
+	this.PaymentType = paymentType
 	this.CreditAmount = creditAmount
 	return &this
 }
@@ -42,6 +44,30 @@ func NewUserCreditPayment(creditAmount CreditAmount) *UserCreditPayment {
 func NewUserCreditPaymentWithDefaults() *UserCreditPayment {
 	this := UserCreditPayment{}
 	return &this
+}
+
+// GetPaymentType returns the PaymentType field value
+func (o *UserCreditPayment) GetPaymentType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PaymentType
+}
+
+// GetPaymentTypeOk returns a tuple with the PaymentType field value
+// and a boolean to check if the value has been set.
+func (o *UserCreditPayment) GetPaymentTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PaymentType, true
+}
+
+// SetPaymentType sets field value
+func (o *UserCreditPayment) SetPaymentType(v string) {
+	o.PaymentType = v
 }
 
 // GetCreditAmount returns the CreditAmount field value
@@ -78,6 +104,7 @@ func (o UserCreditPayment) MarshalJSON() ([]byte, error) {
 
 func (o UserCreditPayment) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["paymentType"] = o.PaymentType
 	toSerialize["creditAmount"] = o.CreditAmount
 	return toSerialize, nil
 }
@@ -87,6 +114,7 @@ func (o *UserCreditPayment) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"paymentType",
 		"creditAmount",
 	}
 

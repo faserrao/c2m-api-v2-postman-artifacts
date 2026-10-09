@@ -1,0 +1,14 @@
+# PaymentType
+
+
+## Enum
+
+* `CreditCard` (value: `'creditCard'`)
+
+* `Invoice` (value: `'invoice'`)
+
+* `Ach` (value: `'ach'`)
+
+* `UserCredit` (value: `'userCredit'`)
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -23,17 +23,30 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param paymentType 
  * @param creditCardDetails 
  */
 
 
 data class CreditCardPayment (
 
+    @Json(name = "paymentType")
+    val paymentType: CreditCardPayment.PaymentType,
+
     @Json(name = "creditCardDetails")
     val creditCardDetails: CreditCardDetails
 
 ) {
 
+    /**
+     * 
+     *
+     * Values: creditCard
+     */
+    @JsonClass(generateAdapter = false)
+    enum class PaymentType(val value: kotlin.String) {
+        @Json(name = "creditCard") creditCard("creditCard");
+    }
 
 }
 

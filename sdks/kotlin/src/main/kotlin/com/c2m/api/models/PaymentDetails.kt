@@ -30,6 +30,7 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
+ * @param paymentType 
  * @param creditCardDetails 
  * @param invoiceDetails 
  * @param achDetails 
@@ -37,22 +38,27 @@ import com.squareup.moshi.JsonClass
  */
 
 
-data class PaymentDetails (
+interface PaymentDetails {
 
+    @Json(name = "paymentType")
+    val paymentType: PaymentDetails.PaymentType
     @Json(name = "creditCardDetails")
-    val creditCardDetails: CreditCardDetails,
-
+    val creditCardDetails: CreditCardDetails
     @Json(name = "invoiceDetails")
-    val invoiceDetails: InvoiceDetails,
-
+    val invoiceDetails: InvoiceDetails
     @Json(name = "achDetails")
-    val achDetails: AchDetails,
-
+    val achDetails: AchDetails
     @Json(name = "creditAmount")
     val creditAmount: CreditAmount
-
-) {
-
+    /**
+     * 
+     *
+     * Values: userCredit
+     */
+    @JsonClass(generateAdapter = false)
+    enum class PaymentType(val value: kotlin.String) {
+        @Json(name = "userCredit") userCredit("userCredit");
+    }
 
 }
 

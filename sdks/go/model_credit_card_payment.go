@@ -21,6 +21,7 @@ var _ MappedNullable = &CreditCardPayment{}
 
 // CreditCardPayment struct for CreditCardPayment
 type CreditCardPayment struct {
+	PaymentType string `json:"paymentType"`
 	CreditCardDetails CreditCardDetails `json:"creditCardDetails"`
 }
 
@@ -30,8 +31,9 @@ type _CreditCardPayment CreditCardPayment
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreditCardPayment(creditCardDetails CreditCardDetails) *CreditCardPayment {
+func NewCreditCardPayment(paymentType string, creditCardDetails CreditCardDetails) *CreditCardPayment {
 	this := CreditCardPayment{}
+	this.PaymentType = paymentType
 	this.CreditCardDetails = creditCardDetails
 	return &this
 }
@@ -42,6 +44,30 @@ func NewCreditCardPayment(creditCardDetails CreditCardDetails) *CreditCardPaymen
 func NewCreditCardPaymentWithDefaults() *CreditCardPayment {
 	this := CreditCardPayment{}
 	return &this
+}
+
+// GetPaymentType returns the PaymentType field value
+func (o *CreditCardPayment) GetPaymentType() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PaymentType
+}
+
+// GetPaymentTypeOk returns a tuple with the PaymentType field value
+// and a boolean to check if the value has been set.
+func (o *CreditCardPayment) GetPaymentTypeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PaymentType, true
+}
+
+// SetPaymentType sets field value
+func (o *CreditCardPayment) SetPaymentType(v string) {
+	o.PaymentType = v
 }
 
 // GetCreditCardDetails returns the CreditCardDetails field value
@@ -78,6 +104,7 @@ func (o CreditCardPayment) MarshalJSON() ([]byte, error) {
 
 func (o CreditCardPayment) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	toSerialize["paymentType"] = o.PaymentType
 	toSerialize["creditCardDetails"] = o.CreditCardDetails
 	return toSerialize, nil
 }
@@ -87,6 +114,7 @@ func (o *CreditCardPayment) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
+		"paymentType",
 		"creditCardDetails",
 	}
 

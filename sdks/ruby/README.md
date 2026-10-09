@@ -145,6 +145,7 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::MultiZipJobItem](docs/MultiZipJobItem.md)
  - [OpenapiClient::PaperType](docs/PaperType.md)
  - [OpenapiClient::PaymentDetails](docs/PaymentDetails.md)
+ - [OpenapiClient::PaymentType](docs/PaymentType.md)
  - [OpenapiClient::PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [OpenapiClient::PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
  - [OpenapiClient::PrintOption](docs/PrintOption.md)

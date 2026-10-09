@@ -80,6 +80,15 @@ class UserCreditPaymentTest extends TestCase
     }
 
     /**
+     * Test attribute "payment_type"
+     */
+    public function testPropertyPaymentType()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "credit_amount"
      */
     public function testPropertyCreditAmount()

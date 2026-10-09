@@ -57,6 +57,7 @@ class InvoicePayment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'payment_type' => 'string',
         'invoice_details' => '\C2MApi\Model\InvoiceDetails'
     ];
 
@@ -68,6 +69,7 @@ class InvoicePayment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'payment_type' => null,
         'invoice_details' => null
     ];
 
@@ -77,6 +79,7 @@ class InvoicePayment implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'payment_type' => false,
         'invoice_details' => false
     ];
 
@@ -166,6 +169,7 @@ class InvoicePayment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'payment_type' => 'paymentType',
         'invoice_details' => 'invoiceDetails'
     ];
 
@@ -175,6 +179,7 @@ class InvoicePayment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'payment_type' => 'setPaymentType',
         'invoice_details' => 'setInvoiceDetails'
     ];
 
@@ -184,6 +189,7 @@ class InvoicePayment implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'payment_type' => 'getPaymentType',
         'invoice_details' => 'getInvoiceDetails'
     ];
 
@@ -228,6 +234,19 @@ class InvoicePayment implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const PAYMENT_TYPE_INVOICE = 'invoice';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPaymentTypeAllowableValues()
+    {
+        return [
+            self::PAYMENT_TYPE_INVOICE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -244,6 +263,7 @@ class InvoicePayment implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('payment_type', $data ?? [], null);
         $this->setIfExists('invoice_details', $data ?? [], null);
     }
 
@@ -274,6 +294,18 @@ class InvoicePayment implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['payment_type'] === null) {
+            $invalidProperties[] = "'payment_type' can't be null";
+        }
+        $allowedValues = $this->getPaymentTypeAllowableValues();
+        if (!is_null($this->container['payment_type']) && !in_array($this->container['payment_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'payment_type', must be one of '%s'",
+                $this->container['payment_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['invoice_details'] === null) {
             $invalidProperties[] = "'invoice_details' can't be null";
         }
@@ -291,6 +323,43 @@ class InvoicePayment implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets payment_type
+     *
+     * @return string
+     */
+    public function getPaymentType()
+    {
+        return $this->container['payment_type'];
+    }
+
+    /**
+     * Sets payment_type
+     *
+     * @param string $payment_type payment_type
+     *
+     * @return self
+     */
+    public function setPaymentType($payment_type)
+    {
+        if (is_null($payment_type)) {
+            throw new \InvalidArgumentException('non-nullable payment_type cannot be null');
+        }
+        $allowedValues = $this->getPaymentTypeAllowableValues();
+        if (!in_array($payment_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'payment_type', must be one of '%s'",
+                    $payment_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['payment_type'] = $payment_type;
+
+        return $this;
+    }
 
     /**
      * Gets invoice_details

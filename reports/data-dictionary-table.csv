@@ -3,14 +3,14 @@ submitDocParams,Endpoint,POST /static,—,Request body for POST /static — subm
 submitDocParams,Endpoint,POST /static,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 submitDocParams,Endpoint,POST /static,docSourceAll,"Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).",oneOf,Required
 submitDocParams,Endpoint,POST /static,recipientAddressSource,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
-submitDocParams,Endpoint,POST /static,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit.",oneOf,Optional
+submitDocParams,Endpoint,POST /static,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.",oneOf,Optional
 submitDocParams,Endpoint,POST /static,returnAddress,Optional sender return address printed on the mailpiece.,object,Optional
 submitDocParams,Endpoint,POST /static,jobOptions,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,Optional
 submitDocParams,Endpoint,POST /static,tags,Optional list of user-defined string tags for reporting and filtering.,string[],Optional
 submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,—,Request body for POST /static/address-capture — recipient addresses are captured from the document by OCR rather than provided inline.,object,—
 submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,docSourceStandard,"Document source — standard (non-zip) variants only: requestId, documentId, or URL.",oneOf,Required
-submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit.",oneOf,Optional
+submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.",oneOf,Optional
 submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,returnAddress,Optional sender return address printed on the mailpiece.,object,Optional
 submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,jobOptions,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,Optional
 submitSinglePdfAddressCaptureParams,Endpoint,POST /static/address-capture,tags,Optional list of user-defined string tags for reporting and filtering.,string[],Optional
@@ -18,7 +18,7 @@ submitSinglePdfSplitParams,Endpoint,POST /batch/split,—,Request body for POST 
 submitSinglePdfSplitParams,Endpoint,POST /batch/split,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 submitSinglePdfSplitParams,Endpoint,POST /batch/split,docSourceStandard,"Document source — standard (non-zip) variants only: requestId, documentId, or URL.",oneOf,Required
 submitSinglePdfSplitParams,Endpoint,POST /batch/split,pdfSplitJobsWithAddress,"List of page-range job items, each with its own inline recipient address.",object[],Required
-submitSinglePdfSplitParams,Endpoint,POST /batch/split,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit.",oneOf,Optional
+submitSinglePdfSplitParams,Endpoint,POST /batch/split,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.",oneOf,Optional
 submitSinglePdfSplitParams,Endpoint,POST /batch/split,returnAddress,Optional sender return address printed on the mailpiece.,object,Optional
 submitSinglePdfSplitParams,Endpoint,POST /batch/split,jobOptions,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,Optional
 submitSinglePdfSplitParams,Endpoint,POST /batch/split,tags,Optional list of user-defined string tags for reporting and filtering.,string[],Optional
@@ -26,7 +26,7 @@ submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capt
 submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,docSourceStandard,"Document source — standard (non-zip) variants only: requestId, documentId, or URL.",oneOf,Required
 submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,pdfSplitJobsNoAddress,List of page-range job items without inline addresses — addresses are captured externally (POST /batch/split/address-capture).,object[],Required
-submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit.",oneOf,Optional
+submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.",oneOf,Optional
 submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,returnAddress,Optional sender return address printed on the mailpiece.,object,Optional
 submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,jobOptions,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,Optional
 submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capture,tags,Optional list of user-defined string tags for reporting and filtering.,string[],Optional
@@ -34,19 +34,19 @@ submitMultiDocMergeParams,Endpoint,POST /mail-merge,—,Request body for POST /m
 submitMultiDocMergeParams,Endpoint,POST /mail-merge,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 submitMultiDocMergeParams,Endpoint,POST /mail-merge,mergeDocumentSource,Ordered list of document references to merge into one output document (POST /mail-merge).,oneOf[],Required
 submitMultiDocMergeParams,Endpoint,POST /mail-merge,recipientAddressSource,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
-submitMultiDocMergeParams,Endpoint,POST /mail-merge,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit.",oneOf,Optional
+submitMultiDocMergeParams,Endpoint,POST /mail-merge,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.",oneOf,Optional
 submitMultiDocMergeParams,Endpoint,POST /mail-merge,returnAddress,Optional sender return address printed on the mailpiece.,object,Optional
 submitMultiDocMergeParams,Endpoint,POST /mail-merge,jobOptions,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,Optional
 submitMultiDocMergeParams,Endpoint,POST /mail-merge,tags,Optional list of user-defined string tags for reporting and filtering.,string[],Optional
 submitMultiZipParams,Endpoint,POST /batch/zip,—,"Request body for POST /batch/zip — mail individual files from a ZIP archive, each file to its own recipient.",object,—
 submitMultiZipParams,Endpoint,POST /batch/zip,docSourceZipFileRef,"Top-level ZIP archive reference for batch endpoints — identifies the archive itself, not a file within it. No filename is required at this level.",oneOf,Required
 submitMultiZipParams,Endpoint,POST /batch/zip,multiZipJobs,List of per-file job items extracted from a ZIP archive (POST /batch/zip).,object[],Required
-submitMultiZipParams,Endpoint,POST /batch/zip,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit.",oneOf,Optional
+submitMultiZipParams,Endpoint,POST /batch/zip,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.",oneOf,Optional
 submitMultiZipParams,Endpoint,POST /batch/zip,tags,Optional list of user-defined string tags for reporting and filtering.,string[],Optional
 submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,—,Request body for POST /batch/zip/address-capture — ZIP-based mailing batch with recipient addresses captured externally.,object,—
 submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,zipDocumentSource,ZIP document source — either a stored zip archive (zipDocumentId) or an uploaded zip archive (requestId).,oneOf,Required
-submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit.",oneOf,Optional
+submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.",oneOf,Optional
 submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,returnAddress,Optional sender return address printed on the mailpiece.,object,Optional
 submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,jobOptions,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,Optional
 submitMultiZipAddressCaptureParams,Endpoint,POST /batch/zip/address-capture,tags,Optional list of user-defined string tags for reporting and filtering.,string[],Optional
@@ -283,6 +283,11 @@ paperType,Enumeration,,white,,string,—
 paperType,Enumeration,,white_24,,string,—
 paperType,Enumeration,,ivory,,string,—
 paperType,Enumeration,,glossy,,string,—
+paymentType,Enumeration,,—,"Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).",enum,—
+paymentType,Enumeration,,creditCard,,string,—
+paymentType,Enumeration,,invoice,,string,—
+paymentType,Enumeration,,ach,,string,—
+paymentType,Enumeration,,userCredit,,string,—
 printOption,Enumeration,,—,Duplex setting (double_sided or single_sided).,enum,—
 printOption,Enumeration,,double_sided,,string,—
 printOption,Enumeration,,single_sided,,string,—
@@ -308,7 +313,7 @@ docSourceZipFileRef,Union Type (oneOf),,zipRequestIdOnly,Reference to an uploade
 mergeDocumentRef,Union Type (oneOf),,—,A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).,oneOf,—
 mergeDocumentRef,Union Type (oneOf),,mergeByDocumentId,Merge a stored document identified by its document ID.,id,—
 mergeDocumentRef,Union Type (oneOf),,mergeByRequestId,"Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.",object,—
-paymentDetails,Union Type (oneOf),,—,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit.",oneOf,—
+paymentDetails,Union Type (oneOf),,—,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.",oneOf,—
 paymentDetails,Union Type (oneOf),,creditCardPayment,Credit card payment variant.,object,—
 paymentDetails,Union Type (oneOf),,invoicePayment,Invoice payment — billed to an existing account invoice.,object,—
 paymentDetails,Union Type (oneOf),,achPayment,ACH bank transfer payment variant.,object,—

@@ -186,6 +186,7 @@ Class | Method | HTTP request | Description
  - [C2MApiV2.MultiZipJobItem](docs/MultiZipJobItem.md)
  - [C2MApiV2.PaperType](docs/PaperType.md)
  - [C2MApiV2.PaymentDetails](docs/PaymentDetails.md)
+ - [C2MApiV2.PaymentType](docs/PaymentType.md)
  - [C2MApiV2.PdfSplitJobItemNoAddress](docs/PdfSplitJobItemNoAddress.md)
  - [C2MApiV2.PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
  - [C2MApiV2.PrintOption](docs/PrintOption.md)

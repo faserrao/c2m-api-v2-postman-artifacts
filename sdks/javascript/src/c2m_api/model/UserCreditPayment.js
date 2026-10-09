@@ -23,11 +23,12 @@ class UserCreditPayment {
     /**
      * Constructs a new <code>UserCreditPayment</code>.
      * @alias module:c2m_api/model/UserCreditPayment
+     * @param paymentType {module:c2m_api/model/UserCreditPayment.PaymentTypeEnum} 
      * @param creditAmount {module:c2m_api/model/CreditAmount} 
      */
-    constructor(creditAmount) { 
+    constructor(paymentType, creditAmount) { 
         
-        UserCreditPayment.initialize(this, creditAmount);
+        UserCreditPayment.initialize(this, paymentType, creditAmount);
     }
 
     /**
@@ -35,7 +36,8 @@ class UserCreditPayment {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, creditAmount) { 
+    static initialize(obj, paymentType, creditAmount) { 
+        obj['paymentType'] = paymentType;
         obj['creditAmount'] = creditAmount;
     }
 
@@ -50,6 +52,9 @@ class UserCreditPayment {
         if (data) {
             obj = obj || new UserCreditPayment();
 
+            if (data.hasOwnProperty('paymentType')) {
+                obj['paymentType'] = ApiClient.convertToType(data['paymentType'], 'String');
+            }
             if (data.hasOwnProperty('creditAmount')) {
                 obj['creditAmount'] = CreditAmount.constructFromObject(data['creditAmount']);
             }
@@ -69,6 +74,10 @@ class UserCreditPayment {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // ensure the json data is a string
+        if (data['paymentType'] && !(typeof data['paymentType'] === 'string' || data['paymentType'] instanceof String)) {
+            throw new Error("Expected the field `paymentType` to be a primitive type in the JSON string but got " + data['paymentType']);
+        }
         // validate the optional field `creditAmount`
         if (data['creditAmount']) { // data not null
           CreditAmount.validateJSON(data['creditAmount']);
@@ -80,7 +89,12 @@ class UserCreditPayment {
 
 }
 
-UserCreditPayment.RequiredProperties = ["creditAmount"];
+UserCreditPayment.RequiredProperties = ["paymentType", "creditAmount"];
+
+/**
+ * @member {module:c2m_api/model/UserCreditPayment.PaymentTypeEnum} paymentType
+ */
+UserCreditPayment.prototype['paymentType'] = undefined;
 
 /**
  * @member {module:c2m_api/model/CreditAmount} creditAmount
@@ -89,6 +103,21 @@ UserCreditPayment.prototype['creditAmount'] = undefined;
 
 
 
+
+
+/**
+ * Allowed values for the <code>paymentType</code> property.
+ * @enum {String}
+ * @readonly
+ */
+UserCreditPayment['PaymentTypeEnum'] = {
+
+    /**
+     * value: "userCredit"
+     * @const
+     */
+    "userCredit": "userCredit"
+};
 
 
 

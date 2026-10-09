@@ -57,6 +57,7 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.multi_zip_job_item import MultiZipJobItem
     from c2m_api.models.paper_type import PaperType
     from c2m_api.models.payment_details import PaymentDetails
+    from c2m_api.models.payment_type import PaymentType
     from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress
     from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress
     from c2m_api.models.print_option import PrintOption
@@ -138,6 +139,7 @@ from c2m_api.models.multi_doc_job_item import MultiDocJobItem
 from c2m_api.models.multi_zip_job_item import MultiZipJobItem
 from c2m_api.models.paper_type import PaperType
 from c2m_api.models.payment_details import PaymentDetails
+from c2m_api.models.payment_type import PaymentType
 from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddress
 from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress
 from c2m_api.models.print_option import PrintOption

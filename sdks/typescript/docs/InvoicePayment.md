@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**paymentType** | **string** |  | [default to undefined]
 **invoiceDetails** | [**InvoiceDetails**](InvoiceDetails.md) |  | [default to undefined]
 
 ## Example
@@ -13,6 +14,7 @@ Name | Type | Description | Notes
 import { InvoicePayment } from './api';
 
 const instance: InvoicePayment = {
+    paymentType,
     invoiceDetails,
 };
 ```

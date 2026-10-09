@@ -61,6 +61,19 @@ public class JSON {
     @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
+                .registerTypeSelector(com.c2m.model.PaymentDetails.class, new TypeSelector<com.c2m.model.PaymentDetails>() {
+                    @Override
+                    public Class<? extends com.c2m.model.PaymentDetails> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("ach", com.c2m.model.AchPayment.class);
+                        classByDiscriminatorValue.put("creditCard", com.c2m.model.CreditCardPayment.class);
+                        classByDiscriminatorValue.put("invoice", com.c2m.model.InvoicePayment.class);
+                        classByDiscriminatorValue.put("userCredit", com.c2m.model.UserCreditPayment.class);
+                        classByDiscriminatorValue.put("paymentDetails", com.c2m.model.PaymentDetails.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "paymentType"));
+                    }
+          })
         ;
         GsonBuilder builder = fireBuilder.createGsonBuilder();
         return builder;

@@ -57,6 +57,7 @@ class UserCreditPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
+        'payment_type' => 'string',
         'credit_amount' => '\C2MApi\Model\CreditAmount'
     ];
 
@@ -68,6 +69,7 @@ class UserCreditPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'payment_type' => null,
         'credit_amount' => null
     ];
 
@@ -77,6 +79,7 @@ class UserCreditPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'payment_type' => false,
         'credit_amount' => false
     ];
 
@@ -166,6 +169,7 @@ class UserCreditPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
+        'payment_type' => 'paymentType',
         'credit_amount' => 'creditAmount'
     ];
 
@@ -175,6 +179,7 @@ class UserCreditPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
+        'payment_type' => 'setPaymentType',
         'credit_amount' => 'setCreditAmount'
     ];
 
@@ -184,6 +189,7 @@ class UserCreditPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
+        'payment_type' => 'getPaymentType',
         'credit_amount' => 'getCreditAmount'
     ];
 
@@ -228,6 +234,19 @@ class UserCreditPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
         return self::$openAPIModelName;
     }
 
+    public const PAYMENT_TYPE_USER_CREDIT = 'userCredit';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getPaymentTypeAllowableValues()
+    {
+        return [
+            self::PAYMENT_TYPE_USER_CREDIT,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -244,6 +263,7 @@ class UserCreditPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('payment_type', $data ?? [], null);
         $this->setIfExists('credit_amount', $data ?? [], null);
     }
 
@@ -274,6 +294,18 @@ class UserCreditPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['payment_type'] === null) {
+            $invalidProperties[] = "'payment_type' can't be null";
+        }
+        $allowedValues = $this->getPaymentTypeAllowableValues();
+        if (!is_null($this->container['payment_type']) && !in_array($this->container['payment_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'payment_type', must be one of '%s'",
+                $this->container['payment_type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['credit_amount'] === null) {
             $invalidProperties[] = "'credit_amount' can't be null";
         }
@@ -291,6 +323,43 @@ class UserCreditPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets payment_type
+     *
+     * @return string
+     */
+    public function getPaymentType()
+    {
+        return $this->container['payment_type'];
+    }
+
+    /**
+     * Sets payment_type
+     *
+     * @param string $payment_type payment_type
+     *
+     * @return self
+     */
+    public function setPaymentType($payment_type)
+    {
+        if (is_null($payment_type)) {
+            throw new \InvalidArgumentException('non-nullable payment_type cannot be null');
+        }
+        $allowedValues = $this->getPaymentTypeAllowableValues();
+        if (!in_array($payment_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'payment_type', must be one of '%s'",
+                    $payment_type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['payment_type'] = $payment_type;
+
+        return $this;
+    }
 
     /**
      * Gets credit_amount

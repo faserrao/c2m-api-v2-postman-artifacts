@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**PaymentType** | **string** |  | 
 **CreditCardDetails** | [**CreditCardDetails**](CreditCardDetails.md) |  | 
 
 ## Methods
 
 ### NewCreditCardPayment
 
-`func NewCreditCardPayment(creditCardDetails CreditCardDetails, ) *CreditCardPayment`
+`func NewCreditCardPayment(paymentType string, creditCardDetails CreditCardDetails, ) *CreditCardPayment`
 
 NewCreditCardPayment instantiates a new CreditCardPayment object
 This constructor will assign default values to properties that have it defined,
@@ -24,6 +25,26 @@ will change when the set of required properties is changed
 NewCreditCardPaymentWithDefaults instantiates a new CreditCardPayment object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetPaymentType
+
+`func (o *CreditCardPayment) GetPaymentType() string`
+
+GetPaymentType returns the PaymentType field if non-nil, zero value otherwise.
+
+### GetPaymentTypeOk
+
+`func (o *CreditCardPayment) GetPaymentTypeOk() (*string, bool)`
+
+GetPaymentTypeOk returns a tuple with the PaymentType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPaymentType
+
+`func (o *CreditCardPayment) SetPaymentType(v string)`
+
+SetPaymentType sets PaymentType field to given value.
+
 
 ### GetCreditCardDetails
 

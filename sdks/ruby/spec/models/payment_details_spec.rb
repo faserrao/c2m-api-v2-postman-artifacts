@@ -24,6 +24,18 @@ describe OpenapiClient::PaymentDetails do
     end
   end
 
+  describe '.openapi_discriminator_name' do
+    it 'returns the value of the "discriminator" property' do
+      expect(described_class.openapi_discriminator_name).to_not be_empty
+    end
+  end
+
+  describe '.openapi_discriminator_mapping' do
+    it 'returns the key/values of the "mapping" property' do
+      expect(described_class.openapi_discriminator_mapping.values.sort).to eq(described_class.openapi_one_of.sort)
+    end
+  end
+
   describe '.build' do
     it 'returns the correct model' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
