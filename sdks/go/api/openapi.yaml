@@ -151,7 +151,7 @@ paths:
                     errorType: ValidationError
                     errorMessage: Field contains invalid format or value
                     errorCode: INVALID_FORMAT
-                    errorDetails: "{\"field\": \"recipientAddressSource.singleAddress.zip\"\
+                    errorDetails: "{\"field\": \"recipientAddressSource.recipientAddressByList.addressList[0].zip\"\
                       , \"provided\": \"1234\", \"expected\": \"5 or 9 digits\"}"
                     errorTrackingId: TRK-20260115-FA7187
               schema:
@@ -273,8 +273,8 @@ paths:
                     errorCode: INVALID_FORMAT
                     errorDetails: "{\"errors\": [{\"field\": \"docSourceAll\", \"\
                       issue\": \"not found in document library\"}, {\"field\": \"\
-                      recipientAddressSource.singleAddress.zip\", \"issue\": \"invalid\
-                      \ format - must be 5 or 9 digits\"}]}"
+                      recipientAddressSource.recipientAddressByList.addressList[0].zip\"\
+                      , \"issue\": \"invalid format - must be 5 or 9 digits\"}]}"
                     errorTrackingId: TRK-20260115-BB3D06
               schema:
                 $ref: "#/components/schemas/errorResponse"
@@ -641,7 +641,7 @@ paths:
                     errorType: ValidationError
                     errorMessage: Field contains invalid format or value
                     errorCode: INVALID_FORMAT
-                    errorDetails: "{\"field\": \"pdfSplitJobsWithAddress[0].recipientAddressSource.singleAddress.zip\"\
+                    errorDetails: "{\"field\": \"pdfSplitJobsWithAddress[0].recipientAddressSource.recipientAddressByList.addressList[0].zip\"\
                       , \"provided\": \"1234\", \"expected\": \"5 or 9 digits\"}"
                     errorTrackingId: TRK-20260115-9CDAC3
               schema:
@@ -763,7 +763,7 @@ paths:
                     errorCode: INVALID_FORMAT
                     errorDetails: "{\"errors\": [{\"field\": \"docSourceStandard\"\
                       , \"issue\": \"not found in document library\"}, {\"field\"\
-                      : \"pdfSplitJobsWithAddress[0].recipientAddressSource.singleAddress.zip\"\
+                      : \"pdfSplitJobsWithAddress[0].recipientAddressSource.recipientAddressByList.addressList[0].zip\"\
                       , \"issue\": \"invalid format - must be 5 or 9 digits\"}]}"
                     errorTrackingId: TRK-20260115-6A7109
               schema:
@@ -1071,7 +1071,7 @@ paths:
       - jobs
   /mail-merge:
     post:
-      description: Merges multiple documents into a single mailing sent to one recipient.
+      description: Merges multiple documents into a single mailing sent to each recipient.
         Useful for creating document packets or multi-page letters.
       operationId: submitMultiDocMergeParams
       requestBody:
@@ -1131,7 +1131,7 @@ paths:
                     errorType: ValidationError
                     errorMessage: Field contains invalid format or value
                     errorCode: INVALID_FORMAT
-                    errorDetails: "{\"field\": \"recipientAddressSource.singleAddress.zip\"\
+                    errorDetails: "{\"field\": \"recipientAddressSource.recipientAddressByList.addressList[0].zip\"\
                       , \"provided\": \"1234\", \"expected\": \"5 or 9 digits\"}"
                     errorTrackingId: TRK-20260115-221D0C
               schema:
@@ -1253,8 +1253,8 @@ paths:
                     errorCode: INVALID_FORMAT
                     errorDetails: "{\"errors\": [{\"field\": \"mergeDocumentSource\"\
                       , \"issue\": \"not found in document library\"}, {\"field\"\
-                      : \"recipientAddressSource.singleAddress.zip\", \"issue\": \"\
-                      invalid format - must be 5 or 9 digits\"}]}"
+                      : \"recipientAddressSource.recipientAddressByList.addressList[0].zip\"\
+                      , \"issue\": \"invalid format - must be 5 or 9 digits\"}]}"
                     errorTrackingId: TRK-20260115-EAAB59
               schema:
                 $ref: "#/components/schemas/errorResponse"
@@ -1377,7 +1377,7 @@ paths:
                     errorType: ValidationError
                     errorMessage: Field contains invalid format or value
                     errorCode: INVALID_FORMAT
-                    errorDetails: "{\"field\": \"multiZipJobs[0].recipientAddressSource.singleAddress.zip\"\
+                    errorDetails: "{\"field\": \"multiZipJobs[0].recipientAddressSource.recipientAddressByList.addressList[0].zip\"\
                       , \"provided\": \"1234\", \"expected\": \"5 or 9 digits\"}"
                     errorTrackingId: TRK-20260115-4D384E
               schema:
@@ -1490,7 +1490,7 @@ paths:
                     errorCode: INVALID_FORMAT
                     errorDetails: "{\"errors\": [{\"field\": \"docSourceZipFileRef\"\
                       , \"issue\": \"not found in document library\"}, {\"field\"\
-                      : \"multiZipJobs[0].recipientAddressSource.singleAddress.zip\"\
+                      : \"multiZipJobs[0].recipientAddressSource.recipientAddressByList.addressList[0].zip\"\
                       , \"issue\": \"invalid format - must be 5 or 9 digits\"}]}"
                     errorTrackingId: TRK-20260115-8F34A9
               schema:
@@ -2491,9 +2491,6 @@ components:
       - $ref: "#/components/schemas/recipientAddressSource_oneOf"
       - $ref: "#/components/schemas/recipientAddressSource_oneOf_1"
       - $ref: "#/components/schemas/recipientAddressSource_oneOf_2"
-      - $ref: "#/components/schemas/recipientAddressSource_oneOf_3"
-    singleAddress:
-      $ref: "#/components/schemas/address"
     recipientAddressByList:
       properties:
         mappingId:
@@ -2513,8 +2510,6 @@ components:
       $ref: "#/components/schemas/addressId"
     mappingId:
       $ref: "#/components/schemas/id"
-    addressName:
-      type: string
     addressListName:
       type: string
     addressListId:
@@ -3182,26 +3177,19 @@ components:
       type: object
     recipientAddressSource_oneOf:
       properties:
-        singleAddress:
-          $ref: "#/components/schemas/address"
-      required:
-      - singleAddress
-      type: object
-    recipientAddressSource_oneOf_1:
-      properties:
         recipientAddressByList:
           $ref: "#/components/schemas/recipientAddressByList"
       required:
       - recipientAddressByList
       type: object
-    recipientAddressSource_oneOf_2:
+    recipientAddressSource_oneOf_1:
       properties:
         recipientAddressByAddressId:
           type: integer
       required:
       - recipientAddressByAddressId
       type: object
-    recipientAddressSource_oneOf_3:
+    recipientAddressSource_oneOf_2:
       properties:
         recipientAddressByListId:
           type: integer

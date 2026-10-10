@@ -441,12 +441,6 @@ components:
       oneOf:
         - type: object
           properties:
-            singleAddress:
-              $ref: '#/components/schemas/address'
-          required:
-            - singleAddress
-        - type: object
-          properties:
             recipientAddressByList:
               $ref: '#/components/schemas/recipientAddressByList'
           required:
@@ -463,8 +457,6 @@ components:
               $ref: '#/components/schemas/id'
           required:
             - recipientAddressByListId
-    singleAddress:
-      $ref: '#/components/schemas/address'
     recipientAddressByList:
       type: object
       properties:
@@ -482,8 +474,6 @@ components:
       $ref: '#/components/schemas/id'
     mappingId:
       $ref: '#/components/schemas/id'
-    addressName:
-      type: string
     addressListName:
       type: string
     addressListId:
@@ -1345,7 +1335,7 @@ paths:
                     errorType: ValidationError
                     errorMessage: Field contains invalid format or value
                     errorCode: INVALID_FORMAT
-                    errorDetails: '{"field": "recipientAddressSource.singleAddress.zip", "provided": "1234", "expected": "5 or 9 digits"}'
+                    errorDetails: '{"field": "recipientAddressSource.recipientAddressByList.addressList[0].zip", "provided": "1234", "expected": "5 or 9 digits"}'
                     errorTrackingId: TRK-20260115-FA7187
         '401':
           description: Unauthorized - Missing or invalid authentication
@@ -1453,7 +1443,7 @@ paths:
                     errorType: ValidationError
                     errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
-                    errorDetails: '{"errors": [{"field": "docSourceAll", "issue": "not found in document library"}, {"field": "recipientAddressSource.singleAddress.zip", "issue": "invalid format - must be 5 or 9 digits"}]}'
+                    errorDetails: '{"errors": [{"field": "docSourceAll", "issue": "not found in document library"}, {"field": "recipientAddressSource.recipientAddressByList.addressList[0].zip", "issue": "invalid format - must be 5 or 9 digits"}]}'
                     errorTrackingId: TRK-20260115-BB3D06
         '429':
           description: Too Many Requests - Rate limit exceeded
@@ -1785,7 +1775,7 @@ paths:
                     errorType: ValidationError
                     errorMessage: Field contains invalid format or value
                     errorCode: INVALID_FORMAT
-                    errorDetails: '{"field": "pdfSplitJobsWithAddress[0].recipientAddressSource.singleAddress.zip", "provided": "1234", "expected": "5 or 9 digits"}'
+                    errorDetails: '{"field": "pdfSplitJobsWithAddress[0].recipientAddressSource.recipientAddressByList.addressList[0].zip", "provided": "1234", "expected": "5 or 9 digits"}'
                     errorTrackingId: TRK-20260115-9CDAC3
         '401':
           description: Unauthorized - Missing or invalid authentication
@@ -1893,7 +1883,7 @@ paths:
                     errorType: ValidationError
                     errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
-                    errorDetails: '{"errors": [{"field": "docSourceStandard", "issue": "not found in document library"}, {"field": "pdfSplitJobsWithAddress[0].recipientAddressSource.singleAddress.zip", "issue": "invalid format - must be 5 or 9 digits"}]}'
+                    errorDetails: '{"errors": [{"field": "docSourceStandard", "issue": "not found in document library"}, {"field": "pdfSplitJobsWithAddress[0].recipientAddressSource.recipientAddressByList.addressList[0].zip", "issue": "invalid format - must be 5 or 9 digits"}]}'
                     errorTrackingId: TRK-20260115-6A7109
         '429':
           description: Too Many Requests - Rate limit exceeded
@@ -2166,7 +2156,7 @@ paths:
       tags:
         - jobs
       summary: Submit mail merge
-      description: Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+      description: Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
       operationId: submitMultiDocMergeParams
       requestBody:
         required: true
@@ -2225,7 +2215,7 @@ paths:
                     errorType: ValidationError
                     errorMessage: Field contains invalid format or value
                     errorCode: INVALID_FORMAT
-                    errorDetails: '{"field": "recipientAddressSource.singleAddress.zip", "provided": "1234", "expected": "5 or 9 digits"}'
+                    errorDetails: '{"field": "recipientAddressSource.recipientAddressByList.addressList[0].zip", "provided": "1234", "expected": "5 or 9 digits"}'
                     errorTrackingId: TRK-20260115-221D0C
         '401':
           description: Unauthorized - Missing or invalid authentication
@@ -2333,7 +2323,7 @@ paths:
                     errorType: ValidationError
                     errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
-                    errorDetails: '{"errors": [{"field": "mergeDocumentSource", "issue": "not found in document library"}, {"field": "recipientAddressSource.singleAddress.zip", "issue": "invalid format - must be 5 or 9 digits"}]}'
+                    errorDetails: '{"errors": [{"field": "mergeDocumentSource", "issue": "not found in document library"}, {"field": "recipientAddressSource.recipientAddressByList.addressList[0].zip", "issue": "invalid format - must be 5 or 9 digits"}]}'
                     errorTrackingId: TRK-20260115-EAAB59
         '429':
           description: Too Many Requests - Rate limit exceeded
@@ -2445,7 +2435,7 @@ paths:
                     errorType: ValidationError
                     errorMessage: Field contains invalid format or value
                     errorCode: INVALID_FORMAT
-                    errorDetails: '{"field": "multiZipJobs[0].recipientAddressSource.singleAddress.zip", "provided": "1234", "expected": "5 or 9 digits"}'
+                    errorDetails: '{"field": "multiZipJobs[0].recipientAddressSource.recipientAddressByList.addressList[0].zip", "provided": "1234", "expected": "5 or 9 digits"}'
                     errorTrackingId: TRK-20260115-4D384E
         '401':
           description: Unauthorized - Missing or invalid authentication
@@ -2545,7 +2535,7 @@ paths:
                     errorType: ValidationError
                     errorMessage: Request validation failed for multiple fields
                     errorCode: INVALID_FORMAT
-                    errorDetails: '{"errors": [{"field": "docSourceZipFileRef", "issue": "not found in document library"}, {"field": "multiZipJobs[0].recipientAddressSource.singleAddress.zip", "issue": "invalid format - must be 5 or 9 digits"}]}'
+                    errorDetails: '{"errors": [{"field": "docSourceZipFileRef", "issue": "not found in document library"}, {"field": "multiZipJobs[0].recipientAddressSource.recipientAddressByList.addressList[0].zip", "issue": "invalid format - must be 5 or 9 digits"}]}'
                     errorTrackingId: TRK-20260115-8F34A9
         '429':
           description: Too Many Requests - Rate limit exceeded

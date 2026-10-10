@@ -555,18 +555,15 @@ export interface RecipientAddressByList {
 /**
  * @type RecipientAddressSource
  */
-export type RecipientAddressSource = RecipientAddressSourceOneOf | RecipientAddressSourceOneOf1 | RecipientAddressSourceOneOf2 | RecipientAddressSourceOneOf3;
+export type RecipientAddressSource = RecipientAddressSourceOneOf | RecipientAddressSourceOneOf1 | RecipientAddressSourceOneOf2;
 
 export interface RecipientAddressSourceOneOf {
-    'singleAddress': Address;
-}
-export interface RecipientAddressSourceOneOf1 {
     'recipientAddressByList': RecipientAddressByList;
 }
-export interface RecipientAddressSourceOneOf2 {
+export interface RecipientAddressSourceOneOf1 {
     'recipientAddressByAddressId': number;
 }
-export interface RecipientAddressSourceOneOf3 {
+export interface RecipientAddressSourceOneOf2 {
     'recipientAddressByListId': number;
 }
 export interface RequestIdSource {
@@ -1033,7 +1030,7 @@ export const JobsApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+         * Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
          * @summary Submit mail merge
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
@@ -1295,7 +1292,7 @@ export const JobsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+         * Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
          * @summary Submit mail merge
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
@@ -1392,7 +1389,7 @@ export const JobsApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.submitDocParams(submitDocParams, options).then((request) => request(axios, basePath));
         },
         /**
-         * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+         * Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
          * @summary Submit mail merge
          * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
          * @param {*} [options] Override http request option.
@@ -1470,7 +1467,7 @@ export class JobsApi extends BaseAPI {
     }
 
     /**
-     * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+     * Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
      * @summary Submit mail merge
      * @param {SubmitMultiDocMergeParams} submitMultiDocMergeParams 
      * @param {*} [options] Override http request option.

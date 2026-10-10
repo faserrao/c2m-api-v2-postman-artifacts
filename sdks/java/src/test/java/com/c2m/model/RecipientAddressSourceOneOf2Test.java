@@ -38,11 +38,11 @@ public class RecipientAddressSourceOneOf2Test {
     }
 
     /**
-     * Test the property 'recipientAddressByAddressId'
+     * Test the property 'recipientAddressByListId'
      */
     @Test
-    public void recipientAddressByAddressIdTest() {
-        // TODO: test recipientAddressByAddressId
+    public void recipientAddressByListIdTest() {
+        // TODO: test recipientAddressByListId
     }
 
 }

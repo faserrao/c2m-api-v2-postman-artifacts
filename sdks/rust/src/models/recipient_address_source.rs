@@ -17,7 +17,6 @@ pub enum RecipientAddressSource {
     RecipientAddressSourceOneOf(Box<models::RecipientAddressSourceOneOf>),
     RecipientAddressSourceOneOf1(Box<models::RecipientAddressSourceOneOf1>),
     RecipientAddressSourceOneOf2(Box<models::RecipientAddressSourceOneOf2>),
-    RecipientAddressSourceOneOf3(Box<models::RecipientAddressSourceOneOf3>),
 }
 
 impl Default for RecipientAddressSource {

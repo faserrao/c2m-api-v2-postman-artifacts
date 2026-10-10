@@ -22,11 +22,11 @@ class RecipientAddressSourceOneOf2 {
     /**
      * Constructs a new <code>RecipientAddressSourceOneOf2</code>.
      * @alias module:c2m_api/model/RecipientAddressSourceOneOf2
-     * @param recipientAddressByAddressId {Number} 
+     * @param recipientAddressByListId {Number} 
      */
-    constructor(recipientAddressByAddressId) { 
+    constructor(recipientAddressByListId) { 
         
-        RecipientAddressSourceOneOf2.initialize(this, recipientAddressByAddressId);
+        RecipientAddressSourceOneOf2.initialize(this, recipientAddressByListId);
     }
 
     /**
@@ -34,8 +34,8 @@ class RecipientAddressSourceOneOf2 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, recipientAddressByAddressId) { 
-        obj['recipientAddressByAddressId'] = recipientAddressByAddressId;
+    static initialize(obj, recipientAddressByListId) { 
+        obj['recipientAddressByListId'] = recipientAddressByListId;
     }
 
     /**
@@ -49,8 +49,8 @@ class RecipientAddressSourceOneOf2 {
         if (data) {
             obj = obj || new RecipientAddressSourceOneOf2();
 
-            if (data.hasOwnProperty('recipientAddressByAddressId')) {
-                obj['recipientAddressByAddressId'] = ApiClient.convertToType(data['recipientAddressByAddressId'], 'Number');
+            if (data.hasOwnProperty('recipientAddressByListId')) {
+                obj['recipientAddressByListId'] = ApiClient.convertToType(data['recipientAddressByListId'], 'Number');
             }
         }
         return obj;
@@ -75,12 +75,12 @@ class RecipientAddressSourceOneOf2 {
 
 }
 
-RecipientAddressSourceOneOf2.RequiredProperties = ["recipientAddressByAddressId"];
+RecipientAddressSourceOneOf2.RequiredProperties = ["recipientAddressByListId"];
 
 /**
- * @member {Number} recipientAddressByAddressId
+ * @member {Number} recipientAddressByListId
  */
-RecipientAddressSourceOneOf2.prototype['recipientAddressByAddressId'] = undefined;
+RecipientAddressSourceOneOf2.prototype['recipientAddressByListId'] = undefined;
 
 
 

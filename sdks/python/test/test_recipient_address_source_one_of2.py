@@ -35,11 +35,11 @@ class TestRecipientAddressSourceOneOf2(unittest.TestCase):
         model = RecipientAddressSourceOneOf2()
         if include_optional:
             return RecipientAddressSourceOneOf2(
-                recipient_address_by_address_id = 56
+                recipient_address_by_list_id = 56
             )
         else:
             return RecipientAddressSourceOneOf2(
-                recipient_address_by_address_id = 56,
+                recipient_address_by_list_id = 56,
         )
         """
 

@@ -21,7 +21,6 @@ type RecipientAddressSource struct {
 	RecipientAddressSourceOneOf *RecipientAddressSourceOneOf
 	RecipientAddressSourceOneOf1 *RecipientAddressSourceOneOf1
 	RecipientAddressSourceOneOf2 *RecipientAddressSourceOneOf2
-	RecipientAddressSourceOneOf3 *RecipientAddressSourceOneOf3
 }
 
 // RecipientAddressSourceOneOfAsRecipientAddressSource is a convenience function that returns RecipientAddressSourceOneOf wrapped in RecipientAddressSource
@@ -42,13 +41,6 @@ func RecipientAddressSourceOneOf1AsRecipientAddressSource(v *RecipientAddressSou
 func RecipientAddressSourceOneOf2AsRecipientAddressSource(v *RecipientAddressSourceOneOf2) RecipientAddressSource {
 	return RecipientAddressSource{
 		RecipientAddressSourceOneOf2: v,
-	}
-}
-
-// RecipientAddressSourceOneOf3AsRecipientAddressSource is a convenience function that returns RecipientAddressSourceOneOf3 wrapped in RecipientAddressSource
-func RecipientAddressSourceOneOf3AsRecipientAddressSource(v *RecipientAddressSourceOneOf3) RecipientAddressSource {
-	return RecipientAddressSource{
-		RecipientAddressSourceOneOf3: v,
 	}
 }
 
@@ -108,29 +100,11 @@ func (dst *RecipientAddressSource) UnmarshalJSON(data []byte) error {
 		dst.RecipientAddressSourceOneOf2 = nil
 	}
 
-	// try to unmarshal data into RecipientAddressSourceOneOf3
-	err = newStrictDecoder(data).Decode(&dst.RecipientAddressSourceOneOf3)
-	if err == nil {
-		jsonRecipientAddressSourceOneOf3, _ := json.Marshal(dst.RecipientAddressSourceOneOf3)
-		if string(jsonRecipientAddressSourceOneOf3) == "{}" { // empty struct
-			dst.RecipientAddressSourceOneOf3 = nil
-		} else {
-			if err = validator.Validate(dst.RecipientAddressSourceOneOf3); err != nil {
-				dst.RecipientAddressSourceOneOf3 = nil
-			} else {
-				match++
-			}
-		}
-	} else {
-		dst.RecipientAddressSourceOneOf3 = nil
-	}
-
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.RecipientAddressSourceOneOf = nil
 		dst.RecipientAddressSourceOneOf1 = nil
 		dst.RecipientAddressSourceOneOf2 = nil
-		dst.RecipientAddressSourceOneOf3 = nil
 
 		return fmt.Errorf("data matches more than one schema in oneOf(RecipientAddressSource)")
 	} else if match == 1 {
@@ -154,10 +128,6 @@ func (src RecipientAddressSource) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.RecipientAddressSourceOneOf2)
 	}
 
-	if src.RecipientAddressSourceOneOf3 != nil {
-		return json.Marshal(&src.RecipientAddressSourceOneOf3)
-	}
-
 	return nil, nil // no data in oneOf schemas
 }
 
@@ -178,10 +148,6 @@ func (obj *RecipientAddressSource) GetActualInstance() (interface{}) {
 		return obj.RecipientAddressSourceOneOf2
 	}
 
-	if obj.RecipientAddressSourceOneOf3 != nil {
-		return obj.RecipientAddressSourceOneOf3
-	}
-
 	// all schemas are nil
 	return nil
 }
@@ -198,10 +164,6 @@ func (obj RecipientAddressSource) GetActualInstanceValue() (interface{}) {
 
 	if obj.RecipientAddressSourceOneOf2 != nil {
 		return *obj.RecipientAddressSourceOneOf2
-	}
-
-	if obj.RecipientAddressSourceOneOf3 != nil {
-		return *obj.RecipientAddressSourceOneOf3
 	}
 
 	// all schemas are nil

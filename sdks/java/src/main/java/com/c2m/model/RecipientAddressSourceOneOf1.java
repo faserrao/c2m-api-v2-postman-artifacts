@@ -14,7 +14,6 @@
 package com.c2m.model;
 
 import java.util.Objects;
-import com.c2m.model.RecipientAddressByList;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -49,32 +48,32 @@ import com.c2m.JSON;
 /**
  * RecipientAddressSourceOneOf1
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T19:03:52.144959961Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class RecipientAddressSourceOneOf1 {
-  public static final String SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_LIST = "recipientAddressByList";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_LIST)
+  public static final String SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_ADDRESS_ID = "recipientAddressByAddressId";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_ADDRESS_ID)
   @javax.annotation.Nonnull
-  private RecipientAddressByList recipientAddressByList;
+  private Integer recipientAddressByAddressId;
 
   public RecipientAddressSourceOneOf1() {
   }
 
-  public RecipientAddressSourceOneOf1 recipientAddressByList(@javax.annotation.Nonnull RecipientAddressByList recipientAddressByList) {
-    this.recipientAddressByList = recipientAddressByList;
+  public RecipientAddressSourceOneOf1 recipientAddressByAddressId(@javax.annotation.Nonnull Integer recipientAddressByAddressId) {
+    this.recipientAddressByAddressId = recipientAddressByAddressId;
     return this;
   }
 
   /**
-   * Get recipientAddressByList
-   * @return recipientAddressByList
+   * Get recipientAddressByAddressId
+   * @return recipientAddressByAddressId
    */
   @javax.annotation.Nonnull
-  public RecipientAddressByList getRecipientAddressByList() {
-    return recipientAddressByList;
+  public Integer getRecipientAddressByAddressId() {
+    return recipientAddressByAddressId;
   }
 
-  public void setRecipientAddressByList(@javax.annotation.Nonnull RecipientAddressByList recipientAddressByList) {
-    this.recipientAddressByList = recipientAddressByList;
+  public void setRecipientAddressByAddressId(@javax.annotation.Nonnull Integer recipientAddressByAddressId) {
+    this.recipientAddressByAddressId = recipientAddressByAddressId;
   }
 
 
@@ -88,19 +87,19 @@ public class RecipientAddressSourceOneOf1 {
       return false;
     }
     RecipientAddressSourceOneOf1 recipientAddressSourceOneOf1 = (RecipientAddressSourceOneOf1) o;
-    return Objects.equals(this.recipientAddressByList, recipientAddressSourceOneOf1.recipientAddressByList);
+    return Objects.equals(this.recipientAddressByAddressId, recipientAddressSourceOneOf1.recipientAddressByAddressId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recipientAddressByList);
+    return Objects.hash(recipientAddressByAddressId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RecipientAddressSourceOneOf1 {\n");
-    sb.append("    recipientAddressByList: ").append(toIndentedString(recipientAddressByList)).append("\n");
+    sb.append("    recipientAddressByAddressId: ").append(toIndentedString(recipientAddressByAddressId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -122,10 +121,10 @@ public class RecipientAddressSourceOneOf1 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("recipientAddressByList"));
+    openapiFields = new HashSet<String>(Arrays.asList("recipientAddressByAddressId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("recipientAddressByList"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("recipientAddressByAddressId"));
   }
 
   /**
@@ -156,8 +155,6 @@ public class RecipientAddressSourceOneOf1 {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `recipientAddressByList`
-      RecipientAddressByList.validateJsonElement(jsonObj.get("recipientAddressByList"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

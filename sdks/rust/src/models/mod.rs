@@ -102,8 +102,6 @@ pub mod recipient_address_source_one_of_1;
 pub use self::recipient_address_source_one_of_1::RecipientAddressSourceOneOf1;
 pub mod recipient_address_source_one_of_2;
 pub use self::recipient_address_source_one_of_2::RecipientAddressSourceOneOf2;
-pub mod recipient_address_source_one_of_3;
-pub use self::recipient_address_source_one_of_3::RecipientAddressSourceOneOf3;
 pub mod request_id_source;
 pub use self::request_id_source::RequestIdSource;
 pub mod return_address;

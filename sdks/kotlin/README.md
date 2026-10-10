@@ -112,7 +112,6 @@ All URIs are relative to *https://api.click2mail.com/v2*
  - [com.c2m.api.models.RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
  - [com.c2m.api.models.RecipientAddressSourceOneOf1](docs/RecipientAddressSourceOneOf1.md)
  - [com.c2m.api.models.RecipientAddressSourceOneOf2](docs/RecipientAddressSourceOneOf2.md)
- - [com.c2m.api.models.RecipientAddressSourceOneOf3](docs/RecipientAddressSourceOneOf3.md)
  - [com.c2m.api.models.RequestIdSource](docs/RequestIdSource.md)
  - [com.c2m.api.models.ReturnAddress](docs/ReturnAddress.md)
  - [com.c2m.api.models.ShortTokenRequest](docs/ShortTokenRequest.md)

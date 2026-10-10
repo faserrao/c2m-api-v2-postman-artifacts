@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SingleAddress** | [**Address**](Address.md) |  | 
+**RecipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | 
 
 ## Methods
 
 ### NewRecipientAddressSourceOneOf
 
-`func NewRecipientAddressSourceOneOf(singleAddress Address, ) *RecipientAddressSourceOneOf`
+`func NewRecipientAddressSourceOneOf(recipientAddressByList RecipientAddressByList, ) *RecipientAddressSourceOneOf`
 
 NewRecipientAddressSourceOneOf instantiates a new RecipientAddressSourceOneOf object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewRecipientAddressSourceOneOfWithDefaults instantiates a new RecipientAddressSo
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetSingleAddress
+### GetRecipientAddressByList
 
-`func (o *RecipientAddressSourceOneOf) GetSingleAddress() Address`
+`func (o *RecipientAddressSourceOneOf) GetRecipientAddressByList() RecipientAddressByList`
 
-GetSingleAddress returns the SingleAddress field if non-nil, zero value otherwise.
+GetRecipientAddressByList returns the RecipientAddressByList field if non-nil, zero value otherwise.
 
-### GetSingleAddressOk
+### GetRecipientAddressByListOk
 
-`func (o *RecipientAddressSourceOneOf) GetSingleAddressOk() (*Address, bool)`
+`func (o *RecipientAddressSourceOneOf) GetRecipientAddressByListOk() (*RecipientAddressByList, bool)`
 
-GetSingleAddressOk returns a tuple with the SingleAddress field if it's non-nil, zero value otherwise
+GetRecipientAddressByListOk returns a tuple with the RecipientAddressByList field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSingleAddress
+### SetRecipientAddressByList
 
-`func (o *RecipientAddressSourceOneOf) SetSingleAddress(v Address)`
+`func (o *RecipientAddressSourceOneOf) SetRecipientAddressByList(v RecipientAddressByList)`
 
-SetSingleAddress sets SingleAddress field to given value.
+SetRecipientAddressByList sets RecipientAddressByList field to given value.
 
 
 

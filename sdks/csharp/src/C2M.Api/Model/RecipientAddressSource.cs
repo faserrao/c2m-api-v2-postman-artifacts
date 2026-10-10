@@ -60,16 +60,6 @@ namespace C2M.Api.Model
             OnCreated();
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RecipientAddressSource" /> class.
-        /// </summary>
-        /// <param name="recipientAddressSourceOneOf3"></param>
-        public RecipientAddressSource(RecipientAddressSourceOneOf3 recipientAddressSourceOneOf3)
-        {
-            RecipientAddressSourceOneOf3 = recipientAddressSourceOneOf3;
-            OnCreated();
-        }
-
         partial void OnCreated();
 
         /// <summary>
@@ -86,11 +76,6 @@ namespace C2M.Api.Model
         /// Gets or Sets RecipientAddressSourceOneOf2
         /// </summary>
         public RecipientAddressSourceOneOf2? RecipientAddressSourceOneOf2 { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RecipientAddressSourceOneOf3
-        /// </summary>
-        public RecipientAddressSourceOneOf3? RecipientAddressSourceOneOf3 { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -140,7 +125,6 @@ namespace C2M.Api.Model
             RecipientAddressSourceOneOf? recipientAddressSourceOneOf = default;
             RecipientAddressSourceOneOf1? recipientAddressSourceOneOf1 = default;
             RecipientAddressSourceOneOf2? recipientAddressSourceOneOf2 = default;
-            RecipientAddressSourceOneOf3? recipientAddressSourceOneOf3 = default;
 
             Utf8JsonReader utf8JsonReaderOneOf = utf8JsonReader;
             while (utf8JsonReaderOneOf.Read())
@@ -161,9 +145,6 @@ namespace C2M.Api.Model
 
                     Utf8JsonReader utf8JsonReaderRecipientAddressSourceOneOf2 = utf8JsonReader;
                     ClientUtils.TryDeserialize<RecipientAddressSourceOneOf2?>(ref utf8JsonReaderRecipientAddressSourceOneOf2, jsonSerializerOptions, out recipientAddressSourceOneOf2);
-
-                    Utf8JsonReader utf8JsonReaderRecipientAddressSourceOneOf3 = utf8JsonReader;
-                    ClientUtils.TryDeserialize<RecipientAddressSourceOneOf3?>(ref utf8JsonReaderRecipientAddressSourceOneOf3, jsonSerializerOptions, out recipientAddressSourceOneOf3);
                 }
             }
 
@@ -196,9 +177,6 @@ namespace C2M.Api.Model
 
             if (recipientAddressSourceOneOf2 != null)
                 return new RecipientAddressSource(recipientAddressSourceOneOf2);
-
-            if (recipientAddressSourceOneOf3 != null)
-                return new RecipientAddressSource(recipientAddressSourceOneOf3);
 
             throw new JsonException();
         }

@@ -357,7 +357,7 @@ class JobsApi:
     ) -> StandardResponse:
         """Submit mail merge
 
-        Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+        Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
 
         :param submit_multi_doc_merge_params: (required)
         :type submit_multi_doc_merge_params: SubmitMultiDocMergeParams
@@ -431,7 +431,7 @@ class JobsApi:
     ) -> ApiResponse[StandardResponse]:
         """Submit mail merge
 
-        Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+        Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
 
         :param submit_multi_doc_merge_params: (required)
         :type submit_multi_doc_merge_params: SubmitMultiDocMergeParams
@@ -505,7 +505,7 @@ class JobsApi:
     ) -> RESTResponseType:
         """Submit mail merge
 
-        Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+        Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
 
         :param submit_multi_doc_merge_params: (required)
         :type submit_multi_doc_merge_params: SubmitMultiDocMergeParams

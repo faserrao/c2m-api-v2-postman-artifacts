@@ -155,7 +155,7 @@ pub async fn submit_doc_params(configuration: &configuration::Configuration, sub
     }
 }
 
-/// Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+/// Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
 pub async fn submit_multi_doc_merge_params(configuration: &configuration::Configuration, submit_multi_doc_merge_params: models::SubmitMultiDocMergeParams) -> Result<models::StandardResponse, Error<SubmitMultiDocMergeParamsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_submit_multi_doc_merge_params = submit_multi_doc_merge_params;

@@ -54,8 +54,8 @@
       //expect(instance).to.be.a(C2MApiV2.RecipientAddressSourceOneOf);
     });
 
-    it('should have the property singleAddress (base name: "singleAddress")', function() {
-      // uncomment below and update the code to test the property singleAddress
+    it('should have the property recipientAddressByList (base name: "recipientAddressByList")', function() {
+      // uncomment below and update the code to test the property recipientAddressByList
       //var instance = new C2MApiV2.RecipientAddressSourceOneOf();
       //expect(instance).to.be();
     });

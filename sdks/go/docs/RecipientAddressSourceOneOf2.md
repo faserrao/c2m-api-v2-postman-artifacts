@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RecipientAddressByAddressId** | **int32** |  | 
+**RecipientAddressByListId** | **int32** |  | 
 
 ## Methods
 
 ### NewRecipientAddressSourceOneOf2
 
-`func NewRecipientAddressSourceOneOf2(recipientAddressByAddressId int32, ) *RecipientAddressSourceOneOf2`
+`func NewRecipientAddressSourceOneOf2(recipientAddressByListId int32, ) *RecipientAddressSourceOneOf2`
 
 NewRecipientAddressSourceOneOf2 instantiates a new RecipientAddressSourceOneOf2 object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewRecipientAddressSourceOneOf2WithDefaults instantiates a new RecipientAddressS
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetRecipientAddressByAddressId
+### GetRecipientAddressByListId
 
-`func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByAddressId() int32`
+`func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByListId() int32`
 
-GetRecipientAddressByAddressId returns the RecipientAddressByAddressId field if non-nil, zero value otherwise.
+GetRecipientAddressByListId returns the RecipientAddressByListId field if non-nil, zero value otherwise.
 
-### GetRecipientAddressByAddressIdOk
+### GetRecipientAddressByListIdOk
 
-`func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByAddressIdOk() (*int32, bool)`
+`func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByListIdOk() (*int32, bool)`
 
-GetRecipientAddressByAddressIdOk returns a tuple with the RecipientAddressByAddressId field if it's non-nil, zero value otherwise
+GetRecipientAddressByListIdOk returns a tuple with the RecipientAddressByListId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRecipientAddressByAddressId
+### SetRecipientAddressByListId
 
-`func (o *RecipientAddressSourceOneOf2) SetRecipientAddressByAddressId(v int32)`
+`func (o *RecipientAddressSourceOneOf2) SetRecipientAddressByListId(v int32)`
 
-SetRecipientAddressByAddressId sets RecipientAddressByAddressId field to given value.
+SetRecipientAddressByListId sets RecipientAddressByListId field to given value.
 
 
 

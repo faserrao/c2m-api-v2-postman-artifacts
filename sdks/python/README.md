@@ -163,7 +163,6 @@ Class | Method | HTTP request | Description
  - [RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
  - [RecipientAddressSourceOneOf1](docs/RecipientAddressSourceOneOf1.md)
  - [RecipientAddressSourceOneOf2](docs/RecipientAddressSourceOneOf2.md)
- - [RecipientAddressSourceOneOf3](docs/RecipientAddressSourceOneOf3.md)
  - [RequestIdSource](docs/RequestIdSource.md)
  - [ReturnAddress](docs/ReturnAddress.md)
  - [ShortTokenRequest](docs/ShortTokenRequest.md)

@@ -80,9 +80,9 @@ class RecipientAddressSourceOneOf1Test extends TestCase
     }
 
     /**
-     * Test attribute "recipient_address_by_list"
+     * Test attribute "recipient_address_by_address_id"
      */
-    public function testPropertyRecipientAddressByList()
+    public function testPropertyRecipientAddressByAddressId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

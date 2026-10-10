@@ -16,8 +16,7 @@ OpenapiClient::RecipientAddressSource.openapi_one_of
 # [
 #   :'RecipientAddressSourceOneOf',
 #   :'RecipientAddressSourceOneOf1',
-#   :'RecipientAddressSourceOneOf2',
-#   :'RecipientAddressSourceOneOf3'
+#   :'RecipientAddressSourceOneOf2'
 # ]
 ```
 
@@ -48,6 +47,5 @@ OpenapiClient::RecipientAddressSource.build(data_that_doesnt_match)
 - `RecipientAddressSourceOneOf`
 - `RecipientAddressSourceOneOf1`
 - `RecipientAddressSourceOneOf2`
-- `RecipientAddressSourceOneOf3`
 - `nil` (if no type matches)
 

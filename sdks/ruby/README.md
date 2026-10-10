@@ -155,7 +155,6 @@ Class | Method | HTTP request | Description
  - [OpenapiClient::RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
  - [OpenapiClient::RecipientAddressSourceOneOf1](docs/RecipientAddressSourceOneOf1.md)
  - [OpenapiClient::RecipientAddressSourceOneOf2](docs/RecipientAddressSourceOneOf2.md)
- - [OpenapiClient::RecipientAddressSourceOneOf3](docs/RecipientAddressSourceOneOf3.md)
  - [OpenapiClient::RequestIdSource](docs/RequestIdSource.md)
  - [OpenapiClient::ReturnAddress](docs/ReturnAddress.md)
  - [OpenapiClient::ShortTokenRequest](docs/ShortTokenRequest.md)

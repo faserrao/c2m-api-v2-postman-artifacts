@@ -108,7 +108,6 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new RecipientAddressSourceOneOfJsonConverter());
             _jsonOptions.Converters.Add(new RecipientAddressSourceOneOf1JsonConverter());
             _jsonOptions.Converters.Add(new RecipientAddressSourceOneOf2JsonConverter());
-            _jsonOptions.Converters.Add(new RecipientAddressSourceOneOf3JsonConverter());
             _jsonOptions.Converters.Add(new RequestIdSourceJsonConverter());
             _jsonOptions.Converters.Add(new ReturnAddressJsonConverter());
             _jsonOptions.Converters.Add(new ShortTokenRequestJsonConverter());

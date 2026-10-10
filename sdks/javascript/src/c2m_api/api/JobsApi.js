@@ -94,7 +94,7 @@ export default class JobsApi {
 
     /**
      * Submit mail merge
-     * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+     * Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
      * @param {module:c2m_api/model/SubmitMultiDocMergeParams} submitMultiDocMergeParams 
      * @param {module:c2m_api/api/JobsApi~submitMultiDocMergeParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}

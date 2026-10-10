@@ -81,7 +81,7 @@ submitMultiDocMergeParams($submit_multi_doc_merge_params): \C2MApi\Model\Standar
 
 Submit mail merge
 
-Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
 
 ### Example
 

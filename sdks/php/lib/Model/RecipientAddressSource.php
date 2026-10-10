@@ -57,7 +57,6 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'single_address' => '\C2MApi\Model\Address',
         'recipient_address_by_list' => '\C2MApi\Model\RecipientAddressByList',
         'recipient_address_by_address_id' => 'int',
         'recipient_address_by_list_id' => 'int'
@@ -71,7 +70,6 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'single_address' => null,
         'recipient_address_by_list' => null,
         'recipient_address_by_address_id' => null,
         'recipient_address_by_list_id' => null
@@ -83,7 +81,6 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'single_address' => false,
         'recipient_address_by_list' => false,
         'recipient_address_by_address_id' => false,
         'recipient_address_by_list_id' => false
@@ -175,7 +172,6 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'single_address' => 'singleAddress',
         'recipient_address_by_list' => 'recipientAddressByList',
         'recipient_address_by_address_id' => 'recipientAddressByAddressId',
         'recipient_address_by_list_id' => 'recipientAddressByListId'
@@ -187,7 +183,6 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'single_address' => 'setSingleAddress',
         'recipient_address_by_list' => 'setRecipientAddressByList',
         'recipient_address_by_address_id' => 'setRecipientAddressByAddressId',
         'recipient_address_by_list_id' => 'setRecipientAddressByListId'
@@ -199,7 +194,6 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'single_address' => 'getSingleAddress',
         'recipient_address_by_list' => 'getRecipientAddressByList',
         'recipient_address_by_address_id' => 'getRecipientAddressByAddressId',
         'recipient_address_by_list_id' => 'getRecipientAddressByListId'
@@ -262,7 +256,6 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('single_address', $data ?? [], null);
         $this->setIfExists('recipient_address_by_list', $data ?? [], null);
         $this->setIfExists('recipient_address_by_address_id', $data ?? [], null);
         $this->setIfExists('recipient_address_by_list_id', $data ?? [], null);
@@ -295,9 +288,6 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['single_address'] === null) {
-            $invalidProperties[] = "'single_address' can't be null";
-        }
         if ($this->container['recipient_address_by_list'] === null) {
             $invalidProperties[] = "'recipient_address_by_list' can't be null";
         }
@@ -321,33 +311,6 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets single_address
-     *
-     * @return \C2MApi\Model\Address
-     */
-    public function getSingleAddress()
-    {
-        return $this->container['single_address'];
-    }
-
-    /**
-     * Sets single_address
-     *
-     * @param \C2MApi\Model\Address $single_address single_address
-     *
-     * @return self
-     */
-    public function setSingleAddress($single_address)
-    {
-        if (is_null($single_address)) {
-            throw new \InvalidArgumentException('non-nullable single_address cannot be null');
-        }
-        $this->container['single_address'] = $single_address;
-
-        return $this;
-    }
 
     /**
      * Gets recipient_address_by_list

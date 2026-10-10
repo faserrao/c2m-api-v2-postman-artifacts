@@ -28,17 +28,6 @@
 | `docSourceAll[docSourceZipFile][zipRequestIdSource].requestId` | integer | Required* | Integer ID of a prior file upload request. Also returned in success responses. |
 | `docSourceAll[docSourceZipFile][zipRequestIdSource].zipFilename` | string | Required* | Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request). |
 | `docSourceAll[docSourceZipFile][zipRequestIdSource].filename` | string | Required* | Filename of a specific file within an upload request or ZIP archive. |
-| `recipientAddressSource[singleAddress].firstName` | string | Required* | Recipient's first name. |
-| `recipientAddressSource[singleAddress].lastName` | string | Required* | Recipient's last name. |
-| `recipientAddressSource[singleAddress].address1` | string | Required* | Primary street address line. |
-| `recipientAddressSource[singleAddress].city` | string | Required* | City name. |
-| `recipientAddressSource[singleAddress].state` | string | Required* | Two-letter state or province abbreviation. |
-| `recipientAddressSource[singleAddress].zip` | string | Required* | ZIP or postal code. |
-| `recipientAddressSource[singleAddress].country` | string | Required* | Country code (e.g. USA). |
-| `recipientAddressSource[singleAddress].address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
-| `recipientAddressSource[singleAddress].address3` | string | Optional | Tertiary address line. |
-| `recipientAddressSource[singleAddress].foo1` | string | Optional | User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation. |
-| `recipientAddressSource[singleAddress].foo2` | string | Optional | User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation. |
 | `recipientAddressSource[recipientAddressByList].mappingId` | integer | Optional | Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used. |
 | `recipientAddressSource[recipientAddressByList].addressList[].firstName` | string | Required* | Recipient's first name. |
 | `recipientAddressSource[recipientAddressByList].addressList[].lastName` | string | Required* | Recipient's last name. |
@@ -147,17 +136,6 @@
 | `pdfSplitJobsWithAddress[].jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `pdfSplitJobsWithAddress[].startPage` | integer | Required | First page of this job's page range, 1-indexed (inclusive). |
 | `pdfSplitJobsWithAddress[].endPage` | integer | Required | Last page of this job's page range (inclusive). Must be >= startPage. |
-| `pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].firstName` | string | Required* | Recipient's first name. |
-| `pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].lastName` | string | Required* | Recipient's last name. |
-| `pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].address1` | string | Required* | Primary street address line. |
-| `pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].city` | string | Required* | City name. |
-| `pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].state` | string | Required* | Two-letter state or province abbreviation. |
-| `pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].zip` | string | Required* | ZIP or postal code. |
-| `pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].country` | string | Required* | Country code (e.g. USA). |
-| `pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
-| `pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].address3` | string | Optional | Tertiary address line. |
-| `pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].foo1` | string | Optional | User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation. |
-| `pdfSplitJobsWithAddress[].recipientAddressSource[singleAddress].foo2` | string | Optional | User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation. |
 | `pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].mappingId` | integer | Optional | Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used. |
 | `pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].firstName` | string | Required* | Recipient's first name. |
 | `pdfSplitJobsWithAddress[].recipientAddressSource[recipientAddressByList].addressList[].lastName` | string | Required* | Recipient's last name. |
@@ -265,17 +243,6 @@
 | `mergeDocumentSource[][mergeByDocumentId].documentId` | integer | Required* | Integer ID of a previously stored or uploaded document. |
 | `mergeDocumentSource[][mergeByRequestId].requestId` | integer | Required* | Integer ID of a prior file upload request. Also returned in success responses. |
 | `mergeDocumentSource[][mergeByRequestId].filename` | string | Optional | Filename of a specific file within an upload request or ZIP archive. |
-| `recipientAddressSource[singleAddress].firstName` | string | Required* | Recipient's first name. |
-| `recipientAddressSource[singleAddress].lastName` | string | Required* | Recipient's last name. |
-| `recipientAddressSource[singleAddress].address1` | string | Required* | Primary street address line. |
-| `recipientAddressSource[singleAddress].city` | string | Required* | City name. |
-| `recipientAddressSource[singleAddress].state` | string | Required* | Two-letter state or province abbreviation. |
-| `recipientAddressSource[singleAddress].zip` | string | Required* | ZIP or postal code. |
-| `recipientAddressSource[singleAddress].country` | string | Required* | Country code (e.g. USA). |
-| `recipientAddressSource[singleAddress].address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
-| `recipientAddressSource[singleAddress].address3` | string | Optional | Tertiary address line. |
-| `recipientAddressSource[singleAddress].foo1` | string | Optional | User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation. |
-| `recipientAddressSource[singleAddress].foo2` | string | Optional | User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation. |
 | `recipientAddressSource[recipientAddressByList].mappingId` | integer | Optional | Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used. |
 | `recipientAddressSource[recipientAddressByList].addressList[].firstName` | string | Required* | Recipient's first name. |
 | `recipientAddressSource[recipientAddressByList].addressList[].lastName` | string | Required* | Recipient's last name. |
@@ -335,17 +302,6 @@
 | `docSourceZipFileRef[zipRequestIdOnly].requestId` | integer | Required* | Integer ID of a prior file upload request. Also returned in success responses. |
 | `multiZipJobs[].jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `multiZipJobs[].filename` | string | Required | Filename of a specific file within an upload request or ZIP archive. |
-| `multiZipJobs[].recipientAddressSource[singleAddress].firstName` | string | Required* | Recipient's first name. |
-| `multiZipJobs[].recipientAddressSource[singleAddress].lastName` | string | Required* | Recipient's last name. |
-| `multiZipJobs[].recipientAddressSource[singleAddress].address1` | string | Required* | Primary street address line. |
-| `multiZipJobs[].recipientAddressSource[singleAddress].city` | string | Required* | City name. |
-| `multiZipJobs[].recipientAddressSource[singleAddress].state` | string | Required* | Two-letter state or province abbreviation. |
-| `multiZipJobs[].recipientAddressSource[singleAddress].zip` | string | Required* | ZIP or postal code. |
-| `multiZipJobs[].recipientAddressSource[singleAddress].country` | string | Required* | Country code (e.g. USA). |
-| `multiZipJobs[].recipientAddressSource[singleAddress].address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
-| `multiZipJobs[].recipientAddressSource[singleAddress].address3` | string | Optional | Tertiary address line. |
-| `multiZipJobs[].recipientAddressSource[singleAddress].foo1` | string | Optional | User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation. |
-| `multiZipJobs[].recipientAddressSource[singleAddress].foo2` | string | Optional | User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation. |
 | `multiZipJobs[].recipientAddressSource[recipientAddressByList].mappingId` | integer | Optional | Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used. |
 | `multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].firstName` | string | Required* | Recipient's first name. |
 | `multiZipJobs[].recipientAddressSource[recipientAddressByList].addressList[].lastName` | string | Required* | Recipient's last name. |

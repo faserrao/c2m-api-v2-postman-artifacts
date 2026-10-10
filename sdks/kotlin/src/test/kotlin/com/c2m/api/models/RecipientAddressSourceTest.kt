@@ -19,23 +19,15 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.RecipientAddressSource
-import com.c2m.api.models.Address
 import com.c2m.api.models.RecipientAddressByList
 import com.c2m.api.models.RecipientAddressSourceOneOf
 import com.c2m.api.models.RecipientAddressSourceOneOf1
 import com.c2m.api.models.RecipientAddressSourceOneOf2
-import com.c2m.api.models.RecipientAddressSourceOneOf3
 
 class RecipientAddressSourceTest : ShouldSpec() {
     init {
         // uncomment below to create an instance of RecipientAddressSource
         //val modelInstance = RecipientAddressSource()
-
-        // to test the property `singleAddress`
-        should("test singleAddress") {
-            // uncomment below to test the property
-            //modelInstance.singleAddress shouldBe ("TODO")
-        }
 
         // to test the property `recipientAddressByList`
         should("test recipientAddressByList") {

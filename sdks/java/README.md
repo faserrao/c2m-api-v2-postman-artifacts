@@ -2,7 +2,7 @@
 
 C2M API v2
 - API version: 2.0.0
-  - Build date: 2026-10-09T19:03:52.144959961Z[Etc/UTC]
+  - Build date: 2026-10-10T00:49:51.791368813Z[Etc/UTC]
   - Generator version: 7.15.0
 
 API for submitting mailing jobs with various document routing options
@@ -192,7 +192,6 @@ Class | Method | HTTP request | Description
  - [RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
  - [RecipientAddressSourceOneOf1](docs/RecipientAddressSourceOneOf1.md)
  - [RecipientAddressSourceOneOf2](docs/RecipientAddressSourceOneOf2.md)
- - [RecipientAddressSourceOneOf3](docs/RecipientAddressSourceOneOf3.md)
  - [RequestIdSource](docs/RequestIdSource.md)
  - [ReturnAddress](docs/ReturnAddress.md)
  - [ShortTokenRequest](docs/ShortTokenRequest.md)

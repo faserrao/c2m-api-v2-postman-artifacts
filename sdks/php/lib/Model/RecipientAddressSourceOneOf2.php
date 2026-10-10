@@ -57,7 +57,7 @@ class RecipientAddressSourceOneOf2 implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'recipient_address_by_address_id' => 'int'
+        'recipient_address_by_list_id' => 'int'
     ];
 
     /**
@@ -68,7 +68,7 @@ class RecipientAddressSourceOneOf2 implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'recipient_address_by_address_id' => null
+        'recipient_address_by_list_id' => null
     ];
 
     /**
@@ -77,7 +77,7 @@ class RecipientAddressSourceOneOf2 implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'recipient_address_by_address_id' => false
+        'recipient_address_by_list_id' => false
     ];
 
     /**
@@ -166,7 +166,7 @@ class RecipientAddressSourceOneOf2 implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'recipient_address_by_address_id' => 'recipientAddressByAddressId'
+        'recipient_address_by_list_id' => 'recipientAddressByListId'
     ];
 
     /**
@@ -175,7 +175,7 @@ class RecipientAddressSourceOneOf2 implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'recipient_address_by_address_id' => 'setRecipientAddressByAddressId'
+        'recipient_address_by_list_id' => 'setRecipientAddressByListId'
     ];
 
     /**
@@ -184,7 +184,7 @@ class RecipientAddressSourceOneOf2 implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'recipient_address_by_address_id' => 'getRecipientAddressByAddressId'
+        'recipient_address_by_list_id' => 'getRecipientAddressByListId'
     ];
 
     /**
@@ -244,7 +244,7 @@ class RecipientAddressSourceOneOf2 implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('recipient_address_by_address_id', $data ?? [], null);
+        $this->setIfExists('recipient_address_by_list_id', $data ?? [], null);
     }
 
     /**
@@ -274,8 +274,8 @@ class RecipientAddressSourceOneOf2 implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['recipient_address_by_address_id'] === null) {
-            $invalidProperties[] = "'recipient_address_by_address_id' can't be null";
+        if ($this->container['recipient_address_by_list_id'] === null) {
+            $invalidProperties[] = "'recipient_address_by_list_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -293,28 +293,28 @@ class RecipientAddressSourceOneOf2 implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets recipient_address_by_address_id
+     * Gets recipient_address_by_list_id
      *
      * @return int
      */
-    public function getRecipientAddressByAddressId()
+    public function getRecipientAddressByListId()
     {
-        return $this->container['recipient_address_by_address_id'];
+        return $this->container['recipient_address_by_list_id'];
     }
 
     /**
-     * Sets recipient_address_by_address_id
+     * Sets recipient_address_by_list_id
      *
-     * @param int $recipient_address_by_address_id recipient_address_by_address_id
+     * @param int $recipient_address_by_list_id recipient_address_by_list_id
      *
      * @return self
      */
-    public function setRecipientAddressByAddressId($recipient_address_by_address_id)
+    public function setRecipientAddressByListId($recipient_address_by_list_id)
     {
-        if (is_null($recipient_address_by_address_id)) {
-            throw new \InvalidArgumentException('non-nullable recipient_address_by_address_id cannot be null');
+        if (is_null($recipient_address_by_list_id)) {
+            throw new \InvalidArgumentException('non-nullable recipient_address_by_list_id cannot be null');
         }
-        $this->container['recipient_address_by_address_id'] = $recipient_address_by_address_id;
+        $this->container['recipient_address_by_list_id'] = $recipient_address_by_list_id;
 
         return $this;
     }

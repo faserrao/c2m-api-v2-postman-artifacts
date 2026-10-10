@@ -93,7 +93,7 @@ public class Example {
 
 Submit mail merge
 
-Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
 
 ### Example
 ```java

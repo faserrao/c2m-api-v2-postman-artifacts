@@ -26,8 +26,8 @@ class RecipientAddressSourceOneOf2(BaseModel):
     """
     RecipientAddressSourceOneOf2
     """ # noqa: E501
-    recipient_address_by_address_id: StrictInt = Field(alias="recipientAddressByAddressId")
-    __properties: ClassVar[List[str]] = ["recipientAddressByAddressId"]
+    recipient_address_by_list_id: StrictInt = Field(alias="recipientAddressByListId")
+    __properties: ClassVar[List[str]] = ["recipientAddressByListId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,7 +80,7 @@ class RecipientAddressSourceOneOf2(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "recipientAddressByAddressId": obj.get("recipientAddressByAddressId")
+            "recipientAddressByListId": obj.get("recipientAddressByListId")
         })
         return _obj
 

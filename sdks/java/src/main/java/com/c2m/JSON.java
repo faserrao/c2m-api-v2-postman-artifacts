@@ -148,7 +148,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressSourceOneOf.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressSourceOneOf1.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressSourceOneOf2.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressSourceOneOf3.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RequestIdSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ReturnAddress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.ShortTokenRequest.CustomTypeAdapterFactory());

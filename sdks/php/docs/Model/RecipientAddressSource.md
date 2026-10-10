@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**single_address** | [**\C2MApi\Model\Address**](Address.md) |  |
 **recipient_address_by_list** | [**\C2MApi\Model\RecipientAddressByList**](RecipientAddressByList.md) |  |
 **recipient_address_by_address_id** | **int** |  |
 **recipient_address_by_list_id** | **int** |  |

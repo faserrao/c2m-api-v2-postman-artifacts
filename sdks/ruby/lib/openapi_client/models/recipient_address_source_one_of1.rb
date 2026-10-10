@@ -15,12 +15,12 @@ require 'time'
 
 module OpenapiClient
   class RecipientAddressSourceOneOf1
-    attr_accessor :recipient_address_by_list
+    attr_accessor :recipient_address_by_address_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'recipient_address_by_list' => :'recipientAddressByList'
+        :'recipient_address_by_address_id' => :'recipientAddressByAddressId'
       }
     end
 
@@ -37,7 +37,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'recipient_address_by_list' => :'RecipientAddressByList'
+        :'recipient_address_by_address_id' => :'Integer'
       }
     end
 
@@ -63,10 +63,10 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'recipient_address_by_list')
-        self.recipient_address_by_list = attributes[:'recipient_address_by_list']
+      if attributes.key?(:'recipient_address_by_address_id')
+        self.recipient_address_by_address_id = attributes[:'recipient_address_by_address_id']
       else
-        self.recipient_address_by_list = nil
+        self.recipient_address_by_address_id = nil
       end
     end
 
@@ -75,8 +75,8 @@ module OpenapiClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @recipient_address_by_list.nil?
-        invalid_properties.push('invalid value for "recipient_address_by_list", recipient_address_by_list cannot be nil.')
+      if @recipient_address_by_address_id.nil?
+        invalid_properties.push('invalid value for "recipient_address_by_address_id", recipient_address_by_address_id cannot be nil.')
       end
 
       invalid_properties
@@ -86,18 +86,18 @@ module OpenapiClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @recipient_address_by_list.nil?
+      return false if @recipient_address_by_address_id.nil?
       true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] recipient_address_by_list Value to be assigned
-    def recipient_address_by_list=(recipient_address_by_list)
-      if recipient_address_by_list.nil?
-        fail ArgumentError, 'recipient_address_by_list cannot be nil'
+    # @param [Object] recipient_address_by_address_id Value to be assigned
+    def recipient_address_by_address_id=(recipient_address_by_address_id)
+      if recipient_address_by_address_id.nil?
+        fail ArgumentError, 'recipient_address_by_address_id cannot be nil'
       end
 
-      @recipient_address_by_list = recipient_address_by_list
+      @recipient_address_by_address_id = recipient_address_by_address_id
     end
 
     # Checks equality by comparing each attribute.
@@ -105,7 +105,7 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          recipient_address_by_list == o.recipient_address_by_list
+          recipient_address_by_address_id == o.recipient_address_by_address_id
     end
 
     # @see the `==` method
@@ -117,7 +117,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [recipient_address_by_list].hash
+      [recipient_address_by_address_id].hash
     end
 
     # Builds the object from hash

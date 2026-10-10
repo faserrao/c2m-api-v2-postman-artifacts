@@ -88,7 +88,7 @@ module OpenapiClient
     end
 
     # Submit mail merge
-    # Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+    # Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
     # @param submit_multi_doc_merge_params [SubmitMultiDocMergeParams] 
     # @param [Hash] opts the optional parameters
     # @return [StandardResponse]
@@ -98,7 +98,7 @@ module OpenapiClient
     end
 
     # Submit mail merge
-    # Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+    # Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
     # @param submit_multi_doc_merge_params [SubmitMultiDocMergeParams] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(StandardResponse, Integer, Hash)>] StandardResponse data, response status code and response headers

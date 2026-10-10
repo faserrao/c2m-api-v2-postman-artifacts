@@ -313,7 +313,7 @@ public class JobsApi {
 
     /**
      * Submit mail merge
-     * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+     * Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
      * @param submitMultiDocMergeParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -338,7 +338,7 @@ public class JobsApi {
 
     /**
      * Submit mail merge
-     * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+     * Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
      * @param submitMultiDocMergeParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -364,7 +364,7 @@ public class JobsApi {
 
     /**
      * Submit mail merge (asynchronously)
-     * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+     * Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
      * @param submitMultiDocMergeParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

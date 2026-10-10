@@ -2,7 +2,7 @@ component,category,endpoint,field,description,field_type,required
 submitDocParams,Endpoint,POST /static,—,Request body for POST /static — submit a single document to one or more recipients.,object,—
 submitDocParams,Endpoint,POST /static,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 submitDocParams,Endpoint,POST /static,docSourceAll,"Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).",oneOf,Required
-submitDocParams,Endpoint,POST /static,recipientAddressSource,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
+submitDocParams,Endpoint,POST /static,recipientAddressSource,"Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
 submitDocParams,Endpoint,POST /static,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.",oneOf,Optional
 submitDocParams,Endpoint,POST /static,returnAddress,Optional sender return address printed on the mailpiece.,object,Optional
 submitDocParams,Endpoint,POST /static,jobOptions,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,Optional
@@ -33,7 +33,7 @@ submitSinglePdfSplitAddressCaptureParams,Endpoint,POST /batch/split/address-capt
 submitMultiDocMergeParams,Endpoint,POST /mail-merge,—,Request body for POST /mail-merge — merge multiple documents into one mailing sent to a single recipient.,object,—
 submitMultiDocMergeParams,Endpoint,POST /mail-merge,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 submitMultiDocMergeParams,Endpoint,POST /mail-merge,mergeDocumentSource,Ordered list of document references to merge into one output document (POST /mail-merge).,oneOf[],Required
-submitMultiDocMergeParams,Endpoint,POST /mail-merge,recipientAddressSource,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
+submitMultiDocMergeParams,Endpoint,POST /mail-merge,recipientAddressSource,"Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
 submitMultiDocMergeParams,Endpoint,POST /mail-merge,paymentDetails,"Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.",oneOf,Optional
 submitMultiDocMergeParams,Endpoint,POST /mail-merge,returnAddress,Optional sender return address printed on the mailpiece.,object,Optional
 submitMultiDocMergeParams,Endpoint,POST /mail-merge,jobOptions,Explicit print and mail configuration options. Mutually exclusive with jobTemplate.,object,Optional
@@ -57,7 +57,6 @@ address3,Alias / Primitive,,—,Tertiary address line.,string,—
 addressId,Alias / Primitive,,—,Integer ID of a previously stored individual recipient address.,id,—
 addressListId,Alias / Primitive,,—,Integer ID of a previously stored recipient address list.,id,—
 addressListName,Alias / Primitive,,—,Optional name for this address list record.,string,—
-addressName,Alias / Primitive,,—,Optional label for this recipient address record.,string,—
 amount,Alias / Primitive,,—,Monetary amount as a numeric value.,number,—
 amountDue,Alias / Primitive,,—,Amount due on the invoice.,number,—
 cardNumber,Alias / Primitive,,—,Credit card number (PAN) as a string.,string,—
@@ -89,7 +88,6 @@ recipientAddressByAddressId,Alias / Primitive,,—,Reference to a previously sto
 recipientAddressByListId,Alias / Primitive,,—,Reference to a previously stored recipient address list by its integer ID.,id,—
 requestId,Alias / Primitive,,—,Integer ID of a prior file upload request. Also returned in success responses.,id,—
 routingNumber,Alias / Primitive,,—,ABA bank routing number.,string,—
-singleAddress,Alias / Primitive,,—,A single recipient mailing address (alias for address).,object,—
 startPage,Alias / Primitive,,—,"First page of this job's page range, 1-indexed (inclusive).",integer,—
 state,Alias / Primitive,,—,Two-letter state or province abbreviation.,string,—
 status,Alias / Primitive,,—,"Job status string (e.g. ""accepted"").",string,—
@@ -176,11 +174,11 @@ mergeByRequestId,Data Structure,,filename,Filename of a specific file within an 
 multiDocJobItem,Data Structure,,—,A single independent document job entry within a multi-doc batch.,object,—
 multiDocJobItem,Data Structure,,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 multiDocJobItem,Data Structure,,docSourceAll,"Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).",oneOf,Required
-multiDocJobItem,Data Structure,,recipientAddressSource,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
+multiDocJobItem,Data Structure,,recipientAddressSource,"Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
 multiZipJobItem,Data Structure,,—,"A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.",object,—
 multiZipJobItem,Data Structure,,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 multiZipJobItem,Data Structure,,filename,Filename of a specific file within an upload request or ZIP archive.,string,Required
-multiZipJobItem,Data Structure,,recipientAddressSource,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
+multiZipJobItem,Data Structure,,recipientAddressSource,"Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
 pdfSplitJobItemNoAddress,Data Structure,,—,A single page-range job entry: page range only (no address — used for address-capture endpoint).,object,—
 pdfSplitJobItemNoAddress,Data Structure,,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 pdfSplitJobItemNoAddress,Data Structure,,startPage,"First page of this job's page range, 1-indexed (inclusive).",integer,Required
@@ -189,7 +187,7 @@ pdfSplitJobItemWithAddress,Data Structure,,—,"A single page-range job entry: p
 pdfSplitJobItemWithAddress,Data Structure,,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 pdfSplitJobItemWithAddress,Data Structure,,startPage,"First page of this job's page range, 1-indexed (inclusive).",integer,Required
 pdfSplitJobItemWithAddress,Data Structure,,endPage,Last page of this job's page range (inclusive). Must be >= startPage.,integer,Required
-pdfSplitJobItemWithAddress,Data Structure,,recipientAddressSource,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
+pdfSplitJobItemWithAddress,Data Structure,,recipientAddressSource,"Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.",oneOf,Required
 recipientAddressByList,Data Structure,,—,Inline list of recipient addresses with an optional merge-field mapping ID.,object,—
 recipientAddressByList,Data Structure,,mappingId,"Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.",id,Optional
 recipientAddressByList,Data Structure,,addressList,List of recipient mailing addresses — used for batch sends and mail merge.,object[],Required
@@ -318,8 +316,7 @@ paymentDetails,Union Type (oneOf),,creditCardPayment,Credit card payment variant
 paymentDetails,Union Type (oneOf),,invoicePayment,Invoice payment — billed to an existing account invoice.,object,—
 paymentDetails,Union Type (oneOf),,achPayment,ACH bank transfer payment variant.,object,—
 paymentDetails,Union Type (oneOf),,userCreditPayment,Payment deducted from the account's prepaid credit balance.,object,—
-recipientAddressSource,Union Type (oneOf),,—,"Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.",oneOf,—
-recipientAddressSource,Union Type (oneOf),,singleAddress,A single recipient mailing address (alias for address).,object,—
+recipientAddressSource,Union Type (oneOf),,—,"Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.",oneOf,—
 recipientAddressSource,Union Type (oneOf),,recipientAddressByList,Inline list of recipient addresses with an optional merge-field mapping ID.,object,—
 recipientAddressSource,Union Type (oneOf),,recipientAddressByAddressId,Reference to a previously stored individual recipient address by its integer ID.,id,—
 recipientAddressSource,Union Type (oneOf),,recipientAddressByListId,Reference to a previously stored recipient address list by its integer ID.,id,—

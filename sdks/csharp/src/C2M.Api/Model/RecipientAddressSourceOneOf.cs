@@ -33,21 +33,21 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecipientAddressSourceOneOf" /> class.
         /// </summary>
-        /// <param name="singleAddress">singleAddress</param>
+        /// <param name="recipientAddressByList">recipientAddressByList</param>
         [JsonConstructor]
-        public RecipientAddressSourceOneOf(Address singleAddress)
+        public RecipientAddressSourceOneOf(RecipientAddressByList recipientAddressByList)
         {
-            SingleAddress = singleAddress;
+            RecipientAddressByList = recipientAddressByList;
             OnCreated();
         }
 
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets SingleAddress
+        /// Gets or Sets RecipientAddressByList
         /// </summary>
-        [JsonPropertyName("singleAddress")]
-        public Address SingleAddress { get; set; }
+        [JsonPropertyName("recipientAddressByList")]
+        public RecipientAddressByList RecipientAddressByList { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -57,7 +57,7 @@ namespace C2M.Api.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class RecipientAddressSourceOneOf {\n");
-            sb.Append("  SingleAddress: ").Append(SingleAddress).Append("\n");
+            sb.Append("  RecipientAddressByList: ").Append(RecipientAddressByList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,7 +95,7 @@ namespace C2M.Api.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<Address?> singleAddress = default;
+            Option<RecipientAddressByList?> recipientAddressByList = default;
 
             while (utf8JsonReader.Read())
             {
@@ -112,8 +112,8 @@ namespace C2M.Api.Model
 
                     switch (localVarJsonPropertyName)
                     {
-                        case "singleAddress":
-                            singleAddress = new Option<Address?>(JsonSerializer.Deserialize<Address>(ref utf8JsonReader, jsonSerializerOptions)!);
+                        case "recipientAddressByList":
+                            recipientAddressByList = new Option<RecipientAddressByList?>(JsonSerializer.Deserialize<RecipientAddressByList>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
@@ -121,13 +121,13 @@ namespace C2M.Api.Model
                 }
             }
 
-            if (!singleAddress.IsSet)
-                throw new ArgumentException("Property is required for class RecipientAddressSourceOneOf.", nameof(singleAddress));
+            if (!recipientAddressByList.IsSet)
+                throw new ArgumentException("Property is required for class RecipientAddressSourceOneOf.", nameof(recipientAddressByList));
 
-            if (singleAddress.IsSet && singleAddress.Value == null)
-                throw new ArgumentNullException(nameof(singleAddress), "Property is not nullable for class RecipientAddressSourceOneOf.");
+            if (recipientAddressByList.IsSet && recipientAddressByList.Value == null)
+                throw new ArgumentNullException(nameof(recipientAddressByList), "Property is not nullable for class RecipientAddressSourceOneOf.");
 
-            return new RecipientAddressSourceOneOf(singleAddress.Value!);
+            return new RecipientAddressSourceOneOf(recipientAddressByList.Value!);
         }
 
         /// <summary>
@@ -154,11 +154,11 @@ namespace C2M.Api.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, RecipientAddressSourceOneOf recipientAddressSourceOneOf, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (recipientAddressSourceOneOf.SingleAddress == null)
-                throw new ArgumentNullException(nameof(recipientAddressSourceOneOf.SingleAddress), "Property is required for class RecipientAddressSourceOneOf.");
+            if (recipientAddressSourceOneOf.RecipientAddressByList == null)
+                throw new ArgumentNullException(nameof(recipientAddressSourceOneOf.RecipientAddressByList), "Property is required for class RecipientAddressSourceOneOf.");
 
-            writer.WritePropertyName("singleAddress");
-            JsonSerializer.Serialize(writer, recipientAddressSourceOneOf.SingleAddress, jsonSerializerOptions);
+            writer.WritePropertyName("recipientAddressByList");
+            JsonSerializer.Serialize(writer, recipientAddressSourceOneOf.RecipientAddressByList, jsonSerializerOptions);
         }
     }
 }

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**recipientAddressByAddressId** | **Integer** |  |  |
+|**recipientAddressByListId** | **Integer** |  |  |
 
 
 

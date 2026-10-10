@@ -145,7 +145,6 @@ Class | Method | HTTP request | Description
 - [RecipientAddressSourceOneOf](docs/Model/RecipientAddressSourceOneOf.md)
 - [RecipientAddressSourceOneOf1](docs/Model/RecipientAddressSourceOneOf1.md)
 - [RecipientAddressSourceOneOf2](docs/Model/RecipientAddressSourceOneOf2.md)
-- [RecipientAddressSourceOneOf3](docs/Model/RecipientAddressSourceOneOf3.md)
 - [RequestIdSource](docs/Model/RequestIdSource.md)
 - [ReturnAddress](docs/Model/ReturnAddress.md)
 - [ShortTokenRequest](docs/Model/ShortTokenRequest.md)

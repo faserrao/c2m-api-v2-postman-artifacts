@@ -35,33 +35,43 @@ class TestRecipientAddressSourceOneOf(unittest.TestCase):
         model = RecipientAddressSourceOneOf()
         if include_optional:
             return RecipientAddressSourceOneOf(
-                single_address = c2m_api.models.address.address(
-                    first_name = '', 
-                    last_name = '', 
-                    address1 = '', 
-                    city = '', 
-                    state = '', 
-                    zip = '', 
-                    country = '', 
-                    address2 = '', 
-                    address3 = '', 
-                    foo1 = '', 
-                    foo2 = '', )
+                recipient_address_by_list = c2m_api.models.recipient_address_by_list.recipientAddressByList(
+                    mapping_id = 56, 
+                    address_list = [
+                        c2m_api.models.address.address(
+                            first_name = '', 
+                            last_name = '', 
+                            address1 = '', 
+                            city = '', 
+                            state = '', 
+                            zip = '', 
+                            country = '', 
+                            address2 = '', 
+                            address3 = '', 
+                            foo1 = '', 
+                            foo2 = '', )
+                        ], 
+                    address_list_name = '', )
             )
         else:
             return RecipientAddressSourceOneOf(
-                single_address = c2m_api.models.address.address(
-                    first_name = '', 
-                    last_name = '', 
-                    address1 = '', 
-                    city = '', 
-                    state = '', 
-                    zip = '', 
-                    country = '', 
-                    address2 = '', 
-                    address3 = '', 
-                    foo1 = '', 
-                    foo2 = '', ),
+                recipient_address_by_list = c2m_api.models.recipient_address_by_list.recipientAddressByList(
+                    mapping_id = 56, 
+                    address_list = [
+                        c2m_api.models.address.address(
+                            first_name = '', 
+                            last_name = '', 
+                            address1 = '', 
+                            city = '', 
+                            state = '', 
+                            zip = '', 
+                            country = '', 
+                            address2 = '', 
+                            address3 = '', 
+                            foo1 = '', 
+                            foo2 = '', )
+                        ], 
+                    address_list_name = '', ),
         )
         """
 

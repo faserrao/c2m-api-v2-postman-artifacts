@@ -12,21 +12,21 @@ import AnyCodable
 
 public struct RecipientAddressSourceOneOf2: Codable, JSONEncodable, Hashable {
 
-    public var recipientAddressByAddressId: Int
+    public var recipientAddressByListId: Int
 
-    public init(recipientAddressByAddressId: Int) {
-        self.recipientAddressByAddressId = recipientAddressByAddressId
+    public init(recipientAddressByListId: Int) {
+        self.recipientAddressByListId = recipientAddressByListId
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
-        case recipientAddressByAddressId
+        case recipientAddressByListId
     }
 
     // Encodable protocol methods
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(recipientAddressByAddressId, forKey: .recipientAddressByAddressId)
+        try container.encode(recipientAddressByListId, forKey: .recipientAddressByListId)
     }
 }
 

@@ -6,7 +6,7 @@ ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 0
 - **A-DOC-CARDINALITY-UNENFORCED** [*] (1) — X9 / decision D4 (array minimums)
     - documentsToMerge: 'Ordered array of document references to merge into one output document'
 - **A-DOC-NOT-IN-SPEC** [*] (1) — X4 (@doc not emitted as spec descriptions)
-    - 103 of 103 @doc descriptions not emitted
+    - 101 of 101 @doc descriptions not emitted
 - **A-DOC-TYPE-CLAIM** [*] (1) — L2 / decision D6 (errorDetails object vs string)
     - errorDetails: @doc says JSON object, DD type is string
 - **A-HINT-EMPTY-STATIC** [*] (1) — L1 (address3 empty static hint)
@@ -15,7 +15,7 @@ ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 0
     - routingNumber: '@hint aba_routing_number'
 - **A-PRIMER-ENDPOINT-UNDEFINED** [*] (1) — /static/multi is PLANNED in the DD primer
     - /static/multi
-- **A-UNREACHABLE-RULE** [*] (11) — X6 / D2 (addressName orphan); multiDocJobs reserved for /static/multi; HTTP_* aliases
+- **A-UNREACHABLE-RULE** [*] (10) — X6; multiDocJobs reserved for /static/multi; HTTP_* aliases
     - HTTP_400_BAD_REQUEST
     - HTTP_401_UNAUTHORIZED
     - HTTP_403_FORBIDDEN
@@ -23,7 +23,6 @@ ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 0
     - HTTP_422_UNPROCESSABLE_ENTITY
     - HTTP_429_TOO_MANY_REQUESTS
     - HTTP_500_INTERNAL_SERVER_ERROR
-    - addressName
     - multiDocJobItem
     - multiDocJobs
     - paymentType
@@ -50,11 +49,11 @@ ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 0
     - POST /mail-merge / 'Database error' (500): mergeDocumentSource has 1 entry
     - POST /mail-merge / 'External service error' (500): mergeDocumentSource has 1 entry
 - **B-EXAMPLE-ORIGINAL-REQUEST** [Test] (5) — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
-    - POST /auth/tokens/long / 'Long-term token issued' (201): ttl_seconds: 992 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Bad request' (400): ttl_seconds: 992 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Unauthorized' (401): ttl_seconds: 992 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Forbidden' (403): ttl_seconds: 992 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Too Many Requests' (429): ttl_seconds: 992 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Long-term token issued' (201): ttl_seconds: 1228 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Bad request' (400): ttl_seconds: 1228 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Unauthorized' (401): ttl_seconds: 1228 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Forbidden' (403): ttl_seconds: 1228 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Too Many Requests' (429): ttl_seconds: 1228 is less than the minimum of 3600
 - **B-FILLER-VALUE** [GS-Test] (3) — L7 (example_ filler values)
     - [Less frequently used] /static - setting tags: body/tags[0]='example_tags'
     - [Less frequently used] /static - setting tags: body/tags[1]='example_tags'

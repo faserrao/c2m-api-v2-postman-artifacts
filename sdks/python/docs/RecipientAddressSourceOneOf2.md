@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recipient_address_by_address_id** | **int** |  | 
+**recipient_address_by_list_id** | **int** |  | 
 
 ## Example
 

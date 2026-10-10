@@ -35,7 +35,7 @@ import (
 )
 
 func main() {
-	submitDocParams := *openapiclient.NewSubmitDocParams(openapiclient.docSourceAll{DocSourceStandardOneOf: openapiclient.NewDocSourceStandardOneOf(*openapiclient.NewDocumentIdSource(int32(123)))}, openapiclient.recipientAddressSource{RecipientAddressSourceOneOf: openapiclient.NewRecipientAddressSourceOneOf(*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example"))}) // SubmitDocParams | 
+	submitDocParams := *openapiclient.NewSubmitDocParams(openapiclient.docSourceAll{DocSourceStandardOneOf: openapiclient.NewDocSourceStandardOneOf(*openapiclient.NewDocumentIdSource(int32(123)))}, openapiclient.recipientAddressSource{RecipientAddressSourceOneOf: openapiclient.NewRecipientAddressSourceOneOf(*openapiclient.NewRecipientAddressByList([]openapiclient.Address{*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")}))}) // SubmitDocParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -101,7 +101,7 @@ import (
 )
 
 func main() {
-	submitMultiDocMergeParams := *openapiclient.NewSubmitMultiDocMergeParams([]openapiclient.MergeDocumentRef{openapiclient.mergeDocumentRef{MergeDocumentRefOneOf: openapiclient.NewMergeDocumentRefOneOf(*openapiclient.NewMergeByDocumentId(int32(123)))}}, openapiclient.recipientAddressSource{RecipientAddressSourceOneOf: openapiclient.NewRecipientAddressSourceOneOf(*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example"))}) // SubmitMultiDocMergeParams | 
+	submitMultiDocMergeParams := *openapiclient.NewSubmitMultiDocMergeParams([]openapiclient.MergeDocumentRef{openapiclient.mergeDocumentRef{MergeDocumentRefOneOf: openapiclient.NewMergeDocumentRefOneOf(*openapiclient.NewMergeByDocumentId(int32(123)))}}, openapiclient.recipientAddressSource{RecipientAddressSourceOneOf: openapiclient.NewRecipientAddressSourceOneOf(*openapiclient.NewRecipientAddressByList([]openapiclient.Address{*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")}))}) // SubmitMultiDocMergeParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -233,7 +233,7 @@ import (
 )
 
 func main() {
-	submitMultiZipParams := *openapiclient.NewSubmitMultiZipParams(openapiclient.docSourceZipFileRef{DocSourceZipFileRefOneOf: openapiclient.NewDocSourceZipFileRefOneOf(*openapiclient.NewZipDocumentIdOnly(int32(123)))}, []openapiclient.MultiZipJobItem{*openapiclient.NewMultiZipJobItem("Filename_example", openapiclient.recipientAddressSource{RecipientAddressSourceOneOf: openapiclient.NewRecipientAddressSourceOneOf(*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example"))})}) // SubmitMultiZipParams | 
+	submitMultiZipParams := *openapiclient.NewSubmitMultiZipParams(openapiclient.docSourceZipFileRef{DocSourceZipFileRefOneOf: openapiclient.NewDocSourceZipFileRefOneOf(*openapiclient.NewZipDocumentIdOnly(int32(123)))}, []openapiclient.MultiZipJobItem{*openapiclient.NewMultiZipJobItem("Filename_example", openapiclient.recipientAddressSource{RecipientAddressSourceOneOf: openapiclient.NewRecipientAddressSourceOneOf(*openapiclient.NewRecipientAddressByList([]openapiclient.Address{*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")}))})}) // SubmitMultiZipParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -431,7 +431,7 @@ import (
 )
 
 func main() {
-	submitSinglePdfSplitParams := *openapiclient.NewSubmitSinglePdfSplitParams(openapiclient.docSourceStandard{DocSourceStandardOneOf: openapiclient.NewDocSourceStandardOneOf(*openapiclient.NewDocumentIdSource(int32(123)))}, []openapiclient.PdfSplitJobItemWithAddress{*openapiclient.NewPdfSplitJobItemWithAddress(int32(123), int32(123), openapiclient.recipientAddressSource{RecipientAddressSourceOneOf: openapiclient.NewRecipientAddressSourceOneOf(*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example"))})}) // SubmitSinglePdfSplitParams | 
+	submitSinglePdfSplitParams := *openapiclient.NewSubmitSinglePdfSplitParams(openapiclient.docSourceStandard{DocSourceStandardOneOf: openapiclient.NewDocSourceStandardOneOf(*openapiclient.NewDocumentIdSource(int32(123)))}, []openapiclient.PdfSplitJobItemWithAddress{*openapiclient.NewPdfSplitJobItemWithAddress(int32(123), int32(123), openapiclient.recipientAddressSource{RecipientAddressSourceOneOf: openapiclient.NewRecipientAddressSourceOneOf(*openapiclient.NewRecipientAddressByList([]openapiclient.Address{*openapiclient.NewAddress("FirstName_example", "LastName_example", "Address1_example", "City_example", "State_example", "Zip_example", "Country_example")}))})}) // SubmitSinglePdfSplitParams | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

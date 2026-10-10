@@ -62,7 +62,7 @@ namespace C2M.Api.Api
         /// Submit mail merge
         /// </summary>
         /// <remarks>
-        /// Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+        /// Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocMergeParams"></param>
@@ -74,7 +74,7 @@ namespace C2M.Api.Api
         /// Submit mail merge
         /// </summary>
         /// <remarks>
-        /// Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+        /// Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
         /// </remarks>
         /// <param name="submitMultiDocMergeParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1373,7 +1373,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitMultiDocMergeParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitMultiDocMergeParams submitMultiDocMergeParams);
 
         /// <summary>
-        /// Submit mail merge Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+        /// Submit mail merge Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
         /// </summary>
         /// <param name="submitMultiDocMergeParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1391,7 +1391,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit mail merge Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+        /// Submit mail merge Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitMultiDocMergeParams"></param>

@@ -48,32 +48,32 @@ import com.c2m.JSON;
 /**
  * RecipientAddressSourceOneOf2
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T19:03:52.144959961Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class RecipientAddressSourceOneOf2 {
-  public static final String SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_ADDRESS_ID = "recipientAddressByAddressId";
-  @SerializedName(SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_ADDRESS_ID)
+  public static final String SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_LIST_ID = "recipientAddressByListId";
+  @SerializedName(SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_LIST_ID)
   @javax.annotation.Nonnull
-  private Integer recipientAddressByAddressId;
+  private Integer recipientAddressByListId;
 
   public RecipientAddressSourceOneOf2() {
   }
 
-  public RecipientAddressSourceOneOf2 recipientAddressByAddressId(@javax.annotation.Nonnull Integer recipientAddressByAddressId) {
-    this.recipientAddressByAddressId = recipientAddressByAddressId;
+  public RecipientAddressSourceOneOf2 recipientAddressByListId(@javax.annotation.Nonnull Integer recipientAddressByListId) {
+    this.recipientAddressByListId = recipientAddressByListId;
     return this;
   }
 
   /**
-   * Get recipientAddressByAddressId
-   * @return recipientAddressByAddressId
+   * Get recipientAddressByListId
+   * @return recipientAddressByListId
    */
   @javax.annotation.Nonnull
-  public Integer getRecipientAddressByAddressId() {
-    return recipientAddressByAddressId;
+  public Integer getRecipientAddressByListId() {
+    return recipientAddressByListId;
   }
 
-  public void setRecipientAddressByAddressId(@javax.annotation.Nonnull Integer recipientAddressByAddressId) {
-    this.recipientAddressByAddressId = recipientAddressByAddressId;
+  public void setRecipientAddressByListId(@javax.annotation.Nonnull Integer recipientAddressByListId) {
+    this.recipientAddressByListId = recipientAddressByListId;
   }
 
 
@@ -87,19 +87,19 @@ public class RecipientAddressSourceOneOf2 {
       return false;
     }
     RecipientAddressSourceOneOf2 recipientAddressSourceOneOf2 = (RecipientAddressSourceOneOf2) o;
-    return Objects.equals(this.recipientAddressByAddressId, recipientAddressSourceOneOf2.recipientAddressByAddressId);
+    return Objects.equals(this.recipientAddressByListId, recipientAddressSourceOneOf2.recipientAddressByListId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(recipientAddressByAddressId);
+    return Objects.hash(recipientAddressByListId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RecipientAddressSourceOneOf2 {\n");
-    sb.append("    recipientAddressByAddressId: ").append(toIndentedString(recipientAddressByAddressId)).append("\n");
+    sb.append("    recipientAddressByListId: ").append(toIndentedString(recipientAddressByListId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -121,10 +121,10 @@ public class RecipientAddressSourceOneOf2 {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("recipientAddressByAddressId"));
+    openapiFields = new HashSet<String>(Arrays.asList("recipientAddressByListId"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("recipientAddressByAddressId"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("recipientAddressByListId"));
   }
 
   /**

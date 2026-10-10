@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recipientAddressByAddressId** | **Number** |  | 
+**recipientAddressByListId** | **Number** |  | 
 
 

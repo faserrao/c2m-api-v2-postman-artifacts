@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**single_address** | [**models::Address**](address.md) |  | 
+**recipient_address_by_list** | [**models::RecipientAddressByList**](recipientAddressByList.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -27,7 +27,7 @@ describe OpenapiClient::RecipientAddressSourceOneOf do
     end
   end
 
-  describe 'test attribute "single_address"' do
+  describe 'test attribute "recipient_address_by_list"' do
     it 'should work' do
       # assertion here. ref: https://rspec.info/features/3-12/rspec-expectations/built-in-matchers/
     end

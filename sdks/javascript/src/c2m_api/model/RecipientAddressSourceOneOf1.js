@@ -12,7 +12,6 @@
  */
 
 import ApiClient from '../ApiClient';
-import RecipientAddressByList from './RecipientAddressByList';
 
 /**
  * The RecipientAddressSourceOneOf1 model module.
@@ -23,11 +22,11 @@ class RecipientAddressSourceOneOf1 {
     /**
      * Constructs a new <code>RecipientAddressSourceOneOf1</code>.
      * @alias module:c2m_api/model/RecipientAddressSourceOneOf1
-     * @param recipientAddressByList {module:c2m_api/model/RecipientAddressByList} 
+     * @param recipientAddressByAddressId {Number} 
      */
-    constructor(recipientAddressByList) { 
+    constructor(recipientAddressByAddressId) { 
         
-        RecipientAddressSourceOneOf1.initialize(this, recipientAddressByList);
+        RecipientAddressSourceOneOf1.initialize(this, recipientAddressByAddressId);
     }
 
     /**
@@ -35,8 +34,8 @@ class RecipientAddressSourceOneOf1 {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, recipientAddressByList) { 
-        obj['recipientAddressByList'] = recipientAddressByList;
+    static initialize(obj, recipientAddressByAddressId) { 
+        obj['recipientAddressByAddressId'] = recipientAddressByAddressId;
     }
 
     /**
@@ -50,8 +49,8 @@ class RecipientAddressSourceOneOf1 {
         if (data) {
             obj = obj || new RecipientAddressSourceOneOf1();
 
-            if (data.hasOwnProperty('recipientAddressByList')) {
-                obj['recipientAddressByList'] = RecipientAddressByList.constructFromObject(data['recipientAddressByList']);
+            if (data.hasOwnProperty('recipientAddressByAddressId')) {
+                obj['recipientAddressByAddressId'] = ApiClient.convertToType(data['recipientAddressByAddressId'], 'Number');
             }
         }
         return obj;
@@ -69,10 +68,6 @@ class RecipientAddressSourceOneOf1 {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
-        // validate the optional field `recipientAddressByList`
-        if (data['recipientAddressByList']) { // data not null
-          RecipientAddressByList.validateJSON(data['recipientAddressByList']);
-        }
 
         return true;
     }
@@ -80,12 +75,12 @@ class RecipientAddressSourceOneOf1 {
 
 }
 
-RecipientAddressSourceOneOf1.RequiredProperties = ["recipientAddressByList"];
+RecipientAddressSourceOneOf1.RequiredProperties = ["recipientAddressByAddressId"];
 
 /**
- * @member {module:c2m_api/model/RecipientAddressByList} recipientAddressByList
+ * @member {Number} recipientAddressByAddressId
  */
-RecipientAddressSourceOneOf1.prototype['recipientAddressByList'] = undefined;
+RecipientAddressSourceOneOf1.prototype['recipientAddressByAddressId'] = undefined;
 
 
 

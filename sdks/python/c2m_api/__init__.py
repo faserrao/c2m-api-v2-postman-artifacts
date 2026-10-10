@@ -81,7 +81,6 @@ __all__ = [
     "RecipientAddressSourceOneOf",
     "RecipientAddressSourceOneOf1",
     "RecipientAddressSourceOneOf2",
-    "RecipientAddressSourceOneOf3",
     "RequestIdSource",
     "ReturnAddress",
     "ShortTokenRequest",
@@ -174,7 +173,6 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.recipient_address_source_one_of import RecipientAddressSourceOneOf as RecipientAddressSourceOneOf
     from c2m_api.models.recipient_address_source_one_of1 import RecipientAddressSourceOneOf1 as RecipientAddressSourceOneOf1
     from c2m_api.models.recipient_address_source_one_of2 import RecipientAddressSourceOneOf2 as RecipientAddressSourceOneOf2
-    from c2m_api.models.recipient_address_source_one_of3 import RecipientAddressSourceOneOf3 as RecipientAddressSourceOneOf3
     from c2m_api.models.request_id_source import RequestIdSource as RequestIdSource
     from c2m_api.models.return_address import ReturnAddress as ReturnAddress
     from c2m_api.models.short_token_request import ShortTokenRequest as ShortTokenRequest
@@ -273,7 +271,6 @@ from c2m_api.models.recipient_address_source import RecipientAddressSource as Re
 from c2m_api.models.recipient_address_source_one_of import RecipientAddressSourceOneOf as RecipientAddressSourceOneOf
 from c2m_api.models.recipient_address_source_one_of1 import RecipientAddressSourceOneOf1 as RecipientAddressSourceOneOf1
 from c2m_api.models.recipient_address_source_one_of2 import RecipientAddressSourceOneOf2 as RecipientAddressSourceOneOf2
-from c2m_api.models.recipient_address_source_one_of3 import RecipientAddressSourceOneOf3 as RecipientAddressSourceOneOf3
 from c2m_api.models.request_id_source import RequestIdSource as RequestIdSource
 from c2m_api.models.return_address import ReturnAddress as ReturnAddress
 from c2m_api.models.short_token_request import ShortTokenRequest as ShortTokenRequest

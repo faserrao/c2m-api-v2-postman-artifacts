@@ -33,7 +33,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::JobsApi.new
-submit_doc_params = OpenapiClient::SubmitDocParams.new({doc_source_all: OpenapiClient::DocSourceStandardOneOf.new({document_id_source: OpenapiClient::DocumentIdSource.new({document_id: 37})}), recipient_address_source: OpenapiClient::RecipientAddressSourceOneOf.new({single_address: OpenapiClient::Address.new({first_name: 'first_name_example', last_name: 'last_name_example', address1: 'address1_example', city: 'city_example', state: 'state_example', zip: 'zip_example', country: 'country_example'})})}) # SubmitDocParams | 
+submit_doc_params = OpenapiClient::SubmitDocParams.new({doc_source_all: OpenapiClient::DocSourceStandardOneOf.new({document_id_source: OpenapiClient::DocumentIdSource.new({document_id: 37})}), recipient_address_source: OpenapiClient::RecipientAddressSourceOneOf.new({recipient_address_by_list: OpenapiClient::RecipientAddressByList.new({address_list: [OpenapiClient::Address.new({first_name: 'first_name_example', last_name: 'last_name_example', address1: 'address1_example', city: 'city_example', state: 'state_example', zip: 'zip_example', country: 'country_example'})]})})}) # SubmitDocParams | 
 
 begin
   # Submit single document
@@ -88,7 +88,7 @@ end
 
 Submit mail merge
 
-Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
 
 ### Examples
 
@@ -102,7 +102,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::JobsApi.new
-submit_multi_doc_merge_params = OpenapiClient::SubmitMultiDocMergeParams.new({merge_document_source: [OpenapiClient::MergeDocumentRefOneOf.new({merge_by_document_id: OpenapiClient::MergeByDocumentId.new({document_id: 37})})], recipient_address_source: OpenapiClient::RecipientAddressSourceOneOf.new({single_address: OpenapiClient::Address.new({first_name: 'first_name_example', last_name: 'last_name_example', address1: 'address1_example', city: 'city_example', state: 'state_example', zip: 'zip_example', country: 'country_example'})})}) # SubmitMultiDocMergeParams | 
+submit_multi_doc_merge_params = OpenapiClient::SubmitMultiDocMergeParams.new({merge_document_source: [OpenapiClient::MergeDocumentRefOneOf.new({merge_by_document_id: OpenapiClient::MergeByDocumentId.new({document_id: 37})})], recipient_address_source: OpenapiClient::RecipientAddressSourceOneOf.new({recipient_address_by_list: OpenapiClient::RecipientAddressByList.new({address_list: [OpenapiClient::Address.new({first_name: 'first_name_example', last_name: 'last_name_example', address1: 'address1_example', city: 'city_example', state: 'state_example', zip: 'zip_example', country: 'country_example'})]})})}) # SubmitMultiDocMergeParams | 
 
 begin
   # Submit mail merge
@@ -240,7 +240,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::JobsApi.new
-submit_multi_zip_params = OpenapiClient::SubmitMultiZipParams.new({doc_source_zip_file_ref: OpenapiClient::DocSourceZipFileRefOneOf.new({zip_document_id_only: OpenapiClient::ZipDocumentIdOnly.new({zip_document_id: 37})}), multi_zip_jobs: [OpenapiClient::MultiZipJobItem.new({filename: 'filename_example', recipient_address_source: OpenapiClient::RecipientAddressSourceOneOf.new({single_address: OpenapiClient::Address.new({first_name: 'first_name_example', last_name: 'last_name_example', address1: 'address1_example', city: 'city_example', state: 'state_example', zip: 'zip_example', country: 'country_example'})})})]}) # SubmitMultiZipParams | 
+submit_multi_zip_params = OpenapiClient::SubmitMultiZipParams.new({doc_source_zip_file_ref: OpenapiClient::DocSourceZipFileRefOneOf.new({zip_document_id_only: OpenapiClient::ZipDocumentIdOnly.new({zip_document_id: 37})}), multi_zip_jobs: [OpenapiClient::MultiZipJobItem.new({filename: 'filename_example', recipient_address_source: OpenapiClient::RecipientAddressSourceOneOf.new({recipient_address_by_list: OpenapiClient::RecipientAddressByList.new({address_list: [OpenapiClient::Address.new({first_name: 'first_name_example', last_name: 'last_name_example', address1: 'address1_example', city: 'city_example', state: 'state_example', zip: 'zip_example', country: 'country_example'})]})})})]}) # SubmitMultiZipParams | 
 
 begin
   # Submit ZIP batch
@@ -447,7 +447,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::JobsApi.new
-submit_single_pdf_split_params = OpenapiClient::SubmitSinglePdfSplitParams.new({doc_source_standard: OpenapiClient::DocSourceStandardOneOf.new({document_id_source: OpenapiClient::DocumentIdSource.new({document_id: 37})}), pdf_split_jobs_with_address: [OpenapiClient::PdfSplitJobItemWithAddress.new({start_page: 37, end_page: 37, recipient_address_source: OpenapiClient::RecipientAddressSourceOneOf.new({single_address: OpenapiClient::Address.new({first_name: 'first_name_example', last_name: 'last_name_example', address1: 'address1_example', city: 'city_example', state: 'state_example', zip: 'zip_example', country: 'country_example'})})})]}) # SubmitSinglePdfSplitParams | 
+submit_single_pdf_split_params = OpenapiClient::SubmitSinglePdfSplitParams.new({doc_source_standard: OpenapiClient::DocSourceStandardOneOf.new({document_id_source: OpenapiClient::DocumentIdSource.new({document_id: 37})}), pdf_split_jobs_with_address: [OpenapiClient::PdfSplitJobItemWithAddress.new({start_page: 37, end_page: 37, recipient_address_source: OpenapiClient::RecipientAddressSourceOneOf.new({recipient_address_by_list: OpenapiClient::RecipientAddressByList.new({address_list: [OpenapiClient::Address.new({first_name: 'first_name_example', last_name: 'last_name_example', address1: 'address1_example', city: 'city_example', state: 'state_example', zip: 'zip_example', country: 'country_example'})]})})})]}) # SubmitSinglePdfSplitParams | 
 
 begin
   # Submit PDF split

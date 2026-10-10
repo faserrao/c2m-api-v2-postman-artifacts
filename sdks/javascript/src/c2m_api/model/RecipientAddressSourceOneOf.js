@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import Address from './Address';
+import RecipientAddressByList from './RecipientAddressByList';
 
 /**
  * The RecipientAddressSourceOneOf model module.
@@ -23,11 +23,11 @@ class RecipientAddressSourceOneOf {
     /**
      * Constructs a new <code>RecipientAddressSourceOneOf</code>.
      * @alias module:c2m_api/model/RecipientAddressSourceOneOf
-     * @param singleAddress {module:c2m_api/model/Address} 
+     * @param recipientAddressByList {module:c2m_api/model/RecipientAddressByList} 
      */
-    constructor(singleAddress) { 
+    constructor(recipientAddressByList) { 
         
-        RecipientAddressSourceOneOf.initialize(this, singleAddress);
+        RecipientAddressSourceOneOf.initialize(this, recipientAddressByList);
     }
 
     /**
@@ -35,8 +35,8 @@ class RecipientAddressSourceOneOf {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, singleAddress) { 
-        obj['singleAddress'] = singleAddress;
+    static initialize(obj, recipientAddressByList) { 
+        obj['recipientAddressByList'] = recipientAddressByList;
     }
 
     /**
@@ -50,8 +50,8 @@ class RecipientAddressSourceOneOf {
         if (data) {
             obj = obj || new RecipientAddressSourceOneOf();
 
-            if (data.hasOwnProperty('singleAddress')) {
-                obj['singleAddress'] = Address.constructFromObject(data['singleAddress']);
+            if (data.hasOwnProperty('recipientAddressByList')) {
+                obj['recipientAddressByList'] = RecipientAddressByList.constructFromObject(data['recipientAddressByList']);
             }
         }
         return obj;
@@ -69,9 +69,9 @@ class RecipientAddressSourceOneOf {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
-        // validate the optional field `singleAddress`
-        if (data['singleAddress']) { // data not null
-          Address.validateJSON(data['singleAddress']);
+        // validate the optional field `recipientAddressByList`
+        if (data['recipientAddressByList']) { // data not null
+          RecipientAddressByList.validateJSON(data['recipientAddressByList']);
         }
 
         return true;
@@ -80,12 +80,12 @@ class RecipientAddressSourceOneOf {
 
 }
 
-RecipientAddressSourceOneOf.RequiredProperties = ["singleAddress"];
+RecipientAddressSourceOneOf.RequiredProperties = ["recipientAddressByList"];
 
 /**
- * @member {module:c2m_api/model/Address} singleAddress
+ * @member {module:c2m_api/model/RecipientAddressByList} recipientAddressByList
  */
-RecipientAddressSourceOneOf.prototype['singleAddress'] = undefined;
+RecipientAddressSourceOneOf.prototype['recipientAddressByList'] = undefined;
 
 
 

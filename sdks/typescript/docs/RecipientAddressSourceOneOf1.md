@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | [default to undefined]
+**recipientAddressByAddressId** | **number** |  | [default to undefined]
 
 ## Example
 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 import { RecipientAddressSourceOneOf1 } from './api';
 
 const instance: RecipientAddressSourceOneOf1 = {
-    recipientAddressByList,
+    recipientAddressByAddressId,
 };
 ```
 

@@ -54,12 +54,12 @@ namespace C2M.Api.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'SingleAddress'
+        /// Test the property 'RecipientAddressByList'
         /// </summary>
         [Fact]
-        public void SingleAddressTest()
+        public void RecipientAddressByListTest()
         {
-            // TODO unit test for the property 'SingleAddress'
+            // TODO unit test for the property 'RecipientAddressByList'
         }
     }
 }

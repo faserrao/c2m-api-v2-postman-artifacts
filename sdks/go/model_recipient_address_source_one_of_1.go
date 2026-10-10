@@ -21,7 +21,7 @@ var _ MappedNullable = &RecipientAddressSourceOneOf1{}
 
 // RecipientAddressSourceOneOf1 struct for RecipientAddressSourceOneOf1
 type RecipientAddressSourceOneOf1 struct {
-	RecipientAddressByList RecipientAddressByList `json:"recipientAddressByList"`
+	RecipientAddressByAddressId int32 `json:"recipientAddressByAddressId"`
 }
 
 type _RecipientAddressSourceOneOf1 RecipientAddressSourceOneOf1
@@ -30,9 +30,9 @@ type _RecipientAddressSourceOneOf1 RecipientAddressSourceOneOf1
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRecipientAddressSourceOneOf1(recipientAddressByList RecipientAddressByList) *RecipientAddressSourceOneOf1 {
+func NewRecipientAddressSourceOneOf1(recipientAddressByAddressId int32) *RecipientAddressSourceOneOf1 {
 	this := RecipientAddressSourceOneOf1{}
-	this.RecipientAddressByList = recipientAddressByList
+	this.RecipientAddressByAddressId = recipientAddressByAddressId
 	return &this
 }
 
@@ -44,28 +44,28 @@ func NewRecipientAddressSourceOneOf1WithDefaults() *RecipientAddressSourceOneOf1
 	return &this
 }
 
-// GetRecipientAddressByList returns the RecipientAddressByList field value
-func (o *RecipientAddressSourceOneOf1) GetRecipientAddressByList() RecipientAddressByList {
+// GetRecipientAddressByAddressId returns the RecipientAddressByAddressId field value
+func (o *RecipientAddressSourceOneOf1) GetRecipientAddressByAddressId() int32 {
 	if o == nil {
-		var ret RecipientAddressByList
+		var ret int32
 		return ret
 	}
 
-	return o.RecipientAddressByList
+	return o.RecipientAddressByAddressId
 }
 
-// GetRecipientAddressByListOk returns a tuple with the RecipientAddressByList field value
+// GetRecipientAddressByAddressIdOk returns a tuple with the RecipientAddressByAddressId field value
 // and a boolean to check if the value has been set.
-func (o *RecipientAddressSourceOneOf1) GetRecipientAddressByListOk() (*RecipientAddressByList, bool) {
+func (o *RecipientAddressSourceOneOf1) GetRecipientAddressByAddressIdOk() (*int32, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.RecipientAddressByList, true
+	return &o.RecipientAddressByAddressId, true
 }
 
-// SetRecipientAddressByList sets field value
-func (o *RecipientAddressSourceOneOf1) SetRecipientAddressByList(v RecipientAddressByList) {
-	o.RecipientAddressByList = v
+// SetRecipientAddressByAddressId sets field value
+func (o *RecipientAddressSourceOneOf1) SetRecipientAddressByAddressId(v int32) {
+	o.RecipientAddressByAddressId = v
 }
 
 func (o RecipientAddressSourceOneOf1) MarshalJSON() ([]byte, error) {
@@ -78,7 +78,7 @@ func (o RecipientAddressSourceOneOf1) MarshalJSON() ([]byte, error) {
 
 func (o RecipientAddressSourceOneOf1) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
-	toSerialize["recipientAddressByList"] = o.RecipientAddressByList
+	toSerialize["recipientAddressByAddressId"] = o.RecipientAddressByAddressId
 	return toSerialize, nil
 }
 
@@ -87,7 +87,7 @@ func (o *RecipientAddressSourceOneOf1) UnmarshalJSON(data []byte) (err error) {
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
 	requiredProperties := []string{
-		"recipientAddressByList",
+		"recipientAddressByAddressId",
 	}
 
 	allProperties := make(map[string]interface{})

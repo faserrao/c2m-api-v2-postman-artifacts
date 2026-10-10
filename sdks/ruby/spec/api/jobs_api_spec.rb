@@ -46,7 +46,7 @@ describe 'JobsApi' do
 
   # unit tests for submit_multi_doc_merge_params
   # Submit mail merge
-  # Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+  # Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
   # @param submit_multi_doc_merge_params 
   # @param [Hash] opts the optional parameters
   # @return [StandardResponse]

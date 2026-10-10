@@ -80,15 +80,6 @@ class RecipientAddressSourceTest extends TestCase
     }
 
     /**
-     * Test attribute "single_address"
-     */
-    public function testPropertySingleAddress()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "recipient_address_by_list"
      */
     public function testPropertyRecipientAddressByList()

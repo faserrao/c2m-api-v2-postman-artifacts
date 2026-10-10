@@ -130,7 +130,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /mail-merge
      * Submit mail merge
-     * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+     * Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
      * @param submitMultiDocMergeParams 
      * @return StandardResponse
      * @throws IllegalStateException If the request is not correctly configured
@@ -162,7 +162,7 @@ class JobsApi(basePath: kotlin.String = defaultBasePath, client: Call.Factory = 
     /**
      * POST /mail-merge
      * Submit mail merge
-     * Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+     * Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
      * @param submitMultiDocMergeParams 
      * @return ApiResponse<StandardResponse?>
      * @throws IllegalStateException If the request is not correctly configured

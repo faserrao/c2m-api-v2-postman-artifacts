@@ -74,7 +74,7 @@ const { status, data } = await apiInstance.submitDocParams(
 # **submitMultiDocMergeParams**
 > StandardResponse submitMultiDocMergeParams(submitMultiDocMergeParams)
 
-Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
 
 ### Example
 

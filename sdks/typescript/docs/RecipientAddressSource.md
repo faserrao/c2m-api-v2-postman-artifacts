@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**singleAddress** | [**Address**](Address.md) |  | [default to undefined]
 **recipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | [default to undefined]
 **recipientAddressByAddressId** | **number** |  | [default to undefined]
 **recipientAddressByListId** | **number** |  | [default to undefined]
@@ -16,7 +15,6 @@ Name | Type | Description | Notes
 import { RecipientAddressSource } from './api';
 
 const instance: RecipientAddressSource = {
-    singleAddress,
     recipientAddressByList,
     recipientAddressByAddressId,
     recipientAddressByListId,

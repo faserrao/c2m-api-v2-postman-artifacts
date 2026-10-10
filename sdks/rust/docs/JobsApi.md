@@ -49,7 +49,7 @@ Name | Type | Description  | Required | Notes
 > models::StandardResponse submit_multi_doc_merge_params(submit_multi_doc_merge_params)
 Submit mail merge
 
-Merges multiple documents into a single mailing sent to one recipient. Useful for creating document packets or multi-page letters.
+Merges multiple documents into a single mailing sent to each recipient. Useful for creating document packets or multi-page letters.
 
 ### Parameters
 

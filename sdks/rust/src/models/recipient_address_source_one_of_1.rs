@@ -13,14 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RecipientAddressSourceOneOf1 {
-    #[serde(rename = "recipientAddressByList")]
-    pub recipient_address_by_list: Box<models::RecipientAddressByList>,
+    #[serde(rename = "recipientAddressByAddressId")]
+    pub recipient_address_by_address_id: i32,
 }
 
 impl RecipientAddressSourceOneOf1 {
-    pub fn new(recipient_address_by_list: models::RecipientAddressByList) -> RecipientAddressSourceOneOf1 {
+    pub fn new(recipient_address_by_address_id: i32) -> RecipientAddressSourceOneOf1 {
         RecipientAddressSourceOneOf1 {
-            recipient_address_by_list: Box::new(recipient_address_by_list),
+            recipient_address_by_address_id,
         }
     }
 }

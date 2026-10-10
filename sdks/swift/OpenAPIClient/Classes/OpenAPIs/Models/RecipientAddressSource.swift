@@ -14,7 +14,6 @@ public enum RecipientAddressSource: Codable, JSONEncodable, Hashable {
     case typeRecipientAddressSourceOneOf(RecipientAddressSourceOneOf)
     case typeRecipientAddressSourceOneOf1(RecipientAddressSourceOneOf1)
     case typeRecipientAddressSourceOneOf2(RecipientAddressSourceOneOf2)
-    case typeRecipientAddressSourceOneOf3(RecipientAddressSourceOneOf3)
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
@@ -24,8 +23,6 @@ public enum RecipientAddressSource: Codable, JSONEncodable, Hashable {
         case .typeRecipientAddressSourceOneOf1(let value):
             try container.encode(value)
         case .typeRecipientAddressSourceOneOf2(let value):
-            try container.encode(value)
-        case .typeRecipientAddressSourceOneOf3(let value):
             try container.encode(value)
         }
     }
@@ -38,8 +35,6 @@ public enum RecipientAddressSource: Codable, JSONEncodable, Hashable {
             self = .typeRecipientAddressSourceOneOf1(value)
         } else if let value = try? container.decode(RecipientAddressSourceOneOf2.self) {
             self = .typeRecipientAddressSourceOneOf2(value)
-        } else if let value = try? container.decode(RecipientAddressSourceOneOf3.self) {
-            self = .typeRecipientAddressSourceOneOf3(value)
         } else {
             throw DecodingError.typeMismatch(Self.Type.self, .init(codingPath: decoder.codingPath, debugDescription: "Unable to decode instance of RecipientAddressSource"))
         }

@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from c2m_api.models.recipient_address_by_list import RecipientAddressByList
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,8 +26,8 @@ class RecipientAddressSourceOneOf1(BaseModel):
     """
     RecipientAddressSourceOneOf1
     """ # noqa: E501
-    recipient_address_by_list: RecipientAddressByList = Field(alias="recipientAddressByList")
-    __properties: ClassVar[List[str]] = ["recipientAddressByList"]
+    recipient_address_by_address_id: StrictInt = Field(alias="recipientAddressByAddressId")
+    __properties: ClassVar[List[str]] = ["recipientAddressByAddressId"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -69,9 +68,6 @@ class RecipientAddressSourceOneOf1(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of recipient_address_by_list
-        if self.recipient_address_by_list:
-            _dict['recipientAddressByList'] = self.recipient_address_by_list.to_dict()
         return _dict
 
     @classmethod
@@ -84,7 +80,7 @@ class RecipientAddressSourceOneOf1(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "recipientAddressByList": RecipientAddressByList.from_dict(obj["recipientAddressByList"]) if obj.get("recipientAddressByList") is not None else None
+            "recipientAddressByAddressId": obj.get("recipientAddressByAddressId")
         })
         return _obj
 

@@ -65,7 +65,6 @@ import RecipientAddressSource from './model/RecipientAddressSource';
 import RecipientAddressSourceOneOf from './model/RecipientAddressSourceOneOf';
 import RecipientAddressSourceOneOf1 from './model/RecipientAddressSourceOneOf1';
 import RecipientAddressSourceOneOf2 from './model/RecipientAddressSourceOneOf2';
-import RecipientAddressSourceOneOf3 from './model/RecipientAddressSourceOneOf3';
 import RequestIdSource from './model/RequestIdSource';
 import ReturnAddress from './model/ReturnAddress';
 import ShortTokenRequest from './model/ShortTokenRequest';
@@ -440,12 +439,6 @@ export {
      * @property {module:c2m_api/model/RecipientAddressSourceOneOf2}
      */
     RecipientAddressSourceOneOf2,
-
-    /**
-     * The RecipientAddressSourceOneOf3 model constructor.
-     * @property {module:c2m_api/model/RecipientAddressSourceOneOf3}
-     */
-    RecipientAddressSourceOneOf3,
 
     /**
      * The RequestIdSource model constructor.

@@ -12,12 +12,10 @@
  */
 
 import ApiClient from '../ApiClient';
-import Address from './Address';
 import RecipientAddressByList from './RecipientAddressByList';
 import RecipientAddressSourceOneOf from './RecipientAddressSourceOneOf';
 import RecipientAddressSourceOneOf1 from './RecipientAddressSourceOneOf1';
 import RecipientAddressSourceOneOf2 from './RecipientAddressSourceOneOf2';
-import RecipientAddressSourceOneOf3 from './RecipientAddressSourceOneOf3';
 
 /**
  * The RecipientAddressSource model module.
@@ -28,7 +26,7 @@ class RecipientAddressSource {
     /**
      * Constructs a new <code>RecipientAddressSource</code>.
      * @alias module:c2m_api/model/RecipientAddressSource
-     * @param {(module:c2m_api/model/RecipientAddressSourceOneOf|module:c2m_api/model/RecipientAddressSourceOneOf1|module:c2m_api/model/RecipientAddressSourceOneOf2|module:c2m_api/model/RecipientAddressSourceOneOf3)} instance The actual instance to initialize RecipientAddressSource.
+     * @param {(module:c2m_api/model/RecipientAddressSourceOneOf|module:c2m_api/model/RecipientAddressSourceOneOf1|module:c2m_api/model/RecipientAddressSourceOneOf2)} instance The actual instance to initialize RecipientAddressSource.
      */
     constructor(instance = null) {
         if (instance === null) {
@@ -85,27 +83,11 @@ class RecipientAddressSource {
             errorMessages.push("Failed to construct RecipientAddressSourceOneOf2: " + err)
         }
 
-        try {
-            if (typeof instance === "RecipientAddressSourceOneOf3") {
-                this.actualInstance = instance;
-            } else {
-                // plain JS object
-                // validate the object
-                RecipientAddressSourceOneOf3.validateJSON(instance); // throw an exception if no match
-                // create RecipientAddressSourceOneOf3 from JS object
-                this.actualInstance = RecipientAddressSourceOneOf3.constructFromObject(instance);
-            }
-            match++;
-        } catch(err) {
-            // json data failed to deserialize into RecipientAddressSourceOneOf3
-            errorMessages.push("Failed to construct RecipientAddressSourceOneOf3: " + err)
-        }
-
         if (match > 1) {
-            throw new Error("Multiple matches found constructing `RecipientAddressSource` with oneOf schemas RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1, RecipientAddressSourceOneOf2, RecipientAddressSourceOneOf3. Input: " + JSON.stringify(instance));
+            throw new Error("Multiple matches found constructing `RecipientAddressSource` with oneOf schemas RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1, RecipientAddressSourceOneOf2. Input: " + JSON.stringify(instance));
         } else if (match === 0) {
             this.actualInstance = null; // clear the actual instance in case there are multiple matches
-            throw new Error("No match found constructing `RecipientAddressSource` with oneOf schemas RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1, RecipientAddressSourceOneOf2, RecipientAddressSourceOneOf3. Details: " +
+            throw new Error("No match found constructing `RecipientAddressSource` with oneOf schemas RecipientAddressSourceOneOf, RecipientAddressSourceOneOf1, RecipientAddressSourceOneOf2. Details: " +
                             errorMessages.join(", "));
         } else { // only 1 match
             // the input is valid
@@ -124,16 +106,16 @@ class RecipientAddressSource {
     }
 
     /**
-     * Gets the actual instance, which can be <code>RecipientAddressSourceOneOf</code>, <code>RecipientAddressSourceOneOf1</code>, <code>RecipientAddressSourceOneOf2</code>, <code>RecipientAddressSourceOneOf3</code>.
-     * @return {(module:c2m_api/model/RecipientAddressSourceOneOf|module:c2m_api/model/RecipientAddressSourceOneOf1|module:c2m_api/model/RecipientAddressSourceOneOf2|module:c2m_api/model/RecipientAddressSourceOneOf3)} The actual instance.
+     * Gets the actual instance, which can be <code>RecipientAddressSourceOneOf</code>, <code>RecipientAddressSourceOneOf1</code>, <code>RecipientAddressSourceOneOf2</code>.
+     * @return {(module:c2m_api/model/RecipientAddressSourceOneOf|module:c2m_api/model/RecipientAddressSourceOneOf1|module:c2m_api/model/RecipientAddressSourceOneOf2)} The actual instance.
      */
     getActualInstance() {
         return this.actualInstance;
     }
 
     /**
-     * Sets the actual instance, which can be <code>RecipientAddressSourceOneOf</code>, <code>RecipientAddressSourceOneOf1</code>, <code>RecipientAddressSourceOneOf2</code>, <code>RecipientAddressSourceOneOf3</code>.
-     * @param {(module:c2m_api/model/RecipientAddressSourceOneOf|module:c2m_api/model/RecipientAddressSourceOneOf1|module:c2m_api/model/RecipientAddressSourceOneOf2|module:c2m_api/model/RecipientAddressSourceOneOf3)} obj The actual instance.
+     * Sets the actual instance, which can be <code>RecipientAddressSourceOneOf</code>, <code>RecipientAddressSourceOneOf1</code>, <code>RecipientAddressSourceOneOf2</code>.
+     * @param {(module:c2m_api/model/RecipientAddressSourceOneOf|module:c2m_api/model/RecipientAddressSourceOneOf1|module:c2m_api/model/RecipientAddressSourceOneOf2)} obj The actual instance.
      */
     setActualInstance(obj) {
        this.actualInstance = RecipientAddressSource.constructFromObject(obj).getActualInstance();
@@ -158,11 +140,6 @@ class RecipientAddressSource {
 }
 
 /**
- * @member {module:c2m_api/model/Address} singleAddress
- */
-RecipientAddressSource.prototype['singleAddress'] = undefined;
-
-/**
  * @member {module:c2m_api/model/RecipientAddressByList} recipientAddressByList
  */
 RecipientAddressSource.prototype['recipientAddressByList'] = undefined;
@@ -178,7 +155,7 @@ RecipientAddressSource.prototype['recipientAddressByAddressId'] = undefined;
 RecipientAddressSource.prototype['recipientAddressByListId'] = undefined;
 
 
-RecipientAddressSource.OneOf = ["RecipientAddressSourceOneOf", "RecipientAddressSourceOneOf1", "RecipientAddressSourceOneOf2", "RecipientAddressSourceOneOf3"];
+RecipientAddressSource.OneOf = ["RecipientAddressSourceOneOf", "RecipientAddressSourceOneOf1", "RecipientAddressSourceOneOf2"];
 
 export default RecipientAddressSource;
 

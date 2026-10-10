@@ -21,8 +21,7 @@ module OpenapiClient
         [
           :'RecipientAddressSourceOneOf',
           :'RecipientAddressSourceOneOf1',
-          :'RecipientAddressSourceOneOf2',
-          :'RecipientAddressSourceOneOf3'
+          :'RecipientAddressSourceOneOf2'
         ]
       end
 

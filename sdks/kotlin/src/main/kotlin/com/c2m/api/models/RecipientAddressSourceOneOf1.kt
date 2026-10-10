@@ -15,7 +15,6 @@
 
 package com.c2m.api.models
 
-import com.c2m.api.models.RecipientAddressByList
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -23,14 +22,14 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param recipientAddressByList 
+ * @param recipientAddressByAddressId 
  */
 
 
 data class RecipientAddressSourceOneOf1 (
 
-    @Json(name = "recipientAddressByList")
-    val recipientAddressByList: RecipientAddressByList
+    @Json(name = "recipientAddressByAddressId")
+    val recipientAddressByAddressId: kotlin.Int
 
 ) {
 

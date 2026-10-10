@@ -12,7 +12,7 @@ Request body for POST /static — submit a single document to one or more recipi
 | --- | --- | --- | --- |
 | `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `docSourceAll` | oneOf | Required | Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId). |
-| `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID. |
+| `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID. |
 | `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data. |
 | `returnAddress` | object | Optional | Optional sender return address printed on the mailpiece. |
 | `jobOptions` | object | Optional | Explicit print and mail configuration options. Mutually exclusive with jobTemplate. |
@@ -67,7 +67,7 @@ Request body for POST /mail-merge — merge multiple documents into one mailing 
 | --- | --- | --- | --- |
 | `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `mergeDocumentSource` | oneOf[] | Required | Ordered list of document references to merge into one output document (POST /mail-merge). |
-| `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID. |
+| `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID. |
 | `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data. |
 | `returnAddress` | object | Optional | Optional sender return address printed on the mailpiece. |
 | `jobOptions` | object | Optional | Explicit print and mail configuration options. Mutually exclusive with jobTemplate. |
@@ -236,7 +236,7 @@ A single independent document job entry within a multi-doc batch.
 | --- | --- | --- | --- |
 | `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `docSourceAll` | oneOf | Required | Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId). |
-| `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID. |
+| `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID. |
 
 ### `multiZipJobItem`
 
@@ -246,7 +246,7 @@ A single ZIP file job entry: optional job template, filename within the ZIP, and
 | --- | --- | --- | --- |
 | `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `filename` | string | Required | Filename of a specific file within an upload request or ZIP archive. |
-| `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID. |
+| `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID. |
 
 ### `pdfSplitJobItemNoAddress`
 
@@ -267,7 +267,7 @@ A single page-range job entry: page range (startPage, endPage) plus a recipient 
 | `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `startPage` | integer | Required | First page of this job's page range, 1-indexed (inclusive). |
 | `endPage` | integer | Required | Last page of this job's page range (inclusive). Must be >= startPage. |
-| `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID. |
+| `recipientAddressSource` | oneOf | Required | Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID. |
 
 ### `recipientAddressByList`
 
@@ -404,11 +404,10 @@ Payment method — one of: creditCard, invoice, ACH bank transfer, or account cr
 
 ### `recipientAddressSource`
 
-Recipient address specification — one of: inline single address (with optional mapping), inline address list (with optional mapping), stored list ID, or stored address ID.
+Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
-| `singleAddress` | object | — | A single recipient mailing address (alias for address). |
 | `recipientAddressByList` | object | — | Inline list of recipient addresses with an optional merge-field mapping ID. |
 | `recipientAddressByAddressId` | id | — | Reference to a previously stored individual recipient address by its integer ID. |
 | `recipientAddressByListId` | id | — | Reference to a previously stored recipient address list by its integer ID. |
@@ -665,10 +664,6 @@ Integer ID of a previously stored recipient address list.
 
 Optional name for this address list record.
 
-### `addressName`
-
-Optional label for this recipient address record.
-
 ### `amount`
 
 Monetary amount as a numeric value.
@@ -792,10 +787,6 @@ Integer ID of a prior file upload request. Also returned in success responses.
 ### `routingNumber`
 
 ABA bank routing number.
-
-### `singleAddress`
-
-A single recipient mailing address (alias for address).
 
 ### `startPage`
 

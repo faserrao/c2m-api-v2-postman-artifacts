@@ -196,7 +196,6 @@ Class | Method | HTTP request | Description
  - [C2MApiV2.RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
  - [C2MApiV2.RecipientAddressSourceOneOf1](docs/RecipientAddressSourceOneOf1.md)
  - [C2MApiV2.RecipientAddressSourceOneOf2](docs/RecipientAddressSourceOneOf2.md)
- - [C2MApiV2.RecipientAddressSourceOneOf3](docs/RecipientAddressSourceOneOf3.md)
  - [C2MApiV2.RequestIdSource](docs/RequestIdSource.md)
  - [C2MApiV2.ReturnAddress](docs/ReturnAddress.md)
  - [C2MApiV2.ShortTokenRequest](docs/ShortTokenRequest.md)

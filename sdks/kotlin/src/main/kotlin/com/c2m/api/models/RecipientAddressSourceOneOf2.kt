@@ -22,14 +22,14 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param recipientAddressByAddressId 
+ * @param recipientAddressByListId 
  */
 
 
 data class RecipientAddressSourceOneOf2 (
 
-    @Json(name = "recipientAddressByAddressId")
-    val recipientAddressByAddressId: kotlin.Int
+    @Json(name = "recipientAddressByListId")
+    val recipientAddressByListId: kotlin.Int
 
 ) {
 
