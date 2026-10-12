@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ReturnAddressTest Class Doc Comment
  *
  * @category    Class
- * @description ReturnAddress
+ * @description Optional sender return address printed on the mailpiece.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

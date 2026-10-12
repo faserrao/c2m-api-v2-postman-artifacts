@@ -11,7 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
+/// PrintOption : Duplex setting (double_sided or single_sided).
+/// Duplex setting (double_sided or single_sided).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum PrintOption {
     #[serde(rename = "double_sided")]

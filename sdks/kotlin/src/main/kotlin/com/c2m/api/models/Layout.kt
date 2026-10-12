@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Page layout controlling where the recipient address is printed.
  *
  * Values: address_on_first_page,address_on_back_page
  */

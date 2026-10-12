@@ -11,15 +11,19 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// RequestIdSource : Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestIdSource {
+    /// Integer ID of a prior file upload request. Also returned in success responses.
     #[serde(rename = "requestId")]
     pub request_id: i32,
+    /// Filename of a specific file within an upload request or ZIP archive.
     #[serde(rename = "filename", skip_serializing_if = "Option::is_none")]
     pub filename: Option<String>,
 }
 
 impl RequestIdSource {
+    /// Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one.
     pub fn new(request_id: i32) -> RequestIdSource {
         RequestIdSource {
             request_id,

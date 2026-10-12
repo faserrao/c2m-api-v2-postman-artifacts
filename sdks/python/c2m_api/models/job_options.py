@@ -24,16 +24,16 @@ from typing_extensions import Self
 
 class JobOptions(BaseModel):
     """
-    JobOptions
+    Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
     """ # noqa: E501
-    document_class: StrictStr = Field(alias="documentClass")
-    layout: StrictStr
-    production_time: StrictStr = Field(alias="productionTime")
-    envelope: StrictStr
-    color: StrictStr
-    paper_type: StrictStr = Field(alias="paperType")
-    print_option: StrictStr = Field(alias="printOption")
-    mail_class: StrictStr = Field(alias="mailClass")
+    document_class: StrictStr = Field(description="Document class determining the mailpiece format.", alias="documentClass")
+    layout: StrictStr = Field(description="Page layout controlling where the recipient address is printed.")
+    production_time: StrictStr = Field(description="Production time preference (next_day, two_day, etc.).", alias="productionTime")
+    envelope: StrictStr = Field(description="Envelope type used for the mailing.")
+    color: StrictStr = Field(description="Color mode for printing (full_color or black_and_white).")
+    paper_type: StrictStr = Field(description="Paper stock for printing.", alias="paperType")
+    print_option: StrictStr = Field(description="Duplex setting (double_sided or single_sided).", alias="printOption")
+    mail_class: StrictStr = Field(description="USPS mail class (first_class, standard, or non_profit).", alias="mailClass")
     __properties: ClassVar[List[str]] = ["documentClass", "layout", "productionTime", "envelope", "color", "paperType", "printOption", "mailClass"]
 
     @field_validator('document_class')

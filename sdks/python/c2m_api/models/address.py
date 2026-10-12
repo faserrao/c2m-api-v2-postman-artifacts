@@ -24,19 +24,19 @@ from typing_extensions import Self
 
 class Address(BaseModel):
     """
-    Address
+    Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2).
     """ # noqa: E501
-    first_name: StrictStr = Field(alias="firstName")
-    last_name: StrictStr = Field(alias="lastName")
-    address1: StrictStr
-    city: StrictStr
-    state: StrictStr
-    zip: StrictStr
-    country: StrictStr
-    address2: Optional[StrictStr] = None
-    address3: Optional[StrictStr] = None
-    foo1: Optional[StrictStr] = None
-    foo2: Optional[StrictStr] = None
+    first_name: StrictStr = Field(description="Recipient's first name.", alias="firstName")
+    last_name: StrictStr = Field(description="Recipient's last name.", alias="lastName")
+    address1: StrictStr = Field(description="Primary street address line.")
+    city: StrictStr = Field(description="City name.")
+    state: StrictStr = Field(description="Two-letter state or province abbreviation.")
+    zip: StrictStr = Field(description="ZIP or postal code.")
+    country: StrictStr = Field(description="Country code (e.g. USA).")
+    address2: Optional[StrictStr] = Field(default=None, description="Secondary address line (suite, apartment, floor, etc.).")
+    address3: Optional[StrictStr] = Field(default=None, description="Tertiary address line.")
+    foo1: Optional[StrictStr] = Field(default=None, description="User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.")
+    foo2: Optional[StrictStr] = Field(default=None, description="User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.")
     __properties: ClassVar[List[str]] = ["firstName", "lastName", "address1", "city", "state", "zip", "country", "address2", "address3", "foo1", "foo2"]
 
     model_config = ConfigDict(

@@ -19,8 +19,9 @@ import (
 // checks if the MultiDocJobItem type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &MultiDocJobItem{}
 
-// MultiDocJobItem struct for MultiDocJobItem
+// MultiDocJobItem A single independent document job entry within a multi-doc batch.
 type MultiDocJobItem struct {
+	// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
 	JobTemplate *string `json:"jobTemplate,omitempty"`
 	DocSourceAll DocSourceAll `json:"docSourceAll"`
 	RecipientAddressSource RecipientAddressSource `json:"recipientAddressSource"`

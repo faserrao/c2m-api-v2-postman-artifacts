@@ -33,6 +33,7 @@ use \C2MApi\ObjectSerializer;
  * Currency Class Doc Comment
  *
  * @category Class
+ * @description ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

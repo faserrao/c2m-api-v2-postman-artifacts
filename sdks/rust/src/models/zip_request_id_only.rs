@@ -11,13 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// ZipRequestIdOnly : Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ZipRequestIdOnly {
+    /// Integer ID of a prior file upload request. Also returned in success responses.
     #[serde(rename = "requestId")]
     pub request_id: i32,
 }
 
 impl ZipRequestIdOnly {
+    /// Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
     pub fn new(request_id: i32) -> ZipRequestIdOnly {
         ZipRequestIdOnly {
             request_id,

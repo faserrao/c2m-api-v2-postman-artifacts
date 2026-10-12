@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// PaperType the model 'PaperType'
+// PaperType Paper stock for printing.
 type PaperType string
 
 // List of paperType

@@ -20,49 +20,57 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
  *
- * @param documentClass 
- * @param layout 
- * @param productionTime 
- * @param envelope 
- * @param color 
- * @param paperType 
- * @param printOption 
- * @param mailClass 
+ * @param documentClass Document class determining the mailpiece format.
+ * @param layout Page layout controlling where the recipient address is printed.
+ * @param productionTime Production time preference (next_day, two_day, etc.).
+ * @param envelope Envelope type used for the mailing.
+ * @param color Color mode for printing (full_color or black_and_white).
+ * @param paperType Paper stock for printing.
+ * @param printOption Duplex setting (double_sided or single_sided).
+ * @param mailClass USPS mail class (first_class, standard, or non_profit).
  */
 
 
 data class JobOptions (
 
+    /* Document class determining the mailpiece format. */
     @Json(name = "documentClass")
     val documentClass: JobOptions.DocumentClass,
 
+    /* Page layout controlling where the recipient address is printed. */
     @Json(name = "layout")
     val layout: JobOptions.Layout,
 
+    /* Production time preference (next_day, two_day, etc.). */
     @Json(name = "productionTime")
     val productionTime: JobOptions.ProductionTime,
 
+    /* Envelope type used for the mailing. */
     @Json(name = "envelope")
     val envelope: JobOptions.Envelope,
 
+    /* Color mode for printing (full_color or black_and_white). */
     @Json(name = "color")
     val color: JobOptions.Color,
 
+    /* Paper stock for printing. */
     @Json(name = "paperType")
     val paperType: JobOptions.PaperType,
 
+    /* Duplex setting (double_sided or single_sided). */
     @Json(name = "printOption")
     val printOption: JobOptions.PrintOption,
 
+    /* USPS mail class (first_class, standard, or non_profit). */
     @Json(name = "mailClass")
     val mailClass: JobOptions.MailClass
 
 ) {
 
     /**
-     * 
+     * Document class determining the mailpiece format.
      *
      * Values: letter,postcard,brochure,flat
      */
@@ -74,7 +82,7 @@ data class JobOptions (
         @Json(name = "flat") flat("flat");
     }
     /**
-     * 
+     * Page layout controlling where the recipient address is printed.
      *
      * Values: address_on_first_page,address_on_back_page
      */
@@ -84,7 +92,7 @@ data class JobOptions (
         @Json(name = "address_on_back_page") address_on_back_page("address_on_back_page");
     }
     /**
-     * 
+     * Production time preference (next_day, two_day, etc.).
      *
      * Values: next_day,two_day,three_day,standard,same_day
      */
@@ -97,7 +105,7 @@ data class JobOptions (
         @Json(name = "same_day") same_day("same_day");
     }
     /**
-     * 
+     * Envelope type used for the mailing.
      *
      * Values: standard,none,flat,double_window
      */
@@ -109,7 +117,7 @@ data class JobOptions (
         @Json(name = "double_window") double_window("double_window");
     }
     /**
-     * 
+     * Color mode for printing (full_color or black_and_white).
      *
      * Values: full_color,black_and_white
      */
@@ -119,7 +127,7 @@ data class JobOptions (
         @Json(name = "black_and_white") black_and_white("black_and_white");
     }
     /**
-     * 
+     * Paper stock for printing.
      *
      * Values: white,white_24,ivory,glossy
      */
@@ -131,7 +139,7 @@ data class JobOptions (
         @Json(name = "glossy") glossy("glossy");
     }
     /**
-     * 
+     * Duplex setting (double_sided or single_sided).
      *
      * Values: double_sided,single_sided
      */
@@ -141,7 +149,7 @@ data class JobOptions (
         @Json(name = "single_sided") single_sided("single_sided");
     }
     /**
-     * 
+     * USPS mail class (first_class, standard, or non_profit).
      *
      * Values: first_class,standard,non_profit
      */

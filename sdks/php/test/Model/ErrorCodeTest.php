@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ErrorCodeTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorCode
+ * @description Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

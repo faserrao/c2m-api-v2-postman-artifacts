@@ -1,11 +1,12 @@
 # DocumentIdSource
 
+Source a document by its previously stored document ID.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**document_id** | **int** |  | 
+**document_id** | **int** | Integer ID of a previously stored or uploaded document. | 
 
 ## Example
 

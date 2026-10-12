@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * PaymentDetailsTest Class Doc Comment
  *
  * @category    Class
- * @description PaymentDetails
+ * @description Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -21,12 +21,14 @@ var _ MappedNullable = &SubmitDocParams{}
 
 // SubmitDocParams struct for SubmitDocParams
 type SubmitDocParams struct {
+	// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
 	JobTemplate *string `json:"jobTemplate,omitempty"`
 	DocSourceAll DocSourceAll `json:"docSourceAll"`
 	RecipientAddressSource RecipientAddressSource `json:"recipientAddressSource"`
 	PaymentDetails *PaymentDetails `json:"paymentDetails,omitempty"`
 	ReturnAddress *ReturnAddress `json:"returnAddress,omitempty"`
 	JobOptions *JobOptions `json:"jobOptions,omitempty"`
+	// Array of user-defined string tags.
 	Tags []string `json:"tags,omitempty"`
 }
 

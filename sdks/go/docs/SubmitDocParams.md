@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**JobTemplate** | Pointer to **string** |  | [optional] 
+**JobTemplate** | Pointer to **string** | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. | [optional] 
 **DocSourceAll** | [**DocSourceAll**](DocSourceAll.md) |  | 
 **RecipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 **PaymentDetails** | Pointer to [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **ReturnAddress** | Pointer to [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
 **JobOptions** | Pointer to [**JobOptions**](JobOptions.md) |  | [optional] 
-**Tags** | Pointer to **[]string** |  | [optional] 
+**Tags** | Pointer to **[]string** | Array of user-defined string tags. | [optional] 
 
 ## Methods
 

@@ -24,10 +24,10 @@ from typing_extensions import Self
 
 class InvoiceDetails(BaseModel):
     """
-    InvoiceDetails
+    Invoice payment fields: invoice number and amount due.
     """ # noqa: E501
-    invoice_number: StrictStr = Field(alias="invoiceNumber")
-    amount_due: Union[StrictFloat, StrictInt] = Field(alias="amountDue")
+    invoice_number: StrictStr = Field(description="Invoice reference number.", alias="invoiceNumber")
+    amount_due: Union[StrictFloat, StrictInt] = Field(description="Amount due on the invoice.", alias="amountDue")
     __properties: ClassVar[List[str]] = ["invoiceNumber", "amountDue"]
 
     model_config = ConfigDict(

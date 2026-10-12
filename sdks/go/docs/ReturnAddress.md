@@ -4,16 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FirstName** | **string** |  | 
-**LastName** | **string** |  | 
-**Company** | Pointer to **string** |  | [optional] 
-**Address1** | **string** |  | 
-**City** | **string** |  | 
-**State** | **string** |  | 
-**Zip** | **string** |  | 
-**Country** | **string** |  | 
-**Address2** | Pointer to **string** |  | [optional] 
-**Address3** | Pointer to **string** |  | [optional] 
+**FirstName** | **string** | Recipient&#39;s first name. | 
+**LastName** | **string** | Recipient&#39;s last name. | 
+**Company** | Pointer to **string** | Recipient&#39;s company or organisation name (optional). | [optional] 
+**Address1** | **string** | Primary street address line. | 
+**City** | **string** | City name. | 
+**State** | **string** | Two-letter state or province abbreviation. | 
+**Zip** | **string** | ZIP or postal code. | 
+**Country** | **string** | Country code (e.g. USA). | 
+**Address2** | Pointer to **string** | Secondary address line (suite, apartment, floor, etc.). | [optional] 
+**Address3** | Pointer to **string** | Tertiary address line. | [optional] 
 
 ## Methods
 

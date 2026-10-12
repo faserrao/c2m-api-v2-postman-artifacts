@@ -1,5 +1,6 @@
 # MailClass
 
+USPS mail class (first_class, standard, or non_profit).
 
 ## Enum
 

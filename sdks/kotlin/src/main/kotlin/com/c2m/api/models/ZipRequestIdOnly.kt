@@ -20,14 +20,15 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
  *
- * @param requestId 
+ * @param requestId Integer ID of a prior file upload request. Also returned in success responses.
  */
 
 
 data class ZipRequestIdOnly (
 
+    /* Integer ID of a prior file upload request. Also returned in success responses. */
     @Json(name = "requestId")
     val requestId: kotlin.Int
 

@@ -2144,22 +2144,28 @@ components:
       description: Too Many Requests
   schemas:
     month:
+      description: Expiration month as an integer (1-12).
       maximum: 12
       minimum: 1
       type: integer
     year:
+      description: Expiration year as a four-digit integer (e.g. 2029).
       maximum: 2099
       minimum: 2000
       type: integer
     startPage:
+      description: "First page of this job's page range, 1-indexed (inclusive)."
       minimum: 1
       type: integer
     endPage:
+      description: Last page of this job's page range (inclusive). Must be >= startPage.
       minimum: 1
       type: integer
     submitDocParams:
       properties:
         jobTemplate:
+          description: Saved job template name; pre-populates all print and mail options.
+            Mutually exclusive with jobOptions.
           type: string
         docSourceAll:
           $ref: "#/components/schemas/docSourceAll"
@@ -2172,6 +2178,7 @@ components:
         jobOptions:
           $ref: "#/components/schemas/jobOptions"
         tags:
+          description: Array of user-defined string tags.
           items:
             type: string
           type: array
@@ -2182,6 +2189,8 @@ components:
     submitSinglePdfAddressCaptureParams:
       properties:
         jobTemplate:
+          description: Saved job template name; pre-populates all print and mail options.
+            Mutually exclusive with jobOptions.
           type: string
         docSourceStandard:
           $ref: "#/components/schemas/docSourceStandard"
@@ -2192,6 +2201,7 @@ components:
         jobOptions:
           $ref: "#/components/schemas/jobOptions"
         tags:
+          description: Array of user-defined string tags.
           items:
             type: string
           type: array
@@ -2201,10 +2211,14 @@ components:
     submitSinglePdfSplitParams:
       properties:
         jobTemplate:
+          description: Saved job template name; pre-populates all print and mail options.
+            Mutually exclusive with jobOptions.
           type: string
         docSourceStandard:
           $ref: "#/components/schemas/docSourceStandard"
         pdfSplitJobsWithAddress:
+          description: "List of page-range job items, each with its own inline recipient\
+            \ address."
           items:
             $ref: "#/components/schemas/pdfSplitJobItemWithAddress"
           type: array
@@ -2215,6 +2229,7 @@ components:
         jobOptions:
           $ref: "#/components/schemas/jobOptions"
         tags:
+          description: Array of user-defined string tags.
           items:
             type: string
           type: array
@@ -2225,10 +2240,14 @@ components:
     submitSinglePdfSplitAddressCaptureParams:
       properties:
         jobTemplate:
+          description: Saved job template name; pre-populates all print and mail options.
+            Mutually exclusive with jobOptions.
           type: string
         docSourceStandard:
           $ref: "#/components/schemas/docSourceStandard"
         pdfSplitJobsNoAddress:
+          description: List of page-range job items without inline addresses — addresses
+            are captured externally (POST /batch/split/address-capture).
           items:
             $ref: "#/components/schemas/pdfSplitJobItemNoAddress"
           type: array
@@ -2239,6 +2258,7 @@ components:
         jobOptions:
           $ref: "#/components/schemas/jobOptions"
         tags:
+          description: Array of user-defined string tags.
           items:
             type: string
           type: array
@@ -2249,8 +2269,12 @@ components:
     submitMultiDocMergeParams:
       properties:
         jobTemplate:
+          description: Saved job template name; pre-populates all print and mail options.
+            Mutually exclusive with jobOptions.
           type: string
         mergeDocumentSource:
+          description: Ordered array of document references to merge into one output
+            document. Minimum two entries required.
           items:
             $ref: "#/components/schemas/mergeDocumentRef"
           type: array
@@ -2263,6 +2287,7 @@ components:
         jobOptions:
           $ref: "#/components/schemas/jobOptions"
         tags:
+          description: Array of user-defined string tags.
           items:
             type: string
           type: array
@@ -2275,12 +2300,15 @@ components:
         docSourceZipFileRef:
           $ref: "#/components/schemas/docSourceZipFileRef"
         multiZipJobs:
+          description: List of per-file job items extracted from a ZIP archive (POST
+            /batch/zip).
           items:
             $ref: "#/components/schemas/multiZipJobItem"
           type: array
         paymentDetails:
           $ref: "#/components/schemas/paymentDetails"
         tags:
+          description: Array of user-defined string tags.
           items:
             type: string
           type: array
@@ -2291,6 +2319,8 @@ components:
     submitMultiZipAddressCaptureParams:
       properties:
         jobTemplate:
+          description: Saved job template name; pre-populates all print and mail options.
+            Mutually exclusive with jobOptions.
           type: string
         zipDocumentSource:
           $ref: "#/components/schemas/zipDocumentSource"
@@ -2301,6 +2331,7 @@ components:
         jobOptions:
           $ref: "#/components/schemas/jobOptions"
         tags:
+          description: Array of user-defined string tags.
           items:
             type: string
           type: array
@@ -2308,28 +2339,41 @@ components:
       - zipDocumentSource
       type: object
     jobTemplate:
+      description: Saved job template name; pre-populates all print and mail options.
+        Mutually exclusive with jobOptions.
       type: string
     returnAddress:
+      description: Optional sender return address printed on the mailpiece.
       properties:
         firstName:
+          description: Recipient's first name.
           type: string
         lastName:
+          description: Recipient's last name.
           type: string
         company:
+          description: Recipient's company or organisation name (optional).
           type: string
         address1:
+          description: Primary street address line.
           type: string
         city:
+          description: City name.
           type: string
         state:
+          description: Two-letter state or province abbreviation.
           type: string
         zip:
+          description: ZIP or postal code.
           type: string
         country:
+          description: Country code (e.g. USA).
           type: string
         address2:
+          description: "Secondary address line (suite, apartment, floor, etc.)."
           type: string
         address3:
+          description: Tertiary address line.
           type: string
       required:
       - address1
@@ -2341,8 +2385,11 @@ components:
       - zip
       type: object
     jobOptions:
+      description: Explicit print and mail configuration options. Mutually exclusive
+        with jobTemplate.
       properties:
         documentClass:
+          description: Document class determining the mailpiece format.
           enum:
           - letter
           - postcard
@@ -2350,11 +2397,13 @@ components:
           - flat
           type: string
         layout:
+          description: Page layout controlling where the recipient address is printed.
           enum:
           - address_on_first_page
           - address_on_back_page
           type: string
         productionTime:
+          description: "Production time preference (next_day, two_day, etc.)."
           enum:
           - next_day
           - two_day
@@ -2363,6 +2412,7 @@ components:
           - same_day
           type: string
         envelope:
+          description: Envelope type used for the mailing.
           enum:
           - standard
           - none
@@ -2370,11 +2420,13 @@ components:
           - double_window
           type: string
         color:
+          description: Color mode for printing (full_color or black_and_white).
           enum:
           - full_color
           - black_and_white
           type: string
         paperType:
+          description: Paper stock for printing.
           enum:
           - white
           - white_24
@@ -2382,11 +2434,13 @@ components:
           - glossy
           type: string
         printOption:
+          description: Duplex setting (double_sided or single_sided).
           enum:
           - double_sided
           - single_sided
           type: string
         mailClass:
+          description: "USPS mail class (first_class, standard, or non_profit)."
           enum:
           - first_class
           - standard
@@ -2403,6 +2457,7 @@ components:
       - productionTime
       type: object
     documentClass:
+      description: Document class determining the mailpiece format.
       enum:
       - letter
       - postcard
@@ -2410,11 +2465,13 @@ components:
       - flat
       type: string
     layout:
+      description: Page layout controlling where the recipient address is printed.
       enum:
       - address_on_first_page
       - address_on_back_page
       type: string
     productionTime:
+      description: "Production time preference (next_day, two_day, etc.)."
       enum:
       - next_day
       - two_day
@@ -2423,6 +2480,7 @@ components:
       - same_day
       type: string
     envelope:
+      description: Envelope type used for the mailing.
       enum:
       - standard
       - none
@@ -2430,11 +2488,13 @@ components:
       - double_window
       type: string
     color:
+      description: Color mode for printing (full_color or black_and_white).
       enum:
       - full_color
       - black_and_white
       type: string
     paperType:
+      description: Paper stock for printing.
       enum:
       - white
       - white_24
@@ -2442,11 +2502,13 @@ components:
       - glossy
       type: string
     printOption:
+      description: Duplex setting (double_sided or single_sided).
       enum:
       - double_sided
       - single_sided
       type: string
     mailClass:
+      description: "USPS mail class (first_class, standard, or non_profit)."
       enum:
       - first_class
       - standard
@@ -2455,56 +2517,87 @@ components:
     tags:
       $ref: "#/components/schemas/tagsList"
     tagsList:
+      description: Array of user-defined string tags.
       items:
         type: string
       type: array
     firstName:
+      description: Recipient's first name.
       type: string
     lastName:
+      description: Recipient's last name.
       type: string
     company:
+      description: Recipient's company or organisation name (optional).
       type: string
     address1:
+      description: Primary street address line.
       type: string
     address2:
+      description: "Secondary address line (suite, apartment, floor, etc.)."
       type: string
     address3:
+      description: Tertiary address line.
       type: string
     city:
+      description: City name.
       type: string
     state:
+      description: Two-letter state or province abbreviation.
       type: string
     zip:
+      description: ZIP or postal code.
       type: string
     country:
+      description: Country code (e.g. USA).
       type: string
     foo1:
+      description: User-defined merge variable 1 — forwarded to the address list merge
+        mapping for personalisation.
       type: string
     foo2:
+      description: User-defined merge variable 2 — forwarded to the address list merge
+        mapping for personalisation.
       type: string
     address:
+      description: "Mailing address with required core fields (name, address1, city,\
+        \ state, zip, country) and optional extended fields (company, address2, address3,\
+        \ foo1, foo2)."
       properties:
         firstName:
+          description: Recipient's first name.
           type: string
         lastName:
+          description: Recipient's last name.
           type: string
         address1:
+          description: Primary street address line.
           type: string
         city:
+          description: City name.
           type: string
         state:
+          description: Two-letter state or province abbreviation.
           type: string
         zip:
+          description: ZIP or postal code.
           type: string
         country:
+          description: Country code (e.g. USA).
           type: string
         address2:
+          description: "Secondary address line (suite, apartment, floor, etc.)."
           type: string
         address3:
+          description: Tertiary address line.
           type: string
         foo1:
+          description: User-defined merge variable 1 — forwarded to the address list
+            merge mapping for personalisation.
           type: string
         foo2:
+          description: User-defined merge variable 2 — forwarded to the address list
+            merge mapping for personalisation.
           type: string
       required:
       - address1
@@ -2516,90 +2609,145 @@ components:
       - zip
       type: object
     recipientAddressSource:
+      description: "Recipient address specification — one of: inline address list\
+        \ of one or more recipients (with optional mapping), stored list ID, or stored\
+        \ address ID."
       oneOf:
       - $ref: "#/components/schemas/recipientAddressSource_oneOf"
       - $ref: "#/components/schemas/recipientAddressSource_oneOf_1"
       - $ref: "#/components/schemas/recipientAddressSource_oneOf_2"
     recipientAddressByList:
+      description: Inline list of recipient addresses with an optional merge-field
+        mapping ID.
       properties:
         mappingId:
+          description: "Integer ID of a merge-field mapping profile that associates\
+            \ address columns to template variables. If omitted, the account default\
+            \ mapping is used."
           type: integer
         addressList:
+          description: List of recipient mailing addresses — used for batch sends
+            and mail merge.
           items:
             $ref: "#/components/schemas/address"
           type: array
         addressListName:
+          description: Optional name for this address list record.
           type: string
       required:
       - addressList
       type: object
     recipientAddressByListId:
-      $ref: "#/components/schemas/addressListId"
+      description: Reference to a previously stored recipient address list by its
+        integer ID.
+      type: integer
     recipientAddressByAddressId:
-      $ref: "#/components/schemas/addressId"
+      description: Reference to a previously stored individual recipient address by
+        its integer ID.
+      type: integer
     mappingId:
-      $ref: "#/components/schemas/id"
+      description: "Integer ID of a merge-field mapping profile that associates address\
+        \ columns to template variables. If omitted, the account default mapping is\
+        \ used."
+      type: integer
     addressListName:
+      description: Optional name for this address list record.
       type: string
     addressListId:
-      $ref: "#/components/schemas/id"
+      description: Integer ID of a previously stored recipient address list.
+      type: integer
     addressId:
-      $ref: "#/components/schemas/id"
+      description: Integer ID of a previously stored individual recipient address.
+      type: integer
     addressList:
+      description: List of recipient mailing addresses — used for batch sends and
+        mail merge.
       items:
         $ref: "#/components/schemas/address"
       type: array
     documentIdSource:
+      description: Source a document by its previously stored document ID.
       properties:
         documentId:
+          description: Integer ID of a previously stored or uploaded document.
           type: integer
       required:
       - documentId
       type: object
     documentId:
-      $ref: "#/components/schemas/id"
+      description: Integer ID of a previously stored or uploaded document.
+      type: integer
     requestIdSource:
+      description: "Source a document from a prior file upload by request ID. If the\
+        \ upload request contained multiple files, filename is required to identify\
+        \ which one."
       properties:
         requestId:
+          description: Integer ID of a prior file upload request. Also returned in
+            success responses.
           type: integer
         filename:
+          description: Filename of a specific file within an upload request or ZIP
+            archive.
           type: string
       required:
       - requestId
       type: object
     requestId:
-      $ref: "#/components/schemas/id"
+      description: Integer ID of a prior file upload request. Also returned in success
+        responses.
+      type: integer
     filename:
+      description: Filename of a specific file within an upload request or ZIP archive.
       type: string
     urlSource:
+      description: Fetch the document from an external URL at submission time.
       properties:
         url:
+          description: URL from which the API will fetch the document at submission
+            time.
           format: uri
           type: string
       required:
       - url
       type: object
     url:
+      description: URL from which the API will fetch the document at submission time.
       type: string
     zipDocumentIdSource:
+      description: Source a specific file within a stored ZIP archive — requires the
+        archive ID and the filename of the target file within the archive.
       properties:
         zipDocumentId:
+          description: Integer ID of a previously stored ZIP archive.
           type: integer
         filename:
+          description: Filename of a specific file within an upload request or ZIP
+            archive.
           type: string
       required:
       - filename
       - zipDocumentId
       type: object
     zipDocumentId:
-      $ref: "#/components/schemas/id"
+      description: Integer ID of a previously stored ZIP archive.
+      type: integer
     zipRequestIdSource:
+      description: "Source a specific file within an uploaded ZIP archive — requires\
+        \ the upload request ID, the zip filename within that request, and the target\
+        \ filename in the zip."
       properties:
         requestId:
+          description: Integer ID of a prior file upload request. Also returned in
+            success responses.
           type: integer
         zipFilename:
+          description: Filename of the ZIP file within an upload request (distinguishes
+            the zip from other files uploaded in the same request).
           type: string
         filename:
+          description: Filename of a specific file within an upload request or ZIP
+            archive.
           type: string
       required:
       - filename
@@ -2607,39 +2755,60 @@ components:
       - zipFilename
       type: object
     zipFilename:
+      description: Filename of the ZIP file within an upload request (distinguishes
+        the zip from other files uploaded in the same request).
       type: string
     zipDocumentIdOnly:
+      description: Reference to a stored ZIP archive without a file selection — used
+        at the batch job top level where individual job items select their own filenames.
       properties:
         zipDocumentId:
+          description: Integer ID of a previously stored ZIP archive.
           type: integer
       required:
       - zipDocumentId
       type: object
     zipRequestIdOnly:
+      description: Reference to an uploaded ZIP archive by request ID only — used
+        at the batch top level; individual job items carry the filename selection.
       properties:
         requestId:
+          description: Integer ID of a prior file upload request. Also returned in
+            success responses.
           type: integer
       required:
       - requestId
       type: object
     zipDocumentSource:
+      description: ZIP document source — either a stored zip archive (zipDocumentId)
+        or an uploaded zip archive (requestId).
       oneOf:
       - $ref: "#/components/schemas/zipDocumentSource_oneOf"
       - $ref: "#/components/schemas/zipDocumentSource_oneOf_1"
     docSourceStandard:
+      description: "Document source — standard (non-zip) variants only: requestId,\
+        \ documentId, or URL."
       oneOf:
       - $ref: "#/components/schemas/docSourceStandard_oneOf"
       - $ref: "#/components/schemas/docSourceStandard_oneOf_1"
       - $ref: "#/components/schemas/docSourceStandard_oneOf_2"
     docSourceZipFile:
+      description: "Document source — zip variants: a specific file within a stored\
+        \ ZIP (zipDocumentId + filename) or uploaded ZIP (requestId + zipFilename\
+        \ + filename)."
       oneOf:
       - $ref: "#/components/schemas/zipDocumentSource_oneOf"
       - $ref: "#/components/schemas/zipDocumentSource_oneOf_1"
     docSourceZipFileRef:
+      description: "Top-level ZIP archive reference for batch endpoints — identifies\
+        \ the archive itself, not a file within it. No filename is required at this\
+        \ level."
       oneOf:
       - $ref: "#/components/schemas/docSourceZipFileRef_oneOf"
       - $ref: "#/components/schemas/docSourceZipFileRef_oneOf_1"
     docSourceAll:
+      description: "Document source — accepts any supported variant: requestId, documentId,\
+        \ URL, or zip-based (zipDocumentId or zipRequestId)."
       oneOf:
       - $ref: "#/components/schemas/docSourceStandard_oneOf"
       - $ref: "#/components/schemas/docSourceStandard_oneOf_1"
@@ -2649,36 +2818,53 @@ components:
     mergeDocumentSource:
       $ref: "#/components/schemas/documentsToMerge"
     documentsToMerge:
+      description: Ordered array of document references to merge into one output document.
+        Minimum two entries required.
       items:
         $ref: "#/components/schemas/mergeDocumentRef"
       type: array
     mergeDocumentRef:
+      description: A single document to include in the merge — either a stored document
+        ID or an upload request ID (with optional filename).
       oneOf:
       - $ref: "#/components/schemas/mergeDocumentRef_oneOf"
       - $ref: "#/components/schemas/mergeDocumentRef_oneOf_1"
     mergeByDocumentId:
+      description: Merge a stored document identified by its document ID.
       properties:
         documentId:
+          description: Integer ID of a previously stored or uploaded document.
           type: integer
       required:
       - documentId
       type: object
     mergeByRequestId:
+      description: "Merge an uploaded document identified by its upload request ID,\
+        \ with an optional filename when the request contains multiple files."
       properties:
         requestId:
+          description: Integer ID of a prior file upload request. Also returned in
+            success responses.
           type: integer
         filename:
+          description: Filename of a specific file within an upload request or ZIP
+            archive.
           type: string
       required:
       - requestId
       type: object
     multiDocJobs:
+      description: List of independent document-per-recipient jobs (each job has its
+        own document source and recipient address).
       items:
         $ref: "#/components/schemas/multiDocJobItem"
       type: array
     multiDocJobItem:
+      description: A single independent document job entry within a multi-doc batch.
       properties:
         jobTemplate:
+          description: Saved job template name; pre-populates all print and mail options.
+            Mutually exclusive with jobOptions.
           type: string
         docSourceAll:
           $ref: "#/components/schemas/docSourceAll"
@@ -2689,21 +2875,32 @@ components:
       - recipientAddressSource
       type: object
     pdfSplitJobsWithAddress:
+      description: "List of page-range job items, each with its own inline recipient\
+        \ address."
       items:
         $ref: "#/components/schemas/pdfSplitJobItemWithAddress"
       type: array
     pdfSplitJobsNoAddress:
+      description: List of page-range job items without inline addresses — addresses
+        are captured externally (POST /batch/split/address-capture).
       items:
         $ref: "#/components/schemas/pdfSplitJobItemNoAddress"
       type: array
     pdfSplitJobItemWithAddress:
+      description: "A single page-range job entry: page range (startPage, endPage)\
+        \ plus a recipient address."
       properties:
         jobTemplate:
+          description: Saved job template name; pre-populates all print and mail options.
+            Mutually exclusive with jobOptions.
           type: string
         startPage:
+          description: "First page of this job's page range, 1-indexed (inclusive)."
           minimum: 1
           type: integer
         endPage:
+          description: Last page of this job's page range (inclusive). Must be >=
+            startPage.
           minimum: 1
           type: integer
         recipientAddressSource:
@@ -2714,13 +2911,20 @@ components:
       - startPage
       type: object
     pdfSplitJobItemNoAddress:
+      description: "A single page-range job entry: page range only (no address — used\
+        \ for address-capture endpoint)."
       properties:
         jobTemplate:
+          description: Saved job template name; pre-populates all print and mail options.
+            Mutually exclusive with jobOptions.
           type: string
         startPage:
+          description: "First page of this job's page range, 1-indexed (inclusive)."
           minimum: 1
           type: integer
         endPage:
+          description: Last page of this job's page range (inclusive). Must be >=
+            startPage.
           minimum: 1
           type: integer
       required:
@@ -2728,14 +2932,21 @@ components:
       - startPage
       type: object
     multiZipJobs:
+      description: List of per-file job items extracted from a ZIP archive (POST /batch/zip).
       items:
         $ref: "#/components/schemas/multiZipJobItem"
       type: array
     multiZipJobItem:
+      description: "A single ZIP file job entry: optional job template, filename within\
+        \ the ZIP, and recipient address."
       properties:
         jobTemplate:
+          description: Saved job template name; pre-populates all print and mail options.
+            Mutually exclusive with jobOptions.
           type: string
         filename:
+          description: Filename of a specific file within an upload request or ZIP
+            archive.
           type: string
         recipientAddressSource:
           $ref: "#/components/schemas/recipientAddressSource"
@@ -2744,8 +2955,12 @@ components:
       - recipientAddressSource
       type: object
     id:
+      description: "Integer identifier — alias for integer, used for all ID fields."
       type: integer
     paymentDetails:
+      description: "Payment method — one of: creditCard, invoice, ACH bank transfer,\
+        \ or account credit. The paymentType field names the method; the matching\
+        \ details object carries its data."
       discriminator:
         mapping:
           creditCard: "#/components/schemas/creditCardPayment"
@@ -2759,6 +2974,9 @@ components:
       - $ref: "#/components/schemas/achPayment"
       - $ref: "#/components/schemas/userCreditPayment"
     paymentType:
+      description: "Payment method type; must match the details object sent (creditCard\
+        \ → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit\
+        \ → creditAmount)."
       enum:
       - creditCard
       - invoice
@@ -2766,8 +2984,12 @@ components:
       - userCredit
       type: string
     creditCardPayment:
+      description: Credit card payment variant.
       properties:
         paymentType:
+          description: "Payment method type; must match the details object sent (creditCard\
+            \ → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit\
+            \ → creditAmount)."
           enum:
           - creditCard
           type: string
@@ -2778,8 +3000,12 @@ components:
       - paymentType
       type: object
     invoicePayment:
+      description: Invoice payment — billed to an existing account invoice.
       properties:
         paymentType:
+          description: "Payment method type; must match the details object sent (creditCard\
+            \ → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit\
+            \ → creditAmount)."
           enum:
           - invoice
           type: string
@@ -2790,8 +3016,12 @@ components:
       - paymentType
       type: object
     achPayment:
+      description: ACH bank transfer payment variant.
       properties:
         paymentType:
+          description: "Payment method type; must match the details object sent (creditCard\
+            \ → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit\
+            \ → creditAmount)."
           enum:
           - ach
           type: string
@@ -2802,8 +3032,12 @@ components:
       - paymentType
       type: object
     userCreditPayment:
+      description: Payment deducted from the account's prepaid credit balance.
       properties:
         paymentType:
+          description: "Payment method type; must match the details object sent (creditCard\
+            \ → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit\
+            \ → creditAmount)."
           enum:
           - userCredit
           type: string
@@ -2814,8 +3048,11 @@ components:
       - paymentType
       type: object
     creditCardDetails:
+      description: "Credit card payment fields: card type, card number, expiration\
+        \ date, and CVV."
       properties:
         cardType:
+          description: "Card brand enum: visa, mastercard, discover, or americanExpress."
           enum:
           - visa
           - mastercard
@@ -2823,10 +3060,12 @@ components:
           - americanExpress
           type: string
         cardNumber:
+          description: Credit card number (PAN) as a string.
           type: string
         expirationDate:
           $ref: "#/components/schemas/expirationDate"
         cvv:
+          description: Card security code (CVV/CVC) as an integer.
           type: integer
       required:
       - cardNumber
@@ -2835,22 +3074,30 @@ components:
       - expirationDate
       type: object
     invoiceDetails:
+      description: "Invoice payment fields: invoice number and amount due."
       properties:
         invoiceNumber:
+          description: Invoice reference number.
           type: string
         amountDue:
+          description: Amount due on the invoice.
           type: number
       required:
       - amountDue
       - invoiceNumber
       type: object
     achDetails:
+      description: "ACH payment fields: routing number, bank account number, and check\
+        \ digit."
       properties:
         routingNumber:
+          description: ABA bank routing number.
           type: string
         accountNumber:
+          description: Bank account number.
           type: string
         checkDigit:
+          description: ACH check digit.
           type: integer
       required:
       - accountNumber
@@ -2858,10 +3105,14 @@ components:
       - routingNumber
       type: object
     creditAmount:
+      description: "Account credit payment fields: monetary amount and ISO currency\
+        \ code."
       properties:
         amount:
+          description: Monetary amount as a numeric value.
           type: number
         currency:
+          description: "ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD)."
           enum:
           - USD
           - EUR
@@ -2874,6 +3125,7 @@ components:
       - currency
       type: object
     currency:
+      description: "ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD)."
       enum:
       - USD
       - EUR
@@ -2882,16 +3134,21 @@ components:
       - AUD
       type: string
     amount:
+      description: Monetary amount as a numeric value.
       type: number
     cardNumber:
+      description: Credit card number (PAN) as a string.
       type: string
     expirationDate:
+      description: Card expiration date containing month and year.
       properties:
         month:
+          description: Expiration month as an integer (1-12).
           maximum: 12
           minimum: 1
           type: integer
         year:
+          description: Expiration year as a four-digit integer (e.g. 2029).
           maximum: 2099
           minimum: 2000
           type: integer
@@ -2900,18 +3157,25 @@ components:
       - year
       type: object
     cvv:
+      description: Card security code (CVV/CVC) as an integer.
       type: integer
     routingNumber:
+      description: ABA bank routing number.
       type: string
     accountNumber:
+      description: Bank account number.
       type: string
     checkDigit:
+      description: ACH check digit.
       type: integer
     invoiceNumber:
+      description: Invoice reference number.
       type: string
     amountDue:
+      description: Amount due on the invoice.
       type: number
     cardType:
+      description: "Card brand enum: visa, mastercard, discover, or americanExpress."
       enum:
       - visa
       - mastercard
@@ -2919,16 +3183,22 @@ components:
       - americanExpress
       type: string
     standardResponse:
+      description: Success response returned for all successful job submissions.
       example:
         requestId: 0
         message: message
         status: status
       properties:
         status:
+          description: Job status string (e.g. "accepted").
           type: string
         message:
+          description: Human-readable confirmation message (e.g. "Your request has
+            been queued").
           type: string
         requestId:
+          description: Integer ID of a prior file upload request. Also returned in
+            success responses.
           type: integer
       required:
       - message
@@ -2936,10 +3206,14 @@ components:
       - status
       type: object
     status:
+      description: Job status string (e.g. "accepted").
       type: string
     message:
+      description: Human-readable confirmation message (e.g. "Your request has been
+        queued").
       type: string
     errorResponse:
+      description: Error response structure returned for all API error conditions.
       example:
         errorTrackingId: errorTrackingId
         errorType: ValidationError
@@ -2948,6 +3222,8 @@ components:
         errorDetails: errorDetails
       properties:
         errorType:
+          description: "High-level error category string (ValidationError, AuthenticationError,\
+            \ etc.)."
           enum:
           - ValidationError
           - AuthenticationError
@@ -2957,8 +3233,10 @@ components:
           - ServerError
           type: string
         errorMessage:
+          description: Human-readable error description.
           type: string
         errorCode:
+          description: Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
           enum:
           - MISSING_REQUIRED_FIELD
           - INVALID_ONEOF
@@ -2979,8 +3257,11 @@ components:
           - RATE_LIMIT_EXCEEDED
           type: string
         errorDetails:
+          description: Optional JSON object with additional error context (free-form
+            key/value pairs).
           type: string
         errorTrackingId:
+          description: Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
           type: string
       required:
       - errorCode
@@ -2988,6 +3269,8 @@ components:
       - errorType
       type: object
     errorType:
+      description: "High-level error category string (ValidationError, AuthenticationError,\
+        \ etc.)."
       enum:
       - ValidationError
       - AuthenticationError
@@ -2997,8 +3280,10 @@ components:
       - ServerError
       type: string
     errorMessage:
+      description: Human-readable error description.
       type: string
     errorCode:
+      description: Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
       enum:
       - MISSING_REQUIRED_FIELD
       - INVALID_ONEOF
@@ -3019,8 +3304,11 @@ components:
       - RATE_LIMIT_EXCEEDED
       type: string
     errorDetails:
+      description: Optional JSON object with additional error context (free-form key/value
+        pairs).
       type: string
     errorTrackingId:
+      description: Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
       type: string
     HTTP_400_BAD_REQUEST:
       $ref: "#/components/schemas/errorResponse"
@@ -3214,6 +3502,8 @@ components:
     recipientAddressSource_oneOf_1:
       properties:
         recipientAddressByAddressId:
+          description: Reference to a previously stored individual recipient address
+            by its integer ID.
           type: integer
       required:
       - recipientAddressByAddressId
@@ -3221,6 +3511,8 @@ components:
     recipientAddressSource_oneOf_2:
       properties:
         recipientAddressByListId:
+          description: Reference to a previously stored recipient address list by
+            its integer ID.
           type: integer
       required:
       - recipientAddressByListId

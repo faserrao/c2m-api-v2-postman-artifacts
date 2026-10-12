@@ -11,6 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// MergeDocumentRef : A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
+/// A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum MergeDocumentRef {

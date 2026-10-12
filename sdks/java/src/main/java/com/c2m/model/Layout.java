@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets layout
+ * Page layout controlling where the recipient address is printed.
  */
 @JsonAdapter(Layout.Adapter.class)
 public enum Layout {

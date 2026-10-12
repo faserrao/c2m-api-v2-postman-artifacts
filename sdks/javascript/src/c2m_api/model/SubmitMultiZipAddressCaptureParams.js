@@ -121,6 +121,7 @@ class SubmitMultiZipAddressCaptureParams {
 SubmitMultiZipAddressCaptureParams.RequiredProperties = ["zipDocumentSource"];
 
 /**
+ * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  * @member {String} jobTemplate
  */
 SubmitMultiZipAddressCaptureParams.prototype['jobTemplate'] = undefined;
@@ -146,6 +147,7 @@ SubmitMultiZipAddressCaptureParams.prototype['returnAddress'] = undefined;
 SubmitMultiZipAddressCaptureParams.prototype['jobOptions'] = undefined;
 
 /**
+ * Array of user-defined string tags.
  * @member {Array.<String>} tags
  */
 SubmitMultiZipAddressCaptureParams.prototype['tags'] = undefined;

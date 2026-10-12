@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD). */
 public enum Currency: String, Codable, CaseIterable {
     case usd = "USD"
     case eur = "EUR"

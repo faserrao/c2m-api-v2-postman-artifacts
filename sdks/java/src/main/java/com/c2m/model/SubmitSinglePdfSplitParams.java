@@ -55,7 +55,7 @@ import com.c2m.JSON;
 /**
  * SubmitSinglePdfSplitParams
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class SubmitSinglePdfSplitParams {
   public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
   @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)
@@ -101,7 +101,7 @@ public class SubmitSinglePdfSplitParams {
   }
 
   /**
-   * Get jobTemplate
+   * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
    * @return jobTemplate
    */
   @javax.annotation.Nullable
@@ -147,7 +147,7 @@ public class SubmitSinglePdfSplitParams {
   }
 
   /**
-   * Get pdfSplitJobsWithAddress
+   * List of page-range job items, each with its own inline recipient address.
    * @return pdfSplitJobsWithAddress
    */
   @javax.annotation.Nonnull
@@ -231,7 +231,7 @@ public class SubmitSinglePdfSplitParams {
   }
 
   /**
-   * Get tags
+   * Array of user-defined string tags.
    * @return tags
    */
   @javax.annotation.Nullable

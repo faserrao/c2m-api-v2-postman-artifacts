@@ -1,12 +1,13 @@
 # ZipDocumentIdSource
 
+Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**zipDocumentId** | **number** |  | [default to undefined]
-**filename** | **string** |  | [default to undefined]
+**zipDocumentId** | **number** | Integer ID of a previously stored ZIP archive. | [default to undefined]
+**filename** | **string** | Filename of a specific file within an upload request or ZIP archive. | [default to undefined]
 
 ## Example
 

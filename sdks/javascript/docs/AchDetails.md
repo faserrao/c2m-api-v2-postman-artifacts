@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**routingNumber** | **String** |  | 
-**accountNumber** | **String** |  | 
-**checkDigit** | **Number** |  | 
+**routingNumber** | **String** | ABA bank routing number. | 
+**accountNumber** | **String** | Bank account number. | 
+**checkDigit** | **Number** | ACH check digit. | 
 
 

@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets mailClass
+ * USPS mail class (first_class, standard, or non_profit).
  */
 @JsonAdapter(MailClass.Adapter.class)
 public enum MailClass {

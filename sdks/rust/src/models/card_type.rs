@@ -11,7 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
+/// CardType : Card brand enum: visa, mastercard, discover, or americanExpress.
+/// Card brand enum: visa, mastercard, discover, or americanExpress.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum CardType {
     #[serde(rename = "visa")]

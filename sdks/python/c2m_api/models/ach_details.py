@@ -24,11 +24,11 @@ from typing_extensions import Self
 
 class AchDetails(BaseModel):
     """
-    AchDetails
+    ACH payment fields: routing number, bank account number, and check digit.
     """ # noqa: E501
-    routing_number: StrictStr = Field(alias="routingNumber")
-    account_number: StrictStr = Field(alias="accountNumber")
-    check_digit: StrictInt = Field(alias="checkDigit")
+    routing_number: StrictStr = Field(description="ABA bank routing number.", alias="routingNumber")
+    account_number: StrictStr = Field(description="Bank account number.", alias="accountNumber")
+    check_digit: StrictInt = Field(description="ACH check digit.", alias="checkDigit")
     __properties: ClassVar[List[str]] = ["routingNumber", "accountNumber", "checkDigit"]
 
     model_config = ConfigDict(

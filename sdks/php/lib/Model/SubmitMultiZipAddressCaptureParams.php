@@ -340,7 +340,7 @@ class SubmitMultiZipAddressCaptureParams implements ModelInterface, ArrayAccess,
     /**
      * Sets job_template
      *
-     * @param string|null $job_template job_template
+     * @param string|null $job_template Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
      *
      * @return self
      */
@@ -475,7 +475,7 @@ class SubmitMultiZipAddressCaptureParams implements ModelInterface, ArrayAccess,
     /**
      * Sets tags
      *
-     * @param string[]|null $tags tags
+     * @param string[]|null $tags Array of user-defined string tags.
      *
      * @return self
      */

@@ -26,8 +26,9 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Defines errorCode
+    /// Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
     /// </summary>
+    /// <value>Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).</value>
     public enum ErrorCode
     {
         /// <summary>

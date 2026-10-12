@@ -26,7 +26,7 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// MultiDocJobItem
+    /// A single independent document job entry within a multi-doc batch.
     /// </summary>
     public partial class MultiDocJobItem : IValidatableObject
     {
@@ -35,7 +35,7 @@ namespace C2M.Api.Model
         /// </summary>
         /// <param name="docSourceAll">docSourceAll</param>
         /// <param name="recipientAddressSource">recipientAddressSource</param>
-        /// <param name="jobTemplate">jobTemplate</param>
+        /// <param name="jobTemplate">Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.</param>
         [JsonConstructor]
         public MultiDocJobItem(DocSourceAll docSourceAll, RecipientAddressSource recipientAddressSource, Option<string?> jobTemplate = default)
         {
@@ -67,8 +67,9 @@ namespace C2M.Api.Model
         public Option<string?> JobTemplateOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets JobTemplate
+        /// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
         /// </summary>
+        /// <value>Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.</value>
         [JsonPropertyName("jobTemplate")]
         public string? JobTemplate { get { return this.JobTemplateOption; } set { this.JobTemplateOption = new(value); } }
 

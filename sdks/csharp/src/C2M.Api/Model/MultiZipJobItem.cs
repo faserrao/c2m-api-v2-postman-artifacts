@@ -26,16 +26,16 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// MultiZipJobItem
+    /// A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.
     /// </summary>
     public partial class MultiZipJobItem : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MultiZipJobItem" /> class.
         /// </summary>
-        /// <param name="filename">filename</param>
+        /// <param name="filename">Filename of a specific file within an upload request or ZIP archive.</param>
         /// <param name="recipientAddressSource">recipientAddressSource</param>
-        /// <param name="jobTemplate">jobTemplate</param>
+        /// <param name="jobTemplate">Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.</param>
         [JsonConstructor]
         public MultiZipJobItem(string filename, RecipientAddressSource recipientAddressSource, Option<string?> jobTemplate = default)
         {
@@ -48,8 +48,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets Filename
+        /// Filename of a specific file within an upload request or ZIP archive.
         /// </summary>
+        /// <value>Filename of a specific file within an upload request or ZIP archive.</value>
         [JsonPropertyName("filename")]
         public string Filename { get; set; }
 
@@ -67,8 +68,9 @@ namespace C2M.Api.Model
         public Option<string?> JobTemplateOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets JobTemplate
+        /// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
         /// </summary>
+        /// <value>Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.</value>
         [JsonPropertyName("jobTemplate")]
         public string? JobTemplate { get { return this.JobTemplateOption; } set { this.JobTemplateOption = new(value); } }
 

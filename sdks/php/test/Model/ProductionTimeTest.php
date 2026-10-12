@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ProductionTimeTest Class Doc Comment
  *
  * @category    Class
- * @description ProductionTime
+ * @description Production time preference (next_day, two_day, etc.).
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

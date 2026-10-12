@@ -19,17 +19,27 @@ import (
 // checks if the ReturnAddress type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ReturnAddress{}
 
-// ReturnAddress struct for ReturnAddress
+// ReturnAddress Optional sender return address printed on the mailpiece.
 type ReturnAddress struct {
+	// Recipient's first name.
 	FirstName string `json:"firstName"`
+	// Recipient's last name.
 	LastName string `json:"lastName"`
+	// Recipient's company or organisation name (optional).
 	Company *string `json:"company,omitempty"`
+	// Primary street address line.
 	Address1 string `json:"address1"`
+	// City name.
 	City string `json:"city"`
+	// Two-letter state or province abbreviation.
 	State string `json:"state"`
+	// ZIP or postal code.
 	Zip string `json:"zip"`
+	// Country code (e.g. USA).
 	Country string `json:"country"`
+	// Secondary address line (suite, apartment, floor, etc.).
 	Address2 *string `json:"address2,omitempty"`
+	// Tertiary address line.
 	Address3 *string `json:"address3,omitempty"`
 }
 

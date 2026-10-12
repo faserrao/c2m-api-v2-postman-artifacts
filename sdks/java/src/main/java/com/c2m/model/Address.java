@@ -46,9 +46,9 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * Address
+ * Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class Address {
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
@@ -114,7 +114,7 @@ public class Address {
   }
 
   /**
-   * Get firstName
+   * Recipient&#39;s first name.
    * @return firstName
    */
   @javax.annotation.Nonnull
@@ -133,7 +133,7 @@ public class Address {
   }
 
   /**
-   * Get lastName
+   * Recipient&#39;s last name.
    * @return lastName
    */
   @javax.annotation.Nonnull
@@ -152,7 +152,7 @@ public class Address {
   }
 
   /**
-   * Get address1
+   * Primary street address line.
    * @return address1
    */
   @javax.annotation.Nonnull
@@ -171,7 +171,7 @@ public class Address {
   }
 
   /**
-   * Get city
+   * City name.
    * @return city
    */
   @javax.annotation.Nonnull
@@ -190,7 +190,7 @@ public class Address {
   }
 
   /**
-   * Get state
+   * Two-letter state or province abbreviation.
    * @return state
    */
   @javax.annotation.Nonnull
@@ -209,7 +209,7 @@ public class Address {
   }
 
   /**
-   * Get zip
+   * ZIP or postal code.
    * @return zip
    */
   @javax.annotation.Nonnull
@@ -228,7 +228,7 @@ public class Address {
   }
 
   /**
-   * Get country
+   * Country code (e.g. USA).
    * @return country
    */
   @javax.annotation.Nonnull
@@ -247,7 +247,7 @@ public class Address {
   }
 
   /**
-   * Get address2
+   * Secondary address line (suite, apartment, floor, etc.).
    * @return address2
    */
   @javax.annotation.Nullable
@@ -266,7 +266,7 @@ public class Address {
   }
 
   /**
-   * Get address3
+   * Tertiary address line.
    * @return address3
    */
   @javax.annotation.Nullable
@@ -285,7 +285,7 @@ public class Address {
   }
 
   /**
-   * Get foo1
+   * User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
    * @return foo1
    */
   @javax.annotation.Nullable
@@ -304,7 +304,7 @@ public class Address {
   }
 
   /**
-   * Get foo2
+   * User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
    * @return foo2
    */
   @javax.annotation.Nullable

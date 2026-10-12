@@ -26,8 +26,9 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Defines paperType
+    /// Paper stock for printing.
     /// </summary>
+    /// <value>Paper stock for printing.</value>
     public enum PaperType
     {
         /// <summary>

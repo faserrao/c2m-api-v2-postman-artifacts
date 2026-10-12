@@ -1,4 +1,5 @@
 # C2M.Api.Model.Color
+Color mode for printing (full_color or black_and_white).
 
 ## Properties
 

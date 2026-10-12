@@ -28,7 +28,7 @@ class SubmitSinglePdfSplitAddressCaptureParams {
      * Constructs a new <code>SubmitSinglePdfSplitAddressCaptureParams</code>.
      * @alias module:c2m_api/model/SubmitSinglePdfSplitAddressCaptureParams
      * @param docSourceStandard {module:c2m_api/model/DocSourceStandard} 
-     * @param pdfSplitJobsNoAddress {Array.<module:c2m_api/model/PdfSplitJobItemNoAddress>} 
+     * @param pdfSplitJobsNoAddress {Array.<module:c2m_api/model/PdfSplitJobItemNoAddress>} List of page-range job items without inline addresses — addresses are captured externally (POST /batch/split/address-capture).
      */
     constructor(docSourceStandard, pdfSplitJobsNoAddress) { 
         
@@ -137,6 +137,7 @@ class SubmitSinglePdfSplitAddressCaptureParams {
 SubmitSinglePdfSplitAddressCaptureParams.RequiredProperties = ["docSourceStandard", "pdfSplitJobsNoAddress"];
 
 /**
+ * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  * @member {String} jobTemplate
  */
 SubmitSinglePdfSplitAddressCaptureParams.prototype['jobTemplate'] = undefined;
@@ -147,6 +148,7 @@ SubmitSinglePdfSplitAddressCaptureParams.prototype['jobTemplate'] = undefined;
 SubmitSinglePdfSplitAddressCaptureParams.prototype['docSourceStandard'] = undefined;
 
 /**
+ * List of page-range job items without inline addresses — addresses are captured externally (POST /batch/split/address-capture).
  * @member {Array.<module:c2m_api/model/PdfSplitJobItemNoAddress>} pdfSplitJobsNoAddress
  */
 SubmitSinglePdfSplitAddressCaptureParams.prototype['pdfSplitJobsNoAddress'] = undefined;
@@ -167,6 +169,7 @@ SubmitSinglePdfSplitAddressCaptureParams.prototype['returnAddress'] = undefined;
 SubmitSinglePdfSplitAddressCaptureParams.prototype['jobOptions'] = undefined;
 
 /**
+ * Array of user-defined string tags.
  * @member {Array.<String>} tags
  */
 SubmitSinglePdfSplitAddressCaptureParams.prototype['tags'] = undefined;

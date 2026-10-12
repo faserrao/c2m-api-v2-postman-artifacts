@@ -20,25 +20,27 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Account credit payment fields: monetary amount and ISO currency code.
  *
- * @param amount 
- * @param currency 
+ * @param amount Monetary amount as a numeric value.
+ * @param currency ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
  */
 
 
 data class CreditAmount (
 
+    /* Monetary amount as a numeric value. */
     @Json(name = "amount")
     val amount: java.math.BigDecimal,
 
+    /* ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD). */
     @Json(name = "currency")
     val currency: CreditAmount.Currency
 
 ) {
 
     /**
-     * 
+     * ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
      *
      * Values: USD,EUR,GBP,CAD,AUD
      */

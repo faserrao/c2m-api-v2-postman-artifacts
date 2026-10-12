@@ -2,6 +2,7 @@
 
 # DocSourceStandard
 
+Document source — standard (non-zip) variants only: requestId, documentId, or URL.
 
 ## Properties
 

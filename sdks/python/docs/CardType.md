@@ -1,5 +1,6 @@
 # CardType
 
+Card brand enum: visa, mastercard, discover, or americanExpress.
 
 ## Enum
 

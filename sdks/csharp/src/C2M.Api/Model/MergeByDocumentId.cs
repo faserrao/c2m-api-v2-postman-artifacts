@@ -26,14 +26,14 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// MergeByDocumentId
+    /// Merge a stored document identified by its document ID.
     /// </summary>
     public partial class MergeByDocumentId : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MergeByDocumentId" /> class.
         /// </summary>
-        /// <param name="documentId">documentId</param>
+        /// <param name="documentId">Integer ID of a previously stored or uploaded document.</param>
         [JsonConstructor]
         public MergeByDocumentId(int documentId)
         {
@@ -44,8 +44,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets DocumentId
+        /// Integer ID of a previously stored or uploaded document.
         /// </summary>
+        /// <value>Integer ID of a previously stored or uploaded document.</value>
         [JsonPropertyName("documentId")]
         public int DocumentId { get; set; }
 

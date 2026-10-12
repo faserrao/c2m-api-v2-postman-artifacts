@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * DocSourceZipFileTest Class Doc Comment
  *
  * @category    Class
- * @description DocSourceZipFile
+ * @description Document source — zip variants: a specific file within a stored ZIP (zipDocumentId + filename) or uploaded ZIP (requestId + zipFilename + filename).
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

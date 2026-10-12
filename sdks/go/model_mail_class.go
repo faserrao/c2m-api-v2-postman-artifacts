@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// MailClass the model 'MailClass'
+// MailClass USPS mail class (first_class, standard, or non_profit).
 type MailClass string
 
 // List of mailClass

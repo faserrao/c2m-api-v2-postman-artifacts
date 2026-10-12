@@ -1,4 +1,5 @@
 # C2M.Api.Model.DocumentClass
+Document class determining the mailpiece format.
 
 ## Properties
 

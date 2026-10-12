@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * InvoiceDetails Class Doc Comment
  *
  * @category Class
+ * @description Invoice payment fields: invoice number and amount due.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -315,7 +316,7 @@ class InvoiceDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets invoice_number
      *
-     * @param string $invoice_number invoice_number
+     * @param string $invoice_number Invoice reference number.
      *
      * @return self
      */
@@ -342,7 +343,7 @@ class InvoiceDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount_due
      *
-     * @param float $amount_due amount_due
+     * @param float $amount_due Amount due on the invoice.
      *
      * @return self
      */

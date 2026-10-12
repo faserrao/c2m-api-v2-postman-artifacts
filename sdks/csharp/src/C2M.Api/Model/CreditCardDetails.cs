@@ -26,17 +26,17 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// CreditCardDetails
+    /// Credit card payment fields: card type, card number, expiration date, and CVV.
     /// </summary>
     public partial class CreditCardDetails : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CreditCardDetails" /> class.
         /// </summary>
-        /// <param name="cardType">cardType</param>
-        /// <param name="cardNumber">cardNumber</param>
+        /// <param name="cardType">Card brand enum: visa, mastercard, discover, or americanExpress.</param>
+        /// <param name="cardNumber">Credit card number (PAN) as a string.</param>
         /// <param name="expirationDate">expirationDate</param>
-        /// <param name="cvv">cvv</param>
+        /// <param name="cvv">Card security code (CVV/CVC) as an integer.</param>
         [JsonConstructor]
         public CreditCardDetails(CardTypeEnum cardType, string cardNumber, ExpirationDate expirationDate, int cvv)
         {
@@ -50,8 +50,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Defines CardType
+        /// Card brand enum: visa, mastercard, discover, or americanExpress.
         /// </summary>
+        /// <value>Card brand enum: visa, mastercard, discover, or americanExpress.</value>
         public enum CardTypeEnum
         {
             /// <summary>
@@ -144,14 +145,16 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets CardType
+        /// Card brand enum: visa, mastercard, discover, or americanExpress.
         /// </summary>
+        /// <value>Card brand enum: visa, mastercard, discover, or americanExpress.</value>
         [JsonPropertyName("cardType")]
         public CardTypeEnum CardType { get; set; }
 
         /// <summary>
-        /// Gets or Sets CardNumber
+        /// Credit card number (PAN) as a string.
         /// </summary>
+        /// <value>Credit card number (PAN) as a string.</value>
         [JsonPropertyName("cardNumber")]
         public string CardNumber { get; set; }
 
@@ -162,8 +165,9 @@ namespace C2M.Api.Model
         public ExpirationDate ExpirationDate { get; set; }
 
         /// <summary>
-        /// Gets or Sets Cvv
+        /// Card security code (CVV/CVC) as an integer.
         /// </summary>
+        /// <value>Card security code (CVV/CVC) as an integer.</value>
         [JsonPropertyName("cvv")]
         public int Cvv { get; set; }
 

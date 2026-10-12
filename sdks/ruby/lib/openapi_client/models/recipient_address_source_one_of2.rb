@@ -15,6 +15,7 @@ require 'time'
 
 module OpenapiClient
   class RecipientAddressSourceOneOf2
+    # Reference to a previously stored recipient address list by its integer ID.
     attr_accessor :recipient_address_by_list_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

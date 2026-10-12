@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// DocumentClass the model 'DocumentClass'
+// DocumentClass Document class determining the mailpiece format.
 type DocumentClass string
 
 // List of documentClass

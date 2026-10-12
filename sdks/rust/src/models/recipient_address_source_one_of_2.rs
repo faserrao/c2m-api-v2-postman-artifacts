@@ -13,6 +13,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RecipientAddressSourceOneOf2 {
+    /// Reference to a previously stored recipient address list by its integer ID.
     #[serde(rename = "recipientAddressByListId")]
     pub recipient_address_by_list_id: i32,
 }

@@ -25,9 +25,9 @@ from typing_extensions import Self
 
 class InvoicePayment(BaseModel):
     """
-    InvoicePayment
+    Invoice payment — billed to an existing account invoice.
     """ # noqa: E501
-    payment_type: StrictStr = Field(alias="paymentType")
+    payment_type: StrictStr = Field(description="Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).", alias="paymentType")
     invoice_details: InvoiceDetails = Field(alias="invoiceDetails")
     __properties: ClassVar[List[str]] = ["paymentType", "invoiceDetails"]
 

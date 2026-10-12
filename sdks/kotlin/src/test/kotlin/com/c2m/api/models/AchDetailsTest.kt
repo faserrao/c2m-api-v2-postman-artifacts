@@ -25,19 +25,19 @@ class AchDetailsTest : ShouldSpec() {
         // uncomment below to create an instance of AchDetails
         //val modelInstance = AchDetails()
 
-        // to test the property `routingNumber`
+        // to test the property `routingNumber` - ABA bank routing number.
         should("test routingNumber") {
             // uncomment below to test the property
             //modelInstance.routingNumber shouldBe ("TODO")
         }
 
-        // to test the property `accountNumber`
+        // to test the property `accountNumber` - Bank account number.
         should("test accountNumber") {
             // uncomment below to test the property
             //modelInstance.accountNumber shouldBe ("TODO")
         }
 
-        // to test the property `checkDigit`
+        // to test the property `checkDigit` - ACH check digit.
         should("test checkDigit") {
             // uncomment below to test the property
             //modelInstance.checkDigit shouldBe ("TODO")

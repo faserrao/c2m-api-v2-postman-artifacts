@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * CreditAmountTest Class Doc Comment
  *
  * @category    Class
- * @description CreditAmount
+ * @description Account credit payment fields: monetary amount and ISO currency code.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

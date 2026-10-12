@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Envelope type used for the mailing.
  *
  * Values: standard,none,flat,double_window
  */

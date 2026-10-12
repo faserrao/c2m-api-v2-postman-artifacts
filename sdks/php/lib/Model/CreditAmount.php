@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * CreditAmount Class Doc Comment
  *
  * @category Class
+ * @description Account credit payment fields: monetary amount and ISO currency code.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -345,7 +346,7 @@ class CreditAmount implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amount
      *
-     * @param float $amount amount
+     * @param float $amount Monetary amount as a numeric value.
      *
      * @return self
      */
@@ -372,7 +373,7 @@ class CreditAmount implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets currency
      *
-     * @param string $currency currency
+     * @param string $currency ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
      *
      * @return self
      */

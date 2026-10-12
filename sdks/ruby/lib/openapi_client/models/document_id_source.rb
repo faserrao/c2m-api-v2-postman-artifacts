@@ -14,7 +14,9 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Source a document by its previously stored document ID.
   class DocumentIdSource
+    # Integer ID of a previously stored or uploaded document.
     attr_accessor :document_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

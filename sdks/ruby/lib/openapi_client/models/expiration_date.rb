@@ -14,9 +14,12 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Card expiration date containing month and year.
   class ExpirationDate
+    # Expiration month as an integer (1-12).
     attr_accessor :month
 
+    # Expiration year as a four-digit integer (e.g. 2029).
     attr_accessor :year
 
     # Attribute mapping from ruby-style variable name to JSON key.

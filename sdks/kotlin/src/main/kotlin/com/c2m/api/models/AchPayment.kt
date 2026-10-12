@@ -21,15 +21,16 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * ACH bank transfer payment variant.
  *
- * @param paymentType 
+ * @param paymentType Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
  * @param achDetails 
  */
 
 
 data class AchPayment (
 
+    /* Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). */
     @Json(name = "paymentType")
     val paymentType: AchPayment.PaymentType,
 
@@ -39,7 +40,7 @@ data class AchPayment (
 ) {
 
     /**
-     * 
+     * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
      *
      * Values: ach
      */

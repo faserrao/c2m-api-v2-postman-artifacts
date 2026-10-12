@@ -11,7 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
+/// Currency : ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
+/// ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Currency {
     #[serde(rename = "USD")]

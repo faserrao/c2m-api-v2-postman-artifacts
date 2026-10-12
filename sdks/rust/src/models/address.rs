@@ -11,33 +11,46 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// Address : Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2).
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Address {
+    /// Recipient's first name.
     #[serde(rename = "firstName")]
     pub first_name: String,
+    /// Recipient's last name.
     #[serde(rename = "lastName")]
     pub last_name: String,
+    /// Primary street address line.
     #[serde(rename = "address1")]
     pub address1: String,
+    /// City name.
     #[serde(rename = "city")]
     pub city: String,
+    /// Two-letter state or province abbreviation.
     #[serde(rename = "state")]
     pub state: String,
+    /// ZIP or postal code.
     #[serde(rename = "zip")]
     pub zip: String,
+    /// Country code (e.g. USA).
     #[serde(rename = "country")]
     pub country: String,
+    /// Secondary address line (suite, apartment, floor, etc.).
     #[serde(rename = "address2", skip_serializing_if = "Option::is_none")]
     pub address2: Option<String>,
+    /// Tertiary address line.
     #[serde(rename = "address3", skip_serializing_if = "Option::is_none")]
     pub address3: Option<String>,
+    /// User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
     #[serde(rename = "foo1", skip_serializing_if = "Option::is_none")]
     pub foo1: Option<String>,
+    /// User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
     #[serde(rename = "foo2", skip_serializing_if = "Option::is_none")]
     pub foo2: Option<String>,
 }
 
 impl Address {
+    /// Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2).
     pub fn new(first_name: String, last_name: String, address1: String, city: String, state: String, zip: String, country: String) -> Address {
         Address {
             first_name,

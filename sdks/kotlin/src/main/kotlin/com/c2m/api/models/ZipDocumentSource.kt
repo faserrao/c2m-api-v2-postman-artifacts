@@ -24,7 +24,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * ZIP document source — either a stored zip archive (zipDocumentId) or an uploaded zip archive (requestId).
  *
  * @param zipDocumentIdSource 
  * @param zipRequestIdSource 

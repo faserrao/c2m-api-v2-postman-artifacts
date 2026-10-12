@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class Currency(str, Enum):
     """
-    Currency
+    ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
     """
 
     """

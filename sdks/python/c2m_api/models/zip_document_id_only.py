@@ -24,9 +24,9 @@ from typing_extensions import Self
 
 class ZipDocumentIdOnly(BaseModel):
     """
-    ZipDocumentIdOnly
+    Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames.
     """ # noqa: E501
-    zip_document_id: StrictInt = Field(alias="zipDocumentId")
+    zip_document_id: StrictInt = Field(description="Integer ID of a previously stored ZIP archive.", alias="zipDocumentId")
     __properties: ClassVar[List[str]] = ["zipDocumentId"]
 
     model_config = ConfigDict(

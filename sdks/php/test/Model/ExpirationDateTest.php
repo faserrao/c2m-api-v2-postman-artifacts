@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ExpirationDateTest Class Doc Comment
  *
  * @category    Class
- * @description ExpirationDate
+ * @description Card expiration date containing month and year.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

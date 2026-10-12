@@ -26,9 +26,9 @@ from typing_extensions import Self
 
 class MultiDocJobItem(BaseModel):
     """
-    MultiDocJobItem
+    A single independent document job entry within a multi-doc batch.
     """ # noqa: E501
-    job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
+    job_template: Optional[StrictStr] = Field(default=None, description="Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.", alias="jobTemplate")
     doc_source_all: DocSourceAll = Field(alias="docSourceAll")
     recipient_address_source: RecipientAddressSource = Field(alias="recipientAddressSource")
     __properties: ClassVar[List[str]] = ["jobTemplate", "docSourceAll", "recipientAddressSource"]

@@ -19,9 +19,11 @@ import (
 // checks if the ExpirationDate type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ExpirationDate{}
 
-// ExpirationDate struct for ExpirationDate
+// ExpirationDate Card expiration date containing month and year.
 type ExpirationDate struct {
+	// Expiration month as an integer (1-12).
 	Month int32 `json:"month"`
+	// Expiration year as a four-digit integer (e.g. 2029).
 	Year int32 `json:"year"`
 }
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DocumentId** | **int32** |  | 
+**DocumentId** | **int32** | Integer ID of a previously stored or uploaded document. | 
 
 ## Methods
 

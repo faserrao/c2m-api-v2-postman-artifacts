@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets printOption
+ * Duplex setting (double_sided or single_sided).
  */
 @JsonAdapter(PrintOption.Adapter.class)
 public enum PrintOption {

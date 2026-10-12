@@ -16,7 +16,7 @@ import (
 	"gopkg.in/validator.v2"
 )
 
-// PaymentDetails - struct for PaymentDetails
+// PaymentDetails - Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.
 type PaymentDetails struct {
 	AchPayment *AchPayment
 	CreditCardPayment *CreditCardPayment

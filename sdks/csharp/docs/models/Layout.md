@@ -1,4 +1,5 @@
 # C2M.Api.Model.Layout
+Page layout controlling where the recipient address is printed.
 
 ## Properties
 

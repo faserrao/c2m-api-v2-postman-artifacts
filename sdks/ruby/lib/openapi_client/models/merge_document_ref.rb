@@ -14,6 +14,7 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
   module MergeDocumentRef
     class << self
       # List of class defined in oneOf (OpenAPI v3)

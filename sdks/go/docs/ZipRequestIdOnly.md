@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** | **int32** |  | 
+**RequestId** | **int32** | Integer ID of a prior file upload request. Also returned in success responses. | 
 
 ## Methods
 

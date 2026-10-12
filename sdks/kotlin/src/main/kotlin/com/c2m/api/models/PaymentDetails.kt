@@ -28,9 +28,9 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.
  *
- * @param paymentType 
+ * @param paymentType Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
  * @param creditCardDetails 
  * @param invoiceDetails 
  * @param achDetails 
@@ -40,6 +40,7 @@ import com.squareup.moshi.JsonClass
 
 interface PaymentDetails {
 
+    /* Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). */
     @Json(name = "paymentType")
     val paymentType: PaymentDetails.PaymentType
     @Json(name = "creditCardDetails")
@@ -51,7 +52,7 @@ interface PaymentDetails {
     @Json(name = "creditAmount")
     val creditAmount: CreditAmount
     /**
-     * 
+     * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
      *
      * Values: userCredit
      */

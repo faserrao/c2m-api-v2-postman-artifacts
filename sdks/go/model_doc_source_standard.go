@@ -16,7 +16,7 @@ import (
 	"gopkg.in/validator.v2"
 )
 
-// DocSourceStandard - struct for DocSourceStandard
+// DocSourceStandard - Document source — standard (non-zip) variants only: requestId, documentId, or URL.
 type DocSourceStandard struct {
 	DocSourceStandardOneOf *DocSourceStandardOneOf
 	DocSourceStandardOneOf1 *DocSourceStandardOneOf1

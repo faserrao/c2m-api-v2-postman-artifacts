@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// Layout the model 'Layout'
+// Layout Page layout controlling where the recipient address is printed.
 type Layout string
 
 // List of layout

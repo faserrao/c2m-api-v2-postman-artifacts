@@ -1,5 +1,6 @@
 # ProductionTime
 
+Production time preference (next_day, two_day, etc.).
 
 ## Enum
 

@@ -14,7 +14,9 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Invoice payment — billed to an existing account invoice.
   class InvoicePayment
+    # Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
     attr_accessor :payment_type
 
     attr_accessor :invoice_details

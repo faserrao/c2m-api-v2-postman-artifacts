@@ -22,11 +22,12 @@ import ExpirationDate from './ExpirationDate';
 class CreditCardDetails {
     /**
      * Constructs a new <code>CreditCardDetails</code>.
+     * Credit card payment fields: card type, card number, expiration date, and CVV.
      * @alias module:c2m_api/model/CreditCardDetails
-     * @param cardType {module:c2m_api/model/CreditCardDetails.CardTypeEnum} 
-     * @param cardNumber {String} 
+     * @param cardType {module:c2m_api/model/CreditCardDetails.CardTypeEnum} Card brand enum: visa, mastercard, discover, or americanExpress.
+     * @param cardNumber {String} Credit card number (PAN) as a string.
      * @param expirationDate {module:c2m_api/model/ExpirationDate} 
-     * @param cvv {Number} 
+     * @param cvv {Number} Card security code (CVV/CVC) as an integer.
      */
     constructor(cardType, cardNumber, expirationDate, cvv) { 
         
@@ -106,11 +107,13 @@ class CreditCardDetails {
 CreditCardDetails.RequiredProperties = ["cardType", "cardNumber", "expirationDate", "cvv"];
 
 /**
+ * Card brand enum: visa, mastercard, discover, or americanExpress.
  * @member {module:c2m_api/model/CreditCardDetails.CardTypeEnum} cardType
  */
 CreditCardDetails.prototype['cardType'] = undefined;
 
 /**
+ * Credit card number (PAN) as a string.
  * @member {String} cardNumber
  */
 CreditCardDetails.prototype['cardNumber'] = undefined;
@@ -121,6 +124,7 @@ CreditCardDetails.prototype['cardNumber'] = undefined;
 CreditCardDetails.prototype['expirationDate'] = undefined;
 
 /**
+ * Card security code (CVV/CVC) as an integer.
  * @member {Number} cvv
  */
 CreditCardDetails.prototype['cvv'] = undefined;

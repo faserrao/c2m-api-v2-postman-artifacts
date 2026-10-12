@@ -14,15 +14,21 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Error response structure returned for all API error conditions.
   class ErrorResponse
+    # High-level error category string (ValidationError, AuthenticationError, etc.).
     attr_accessor :error_type
 
+    # Human-readable error description.
     attr_accessor :error_message
 
+    # Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
     attr_accessor :error_code
 
+    # Optional JSON object with additional error context (free-form key/value pairs).
     attr_accessor :error_details
 
+    # Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
     attr_accessor :error_tracking_id
 
     class EnumAttributeValidator

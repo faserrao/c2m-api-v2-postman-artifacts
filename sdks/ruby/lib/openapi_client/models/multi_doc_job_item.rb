@@ -14,7 +14,9 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # A single independent document job entry within a multi-doc batch.
   class MultiDocJobItem
+    # Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
     attr_accessor :job_template
 
     attr_accessor :doc_source_all

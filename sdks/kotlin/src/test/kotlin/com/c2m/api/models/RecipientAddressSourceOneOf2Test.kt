@@ -25,7 +25,7 @@ class RecipientAddressSourceOneOf2Test : ShouldSpec() {
         // uncomment below to create an instance of RecipientAddressSourceOneOf2
         //val modelInstance = RecipientAddressSourceOneOf2()
 
-        // to test the property `recipientAddressByListId`
+        // to test the property `recipientAddressByListId` - Reference to a previously stored recipient address list by its integer ID.
         should("test recipientAddressByListId") {
             // uncomment below to test the property
             //modelInstance.recipientAddressByListId shouldBe ("TODO")

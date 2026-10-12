@@ -26,8 +26,9 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Defines printOption
+    /// Duplex setting (double_sided or single_sided).
     /// </summary>
+    /// <value>Duplex setting (double_sided or single_sided).</value>
     public enum PrintOption
     {
         /// <summary>

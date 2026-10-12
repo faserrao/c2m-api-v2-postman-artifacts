@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// ErrorCode the model 'ErrorCode'
+// ErrorCode Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
 type ErrorCode string
 
 // List of errorCode

@@ -11,17 +11,22 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// ZipRequestIdSource : Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ZipRequestIdSource {
+    /// Integer ID of a prior file upload request. Also returned in success responses.
     #[serde(rename = "requestId")]
     pub request_id: i32,
+    /// Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
     #[serde(rename = "zipFilename")]
     pub zip_filename: String,
+    /// Filename of a specific file within an upload request or ZIP archive.
     #[serde(rename = "filename")]
     pub filename: String,
 }
 
 impl ZipRequestIdSource {
+    /// Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip.
     pub fn new(request_id: i32, zip_filename: String, filename: String) -> ZipRequestIdSource {
         ZipRequestIdSource {
             request_id,

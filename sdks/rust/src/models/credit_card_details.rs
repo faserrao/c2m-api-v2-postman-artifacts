@@ -11,19 +11,24 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// CreditCardDetails : Credit card payment fields: card type, card number, expiration date, and CVV.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreditCardDetails {
+    /// Card brand enum: visa, mastercard, discover, or americanExpress.
     #[serde(rename = "cardType")]
     pub card_type: CardType,
+    /// Credit card number (PAN) as a string.
     #[serde(rename = "cardNumber")]
     pub card_number: String,
     #[serde(rename = "expirationDate")]
     pub expiration_date: Box<models::ExpirationDate>,
+    /// Card security code (CVV/CVC) as an integer.
     #[serde(rename = "cvv")]
     pub cvv: i32,
 }
 
 impl CreditCardDetails {
+    /// Credit card payment fields: card type, card number, expiration date, and CVV.
     pub fn new(card_type: CardType, card_number: String, expiration_date: models::ExpirationDate, cvv: i32) -> CreditCardDetails {
         CreditCardDetails {
             card_type,
@@ -33,7 +38,7 @@ impl CreditCardDetails {
         }
     }
 }
-/// 
+/// Card brand enum: visa, mastercard, discover, or americanExpress.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum CardType {
     #[serde(rename = "visa")]

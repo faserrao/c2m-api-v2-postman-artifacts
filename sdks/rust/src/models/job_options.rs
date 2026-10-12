@@ -11,27 +11,37 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// JobOptions : Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct JobOptions {
+    /// Document class determining the mailpiece format.
     #[serde(rename = "documentClass")]
     pub document_class: DocumentClass,
+    /// Page layout controlling where the recipient address is printed.
     #[serde(rename = "layout")]
     pub layout: Layout,
+    /// Production time preference (next_day, two_day, etc.).
     #[serde(rename = "productionTime")]
     pub production_time: ProductionTime,
+    /// Envelope type used for the mailing.
     #[serde(rename = "envelope")]
     pub envelope: Envelope,
+    /// Color mode for printing (full_color or black_and_white).
     #[serde(rename = "color")]
     pub color: Color,
+    /// Paper stock for printing.
     #[serde(rename = "paperType")]
     pub paper_type: PaperType,
+    /// Duplex setting (double_sided or single_sided).
     #[serde(rename = "printOption")]
     pub print_option: PrintOption,
+    /// USPS mail class (first_class, standard, or non_profit).
     #[serde(rename = "mailClass")]
     pub mail_class: MailClass,
 }
 
 impl JobOptions {
+    /// Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
     pub fn new(document_class: DocumentClass, layout: Layout, production_time: ProductionTime, envelope: Envelope, color: Color, paper_type: PaperType, print_option: PrintOption, mail_class: MailClass) -> JobOptions {
         JobOptions {
             document_class,
@@ -45,7 +55,7 @@ impl JobOptions {
         }
     }
 }
-/// 
+/// Document class determining the mailpiece format.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum DocumentClass {
     #[serde(rename = "letter")]
@@ -63,7 +73,7 @@ impl Default for DocumentClass {
         Self::Letter
     }
 }
-/// 
+/// Page layout controlling where the recipient address is printed.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Layout {
     #[serde(rename = "address_on_first_page")]
@@ -77,7 +87,7 @@ impl Default for Layout {
         Self::AddressOnFirstPage
     }
 }
-/// 
+/// Production time preference (next_day, two_day, etc.).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ProductionTime {
     #[serde(rename = "next_day")]
@@ -97,7 +107,7 @@ impl Default for ProductionTime {
         Self::NextDay
     }
 }
-/// 
+/// Envelope type used for the mailing.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Envelope {
     #[serde(rename = "standard")]
@@ -115,7 +125,7 @@ impl Default for Envelope {
         Self::Standard
     }
 }
-/// 
+/// Color mode for printing (full_color or black_and_white).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Color {
     #[serde(rename = "full_color")]
@@ -129,7 +139,7 @@ impl Default for Color {
         Self::FullColor
     }
 }
-/// 
+/// Paper stock for printing.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum PaperType {
     #[serde(rename = "white")]
@@ -147,7 +157,7 @@ impl Default for PaperType {
         Self::White
     }
 }
-/// 
+/// Duplex setting (double_sided or single_sided).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum PrintOption {
     #[serde(rename = "double_sided")]
@@ -161,7 +171,7 @@ impl Default for PrintOption {
         Self::DoubleSided
     }
 }
-/// 
+/// USPS mail class (first_class, standard, or non_profit).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum MailClass {
     #[serde(rename = "first_class")]

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * CreditCardPaymentTest Class Doc Comment
  *
  * @category    Class
- * @description CreditCardPayment
+ * @description Credit card payment variant.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

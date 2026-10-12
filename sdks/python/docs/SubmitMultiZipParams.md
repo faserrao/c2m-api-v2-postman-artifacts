@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **doc_source_zip_file_ref** | [**DocSourceZipFileRef**](DocSourceZipFileRef.md) |  | 
-**multi_zip_jobs** | [**List[MultiZipJobItem]**](MultiZipJobItem.md) |  | 
+**multi_zip_jobs** | [**List[MultiZipJobItem]**](MultiZipJobItem.md) | List of per-file job items extracted from a ZIP archive (POST /batch/zip). | 
 **payment_details** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
-**tags** | **List[str]** |  | [optional] 
+**tags** | **List[str]** | Array of user-defined string tags. | [optional] 
 
 ## Example
 

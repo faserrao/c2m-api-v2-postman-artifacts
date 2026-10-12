@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * MergeByRequestId Class Doc Comment
  *
  * @category Class
+ * @description Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -312,7 +313,7 @@ class MergeByRequestId implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets request_id
      *
-     * @param int $request_id request_id
+     * @param int $request_id Integer ID of a prior file upload request. Also returned in success responses.
      *
      * @return self
      */
@@ -339,7 +340,7 @@ class MergeByRequestId implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets filename
      *
-     * @param string|null $filename filename
+     * @param string|null $filename Filename of a specific file within an upload request or ZIP archive.
      *
      * @return self
      */

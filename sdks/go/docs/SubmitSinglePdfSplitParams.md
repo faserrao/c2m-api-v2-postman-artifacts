@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**JobTemplate** | Pointer to **string** |  | [optional] 
+**JobTemplate** | Pointer to **string** | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. | [optional] 
 **DocSourceStandard** | [**DocSourceStandard**](DocSourceStandard.md) |  | 
-**PdfSplitJobsWithAddress** | [**[]PdfSplitJobItemWithAddress**](PdfSplitJobItemWithAddress.md) |  | 
+**PdfSplitJobsWithAddress** | [**[]PdfSplitJobItemWithAddress**](PdfSplitJobItemWithAddress.md) | List of page-range job items, each with its own inline recipient address. | 
 **PaymentDetails** | Pointer to [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **ReturnAddress** | Pointer to [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
 **JobOptions** | Pointer to [**JobOptions**](JobOptions.md) |  | [optional] 
-**Tags** | Pointer to **[]string** |  | [optional] 
+**Tags** | Pointer to **[]string** | Array of user-defined string tags. | [optional] 
 
 ## Methods
 

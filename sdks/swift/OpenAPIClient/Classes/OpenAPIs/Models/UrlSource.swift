@@ -10,8 +10,10 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Fetch the document from an external URL at submission time. */
 public struct UrlSource: Codable, JSONEncodable, Hashable {
 
+    /** URL from which the API will fetch the document at submission time. */
     public var url: String
 
     public init(url: String) {

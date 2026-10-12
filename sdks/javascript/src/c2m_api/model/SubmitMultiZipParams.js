@@ -26,7 +26,7 @@ class SubmitMultiZipParams {
      * Constructs a new <code>SubmitMultiZipParams</code>.
      * @alias module:c2m_api/model/SubmitMultiZipParams
      * @param docSourceZipFileRef {module:c2m_api/model/DocSourceZipFileRef} 
-     * @param multiZipJobs {Array.<module:c2m_api/model/MultiZipJobItem>} 
+     * @param multiZipJobs {Array.<module:c2m_api/model/MultiZipJobItem>} List of per-file job items extracted from a ZIP archive (POST /batch/zip).
      */
     constructor(docSourceZipFileRef, multiZipJobs) { 
         
@@ -119,6 +119,7 @@ SubmitMultiZipParams.RequiredProperties = ["docSourceZipFileRef", "multiZipJobs"
 SubmitMultiZipParams.prototype['docSourceZipFileRef'] = undefined;
 
 /**
+ * List of per-file job items extracted from a ZIP archive (POST /batch/zip).
  * @member {Array.<module:c2m_api/model/MultiZipJobItem>} multiZipJobs
  */
 SubmitMultiZipParams.prototype['multiZipJobs'] = undefined;
@@ -129,6 +130,7 @@ SubmitMultiZipParams.prototype['multiZipJobs'] = undefined;
 SubmitMultiZipParams.prototype['paymentDetails'] = undefined;
 
 /**
+ * Array of user-defined string tags.
  * @member {Array.<String>} tags
  */
 SubmitMultiZipParams.prototype['tags'] = undefined;

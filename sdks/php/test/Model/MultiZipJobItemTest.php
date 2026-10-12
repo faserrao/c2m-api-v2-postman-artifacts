@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * MultiZipJobItemTest Class Doc Comment
  *
  * @category    Class
- * @description MultiZipJobItem
+ * @description A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -16,7 +16,7 @@ import (
 	"gopkg.in/validator.v2"
 )
 
-// MergeDocumentRef - struct for MergeDocumentRef
+// MergeDocumentRef - A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
 type MergeDocumentRef struct {
 	MergeDocumentRefOneOf *MergeDocumentRefOneOf
 	MergeDocumentRefOneOf1 *MergeDocumentRefOneOf1

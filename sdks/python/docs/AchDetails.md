@@ -1,13 +1,14 @@
 # AchDetails
 
+ACH payment fields: routing number, bank account number, and check digit.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**routing_number** | **str** |  | 
-**account_number** | **str** |  | 
-**check_digit** | **int** |  | 
+**routing_number** | **str** | ABA bank routing number. | 
+**account_number** | **str** | Bank account number. | 
+**check_digit** | **int** | ACH check digit. | 
 
 ## Example
 

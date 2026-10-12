@@ -27,7 +27,7 @@ MERGEDOCUMENTREF_ONE_OF_SCHEMAS = ["MergeDocumentRefOneOf", "MergeDocumentRefOne
 
 class MergeDocumentRef(BaseModel):
     """
-    MergeDocumentRef
+    A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
     """
     # data type: MergeDocumentRefOneOf
     oneof_schema_1_validator: Optional[MergeDocumentRefOneOf] = None

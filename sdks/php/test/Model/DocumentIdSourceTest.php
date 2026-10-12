@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * DocumentIdSourceTest Class Doc Comment
  *
  * @category    Class
- * @description DocumentIdSource
+ * @description Source a document by its previously stored document ID.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -356,7 +356,7 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets multi_zip_jobs
      *
-     * @param \C2MApi\Model\MultiZipJobItem[] $multi_zip_jobs multi_zip_jobs
+     * @param \C2MApi\Model\MultiZipJobItem[] $multi_zip_jobs List of per-file job items extracted from a ZIP archive (POST /batch/zip).
      *
      * @return self
      */
@@ -410,7 +410,7 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets tags
      *
-     * @param string[]|null $tags tags
+     * @param string[]|null $tags Array of user-defined string tags.
      *
      * @return self
      */

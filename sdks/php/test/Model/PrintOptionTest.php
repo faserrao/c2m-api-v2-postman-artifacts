@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * PrintOptionTest Class Doc Comment
  *
  * @category    Class
- * @description PrintOption
+ * @description Duplex setting (double_sided or single_sided).
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

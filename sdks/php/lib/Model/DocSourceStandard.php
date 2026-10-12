@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * DocSourceStandard Class Doc Comment
  *
  * @category Class
+ * @description Document source — standard (non-zip) variants only: requestId, documentId, or URL.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

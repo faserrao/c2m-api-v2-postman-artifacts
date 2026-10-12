@@ -33,6 +33,7 @@ use \C2MApi\ObjectSerializer;
  * ErrorCode Class Doc Comment
  *
  * @category Class
+ * @description Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

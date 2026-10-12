@@ -20,18 +20,20 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one.
  *
- * @param requestId 
- * @param filename 
+ * @param requestId Integer ID of a prior file upload request. Also returned in success responses.
+ * @param filename Filename of a specific file within an upload request or ZIP archive.
  */
 
 
 data class RequestIdSource (
 
+    /* Integer ID of a prior file upload request. Also returned in success responses. */
     @Json(name = "requestId")
     val requestId: kotlin.Int,
 
+    /* Filename of a specific file within an upload request or ZIP archive. */
     @Json(name = "filename")
     val filename: kotlin.String? = null
 

@@ -26,14 +26,14 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// ZipRequestIdOnly
+    /// Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
     /// </summary>
     public partial class ZipRequestIdOnly : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ZipRequestIdOnly" /> class.
         /// </summary>
-        /// <param name="requestId">requestId</param>
+        /// <param name="requestId">Integer ID of a prior file upload request. Also returned in success responses.</param>
         [JsonConstructor]
         public ZipRequestIdOnly(int requestId)
         {
@@ -44,8 +44,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets RequestId
+        /// Integer ID of a prior file upload request. Also returned in success responses.
         /// </summary>
+        /// <value>Integer ID of a prior file upload request. Also returned in success responses.</value>
         [JsonPropertyName("requestId")]
         public int RequestId { get; set; }
 

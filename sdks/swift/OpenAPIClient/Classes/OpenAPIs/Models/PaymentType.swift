@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). */
 public enum PaymentType: String, Codable, CaseIterable {
     case creditcard = "creditCard"
     case invoice = "invoice"

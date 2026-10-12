@@ -33,6 +33,7 @@ use \C2MApi\ObjectSerializer;
  * ErrorType Class Doc Comment
  *
  * @category Class
+ * @description High-level error category string (ValidationError, AuthenticationError, etc.).
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

@@ -1,4 +1,5 @@
 # C2M.Api.Model.MailClass
+USPS mail class (first_class, standard, or non_profit).
 
 ## Properties
 

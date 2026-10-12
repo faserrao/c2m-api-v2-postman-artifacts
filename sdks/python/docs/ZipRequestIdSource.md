@@ -1,13 +1,14 @@
 # ZipRequestIdSource
 
+Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**request_id** | **int** |  | 
-**zip_filename** | **str** |  | 
-**filename** | **str** |  | 
+**request_id** | **int** | Integer ID of a prior file upload request. Also returned in success responses. | 
+**zip_filename** | **str** | Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request). | 
+**filename** | **str** | Filename of a specific file within an upload request or ZIP archive. | 
 
 ## Example
 

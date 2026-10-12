@@ -28,7 +28,7 @@ RECIPIENTADDRESSSOURCE_ONE_OF_SCHEMAS = ["RecipientAddressSourceOneOf", "Recipie
 
 class RecipientAddressSource(BaseModel):
     """
-    RecipientAddressSource
+    Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
     """
     # data type: RecipientAddressSourceOneOf
     oneof_schema_1_validator: Optional[RecipientAddressSourceOneOf] = None

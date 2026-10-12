@@ -24,9 +24,9 @@ from typing_extensions import Self
 
 class DocumentIdSource(BaseModel):
     """
-    DocumentIdSource
+    Source a document by its previously stored document ID.
     """ # noqa: E501
-    document_id: StrictInt = Field(alias="documentId")
+    document_id: StrictInt = Field(description="Integer ID of a previously stored or uploaded document.", alias="documentId")
     __properties: ClassVar[List[str]] = ["documentId"]
 
     model_config = ConfigDict(

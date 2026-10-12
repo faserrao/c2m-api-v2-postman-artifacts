@@ -14,7 +14,9 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Credit card payment variant.
   class CreditCardPayment
+    # Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
     attr_accessor :payment_type
 
     attr_accessor :credit_card_details

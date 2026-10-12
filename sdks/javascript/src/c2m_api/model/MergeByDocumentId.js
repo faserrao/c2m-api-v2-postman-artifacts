@@ -21,8 +21,9 @@ import ApiClient from '../ApiClient';
 class MergeByDocumentId {
     /**
      * Constructs a new <code>MergeByDocumentId</code>.
+     * Merge a stored document identified by its document ID.
      * @alias module:c2m_api/model/MergeByDocumentId
-     * @param documentId {Number} 
+     * @param documentId {Number} Integer ID of a previously stored or uploaded document.
      */
     constructor(documentId) { 
         
@@ -78,6 +79,7 @@ class MergeByDocumentId {
 MergeByDocumentId.RequiredProperties = ["documentId"];
 
 /**
+ * Integer ID of a previously stored or uploaded document.
  * @member {Number} documentId
  */
 MergeByDocumentId.prototype['documentId'] = undefined;

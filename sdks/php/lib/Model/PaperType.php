@@ -33,6 +33,7 @@ use \C2MApi\ObjectSerializer;
  * PaperType Class Doc Comment
  *
  * @category Class
+ * @description Paper stock for printing.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

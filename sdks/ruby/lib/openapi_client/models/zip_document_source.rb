@@ -14,6 +14,7 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # ZIP document source — either a stored zip archive (zipDocumentId) or an uploaded zip archive (requestId).
   module ZipDocumentSource
     class << self
       # List of class defined in oneOf (OpenAPI v3)

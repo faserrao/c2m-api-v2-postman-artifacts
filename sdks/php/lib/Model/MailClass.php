@@ -33,6 +33,7 @@ use \C2MApi\ObjectSerializer;
  * MailClass Class Doc Comment
  *
  * @category Class
+ * @description USPS mail class (first_class, standard, or non_profit).
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

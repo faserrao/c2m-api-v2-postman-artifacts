@@ -10,10 +10,14 @@ import Foundation
 import AnyCodable
 #endif
 
+/** ACH payment fields: routing number, bank account number, and check digit. */
 public struct AchDetails: Codable, JSONEncodable, Hashable {
 
+    /** ABA bank routing number. */
     public var routingNumber: String
+    /** Bank account number. */
     public var accountNumber: String
+    /** ACH check digit. */
     public var checkDigit: Int
 
     public init(routingNumber: String, accountNumber: String, checkDigit: Int) {

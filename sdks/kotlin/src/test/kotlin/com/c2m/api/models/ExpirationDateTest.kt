@@ -25,13 +25,13 @@ class ExpirationDateTest : ShouldSpec() {
         // uncomment below to create an instance of ExpirationDate
         //val modelInstance = ExpirationDate()
 
-        // to test the property `month`
+        // to test the property `month` - Expiration month as an integer (1-12).
         should("test month") {
             // uncomment below to test the property
             //modelInstance.month shouldBe ("TODO")
         }
 
-        // to test the property `year`
+        // to test the property `year` - Expiration year as a four-digit integer (e.g. 2029).
         should("test year") {
             // uncomment below to test the property
             //modelInstance.year shouldBe ("TODO")

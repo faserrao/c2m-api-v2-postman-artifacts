@@ -19,8 +19,9 @@ import (
 // checks if the UrlSource type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &UrlSource{}
 
-// UrlSource struct for UrlSource
+// UrlSource Fetch the document from an external URL at submission time.
 type UrlSource struct {
+	// URL from which the API will fetch the document at submission time.
 	Url string `json:"url"`
 }
 

@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InvoiceNumber** | **string** |  | 
-**AmountDue** | **float32** |  | 
+**InvoiceNumber** | **string** | Invoice reference number. | 
+**AmountDue** | **float32** | Amount due on the invoice. | 
 
 ## Methods
 

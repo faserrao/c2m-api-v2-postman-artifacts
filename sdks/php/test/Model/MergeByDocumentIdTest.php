@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * MergeByDocumentIdTest Class Doc Comment
  *
  * @category    Class
- * @description MergeByDocumentId
+ * @description Merge a stored document identified by its document ID.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

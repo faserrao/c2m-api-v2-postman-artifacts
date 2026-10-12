@@ -26,16 +26,16 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// RecipientAddressByList
+    /// Inline list of recipient addresses with an optional merge-field mapping ID.
     /// </summary>
     public partial class RecipientAddressByList : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RecipientAddressByList" /> class.
         /// </summary>
-        /// <param name="addressList">addressList</param>
-        /// <param name="mappingId">mappingId</param>
-        /// <param name="addressListName">addressListName</param>
+        /// <param name="addressList">List of recipient mailing addresses — used for batch sends and mail merge.</param>
+        /// <param name="mappingId">Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.</param>
+        /// <param name="addressListName">Optional name for this address list record.</param>
         [JsonConstructor]
         public RecipientAddressByList(List<Address> addressList, Option<int?> mappingId = default, Option<string?> addressListName = default)
         {
@@ -48,8 +48,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets AddressList
+        /// List of recipient mailing addresses — used for batch sends and mail merge.
         /// </summary>
+        /// <value>List of recipient mailing addresses — used for batch sends and mail merge.</value>
         [JsonPropertyName("addressList")]
         public List<Address> AddressList { get; set; }
 
@@ -61,8 +62,9 @@ namespace C2M.Api.Model
         public Option<int?> MappingIdOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets MappingId
+        /// Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.
         /// </summary>
+        /// <value>Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.</value>
         [JsonPropertyName("mappingId")]
         public int? MappingId { get { return this.MappingIdOption; } set { this.MappingIdOption = new(value); } }
 
@@ -74,8 +76,9 @@ namespace C2M.Api.Model
         public Option<string?> AddressListNameOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets AddressListName
+        /// Optional name for this address list record.
         /// </summary>
+        /// <value>Optional name for this address list record.</value>
         [JsonPropertyName("addressListName")]
         public string? AddressListName { get { return this.AddressListNameOption; } set { this.AddressListNameOption = new(value); } }
 

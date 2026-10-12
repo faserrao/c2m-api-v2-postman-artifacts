@@ -10,18 +10,30 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2). */
 public struct Address: Codable, JSONEncodable, Hashable {
 
+    /** Recipient's first name. */
     public var firstName: String
+    /** Recipient's last name. */
     public var lastName: String
+    /** Primary street address line. */
     public var address1: String
+    /** City name. */
     public var city: String
+    /** Two-letter state or province abbreviation. */
     public var state: String
+    /** ZIP or postal code. */
     public var zip: String
+    /** Country code (e.g. USA). */
     public var country: String
+    /** Secondary address line (suite, apartment, floor, etc.). */
     public var address2: String?
+    /** Tertiary address line. */
     public var address3: String?
+    /** User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation. */
     public var foo1: String?
+    /** User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation. */
     public var foo2: String?
 
     public init(firstName: String, lastName: String, address1: String, city: String, state: String, zip: String, country: String, address2: String? = nil, address3: String? = nil, foo1: String? = nil, foo2: String? = nil) {

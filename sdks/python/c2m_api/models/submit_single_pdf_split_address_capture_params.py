@@ -31,13 +31,13 @@ class SubmitSinglePdfSplitAddressCaptureParams(BaseModel):
     """
     SubmitSinglePdfSplitAddressCaptureParams
     """ # noqa: E501
-    job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
+    job_template: Optional[StrictStr] = Field(default=None, description="Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.", alias="jobTemplate")
     doc_source_standard: DocSourceStandard = Field(alias="docSourceStandard")
-    pdf_split_jobs_no_address: List[PdfSplitJobItemNoAddress] = Field(alias="pdfSplitJobsNoAddress")
+    pdf_split_jobs_no_address: List[PdfSplitJobItemNoAddress] = Field(description="List of page-range job items without inline addresses — addresses are captured externally (POST /batch/split/address-capture).", alias="pdfSplitJobsNoAddress")
     payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
     return_address: Optional[ReturnAddress] = Field(default=None, alias="returnAddress")
     job_options: Optional[JobOptions] = Field(default=None, alias="jobOptions")
-    tags: Optional[List[StrictStr]] = None
+    tags: Optional[List[StrictStr]] = Field(default=None, description="Array of user-defined string tags.")
     __properties: ClassVar[List[str]] = ["jobTemplate", "docSourceStandard", "pdfSplitJobsNoAddress", "paymentDetails", "returnAddress", "jobOptions", "tags"]
 
     model_config = ConfigDict(

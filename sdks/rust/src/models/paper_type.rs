@@ -11,7 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
+/// PaperType : Paper stock for printing.
+/// Paper stock for printing.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum PaperType {
     #[serde(rename = "white")]

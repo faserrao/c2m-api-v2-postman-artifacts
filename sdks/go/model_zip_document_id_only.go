@@ -19,8 +19,9 @@ import (
 // checks if the ZipDocumentIdOnly type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ZipDocumentIdOnly{}
 
-// ZipDocumentIdOnly struct for ZipDocumentIdOnly
+// ZipDocumentIdOnly Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames.
 type ZipDocumentIdOnly struct {
+	// Integer ID of a previously stored ZIP archive.
 	ZipDocumentId int32 `json:"zipDocumentId"`
 }
 

@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class ErrorType(str, Enum):
     """
-    ErrorType
+    High-level error category string (ValidationError, AuthenticationError, etc.).
     """
 
     """

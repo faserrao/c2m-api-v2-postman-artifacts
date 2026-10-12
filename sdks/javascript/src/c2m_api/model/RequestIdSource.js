@@ -21,8 +21,9 @@ import ApiClient from '../ApiClient';
 class RequestIdSource {
     /**
      * Constructs a new <code>RequestIdSource</code>.
+     * Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one.
      * @alias module:c2m_api/model/RequestIdSource
-     * @param requestId {Number} 
+     * @param requestId {Number} Integer ID of a prior file upload request. Also returned in success responses.
      */
     constructor(requestId) { 
         
@@ -85,11 +86,13 @@ class RequestIdSource {
 RequestIdSource.RequiredProperties = ["requestId"];
 
 /**
+ * Integer ID of a prior file upload request. Also returned in success responses.
  * @member {Number} requestId
  */
 RequestIdSource.prototype['requestId'] = undefined;
 
 /**
+ * Filename of a specific file within an upload request or ZIP archive.
  * @member {String} filename
  */
 RequestIdSource.prototype['filename'] = undefined;

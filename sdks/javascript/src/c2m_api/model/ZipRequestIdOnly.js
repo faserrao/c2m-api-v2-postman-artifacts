@@ -21,8 +21,9 @@ import ApiClient from '../ApiClient';
 class ZipRequestIdOnly {
     /**
      * Constructs a new <code>ZipRequestIdOnly</code>.
+     * Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
      * @alias module:c2m_api/model/ZipRequestIdOnly
-     * @param requestId {Number} 
+     * @param requestId {Number} Integer ID of a prior file upload request. Also returned in success responses.
      */
     constructor(requestId) { 
         
@@ -78,6 +79,7 @@ class ZipRequestIdOnly {
 ZipRequestIdOnly.RequiredProperties = ["requestId"];
 
 /**
+ * Integer ID of a prior file upload request. Also returned in success responses.
  * @member {Number} requestId
  */
 ZipRequestIdOnly.prototype['requestId'] = undefined;

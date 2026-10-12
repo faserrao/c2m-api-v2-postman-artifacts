@@ -20,18 +20,20 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Card expiration date containing month and year.
  *
- * @param month 
- * @param year 
+ * @param month Expiration month as an integer (1-12).
+ * @param year Expiration year as a four-digit integer (e.g. 2029).
  */
 
 
 data class ExpirationDate (
 
+    /* Expiration month as an integer (1-12). */
     @Json(name = "month")
     val month: kotlin.Int,
 
+    /* Expiration year as a four-digit integer (e.g. 2029). */
     @Json(name = "year")
     val year: kotlin.Int
 

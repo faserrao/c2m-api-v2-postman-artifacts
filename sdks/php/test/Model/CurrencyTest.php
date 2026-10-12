@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * CurrencyTest Class Doc Comment
  *
  * @category    Class
- * @description Currency
+ * @description ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

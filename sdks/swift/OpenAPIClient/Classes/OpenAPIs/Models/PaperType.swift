@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Paper stock for printing. */
 public enum PaperType: String, Codable, CaseIterable {
     case white = "white"
     case white24 = "white_24"

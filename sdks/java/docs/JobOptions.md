@@ -2,19 +2,20 @@
 
 # JobOptions
 
+Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**documentClass** | [**DocumentClassEnum**](#DocumentClassEnum) |  |  |
-|**layout** | [**LayoutEnum**](#LayoutEnum) |  |  |
-|**productionTime** | [**ProductionTimeEnum**](#ProductionTimeEnum) |  |  |
-|**envelope** | [**EnvelopeEnum**](#EnvelopeEnum) |  |  |
-|**color** | [**ColorEnum**](#ColorEnum) |  |  |
-|**paperType** | [**PaperTypeEnum**](#PaperTypeEnum) |  |  |
-|**printOption** | [**PrintOptionEnum**](#PrintOptionEnum) |  |  |
-|**mailClass** | [**MailClassEnum**](#MailClassEnum) |  |  |
+|**documentClass** | [**DocumentClassEnum**](#DocumentClassEnum) | Document class determining the mailpiece format. |  |
+|**layout** | [**LayoutEnum**](#LayoutEnum) | Page layout controlling where the recipient address is printed. |  |
+|**productionTime** | [**ProductionTimeEnum**](#ProductionTimeEnum) | Production time preference (next_day, two_day, etc.). |  |
+|**envelope** | [**EnvelopeEnum**](#EnvelopeEnum) | Envelope type used for the mailing. |  |
+|**color** | [**ColorEnum**](#ColorEnum) | Color mode for printing (full_color or black_and_white). |  |
+|**paperType** | [**PaperTypeEnum**](#PaperTypeEnum) | Paper stock for printing. |  |
+|**printOption** | [**PrintOptionEnum**](#PrintOptionEnum) | Duplex setting (double_sided or single_sided). |  |
+|**mailClass** | [**MailClassEnum**](#MailClassEnum) | USPS mail class (first_class, standard, or non_profit). |  |
 
 
 

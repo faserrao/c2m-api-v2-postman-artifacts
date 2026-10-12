@@ -35,13 +35,13 @@ class RecipientAddressSourceTest : ShouldSpec() {
             //modelInstance.recipientAddressByList shouldBe ("TODO")
         }
 
-        // to test the property `recipientAddressByAddressId`
+        // to test the property `recipientAddressByAddressId` - Reference to a previously stored individual recipient address by its integer ID.
         should("test recipientAddressByAddressId") {
             // uncomment below to test the property
             //modelInstance.recipientAddressByAddressId shouldBe ("TODO")
         }
 
-        // to test the property `recipientAddressByListId`
+        // to test the property `recipientAddressByListId` - Reference to a previously stored recipient address list by its integer ID.
         should("test recipientAddressByListId") {
             // uncomment below to test the property
             //modelInstance.recipientAddressByListId shouldBe ("TODO")

@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * ZipRequestIdOnly Class Doc Comment
  *
  * @category Class
+ * @description Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -305,7 +306,7 @@ class ZipRequestIdOnly implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets request_id
      *
-     * @param int $request_id request_id
+     * @param int $request_id Integer ID of a prior file upload request. Also returned in success responses.
      *
      * @return self
      */

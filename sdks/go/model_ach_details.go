@@ -19,10 +19,13 @@ import (
 // checks if the AchDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AchDetails{}
 
-// AchDetails struct for AchDetails
+// AchDetails ACH payment fields: routing number, bank account number, and check digit.
 type AchDetails struct {
+	// ABA bank routing number.
 	RoutingNumber string `json:"routingNumber"`
+	// Bank account number.
 	AccountNumber string `json:"accountNumber"`
+	// ACH check digit.
 	CheckDigit int32 `json:"checkDigit"`
 }
 

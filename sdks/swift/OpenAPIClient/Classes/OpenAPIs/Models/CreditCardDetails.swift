@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Credit card payment fields: card type, card number, expiration date, and CVV. */
 public struct CreditCardDetails: Codable, JSONEncodable, Hashable {
 
     public enum CardType: String, Codable, CaseIterable {
@@ -18,9 +19,12 @@ public struct CreditCardDetails: Codable, JSONEncodable, Hashable {
         case discover = "discover"
         case americanexpress = "americanExpress"
     }
+    /** Card brand enum: visa, mastercard, discover, or americanExpress. */
     public var cardType: CardType
+    /** Credit card number (PAN) as a string. */
     public var cardNumber: String
     public var expirationDate: ExpirationDate
+    /** Card security code (CVV/CVC) as an integer. */
     public var cvv: Int
 
     public init(cardType: CardType, cardNumber: String, expirationDate: ExpirationDate, cvv: Int) {

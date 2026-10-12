@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Page layout controlling where the recipient address is printed. */
 public enum Layout: String, Codable, CaseIterable {
     case addressOnFirstPage = "address_on_first_page"
     case addressOnBackPage = "address_on_back_page"

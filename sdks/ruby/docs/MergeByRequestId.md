@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **request_id** | **Integer** |  |  |
-| **filename** | **String** |  | [optional] |
+| **request_id** | **Integer** | Integer ID of a prior file upload request. Also returned in success responses. |  |
+| **filename** | **String** | Filename of a specific file within an upload request or ZIP archive. | [optional] |
 
 ## Example
 

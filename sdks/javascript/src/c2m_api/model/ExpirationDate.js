@@ -21,9 +21,10 @@ import ApiClient from '../ApiClient';
 class ExpirationDate {
     /**
      * Constructs a new <code>ExpirationDate</code>.
+     * Card expiration date containing month and year.
      * @alias module:c2m_api/model/ExpirationDate
-     * @param month {Number} 
-     * @param year {Number} 
+     * @param month {Number} Expiration month as an integer (1-12).
+     * @param year {Number} Expiration year as a four-digit integer (e.g. 2029).
      */
     constructor(month, year) { 
         
@@ -83,11 +84,13 @@ class ExpirationDate {
 ExpirationDate.RequiredProperties = ["month", "year"];
 
 /**
+ * Expiration month as an integer (1-12).
  * @member {Number} month
  */
 ExpirationDate.prototype['month'] = undefined;
 
 /**
+ * Expiration year as a four-digit integer (e.g. 2029).
  * @member {Number} year
  */
 ExpirationDate.prototype['year'] = undefined;

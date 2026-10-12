@@ -25,7 +25,7 @@ class UrlSourceTest : ShouldSpec() {
         // uncomment below to create an instance of UrlSource
         //val modelInstance = UrlSource()
 
-        // to test the property `url`
+        // to test the property `url` - URL from which the API will fetch the document at submission time.
         should("test url") {
             // uncomment below to test the property
             //modelInstance.url shouldBe ("TODO")

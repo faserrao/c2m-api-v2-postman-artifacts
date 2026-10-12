@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Top-level ZIP archive reference for batch endpoints — identifies the archive itself, not a file within it. No filename is required at this level. */
 public enum DocSourceZipFileRef: Codable, JSONEncodable, Hashable {
     case typeDocSourceZipFileRefOneOf(DocSourceZipFileRefOneOf)
     case typeDocSourceZipFileRefOneOf1(DocSourceZipFileRefOneOf1)

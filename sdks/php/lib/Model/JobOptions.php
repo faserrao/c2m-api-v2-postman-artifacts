@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * JobOptions Class Doc Comment
  *
  * @category Class
+ * @description Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -587,7 +588,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets document_class
      *
-     * @param string $document_class document_class
+     * @param string $document_class Document class determining the mailpiece format.
      *
      * @return self
      */
@@ -624,7 +625,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets layout
      *
-     * @param string $layout layout
+     * @param string $layout Page layout controlling where the recipient address is printed.
      *
      * @return self
      */
@@ -661,7 +662,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets production_time
      *
-     * @param string $production_time production_time
+     * @param string $production_time Production time preference (next_day, two_day, etc.).
      *
      * @return self
      */
@@ -698,7 +699,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets envelope
      *
-     * @param string $envelope envelope
+     * @param string $envelope Envelope type used for the mailing.
      *
      * @return self
      */
@@ -735,7 +736,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets color
      *
-     * @param string $color color
+     * @param string $color Color mode for printing (full_color or black_and_white).
      *
      * @return self
      */
@@ -772,7 +773,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets paper_type
      *
-     * @param string $paper_type paper_type
+     * @param string $paper_type Paper stock for printing.
      *
      * @return self
      */
@@ -809,7 +810,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets print_option
      *
-     * @param string $print_option print_option
+     * @param string $print_option Duplex setting (double_sided or single_sided).
      *
      * @return self
      */
@@ -846,7 +847,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets mail_class
      *
-     * @param string $mail_class mail_class
+     * @param string $mail_class USPS mail class (first_class, standard, or non_profit).
      *
      * @return self
      */

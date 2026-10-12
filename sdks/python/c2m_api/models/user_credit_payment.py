@@ -25,9 +25,9 @@ from typing_extensions import Self
 
 class UserCreditPayment(BaseModel):
     """
-    UserCreditPayment
+    Payment deducted from the account's prepaid credit balance.
     """ # noqa: E501
-    payment_type: StrictStr = Field(alias="paymentType")
+    payment_type: StrictStr = Field(description="Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).", alias="paymentType")
     credit_amount: CreditAmount = Field(alias="creditAmount")
     __properties: ClassVar[List[str]] = ["paymentType", "creditAmount"]
 

@@ -46,9 +46,9 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * ZipRequestIdSource
+ * Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ZipRequestIdSource {
   public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
@@ -74,7 +74,7 @@ public class ZipRequestIdSource {
   }
 
   /**
-   * Get requestId
+   * Integer ID of a prior file upload request. Also returned in success responses.
    * @return requestId
    */
   @javax.annotation.Nonnull
@@ -93,7 +93,7 @@ public class ZipRequestIdSource {
   }
 
   /**
-   * Get zipFilename
+   * Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
    * @return zipFilename
    */
   @javax.annotation.Nonnull
@@ -112,7 +112,7 @@ public class ZipRequestIdSource {
   }
 
   /**
-   * Get filename
+   * Filename of a specific file within an upload request or ZIP archive.
    * @return filename
    */
   @javax.annotation.Nonnull

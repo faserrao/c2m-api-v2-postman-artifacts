@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// PaymentType the model 'PaymentType'
+// PaymentType Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
 type PaymentType string
 
 // List of paymentType

@@ -11,15 +11,19 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// ZipDocumentIdSource : Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ZipDocumentIdSource {
+    /// Integer ID of a previously stored ZIP archive.
     #[serde(rename = "zipDocumentId")]
     pub zip_document_id: i32,
+    /// Filename of a specific file within an upload request or ZIP archive.
     #[serde(rename = "filename")]
     pub filename: String,
 }
 
 impl ZipDocumentIdSource {
+    /// Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
     pub fn new(zip_document_id: i32, filename: String) -> ZipDocumentIdSource {
         ZipDocumentIdSource {
             zip_document_id,

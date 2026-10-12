@@ -28,7 +28,7 @@ DOCSOURCESTANDARD_ONE_OF_SCHEMAS = ["DocSourceStandardOneOf", "DocSourceStandard
 
 class DocSourceStandard(BaseModel):
     """
-    DocSourceStandard
+    Document source — standard (non-zip) variants only: requestId, documentId, or URL.
     """
     # data type: DocSourceStandardOneOf
     oneof_schema_1_validator: Optional[DocSourceStandardOneOf] = None

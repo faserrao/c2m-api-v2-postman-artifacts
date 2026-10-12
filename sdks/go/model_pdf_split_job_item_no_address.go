@@ -19,10 +19,13 @@ import (
 // checks if the PdfSplitJobItemNoAddress type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PdfSplitJobItemNoAddress{}
 
-// PdfSplitJobItemNoAddress struct for PdfSplitJobItemNoAddress
+// PdfSplitJobItemNoAddress A single page-range job entry: page range only (no address — used for address-capture endpoint).
 type PdfSplitJobItemNoAddress struct {
+	// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
 	JobTemplate *string `json:"jobTemplate,omitempty"`
+	// First page of this job's page range, 1-indexed (inclusive).
 	StartPage int32 `json:"startPage"`
+	// Last page of this job's page range (inclusive). Must be >= startPage.
 	EndPage int32 `json:"endPage"`
 }
 

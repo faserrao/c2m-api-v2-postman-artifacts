@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** High-level error category string (ValidationError, AuthenticationError, etc.). */
 public enum ErrorType: String, Codable, CaseIterable {
     case validationError = "ValidationError"
     case authenticationError = "AuthenticationError"

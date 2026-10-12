@@ -11,17 +11,22 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// RecipientAddressByList : Inline list of recipient addresses with an optional merge-field mapping ID.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RecipientAddressByList {
+    /// Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.
     #[serde(rename = "mappingId", skip_serializing_if = "Option::is_none")]
     pub mapping_id: Option<i32>,
+    /// List of recipient mailing addresses — used for batch sends and mail merge.
     #[serde(rename = "addressList")]
     pub address_list: Vec<models::Address>,
+    /// Optional name for this address list record.
     #[serde(rename = "addressListName", skip_serializing_if = "Option::is_none")]
     pub address_list_name: Option<String>,
 }
 
 impl RecipientAddressByList {
+    /// Inline list of recipient addresses with an optional merge-field mapping ID.
     pub fn new(address_list: Vec<models::Address>) -> RecipientAddressByList {
         RecipientAddressByList {
             mapping_id: None,

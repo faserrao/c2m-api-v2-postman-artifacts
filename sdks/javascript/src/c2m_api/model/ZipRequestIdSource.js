@@ -21,10 +21,11 @@ import ApiClient from '../ApiClient';
 class ZipRequestIdSource {
     /**
      * Constructs a new <code>ZipRequestIdSource</code>.
+     * Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip.
      * @alias module:c2m_api/model/ZipRequestIdSource
-     * @param requestId {Number} 
-     * @param zipFilename {String} 
-     * @param filename {String} 
+     * @param requestId {Number} Integer ID of a prior file upload request. Also returned in success responses.
+     * @param zipFilename {String} Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
+     * @param filename {String} Filename of a specific file within an upload request or ZIP archive.
      */
     constructor(requestId, zipFilename, filename) { 
         
@@ -96,16 +97,19 @@ class ZipRequestIdSource {
 ZipRequestIdSource.RequiredProperties = ["requestId", "zipFilename", "filename"];
 
 /**
+ * Integer ID of a prior file upload request. Also returned in success responses.
  * @member {Number} requestId
  */
 ZipRequestIdSource.prototype['requestId'] = undefined;
 
 /**
+ * Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
  * @member {String} zipFilename
  */
 ZipRequestIdSource.prototype['zipFilename'] = undefined;
 
 /**
+ * Filename of a specific file within an upload request or ZIP archive.
  * @member {String} filename
  */
 ZipRequestIdSource.prototype['filename'] = undefined;

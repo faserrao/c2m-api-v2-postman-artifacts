@@ -25,49 +25,49 @@ class JobOptionsTest : ShouldSpec() {
         // uncomment below to create an instance of JobOptions
         //val modelInstance = JobOptions()
 
-        // to test the property `documentClass`
+        // to test the property `documentClass` - Document class determining the mailpiece format.
         should("test documentClass") {
             // uncomment below to test the property
             //modelInstance.documentClass shouldBe ("TODO")
         }
 
-        // to test the property `layout`
+        // to test the property `layout` - Page layout controlling where the recipient address is printed.
         should("test layout") {
             // uncomment below to test the property
             //modelInstance.layout shouldBe ("TODO")
         }
 
-        // to test the property `productionTime`
+        // to test the property `productionTime` - Production time preference (next_day, two_day, etc.).
         should("test productionTime") {
             // uncomment below to test the property
             //modelInstance.productionTime shouldBe ("TODO")
         }
 
-        // to test the property `envelope`
+        // to test the property `envelope` - Envelope type used for the mailing.
         should("test envelope") {
             // uncomment below to test the property
             //modelInstance.envelope shouldBe ("TODO")
         }
 
-        // to test the property `color`
+        // to test the property `color` - Color mode for printing (full_color or black_and_white).
         should("test color") {
             // uncomment below to test the property
             //modelInstance.color shouldBe ("TODO")
         }
 
-        // to test the property `paperType`
+        // to test the property `paperType` - Paper stock for printing.
         should("test paperType") {
             // uncomment below to test the property
             //modelInstance.paperType shouldBe ("TODO")
         }
 
-        // to test the property `printOption`
+        // to test the property `printOption` - Duplex setting (double_sided or single_sided).
         should("test printOption") {
             // uncomment below to test the property
             //modelInstance.printOption shouldBe ("TODO")
         }
 
-        // to test the property `mailClass`
+        // to test the property `mailClass` - USPS mail class (first_class, standard, or non_profit).
         should("test mailClass") {
             // uncomment below to test the property
             //modelInstance.mailClass shouldBe ("TODO")

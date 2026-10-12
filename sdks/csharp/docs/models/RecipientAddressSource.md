@@ -1,4 +1,5 @@
 # C2M.Api.Model.RecipientAddressSource
+Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
 
 ## Properties
 

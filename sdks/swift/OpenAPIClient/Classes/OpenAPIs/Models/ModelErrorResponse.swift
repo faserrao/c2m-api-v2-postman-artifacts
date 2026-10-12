@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Error response structure returned for all API error conditions. */
 public struct ModelErrorResponse: Codable, JSONEncodable, Hashable {
 
     public enum ErrorType: String, Codable, CaseIterable {
@@ -39,10 +40,15 @@ public struct ModelErrorResponse: Codable, JSONEncodable, Hashable {
         case externalServiceError = "EXTERNAL_SERVICE_ERROR"
         case rateLimitExceeded = "RATE_LIMIT_EXCEEDED"
     }
+    /** High-level error category string (ValidationError, AuthenticationError, etc.). */
     public var errorType: ErrorType
+    /** Human-readable error description. */
     public var errorMessage: String
+    /** Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). */
     public var errorCode: ErrorCode
+    /** Optional JSON object with additional error context (free-form key/value pairs). */
     public var errorDetails: String?
+    /** Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX. */
     public var errorTrackingId: String?
 
     public init(errorType: ErrorType, errorMessage: String, errorCode: ErrorCode, errorDetails: String? = nil, errorTrackingId: String? = nil) {

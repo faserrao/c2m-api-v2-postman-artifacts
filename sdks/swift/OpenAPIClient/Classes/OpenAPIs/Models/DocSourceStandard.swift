@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Document source — standard (non-zip) variants only: requestId, documentId, or URL. */
 public enum DocSourceStandard: Codable, JSONEncodable, Hashable {
     case typeDocSourceStandardOneOf(DocSourceStandardOneOf)
     case typeDocSourceStandardOneOf1(DocSourceStandardOneOf1)

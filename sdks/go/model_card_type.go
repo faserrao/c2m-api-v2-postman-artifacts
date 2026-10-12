@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// CardType the model 'CardType'
+// CardType Card brand enum: visa, mastercard, discover, or americanExpress.
 type CardType string
 
 // List of cardType

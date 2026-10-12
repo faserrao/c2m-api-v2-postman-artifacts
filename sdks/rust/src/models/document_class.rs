@@ -11,7 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
+/// DocumentClass : Document class determining the mailpiece format.
+/// Document class determining the mailpiece format.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum DocumentClass {
     #[serde(rename = "letter")]

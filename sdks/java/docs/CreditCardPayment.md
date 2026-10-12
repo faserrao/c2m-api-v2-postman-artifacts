@@ -2,12 +2,13 @@
 
 # CreditCardPayment
 
+Credit card payment variant.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**paymentType** | [**PaymentTypeEnum**](#PaymentTypeEnum) |  |  |
+|**paymentType** | [**PaymentTypeEnum**](#PaymentTypeEnum) | Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). |  |
 |**creditCardDetails** | [**CreditCardDetails**](CreditCardDetails.md) |  |  |
 
 

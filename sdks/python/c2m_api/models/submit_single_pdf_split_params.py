@@ -31,13 +31,13 @@ class SubmitSinglePdfSplitParams(BaseModel):
     """
     SubmitSinglePdfSplitParams
     """ # noqa: E501
-    job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
+    job_template: Optional[StrictStr] = Field(default=None, description="Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.", alias="jobTemplate")
     doc_source_standard: DocSourceStandard = Field(alias="docSourceStandard")
-    pdf_split_jobs_with_address: List[PdfSplitJobItemWithAddress] = Field(alias="pdfSplitJobsWithAddress")
+    pdf_split_jobs_with_address: List[PdfSplitJobItemWithAddress] = Field(description="List of page-range job items, each with its own inline recipient address.", alias="pdfSplitJobsWithAddress")
     payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
     return_address: Optional[ReturnAddress] = Field(default=None, alias="returnAddress")
     job_options: Optional[JobOptions] = Field(default=None, alias="jobOptions")
-    tags: Optional[List[StrictStr]] = None
+    tags: Optional[List[StrictStr]] = Field(default=None, description="Array of user-defined string tags.")
     __properties: ClassVar[List[str]] = ["jobTemplate", "docSourceStandard", "pdfSplitJobsWithAddress", "paymentDetails", "returnAddress", "jobOptions", "tags"]
 
     model_config = ConfigDict(

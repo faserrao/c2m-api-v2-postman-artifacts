@@ -4,12 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **job_template** | **String** |  | [optional] |
+| **job_template** | **String** | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. | [optional] |
 | **zip_document_source** | [**ZipDocumentSource**](ZipDocumentSource.md) |  |  |
 | **payment_details** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] |
 | **return_address** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] |
 | **job_options** | [**JobOptions**](JobOptions.md) |  | [optional] |
-| **tags** | **Array&lt;String&gt;** |  | [optional] |
+| **tags** | **Array&lt;String&gt;** | Array of user-defined string tags. | [optional] |
 
 ## Example
 

@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class Envelope(str, Enum):
     """
-    Envelope
+    Envelope type used for the mailing.
     """
 
     """

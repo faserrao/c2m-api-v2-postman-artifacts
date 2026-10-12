@@ -33,7 +33,7 @@ namespace C2M.Api.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecipientAddressSourceOneOf1" /> class.
         /// </summary>
-        /// <param name="recipientAddressByAddressId">recipientAddressByAddressId</param>
+        /// <param name="recipientAddressByAddressId">Reference to a previously stored individual recipient address by its integer ID.</param>
         [JsonConstructor]
         public RecipientAddressSourceOneOf1(int recipientAddressByAddressId)
         {
@@ -44,8 +44,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets RecipientAddressByAddressId
+        /// Reference to a previously stored individual recipient address by its integer ID.
         /// </summary>
+        /// <value>Reference to a previously stored individual recipient address by its integer ID.</value>
         [JsonPropertyName("recipientAddressByAddressId")]
         public int RecipientAddressByAddressId { get; set; }
 

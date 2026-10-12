@@ -29,7 +29,7 @@ PAYMENTDETAILS_ONE_OF_SCHEMAS = ["AchPayment", "CreditCardPayment", "InvoicePaym
 
 class PaymentDetails(BaseModel):
     """
-    PaymentDetails
+    Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.
     """
     # data type: CreditCardPayment
     oneof_schema_1_validator: Optional[CreditCardPayment] = None

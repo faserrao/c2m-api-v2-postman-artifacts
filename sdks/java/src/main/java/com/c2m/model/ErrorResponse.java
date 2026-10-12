@@ -46,12 +46,12 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * ErrorResponse
+ * Error response structure returned for all API error conditions.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ErrorResponse {
   /**
-   * Gets or Sets errorType
+   * High-level error category string (ValidationError, AuthenticationError, etc.).
    */
   @JsonAdapter(ErrorTypeEnum.Adapter.class)
   public enum ErrorTypeEnum {
@@ -121,7 +121,7 @@ public class ErrorResponse {
   private String errorMessage;
 
   /**
-   * Gets or Sets errorCode
+   * Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
    */
   @JsonAdapter(ErrorCodeEnum.Adapter.class)
   public enum ErrorCodeEnum {
@@ -226,7 +226,7 @@ public class ErrorResponse {
   }
 
   /**
-   * Get errorType
+   * High-level error category string (ValidationError, AuthenticationError, etc.).
    * @return errorType
    */
   @javax.annotation.Nonnull
@@ -245,7 +245,7 @@ public class ErrorResponse {
   }
 
   /**
-   * Get errorMessage
+   * Human-readable error description.
    * @return errorMessage
    */
   @javax.annotation.Nonnull
@@ -264,7 +264,7 @@ public class ErrorResponse {
   }
 
   /**
-   * Get errorCode
+   * Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
    * @return errorCode
    */
   @javax.annotation.Nonnull
@@ -283,7 +283,7 @@ public class ErrorResponse {
   }
 
   /**
-   * Get errorDetails
+   * Optional JSON object with additional error context (free-form key/value pairs).
    * @return errorDetails
    */
   @javax.annotation.Nullable
@@ -302,7 +302,7 @@ public class ErrorResponse {
   }
 
   /**
-   * Get errorTrackingId
+   * Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
    * @return errorTrackingId
    */
   @javax.annotation.Nullable

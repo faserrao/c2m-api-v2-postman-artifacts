@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**first_name** | **String** |  | 
-**last_name** | **String** |  | 
-**address1** | **String** |  | 
-**city** | **String** |  | 
-**state** | **String** |  | 
-**zip** | **String** |  | 
-**country** | **String** |  | 
-**address2** | Option<**String**> |  | [optional]
-**address3** | Option<**String**> |  | [optional]
-**foo1** | Option<**String**> |  | [optional]
-**foo2** | Option<**String**> |  | [optional]
+**first_name** | **String** | Recipient's first name. | 
+**last_name** | **String** | Recipient's last name. | 
+**address1** | **String** | Primary street address line. | 
+**city** | **String** | City name. | 
+**state** | **String** | Two-letter state or province abbreviation. | 
+**zip** | **String** | ZIP or postal code. | 
+**country** | **String** | Country code (e.g. USA). | 
+**address2** | Option<**String**> | Secondary address line (suite, apartment, floor, etc.). | [optional]
+**address3** | Option<**String**> | Tertiary address line. | [optional]
+**foo1** | Option<**String**> | User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation. | [optional]
+**foo2** | Option<**String**> | User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation. | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

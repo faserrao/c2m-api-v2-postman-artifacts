@@ -1,5 +1,6 @@
 # PaymentType
 
+Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
 
 ## Enum
 

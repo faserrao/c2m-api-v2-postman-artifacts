@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class Color(str, Enum):
     """
-    Color
+    Color mode for printing (full_color or black_and_white).
     """
 
     """

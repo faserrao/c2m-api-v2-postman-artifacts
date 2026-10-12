@@ -26,14 +26,14 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// UrlSource
+    /// Fetch the document from an external URL at submission time.
     /// </summary>
     public partial class UrlSource : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UrlSource" /> class.
         /// </summary>
-        /// <param name="url">url</param>
+        /// <param name="url">URL from which the API will fetch the document at submission time.</param>
         [JsonConstructor]
         public UrlSource(string url)
         {
@@ -44,8 +44,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets Url
+        /// URL from which the API will fetch the document at submission time.
         /// </summary>
+        /// <value>URL from which the API will fetch the document at submission time.</value>
         [JsonPropertyName("url")]
         public string Url { get; set; }
 

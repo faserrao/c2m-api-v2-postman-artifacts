@@ -14,9 +14,12 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Account credit payment fields: monetary amount and ISO currency code.
   class CreditAmount
+    # Monetary amount as a numeric value.
     attr_accessor :amount
 
+    # ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
     attr_accessor :currency
 
     class EnumAttributeValidator

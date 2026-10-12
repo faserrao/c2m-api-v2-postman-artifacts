@@ -14,9 +14,12 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.
   class MergeByRequestId
+    # Integer ID of a prior file upload request. Also returned in success responses.
     attr_accessor :request_id
 
+    # Filename of a specific file within an upload request or ZIP archive.
     attr_accessor :filename
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -1,11 +1,12 @@
 # MultiDocJobItem
 
+A single independent document job entry within a multi-doc batch.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**job_template** | **str** |  | [optional] 
+**job_template** | **str** | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. | [optional] 
 **doc_source_all** | [**DocSourceAll**](DocSourceAll.md) |  | 
 **recipient_address_source** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 

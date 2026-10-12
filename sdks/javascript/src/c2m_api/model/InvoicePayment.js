@@ -22,8 +22,9 @@ import InvoiceDetails from './InvoiceDetails';
 class InvoicePayment {
     /**
      * Constructs a new <code>InvoicePayment</code>.
+     * Invoice payment — billed to an existing account invoice.
      * @alias module:c2m_api/model/InvoicePayment
-     * @param paymentType {module:c2m_api/model/InvoicePayment.PaymentTypeEnum} 
+     * @param paymentType {module:c2m_api/model/InvoicePayment.PaymentTypeEnum} Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
      * @param invoiceDetails {module:c2m_api/model/InvoiceDetails} 
      */
     constructor(paymentType, invoiceDetails) { 
@@ -92,6 +93,7 @@ class InvoicePayment {
 InvoicePayment.RequiredProperties = ["paymentType", "invoiceDetails"];
 
 /**
+ * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
  * @member {module:c2m_api/model/InvoicePayment.PaymentTypeEnum} paymentType
  */
 InvoicePayment.prototype['paymentType'] = undefined;

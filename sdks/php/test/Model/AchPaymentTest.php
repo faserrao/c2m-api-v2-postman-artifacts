@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * AchPaymentTest Class Doc Comment
  *
  * @category    Class
- * @description AchPayment
+ * @description ACH bank transfer payment variant.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

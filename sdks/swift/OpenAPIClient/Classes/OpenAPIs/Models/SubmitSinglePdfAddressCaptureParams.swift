@@ -12,11 +12,13 @@ import AnyCodable
 
 public struct SubmitSinglePdfAddressCaptureParams: Codable, JSONEncodable, Hashable {
 
+    /** Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
     public var jobTemplate: String?
     public var docSourceStandard: DocSourceStandard
     public var paymentDetails: PaymentDetails?
     public var returnAddress: ReturnAddress?
     public var jobOptions: JobOptions?
+    /** Array of user-defined string tags. */
     public var tags: [String]?
 
     public init(jobTemplate: String? = nil, docSourceStandard: DocSourceStandard, paymentDetails: PaymentDetails? = nil, returnAddress: ReturnAddress? = nil, jobOptions: JobOptions? = nil, tags: [String]? = nil) {

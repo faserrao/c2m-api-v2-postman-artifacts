@@ -4,8 +4,8 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **invoiceNumber** | **kotlin.String** |  |  |
-| **amountDue** | [**java.math.BigDecimal**](java.math.BigDecimal.md) |  |  |
+| **invoiceNumber** | **kotlin.String** | Invoice reference number. |  |
+| **amountDue** | [**java.math.BigDecimal**](java.math.BigDecimal.md) | Amount due on the invoice. |  |
 
 
 

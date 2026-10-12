@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Paper stock for printing.
  *
  * Values: white,white_24,ivory,glossy
  */

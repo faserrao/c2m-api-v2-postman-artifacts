@@ -305,7 +305,7 @@ class RecipientAddressSourceOneOf2 implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets recipient_address_by_list_id
      *
-     * @param int $recipient_address_by_list_id recipient_address_by_list_id
+     * @param int $recipient_address_by_list_id Reference to a previously stored recipient address list by its integer ID.
      *
      * @return self
      */

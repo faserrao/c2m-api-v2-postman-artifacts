@@ -42,7 +42,7 @@ class SubmitDocParamsTest : ShouldSpec() {
             //modelInstance.recipientAddressSource shouldBe ("TODO")
         }
 
-        // to test the property `jobTemplate`
+        // to test the property `jobTemplate` - Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
         should("test jobTemplate") {
             // uncomment below to test the property
             //modelInstance.jobTemplate shouldBe ("TODO")
@@ -66,7 +66,7 @@ class SubmitDocParamsTest : ShouldSpec() {
             //modelInstance.jobOptions shouldBe ("TODO")
         }
 
-        // to test the property `tags`
+        // to test the property `tags` - Array of user-defined string tags.
         should("test tags") {
             // uncomment below to test the property
             //modelInstance.tags shouldBe ("TODO")

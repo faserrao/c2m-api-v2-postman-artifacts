@@ -19,9 +19,11 @@ import (
 // checks if the MultiZipJobItem type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &MultiZipJobItem{}
 
-// MultiZipJobItem struct for MultiZipJobItem
+// MultiZipJobItem A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.
 type MultiZipJobItem struct {
+	// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
 	JobTemplate *string `json:"jobTemplate,omitempty"`
+	// Filename of a specific file within an upload request or ZIP archive.
 	Filename string `json:"filename"`
 	RecipientAddressSource RecipientAddressSource `json:"recipientAddressSource"`
 }

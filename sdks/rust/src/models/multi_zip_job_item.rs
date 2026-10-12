@@ -11,10 +11,13 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// MultiZipJobItem : A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MultiZipJobItem {
+    /// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
     #[serde(rename = "jobTemplate", skip_serializing_if = "Option::is_none")]
     pub job_template: Option<String>,
+    /// Filename of a specific file within an upload request or ZIP archive.
     #[serde(rename = "filename")]
     pub filename: String,
     #[serde(rename = "recipientAddressSource")]
@@ -22,6 +25,7 @@ pub struct MultiZipJobItem {
 }
 
 impl MultiZipJobItem {
+    /// A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.
     pub fn new(filename: String, recipient_address_source: models::RecipientAddressSource) -> MultiZipJobItem {
         MultiZipJobItem {
             job_template: None,

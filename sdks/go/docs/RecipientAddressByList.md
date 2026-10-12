@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MappingId** | Pointer to **int32** |  | [optional] 
-**AddressList** | [**[]Address**](Address.md) |  | 
-**AddressListName** | Pointer to **string** |  | [optional] 
+**MappingId** | Pointer to **int32** | Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used. | [optional] 
+**AddressList** | [**[]Address**](Address.md) | List of recipient mailing addresses — used for batch sends and mail merge. | 
+**AddressListName** | Pointer to **string** | Optional name for this address list record. | [optional] 
 
 ## Methods
 

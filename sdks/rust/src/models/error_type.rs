@@ -11,7 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
+/// ErrorType : High-level error category string (ValidationError, AuthenticationError, etc.).
+/// High-level error category string (ValidationError, AuthenticationError, etc.).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ErrorType {
     #[serde(rename = "ValidationError")]

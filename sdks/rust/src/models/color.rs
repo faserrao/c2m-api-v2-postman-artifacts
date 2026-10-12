@@ -11,7 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
+/// Color : Color mode for printing (full_color or black_and_white).
+/// Color mode for printing (full_color or black_and_white).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Color {
     #[serde(rename = "full_color")]

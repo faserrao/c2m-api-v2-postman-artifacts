@@ -14,9 +14,12 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Invoice payment fields: invoice number and amount due.
   class InvoiceDetails
+    # Invoice reference number.
     attr_accessor :invoice_number
 
+    # Amount due on the invoice.
     attr_accessor :amount_due
 
     # Attribute mapping from ruby-style variable name to JSON key.

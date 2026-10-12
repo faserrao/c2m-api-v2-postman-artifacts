@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PaymentType** | **string** |  | 
+**PaymentType** | **string** | Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). | 
 **CreditCardDetails** | [**CreditCardDetails**](CreditCardDetails.md) |  | 
 **InvoiceDetails** | [**InvoiceDetails**](InvoiceDetails.md) |  | 
 **AchDetails** | [**AchDetails**](AchDetails.md) |  | 

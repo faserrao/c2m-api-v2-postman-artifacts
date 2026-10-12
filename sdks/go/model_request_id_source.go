@@ -19,9 +19,11 @@ import (
 // checks if the RequestIdSource type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &RequestIdSource{}
 
-// RequestIdSource struct for RequestIdSource
+// RequestIdSource Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one.
 type RequestIdSource struct {
+	// Integer ID of a prior file upload request. Also returned in success responses.
 	RequestId int32 `json:"requestId"`
+	// Filename of a specific file within an upload request or ZIP archive.
 	Filename *string `json:"filename,omitempty"`
 }
 

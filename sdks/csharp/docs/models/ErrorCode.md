@@ -1,4 +1,5 @@
 # C2M.Api.Model.ErrorCode
+Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
 
 ## Properties
 

@@ -11,6 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// ZipDocumentSource : ZIP document source — either a stored zip archive (zipDocumentId) or an uploaded zip archive (requestId).
+/// ZIP document source — either a stored zip archive (zipDocumentId) or an uploaded zip archive (requestId).
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum ZipDocumentSource {

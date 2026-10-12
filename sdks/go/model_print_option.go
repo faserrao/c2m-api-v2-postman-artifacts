@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// PrintOption the model 'PrintOption'
+// PrintOption Duplex setting (double_sided or single_sided).
 type PrintOption string
 
 // List of printOption

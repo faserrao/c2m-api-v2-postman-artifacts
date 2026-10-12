@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * ErrorResponse Class Doc Comment
  *
  * @category Class
+ * @description Error response structure returned for all API error conditions.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -425,7 +426,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets error_type
      *
-     * @param string $error_type error_type
+     * @param string $error_type High-level error category string (ValidationError, AuthenticationError, etc.).
      *
      * @return self
      */
@@ -462,7 +463,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets error_message
      *
-     * @param string $error_message error_message
+     * @param string $error_message Human-readable error description.
      *
      * @return self
      */
@@ -489,7 +490,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets error_code
      *
-     * @param string $error_code error_code
+     * @param string $error_code Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
      *
      * @return self
      */
@@ -526,7 +527,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets error_details
      *
-     * @param string|null $error_details error_details
+     * @param string|null $error_details Optional JSON object with additional error context (free-form key/value pairs).
      *
      * @return self
      */
@@ -553,7 +554,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets error_tracking_id
      *
-     * @param string|null $error_tracking_id error_tracking_id
+     * @param string|null $error_tracking_id Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
      *
      * @return self
      */

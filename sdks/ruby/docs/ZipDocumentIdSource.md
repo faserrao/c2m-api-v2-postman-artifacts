@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **zip_document_id** | **Integer** |  |  |
-| **filename** | **String** |  |  |
+| **zip_document_id** | **Integer** | Integer ID of a previously stored ZIP archive. |  |
+| **filename** | **String** | Filename of a specific file within an upload request or ZIP archive. |  |
 
 ## Example
 

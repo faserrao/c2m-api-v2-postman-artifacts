@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** USPS mail class (first_class, standard, or non_profit). */
 public enum MailClass: String, Codable, CaseIterable {
     case firstClass = "first_class"
     case standard = "standard"

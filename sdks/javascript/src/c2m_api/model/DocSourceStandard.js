@@ -27,6 +27,7 @@ import UrlSource from './UrlSource';
 class DocSourceStandard {
     /**
      * Constructs a new <code>DocSourceStandard</code>.
+     * Document source — standard (non-zip) variants only: requestId, documentId, or URL.
      * @alias module:c2m_api/model/DocSourceStandard
      * @param {(module:c2m_api/model/DocSourceStandardOneOf|module:c2m_api/model/DocSourceStandardOneOf1|module:c2m_api/model/DocSourceStandardOneOf2)} instance The actual instance to initialize DocSourceStandard.
      */

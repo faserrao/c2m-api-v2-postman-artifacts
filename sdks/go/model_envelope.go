@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// Envelope the model 'Envelope'
+// Envelope Envelope type used for the mailing.
 type Envelope string
 
 // List of envelope

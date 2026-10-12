@@ -25,6 +25,7 @@ import ZipRequestIdSource from './ZipRequestIdSource';
 class DocSourceZipFile {
     /**
      * Constructs a new <code>DocSourceZipFile</code>.
+     * Document source — zip variants: a specific file within a stored ZIP (zipDocumentId + filename) or uploaded ZIP (requestId + zipFilename + filename).
      * @alias module:c2m_api/model/DocSourceZipFile
      * @param {(module:c2m_api/model/ZipDocumentSourceOneOf|module:c2m_api/model/ZipDocumentSourceOneOf1)} instance The actual instance to initialize DocSourceZipFile.
      */

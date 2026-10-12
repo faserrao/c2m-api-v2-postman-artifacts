@@ -19,8 +19,9 @@ import (
 // checks if the MergeByDocumentId type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &MergeByDocumentId{}
 
-// MergeByDocumentId struct for MergeByDocumentId
+// MergeByDocumentId Merge a stored document identified by its document ID.
 type MergeByDocumentId struct {
+	// Integer ID of a previously stored or uploaded document.
 	DocumentId int32 `json:"documentId"`
 }
 

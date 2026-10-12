@@ -47,9 +47,9 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * CreditAmount
+ * Account credit payment fields: monetary amount and ISO currency code.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class CreditAmount {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -57,7 +57,7 @@ public class CreditAmount {
   private BigDecimal amount;
 
   /**
-   * Gets or Sets currency
+   * ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
    */
   @JsonAdapter(CurrencyEnum.Adapter.class)
   public enum CurrencyEnum {
@@ -128,7 +128,7 @@ public class CreditAmount {
   }
 
   /**
-   * Get amount
+   * Monetary amount as a numeric value.
    * @return amount
    */
   @javax.annotation.Nonnull
@@ -147,7 +147,7 @@ public class CreditAmount {
   }
 
   /**
-   * Get currency
+   * ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
    * @return currency
    */
   @javax.annotation.Nonnull

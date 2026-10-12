@@ -29,6 +29,7 @@ import UserCreditPayment from './UserCreditPayment';
 class PaymentDetails {
     /**
      * Constructs a new <code>PaymentDetails</code>.
+     * Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.
      * @alias module:c2m_api/model/PaymentDetails
      * @param {(module:c2m_api/model/AchPayment|module:c2m_api/model/CreditCardPayment|module:c2m_api/model/InvoicePayment|module:c2m_api/model/UserCreditPayment)} instance The actual instance to initialize PaymentDetails.
      */
@@ -160,6 +161,7 @@ class PaymentDetails {
 }
 
 /**
+ * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
  * @member {module:c2m_api/model/PaymentDetails.PaymentTypeEnum} paymentType
  */
 PaymentDetails.prototype['paymentType'] = undefined;

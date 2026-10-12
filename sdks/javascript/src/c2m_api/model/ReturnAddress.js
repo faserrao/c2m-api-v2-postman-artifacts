@@ -21,14 +21,15 @@ import ApiClient from '../ApiClient';
 class ReturnAddress {
     /**
      * Constructs a new <code>ReturnAddress</code>.
+     * Optional sender return address printed on the mailpiece.
      * @alias module:c2m_api/model/ReturnAddress
-     * @param firstName {String} 
-     * @param lastName {String} 
-     * @param address1 {String} 
-     * @param city {String} 
-     * @param state {String} 
-     * @param zip {String} 
-     * @param country {String} 
+     * @param firstName {String} Recipient's first name.
+     * @param lastName {String} Recipient's last name.
+     * @param address1 {String} Primary street address line.
+     * @param city {String} City name.
+     * @param state {String} Two-letter state or province abbreviation.
+     * @param zip {String} ZIP or postal code.
+     * @param country {String} Country code (e.g. USA).
      */
     constructor(firstName, lastName, address1, city, state, zip, country) { 
         
@@ -157,51 +158,61 @@ class ReturnAddress {
 ReturnAddress.RequiredProperties = ["firstName", "lastName", "address1", "city", "state", "zip", "country"];
 
 /**
+ * Recipient's first name.
  * @member {String} firstName
  */
 ReturnAddress.prototype['firstName'] = undefined;
 
 /**
+ * Recipient's last name.
  * @member {String} lastName
  */
 ReturnAddress.prototype['lastName'] = undefined;
 
 /**
+ * Recipient's company or organisation name (optional).
  * @member {String} company
  */
 ReturnAddress.prototype['company'] = undefined;
 
 /**
+ * Primary street address line.
  * @member {String} address1
  */
 ReturnAddress.prototype['address1'] = undefined;
 
 /**
+ * City name.
  * @member {String} city
  */
 ReturnAddress.prototype['city'] = undefined;
 
 /**
+ * Two-letter state or province abbreviation.
  * @member {String} state
  */
 ReturnAddress.prototype['state'] = undefined;
 
 /**
+ * ZIP or postal code.
  * @member {String} zip
  */
 ReturnAddress.prototype['zip'] = undefined;
 
 /**
+ * Country code (e.g. USA).
  * @member {String} country
  */
 ReturnAddress.prototype['country'] = undefined;
 
 /**
+ * Secondary address line (suite, apartment, floor, etc.).
  * @member {String} address2
  */
 ReturnAddress.prototype['address2'] = undefined;
 
 /**
+ * Tertiary address line.
  * @member {String} address3
  */
 ReturnAddress.prototype['address3'] = undefined;

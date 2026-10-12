@@ -10,11 +10,13 @@ import Foundation
 import AnyCodable
 #endif
 
+/** ACH bank transfer payment variant. */
 public struct AchPayment: Codable, JSONEncodable, Hashable {
 
     public enum PaymentType: String, Codable, CaseIterable {
         case ach = "ach"
     }
+    /** Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). */
     public var paymentType: PaymentType
     public var achDetails: AchDetails
 

@@ -11,7 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
+/// ErrorCode : Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
+/// Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ErrorCode {
     #[serde(rename = "MISSING_REQUIRED_FIELD")]

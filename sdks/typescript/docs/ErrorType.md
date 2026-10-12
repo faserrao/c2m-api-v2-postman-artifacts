@@ -1,5 +1,6 @@
 # ErrorType
 
+High-level error category string (ValidationError, AuthenticationError, etc.).
 
 ## Enum
 

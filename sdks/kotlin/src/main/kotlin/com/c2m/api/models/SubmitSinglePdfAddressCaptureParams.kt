@@ -27,11 +27,11 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param docSourceStandard 
- * @param jobTemplate 
+ * @param jobTemplate Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  * @param paymentDetails 
  * @param returnAddress 
  * @param jobOptions 
- * @param tags 
+ * @param tags Array of user-defined string tags.
  */
 
 
@@ -40,6 +40,7 @@ data class SubmitSinglePdfAddressCaptureParams (
     @Json(name = "docSourceStandard")
     val docSourceStandard: DocSourceStandard,
 
+    /* Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
     @Json(name = "jobTemplate")
     val jobTemplate: kotlin.String? = null,
 
@@ -52,6 +53,7 @@ data class SubmitSinglePdfAddressCaptureParams (
     @Json(name = "jobOptions")
     val jobOptions: JobOptions? = null,
 
+    /* Array of user-defined string tags. */
     @Json(name = "tags")
     val tags: kotlin.collections.List<kotlin.String>? = null
 

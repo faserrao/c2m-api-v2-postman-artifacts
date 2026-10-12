@@ -10,9 +10,12 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one. */
 public struct RequestIdSource: Codable, JSONEncodable, Hashable {
 
+    /** Integer ID of a prior file upload request. Also returned in success responses. */
     public var requestId: Int
+    /** Filename of a specific file within an upload request or ZIP archive. */
     public var filename: String?
 
     public init(requestId: Int, filename: String? = nil) {

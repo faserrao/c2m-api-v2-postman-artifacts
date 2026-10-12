@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * UrlSourceTest Class Doc Comment
  *
  * @category    Class
- * @description UrlSource
+ * @description Fetch the document from an external URL at submission time.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

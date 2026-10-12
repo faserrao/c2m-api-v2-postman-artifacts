@@ -28,7 +28,7 @@ class SubmitSinglePdfSplitParams {
      * Constructs a new <code>SubmitSinglePdfSplitParams</code>.
      * @alias module:c2m_api/model/SubmitSinglePdfSplitParams
      * @param docSourceStandard {module:c2m_api/model/DocSourceStandard} 
-     * @param pdfSplitJobsWithAddress {Array.<module:c2m_api/model/PdfSplitJobItemWithAddress>} 
+     * @param pdfSplitJobsWithAddress {Array.<module:c2m_api/model/PdfSplitJobItemWithAddress>} List of page-range job items, each with its own inline recipient address.
      */
     constructor(docSourceStandard, pdfSplitJobsWithAddress) { 
         
@@ -137,6 +137,7 @@ class SubmitSinglePdfSplitParams {
 SubmitSinglePdfSplitParams.RequiredProperties = ["docSourceStandard", "pdfSplitJobsWithAddress"];
 
 /**
+ * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  * @member {String} jobTemplate
  */
 SubmitSinglePdfSplitParams.prototype['jobTemplate'] = undefined;
@@ -147,6 +148,7 @@ SubmitSinglePdfSplitParams.prototype['jobTemplate'] = undefined;
 SubmitSinglePdfSplitParams.prototype['docSourceStandard'] = undefined;
 
 /**
+ * List of page-range job items, each with its own inline recipient address.
  * @member {Array.<module:c2m_api/model/PdfSplitJobItemWithAddress>} pdfSplitJobsWithAddress
  */
 SubmitSinglePdfSplitParams.prototype['pdfSplitJobsWithAddress'] = undefined;
@@ -167,6 +169,7 @@ SubmitSinglePdfSplitParams.prototype['returnAddress'] = undefined;
 SubmitSinglePdfSplitParams.prototype['jobOptions'] = undefined;
 
 /**
+ * Array of user-defined string tags.
  * @member {Array.<String>} tags
  */
 SubmitSinglePdfSplitParams.prototype['tags'] = undefined;

@@ -1,11 +1,12 @@
 # UserCreditPayment
 
+Payment deducted from the account's prepaid credit balance.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payment_type** | **str** |  | 
+**payment_type** | **str** | Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). | 
 **credit_amount** | [**CreditAmount**](CreditAmount.md) |  | 
 
 ## Example

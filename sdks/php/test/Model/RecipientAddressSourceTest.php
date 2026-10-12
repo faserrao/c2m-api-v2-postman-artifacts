@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * RecipientAddressSourceTest Class Doc Comment
  *
  * @category    Class
- * @description RecipientAddressSource
+ * @description Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

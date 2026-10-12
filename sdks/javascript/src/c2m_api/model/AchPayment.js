@@ -22,8 +22,9 @@ import AchDetails from './AchDetails';
 class AchPayment {
     /**
      * Constructs a new <code>AchPayment</code>.
+     * ACH bank transfer payment variant.
      * @alias module:c2m_api/model/AchPayment
-     * @param paymentType {module:c2m_api/model/AchPayment.PaymentTypeEnum} 
+     * @param paymentType {module:c2m_api/model/AchPayment.PaymentTypeEnum} Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
      * @param achDetails {module:c2m_api/model/AchDetails} 
      */
     constructor(paymentType, achDetails) { 
@@ -92,6 +93,7 @@ class AchPayment {
 AchPayment.RequiredProperties = ["paymentType", "achDetails"];
 
 /**
+ * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
  * @member {module:c2m_api/model/AchPayment.PaymentTypeEnum} paymentType
  */
 AchPayment.prototype['paymentType'] = undefined;

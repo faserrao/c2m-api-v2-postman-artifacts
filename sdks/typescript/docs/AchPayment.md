@@ -1,11 +1,12 @@
 # AchPayment
 
+ACH bank transfer payment variant.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**paymentType** | **string** |  | [default to undefined]
+**paymentType** | **string** | Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). | [default to undefined]
 **achDetails** | [**AchDetails**](AchDetails.md) |  | [default to undefined]
 
 ## Example

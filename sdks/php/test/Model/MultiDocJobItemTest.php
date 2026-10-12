@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * MultiDocJobItemTest Class Doc Comment
  *
  * @category    Class
- * @description MultiDocJobItem
+ * @description A single independent document job entry within a multi-doc batch.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

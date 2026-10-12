@@ -10,11 +10,13 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Invoice payment — billed to an existing account invoice. */
 public struct InvoicePayment: Codable, JSONEncodable, Hashable {
 
     public enum PaymentType: String, Codable, CaseIterable {
         case invoice = "invoice"
     }
+    /** Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). */
     public var paymentType: PaymentType
     public var invoiceDetails: InvoiceDetails
 

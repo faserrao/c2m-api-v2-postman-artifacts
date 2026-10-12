@@ -1,5 +1,6 @@
 # Currency
 
+ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
 
 ## Enum
 

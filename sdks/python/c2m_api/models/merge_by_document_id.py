@@ -24,9 +24,9 @@ from typing_extensions import Self
 
 class MergeByDocumentId(BaseModel):
     """
-    MergeByDocumentId
+    Merge a stored document identified by its document ID.
     """ # noqa: E501
-    document_id: StrictInt = Field(alias="documentId")
+    document_id: StrictInt = Field(description="Integer ID of a previously stored or uploaded document.", alias="documentId")
     __properties: ClassVar[List[str]] = ["documentId"]
 
     model_config = ConfigDict(

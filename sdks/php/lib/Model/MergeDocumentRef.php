@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * MergeDocumentRef Class Doc Comment
  *
  * @category Class
+ * @description A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

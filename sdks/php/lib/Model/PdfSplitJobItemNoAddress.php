@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * PdfSplitJobItemNoAddress Class Doc Comment
  *
  * @category Class
+ * @description A single page-range job entry: page range only (no address — used for address-capture endpoint).
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -330,7 +331,7 @@ class PdfSplitJobItemNoAddress implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets job_template
      *
-     * @param string|null $job_template job_template
+     * @param string|null $job_template Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
      *
      * @return self
      */
@@ -357,7 +358,7 @@ class PdfSplitJobItemNoAddress implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets start_page
      *
-     * @param int $start_page start_page
+     * @param int $start_page First page of this job's page range, 1-indexed (inclusive).
      *
      * @return self
      */
@@ -389,7 +390,7 @@ class PdfSplitJobItemNoAddress implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets end_page
      *
-     * @param int $end_page end_page
+     * @param int $end_page Last page of this job's page range (inclusive). Must be >= startPage.
      *
      * @return self
      */

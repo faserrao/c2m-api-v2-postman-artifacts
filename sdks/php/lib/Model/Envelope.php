@@ -33,6 +33,7 @@ use \C2MApi\ObjectSerializer;
  * Envelope Class Doc Comment
  *
  * @category Class
+ * @description Envelope type used for the mailing.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

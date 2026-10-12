@@ -25,10 +25,10 @@ from typing_extensions import Self
 
 class MultiZipJobItem(BaseModel):
     """
-    MultiZipJobItem
+    A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.
     """ # noqa: E501
-    job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
-    filename: StrictStr
+    job_template: Optional[StrictStr] = Field(default=None, description="Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.", alias="jobTemplate")
+    filename: StrictStr = Field(description="Filename of a specific file within an upload request or ZIP archive.")
     recipient_address_source: RecipientAddressSource = Field(alias="recipientAddressSource")
     __properties: ClassVar[List[str]] = ["jobTemplate", "filename", "recipientAddressSource"]
 

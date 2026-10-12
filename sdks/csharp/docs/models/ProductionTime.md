@@ -1,4 +1,5 @@
 # C2M.Api.Model.ProductionTime
+Production time preference (next_day, two_day, etc.).
 
 ## Properties
 

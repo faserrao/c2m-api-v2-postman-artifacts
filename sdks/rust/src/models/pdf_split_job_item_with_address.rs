@@ -11,12 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// PdfSplitJobItemWithAddress : A single page-range job entry: page range (startPage, endPage) plus a recipient address.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct PdfSplitJobItemWithAddress {
+    /// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
     #[serde(rename = "jobTemplate", skip_serializing_if = "Option::is_none")]
     pub job_template: Option<String>,
+    /// First page of this job's page range, 1-indexed (inclusive).
     #[serde(rename = "startPage")]
     pub start_page: i32,
+    /// Last page of this job's page range (inclusive). Must be >= startPage.
     #[serde(rename = "endPage")]
     pub end_page: i32,
     #[serde(rename = "recipientAddressSource")]
@@ -24,6 +28,7 @@ pub struct PdfSplitJobItemWithAddress {
 }
 
 impl PdfSplitJobItemWithAddress {
+    /// A single page-range job entry: page range (startPage, endPage) plus a recipient address.
     pub fn new(start_page: i32, end_page: i32, recipient_address_source: models::RecipientAddressSource) -> PdfSplitJobItemWithAddress {
         PdfSplitJobItemWithAddress {
             job_template: None,

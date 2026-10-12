@@ -11,15 +11,19 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// InvoiceDetails : Invoice payment fields: invoice number and amount due.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct InvoiceDetails {
+    /// Invoice reference number.
     #[serde(rename = "invoiceNumber")]
     pub invoice_number: String,
+    /// Amount due on the invoice.
     #[serde(rename = "amountDue")]
     pub amount_due: f64,
 }
 
 impl InvoiceDetails {
+    /// Invoice payment fields: invoice number and amount due.
     pub fn new(invoice_number: String, amount_due: f64) -> InvoiceDetails {
         InvoiceDetails {
             invoice_number,

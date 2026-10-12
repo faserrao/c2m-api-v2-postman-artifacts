@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets color
+ * Color mode for printing (full_color or black_and_white).
  */
 @JsonAdapter(Color.Adapter.class)
 public enum Color {

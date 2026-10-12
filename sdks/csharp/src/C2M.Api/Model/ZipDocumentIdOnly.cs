@@ -26,14 +26,14 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// ZipDocumentIdOnly
+    /// Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames.
     /// </summary>
     public partial class ZipDocumentIdOnly : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ZipDocumentIdOnly" /> class.
         /// </summary>
-        /// <param name="zipDocumentId">zipDocumentId</param>
+        /// <param name="zipDocumentId">Integer ID of a previously stored ZIP archive.</param>
         [JsonConstructor]
         public ZipDocumentIdOnly(int zipDocumentId)
         {
@@ -44,8 +44,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets ZipDocumentId
+        /// Integer ID of a previously stored ZIP archive.
         /// </summary>
+        /// <value>Integer ID of a previously stored ZIP archive.</value>
         [JsonPropertyName("zipDocumentId")]
         public int ZipDocumentId { get; set; }
 

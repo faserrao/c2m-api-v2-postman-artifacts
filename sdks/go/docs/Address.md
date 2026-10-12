@@ -4,17 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FirstName** | **string** |  | 
-**LastName** | **string** |  | 
-**Address1** | **string** |  | 
-**City** | **string** |  | 
-**State** | **string** |  | 
-**Zip** | **string** |  | 
-**Country** | **string** |  | 
-**Address2** | Pointer to **string** |  | [optional] 
-**Address3** | Pointer to **string** |  | [optional] 
-**Foo1** | Pointer to **string** |  | [optional] 
-**Foo2** | Pointer to **string** |  | [optional] 
+**FirstName** | **string** | Recipient&#39;s first name. | 
+**LastName** | **string** | Recipient&#39;s last name. | 
+**Address1** | **string** | Primary street address line. | 
+**City** | **string** | City name. | 
+**State** | **string** | Two-letter state or province abbreviation. | 
+**Zip** | **string** | ZIP or postal code. | 
+**Country** | **string** | Country code (e.g. USA). | 
+**Address2** | Pointer to **string** | Secondary address line (suite, apartment, floor, etc.). | [optional] 
+**Address3** | Pointer to **string** | Tertiary address line. | [optional] 
+**Foo1** | Pointer to **string** | User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation. | [optional] 
+**Foo2** | Pointer to **string** | User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation. | [optional] 
 
 ## Methods
 

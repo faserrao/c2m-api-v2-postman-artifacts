@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * AchDetailsTest Class Doc Comment
  *
  * @category    Class
- * @description AchDetails
+ * @description ACH payment fields: routing number, bank account number, and check digit.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

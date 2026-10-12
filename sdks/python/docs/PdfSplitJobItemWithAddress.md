@@ -1,13 +1,14 @@
 # PdfSplitJobItemWithAddress
 
+A single page-range job entry: page range (startPage, endPage) plus a recipient address.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**job_template** | **str** |  | [optional] 
-**start_page** | **int** |  | 
-**end_page** | **int** |  | 
+**job_template** | **str** | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. | [optional] 
+**start_page** | **int** | First page of this job&#39;s page range, 1-indexed (inclusive). | 
+**end_page** | **int** | Last page of this job&#39;s page range (inclusive). Must be &gt;&#x3D; startPage. | 
 **recipient_address_source** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 
 ## Example

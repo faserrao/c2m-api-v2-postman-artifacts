@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class Layout(str, Enum):
     """
-    Layout
+    Page layout controlling where the recipient address is printed.
     """
 
     """

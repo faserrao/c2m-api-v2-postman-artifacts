@@ -17,10 +17,12 @@ module OpenapiClient
   class SubmitMultiZipParams
     attr_accessor :doc_source_zip_file_ref
 
+    # List of per-file job items extracted from a ZIP archive (POST /batch/zip).
     attr_accessor :multi_zip_jobs
 
     attr_accessor :payment_details
 
+    # Array of user-defined string tags.
     attr_accessor :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.

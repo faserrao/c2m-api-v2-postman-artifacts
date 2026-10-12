@@ -19,9 +19,11 @@ import (
 // checks if the MergeByRequestId type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &MergeByRequestId{}
 
-// MergeByRequestId struct for MergeByRequestId
+// MergeByRequestId Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.
 type MergeByRequestId struct {
+	// Integer ID of a prior file upload request. Also returned in success responses.
 	RequestId int32 `json:"requestId"`
+	// Filename of a specific file within an upload request or ZIP archive.
 	Filename *string `json:"filename,omitempty"`
 }
 

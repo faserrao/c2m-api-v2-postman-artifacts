@@ -25,67 +25,67 @@ class AddressTest : ShouldSpec() {
         // uncomment below to create an instance of Address
         //val modelInstance = Address()
 
-        // to test the property `firstName`
+        // to test the property `firstName` - Recipient's first name.
         should("test firstName") {
             // uncomment below to test the property
             //modelInstance.firstName shouldBe ("TODO")
         }
 
-        // to test the property `lastName`
+        // to test the property `lastName` - Recipient's last name.
         should("test lastName") {
             // uncomment below to test the property
             //modelInstance.lastName shouldBe ("TODO")
         }
 
-        // to test the property `address1`
+        // to test the property `address1` - Primary street address line.
         should("test address1") {
             // uncomment below to test the property
             //modelInstance.address1 shouldBe ("TODO")
         }
 
-        // to test the property `city`
+        // to test the property `city` - City name.
         should("test city") {
             // uncomment below to test the property
             //modelInstance.city shouldBe ("TODO")
         }
 
-        // to test the property `state`
+        // to test the property `state` - Two-letter state or province abbreviation.
         should("test state") {
             // uncomment below to test the property
             //modelInstance.state shouldBe ("TODO")
         }
 
-        // to test the property `zip`
+        // to test the property `zip` - ZIP or postal code.
         should("test zip") {
             // uncomment below to test the property
             //modelInstance.zip shouldBe ("TODO")
         }
 
-        // to test the property `country`
+        // to test the property `country` - Country code (e.g. USA).
         should("test country") {
             // uncomment below to test the property
             //modelInstance.country shouldBe ("TODO")
         }
 
-        // to test the property `address2`
+        // to test the property `address2` - Secondary address line (suite, apartment, floor, etc.).
         should("test address2") {
             // uncomment below to test the property
             //modelInstance.address2 shouldBe ("TODO")
         }
 
-        // to test the property `address3`
+        // to test the property `address3` - Tertiary address line.
         should("test address3") {
             // uncomment below to test the property
             //modelInstance.address3 shouldBe ("TODO")
         }
 
-        // to test the property `foo1`
+        // to test the property `foo1` - User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
         should("test foo1") {
             // uncomment below to test the property
             //modelInstance.foo1 shouldBe ("TODO")
         }
 
-        // to test the property `foo2`
+        // to test the property `foo2` - User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
         should("test foo2") {
             // uncomment below to test the property
             //modelInstance.foo2 shouldBe ("TODO")

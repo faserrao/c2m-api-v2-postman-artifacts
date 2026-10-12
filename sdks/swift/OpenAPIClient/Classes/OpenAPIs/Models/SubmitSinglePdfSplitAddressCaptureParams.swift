@@ -12,12 +12,15 @@ import AnyCodable
 
 public struct SubmitSinglePdfSplitAddressCaptureParams: Codable, JSONEncodable, Hashable {
 
+    /** Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
     public var jobTemplate: String?
     public var docSourceStandard: DocSourceStandard
+    /** List of page-range job items without inline addresses — addresses are captured externally (POST /batch/split/address-capture). */
     public var pdfSplitJobsNoAddress: [PdfSplitJobItemNoAddress]
     public var paymentDetails: PaymentDetails?
     public var returnAddress: ReturnAddress?
     public var jobOptions: JobOptions?
+    /** Array of user-defined string tags. */
     public var tags: [String]?
 
     public init(jobTemplate: String? = nil, docSourceStandard: DocSourceStandard, pdfSplitJobsNoAddress: [PdfSplitJobItemNoAddress], paymentDetails: PaymentDetails? = nil, returnAddress: ReturnAddress? = nil, jobOptions: JobOptions? = nil, tags: [String]? = nil) {

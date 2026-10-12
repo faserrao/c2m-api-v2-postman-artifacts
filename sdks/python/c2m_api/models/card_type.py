@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class CardType(str, Enum):
     """
-    CardType
+    Card brand enum: visa, mastercard, discover, or americanExpress.
     """
 
     """

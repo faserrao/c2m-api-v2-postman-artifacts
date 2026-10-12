@@ -26,16 +26,16 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// StandardResponse
+    /// Success response returned for all successful job submissions.
     /// </summary>
     public partial class StandardResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="StandardResponse" /> class.
         /// </summary>
-        /// <param name="status">status</param>
-        /// <param name="message">message</param>
-        /// <param name="requestId">requestId</param>
+        /// <param name="status">Job status string (e.g. \&quot;accepted\&quot;).</param>
+        /// <param name="message">Human-readable confirmation message (e.g. \&quot;Your request has been queued\&quot;).</param>
+        /// <param name="requestId">Integer ID of a prior file upload request. Also returned in success responses.</param>
         [JsonConstructor]
         public StandardResponse(string status, string message, int requestId)
         {
@@ -48,20 +48,23 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets Status
+        /// Job status string (e.g. \&quot;accepted\&quot;).
         /// </summary>
+        /// <value>Job status string (e.g. \&quot;accepted\&quot;).</value>
         [JsonPropertyName("status")]
         public string Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// Human-readable confirmation message (e.g. \&quot;Your request has been queued\&quot;).
         /// </summary>
+        /// <value>Human-readable confirmation message (e.g. \&quot;Your request has been queued\&quot;).</value>
         [JsonPropertyName("message")]
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets RequestId
+        /// Integer ID of a prior file upload request. Also returned in success responses.
         /// </summary>
+        /// <value>Integer ID of a prior file upload request. Also returned in success responses.</value>
         [JsonPropertyName("requestId")]
         public int RequestId { get; set; }
 

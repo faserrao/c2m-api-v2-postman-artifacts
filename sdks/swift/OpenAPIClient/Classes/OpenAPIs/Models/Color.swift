@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Color mode for printing (full_color or black_and_white). */
 public enum Color: String, Codable, CaseIterable {
     case fullColor = "full_color"
     case blackAndWhite = "black_and_white"

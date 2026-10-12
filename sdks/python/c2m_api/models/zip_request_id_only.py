@@ -24,9 +24,9 @@ from typing_extensions import Self
 
 class ZipRequestIdOnly(BaseModel):
     """
-    ZipRequestIdOnly
+    Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
     """ # noqa: E501
-    request_id: StrictInt = Field(alias="requestId")
+    request_id: StrictInt = Field(description="Integer ID of a prior file upload request. Also returned in success responses.", alias="requestId")
     __properties: ClassVar[List[str]] = ["requestId"]
 
     model_config = ConfigDict(

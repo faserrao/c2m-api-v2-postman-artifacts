@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ErrorResponseTest Class Doc Comment
  *
  * @category    Class
- * @description ErrorResponse
+ * @description Error response structure returned for all API error conditions.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

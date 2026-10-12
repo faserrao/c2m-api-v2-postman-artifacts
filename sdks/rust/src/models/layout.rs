@@ -11,7 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
+/// Layout : Page layout controlling where the recipient address is printed.
+/// Page layout controlling where the recipient address is printed.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Layout {
     #[serde(rename = "address_on_first_page")]

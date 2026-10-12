@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * RecipientAddressByListTest Class Doc Comment
  *
  * @category    Class
- * @description RecipientAddressByList
+ * @description Inline list of recipient addresses with an optional merge-field mapping ID.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

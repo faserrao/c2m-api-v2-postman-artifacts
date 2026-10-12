@@ -31,13 +31,13 @@ class SubmitMultiDocMergeParams(BaseModel):
     """
     SubmitMultiDocMergeParams
     """ # noqa: E501
-    job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
-    merge_document_source: List[MergeDocumentRef] = Field(alias="mergeDocumentSource")
+    job_template: Optional[StrictStr] = Field(default=None, description="Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.", alias="jobTemplate")
+    merge_document_source: List[MergeDocumentRef] = Field(description="Ordered array of document references to merge into one output document. Minimum two entries required.", alias="mergeDocumentSource")
     recipient_address_source: RecipientAddressSource = Field(alias="recipientAddressSource")
     payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
     return_address: Optional[ReturnAddress] = Field(default=None, alias="returnAddress")
     job_options: Optional[JobOptions] = Field(default=None, alias="jobOptions")
-    tags: Optional[List[StrictStr]] = None
+    tags: Optional[List[StrictStr]] = Field(default=None, description="Array of user-defined string tags.")
     __properties: ClassVar[List[str]] = ["jobTemplate", "mergeDocumentSource", "recipientAddressSource", "paymentDetails", "returnAddress", "jobOptions", "tags"]
 
     model_config = ConfigDict(

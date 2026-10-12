@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RecipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | 
-**RecipientAddressByAddressId** | **int32** |  | 
-**RecipientAddressByListId** | **int32** |  | 
+**RecipientAddressByAddressId** | **int32** | Reference to a previously stored individual recipient address by its integer ID. | 
+**RecipientAddressByListId** | **int32** | Reference to a previously stored recipient address list by its integer ID. | 
 
 ## Methods
 

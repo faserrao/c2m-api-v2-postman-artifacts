@@ -26,15 +26,15 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// MergeByRequestId
+    /// Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.
     /// </summary>
     public partial class MergeByRequestId : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MergeByRequestId" /> class.
         /// </summary>
-        /// <param name="requestId">requestId</param>
-        /// <param name="filename">filename</param>
+        /// <param name="requestId">Integer ID of a prior file upload request. Also returned in success responses.</param>
+        /// <param name="filename">Filename of a specific file within an upload request or ZIP archive.</param>
         [JsonConstructor]
         public MergeByRequestId(int requestId, Option<string?> filename = default)
         {
@@ -46,8 +46,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets RequestId
+        /// Integer ID of a prior file upload request. Also returned in success responses.
         /// </summary>
+        /// <value>Integer ID of a prior file upload request. Also returned in success responses.</value>
         [JsonPropertyName("requestId")]
         public int RequestId { get; set; }
 
@@ -59,8 +60,9 @@ namespace C2M.Api.Model
         public Option<string?> FilenameOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Filename
+        /// Filename of a specific file within an upload request or ZIP archive.
         /// </summary>
+        /// <value>Filename of a specific file within an upload request or ZIP archive.</value>
         [JsonPropertyName("filename")]
         public string? Filename { get { return this.FilenameOption; } set { this.FilenameOption = new(value); } }
 

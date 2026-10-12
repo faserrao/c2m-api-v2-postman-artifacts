@@ -1,4 +1,5 @@
 # C2M.Api.Model.PaperType
+Paper stock for printing.
 
 ## Properties
 

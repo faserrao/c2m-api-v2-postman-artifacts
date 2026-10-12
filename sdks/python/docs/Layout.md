@@ -1,5 +1,6 @@
 # Layout
 
+Page layout controlling where the recipient address is printed.
 
 ## Enum
 

@@ -24,10 +24,10 @@ from typing_extensions import Self
 
 class RequestIdSource(BaseModel):
     """
-    RequestIdSource
+    Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one.
     """ # noqa: E501
-    request_id: StrictInt = Field(alias="requestId")
-    filename: Optional[StrictStr] = None
+    request_id: StrictInt = Field(description="Integer ID of a prior file upload request. Also returned in success responses.", alias="requestId")
+    filename: Optional[StrictStr] = Field(default=None, description="Filename of a specific file within an upload request or ZIP archive.")
     __properties: ClassVar[List[str]] = ["requestId", "filename"]
 
     model_config = ConfigDict(

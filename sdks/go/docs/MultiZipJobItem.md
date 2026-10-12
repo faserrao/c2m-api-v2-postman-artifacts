@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**JobTemplate** | Pointer to **string** |  | [optional] 
-**Filename** | **string** |  | 
+**JobTemplate** | Pointer to **string** | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. | [optional] 
+**Filename** | **string** | Filename of a specific file within an upload request or ZIP archive. | 
 **RecipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 
 ## Methods

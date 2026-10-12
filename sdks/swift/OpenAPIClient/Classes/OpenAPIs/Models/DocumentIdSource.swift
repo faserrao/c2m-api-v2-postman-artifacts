@@ -10,8 +10,10 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Source a document by its previously stored document ID. */
 public struct DocumentIdSource: Codable, JSONEncodable, Hashable {
 
+    /** Integer ID of a previously stored or uploaded document. */
     public var documentId: Int
 
     public init(documentId: Int) {

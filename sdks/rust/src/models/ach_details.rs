@@ -11,17 +11,22 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// AchDetails : ACH payment fields: routing number, bank account number, and check digit.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AchDetails {
+    /// ABA bank routing number.
     #[serde(rename = "routingNumber")]
     pub routing_number: String,
+    /// Bank account number.
     #[serde(rename = "accountNumber")]
     pub account_number: String,
+    /// ACH check digit.
     #[serde(rename = "checkDigit")]
     pub check_digit: i32,
 }
 
 impl AchDetails {
+    /// ACH payment fields: routing number, bank account number, and check digit.
     pub fn new(routing_number: String, account_number: String, check_digit: i32) -> AchDetails {
         AchDetails {
             routing_number,

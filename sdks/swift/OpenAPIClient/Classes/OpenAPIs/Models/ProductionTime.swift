@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Production time preference (next_day, two_day, etc.). */
 public enum ProductionTime: String, Codable, CaseIterable {
     case nextDay = "next_day"
     case twoDay = "two_day"

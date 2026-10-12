@@ -14,7 +14,9 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Merge a stored document identified by its document ID.
   class MergeByDocumentId
+    # Integer ID of a previously stored or uploaded document.
     attr_accessor :document_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

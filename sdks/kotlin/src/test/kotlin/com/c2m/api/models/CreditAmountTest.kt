@@ -25,13 +25,13 @@ class CreditAmountTest : ShouldSpec() {
         // uncomment below to create an instance of CreditAmount
         //val modelInstance = CreditAmount()
 
-        // to test the property `amount`
+        // to test the property `amount` - Monetary amount as a numeric value.
         should("test amount") {
             // uncomment below to test the property
             //modelInstance.amount shouldBe ("TODO")
         }
 
-        // to test the property `currency`
+        // to test the property `currency` - ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
         should("test currency") {
             // uncomment below to test the property
             //modelInstance.currency shouldBe ("TODO")

@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID. */
 public enum RecipientAddressSource: Codable, JSONEncodable, Hashable {
     case typeRecipientAddressSourceOneOf(RecipientAddressSourceOneOf)
     case typeRecipientAddressSourceOneOf1(RecipientAddressSourceOneOf1)

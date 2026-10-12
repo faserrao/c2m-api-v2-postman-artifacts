@@ -30,9 +30,9 @@ class SubmitMultiZipParams(BaseModel):
     SubmitMultiZipParams
     """ # noqa: E501
     doc_source_zip_file_ref: DocSourceZipFileRef = Field(alias="docSourceZipFileRef")
-    multi_zip_jobs: List[MultiZipJobItem] = Field(alias="multiZipJobs")
+    multi_zip_jobs: List[MultiZipJobItem] = Field(description="List of per-file job items extracted from a ZIP archive (POST /batch/zip).", alias="multiZipJobs")
     payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
-    tags: Optional[List[StrictStr]] = None
+    tags: Optional[List[StrictStr]] = Field(default=None, description="Array of user-defined string tags.")
     __properties: ClassVar[List[str]] = ["docSourceZipFileRef", "multiZipJobs", "paymentDetails", "tags"]
 
     model_config = ConfigDict(

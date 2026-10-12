@@ -25,13 +25,13 @@ class RequestIdSourceTest : ShouldSpec() {
         // uncomment below to create an instance of RequestIdSource
         //val modelInstance = RequestIdSource()
 
-        // to test the property `requestId`
+        // to test the property `requestId` - Integer ID of a prior file upload request. Also returned in success responses.
         should("test requestId") {
             // uncomment below to test the property
             //modelInstance.requestId shouldBe ("TODO")
         }
 
-        // to test the property `filename`
+        // to test the property `filename` - Filename of a specific file within an upload request or ZIP archive.
         should("test filename") {
             // uncomment below to test the property
             //modelInstance.filename shouldBe ("TODO")

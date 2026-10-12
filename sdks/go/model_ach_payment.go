@@ -19,8 +19,9 @@ import (
 // checks if the AchPayment type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AchPayment{}
 
-// AchPayment struct for AchPayment
+// AchPayment ACH bank transfer payment variant.
 type AchPayment struct {
+	// Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
 	PaymentType string `json:"paymentType"`
 	AchDetails AchDetails `json:"achDetails"`
 }

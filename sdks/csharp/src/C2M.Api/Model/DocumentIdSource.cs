@@ -26,14 +26,14 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// DocumentIdSource
+    /// Source a document by its previously stored document ID.
     /// </summary>
     public partial class DocumentIdSource : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentIdSource" /> class.
         /// </summary>
-        /// <param name="documentId">documentId</param>
+        /// <param name="documentId">Integer ID of a previously stored or uploaded document.</param>
         [JsonConstructor]
         public DocumentIdSource(int documentId)
         {
@@ -44,8 +44,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets DocumentId
+        /// Integer ID of a previously stored or uploaded document.
         /// </summary>
+        /// <value>Integer ID of a previously stored or uploaded document.</value>
         [JsonPropertyName("documentId")]
         public int DocumentId { get; set; }
 

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * LayoutTest Class Doc Comment
  *
  * @category    Class
- * @description Layout
+ * @description Page layout controlling where the recipient address is printed.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

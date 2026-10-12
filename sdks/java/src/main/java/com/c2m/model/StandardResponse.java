@@ -46,9 +46,9 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * StandardResponse
+ * Success response returned for all successful job submissions.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class StandardResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -74,7 +74,7 @@ public class StandardResponse {
   }
 
   /**
-   * Get status
+   * Job status string (e.g. \&quot;accepted\&quot;).
    * @return status
    */
   @javax.annotation.Nonnull
@@ -93,7 +93,7 @@ public class StandardResponse {
   }
 
   /**
-   * Get message
+   * Human-readable confirmation message (e.g. \&quot;Your request has been queued\&quot;).
    * @return message
    */
   @javax.annotation.Nonnull
@@ -112,7 +112,7 @@ public class StandardResponse {
   }
 
   /**
-   * Get requestId
+   * Integer ID of a prior file upload request. Also returned in success responses.
    * @return requestId
    */
   @javax.annotation.Nonnull

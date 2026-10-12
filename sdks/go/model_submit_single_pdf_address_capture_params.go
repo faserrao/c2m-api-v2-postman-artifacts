@@ -21,11 +21,13 @@ var _ MappedNullable = &SubmitSinglePdfAddressCaptureParams{}
 
 // SubmitSinglePdfAddressCaptureParams struct for SubmitSinglePdfAddressCaptureParams
 type SubmitSinglePdfAddressCaptureParams struct {
+	// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
 	JobTemplate *string `json:"jobTemplate,omitempty"`
 	DocSourceStandard DocSourceStandard `json:"docSourceStandard"`
 	PaymentDetails *PaymentDetails `json:"paymentDetails,omitempty"`
 	ReturnAddress *ReturnAddress `json:"returnAddress,omitempty"`
 	JobOptions *JobOptions `json:"jobOptions,omitempty"`
+	// Array of user-defined string tags.
 	Tags []string `json:"tags,omitempty"`
 }
 

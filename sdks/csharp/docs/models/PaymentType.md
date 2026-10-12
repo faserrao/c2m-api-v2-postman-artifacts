@@ -1,4 +1,5 @@
 # C2M.Api.Model.PaymentType
+Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
 
 ## Properties
 

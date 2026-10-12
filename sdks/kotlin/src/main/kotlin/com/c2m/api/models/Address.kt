@@ -20,54 +20,65 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2).
  *
- * @param firstName 
- * @param lastName 
- * @param address1 
- * @param city 
- * @param state 
- * @param zip 
- * @param country 
- * @param address2 
- * @param address3 
- * @param foo1 
- * @param foo2 
+ * @param firstName Recipient's first name.
+ * @param lastName Recipient's last name.
+ * @param address1 Primary street address line.
+ * @param city City name.
+ * @param state Two-letter state or province abbreviation.
+ * @param zip ZIP or postal code.
+ * @param country Country code (e.g. USA).
+ * @param address2 Secondary address line (suite, apartment, floor, etc.).
+ * @param address3 Tertiary address line.
+ * @param foo1 User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
+ * @param foo2 User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
  */
 
 
 data class Address (
 
+    /* Recipient's first name. */
     @Json(name = "firstName")
     val firstName: kotlin.String,
 
+    /* Recipient's last name. */
     @Json(name = "lastName")
     val lastName: kotlin.String,
 
+    /* Primary street address line. */
     @Json(name = "address1")
     val address1: kotlin.String,
 
+    /* City name. */
     @Json(name = "city")
     val city: kotlin.String,
 
+    /* Two-letter state or province abbreviation. */
     @Json(name = "state")
     val state: kotlin.String,
 
+    /* ZIP or postal code. */
     @Json(name = "zip")
     val zip: kotlin.String,
 
+    /* Country code (e.g. USA). */
     @Json(name = "country")
     val country: kotlin.String,
 
+    /* Secondary address line (suite, apartment, floor, etc.). */
     @Json(name = "address2")
     val address2: kotlin.String? = null,
 
+    /* Tertiary address line. */
     @Json(name = "address3")
     val address3: kotlin.String? = null,
 
+    /* User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation. */
     @Json(name = "foo1")
     val foo1: kotlin.String? = null,
 
+    /* User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation. */
     @Json(name = "foo2")
     val foo2: kotlin.String? = null
 

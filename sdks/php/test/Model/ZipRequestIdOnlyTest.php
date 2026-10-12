@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ZipRequestIdOnlyTest Class Doc Comment
  *
  * @category    Class
- * @description ZipRequestIdOnly
+ * @description Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

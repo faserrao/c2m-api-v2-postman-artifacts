@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Color mode for printing (full_color or black_and_white).
  *
  * Values: full_color,black_and_white
  */

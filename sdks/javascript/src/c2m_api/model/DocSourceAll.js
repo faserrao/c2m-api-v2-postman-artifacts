@@ -31,6 +31,7 @@ import ZipRequestIdSource from './ZipRequestIdSource';
 class DocSourceAll {
     /**
      * Constructs a new <code>DocSourceAll</code>.
+     * Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).
      * @alias module:c2m_api/model/DocSourceAll
      * @param {(module:c2m_api/model/DocSourceStandardOneOf|module:c2m_api/model/DocSourceStandardOneOf1|module:c2m_api/model/DocSourceStandardOneOf2|module:c2m_api/model/ZipDocumentSourceOneOf|module:c2m_api/model/ZipDocumentSourceOneOf1)} instance The actual instance to initialize DocSourceAll.
      */

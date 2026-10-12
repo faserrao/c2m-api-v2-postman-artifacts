@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// Color the model 'Color'
+// Color Color mode for printing (full_color or black_and_white).
 type Color string
 
 // List of color

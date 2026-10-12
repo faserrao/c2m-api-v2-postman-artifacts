@@ -26,16 +26,16 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// PdfSplitJobItemNoAddress
+    /// A single page-range job entry: page range only (no address — used for address-capture endpoint).
     /// </summary>
     public partial class PdfSplitJobItemNoAddress : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PdfSplitJobItemNoAddress" /> class.
         /// </summary>
-        /// <param name="startPage">startPage</param>
-        /// <param name="endPage">endPage</param>
-        /// <param name="jobTemplate">jobTemplate</param>
+        /// <param name="startPage">First page of this job&#39;s page range, 1-indexed (inclusive).</param>
+        /// <param name="endPage">Last page of this job&#39;s page range (inclusive). Must be &gt;&#x3D; startPage.</param>
+        /// <param name="jobTemplate">Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.</param>
         [JsonConstructor]
         public PdfSplitJobItemNoAddress(int startPage, int endPage, Option<string?> jobTemplate = default)
         {
@@ -48,14 +48,16 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets StartPage
+        /// First page of this job&#39;s page range, 1-indexed (inclusive).
         /// </summary>
+        /// <value>First page of this job&#39;s page range, 1-indexed (inclusive).</value>
         [JsonPropertyName("startPage")]
         public int StartPage { get; set; }
 
         /// <summary>
-        /// Gets or Sets EndPage
+        /// Last page of this job&#39;s page range (inclusive). Must be &gt;&#x3D; startPage.
         /// </summary>
+        /// <value>Last page of this job&#39;s page range (inclusive). Must be &gt;&#x3D; startPage.</value>
         [JsonPropertyName("endPage")]
         public int EndPage { get; set; }
 
@@ -67,8 +69,9 @@ namespace C2M.Api.Model
         public Option<string?> JobTemplateOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets JobTemplate
+        /// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
         /// </summary>
+        /// <value>Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.</value>
         [JsonPropertyName("jobTemplate")]
         public string? JobTemplate { get { return this.JobTemplateOption; } set { this.JobTemplateOption = new(value); } }
 

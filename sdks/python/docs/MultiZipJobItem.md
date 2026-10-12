@@ -1,12 +1,13 @@
 # MultiZipJobItem
 
+A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**job_template** | **str** |  | [optional] 
-**filename** | **str** |  | 
+**job_template** | **str** | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. | [optional] 
+**filename** | **str** | Filename of a specific file within an upload request or ZIP archive. | 
 **recipient_address_source** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 
 ## Example

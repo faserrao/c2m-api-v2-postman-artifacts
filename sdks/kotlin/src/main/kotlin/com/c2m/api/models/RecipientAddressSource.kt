@@ -24,11 +24,11 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
  *
  * @param recipientAddressByList 
- * @param recipientAddressByAddressId 
- * @param recipientAddressByListId 
+ * @param recipientAddressByAddressId Reference to a previously stored individual recipient address by its integer ID.
+ * @param recipientAddressByListId Reference to a previously stored recipient address list by its integer ID.
  */
 
 
@@ -37,9 +37,11 @@ data class RecipientAddressSource (
     @Json(name = "recipientAddressByList")
     val recipientAddressByList: RecipientAddressByList,
 
+    /* Reference to a previously stored individual recipient address by its integer ID. */
     @Json(name = "recipientAddressByAddressId")
     val recipientAddressByAddressId: kotlin.Int,
 
+    /* Reference to a previously stored recipient address list by its integer ID. */
     @Json(name = "recipientAddressByListId")
     val recipientAddressByListId: kotlin.Int
 

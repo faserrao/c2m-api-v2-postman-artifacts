@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * InvoiceDetailsTest Class Doc Comment
  *
  * @category    Class
- * @description InvoiceDetails
+ * @description Invoice payment fields: invoice number and amount due.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Envelope type used for the mailing. */
 public enum Envelope: String, Codable, CaseIterable {
     case standard = "standard"
     case _none = "none"

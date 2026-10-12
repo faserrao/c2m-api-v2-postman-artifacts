@@ -14,11 +14,15 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # A single page-range job entry: page range (startPage, endPage) plus a recipient address.
   class PdfSplitJobItemWithAddress
+    # Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
     attr_accessor :job_template
 
+    # First page of this job's page range, 1-indexed (inclusive).
     attr_accessor :start_page
 
+    # Last page of this job's page range (inclusive). Must be >= startPage.
     attr_accessor :end_page
 
     attr_accessor :recipient_address_source

@@ -20,18 +20,20 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
  *
- * @param zipDocumentId 
- * @param filename 
+ * @param zipDocumentId Integer ID of a previously stored ZIP archive.
+ * @param filename Filename of a specific file within an upload request or ZIP archive.
  */
 
 
 data class ZipDocumentIdSource (
 
+    /* Integer ID of a previously stored ZIP archive. */
     @Json(name = "zipDocumentId")
     val zipDocumentId: kotlin.Int,
 
+    /* Filename of a specific file within an upload request or ZIP archive. */
     @Json(name = "filename")
     val filename: kotlin.String
 

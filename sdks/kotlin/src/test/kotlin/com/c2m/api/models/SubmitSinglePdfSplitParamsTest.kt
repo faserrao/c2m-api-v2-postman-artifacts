@@ -36,13 +36,13 @@ class SubmitSinglePdfSplitParamsTest : ShouldSpec() {
             //modelInstance.docSourceStandard shouldBe ("TODO")
         }
 
-        // to test the property `pdfSplitJobsWithAddress`
+        // to test the property `pdfSplitJobsWithAddress` - List of page-range job items, each with its own inline recipient address.
         should("test pdfSplitJobsWithAddress") {
             // uncomment below to test the property
             //modelInstance.pdfSplitJobsWithAddress shouldBe ("TODO")
         }
 
-        // to test the property `jobTemplate`
+        // to test the property `jobTemplate` - Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
         should("test jobTemplate") {
             // uncomment below to test the property
             //modelInstance.jobTemplate shouldBe ("TODO")
@@ -66,7 +66,7 @@ class SubmitSinglePdfSplitParamsTest : ShouldSpec() {
             //modelInstance.jobOptions shouldBe ("TODO")
         }
 
-        // to test the property `tags`
+        // to test the property `tags` - Array of user-defined string tags.
         should("test tags") {
             // uncomment below to test the property
             //modelInstance.tags shouldBe ("TODO")

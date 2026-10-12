@@ -26,8 +26,9 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Defines color
+    /// Color mode for printing (full_color or black_and_white).
     /// </summary>
+    /// <value>Color mode for printing (full_color or black_and_white).</value>
     public enum Color
     {
         /// <summary>

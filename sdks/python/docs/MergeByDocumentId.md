@@ -1,11 +1,12 @@
 # MergeByDocumentId
 
+Merge a stored document identified by its document ID.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**document_id** | **int** |  | 
+**document_id** | **int** | Integer ID of a previously stored or uploaded document. | 
 
 ## Example
 

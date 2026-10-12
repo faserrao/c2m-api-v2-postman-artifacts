@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * DocumentClassTest Class Doc Comment
  *
  * @category    Class
- * @description DocumentClass
+ * @description Document class determining the mailpiece format.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

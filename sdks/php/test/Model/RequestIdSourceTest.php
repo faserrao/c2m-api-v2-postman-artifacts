@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * RequestIdSourceTest Class Doc Comment
  *
  * @category    Class
- * @description RequestIdSource
+ * @description Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

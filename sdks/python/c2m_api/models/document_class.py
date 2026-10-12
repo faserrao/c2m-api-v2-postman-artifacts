@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class DocumentClass(str, Enum):
     """
-    DocumentClass
+    Document class determining the mailpiece format.
     """
 
     """

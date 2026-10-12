@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CardType** | **string** |  | 
-**CardNumber** | **string** |  | 
+**CardType** | **string** | Card brand enum: visa, mastercard, discover, or americanExpress. | 
+**CardNumber** | **string** | Credit card number (PAN) as a string. | 
 **ExpirationDate** | [**ExpirationDate**](ExpirationDate.md) |  | 
-**Cvv** | **int32** |  | 
+**Cvv** | **int32** | Card security code (CVV/CVC) as an integer. | 
 
 ## Methods
 

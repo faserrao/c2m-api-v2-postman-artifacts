@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DocumentClass** | **string** |  | 
-**Layout** | **string** |  | 
-**ProductionTime** | **string** |  | 
-**Envelope** | **string** |  | 
-**Color** | **string** |  | 
-**PaperType** | **string** |  | 
-**PrintOption** | **string** |  | 
-**MailClass** | **string** |  | 
+**DocumentClass** | **string** | Document class determining the mailpiece format. | 
+**Layout** | **string** | Page layout controlling where the recipient address is printed. | 
+**ProductionTime** | **string** | Production time preference (next_day, two_day, etc.). | 
+**Envelope** | **string** | Envelope type used for the mailing. | 
+**Color** | **string** | Color mode for printing (full_color or black_and_white). | 
+**PaperType** | **string** | Paper stock for printing. | 
+**PrintOption** | **string** | Duplex setting (double_sided or single_sided). | 
+**MailClass** | **string** | USPS mail class (first_class, standard, or non_profit). | 
 
 ## Methods
 

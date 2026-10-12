@@ -46,9 +46,9 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * ExpirationDate
+ * Card expiration date containing month and year.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ExpirationDate {
   public static final String SERIALIZED_NAME_MONTH = "month";
   @SerializedName(SERIALIZED_NAME_MONTH)
@@ -69,7 +69,7 @@ public class ExpirationDate {
   }
 
   /**
-   * Get month
+   * Expiration month as an integer (1-12).
    * minimum: 1
    * maximum: 12
    * @return month
@@ -90,7 +90,7 @@ public class ExpirationDate {
   }
 
   /**
-   * Get year
+   * Expiration year as a four-digit integer (e.g. 2029).
    * minimum: 2000
    * maximum: 2099
    * @return year

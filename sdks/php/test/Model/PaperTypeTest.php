@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * PaperTypeTest Class Doc Comment
  *
  * @category    Class
- * @description PaperType
+ * @description Paper stock for printing.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

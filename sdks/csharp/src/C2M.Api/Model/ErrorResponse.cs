@@ -26,18 +26,18 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// ErrorResponse
+    /// Error response structure returned for all API error conditions.
     /// </summary>
     public partial class ErrorResponse : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ErrorResponse" /> class.
         /// </summary>
-        /// <param name="errorType">errorType</param>
-        /// <param name="errorMessage">errorMessage</param>
-        /// <param name="errorCode">errorCode</param>
-        /// <param name="errorDetails">errorDetails</param>
-        /// <param name="errorTrackingId">errorTrackingId</param>
+        /// <param name="errorType">High-level error category string (ValidationError, AuthenticationError, etc.).</param>
+        /// <param name="errorMessage">Human-readable error description.</param>
+        /// <param name="errorCode">Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).</param>
+        /// <param name="errorDetails">Optional JSON object with additional error context (free-form key/value pairs).</param>
+        /// <param name="errorTrackingId">Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.</param>
         [JsonConstructor]
         public ErrorResponse(ErrorTypeEnum errorType, string errorMessage, ErrorCodeEnum errorCode, Option<string?> errorDetails = default, Option<string?> errorTrackingId = default)
         {
@@ -52,8 +52,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Defines ErrorType
+        /// High-level error category string (ValidationError, AuthenticationError, etc.).
         /// </summary>
+        /// <value>High-level error category string (ValidationError, AuthenticationError, etc.).</value>
         public enum ErrorTypeEnum
         {
             /// <summary>
@@ -174,14 +175,16 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets ErrorType
+        /// High-level error category string (ValidationError, AuthenticationError, etc.).
         /// </summary>
+        /// <value>High-level error category string (ValidationError, AuthenticationError, etc.).</value>
         [JsonPropertyName("errorType")]
         public ErrorTypeEnum ErrorType { get; set; }
 
         /// <summary>
-        /// Defines ErrorCode
+        /// Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
         /// </summary>
+        /// <value>Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).</value>
         public enum ErrorCodeEnum
         {
             /// <summary>
@@ -456,14 +459,16 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets ErrorCode
+        /// Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
         /// </summary>
+        /// <value>Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).</value>
         [JsonPropertyName("errorCode")]
         public ErrorCodeEnum ErrorCode { get; set; }
 
         /// <summary>
-        /// Gets or Sets ErrorMessage
+        /// Human-readable error description.
         /// </summary>
+        /// <value>Human-readable error description.</value>
         [JsonPropertyName("errorMessage")]
         public string ErrorMessage { get; set; }
 
@@ -475,8 +480,9 @@ namespace C2M.Api.Model
         public Option<string?> ErrorDetailsOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets ErrorDetails
+        /// Optional JSON object with additional error context (free-form key/value pairs).
         /// </summary>
+        /// <value>Optional JSON object with additional error context (free-form key/value pairs).</value>
         [JsonPropertyName("errorDetails")]
         public string? ErrorDetails { get { return this.ErrorDetailsOption; } set { this.ErrorDetailsOption = new(value); } }
 
@@ -488,8 +494,9 @@ namespace C2M.Api.Model
         public Option<string?> ErrorTrackingIdOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets ErrorTrackingId
+        /// Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
         /// </summary>
+        /// <value>Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.</value>
         [JsonPropertyName("errorTrackingId")]
         public string? ErrorTrackingId { get { return this.ErrorTrackingIdOption; } set { this.ErrorTrackingIdOption = new(value); } }
 

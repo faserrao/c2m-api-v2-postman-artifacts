@@ -25,19 +25,19 @@ class StandardResponseTest : ShouldSpec() {
         // uncomment below to create an instance of StandardResponse
         //val modelInstance = StandardResponse()
 
-        // to test the property `status`
+        // to test the property `status` - Job status string (e.g. \"accepted\").
         should("test status") {
             // uncomment below to test the property
             //modelInstance.status shouldBe ("TODO")
         }
 
-        // to test the property `message`
+        // to test the property `message` - Human-readable confirmation message (e.g. \"Your request has been queued\").
         should("test message") {
             // uncomment below to test the property
             //modelInstance.message shouldBe ("TODO")
         }
 
-        // to test the property `requestId`
+        // to test the property `requestId` - Integer ID of a prior file upload request. Also returned in success responses.
         should("test requestId") {
             // uncomment below to test the property
             //modelInstance.requestId shouldBe ("TODO")

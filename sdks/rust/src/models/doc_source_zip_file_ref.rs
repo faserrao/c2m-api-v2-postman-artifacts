@@ -11,6 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// DocSourceZipFileRef : Top-level ZIP archive reference for batch endpoints — identifies the archive itself, not a file within it. No filename is required at this level.
+/// Top-level ZIP archive reference for batch endpoints — identifies the archive itself, not a file within it. No filename is required at this level.
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DocSourceZipFileRef {

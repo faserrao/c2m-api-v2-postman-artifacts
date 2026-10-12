@@ -11,13 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// MergeByDocumentId : Merge a stored document identified by its document ID.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MergeByDocumentId {
+    /// Integer ID of a previously stored or uploaded document.
     #[serde(rename = "documentId")]
     pub document_id: i32,
 }
 
 impl MergeByDocumentId {
+    /// Merge a stored document identified by its document ID.
     pub fn new(document_id: i32) -> MergeByDocumentId {
         MergeByDocumentId {
             document_id,

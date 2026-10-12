@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ErrorType** | **string** |  | 
-**ErrorMessage** | **string** |  | 
-**ErrorCode** | **string** |  | 
-**ErrorDetails** | Pointer to **string** |  | [optional] 
-**ErrorTrackingId** | Pointer to **string** |  | [optional] 
+**ErrorType** | **string** | High-level error category string (ValidationError, AuthenticationError, etc.). | 
+**ErrorMessage** | **string** | Human-readable error description. | 
+**ErrorCode** | **string** | Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). | 
+**ErrorDetails** | Pointer to **string** | Optional JSON object with additional error context (free-form key/value pairs). | [optional] 
+**ErrorTrackingId** | Pointer to **string** | Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX. | [optional] 
 
 ## Methods
 

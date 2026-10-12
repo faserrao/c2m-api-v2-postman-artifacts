@@ -1,5 +1,6 @@
 # PrintOption
 
+Duplex setting (double_sided or single_sided).
 
 ## Enum
 

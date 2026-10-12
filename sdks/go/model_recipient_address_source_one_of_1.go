@@ -21,6 +21,7 @@ var _ MappedNullable = &RecipientAddressSourceOneOf1{}
 
 // RecipientAddressSourceOneOf1 struct for RecipientAddressSourceOneOf1
 type RecipientAddressSourceOneOf1 struct {
+	// Reference to a previously stored individual recipient address by its integer ID.
 	RecipientAddressByAddressId int32 `json:"recipientAddressByAddressId"`
 }
 

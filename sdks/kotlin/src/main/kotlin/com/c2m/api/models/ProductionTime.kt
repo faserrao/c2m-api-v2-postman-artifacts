@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Production time preference (next_day, two_day, etc.).
  *
  * Values: next_day,two_day,three_day,standard,same_day
  */

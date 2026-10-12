@@ -49,9 +49,9 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * RecipientAddressByList
+ * Inline list of recipient addresses with an optional merge-field mapping ID.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class RecipientAddressByList {
   public static final String SERIALIZED_NAME_MAPPING_ID = "mappingId";
   @SerializedName(SERIALIZED_NAME_MAPPING_ID)
@@ -77,7 +77,7 @@ public class RecipientAddressByList {
   }
 
   /**
-   * Get mappingId
+   * Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.
    * @return mappingId
    */
   @javax.annotation.Nullable
@@ -104,7 +104,7 @@ public class RecipientAddressByList {
   }
 
   /**
-   * Get addressList
+   * List of recipient mailing addresses — used for batch sends and mail merge.
    * @return addressList
    */
   @javax.annotation.Nonnull
@@ -123,7 +123,7 @@ public class RecipientAddressByList {
   }
 
   /**
-   * Get addressListName
+   * Optional name for this address list record.
    * @return addressListName
    */
   @javax.annotation.Nullable

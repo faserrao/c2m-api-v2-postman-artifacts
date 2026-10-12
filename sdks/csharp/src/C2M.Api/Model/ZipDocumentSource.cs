@@ -26,7 +26,7 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// ZipDocumentSource
+    /// ZIP document source — either a stored zip archive (zipDocumentId) or an uploaded zip archive (requestId).
     /// </summary>
     public partial class ZipDocumentSource : IValidatableObject
     {

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **document_id** | **Integer** |  |  |
+| **document_id** | **Integer** | Integer ID of a previously stored or uploaded document. |  |
 
 ## Example
 

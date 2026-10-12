@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * PdfSplitJobItemNoAddressTest Class Doc Comment
  *
  * @category    Class
- * @description PdfSplitJobItemNoAddress
+ * @description A single page-range job entry: page range only (no address — used for address-capture endpoint).
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

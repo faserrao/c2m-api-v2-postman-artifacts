@@ -1,11 +1,12 @@
 # CreditCardPayment
 
+Credit card payment variant.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payment_type** | **str** |  | 
+**payment_type** | **str** | Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). | 
 **credit_card_details** | [**CreditCardDetails**](CreditCardDetails.md) |  | 
 
 ## Example

@@ -26,15 +26,15 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// CreditAmount
+    /// Account credit payment fields: monetary amount and ISO currency code.
     /// </summary>
     public partial class CreditAmount : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CreditAmount" /> class.
         /// </summary>
-        /// <param name="amount">amount</param>
-        /// <param name="currency">currency</param>
+        /// <param name="amount">Monetary amount as a numeric value.</param>
+        /// <param name="currency">ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).</param>
         [JsonConstructor]
         public CreditAmount(decimal amount, CurrencyEnum currency)
         {
@@ -46,8 +46,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Defines Currency
+        /// ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
         /// </summary>
+        /// <value>ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).</value>
         public enum CurrencyEnum
         {
             /// <summary>
@@ -154,14 +155,16 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets Currency
+        /// ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
         /// </summary>
+        /// <value>ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).</value>
         [JsonPropertyName("currency")]
         public CurrencyEnum Currency { get; set; }
 
         /// <summary>
-        /// Gets or Sets Amount
+        /// Monetary amount as a numeric value.
         /// </summary>
+        /// <value>Monetary amount as a numeric value.</value>
         [JsonPropertyName("amount")]
         public decimal Amount { get; set; }
 

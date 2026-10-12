@@ -20,14 +20,15 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Source a document by its previously stored document ID.
  *
- * @param documentId 
+ * @param documentId Integer ID of a previously stored or uploaded document.
  */
 
 
 data class DocumentIdSource (
 
+    /* Integer ID of a previously stored or uploaded document. */
     @Json(name = "documentId")
     val documentId: kotlin.Int
 

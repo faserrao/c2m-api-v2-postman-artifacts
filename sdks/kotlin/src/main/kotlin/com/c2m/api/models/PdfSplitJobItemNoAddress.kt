@@ -20,22 +20,25 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * A single page-range job entry: page range only (no address — used for address-capture endpoint).
  *
- * @param startPage 
- * @param endPage 
- * @param jobTemplate 
+ * @param startPage First page of this job's page range, 1-indexed (inclusive).
+ * @param endPage Last page of this job's page range (inclusive). Must be >= startPage.
+ * @param jobTemplate Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  */
 
 
 data class PdfSplitJobItemNoAddress (
 
+    /* First page of this job's page range, 1-indexed (inclusive). */
     @Json(name = "startPage")
     val startPage: kotlin.Int,
 
+    /* Last page of this job's page range (inclusive). Must be >= startPage. */
     @Json(name = "endPage")
     val endPage: kotlin.Int,
 
+    /* Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
     @Json(name = "jobTemplate")
     val jobTemplate: kotlin.String? = null
 

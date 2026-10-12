@@ -24,7 +24,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
  *
  * @param mergeByDocumentId 
  * @param mergeByRequestId 

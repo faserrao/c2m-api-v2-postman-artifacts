@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets documentClass
+ * Document class determining the mailpiece format.
  */
 @JsonAdapter(DocumentClass.Adapter.class)
 public enum DocumentClass {

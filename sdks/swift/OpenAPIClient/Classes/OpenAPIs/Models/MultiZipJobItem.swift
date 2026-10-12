@@ -10,9 +10,12 @@ import Foundation
 import AnyCodable
 #endif
 
+/** A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address. */
 public struct MultiZipJobItem: Codable, JSONEncodable, Hashable {
 
+    /** Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
     public var jobTemplate: String?
+    /** Filename of a specific file within an upload request or ZIP archive. */
     public var filename: String
     public var recipientAddressSource: RecipientAddressSource
 

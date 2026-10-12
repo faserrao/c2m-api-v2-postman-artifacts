@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * AchPayment Class Doc Comment
  *
  * @category Class
+ * @description ACH bank transfer payment variant.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -337,7 +338,7 @@ class AchPayment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_type
      *
-     * @param string $payment_type payment_type
+     * @param string $payment_type Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
      *
      * @return self
      */

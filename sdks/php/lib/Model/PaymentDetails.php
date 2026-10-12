@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * PaymentDetails Class Doc Comment
  *
  * @category Class
+ * @description Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -370,7 +371,7 @@ class PaymentDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_type
      *
-     * @param string $payment_type payment_type
+     * @param string $payment_type Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
      *
      * @return self
      */

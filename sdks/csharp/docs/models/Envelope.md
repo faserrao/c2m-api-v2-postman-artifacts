@@ -1,4 +1,5 @@
 # C2M.Api.Model.Envelope
+Envelope type used for the mailing.
 
 ## Properties
 

@@ -12,12 +12,14 @@ import AnyCodable
 
 public struct SubmitDocParams: Codable, JSONEncodable, Hashable {
 
+    /** Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
     public var jobTemplate: String?
     public var docSourceAll: DocSourceAll
     public var recipientAddressSource: RecipientAddressSource
     public var paymentDetails: PaymentDetails?
     public var returnAddress: ReturnAddress?
     public var jobOptions: JobOptions?
+    /** Array of user-defined string tags. */
     public var tags: [String]?
 
     public init(jobTemplate: String? = nil, docSourceAll: DocSourceAll, recipientAddressSource: RecipientAddressSource, paymentDetails: PaymentDetails? = nil, returnAddress: ReturnAddress? = nil, jobOptions: JobOptions? = nil, tags: [String]? = nil) {

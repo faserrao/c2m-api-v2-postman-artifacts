@@ -20,18 +20,20 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.
  *
- * @param requestId 
- * @param filename 
+ * @param requestId Integer ID of a prior file upload request. Also returned in success responses.
+ * @param filename Filename of a specific file within an upload request or ZIP archive.
  */
 
 
 data class MergeByRequestId (
 
+    /* Integer ID of a prior file upload request. Also returned in success responses. */
     @Json(name = "requestId")
     val requestId: kotlin.Int,
 
+    /* Filename of a specific file within an upload request or ZIP archive. */
     @Json(name = "filename")
     val filename: kotlin.String? = null
 

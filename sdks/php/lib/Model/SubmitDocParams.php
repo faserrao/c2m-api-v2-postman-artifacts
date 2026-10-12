@@ -350,7 +350,7 @@ class SubmitDocParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets job_template
      *
-     * @param string|null $job_template job_template
+     * @param string|null $job_template Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
      *
      * @return self
      */
@@ -512,7 +512,7 @@ class SubmitDocParams implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tags
      *
-     * @param string[]|null $tags tags
+     * @param string[]|null $tags Array of user-defined string tags.
      *
      * @return self
      */

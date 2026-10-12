@@ -25,11 +25,11 @@ from typing_extensions import Self
 
 class PdfSplitJobItemNoAddress(BaseModel):
     """
-    PdfSplitJobItemNoAddress
+    A single page-range job entry: page range only (no address — used for address-capture endpoint).
     """ # noqa: E501
-    job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
-    start_page: Annotated[int, Field(strict=True, ge=1)] = Field(alias="startPage")
-    end_page: Annotated[int, Field(strict=True, ge=1)] = Field(alias="endPage")
+    job_template: Optional[StrictStr] = Field(default=None, description="Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.", alias="jobTemplate")
+    start_page: Annotated[int, Field(strict=True, ge=1)] = Field(description="First page of this job's page range, 1-indexed (inclusive).", alias="startPage")
+    end_page: Annotated[int, Field(strict=True, ge=1)] = Field(description="Last page of this job's page range (inclusive). Must be >= startPage.", alias="endPage")
     __properties: ClassVar[List[str]] = ["jobTemplate", "startPage", "endPage"]
 
     model_config = ConfigDict(

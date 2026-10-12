@@ -26,7 +26,7 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// DocSourceZipFileRef
+    /// Top-level ZIP archive reference for batch endpoints — identifies the archive itself, not a file within it. No filename is required at this level.
     /// </summary>
     public partial class DocSourceZipFileRef : IValidatableObject
     {

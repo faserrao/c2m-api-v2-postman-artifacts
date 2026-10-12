@@ -46,9 +46,9 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * ZipRequestIdOnly
+ * Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ZipRequestIdOnly {
   public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
@@ -64,7 +64,7 @@ public class ZipRequestIdOnly {
   }
 
   /**
-   * Get requestId
+   * Integer ID of a prior file upload request. Also returned in success responses.
    * @return requestId
    */
   @javax.annotation.Nonnull

@@ -1,5 +1,6 @@
 # Envelope
 
+Envelope type used for the mailing.
 
 ## Enum
 

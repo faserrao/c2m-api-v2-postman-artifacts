@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * ZipRequestIdSource Class Doc Comment
  *
  * @category Class
+ * @description Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -325,7 +326,7 @@ class ZipRequestIdSource implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets request_id
      *
-     * @param int $request_id request_id
+     * @param int $request_id Integer ID of a prior file upload request. Also returned in success responses.
      *
      * @return self
      */
@@ -352,7 +353,7 @@ class ZipRequestIdSource implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets zip_filename
      *
-     * @param string $zip_filename zip_filename
+     * @param string $zip_filename Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
      *
      * @return self
      */
@@ -379,7 +380,7 @@ class ZipRequestIdSource implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets filename
      *
-     * @param string $filename filename
+     * @param string $filename Filename of a specific file within an upload request or ZIP archive.
      *
      * @return self
      */

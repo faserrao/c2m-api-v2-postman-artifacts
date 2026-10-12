@@ -10,12 +10,16 @@ import Foundation
 import AnyCodable
 #endif
 
+/** A single page-range job entry: page range only (no address — used for address-capture endpoint). */
 public struct PdfSplitJobItemNoAddress: Codable, JSONEncodable, Hashable {
 
     public static let startPageRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
     public static let endPageRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: nil, exclusiveMaximum: false, multipleOf: nil)
+    /** Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
     public var jobTemplate: String?
+    /** First page of this job's page range, 1-indexed (inclusive). */
     public var startPage: Int
+    /** Last page of this job's page range (inclusive). Must be >= startPage. */
     public var endPage: Int
 
     public init(jobTemplate: String? = nil, startPage: Int, endPage: Int) {

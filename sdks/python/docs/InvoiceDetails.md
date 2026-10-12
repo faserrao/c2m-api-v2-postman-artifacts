@@ -1,12 +1,13 @@
 # InvoiceDetails
 
+Invoice payment fields: invoice number and amount due.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**invoice_number** | **str** |  | 
-**amount_due** | **float** |  | 
+**invoice_number** | **str** | Invoice reference number. | 
+**amount_due** | **float** | Amount due on the invoice. | 
 
 ## Example
 

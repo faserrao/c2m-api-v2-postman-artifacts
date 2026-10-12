@@ -13,10 +13,12 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SubmitSinglePdfSplitParams {
+    /// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
     #[serde(rename = "jobTemplate", skip_serializing_if = "Option::is_none")]
     pub job_template: Option<String>,
     #[serde(rename = "docSourceStandard")]
     pub doc_source_standard: Box<models::DocSourceStandard>,
+    /// List of page-range job items, each with its own inline recipient address.
     #[serde(rename = "pdfSplitJobsWithAddress")]
     pub pdf_split_jobs_with_address: Vec<models::PdfSplitJobItemWithAddress>,
     #[serde(rename = "paymentDetails", skip_serializing_if = "Option::is_none")]
@@ -25,6 +27,7 @@ pub struct SubmitSinglePdfSplitParams {
     pub return_address: Option<Box<models::ReturnAddress>>,
     #[serde(rename = "jobOptions", skip_serializing_if = "Option::is_none")]
     pub job_options: Option<Box<models::JobOptions>>,
+    /// Array of user-defined string tags.
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<String>>,
 }

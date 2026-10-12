@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class PaperType(str, Enum):
     """
-    PaperType
+    Paper stock for printing.
     """
 
     """

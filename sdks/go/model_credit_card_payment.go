@@ -19,8 +19,9 @@ import (
 // checks if the CreditCardPayment type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreditCardPayment{}
 
-// CreditCardPayment struct for CreditCardPayment
+// CreditCardPayment Credit card payment variant.
 type CreditCardPayment struct {
+	// Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
 	PaymentType string `json:"paymentType"`
 	CreditCardDetails CreditCardDetails `json:"creditCardDetails"`
 }

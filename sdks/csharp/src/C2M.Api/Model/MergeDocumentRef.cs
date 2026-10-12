@@ -26,7 +26,7 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// MergeDocumentRef
+    /// A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
     /// </summary>
     public partial class MergeDocumentRef : IValidatableObject
     {

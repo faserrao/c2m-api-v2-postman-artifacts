@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * UserCreditPaymentTest Class Doc Comment
  *
  * @category    Class
- * @description UserCreditPayment
+ * @description Payment deducted from the account&#39;s prepaid credit balance.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

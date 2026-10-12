@@ -26,8 +26,9 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Defines layout
+    /// Page layout controlling where the recipient address is printed.
     /// </summary>
+    /// <value>Page layout controlling where the recipient address is printed.</value>
     public enum Layout
     {
         /// <summary>

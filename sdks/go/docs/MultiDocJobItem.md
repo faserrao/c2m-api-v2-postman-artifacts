@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**JobTemplate** | Pointer to **string** |  | [optional] 
+**JobTemplate** | Pointer to **string** | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. | [optional] 
 **DocSourceAll** | [**DocSourceAll**](DocSourceAll.md) |  | 
 **RecipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 

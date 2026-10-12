@@ -11,15 +11,19 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// CreditAmount : Account credit payment fields: monetary amount and ISO currency code.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct CreditAmount {
+    /// Monetary amount as a numeric value.
     #[serde(rename = "amount")]
     pub amount: f64,
+    /// ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
     #[serde(rename = "currency")]
     pub currency: Currency,
 }
 
 impl CreditAmount {
+    /// Account credit payment fields: monetary amount and ISO currency code.
     pub fn new(amount: f64, currency: Currency) -> CreditAmount {
         CreditAmount {
             amount,
@@ -27,7 +31,7 @@ impl CreditAmount {
         }
     }
 }
-/// 
+/// ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Currency {
     #[serde(rename = "USD")]

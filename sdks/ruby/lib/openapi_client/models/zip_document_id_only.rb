@@ -14,7 +14,9 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames.
   class ZipDocumentIdOnly
+    # Integer ID of a previously stored ZIP archive.
     attr_accessor :zip_document_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

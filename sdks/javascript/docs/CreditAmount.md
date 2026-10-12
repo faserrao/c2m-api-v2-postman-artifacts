@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | **Number** |  | 
-**currency** | **String** |  | 
+**amount** | **Number** | Monetary amount as a numeric value. | 
+**currency** | **String** | ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD). | 
 
 
 

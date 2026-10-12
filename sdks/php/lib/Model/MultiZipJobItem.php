@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * MultiZipJobItem Class Doc Comment
  *
  * @category Class
+ * @description A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -322,7 +323,7 @@ class MultiZipJobItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets job_template
      *
-     * @param string|null $job_template job_template
+     * @param string|null $job_template Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
      *
      * @return self
      */
@@ -349,7 +350,7 @@ class MultiZipJobItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets filename
      *
-     * @param string $filename filename
+     * @param string $filename Filename of a specific file within an upload request or ZIP archive.
      *
      * @return self
      */

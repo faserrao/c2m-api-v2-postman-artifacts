@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets errorType
+ * High-level error category string (ValidationError, AuthenticationError, etc.).
  */
 @JsonAdapter(ErrorType.Adapter.class)
 public enum ErrorType {

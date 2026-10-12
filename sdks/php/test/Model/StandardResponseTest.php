@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * StandardResponseTest Class Doc Comment
  *
  * @category    Class
- * @description StandardResponse
+ * @description Success response returned for all successful job submissions.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

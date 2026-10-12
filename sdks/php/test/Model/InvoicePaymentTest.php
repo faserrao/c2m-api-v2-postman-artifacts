@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * InvoicePaymentTest Class Doc Comment
  *
  * @category    Class
- * @description InvoicePayment
+ * @description Invoice payment — billed to an existing account invoice.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

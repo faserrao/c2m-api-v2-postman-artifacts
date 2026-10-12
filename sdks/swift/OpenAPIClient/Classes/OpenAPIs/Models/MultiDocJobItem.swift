@@ -10,8 +10,10 @@ import Foundation
 import AnyCodable
 #endif
 
+/** A single independent document job entry within a multi-doc batch. */
 public struct MultiDocJobItem: Codable, JSONEncodable, Hashable {
 
+    /** Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
     public var jobTemplate: String?
     public var docSourceAll: DocSourceAll
     public var recipientAddressSource: RecipientAddressSource

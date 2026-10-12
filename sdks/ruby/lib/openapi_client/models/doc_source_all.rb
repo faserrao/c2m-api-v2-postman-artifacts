@@ -14,6 +14,7 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).
   module DocSourceAll
     class << self
       # List of class defined in oneOf (OpenAPI v3)

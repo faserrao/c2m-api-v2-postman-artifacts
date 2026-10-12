@@ -4,14 +4,14 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **documentClass** | [**inline**](#DocumentClass) |  |  |
-| **layout** | [**inline**](#Layout) |  |  |
-| **productionTime** | [**inline**](#ProductionTime) |  |  |
-| **envelope** | [**inline**](#Envelope) |  |  |
-| **color** | [**inline**](#Color) |  |  |
-| **paperType** | [**inline**](#PaperType) |  |  |
-| **printOption** | [**inline**](#PrintOption) |  |  |
-| **mailClass** | [**inline**](#MailClass) |  |  |
+| **documentClass** | [**inline**](#DocumentClass) | Document class determining the mailpiece format. |  |
+| **layout** | [**inline**](#Layout) | Page layout controlling where the recipient address is printed. |  |
+| **productionTime** | [**inline**](#ProductionTime) | Production time preference (next_day, two_day, etc.). |  |
+| **envelope** | [**inline**](#Envelope) | Envelope type used for the mailing. |  |
+| **color** | [**inline**](#Color) | Color mode for printing (full_color or black_and_white). |  |
+| **paperType** | [**inline**](#PaperType) | Paper stock for printing. |  |
+| **printOption** | [**inline**](#PrintOption) | Duplex setting (double_sided or single_sided). |  |
+| **mailClass** | [**inline**](#MailClass) | USPS mail class (first_class, standard, or non_profit). |  |
 
 
 <a id="DocumentClass"></a>

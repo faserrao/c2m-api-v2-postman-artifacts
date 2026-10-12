@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * PdfSplitJobItemWithAddressTest Class Doc Comment
  *
  * @category    Class
- * @description PdfSplitJobItemWithAddress
+ * @description A single page-range job entry: page range (startPage, endPage) plus a recipient address.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

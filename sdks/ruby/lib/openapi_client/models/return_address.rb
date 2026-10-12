@@ -14,25 +14,36 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Optional sender return address printed on the mailpiece.
   class ReturnAddress
+    # Recipient's first name.
     attr_accessor :first_name
 
+    # Recipient's last name.
     attr_accessor :last_name
 
+    # Recipient's company or organisation name (optional).
     attr_accessor :company
 
+    # Primary street address line.
     attr_accessor :address1
 
+    # City name.
     attr_accessor :city
 
+    # Two-letter state or province abbreviation.
     attr_accessor :state
 
+    # ZIP or postal code.
     attr_accessor :zip
 
+    # Country code (e.g. USA).
     attr_accessor :country
 
+    # Secondary address line (suite, apartment, floor, etc.).
     attr_accessor :address2
 
+    # Tertiary address line.
     attr_accessor :address3
 
     # Attribute mapping from ruby-style variable name to JSON key.

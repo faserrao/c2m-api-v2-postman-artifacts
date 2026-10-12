@@ -11,15 +11,19 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// ExpirationDate : Card expiration date containing month and year.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ExpirationDate {
+    /// Expiration month as an integer (1-12).
     #[serde(rename = "month")]
     pub month: i32,
+    /// Expiration year as a four-digit integer (e.g. 2029).
     #[serde(rename = "year")]
     pub year: i32,
 }
 
 impl ExpirationDate {
+    /// Card expiration date containing month and year.
     pub fn new(month: i32, year: i32) -> ExpirationDate {
         ExpirationDate {
             month,

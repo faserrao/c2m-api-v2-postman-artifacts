@@ -22,8 +22,9 @@ import Address from './Address';
 class RecipientAddressByList {
     /**
      * Constructs a new <code>RecipientAddressByList</code>.
+     * Inline list of recipient addresses with an optional merge-field mapping ID.
      * @alias module:c2m_api/model/RecipientAddressByList
-     * @param addressList {Array.<module:c2m_api/model/Address>} 
+     * @param addressList {Array.<module:c2m_api/model/Address>} List of recipient mailing addresses — used for batch sends and mail merge.
      */
     constructor(addressList) { 
         
@@ -99,16 +100,19 @@ class RecipientAddressByList {
 RecipientAddressByList.RequiredProperties = ["addressList"];
 
 /**
+ * Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.
  * @member {Number} mappingId
  */
 RecipientAddressByList.prototype['mappingId'] = undefined;
 
 /**
+ * List of recipient mailing addresses — used for batch sends and mail merge.
  * @member {Array.<module:c2m_api/model/Address>} addressList
  */
 RecipientAddressByList.prototype['addressList'] = undefined;
 
 /**
+ * Optional name for this address list record.
  * @member {String} addressListName
  */
 RecipientAddressByList.prototype['addressListName'] = undefined;

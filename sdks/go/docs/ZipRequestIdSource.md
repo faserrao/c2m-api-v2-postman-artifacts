@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** | **int32** |  | 
-**ZipFilename** | **string** |  | 
-**Filename** | **string** |  | 
+**RequestId** | **int32** | Integer ID of a prior file upload request. Also returned in success responses. | 
+**ZipFilename** | **string** | Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request). | 
+**Filename** | **string** | Filename of a specific file within an upload request or ZIP archive. | 
 
 ## Methods
 

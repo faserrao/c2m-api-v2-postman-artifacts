@@ -21,15 +21,16 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Payment deducted from the account's prepaid credit balance.
  *
- * @param paymentType 
+ * @param paymentType Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
  * @param creditAmount 
  */
 
 
 data class UserCreditPayment (
 
+    /* Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). */
     @Json(name = "paymentType")
     val paymentType: UserCreditPayment.PaymentType,
 
@@ -39,7 +40,7 @@ data class UserCreditPayment (
 ) {
 
     /**
-     * 
+     * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
      *
      * Values: userCredit
      */

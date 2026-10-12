@@ -22,8 +22,9 @@ import CreditCardDetails from './CreditCardDetails';
 class CreditCardPayment {
     /**
      * Constructs a new <code>CreditCardPayment</code>.
+     * Credit card payment variant.
      * @alias module:c2m_api/model/CreditCardPayment
-     * @param paymentType {module:c2m_api/model/CreditCardPayment.PaymentTypeEnum} 
+     * @param paymentType {module:c2m_api/model/CreditCardPayment.PaymentTypeEnum} Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
      * @param creditCardDetails {module:c2m_api/model/CreditCardDetails} 
      */
     constructor(paymentType, creditCardDetails) { 
@@ -92,6 +93,7 @@ class CreditCardPayment {
 CreditCardPayment.RequiredProperties = ["paymentType", "creditCardDetails"];
 
 /**
+ * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
  * @member {module:c2m_api/model/CreditCardPayment.PaymentTypeEnum} paymentType
  */
 CreditCardPayment.prototype['paymentType'] = undefined;

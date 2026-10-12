@@ -14,6 +14,7 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
   module RecipientAddressSource
     class << self
       # List of class defined in oneOf (OpenAPI v3)

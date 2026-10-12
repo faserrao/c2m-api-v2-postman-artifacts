@@ -15,10 +15,12 @@ require 'time'
 
 module OpenapiClient
   class SubmitSinglePdfSplitParams
+    # Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
     attr_accessor :job_template
 
     attr_accessor :doc_source_standard
 
+    # List of page-range job items, each with its own inline recipient address.
     attr_accessor :pdf_split_jobs_with_address
 
     attr_accessor :payment_details
@@ -27,6 +29,7 @@ module OpenapiClient
 
     attr_accessor :job_options
 
+    # Array of user-defined string tags.
     attr_accessor :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.

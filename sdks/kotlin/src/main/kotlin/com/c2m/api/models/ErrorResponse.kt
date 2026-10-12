@@ -20,37 +20,42 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Error response structure returned for all API error conditions.
  *
- * @param errorType 
- * @param errorMessage 
- * @param errorCode 
- * @param errorDetails 
- * @param errorTrackingId 
+ * @param errorType High-level error category string (ValidationError, AuthenticationError, etc.).
+ * @param errorMessage Human-readable error description.
+ * @param errorCode Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
+ * @param errorDetails Optional JSON object with additional error context (free-form key/value pairs).
+ * @param errorTrackingId Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
  */
 
 
 data class ErrorResponse (
 
+    /* High-level error category string (ValidationError, AuthenticationError, etc.). */
     @Json(name = "errorType")
     val errorType: ErrorResponse.ErrorType,
 
+    /* Human-readable error description. */
     @Json(name = "errorMessage")
     val errorMessage: kotlin.String,
 
+    /* Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). */
     @Json(name = "errorCode")
     val errorCode: ErrorResponse.ErrorCode,
 
+    /* Optional JSON object with additional error context (free-form key/value pairs). */
     @Json(name = "errorDetails")
     val errorDetails: kotlin.String? = null,
 
+    /* Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX. */
     @Json(name = "errorTrackingId")
     val errorTrackingId: kotlin.String? = null
 
 ) {
 
     /**
-     * 
+     * High-level error category string (ValidationError, AuthenticationError, etc.).
      *
      * Values: ValidationError,AuthenticationError,AuthorizationError,ResourceNotFoundError,RateLimitError,ServerError
      */
@@ -64,7 +69,7 @@ data class ErrorResponse (
         @Json(name = "ServerError") ServerError("ServerError");
     }
     /**
-     * 
+     * Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
      *
      * Values: MISSING_REQUIRED_FIELD,INVALID_ONEOF,INVALID_JSON,MISSING_AUTH_HEADER,INVALID_TOKEN,EXPIRED_TOKEN,INSUFFICIENT_PERMISSIONS,ACCOUNT_SUSPENDED,JOB_NOT_FOUND,RESOURCE_NOT_FOUND,INVALID_ENUM_VALUE,MUTUAL_EXCLUSION_VIOLATION,INVALID_FORMAT,SERVER_ERROR,DATABASE_ERROR,EXTERNAL_SERVICE_ERROR,RATE_LIMIT_EXCEEDED
      */

@@ -24,13 +24,13 @@ from typing_extensions import Self
 
 class ErrorResponse(BaseModel):
     """
-    ErrorResponse
+    Error response structure returned for all API error conditions.
     """ # noqa: E501
-    error_type: StrictStr = Field(alias="errorType")
-    error_message: StrictStr = Field(alias="errorMessage")
-    error_code: StrictStr = Field(alias="errorCode")
-    error_details: Optional[StrictStr] = Field(default=None, alias="errorDetails")
-    error_tracking_id: Optional[StrictStr] = Field(default=None, alias="errorTrackingId")
+    error_type: StrictStr = Field(description="High-level error category string (ValidationError, AuthenticationError, etc.).", alias="errorType")
+    error_message: StrictStr = Field(description="Human-readable error description.", alias="errorMessage")
+    error_code: StrictStr = Field(description="Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).", alias="errorCode")
+    error_details: Optional[StrictStr] = Field(default=None, description="Optional JSON object with additional error context (free-form key/value pairs).", alias="errorDetails")
+    error_tracking_id: Optional[StrictStr] = Field(default=None, description="Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.", alias="errorTrackingId")
     __properties: ClassVar[List[str]] = ["errorType", "errorMessage", "errorCode", "errorDetails", "errorTrackingId"]
 
     @field_validator('error_type')

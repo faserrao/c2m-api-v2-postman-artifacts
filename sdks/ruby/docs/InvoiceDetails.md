@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **invoice_number** | **String** |  |  |
-| **amount_due** | **Float** |  |  |
+| **invoice_number** | **String** | Invoice reference number. |  |
+| **amount_due** | **Float** | Amount due on the invoice. |  |
 
 ## Example
 

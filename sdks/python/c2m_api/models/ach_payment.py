@@ -25,9 +25,9 @@ from typing_extensions import Self
 
 class AchPayment(BaseModel):
     """
-    AchPayment
+    ACH bank transfer payment variant.
     """ # noqa: E501
-    payment_type: StrictStr = Field(alias="paymentType")
+    payment_type: StrictStr = Field(description="Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).", alias="paymentType")
     ach_details: AchDetails = Field(alias="achDetails")
     __properties: ClassVar[List[str]] = ["paymentType", "achDetails"]
 

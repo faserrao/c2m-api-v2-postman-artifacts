@@ -350,7 +350,7 @@ class SubmitSinglePdfSplitAddressCaptureParams implements ModelInterface, ArrayA
     /**
      * Sets job_template
      *
-     * @param string|null $job_template job_template
+     * @param string|null $job_template Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
      *
      * @return self
      */
@@ -404,7 +404,7 @@ class SubmitSinglePdfSplitAddressCaptureParams implements ModelInterface, ArrayA
     /**
      * Sets pdf_split_jobs_no_address
      *
-     * @param \C2MApi\Model\PdfSplitJobItemNoAddress[] $pdf_split_jobs_no_address pdf_split_jobs_no_address
+     * @param \C2MApi\Model\PdfSplitJobItemNoAddress[] $pdf_split_jobs_no_address List of page-range job items without inline addresses — addresses are captured externally (POST /batch/split/address-capture).
      *
      * @return self
      */
@@ -512,7 +512,7 @@ class SubmitSinglePdfSplitAddressCaptureParams implements ModelInterface, ArrayA
     /**
      * Sets tags
      *
-     * @param string[]|null $tags tags
+     * @param string[]|null $tags Array of user-defined string tags.
      *
      * @return self
      */

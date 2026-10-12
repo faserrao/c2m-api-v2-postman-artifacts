@@ -19,9 +19,11 @@ import (
 // checks if the InvoiceDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &InvoiceDetails{}
 
-// InvoiceDetails struct for InvoiceDetails
+// InvoiceDetails Invoice payment fields: invoice number and amount due.
 type InvoiceDetails struct {
+	// Invoice reference number.
 	InvoiceNumber string `json:"invoiceNumber"`
+	// Amount due on the invoice.
 	AmountDue float32 `json:"amountDue"`
 }
 

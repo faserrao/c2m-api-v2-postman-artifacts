@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Duplex setting (double_sided or single_sided). */
 public enum PrintOption: String, Codable, CaseIterable {
     case doubleSided = "double_sided"
     case singleSided = "single_sided"

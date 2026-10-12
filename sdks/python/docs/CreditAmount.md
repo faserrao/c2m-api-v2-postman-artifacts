@@ -1,12 +1,13 @@
 # CreditAmount
 
+Account credit payment fields: monetary amount and ISO currency code.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | **float** |  | 
-**currency** | **str** |  | 
+**amount** | **float** | Monetary amount as a numeric value. | 
+**currency** | **str** | ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD). | 
 
 ## Example
 

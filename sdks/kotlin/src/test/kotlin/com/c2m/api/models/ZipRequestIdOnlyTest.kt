@@ -25,7 +25,7 @@ class ZipRequestIdOnlyTest : ShouldSpec() {
         // uncomment below to create an instance of ZipRequestIdOnly
         //val modelInstance = ZipRequestIdOnly()
 
-        // to test the property `requestId`
+        // to test the property `requestId` - Integer ID of a prior file upload request. Also returned in success responses.
         should("test requestId") {
             // uncomment below to test the property
             //modelInstance.requestId shouldBe ("TODO")

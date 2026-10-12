@@ -22,9 +22,10 @@ import RecipientAddressSource from './RecipientAddressSource';
 class PdfSplitJobItemWithAddress {
     /**
      * Constructs a new <code>PdfSplitJobItemWithAddress</code>.
+     * A single page-range job entry: page range (startPage, endPage) plus a recipient address.
      * @alias module:c2m_api/model/PdfSplitJobItemWithAddress
-     * @param startPage {Number} 
-     * @param endPage {Number} 
+     * @param startPage {Number} First page of this job's page range, 1-indexed (inclusive).
+     * @param endPage {Number} Last page of this job's page range (inclusive). Must be >= startPage.
      * @param recipientAddressSource {module:c2m_api/model/RecipientAddressSource} 
      */
     constructor(startPage, endPage, recipientAddressSource) { 
@@ -100,16 +101,19 @@ class PdfSplitJobItemWithAddress {
 PdfSplitJobItemWithAddress.RequiredProperties = ["startPage", "endPage", "recipientAddressSource"];
 
 /**
+ * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  * @member {String} jobTemplate
  */
 PdfSplitJobItemWithAddress.prototype['jobTemplate'] = undefined;
 
 /**
+ * First page of this job's page range, 1-indexed (inclusive).
  * @member {Number} startPage
  */
 PdfSplitJobItemWithAddress.prototype['startPage'] = undefined;
 
 /**
+ * Last page of this job's page range (inclusive). Must be >= startPage.
  * @member {Number} endPage
  */
 PdfSplitJobItemWithAddress.prototype['endPage'] = undefined;

@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class PrintOption(str, Enum):
     """
-    PrintOption
+    Duplex setting (double_sided or single_sided).
     """
 
     """

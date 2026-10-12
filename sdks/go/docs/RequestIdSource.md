@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** | **int32** |  | 
-**Filename** | Pointer to **string** |  | [optional] 
+**RequestId** | **int32** | Integer ID of a prior file upload request. Also returned in success responses. | 
+**Filename** | Pointer to **string** | Filename of a specific file within an upload request or ZIP archive. | [optional] 
 
 ## Methods
 

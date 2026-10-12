@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * UserCreditPayment Class Doc Comment
  *
  * @category Class
+ * @description Payment deducted from the account&#39;s prepaid credit balance.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -337,7 +338,7 @@ class UserCreditPayment implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets payment_type
      *
-     * @param string $payment_type payment_type
+     * @param string $payment_type Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
      *
      * @return self
      */

@@ -11,13 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// ZipDocumentIdOnly : Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ZipDocumentIdOnly {
+    /// Integer ID of a previously stored ZIP archive.
     #[serde(rename = "zipDocumentId")]
     pub zip_document_id: i32,
 }
 
 impl ZipDocumentIdOnly {
+    /// Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames.
     pub fn new(zip_document_id: i32) -> ZipDocumentIdOnly {
         ZipDocumentIdOnly {
             zip_document_id,

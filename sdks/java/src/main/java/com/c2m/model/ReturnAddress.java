@@ -46,9 +46,9 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * ReturnAddress
+ * Optional sender return address printed on the mailpiece.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ReturnAddress {
   public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
   @SerializedName(SERIALIZED_NAME_FIRST_NAME)
@@ -109,7 +109,7 @@ public class ReturnAddress {
   }
 
   /**
-   * Get firstName
+   * Recipient&#39;s first name.
    * @return firstName
    */
   @javax.annotation.Nonnull
@@ -128,7 +128,7 @@ public class ReturnAddress {
   }
 
   /**
-   * Get lastName
+   * Recipient&#39;s last name.
    * @return lastName
    */
   @javax.annotation.Nonnull
@@ -147,7 +147,7 @@ public class ReturnAddress {
   }
 
   /**
-   * Get company
+   * Recipient&#39;s company or organisation name (optional).
    * @return company
    */
   @javax.annotation.Nullable
@@ -166,7 +166,7 @@ public class ReturnAddress {
   }
 
   /**
-   * Get address1
+   * Primary street address line.
    * @return address1
    */
   @javax.annotation.Nonnull
@@ -185,7 +185,7 @@ public class ReturnAddress {
   }
 
   /**
-   * Get city
+   * City name.
    * @return city
    */
   @javax.annotation.Nonnull
@@ -204,7 +204,7 @@ public class ReturnAddress {
   }
 
   /**
-   * Get state
+   * Two-letter state or province abbreviation.
    * @return state
    */
   @javax.annotation.Nonnull
@@ -223,7 +223,7 @@ public class ReturnAddress {
   }
 
   /**
-   * Get zip
+   * ZIP or postal code.
    * @return zip
    */
   @javax.annotation.Nonnull
@@ -242,7 +242,7 @@ public class ReturnAddress {
   }
 
   /**
-   * Get country
+   * Country code (e.g. USA).
    * @return country
    */
   @javax.annotation.Nonnull
@@ -261,7 +261,7 @@ public class ReturnAddress {
   }
 
   /**
-   * Get address2
+   * Secondary address line (suite, apartment, floor, etc.).
    * @return address2
    */
   @javax.annotation.Nullable
@@ -280,7 +280,7 @@ public class ReturnAddress {
   }
 
   /**
-   * Get address3
+   * Tertiary address line.
    * @return address3
    */
   @javax.annotation.Nullable

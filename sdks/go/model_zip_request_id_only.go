@@ -19,8 +19,9 @@ import (
 // checks if the ZipRequestIdOnly type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ZipRequestIdOnly{}
 
-// ZipRequestIdOnly struct for ZipRequestIdOnly
+// ZipRequestIdOnly Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
 type ZipRequestIdOnly struct {
+	// Integer ID of a prior file upload request. Also returned in success responses.
 	RequestId int32 `json:"requestId"`
 }
 

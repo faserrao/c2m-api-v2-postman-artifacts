@@ -5,13 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**job_template** | **str** |  | [optional] 
+**job_template** | **str** | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. | [optional] 
 **doc_source_standard** | [**DocSourceStandard**](DocSourceStandard.md) |  | 
-**pdf_split_jobs_with_address** | [**List[PdfSplitJobItemWithAddress]**](PdfSplitJobItemWithAddress.md) |  | 
+**pdf_split_jobs_with_address** | [**List[PdfSplitJobItemWithAddress]**](PdfSplitJobItemWithAddress.md) | List of page-range job items, each with its own inline recipient address. | 
 **payment_details** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
 **return_address** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
 **job_options** | [**JobOptions**](JobOptions.md) |  | [optional] 
-**tags** | **List[str]** |  | [optional] 
+**tags** | **List[str]** | Array of user-defined string tags. | [optional] 
 
 ## Example
 

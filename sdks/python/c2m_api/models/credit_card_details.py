@@ -25,12 +25,12 @@ from typing_extensions import Self
 
 class CreditCardDetails(BaseModel):
     """
-    CreditCardDetails
+    Credit card payment fields: card type, card number, expiration date, and CVV.
     """ # noqa: E501
-    card_type: StrictStr = Field(alias="cardType")
-    card_number: StrictStr = Field(alias="cardNumber")
+    card_type: StrictStr = Field(description="Card brand enum: visa, mastercard, discover, or americanExpress.", alias="cardType")
+    card_number: StrictStr = Field(description="Credit card number (PAN) as a string.", alias="cardNumber")
     expiration_date: ExpirationDate = Field(alias="expirationDate")
-    cvv: StrictInt
+    cvv: StrictInt = Field(description="Card security code (CVV/CVC) as an integer.")
     __properties: ClassVar[List[str]] = ["cardType", "cardNumber", "expirationDate", "cvv"]
 
     @field_validator('card_type')

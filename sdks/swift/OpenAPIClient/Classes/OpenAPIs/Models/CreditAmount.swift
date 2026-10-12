@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Account credit payment fields: monetary amount and ISO currency code. */
 public struct CreditAmount: Codable, JSONEncodable, Hashable {
 
     public enum Currency: String, Codable, CaseIterable {
@@ -19,7 +20,9 @@ public struct CreditAmount: Codable, JSONEncodable, Hashable {
         case cad = "CAD"
         case aud = "AUD"
     }
+    /** Monetary amount as a numeric value. */
     public var amount: Double
+    /** ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD). */
     public var currency: Currency
 
     public init(amount: Double, currency: Currency) {

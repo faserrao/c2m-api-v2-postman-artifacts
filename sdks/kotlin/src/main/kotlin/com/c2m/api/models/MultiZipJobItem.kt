@@ -21,22 +21,24 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.
  *
- * @param filename 
+ * @param filename Filename of a specific file within an upload request or ZIP archive.
  * @param recipientAddressSource 
- * @param jobTemplate 
+ * @param jobTemplate Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  */
 
 
 data class MultiZipJobItem (
 
+    /* Filename of a specific file within an upload request or ZIP archive. */
     @Json(name = "filename")
     val filename: kotlin.String,
 
     @Json(name = "recipientAddressSource")
     val recipientAddressSource: RecipientAddressSource,
 
+    /* Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
     @Json(name = "jobTemplate")
     val jobTemplate: kotlin.String? = null
 

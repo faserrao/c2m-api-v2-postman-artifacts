@@ -26,14 +26,14 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// AchPayment
+    /// ACH bank transfer payment variant.
     /// </summary>
     public partial class AchPayment : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AchPayment" /> class.
         /// </summary>
-        /// <param name="paymentType">paymentType</param>
+        /// <param name="paymentType">Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).</param>
         /// <param name="achDetails">achDetails</param>
         [JsonConstructor]
         public AchPayment(PaymentTypeEnum paymentType, AchDetails achDetails)
@@ -46,8 +46,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Defines PaymentType
+        /// Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
         /// </summary>
+        /// <value>Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).</value>
         public enum PaymentTypeEnum
         {
             /// <summary>
@@ -98,8 +99,9 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets PaymentType
+        /// Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
         /// </summary>
+        /// <value>Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).</value>
         [JsonPropertyName("paymentType")]
         public PaymentTypeEnum PaymentType { get; set; }
 

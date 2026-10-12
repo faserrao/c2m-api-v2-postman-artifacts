@@ -4,13 +4,13 @@
 ## Properties
 | Name | Type | Description | Notes |
 | ------------ | ------------- | ------------- | ------------- |
-| **mergeDocumentSource** | [**kotlin.collections.List&lt;MergeDocumentRef&gt;**](MergeDocumentRef.md) |  |  |
+| **mergeDocumentSource** | [**kotlin.collections.List&lt;MergeDocumentRef&gt;**](MergeDocumentRef.md) | Ordered array of document references to merge into one output document. Minimum two entries required. |  |
 | **recipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  |  |
-| **jobTemplate** | **kotlin.String** |  |  [optional] |
+| **jobTemplate** | **kotlin.String** | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |  [optional] |
 | **paymentDetails** | [**PaymentDetails**](PaymentDetails.md) |  |  [optional] |
 | **returnAddress** | [**ReturnAddress**](ReturnAddress.md) |  |  [optional] |
 | **jobOptions** | [**JobOptions**](JobOptions.md) |  |  [optional] |
-| **tags** | **kotlin.collections.List&lt;kotlin.String&gt;** |  |  [optional] |
+| **tags** | **kotlin.collections.List&lt;kotlin.String&gt;** | Array of user-defined string tags. |  [optional] |
 
 
 

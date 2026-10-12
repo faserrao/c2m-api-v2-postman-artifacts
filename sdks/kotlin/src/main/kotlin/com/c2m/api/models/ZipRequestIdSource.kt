@@ -20,22 +20,25 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip.
  *
- * @param requestId 
- * @param zipFilename 
- * @param filename 
+ * @param requestId Integer ID of a prior file upload request. Also returned in success responses.
+ * @param zipFilename Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
+ * @param filename Filename of a specific file within an upload request or ZIP archive.
  */
 
 
 data class ZipRequestIdSource (
 
+    /* Integer ID of a prior file upload request. Also returned in success responses. */
     @Json(name = "requestId")
     val requestId: kotlin.Int,
 
+    /* Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request). */
     @Json(name = "zipFilename")
     val zipFilename: kotlin.String,
 
+    /* Filename of a specific file within an upload request or ZIP archive. */
     @Json(name = "filename")
     val filename: kotlin.String
 

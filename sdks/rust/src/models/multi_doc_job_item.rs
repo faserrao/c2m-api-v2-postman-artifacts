@@ -11,8 +11,10 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// MultiDocJobItem : A single independent document job entry within a multi-doc batch.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MultiDocJobItem {
+    /// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
     #[serde(rename = "jobTemplate", skip_serializing_if = "Option::is_none")]
     pub job_template: Option<String>,
     #[serde(rename = "docSourceAll")]
@@ -22,6 +24,7 @@ pub struct MultiDocJobItem {
 }
 
 impl MultiDocJobItem {
+    /// A single independent document job entry within a multi-doc batch.
     pub fn new(doc_source_all: models::DocSourceAll, recipient_address_source: models::RecipientAddressSource) -> MultiDocJobItem {
         MultiDocJobItem {
             job_template: None,

@@ -34,9 +34,9 @@ namespace C2M.Api.Model
         /// Initializes a new instance of the <see cref="SubmitMultiZipParams" /> class.
         /// </summary>
         /// <param name="docSourceZipFileRef">docSourceZipFileRef</param>
-        /// <param name="multiZipJobs">multiZipJobs</param>
+        /// <param name="multiZipJobs">List of per-file job items extracted from a ZIP archive (POST /batch/zip).</param>
         /// <param name="paymentDetails">paymentDetails</param>
-        /// <param name="tags">tags</param>
+        /// <param name="tags">Array of user-defined string tags.</param>
         [JsonConstructor]
         public SubmitMultiZipParams(DocSourceZipFileRef docSourceZipFileRef, List<MultiZipJobItem> multiZipJobs, Option<PaymentDetails?> paymentDetails = default, Option<List<string>?> tags = default)
         {
@@ -56,8 +56,9 @@ namespace C2M.Api.Model
         public DocSourceZipFileRef DocSourceZipFileRef { get; set; }
 
         /// <summary>
-        /// Gets or Sets MultiZipJobs
+        /// List of per-file job items extracted from a ZIP archive (POST /batch/zip).
         /// </summary>
+        /// <value>List of per-file job items extracted from a ZIP archive (POST /batch/zip).</value>
         [JsonPropertyName("multiZipJobs")]
         public List<MultiZipJobItem> MultiZipJobs { get; set; }
 
@@ -82,8 +83,9 @@ namespace C2M.Api.Model
         public Option<List<string>?> TagsOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Tags
+        /// Array of user-defined string tags.
         /// </summary>
+        /// <value>Array of user-defined string tags.</value>
         [JsonPropertyName("tags")]
         public List<string>? Tags { get { return this.TagsOption; } set { this.TagsOption = new(value); } }
 

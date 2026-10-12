@@ -21,8 +21,9 @@ import ApiClient from '../ApiClient';
 class MergeByRequestId {
     /**
      * Constructs a new <code>MergeByRequestId</code>.
+     * Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.
      * @alias module:c2m_api/model/MergeByRequestId
-     * @param requestId {Number} 
+     * @param requestId {Number} Integer ID of a prior file upload request. Also returned in success responses.
      */
     constructor(requestId) { 
         
@@ -85,11 +86,13 @@ class MergeByRequestId {
 MergeByRequestId.RequiredProperties = ["requestId"];
 
 /**
+ * Integer ID of a prior file upload request. Also returned in success responses.
  * @member {Number} requestId
  */
 MergeByRequestId.prototype['requestId'] = undefined;
 
 /**
+ * Filename of a specific file within an upload request or ZIP archive.
  * @member {String} filename
  */
 MergeByRequestId.prototype['filename'] = undefined;

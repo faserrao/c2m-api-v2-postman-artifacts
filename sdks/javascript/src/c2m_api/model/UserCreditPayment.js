@@ -22,8 +22,9 @@ import CreditAmount from './CreditAmount';
 class UserCreditPayment {
     /**
      * Constructs a new <code>UserCreditPayment</code>.
+     * Payment deducted from the account&#39;s prepaid credit balance.
      * @alias module:c2m_api/model/UserCreditPayment
-     * @param paymentType {module:c2m_api/model/UserCreditPayment.PaymentTypeEnum} 
+     * @param paymentType {module:c2m_api/model/UserCreditPayment.PaymentTypeEnum} Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
      * @param creditAmount {module:c2m_api/model/CreditAmount} 
      */
     constructor(paymentType, creditAmount) { 
@@ -92,6 +93,7 @@ class UserCreditPayment {
 UserCreditPayment.RequiredProperties = ["paymentType", "creditAmount"];
 
 /**
+ * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
  * @member {module:c2m_api/model/UserCreditPayment.PaymentTypeEnum} paymentType
  */
 UserCreditPayment.prototype['paymentType'] = undefined;

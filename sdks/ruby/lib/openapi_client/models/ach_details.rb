@@ -14,11 +14,15 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # ACH payment fields: routing number, bank account number, and check digit.
   class AchDetails
+    # ABA bank routing number.
     attr_accessor :routing_number
 
+    # Bank account number.
     attr_accessor :account_number
 
+    # ACH check digit.
     attr_accessor :check_digit
 
     # Attribute mapping from ruby-style variable name to JSON key.

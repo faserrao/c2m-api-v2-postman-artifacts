@@ -26,8 +26,9 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Defines mailClass
+    /// USPS mail class (first_class, standard, or non_profit).
     /// </summary>
+    /// <value>USPS mail class (first_class, standard, or non_profit).</value>
     public enum MailClass
     {
         /// <summary>

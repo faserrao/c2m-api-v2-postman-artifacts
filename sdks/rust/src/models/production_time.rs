@@ -11,7 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
+/// ProductionTime : Production time preference (next_day, two_day, etc.).
+/// Production time preference (next_day, two_day, etc.).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ProductionTime {
     #[serde(rename = "next_day")]

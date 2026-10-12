@@ -19,10 +19,13 @@ import (
 // checks if the ZipRequestIdSource type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ZipRequestIdSource{}
 
-// ZipRequestIdSource struct for ZipRequestIdSource
+// ZipRequestIdSource Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip.
 type ZipRequestIdSource struct {
+	// Integer ID of a prior file upload request. Also returned in success responses.
 	RequestId int32 `json:"requestId"`
+	// Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
 	ZipFilename string `json:"zipFilename"`
+	// Filename of a specific file within an upload request or ZIP archive.
 	Filename string `json:"filename"`
 }
 

@@ -21,15 +21,16 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Invoice payment — billed to an existing account invoice.
  *
- * @param paymentType 
+ * @param paymentType Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
  * @param invoiceDetails 
  */
 
 
 data class InvoicePayment (
 
+    /* Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). */
     @Json(name = "paymentType")
     val paymentType: InvoicePayment.PaymentType,
 
@@ -39,7 +40,7 @@ data class InvoicePayment (
 ) {
 
     /**
-     * 
+     * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
      *
      * Values: invoice
      */

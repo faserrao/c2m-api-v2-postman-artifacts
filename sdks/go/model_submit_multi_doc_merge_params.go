@@ -21,12 +21,15 @@ var _ MappedNullable = &SubmitMultiDocMergeParams{}
 
 // SubmitMultiDocMergeParams struct for SubmitMultiDocMergeParams
 type SubmitMultiDocMergeParams struct {
+	// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
 	JobTemplate *string `json:"jobTemplate,omitempty"`
+	// Ordered array of document references to merge into one output document. Minimum two entries required.
 	MergeDocumentSource []MergeDocumentRef `json:"mergeDocumentSource"`
 	RecipientAddressSource RecipientAddressSource `json:"recipientAddressSource"`
 	PaymentDetails *PaymentDetails `json:"paymentDetails,omitempty"`
 	ReturnAddress *ReturnAddress `json:"returnAddress,omitempty"`
 	JobOptions *JobOptions `json:"jobOptions,omitempty"`
+	// Array of user-defined string tags.
 	Tags []string `json:"tags,omitempty"`
 }
 

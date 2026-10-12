@@ -46,9 +46,9 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * RequestIdSource
+ * Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class RequestIdSource {
   public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)
@@ -69,7 +69,7 @@ public class RequestIdSource {
   }
 
   /**
-   * Get requestId
+   * Integer ID of a prior file upload request. Also returned in success responses.
    * @return requestId
    */
   @javax.annotation.Nonnull
@@ -88,7 +88,7 @@ public class RequestIdSource {
   }
 
   /**
-   * Get filename
+   * Filename of a specific file within an upload request or ZIP archive.
    * @return filename
    */
   @javax.annotation.Nullable

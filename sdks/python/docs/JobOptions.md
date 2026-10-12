@@ -1,18 +1,19 @@
 # JobOptions
 
+Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**document_class** | **str** |  | 
-**layout** | **str** |  | 
-**production_time** | **str** |  | 
-**envelope** | **str** |  | 
-**color** | **str** |  | 
-**paper_type** | **str** |  | 
-**print_option** | **str** |  | 
-**mail_class** | **str** |  | 
+**document_class** | **str** | Document class determining the mailpiece format. | 
+**layout** | **str** | Page layout controlling where the recipient address is printed. | 
+**production_time** | **str** | Production time preference (next_day, two_day, etc.). | 
+**envelope** | **str** | Envelope type used for the mailing. | 
+**color** | **str** | Color mode for printing (full_color or black_and_white). | 
+**paper_type** | **str** | Paper stock for printing. | 
+**print_option** | **str** | Duplex setting (double_sided or single_sided). | 
+**mail_class** | **str** | USPS mail class (first_class, standard, or non_profit). | 
 
 ## Example
 

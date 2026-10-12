@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * MergeByDocumentId Class Doc Comment
  *
  * @category Class
+ * @description Merge a stored document identified by its document ID.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -305,7 +306,7 @@ class MergeByDocumentId implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets document_id
      *
-     * @param int $document_id document_id
+     * @param int $document_id Integer ID of a previously stored or uploaded document.
      *
      * @return self
      */

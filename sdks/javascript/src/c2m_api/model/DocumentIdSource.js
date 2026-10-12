@@ -21,8 +21,9 @@ import ApiClient from '../ApiClient';
 class DocumentIdSource {
     /**
      * Constructs a new <code>DocumentIdSource</code>.
+     * Source a document by its previously stored document ID.
      * @alias module:c2m_api/model/DocumentIdSource
-     * @param documentId {Number} 
+     * @param documentId {Number} Integer ID of a previously stored or uploaded document.
      */
     constructor(documentId) { 
         
@@ -78,6 +79,7 @@ class DocumentIdSource {
 DocumentIdSource.RequiredProperties = ["documentId"];
 
 /**
+ * Integer ID of a previously stored or uploaded document.
  * @member {Number} documentId
  */
 DocumentIdSource.prototype['documentId'] = undefined;

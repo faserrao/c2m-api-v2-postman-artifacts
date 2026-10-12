@@ -22,11 +22,11 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * A single independent document job entry within a multi-doc batch.
  *
  * @param docSourceAll 
  * @param recipientAddressSource 
- * @param jobTemplate 
+ * @param jobTemplate Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  */
 
 
@@ -38,6 +38,7 @@ data class MultiDocJobItem (
     @Json(name = "recipientAddressSource")
     val recipientAddressSource: RecipientAddressSource,
 
+    /* Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
     @Json(name = "jobTemplate")
     val jobTemplate: kotlin.String? = null
 

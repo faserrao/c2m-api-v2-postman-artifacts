@@ -25,13 +25,13 @@ class ZipDocumentIdSourceTest : ShouldSpec() {
         // uncomment below to create an instance of ZipDocumentIdSource
         //val modelInstance = ZipDocumentIdSource()
 
-        // to test the property `zipDocumentId`
+        // to test the property `zipDocumentId` - Integer ID of a previously stored ZIP archive.
         should("test zipDocumentId") {
             // uncomment below to test the property
             //modelInstance.zipDocumentId shouldBe ("TODO")
         }
 
-        // to test the property `filename`
+        // to test the property `filename` - Filename of a specific file within an upload request or ZIP archive.
         should("test filename") {
             // uncomment below to test the property
             //modelInstance.filename shouldBe ("TODO")

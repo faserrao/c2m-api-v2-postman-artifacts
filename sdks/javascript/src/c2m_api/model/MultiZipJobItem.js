@@ -22,8 +22,9 @@ import RecipientAddressSource from './RecipientAddressSource';
 class MultiZipJobItem {
     /**
      * Constructs a new <code>MultiZipJobItem</code>.
+     * A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.
      * @alias module:c2m_api/model/MultiZipJobItem
-     * @param filename {String} 
+     * @param filename {String} Filename of a specific file within an upload request or ZIP archive.
      * @param recipientAddressSource {module:c2m_api/model/RecipientAddressSource} 
      */
     constructor(filename, recipientAddressSource) { 
@@ -99,11 +100,13 @@ class MultiZipJobItem {
 MultiZipJobItem.RequiredProperties = ["filename", "recipientAddressSource"];
 
 /**
+ * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  * @member {String} jobTemplate
  */
 MultiZipJobItem.prototype['jobTemplate'] = undefined;
 
 /**
+ * Filename of a specific file within an upload request or ZIP archive.
  * @member {String} filename
  */
 MultiZipJobItem.prototype['filename'] = undefined;

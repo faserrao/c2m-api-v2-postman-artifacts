@@ -13,8 +13,10 @@ import AnyCodable
 public struct SubmitMultiZipParams: Codable, JSONEncodable, Hashable {
 
     public var docSourceZipFileRef: DocSourceZipFileRef
+    /** List of per-file job items extracted from a ZIP archive (POST /batch/zip). */
     public var multiZipJobs: [MultiZipJobItem]
     public var paymentDetails: PaymentDetails?
+    /** Array of user-defined string tags. */
     public var tags: [String]?
 
     public init(docSourceZipFileRef: DocSourceZipFileRef, multiZipJobs: [MultiZipJobItem], paymentDetails: PaymentDetails? = nil, tags: [String]? = nil) {

@@ -15,8 +15,10 @@ require 'time'
 
 module OpenapiClient
   class SubmitMultiDocMergeParams
+    # Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
     attr_accessor :job_template
 
+    # Ordered array of document references to merge into one output document. Minimum two entries required.
     attr_accessor :merge_document_source
 
     attr_accessor :recipient_address_source
@@ -27,6 +29,7 @@ module OpenapiClient
 
     attr_accessor :job_options
 
+    # Array of user-defined string tags.
     attr_accessor :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.

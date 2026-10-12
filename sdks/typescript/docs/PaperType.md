@@ -1,5 +1,6 @@
 # PaperType
 
+Paper stock for printing.
 
 ## Enum
 

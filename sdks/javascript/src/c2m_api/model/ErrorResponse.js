@@ -21,10 +21,11 @@ import ApiClient from '../ApiClient';
 class ErrorResponse {
     /**
      * Constructs a new <code>ErrorResponse</code>.
+     * Error response structure returned for all API error conditions.
      * @alias module:c2m_api/model/ErrorResponse
-     * @param errorType {module:c2m_api/model/ErrorResponse.ErrorTypeEnum} 
-     * @param errorMessage {String} 
-     * @param errorCode {module:c2m_api/model/ErrorResponse.ErrorCodeEnum} 
+     * @param errorType {module:c2m_api/model/ErrorResponse.ErrorTypeEnum} High-level error category string (ValidationError, AuthenticationError, etc.).
+     * @param errorMessage {String} Human-readable error description.
+     * @param errorCode {module:c2m_api/model/ErrorResponse.ErrorCodeEnum} Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
      */
     constructor(errorType, errorMessage, errorCode) { 
         
@@ -114,26 +115,31 @@ class ErrorResponse {
 ErrorResponse.RequiredProperties = ["errorType", "errorMessage", "errorCode"];
 
 /**
+ * High-level error category string (ValidationError, AuthenticationError, etc.).
  * @member {module:c2m_api/model/ErrorResponse.ErrorTypeEnum} errorType
  */
 ErrorResponse.prototype['errorType'] = undefined;
 
 /**
+ * Human-readable error description.
  * @member {String} errorMessage
  */
 ErrorResponse.prototype['errorMessage'] = undefined;
 
 /**
+ * Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
  * @member {module:c2m_api/model/ErrorResponse.ErrorCodeEnum} errorCode
  */
 ErrorResponse.prototype['errorCode'] = undefined;
 
 /**
+ * Optional JSON object with additional error context (free-form key/value pairs).
  * @member {String} errorDetails
  */
 ErrorResponse.prototype['errorDetails'] = undefined;
 
 /**
+ * Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
  * @member {String} errorTrackingId
  */
 ErrorResponse.prototype['errorTrackingId'] = undefined;

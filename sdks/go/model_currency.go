@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// Currency the model 'Currency'
+// Currency ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
 type Currency string
 
 // List of currency

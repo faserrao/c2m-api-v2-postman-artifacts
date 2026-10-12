@@ -26,7 +26,7 @@ class MultiZipJobItemTest : ShouldSpec() {
         // uncomment below to create an instance of MultiZipJobItem
         //val modelInstance = MultiZipJobItem()
 
-        // to test the property `filename`
+        // to test the property `filename` - Filename of a specific file within an upload request or ZIP archive.
         should("test filename") {
             // uncomment below to test the property
             //modelInstance.filename shouldBe ("TODO")
@@ -38,7 +38,7 @@ class MultiZipJobItemTest : ShouldSpec() {
             //modelInstance.recipientAddressSource shouldBe ("TODO")
         }
 
-        // to test the property `jobTemplate`
+        // to test the property `jobTemplate` - Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
         should("test jobTemplate") {
             // uncomment below to test the property
             //modelInstance.jobTemplate shouldBe ("TODO")

@@ -14,6 +14,7 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Top-level ZIP archive reference for batch endpoints — identifies the archive itself, not a file within it. No filename is required at this level.
   module DocSourceZipFileRef
     class << self
       # List of class defined in oneOf (OpenAPI v3)

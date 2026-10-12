@@ -20,50 +20,60 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Optional sender return address printed on the mailpiece.
  *
- * @param firstName 
- * @param lastName 
- * @param address1 
- * @param city 
- * @param state 
- * @param zip 
- * @param country 
- * @param company 
- * @param address2 
- * @param address3 
+ * @param firstName Recipient's first name.
+ * @param lastName Recipient's last name.
+ * @param address1 Primary street address line.
+ * @param city City name.
+ * @param state Two-letter state or province abbreviation.
+ * @param zip ZIP or postal code.
+ * @param country Country code (e.g. USA).
+ * @param company Recipient's company or organisation name (optional).
+ * @param address2 Secondary address line (suite, apartment, floor, etc.).
+ * @param address3 Tertiary address line.
  */
 
 
 data class ReturnAddress (
 
+    /* Recipient's first name. */
     @Json(name = "firstName")
     val firstName: kotlin.String,
 
+    /* Recipient's last name. */
     @Json(name = "lastName")
     val lastName: kotlin.String,
 
+    /* Primary street address line. */
     @Json(name = "address1")
     val address1: kotlin.String,
 
+    /* City name. */
     @Json(name = "city")
     val city: kotlin.String,
 
+    /* Two-letter state or province abbreviation. */
     @Json(name = "state")
     val state: kotlin.String,
 
+    /* ZIP or postal code. */
     @Json(name = "zip")
     val zip: kotlin.String,
 
+    /* Country code (e.g. USA). */
     @Json(name = "country")
     val country: kotlin.String,
 
+    /* Recipient's company or organisation name (optional). */
     @Json(name = "company")
     val company: kotlin.String? = null,
 
+    /* Secondary address line (suite, apartment, floor, etc.). */
     @Json(name = "address2")
     val address2: kotlin.String? = null,
 
+    /* Tertiary address line. */
     @Json(name = "address3")
     val address3: kotlin.String? = null
 

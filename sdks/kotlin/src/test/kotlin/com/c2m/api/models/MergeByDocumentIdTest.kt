@@ -25,7 +25,7 @@ class MergeByDocumentIdTest : ShouldSpec() {
         // uncomment below to create an instance of MergeByDocumentId
         //val modelInstance = MergeByDocumentId()
 
-        // to test the property `documentId`
+        // to test the property `documentId` - Integer ID of a previously stored or uploaded document.
         should("test documentId") {
             // uncomment below to test the property
             //modelInstance.documentId shouldBe ("TODO")

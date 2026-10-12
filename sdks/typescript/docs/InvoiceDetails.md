@@ -1,12 +1,13 @@
 # InvoiceDetails
 
+Invoice payment fields: invoice number and amount due.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**invoiceNumber** | **string** |  | [default to undefined]
-**amountDue** | **number** |  | [default to undefined]
+**invoiceNumber** | **string** | Invoice reference number. | [default to undefined]
+**amountDue** | **number** | Amount due on the invoice. | [default to undefined]
 
 ## Example
 

@@ -1,13 +1,14 @@
 # AchDetails
 
+ACH payment fields: routing number, bank account number, and check digit.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**routingNumber** | **string** |  | [default to undefined]
-**accountNumber** | **string** |  | [default to undefined]
-**checkDigit** | **number** |  | [default to undefined]
+**routingNumber** | **string** | ABA bank routing number. | [default to undefined]
+**accountNumber** | **string** | Bank account number. | [default to undefined]
+**checkDigit** | **number** | ACH check digit. | [default to undefined]
 
 ## Example
 

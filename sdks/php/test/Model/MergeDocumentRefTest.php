@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * MergeDocumentRefTest Class Doc Comment
  *
  * @category    Class
- * @description MergeDocumentRef
+ * @description A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

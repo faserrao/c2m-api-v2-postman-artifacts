@@ -10,8 +10,10 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames. */
 public struct ZipDocumentIdOnly: Codable, JSONEncodable, Hashable {
 
+    /** Integer ID of a previously stored ZIP archive. */
     public var zipDocumentId: Int
 
     public init(zipDocumentId: Int) {

@@ -14,9 +14,12 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one.
   class RequestIdSource
+    # Integer ID of a prior file upload request. Also returned in success responses.
     attr_accessor :request_id
 
+    # Filename of a specific file within an upload request or ZIP archive.
     attr_accessor :filename
 
     # Attribute mapping from ruby-style variable name to JSON key.

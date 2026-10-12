@@ -33,6 +33,7 @@ use \C2MApi\ObjectSerializer;
  * Color Class Doc Comment
  *
  * @category Class
+ * @description Color mode for printing (full_color or black_and_white).
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

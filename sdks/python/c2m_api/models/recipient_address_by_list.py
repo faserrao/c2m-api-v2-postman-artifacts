@@ -25,11 +25,11 @@ from typing_extensions import Self
 
 class RecipientAddressByList(BaseModel):
     """
-    RecipientAddressByList
+    Inline list of recipient addresses with an optional merge-field mapping ID.
     """ # noqa: E501
-    mapping_id: Optional[StrictInt] = Field(default=None, alias="mappingId")
-    address_list: List[Address] = Field(alias="addressList")
-    address_list_name: Optional[StrictStr] = Field(default=None, alias="addressListName")
+    mapping_id: Optional[StrictInt] = Field(default=None, description="Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.", alias="mappingId")
+    address_list: List[Address] = Field(description="List of recipient mailing addresses — used for batch sends and mail merge.", alias="addressList")
+    address_list_name: Optional[StrictStr] = Field(default=None, description="Optional name for this address list record.", alias="addressListName")
     __properties: ClassVar[List[str]] = ["mappingId", "addressList", "addressListName"]
 
     model_config = ConfigDict(

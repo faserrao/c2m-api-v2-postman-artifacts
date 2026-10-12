@@ -26,8 +26,9 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Defines cardType
+    /// Card brand enum: visa, mastercard, discover, or americanExpress.
     /// </summary>
+    /// <value>Card brand enum: visa, mastercard, discover, or americanExpress.</value>
     public enum CardType
     {
         /// <summary>

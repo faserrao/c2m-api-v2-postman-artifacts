@@ -47,9 +47,9 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * PdfSplitJobItemWithAddress
+ * A single page-range job entry: page range (startPage, endPage) plus a recipient address.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class PdfSplitJobItemWithAddress {
   public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
   @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)
@@ -80,7 +80,7 @@ public class PdfSplitJobItemWithAddress {
   }
 
   /**
-   * Get jobTemplate
+   * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
    * @return jobTemplate
    */
   @javax.annotation.Nullable
@@ -99,7 +99,7 @@ public class PdfSplitJobItemWithAddress {
   }
 
   /**
-   * Get startPage
+   * First page of this job&#39;s page range, 1-indexed (inclusive).
    * minimum: 1
    * @return startPage
    */
@@ -119,7 +119,7 @@ public class PdfSplitJobItemWithAddress {
   }
 
   /**
-   * Get endPage
+   * Last page of this job&#39;s page range (inclusive). Must be &gt;&#x3D; startPage.
    * minimum: 1
    * @return endPage
    */

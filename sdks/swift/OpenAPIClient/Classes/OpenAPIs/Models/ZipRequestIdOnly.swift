@@ -10,8 +10,10 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection. */
 public struct ZipRequestIdOnly: Codable, JSONEncodable, Hashable {
 
+    /** Integer ID of a prior file upload request. Also returned in success responses. */
     public var requestId: Int
 
     public init(requestId: Int) {

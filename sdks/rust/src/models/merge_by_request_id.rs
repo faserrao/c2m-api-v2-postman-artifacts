@@ -11,15 +11,19 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// MergeByRequestId : Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct MergeByRequestId {
+    /// Integer ID of a prior file upload request. Also returned in success responses.
     #[serde(rename = "requestId")]
     pub request_id: i32,
+    /// Filename of a specific file within an upload request or ZIP archive.
     #[serde(rename = "filename", skip_serializing_if = "Option::is_none")]
     pub filename: Option<String>,
 }
 
 impl MergeByRequestId {
+    /// Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.
     pub fn new(request_id: i32) -> MergeByRequestId {
         MergeByRequestId {
             request_id,

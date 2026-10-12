@@ -19,9 +19,11 @@ import (
 // checks if the ZipDocumentIdSource type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ZipDocumentIdSource{}
 
-// ZipDocumentIdSource struct for ZipDocumentIdSource
+// ZipDocumentIdSource Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
 type ZipDocumentIdSource struct {
+	// Integer ID of a previously stored ZIP archive.
 	ZipDocumentId int32 `json:"zipDocumentId"`
+	// Filename of a specific file within an upload request or ZIP archive.
 	Filename string `json:"filename"`
 }
 

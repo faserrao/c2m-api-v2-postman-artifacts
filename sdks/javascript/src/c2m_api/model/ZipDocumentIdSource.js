@@ -21,9 +21,10 @@ import ApiClient from '../ApiClient';
 class ZipDocumentIdSource {
     /**
      * Constructs a new <code>ZipDocumentIdSource</code>.
+     * Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
      * @alias module:c2m_api/model/ZipDocumentIdSource
-     * @param zipDocumentId {Number} 
-     * @param filename {String} 
+     * @param zipDocumentId {Number} Integer ID of a previously stored ZIP archive.
+     * @param filename {String} Filename of a specific file within an upload request or ZIP archive.
      */
     constructor(zipDocumentId, filename) { 
         
@@ -87,11 +88,13 @@ class ZipDocumentIdSource {
 ZipDocumentIdSource.RequiredProperties = ["zipDocumentId", "filename"];
 
 /**
+ * Integer ID of a previously stored ZIP archive.
  * @member {Number} zipDocumentId
  */
 ZipDocumentIdSource.prototype['zipDocumentId'] = undefined;
 
 /**
+ * Filename of a specific file within an upload request or ZIP archive.
  * @member {String} filename
  */
 ZipDocumentIdSource.prototype['filename'] = undefined;

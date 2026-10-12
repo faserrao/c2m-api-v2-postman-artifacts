@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * MultiDocJobItem Class Doc Comment
  *
  * @category Class
+ * @description A single independent document job entry within a multi-doc batch.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -322,7 +323,7 @@ class MultiDocJobItem implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets job_template
      *
-     * @param string|null $job_template job_template
+     * @param string|null $job_template Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
      *
      * @return self
      */

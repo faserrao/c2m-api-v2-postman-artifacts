@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets cardType
+ * Card brand enum: visa, mastercard, discover, or americanExpress.
  */
 @JsonAdapter(CardType.Adapter.class)
 public enum CardType {

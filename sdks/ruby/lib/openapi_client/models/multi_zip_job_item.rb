@@ -14,9 +14,12 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.
   class MultiZipJobItem
+    # Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
     attr_accessor :job_template
 
+    # Filename of a specific file within an upload request or ZIP archive.
     attr_accessor :filename
 
     attr_accessor :recipient_address_source

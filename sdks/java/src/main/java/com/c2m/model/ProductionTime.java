@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets productionTime
+ * Production time preference (next_day, two_day, etc.).
  */
 @JsonAdapter(ProductionTime.Adapter.class)
 public enum ProductionTime {

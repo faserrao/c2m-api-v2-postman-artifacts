@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * DocSourceZipFileRefTest Class Doc Comment
  *
  * @category    Class
- * @description DocSourceZipFileRef
+ * @description Top-level ZIP archive reference for batch endpoints — identifies the archive itself, not a file within it. No filename is required at this level.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

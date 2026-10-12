@@ -1,13 +1,14 @@
 # RecipientAddressSource
 
+Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **recipient_address_by_list** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | 
-**recipient_address_by_address_id** | **int** |  | 
-**recipient_address_by_list_id** | **int** |  | 
+**recipient_address_by_address_id** | **int** | Reference to a previously stored individual recipient address by its integer ID. | 
+**recipient_address_by_list_id** | **int** | Reference to a previously stored recipient address list by its integer ID. | 
 
 ## Example
 

@@ -19,10 +19,13 @@ import (
 // checks if the RecipientAddressByList type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &RecipientAddressByList{}
 
-// RecipientAddressByList struct for RecipientAddressByList
+// RecipientAddressByList Inline list of recipient addresses with an optional merge-field mapping ID.
 type RecipientAddressByList struct {
+	// Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.
 	MappingId *int32 `json:"mappingId,omitempty"`
+	// List of recipient mailing addresses — used for batch sends and mail merge.
 	AddressList []Address `json:"addressList"`
+	// Optional name for this address list record.
 	AddressListName *string `json:"addressListName,omitempty"`
 }
 

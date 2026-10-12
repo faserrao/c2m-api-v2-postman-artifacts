@@ -26,8 +26,9 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Defines productionTime
+    /// Production time preference (next_day, two_day, etc.).
     /// </summary>
+    /// <value>Production time preference (next_day, two_day, etc.).</value>
     public enum ProductionTime
     {
         /// <summary>

@@ -11,6 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// DocSourceStandard : Document source — standard (non-zip) variants only: requestId, documentId, or URL.
+/// Document source — standard (non-zip) variants only: requestId, documentId, or URL.
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DocSourceStandard {

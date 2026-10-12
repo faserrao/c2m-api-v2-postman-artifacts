@@ -1,11 +1,12 @@
 # ZipRequestIdOnly
 
+Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requestId** | **number** |  | [default to undefined]
+**requestId** | **number** | Integer ID of a prior file upload request. Also returned in success responses. | [default to undefined]
 
 ## Example
 

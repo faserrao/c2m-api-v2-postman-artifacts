@@ -14,7 +14,9 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # ACH bank transfer payment variant.
   class AchPayment
+    # Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
     attr_accessor :payment_type
 
     attr_accessor :ach_details

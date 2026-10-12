@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RecipientAddressByListId** | **int32** |  | 
+**RecipientAddressByListId** | **int32** | Reference to a previously stored recipient address list by its integer ID. | 
 
 ## Methods
 

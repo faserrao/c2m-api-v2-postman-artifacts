@@ -25,10 +25,10 @@ from typing_extensions import Self
 
 class ExpirationDate(BaseModel):
     """
-    ExpirationDate
+    Card expiration date containing month and year.
     """ # noqa: E501
-    month: Annotated[int, Field(le=12, strict=True, ge=1)]
-    year: Annotated[int, Field(le=2099, strict=True, ge=2000)]
+    month: Annotated[int, Field(le=12, strict=True, ge=1)] = Field(description="Expiration month as an integer (1-12).")
+    year: Annotated[int, Field(le=2099, strict=True, ge=2000)] = Field(description="Expiration year as a four-digit integer (e.g. 2029).")
     __properties: ClassVar[List[str]] = ["month", "year"]
 
     model_config = ConfigDict(

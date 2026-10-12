@@ -11,17 +11,22 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// StandardResponse : Success response returned for all successful job submissions.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct StandardResponse {
+    /// Job status string (e.g. \"accepted\").
     #[serde(rename = "status")]
     pub status: String,
+    /// Human-readable confirmation message (e.g. \"Your request has been queued\").
     #[serde(rename = "message")]
     pub message: String,
+    /// Integer ID of a prior file upload request. Also returned in success responses.
     #[serde(rename = "requestId")]
     pub request_id: i32,
 }
 
 impl StandardResponse {
+    /// Success response returned for all successful job submissions.
     pub fn new(status: String, message: String, request_id: i32) -> StandardResponse {
         StandardResponse {
             status,

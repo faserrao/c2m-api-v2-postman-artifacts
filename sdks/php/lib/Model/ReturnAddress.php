@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * ReturnAddress Class Doc Comment
  *
  * @category Class
+ * @description Optional sender return address printed on the mailpiece.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -386,7 +387,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets first_name
      *
-     * @param string $first_name first_name
+     * @param string $first_name Recipient's first name.
      *
      * @return self
      */
@@ -413,7 +414,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last_name
      *
-     * @param string $last_name last_name
+     * @param string $last_name Recipient's last name.
      *
      * @return self
      */
@@ -440,7 +441,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets company
      *
-     * @param string|null $company company
+     * @param string|null $company Recipient's company or organisation name (optional).
      *
      * @return self
      */
@@ -467,7 +468,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address1
      *
-     * @param string $address1 address1
+     * @param string $address1 Primary street address line.
      *
      * @return self
      */
@@ -494,7 +495,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets city
      *
-     * @param string $city city
+     * @param string $city City name.
      *
      * @return self
      */
@@ -521,7 +522,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state
      *
-     * @param string $state state
+     * @param string $state Two-letter state or province abbreviation.
      *
      * @return self
      */
@@ -548,7 +549,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets zip
      *
-     * @param string $zip zip
+     * @param string $zip ZIP or postal code.
      *
      * @return self
      */
@@ -575,7 +576,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country
      *
-     * @param string $country country
+     * @param string $country Country code (e.g. USA).
      *
      * @return self
      */
@@ -602,7 +603,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address2
      *
-     * @param string|null $address2 address2
+     * @param string|null $address2 Secondary address line (suite, apartment, floor, etc.).
      *
      * @return self
      */
@@ -629,7 +630,7 @@ class ReturnAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address3
      *
-     * @param string|null $address3 address3
+     * @param string|null $address3 Tertiary address line.
      *
      * @return self
      */

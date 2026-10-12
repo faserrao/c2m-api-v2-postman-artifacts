@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**invoiceNumber** | **String** |  | 
-**amountDue** | **Number** |  | 
+**invoiceNumber** | **String** | Invoice reference number. | 
+**amountDue** | **Number** | Amount due on the invoice. | 
 
 

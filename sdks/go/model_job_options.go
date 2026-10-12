@@ -19,15 +19,23 @@ import (
 // checks if the JobOptions type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &JobOptions{}
 
-// JobOptions struct for JobOptions
+// JobOptions Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
 type JobOptions struct {
+	// Document class determining the mailpiece format.
 	DocumentClass string `json:"documentClass"`
+	// Page layout controlling where the recipient address is printed.
 	Layout string `json:"layout"`
+	// Production time preference (next_day, two_day, etc.).
 	ProductionTime string `json:"productionTime"`
+	// Envelope type used for the mailing.
 	Envelope string `json:"envelope"`
+	// Color mode for printing (full_color or black_and_white).
 	Color string `json:"color"`
+	// Paper stock for printing.
 	PaperType string `json:"paperType"`
+	// Duplex setting (double_sided or single_sided).
 	PrintOption string `json:"printOption"`
+	// USPS mail class (first_class, standard, or non_profit).
 	MailClass string `json:"mailClass"`
 }
 

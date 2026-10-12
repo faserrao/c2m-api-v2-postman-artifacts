@@ -10,9 +10,12 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Invoice payment fields: invoice number and amount due. */
 public struct InvoiceDetails: Codable, JSONEncodable, Hashable {
 
+    /** Invoice reference number. */
     public var invoiceNumber: String
+    /** Amount due on the invoice. */
     public var amountDue: Double
 
     public init(invoiceNumber: String, amountDue: Double) {

@@ -1,12 +1,13 @@
 # ExpirationDate
 
+Card expiration date containing month and year.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**month** | **number** |  | [default to undefined]
-**year** | **number** |  | [default to undefined]
+**month** | **number** | Expiration month as an integer (1-12). | [default to undefined]
+**year** | **number** | Expiration year as a four-digit integer (e.g. 2029). | [default to undefined]
 
 ## Example
 

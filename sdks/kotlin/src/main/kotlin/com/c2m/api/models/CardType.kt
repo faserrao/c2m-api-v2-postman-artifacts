@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Card brand enum: visa, mastercard, discover, or americanExpress.
  *
  * Values: visa,mastercard,discover,americanExpress
  */

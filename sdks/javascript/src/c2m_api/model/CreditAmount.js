@@ -21,9 +21,10 @@ import ApiClient from '../ApiClient';
 class CreditAmount {
     /**
      * Constructs a new <code>CreditAmount</code>.
+     * Account credit payment fields: monetary amount and ISO currency code.
      * @alias module:c2m_api/model/CreditAmount
-     * @param amount {Number} 
-     * @param currency {module:c2m_api/model/CreditAmount.CurrencyEnum} 
+     * @param amount {Number} Monetary amount as a numeric value.
+     * @param currency {module:c2m_api/model/CreditAmount.CurrencyEnum} ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
      */
     constructor(amount, currency) { 
         
@@ -87,11 +88,13 @@ class CreditAmount {
 CreditAmount.RequiredProperties = ["amount", "currency"];
 
 /**
+ * Monetary amount as a numeric value.
  * @member {Number} amount
  */
 CreditAmount.prototype['amount'] = undefined;
 
 /**
+ * ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
  * @member {module:c2m_api/model/CreditAmount.CurrencyEnum} currency
  */
 CreditAmount.prototype['currency'] = undefined;

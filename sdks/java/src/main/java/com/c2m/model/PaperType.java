@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets paperType
+ * Paper stock for printing.
  */
 @JsonAdapter(PaperType.Adapter.class)
 public enum PaperType {

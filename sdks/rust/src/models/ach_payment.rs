@@ -11,8 +11,10 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// AchPayment : ACH bank transfer payment variant.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AchPayment {
+    /// Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
     #[serde(rename = "paymentType")]
     pub payment_type: PaymentType,
     #[serde(rename = "achDetails")]
@@ -20,6 +22,7 @@ pub struct AchPayment {
 }
 
 impl AchPayment {
+    /// ACH bank transfer payment variant.
     pub fn new(payment_type: PaymentType, ach_details: models::AchDetails) -> AchPayment {
         AchPayment {
             payment_type,
@@ -27,7 +30,7 @@ impl AchPayment {
         }
     }
 }
-/// 
+/// Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum PaymentType {
     #[serde(rename = "ach")]

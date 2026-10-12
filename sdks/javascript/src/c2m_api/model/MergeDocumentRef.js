@@ -25,6 +25,7 @@ import MergeDocumentRefOneOf1 from './MergeDocumentRefOneOf1';
 class MergeDocumentRef {
     /**
      * Constructs a new <code>MergeDocumentRef</code>.
+     * A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
      * @alias module:c2m_api/model/MergeDocumentRef
      * @param {(module:c2m_api/model/MergeDocumentRefOneOf|module:c2m_api/model/MergeDocumentRefOneOf1)} instance The actual instance to initialize MergeDocumentRef.
      */

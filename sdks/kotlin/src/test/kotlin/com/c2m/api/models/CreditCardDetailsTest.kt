@@ -26,13 +26,13 @@ class CreditCardDetailsTest : ShouldSpec() {
         // uncomment below to create an instance of CreditCardDetails
         //val modelInstance = CreditCardDetails()
 
-        // to test the property `cardType`
+        // to test the property `cardType` - Card brand enum: visa, mastercard, discover, or americanExpress.
         should("test cardType") {
             // uncomment below to test the property
             //modelInstance.cardType shouldBe ("TODO")
         }
 
-        // to test the property `cardNumber`
+        // to test the property `cardNumber` - Credit card number (PAN) as a string.
         should("test cardNumber") {
             // uncomment below to test the property
             //modelInstance.cardNumber shouldBe ("TODO")
@@ -44,7 +44,7 @@ class CreditCardDetailsTest : ShouldSpec() {
             //modelInstance.expirationDate shouldBe ("TODO")
         }
 
-        // to test the property `cvv`
+        // to test the property `cvv` - Card security code (CVV/CVC) as an integer.
         should("test cvv") {
             // uncomment below to test the property
             //modelInstance.cvv shouldBe ("TODO")

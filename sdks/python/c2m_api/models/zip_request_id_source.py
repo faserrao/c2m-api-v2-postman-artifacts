@@ -24,11 +24,11 @@ from typing_extensions import Self
 
 class ZipRequestIdSource(BaseModel):
     """
-    ZipRequestIdSource
+    Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip.
     """ # noqa: E501
-    request_id: StrictInt = Field(alias="requestId")
-    zip_filename: StrictStr = Field(alias="zipFilename")
-    filename: StrictStr
+    request_id: StrictInt = Field(description="Integer ID of a prior file upload request. Also returned in success responses.", alias="requestId")
+    zip_filename: StrictStr = Field(description="Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).", alias="zipFilename")
+    filename: StrictStr = Field(description="Filename of a specific file within an upload request or ZIP archive.")
     __properties: ClassVar[List[str]] = ["requestId", "zipFilename", "filename"]
 
     model_config = ConfigDict(

@@ -14,7 +14,9 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Payment deducted from the account's prepaid credit balance.
   class UserCreditPayment
+    # Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
     attr_accessor :payment_type
 
     attr_accessor :credit_amount

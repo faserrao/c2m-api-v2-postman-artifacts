@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **url** | **String** |  |  |
+| **url** | **String** | URL from which the API will fetch the document at submission time. |  |
 
 ## Example
 

@@ -21,10 +21,11 @@ import ApiClient from '../ApiClient';
 class AchDetails {
     /**
      * Constructs a new <code>AchDetails</code>.
+     * ACH payment fields: routing number, bank account number, and check digit.
      * @alias module:c2m_api/model/AchDetails
-     * @param routingNumber {String} 
-     * @param accountNumber {String} 
-     * @param checkDigit {Number} 
+     * @param routingNumber {String} ABA bank routing number.
+     * @param accountNumber {String} Bank account number.
+     * @param checkDigit {Number} ACH check digit.
      */
     constructor(routingNumber, accountNumber, checkDigit) { 
         
@@ -96,16 +97,19 @@ class AchDetails {
 AchDetails.RequiredProperties = ["routingNumber", "accountNumber", "checkDigit"];
 
 /**
+ * ABA bank routing number.
  * @member {String} routingNumber
  */
 AchDetails.prototype['routingNumber'] = undefined;
 
 /**
+ * Bank account number.
  * @member {String} accountNumber
  */
 AchDetails.prototype['accountNumber'] = undefined;
 
 /**
+ * ACH check digit.
  * @member {Number} checkDigit
  */
 AchDetails.prototype['checkDigit'] = undefined;

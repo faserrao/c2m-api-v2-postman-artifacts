@@ -1,11 +1,12 @@
 # InvoicePayment
 
+Invoice payment — billed to an existing account invoice.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payment_type** | **str** |  | 
+**payment_type** | **str** | Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). | 
 **invoice_details** | [**InvoiceDetails**](InvoiceDetails.md) |  | 
 
 ## Example

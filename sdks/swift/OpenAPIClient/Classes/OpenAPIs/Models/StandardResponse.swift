@@ -10,10 +10,14 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Success response returned for all successful job submissions. */
 public struct StandardResponse: Codable, JSONEncodable, Hashable {
 
+    /** Job status string (e.g. \"accepted\"). */
     public var status: String
+    /** Human-readable confirmation message (e.g. \"Your request has been queued\"). */
     public var message: String
+    /** Integer ID of a prior file upload request. Also returned in success responses. */
     public var requestId: Int
 
     public init(status: String, message: String, requestId: Int) {

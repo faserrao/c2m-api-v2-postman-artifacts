@@ -26,24 +26,24 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Address
+    /// Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2).
     /// </summary>
     public partial class Address : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Address" /> class.
         /// </summary>
-        /// <param name="firstName">firstName</param>
-        /// <param name="lastName">lastName</param>
-        /// <param name="address1">address1</param>
-        /// <param name="city">city</param>
-        /// <param name="state">state</param>
-        /// <param name="zip">zip</param>
-        /// <param name="country">country</param>
-        /// <param name="address2">address2</param>
-        /// <param name="address3">address3</param>
-        /// <param name="foo1">foo1</param>
-        /// <param name="foo2">foo2</param>
+        /// <param name="firstName">Recipient&#39;s first name.</param>
+        /// <param name="lastName">Recipient&#39;s last name.</param>
+        /// <param name="address1">Primary street address line.</param>
+        /// <param name="city">City name.</param>
+        /// <param name="state">Two-letter state or province abbreviation.</param>
+        /// <param name="zip">ZIP or postal code.</param>
+        /// <param name="country">Country code (e.g. USA).</param>
+        /// <param name="address2">Secondary address line (suite, apartment, floor, etc.).</param>
+        /// <param name="address3">Tertiary address line.</param>
+        /// <param name="foo1">User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.</param>
+        /// <param name="foo2">User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.</param>
         [JsonConstructor]
         public Address(string firstName, string lastName, string address1, string city, string state, string zip, string country, Option<string?> address2 = default, Option<string?> address3 = default, Option<string?> foo1 = default, Option<string?> foo2 = default)
         {
@@ -64,44 +64,51 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets FirstName
+        /// Recipient&#39;s first name.
         /// </summary>
+        /// <value>Recipient&#39;s first name.</value>
         [JsonPropertyName("firstName")]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastName
+        /// Recipient&#39;s last name.
         /// </summary>
+        /// <value>Recipient&#39;s last name.</value>
         [JsonPropertyName("lastName")]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Address1
+        /// Primary street address line.
         /// </summary>
+        /// <value>Primary street address line.</value>
         [JsonPropertyName("address1")]
         public string Address1 { get; set; }
 
         /// <summary>
-        /// Gets or Sets City
+        /// City name.
         /// </summary>
+        /// <value>City name.</value>
         [JsonPropertyName("city")]
         public string City { get; set; }
 
         /// <summary>
-        /// Gets or Sets State
+        /// Two-letter state or province abbreviation.
         /// </summary>
+        /// <value>Two-letter state or province abbreviation.</value>
         [JsonPropertyName("state")]
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or Sets Zip
+        /// ZIP or postal code.
         /// </summary>
+        /// <value>ZIP or postal code.</value>
         [JsonPropertyName("zip")]
         public string Zip { get; set; }
 
         /// <summary>
-        /// Gets or Sets Country
+        /// Country code (e.g. USA).
         /// </summary>
+        /// <value>Country code (e.g. USA).</value>
         [JsonPropertyName("country")]
         public string Country { get; set; }
 
@@ -113,8 +120,9 @@ namespace C2M.Api.Model
         public Option<string?> Address2Option { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Address2
+        /// Secondary address line (suite, apartment, floor, etc.).
         /// </summary>
+        /// <value>Secondary address line (suite, apartment, floor, etc.).</value>
         [JsonPropertyName("address2")]
         public string? Address2 { get { return this.Address2Option; } set { this.Address2Option = new(value); } }
 
@@ -126,8 +134,9 @@ namespace C2M.Api.Model
         public Option<string?> Address3Option { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Address3
+        /// Tertiary address line.
         /// </summary>
+        /// <value>Tertiary address line.</value>
         [JsonPropertyName("address3")]
         public string? Address3 { get { return this.Address3Option; } set { this.Address3Option = new(value); } }
 
@@ -139,8 +148,9 @@ namespace C2M.Api.Model
         public Option<string?> Foo1Option { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Foo1
+        /// User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
         /// </summary>
+        /// <value>User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.</value>
         [JsonPropertyName("foo1")]
         public string? Foo1 { get { return this.Foo1Option; } set { this.Foo1Option = new(value); } }
 
@@ -152,8 +162,9 @@ namespace C2M.Api.Model
         public Option<string?> Foo2Option { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Foo2
+        /// User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
         /// </summary>
+        /// <value>User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.</value>
         [JsonPropertyName("foo2")]
         public string? Foo2 { get { return this.Foo2Option; } set { this.Foo2Option = new(value); } }
 

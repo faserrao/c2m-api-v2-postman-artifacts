@@ -30,12 +30,12 @@ class SubmitMultiZipAddressCaptureParams(BaseModel):
     """
     SubmitMultiZipAddressCaptureParams
     """ # noqa: E501
-    job_template: Optional[StrictStr] = Field(default=None, alias="jobTemplate")
+    job_template: Optional[StrictStr] = Field(default=None, description="Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.", alias="jobTemplate")
     zip_document_source: ZipDocumentSource = Field(alias="zipDocumentSource")
     payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
     return_address: Optional[ReturnAddress] = Field(default=None, alias="returnAddress")
     job_options: Optional[JobOptions] = Field(default=None, alias="jobOptions")
-    tags: Optional[List[StrictStr]] = None
+    tags: Optional[List[StrictStr]] = Field(default=None, description="Array of user-defined string tags.")
     __properties: ClassVar[List[str]] = ["jobTemplate", "zipDocumentSource", "paymentDetails", "returnAddress", "jobOptions", "tags"]
 
     model_config = ConfigDict(

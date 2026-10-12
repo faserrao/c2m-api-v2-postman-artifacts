@@ -24,10 +24,10 @@ from typing_extensions import Self
 
 class MergeByRequestId(BaseModel):
     """
-    MergeByRequestId
+    Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.
     """ # noqa: E501
-    request_id: StrictInt = Field(alias="requestId")
-    filename: Optional[StrictStr] = None
+    request_id: StrictInt = Field(description="Integer ID of a prior file upload request. Also returned in success responses.", alias="requestId")
+    filename: Optional[StrictStr] = Field(default=None, description="Filename of a specific file within an upload request or ZIP archive.")
     __properties: ClassVar[List[str]] = ["requestId", "filename"]
 
     model_config = ConfigDict(

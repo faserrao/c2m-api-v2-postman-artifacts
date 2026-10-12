@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recipientAddressByListId** | **number** |  | [default to undefined]
+**recipientAddressByListId** | **number** | Reference to a previously stored recipient address list by its integer ID. | [default to undefined]
 
 ## Example
 

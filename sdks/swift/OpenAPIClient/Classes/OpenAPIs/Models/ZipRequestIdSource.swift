@@ -10,10 +10,14 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip. */
 public struct ZipRequestIdSource: Codable, JSONEncodable, Hashable {
 
+    /** Integer ID of a prior file upload request. Also returned in success responses. */
     public var requestId: Int
+    /** Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request). */
     public var zipFilename: String
+    /** Filename of a specific file within an upload request or ZIP archive. */
     public var filename: String
 
     public init(requestId: Int, zipFilename: String, filename: String) {

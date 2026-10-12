@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Card brand enum: visa, mastercard, discover, or americanExpress. */
 public enum CardType: String, Codable, CaseIterable {
     case visa = "visa"
     case mastercard = "mastercard"

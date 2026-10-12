@@ -14,13 +14,17 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Credit card payment fields: card type, card number, expiration date, and CVV.
   class CreditCardDetails
+    # Card brand enum: visa, mastercard, discover, or americanExpress.
     attr_accessor :card_type
 
+    # Credit card number (PAN) as a string.
     attr_accessor :card_number
 
     attr_accessor :expiration_date
 
+    # Card security code (CVV/CVC) as an integer.
     attr_accessor :cvv
 
     class EnumAttributeValidator

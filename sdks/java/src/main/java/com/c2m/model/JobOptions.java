@@ -46,12 +46,12 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * JobOptions
+ * Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class JobOptions {
   /**
-   * Gets or Sets documentClass
+   * Document class determining the mailpiece format.
    */
   @JsonAdapter(DocumentClassEnum.Adapter.class)
   public enum DocumentClassEnum {
@@ -112,7 +112,7 @@ public class JobOptions {
   private DocumentClassEnum documentClass;
 
   /**
-   * Gets or Sets layout
+   * Page layout controlling where the recipient address is printed.
    */
   @JsonAdapter(LayoutEnum.Adapter.class)
   public enum LayoutEnum {
@@ -169,7 +169,7 @@ public class JobOptions {
   private LayoutEnum layout;
 
   /**
-   * Gets or Sets productionTime
+   * Production time preference (next_day, two_day, etc.).
    */
   @JsonAdapter(ProductionTimeEnum.Adapter.class)
   public enum ProductionTimeEnum {
@@ -232,7 +232,7 @@ public class JobOptions {
   private ProductionTimeEnum productionTime;
 
   /**
-   * Gets or Sets envelope
+   * Envelope type used for the mailing.
    */
   @JsonAdapter(EnvelopeEnum.Adapter.class)
   public enum EnvelopeEnum {
@@ -293,7 +293,7 @@ public class JobOptions {
   private EnvelopeEnum envelope;
 
   /**
-   * Gets or Sets color
+   * Color mode for printing (full_color or black_and_white).
    */
   @JsonAdapter(ColorEnum.Adapter.class)
   public enum ColorEnum {
@@ -350,7 +350,7 @@ public class JobOptions {
   private ColorEnum color;
 
   /**
-   * Gets or Sets paperType
+   * Paper stock for printing.
    */
   @JsonAdapter(PaperTypeEnum.Adapter.class)
   public enum PaperTypeEnum {
@@ -411,7 +411,7 @@ public class JobOptions {
   private PaperTypeEnum paperType;
 
   /**
-   * Gets or Sets printOption
+   * Duplex setting (double_sided or single_sided).
    */
   @JsonAdapter(PrintOptionEnum.Adapter.class)
   public enum PrintOptionEnum {
@@ -468,7 +468,7 @@ public class JobOptions {
   private PrintOptionEnum printOption;
 
   /**
-   * Gets or Sets mailClass
+   * USPS mail class (first_class, standard, or non_profit).
    */
   @JsonAdapter(MailClassEnum.Adapter.class)
   public enum MailClassEnum {
@@ -535,7 +535,7 @@ public class JobOptions {
   }
 
   /**
-   * Get documentClass
+   * Document class determining the mailpiece format.
    * @return documentClass
    */
   @javax.annotation.Nonnull
@@ -554,7 +554,7 @@ public class JobOptions {
   }
 
   /**
-   * Get layout
+   * Page layout controlling where the recipient address is printed.
    * @return layout
    */
   @javax.annotation.Nonnull
@@ -573,7 +573,7 @@ public class JobOptions {
   }
 
   /**
-   * Get productionTime
+   * Production time preference (next_day, two_day, etc.).
    * @return productionTime
    */
   @javax.annotation.Nonnull
@@ -592,7 +592,7 @@ public class JobOptions {
   }
 
   /**
-   * Get envelope
+   * Envelope type used for the mailing.
    * @return envelope
    */
   @javax.annotation.Nonnull
@@ -611,7 +611,7 @@ public class JobOptions {
   }
 
   /**
-   * Get color
+   * Color mode for printing (full_color or black_and_white).
    * @return color
    */
   @javax.annotation.Nonnull
@@ -630,7 +630,7 @@ public class JobOptions {
   }
 
   /**
-   * Get paperType
+   * Paper stock for printing.
    * @return paperType
    */
   @javax.annotation.Nonnull
@@ -649,7 +649,7 @@ public class JobOptions {
   }
 
   /**
-   * Get printOption
+   * Duplex setting (double_sided or single_sided).
    * @return printOption
    */
   @javax.annotation.Nonnull
@@ -668,7 +668,7 @@ public class JobOptions {
   }
 
   /**
-   * Get mailClass
+   * USPS mail class (first_class, standard, or non_profit).
    * @return mailClass
    */
   @javax.annotation.Nonnull

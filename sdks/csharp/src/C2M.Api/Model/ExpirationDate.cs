@@ -26,15 +26,15 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// ExpirationDate
+    /// Card expiration date containing month and year.
     /// </summary>
     public partial class ExpirationDate : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ExpirationDate" /> class.
         /// </summary>
-        /// <param name="month">month</param>
-        /// <param name="year">year</param>
+        /// <param name="month">Expiration month as an integer (1-12).</param>
+        /// <param name="year">Expiration year as a four-digit integer (e.g. 2029).</param>
         [JsonConstructor]
         public ExpirationDate(int month, int year)
         {
@@ -46,14 +46,16 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets Month
+        /// Expiration month as an integer (1-12).
         /// </summary>
+        /// <value>Expiration month as an integer (1-12).</value>
         [JsonPropertyName("month")]
         public int Month { get; set; }
 
         /// <summary>
-        /// Gets or Sets Year
+        /// Expiration year as a four-digit integer (e.g. 2029).
         /// </summary>
+        /// <value>Expiration year as a four-digit integer (e.g. 2029).</value>
         [JsonPropertyName("year")]
         public int Year { get; set; }
 

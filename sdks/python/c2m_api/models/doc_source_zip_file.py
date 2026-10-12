@@ -27,7 +27,7 @@ DOCSOURCEZIPFILE_ONE_OF_SCHEMAS = ["ZipDocumentSourceOneOf", "ZipDocumentSourceO
 
 class DocSourceZipFile(BaseModel):
     """
-    DocSourceZipFile
+    Document source — zip variants: a specific file within a stored ZIP (zipDocumentId + filename) or uploaded ZIP (requestId + zipFilename + filename).
     """
     # data type: ZipDocumentSourceOneOf
     oneof_schema_1_validator: Optional[ZipDocumentSourceOneOf] = None

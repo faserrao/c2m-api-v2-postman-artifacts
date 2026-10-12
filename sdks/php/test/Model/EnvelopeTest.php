@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * EnvelopeTest Class Doc Comment
  *
  * @category    Class
- * @description Envelope
+ * @description Envelope type used for the mailing.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

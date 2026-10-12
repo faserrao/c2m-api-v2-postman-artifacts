@@ -4,9 +4,9 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **mapping_id** | **Integer** |  | [optional] |
-| **address_list** | [**Array&lt;Address&gt;**](Address.md) |  |  |
-| **address_list_name** | **String** |  | [optional] |
+| **mapping_id** | **Integer** | Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used. | [optional] |
+| **address_list** | [**Array&lt;Address&gt;**](Address.md) | List of recipient mailing addresses — used for batch sends and mail merge. |  |
+| **address_list_name** | **String** | Optional name for this address list record. | [optional] |
 
 ## Example
 

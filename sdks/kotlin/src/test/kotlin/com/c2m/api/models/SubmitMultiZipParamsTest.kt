@@ -34,7 +34,7 @@ class SubmitMultiZipParamsTest : ShouldSpec() {
             //modelInstance.docSourceZipFileRef shouldBe ("TODO")
         }
 
-        // to test the property `multiZipJobs`
+        // to test the property `multiZipJobs` - List of per-file job items extracted from a ZIP archive (POST /batch/zip).
         should("test multiZipJobs") {
             // uncomment below to test the property
             //modelInstance.multiZipJobs shouldBe ("TODO")
@@ -46,7 +46,7 @@ class SubmitMultiZipParamsTest : ShouldSpec() {
             //modelInstance.paymentDetails shouldBe ("TODO")
         }
 
-        // to test the property `tags`
+        // to test the property `tags` - Array of user-defined string tags.
         should("test tags") {
             // uncomment below to test the property
             //modelInstance.tags shouldBe ("TODO")

@@ -23,6 +23,7 @@ import RecipientAddressSource from './RecipientAddressSource';
 class MultiDocJobItem {
     /**
      * Constructs a new <code>MultiDocJobItem</code>.
+     * A single independent document job entry within a multi-doc batch.
      * @alias module:c2m_api/model/MultiDocJobItem
      * @param docSourceAll {module:c2m_api/model/DocSourceAll} 
      * @param recipientAddressSource {module:c2m_api/model/RecipientAddressSource} 
@@ -100,6 +101,7 @@ class MultiDocJobItem {
 MultiDocJobItem.RequiredProperties = ["docSourceAll", "recipientAddressSource"];
 
 /**
+ * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  * @member {String} jobTemplate
  */
 MultiDocJobItem.prototype['jobTemplate'] = undefined;

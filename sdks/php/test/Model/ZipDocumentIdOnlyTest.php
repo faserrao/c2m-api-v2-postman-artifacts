@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ZipDocumentIdOnlyTest Class Doc Comment
  *
  * @category    Class
- * @description ZipDocumentIdOnly
+ * @description Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

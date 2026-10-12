@@ -1,11 +1,12 @@
 # UrlSource
 
+Fetch the document from an external URL at submission time.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **string** |  | [default to undefined]
+**url** | **string** | URL from which the API will fetch the document at submission time. | [default to undefined]
 
 ## Example
 

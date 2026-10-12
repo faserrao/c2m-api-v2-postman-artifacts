@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// ErrorType the model 'ErrorType'
+// ErrorType High-level error category string (ValidationError, AuthenticationError, etc.).
 type ErrorType string
 
 // List of errorType

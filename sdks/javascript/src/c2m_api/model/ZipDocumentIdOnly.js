@@ -21,8 +21,9 @@ import ApiClient from '../ApiClient';
 class ZipDocumentIdOnly {
     /**
      * Constructs a new <code>ZipDocumentIdOnly</code>.
+     * Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames.
      * @alias module:c2m_api/model/ZipDocumentIdOnly
-     * @param zipDocumentId {Number} 
+     * @param zipDocumentId {Number} Integer ID of a previously stored ZIP archive.
      */
     constructor(zipDocumentId) { 
         
@@ -78,6 +79,7 @@ class ZipDocumentIdOnly {
 ZipDocumentIdOnly.RequiredProperties = ["zipDocumentId"];
 
 /**
+ * Integer ID of a previously stored ZIP archive.
  * @member {Number} zipDocumentId
  */
 ZipDocumentIdOnly.prototype['zipDocumentId'] = undefined;

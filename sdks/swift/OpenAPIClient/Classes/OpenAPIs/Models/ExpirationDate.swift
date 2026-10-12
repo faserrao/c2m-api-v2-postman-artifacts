@@ -10,11 +10,14 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Card expiration date containing month and year. */
 public struct ExpirationDate: Codable, JSONEncodable, Hashable {
 
     public static let monthRule = NumericRule<Int>(minimum: 1, exclusiveMinimum: false, maximum: 12, exclusiveMaximum: false, multipleOf: nil)
     public static let yearRule = NumericRule<Int>(minimum: 2000, exclusiveMinimum: false, maximum: 2099, exclusiveMaximum: false, multipleOf: nil)
+    /** Expiration month as an integer (1-12). */
     public var month: Int
+    /** Expiration year as a four-digit integer (e.g. 2029). */
     public var year: Int
 
     public init(month: Int, year: Int) {

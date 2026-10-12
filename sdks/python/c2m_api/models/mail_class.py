@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class MailClass(str, Enum):
     """
-    MailClass
+    USPS mail class (first_class, standard, or non_profit).
     """
 
     """

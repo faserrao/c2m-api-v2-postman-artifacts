@@ -1,13 +1,14 @@
 # RecipientAddressByList
 
+Inline list of recipient addresses with an optional merge-field mapping ID.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mapping_id** | **int** |  | [optional] 
-**address_list** | [**List[Address]**](Address.md) |  | 
-**address_list_name** | **str** |  | [optional] 
+**mapping_id** | **int** | Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used. | [optional] 
+**address_list** | [**List[Address]**](Address.md) | List of recipient mailing addresses — used for batch sends and mail merge. | 
+**address_list_name** | **str** | Optional name for this address list record. | [optional] 
 
 ## Example
 

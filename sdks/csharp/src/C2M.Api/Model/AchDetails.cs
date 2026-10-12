@@ -26,16 +26,16 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// AchDetails
+    /// ACH payment fields: routing number, bank account number, and check digit.
     /// </summary>
     public partial class AchDetails : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AchDetails" /> class.
         /// </summary>
-        /// <param name="routingNumber">routingNumber</param>
-        /// <param name="accountNumber">accountNumber</param>
-        /// <param name="checkDigit">checkDigit</param>
+        /// <param name="routingNumber">ABA bank routing number.</param>
+        /// <param name="accountNumber">Bank account number.</param>
+        /// <param name="checkDigit">ACH check digit.</param>
         [JsonConstructor]
         public AchDetails(string routingNumber, string accountNumber, int checkDigit)
         {
@@ -48,20 +48,23 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets RoutingNumber
+        /// ABA bank routing number.
         /// </summary>
+        /// <value>ABA bank routing number.</value>
         [JsonPropertyName("routingNumber")]
         public string RoutingNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets AccountNumber
+        /// Bank account number.
         /// </summary>
+        /// <value>Bank account number.</value>
         [JsonPropertyName("accountNumber")]
         public string AccountNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets CheckDigit
+        /// ACH check digit.
         /// </summary>
+        /// <value>ACH check digit.</value>
         [JsonPropertyName("checkDigit")]
         public int CheckDigit { get; set; }
 

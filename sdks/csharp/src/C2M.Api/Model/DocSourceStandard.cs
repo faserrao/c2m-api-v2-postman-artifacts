@@ -26,7 +26,7 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// DocSourceStandard
+    /// Document source — standard (non-zip) variants only: requestId, documentId, or URL.
     /// </summary>
     public partial class DocSourceStandard : IValidatableObject
     {

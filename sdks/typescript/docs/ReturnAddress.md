@@ -1,20 +1,21 @@
 # ReturnAddress
 
+Optional sender return address printed on the mailpiece.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**firstName** | **string** |  | [default to undefined]
-**lastName** | **string** |  | [default to undefined]
-**company** | **string** |  | [optional] [default to undefined]
-**address1** | **string** |  | [default to undefined]
-**city** | **string** |  | [default to undefined]
-**state** | **string** |  | [default to undefined]
-**zip** | **string** |  | [default to undefined]
-**country** | **string** |  | [default to undefined]
-**address2** | **string** |  | [optional] [default to undefined]
-**address3** | **string** |  | [optional] [default to undefined]
+**firstName** | **string** | Recipient\&#39;s first name. | [default to undefined]
+**lastName** | **string** | Recipient\&#39;s last name. | [default to undefined]
+**company** | **string** | Recipient\&#39;s company or organisation name (optional). | [optional] [default to undefined]
+**address1** | **string** | Primary street address line. | [default to undefined]
+**city** | **string** | City name. | [default to undefined]
+**state** | **string** | Two-letter state or province abbreviation. | [default to undefined]
+**zip** | **string** | ZIP or postal code. | [default to undefined]
+**country** | **string** | Country code (e.g. USA). | [default to undefined]
+**address2** | **string** | Secondary address line (suite, apartment, floor, etc.). | [optional] [default to undefined]
+**address3** | **string** | Tertiary address line. | [optional] [default to undefined]
 
 ## Example
 

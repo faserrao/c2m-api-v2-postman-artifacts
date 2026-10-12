@@ -14,27 +14,39 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2).
   class Address
+    # Recipient's first name.
     attr_accessor :first_name
 
+    # Recipient's last name.
     attr_accessor :last_name
 
+    # Primary street address line.
     attr_accessor :address1
 
+    # City name.
     attr_accessor :city
 
+    # Two-letter state or province abbreviation.
     attr_accessor :state
 
+    # ZIP or postal code.
     attr_accessor :zip
 
+    # Country code (e.g. USA).
     attr_accessor :country
 
+    # Secondary address line (suite, apartment, floor, etc.).
     attr_accessor :address2
 
+    # Tertiary address line.
     attr_accessor :address3
 
+    # User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
     attr_accessor :foo1
 
+    # User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
     attr_accessor :foo2
 
     # Attribute mapping from ruby-style variable name to JSON key.

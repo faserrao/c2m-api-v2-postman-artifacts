@@ -10,10 +10,14 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Inline list of recipient addresses with an optional merge-field mapping ID. */
 public struct RecipientAddressByList: Codable, JSONEncodable, Hashable {
 
+    /** Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used. */
     public var mappingId: Int?
+    /** List of recipient mailing addresses — used for batch sends and mail merge. */
     public var addressList: [Address]
+    /** Optional name for this address list record. */
     public var addressListName: String?
 
     public init(mappingId: Int? = nil, addressList: [Address], addressListName: String? = nil) {

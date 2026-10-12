@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recipientAddressByAddressId** | **Number** |  | 
+**recipientAddressByAddressId** | **Number** | Reference to a previously stored individual recipient address by its integer ID. | 
 
 

@@ -19,8 +19,9 @@ import (
 // checks if the InvoicePayment type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &InvoicePayment{}
 
-// InvoicePayment struct for InvoicePayment
+// InvoicePayment Invoice payment — billed to an existing account invoice.
 type InvoicePayment struct {
+	// Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
 	PaymentType string `json:"paymentType"`
 	InvoiceDetails InvoiceDetails `json:"invoiceDetails"`
 }

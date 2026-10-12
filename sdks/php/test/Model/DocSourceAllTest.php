@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * DocSourceAllTest Class Doc Comment
  *
  * @category    Class
- * @description DocSourceAll
+ * @description Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

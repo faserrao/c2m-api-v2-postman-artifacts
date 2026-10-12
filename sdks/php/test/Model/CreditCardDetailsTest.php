@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * CreditCardDetailsTest Class Doc Comment
  *
  * @category    Class
- * @description CreditCardDetails
+ * @description Credit card payment fields: card type, card number, expiration date, and CVV.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

@@ -33,6 +33,7 @@ use \C2MApi\ObjectSerializer;
  * PrintOption Class Doc Comment
  *
  * @category Class
+ * @description Duplex setting (double_sided or single_sided).
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

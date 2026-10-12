@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**documentId** | **Number** |  | 
+**documentId** | **Number** | Integer ID of a previously stored or uploaded document. | 
 
 

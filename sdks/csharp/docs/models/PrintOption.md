@@ -1,4 +1,5 @@
 # C2M.Api.Model.PrintOption
+Duplex setting (double_sided or single_sided).
 
 ## Properties
 

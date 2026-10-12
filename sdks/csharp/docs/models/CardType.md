@@ -1,4 +1,5 @@
 # C2M.Api.Model.CardType
+Card brand enum: visa, mastercard, discover, or americanExpress.
 
 ## Properties
 

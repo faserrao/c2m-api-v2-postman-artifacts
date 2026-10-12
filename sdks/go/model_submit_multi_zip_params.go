@@ -22,8 +22,10 @@ var _ MappedNullable = &SubmitMultiZipParams{}
 // SubmitMultiZipParams struct for SubmitMultiZipParams
 type SubmitMultiZipParams struct {
 	DocSourceZipFileRef DocSourceZipFileRef `json:"docSourceZipFileRef"`
+	// List of per-file job items extracted from a ZIP archive (POST /batch/zip).
 	MultiZipJobs []MultiZipJobItem `json:"multiZipJobs"`
 	PaymentDetails *PaymentDetails `json:"paymentDetails,omitempty"`
+	// Array of user-defined string tags.
 	Tags []string `json:"tags,omitempty"`
 }
 

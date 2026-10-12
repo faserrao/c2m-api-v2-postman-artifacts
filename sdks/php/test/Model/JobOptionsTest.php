@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * JobOptionsTest Class Doc Comment
  *
  * @category    Class
- * @description JobOptions
+ * @description Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

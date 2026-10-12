@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Duplex setting (double_sided or single_sided).
  *
  * Values: double_sided,single_sided
  */

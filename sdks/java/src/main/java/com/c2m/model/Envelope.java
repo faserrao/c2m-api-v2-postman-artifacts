@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets envelope
+ * Envelope type used for the mailing.
  */
 @JsonAdapter(Envelope.Adapter.class)
 public enum Envelope {

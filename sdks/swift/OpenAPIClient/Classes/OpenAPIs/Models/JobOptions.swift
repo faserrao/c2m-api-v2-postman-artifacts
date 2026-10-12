@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Explicit print and mail configuration options. Mutually exclusive with jobTemplate. */
 public struct JobOptions: Codable, JSONEncodable, Hashable {
 
     public enum DocumentClass: String, Codable, CaseIterable {
@@ -54,13 +55,21 @@ public struct JobOptions: Codable, JSONEncodable, Hashable {
         case standard = "standard"
         case nonProfit = "non_profit"
     }
+    /** Document class determining the mailpiece format. */
     public var documentClass: DocumentClass
+    /** Page layout controlling where the recipient address is printed. */
     public var layout: Layout
+    /** Production time preference (next_day, two_day, etc.). */
     public var productionTime: ProductionTime
+    /** Envelope type used for the mailing. */
     public var envelope: Envelope
+    /** Color mode for printing (full_color or black_and_white). */
     public var color: Color
+    /** Paper stock for printing. */
     public var paperType: PaperType
+    /** Duplex setting (double_sided or single_sided). */
     public var printOption: PrintOption
+    /** USPS mail class (first_class, standard, or non_profit). */
     public var mailClass: MailClass
 
     public init(documentClass: DocumentClass, layout: Layout, productionTime: ProductionTime, envelope: Envelope, color: Color, paperType: PaperType, printOption: PrintOption, mailClass: MailClass) {

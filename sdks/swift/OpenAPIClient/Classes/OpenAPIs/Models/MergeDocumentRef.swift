@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename). */
 public enum MergeDocumentRef: Codable, JSONEncodable, Hashable {
     case typeMergeDocumentRefOneOf(MergeDocumentRefOneOf)
     case typeMergeDocumentRefOneOf1(MergeDocumentRefOneOf1)

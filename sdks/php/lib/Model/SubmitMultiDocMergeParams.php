@@ -350,7 +350,7 @@ class SubmitMultiDocMergeParams implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets job_template
      *
-     * @param string|null $job_template job_template
+     * @param string|null $job_template Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
      *
      * @return self
      */
@@ -377,7 +377,7 @@ class SubmitMultiDocMergeParams implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets merge_document_source
      *
-     * @param \C2MApi\Model\MergeDocumentRef[] $merge_document_source merge_document_source
+     * @param \C2MApi\Model\MergeDocumentRef[] $merge_document_source Ordered array of document references to merge into one output document. Minimum two entries required.
      *
      * @return self
      */
@@ -512,7 +512,7 @@ class SubmitMultiDocMergeParams implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets tags
      *
-     * @param string[]|null $tags tags
+     * @param string[]|null $tags Array of user-defined string tags.
      *
      * @return self
      */

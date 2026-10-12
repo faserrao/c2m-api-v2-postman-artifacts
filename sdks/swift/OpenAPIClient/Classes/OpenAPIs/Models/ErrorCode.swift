@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). */
 public enum ErrorCode: String, Codable, CaseIterable {
     case missingRequiredField = "MISSING_REQUIRED_FIELD"
     case invalidOneof = "INVALID_ONEOF"

@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets errorCode
+ * Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
  */
 @JsonAdapter(ErrorCode.Adapter.class)
 public enum ErrorCode {

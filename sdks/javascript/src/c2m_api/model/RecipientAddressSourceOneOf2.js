@@ -22,7 +22,7 @@ class RecipientAddressSourceOneOf2 {
     /**
      * Constructs a new <code>RecipientAddressSourceOneOf2</code>.
      * @alias module:c2m_api/model/RecipientAddressSourceOneOf2
-     * @param recipientAddressByListId {Number} 
+     * @param recipientAddressByListId {Number} Reference to a previously stored recipient address list by its integer ID.
      */
     constructor(recipientAddressByListId) { 
         
@@ -78,6 +78,7 @@ class RecipientAddressSourceOneOf2 {
 RecipientAddressSourceOneOf2.RequiredProperties = ["recipientAddressByListId"];
 
 /**
+ * Reference to a previously stored recipient address list by its integer ID.
  * @member {Number} recipientAddressByListId
  */
 RecipientAddressSourceOneOf2.prototype['recipientAddressByListId'] = undefined;

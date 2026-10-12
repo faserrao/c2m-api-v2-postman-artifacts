@@ -26,8 +26,9 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Defines errorType
+    /// High-level error category string (ValidationError, AuthenticationError, etc.).
     /// </summary>
+    /// <value>High-level error category string (ValidationError, AuthenticationError, etc.).</value>
     public enum ErrorType
     {
         /// <summary>

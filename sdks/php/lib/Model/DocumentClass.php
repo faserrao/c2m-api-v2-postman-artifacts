@@ -33,6 +33,7 @@ use \C2MApi\ObjectSerializer;
  * DocumentClass Class Doc Comment
  *
  * @category Class
+ * @description Document class determining the mailpiece format.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

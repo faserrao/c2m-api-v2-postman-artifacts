@@ -15,10 +15,12 @@ use serde::{Deserialize, Serialize};
 pub struct SubmitMultiZipParams {
     #[serde(rename = "docSourceZipFileRef")]
     pub doc_source_zip_file_ref: Box<models::DocSourceZipFileRef>,
+    /// List of per-file job items extracted from a ZIP archive (POST /batch/zip).
     #[serde(rename = "multiZipJobs")]
     pub multi_zip_jobs: Vec<models::MultiZipJobItem>,
     #[serde(rename = "paymentDetails", skip_serializing_if = "Option::is_none")]
     pub payment_details: Option<Box<models::PaymentDetails>>,
+    /// Array of user-defined string tags.
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<String>>,
 }

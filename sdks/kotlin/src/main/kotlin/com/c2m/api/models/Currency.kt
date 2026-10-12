@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
  *
  * Values: USD,EUR,GBP,CAD,AUD
  */

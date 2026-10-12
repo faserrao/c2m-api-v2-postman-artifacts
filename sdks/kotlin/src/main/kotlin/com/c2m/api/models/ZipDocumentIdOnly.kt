@@ -20,14 +20,15 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames.
  *
- * @param zipDocumentId 
+ * @param zipDocumentId Integer ID of a previously stored ZIP archive.
  */
 
 
 data class ZipDocumentIdOnly (
 
+    /* Integer ID of a previously stored ZIP archive. */
     @Json(name = "zipDocumentId")
     val zipDocumentId: kotlin.Int
 

@@ -10,8 +10,10 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Merge a stored document identified by its document ID. */
 public struct MergeByDocumentId: Codable, JSONEncodable, Hashable {
 
+    /** Integer ID of a previously stored or uploaded document. */
     public var documentId: Int
 
     public init(documentId: Int) {

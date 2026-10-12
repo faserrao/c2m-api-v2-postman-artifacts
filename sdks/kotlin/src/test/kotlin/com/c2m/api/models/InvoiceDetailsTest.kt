@@ -25,13 +25,13 @@ class InvoiceDetailsTest : ShouldSpec() {
         // uncomment below to create an instance of InvoiceDetails
         //val modelInstance = InvoiceDetails()
 
-        // to test the property `invoiceNumber`
+        // to test the property `invoiceNumber` - Invoice reference number.
         should("test invoiceNumber") {
             // uncomment below to test the property
             //modelInstance.invoiceNumber shouldBe ("TODO")
         }
 
-        // to test the property `amountDue`
+        // to test the property `amountDue` - Amount due on the invoice.
         should("test amountDue") {
             // uncomment below to test the property
             //modelInstance.amountDue shouldBe ("TODO")

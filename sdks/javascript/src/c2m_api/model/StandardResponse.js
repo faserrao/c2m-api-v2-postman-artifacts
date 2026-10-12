@@ -21,10 +21,11 @@ import ApiClient from '../ApiClient';
 class StandardResponse {
     /**
      * Constructs a new <code>StandardResponse</code>.
+     * Success response returned for all successful job submissions.
      * @alias module:c2m_api/model/StandardResponse
-     * @param status {String} 
-     * @param message {String} 
-     * @param requestId {Number} 
+     * @param status {String} Job status string (e.g. \"accepted\").
+     * @param message {String} Human-readable confirmation message (e.g. \"Your request has been queued\").
+     * @param requestId {Number} Integer ID of a prior file upload request. Also returned in success responses.
      */
     constructor(status, message, requestId) { 
         
@@ -96,16 +97,19 @@ class StandardResponse {
 StandardResponse.RequiredProperties = ["status", "message", "requestId"];
 
 /**
+ * Job status string (e.g. \"accepted\").
  * @member {String} status
  */
 StandardResponse.prototype['status'] = undefined;
 
 /**
+ * Human-readable confirmation message (e.g. \"Your request has been queued\").
  * @member {String} message
  */
 StandardResponse.prototype['message'] = undefined;
 
 /**
+ * Integer ID of a prior file upload request. Also returned in success responses.
  * @member {Number} requestId
  */
 StandardResponse.prototype['requestId'] = undefined;

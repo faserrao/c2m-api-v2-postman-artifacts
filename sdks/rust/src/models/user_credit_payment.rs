@@ -11,8 +11,10 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// UserCreditPayment : Payment deducted from the account's prepaid credit balance.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UserCreditPayment {
+    /// Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
     #[serde(rename = "paymentType")]
     pub payment_type: PaymentType,
     #[serde(rename = "creditAmount")]
@@ -20,6 +22,7 @@ pub struct UserCreditPayment {
 }
 
 impl UserCreditPayment {
+    /// Payment deducted from the account's prepaid credit balance.
     pub fn new(payment_type: PaymentType, credit_amount: models::CreditAmount) -> UserCreditPayment {
         UserCreditPayment {
             payment_type,
@@ -27,7 +30,7 @@ impl UserCreditPayment {
         }
     }
 }
-/// 
+/// Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum PaymentType {
     #[serde(rename = "userCredit")]

@@ -35,11 +35,11 @@ namespace C2M.Api.Model
         /// </summary>
         /// <param name="docSourceAll">docSourceAll</param>
         /// <param name="recipientAddressSource">recipientAddressSource</param>
-        /// <param name="jobTemplate">jobTemplate</param>
+        /// <param name="jobTemplate">Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.</param>
         /// <param name="paymentDetails">paymentDetails</param>
         /// <param name="returnAddress">returnAddress</param>
         /// <param name="jobOptions">jobOptions</param>
-        /// <param name="tags">tags</param>
+        /// <param name="tags">Array of user-defined string tags.</param>
         [JsonConstructor]
         public SubmitDocParams(DocSourceAll docSourceAll, RecipientAddressSource recipientAddressSource, Option<string?> jobTemplate = default, Option<PaymentDetails?> paymentDetails = default, Option<ReturnAddress?> returnAddress = default, Option<JobOptions?> jobOptions = default, Option<List<string>?> tags = default)
         {
@@ -75,8 +75,9 @@ namespace C2M.Api.Model
         public Option<string?> JobTemplateOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets JobTemplate
+        /// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
         /// </summary>
+        /// <value>Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.</value>
         [JsonPropertyName("jobTemplate")]
         public string? JobTemplate { get { return this.JobTemplateOption; } set { this.JobTemplateOption = new(value); } }
 
@@ -127,8 +128,9 @@ namespace C2M.Api.Model
         public Option<List<string>?> TagsOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Tags
+        /// Array of user-defined string tags.
         /// </summary>
+        /// <value>Array of user-defined string tags.</value>
         [JsonPropertyName("tags")]
         public List<string>? Tags { get { return this.TagsOption; } set { this.TagsOption = new(value); } }
 

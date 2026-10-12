@@ -17,17 +17,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
 class CreditAmount(BaseModel):
     """
-    CreditAmount
+    Account credit payment fields: monetary amount and ISO currency code.
     """ # noqa: E501
-    amount: Union[StrictFloat, StrictInt]
-    currency: StrictStr
+    amount: Union[StrictFloat, StrictInt] = Field(description="Monetary amount as a numeric value.")
+    currency: StrictStr = Field(description="ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).")
     __properties: ClassVar[List[str]] = ["amount", "currency"]
 
     @field_validator('currency')

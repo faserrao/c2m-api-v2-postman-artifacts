@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Document class determining the mailpiece format.
  *
  * Values: letter,postcard,brochure,flat
  */

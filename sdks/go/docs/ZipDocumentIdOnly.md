@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ZipDocumentId** | **int32** |  | 
+**ZipDocumentId** | **int32** | Integer ID of a previously stored ZIP archive. | 
 
 ## Methods
 

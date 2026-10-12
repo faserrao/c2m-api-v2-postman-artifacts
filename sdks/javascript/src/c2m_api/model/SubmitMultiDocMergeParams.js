@@ -27,7 +27,7 @@ class SubmitMultiDocMergeParams {
     /**
      * Constructs a new <code>SubmitMultiDocMergeParams</code>.
      * @alias module:c2m_api/model/SubmitMultiDocMergeParams
-     * @param mergeDocumentSource {Array.<module:c2m_api/model/MergeDocumentRef>} 
+     * @param mergeDocumentSource {Array.<module:c2m_api/model/MergeDocumentRef>} Ordered array of document references to merge into one output document. Minimum two entries required.
      * @param recipientAddressSource {module:c2m_api/model/RecipientAddressSource} 
      */
     constructor(mergeDocumentSource, recipientAddressSource) { 
@@ -137,11 +137,13 @@ class SubmitMultiDocMergeParams {
 SubmitMultiDocMergeParams.RequiredProperties = ["mergeDocumentSource", "recipientAddressSource"];
 
 /**
+ * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  * @member {String} jobTemplate
  */
 SubmitMultiDocMergeParams.prototype['jobTemplate'] = undefined;
 
 /**
+ * Ordered array of document references to merge into one output document. Minimum two entries required.
  * @member {Array.<module:c2m_api/model/MergeDocumentRef>} mergeDocumentSource
  */
 SubmitMultiDocMergeParams.prototype['mergeDocumentSource'] = undefined;
@@ -167,6 +169,7 @@ SubmitMultiDocMergeParams.prototype['returnAddress'] = undefined;
 SubmitMultiDocMergeParams.prototype['jobOptions'] = undefined;
 
 /**
+ * Array of user-defined string tags.
  * @member {Array.<String>} tags
  */
 SubmitMultiDocMergeParams.prototype['tags'] = undefined;

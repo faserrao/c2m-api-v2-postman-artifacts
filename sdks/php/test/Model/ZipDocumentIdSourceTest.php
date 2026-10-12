@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ZipDocumentIdSourceTest Class Doc Comment
  *
  * @category    Class
- * @description ZipDocumentIdSource
+ * @description Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

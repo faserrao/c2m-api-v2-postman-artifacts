@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * High-level error category string (ValidationError, AuthenticationError, etc.).
  *
  * Values: ValidationError,AuthenticationError,AuthorizationError,ResourceNotFoundError,RateLimitError,ServerError
  */

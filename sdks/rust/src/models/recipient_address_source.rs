@@ -11,6 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// RecipientAddressSource : Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
+/// Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum RecipientAddressSource {

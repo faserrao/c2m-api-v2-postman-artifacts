@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * ZipDocumentSource Class Doc Comment
  *
  * @category Class
+ * @description ZIP document source — either a stored zip archive (zipDocumentId) or an uploaded zip archive (requestId).
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

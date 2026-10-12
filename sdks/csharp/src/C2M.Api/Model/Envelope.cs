@@ -26,8 +26,9 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Defines envelope
+    /// Envelope type used for the mailing.
     /// </summary>
+    /// <value>Envelope type used for the mailing.</value>
     public enum Envelope
     {
         /// <summary>

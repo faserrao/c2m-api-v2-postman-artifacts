@@ -15,6 +15,7 @@ require 'time'
 
 module OpenapiClient
   class SubmitDocParams
+    # Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
     attr_accessor :job_template
 
     attr_accessor :doc_source_all
@@ -27,6 +28,7 @@ module OpenapiClient
 
     attr_accessor :job_options
 
+    # Array of user-defined string tags.
     attr_accessor :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * RecipientAddressSource Class Doc Comment
  *
  * @category Class
+ * @description Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -352,7 +353,7 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets recipient_address_by_address_id
      *
-     * @param int $recipient_address_by_address_id recipient_address_by_address_id
+     * @param int $recipient_address_by_address_id Reference to a previously stored individual recipient address by its integer ID.
      *
      * @return self
      */
@@ -379,7 +380,7 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets recipient_address_by_list_id
      *
-     * @param int $recipient_address_by_list_id recipient_address_by_list_id
+     * @param int $recipient_address_by_list_id Reference to a previously stored recipient address list by its integer ID.
      *
      * @return self
      */

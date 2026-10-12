@@ -16,7 +16,7 @@ import (
 	"gopkg.in/validator.v2"
 )
 
-// RecipientAddressSource - struct for RecipientAddressSource
+// RecipientAddressSource - Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
 type RecipientAddressSource struct {
 	RecipientAddressSourceOneOf *RecipientAddressSourceOneOf
 	RecipientAddressSourceOneOf1 *RecipientAddressSourceOneOf1

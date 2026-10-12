@@ -11,13 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// UrlSource : Fetch the document from an external URL at submission time.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct UrlSource {
+    /// URL from which the API will fetch the document at submission time.
     #[serde(rename = "url")]
     pub url: String,
 }
 
 impl UrlSource {
+    /// Fetch the document from an external URL at submission time.
     pub fn new(url: String) -> UrlSource {
         UrlSource {
             url,

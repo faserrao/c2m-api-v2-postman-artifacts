@@ -25,19 +25,19 @@ class PdfSplitJobItemNoAddressTest : ShouldSpec() {
         // uncomment below to create an instance of PdfSplitJobItemNoAddress
         //val modelInstance = PdfSplitJobItemNoAddress()
 
-        // to test the property `startPage`
+        // to test the property `startPage` - First page of this job's page range, 1-indexed (inclusive).
         should("test startPage") {
             // uncomment below to test the property
             //modelInstance.startPage shouldBe ("TODO")
         }
 
-        // to test the property `endPage`
+        // to test the property `endPage` - Last page of this job's page range (inclusive). Must be >= startPage.
         should("test endPage") {
             // uncomment below to test the property
             //modelInstance.endPage shouldBe ("TODO")
         }
 
-        // to test the property `jobTemplate`
+        // to test the property `jobTemplate` - Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
         should("test jobTemplate") {
             // uncomment below to test the property
             //modelInstance.jobTemplate shouldBe ("TODO")

@@ -19,18 +19,29 @@ import (
 // checks if the Address type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &Address{}
 
-// Address struct for Address
+// Address Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2).
 type Address struct {
+	// Recipient's first name.
 	FirstName string `json:"firstName"`
+	// Recipient's last name.
 	LastName string `json:"lastName"`
+	// Primary street address line.
 	Address1 string `json:"address1"`
+	// City name.
 	City string `json:"city"`
+	// Two-letter state or province abbreviation.
 	State string `json:"state"`
+	// ZIP or postal code.
 	Zip string `json:"zip"`
+	// Country code (e.g. USA).
 	Country string `json:"country"`
+	// Secondary address line (suite, apartment, floor, etc.).
 	Address2 *string `json:"address2,omitempty"`
+	// Tertiary address line.
 	Address3 *string `json:"address3,omitempty"`
+	// User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
 	Foo1 *string `json:"foo1,omitempty"`
+	// User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
 	Foo2 *string `json:"foo2,omitempty"`
 }
 

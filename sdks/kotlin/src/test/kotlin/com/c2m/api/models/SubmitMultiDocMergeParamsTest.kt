@@ -30,7 +30,7 @@ class SubmitMultiDocMergeParamsTest : ShouldSpec() {
         // uncomment below to create an instance of SubmitMultiDocMergeParams
         //val modelInstance = SubmitMultiDocMergeParams()
 
-        // to test the property `mergeDocumentSource`
+        // to test the property `mergeDocumentSource` - Ordered array of document references to merge into one output document. Minimum two entries required.
         should("test mergeDocumentSource") {
             // uncomment below to test the property
             //modelInstance.mergeDocumentSource shouldBe ("TODO")
@@ -42,7 +42,7 @@ class SubmitMultiDocMergeParamsTest : ShouldSpec() {
             //modelInstance.recipientAddressSource shouldBe ("TODO")
         }
 
-        // to test the property `jobTemplate`
+        // to test the property `jobTemplate` - Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
         should("test jobTemplate") {
             // uncomment below to test the property
             //modelInstance.jobTemplate shouldBe ("TODO")
@@ -66,7 +66,7 @@ class SubmitMultiDocMergeParamsTest : ShouldSpec() {
             //modelInstance.jobOptions shouldBe ("TODO")
         }
 
-        // to test the property `tags`
+        // to test the property `tags` - Array of user-defined string tags.
         should("test tags") {
             // uncomment below to test the property
             //modelInstance.tags shouldBe ("TODO")

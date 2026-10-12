@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * MergeByRequestIdTest Class Doc Comment
  *
  * @category    Class
- * @description MergeByRequestId
+ * @description Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

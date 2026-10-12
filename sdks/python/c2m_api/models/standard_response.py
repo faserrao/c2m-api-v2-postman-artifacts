@@ -24,11 +24,11 @@ from typing_extensions import Self
 
 class StandardResponse(BaseModel):
     """
-    StandardResponse
+    Success response returned for all successful job submissions.
     """ # noqa: E501
-    status: StrictStr
-    message: StrictStr
-    request_id: StrictInt = Field(alias="requestId")
+    status: StrictStr = Field(description="Job status string (e.g. \"accepted\").")
+    message: StrictStr = Field(description="Human-readable confirmation message (e.g. \"Your request has been queued\").")
+    request_id: StrictInt = Field(description="Integer ID of a prior file upload request. Also returned in success responses.", alias="requestId")
     __properties: ClassVar[List[str]] = ["status", "message", "requestId"]
 
     model_config = ConfigDict(

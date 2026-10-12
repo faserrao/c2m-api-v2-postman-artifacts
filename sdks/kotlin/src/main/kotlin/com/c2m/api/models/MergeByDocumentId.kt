@@ -20,14 +20,15 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Merge a stored document identified by its document ID.
  *
- * @param documentId 
+ * @param documentId Integer ID of a previously stored or uploaded document.
  */
 
 
 data class MergeByDocumentId (
 
+    /* Integer ID of a previously stored or uploaded document. */
     @Json(name = "documentId")
     val documentId: kotlin.Int
 

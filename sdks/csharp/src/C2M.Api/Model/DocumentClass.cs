@@ -26,8 +26,9 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Defines documentClass
+    /// Document class determining the mailpiece format.
     /// </summary>
+    /// <value>Document class determining the mailpiece format.</value>
     public enum DocumentClass
     {
         /// <summary>

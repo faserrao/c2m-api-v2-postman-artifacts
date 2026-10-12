@@ -21,15 +21,16 @@ import ApiClient from '../ApiClient';
 class JobOptions {
     /**
      * Constructs a new <code>JobOptions</code>.
+     * Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
      * @alias module:c2m_api/model/JobOptions
-     * @param documentClass {module:c2m_api/model/JobOptions.DocumentClassEnum} 
-     * @param layout {module:c2m_api/model/JobOptions.LayoutEnum} 
-     * @param productionTime {module:c2m_api/model/JobOptions.ProductionTimeEnum} 
-     * @param envelope {module:c2m_api/model/JobOptions.EnvelopeEnum} 
-     * @param color {module:c2m_api/model/JobOptions.ColorEnum} 
-     * @param paperType {module:c2m_api/model/JobOptions.PaperTypeEnum} 
-     * @param printOption {module:c2m_api/model/JobOptions.PrintOptionEnum} 
-     * @param mailClass {module:c2m_api/model/JobOptions.MailClassEnum} 
+     * @param documentClass {module:c2m_api/model/JobOptions.DocumentClassEnum} Document class determining the mailpiece format.
+     * @param layout {module:c2m_api/model/JobOptions.LayoutEnum} Page layout controlling where the recipient address is printed.
+     * @param productionTime {module:c2m_api/model/JobOptions.ProductionTimeEnum} Production time preference (next_day, two_day, etc.).
+     * @param envelope {module:c2m_api/model/JobOptions.EnvelopeEnum} Envelope type used for the mailing.
+     * @param color {module:c2m_api/model/JobOptions.ColorEnum} Color mode for printing (full_color or black_and_white).
+     * @param paperType {module:c2m_api/model/JobOptions.PaperTypeEnum} Paper stock for printing.
+     * @param printOption {module:c2m_api/model/JobOptions.PrintOptionEnum} Duplex setting (double_sided or single_sided).
+     * @param mailClass {module:c2m_api/model/JobOptions.MailClassEnum} USPS mail class (first_class, standard, or non_profit).
      */
     constructor(documentClass, layout, productionTime, envelope, color, paperType, printOption, mailClass) { 
         
@@ -145,41 +146,49 @@ class JobOptions {
 JobOptions.RequiredProperties = ["documentClass", "layout", "productionTime", "envelope", "color", "paperType", "printOption", "mailClass"];
 
 /**
+ * Document class determining the mailpiece format.
  * @member {module:c2m_api/model/JobOptions.DocumentClassEnum} documentClass
  */
 JobOptions.prototype['documentClass'] = undefined;
 
 /**
+ * Page layout controlling where the recipient address is printed.
  * @member {module:c2m_api/model/JobOptions.LayoutEnum} layout
  */
 JobOptions.prototype['layout'] = undefined;
 
 /**
+ * Production time preference (next_day, two_day, etc.).
  * @member {module:c2m_api/model/JobOptions.ProductionTimeEnum} productionTime
  */
 JobOptions.prototype['productionTime'] = undefined;
 
 /**
+ * Envelope type used for the mailing.
  * @member {module:c2m_api/model/JobOptions.EnvelopeEnum} envelope
  */
 JobOptions.prototype['envelope'] = undefined;
 
 /**
+ * Color mode for printing (full_color or black_and_white).
  * @member {module:c2m_api/model/JobOptions.ColorEnum} color
  */
 JobOptions.prototype['color'] = undefined;
 
 /**
+ * Paper stock for printing.
  * @member {module:c2m_api/model/JobOptions.PaperTypeEnum} paperType
  */
 JobOptions.prototype['paperType'] = undefined;
 
 /**
+ * Duplex setting (double_sided or single_sided).
  * @member {module:c2m_api/model/JobOptions.PrintOptionEnum} printOption
  */
 JobOptions.prototype['printOption'] = undefined;
 
 /**
+ * USPS mail class (first_class, standard, or non_profit).
  * @member {module:c2m_api/model/JobOptions.MailClassEnum} mailClass
  */
 JobOptions.prototype['mailClass'] = undefined;

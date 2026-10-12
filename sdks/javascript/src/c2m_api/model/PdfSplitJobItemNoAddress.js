@@ -21,9 +21,10 @@ import ApiClient from '../ApiClient';
 class PdfSplitJobItemNoAddress {
     /**
      * Constructs a new <code>PdfSplitJobItemNoAddress</code>.
+     * A single page-range job entry: page range only (no address — used for address-capture endpoint).
      * @alias module:c2m_api/model/PdfSplitJobItemNoAddress
-     * @param startPage {Number} 
-     * @param endPage {Number} 
+     * @param startPage {Number} First page of this job's page range, 1-indexed (inclusive).
+     * @param endPage {Number} Last page of this job's page range (inclusive). Must be >= startPage.
      */
     constructor(startPage, endPage) { 
         
@@ -90,16 +91,19 @@ class PdfSplitJobItemNoAddress {
 PdfSplitJobItemNoAddress.RequiredProperties = ["startPage", "endPage"];
 
 /**
+ * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  * @member {String} jobTemplate
  */
 PdfSplitJobItemNoAddress.prototype['jobTemplate'] = undefined;
 
 /**
+ * First page of this job's page range, 1-indexed (inclusive).
  * @member {Number} startPage
  */
 PdfSplitJobItemNoAddress.prototype['startPage'] = undefined;
 
 /**
+ * Last page of this job's page range (inclusive). Must be >= startPage.
  * @member {Number} endPage
  */
 PdfSplitJobItemNoAddress.prototype['endPage'] = undefined;

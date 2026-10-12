@@ -21,8 +21,9 @@ import ApiClient from '../ApiClient';
 class UrlSource {
     /**
      * Constructs a new <code>UrlSource</code>.
+     * Fetch the document from an external URL at submission time.
      * @alias module:c2m_api/model/UrlSource
-     * @param url {String} 
+     * @param url {String} URL from which the API will fetch the document at submission time.
      */
     constructor(url) { 
         
@@ -82,6 +83,7 @@ class UrlSource {
 UrlSource.RequiredProperties = ["url"];
 
 /**
+ * URL from which the API will fetch the document at submission time.
  * @member {String} url
  */
 UrlSource.prototype['url'] = undefined;

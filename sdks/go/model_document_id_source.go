@@ -19,8 +19,9 @@ import (
 // checks if the DocumentIdSource type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DocumentIdSource{}
 
-// DocumentIdSource struct for DocumentIdSource
+// DocumentIdSource Source a document by its previously stored document ID.
 type DocumentIdSource struct {
+	// Integer ID of a previously stored or uploaded document.
 	DocumentId int32 `json:"documentId"`
 }
 

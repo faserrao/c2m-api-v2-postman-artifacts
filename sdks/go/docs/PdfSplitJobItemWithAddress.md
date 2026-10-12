@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**JobTemplate** | Pointer to **string** |  | [optional] 
-**StartPage** | **int32** |  | 
-**EndPage** | **int32** |  | 
+**JobTemplate** | Pointer to **string** | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. | [optional] 
+**StartPage** | **int32** | First page of this job&#39;s page range, 1-indexed (inclusive). | 
+**EndPage** | **int32** | Last page of this job&#39;s page range (inclusive). Must be &gt;&#x3D; startPage. | 
 **RecipientAddressSource** | [**RecipientAddressSource**](RecipientAddressSource.md) |  | 
 
 ## Methods

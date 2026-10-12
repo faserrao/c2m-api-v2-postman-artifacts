@@ -1,5 +1,6 @@
 # ErrorCode
 
+Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
 
 ## Enum
 

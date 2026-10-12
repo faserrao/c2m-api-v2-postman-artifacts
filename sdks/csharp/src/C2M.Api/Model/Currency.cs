@@ -26,8 +26,9 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Defines currency
+    /// ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
     /// </summary>
+    /// <value>ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).</value>
     public enum Currency
     {
         /// <summary>

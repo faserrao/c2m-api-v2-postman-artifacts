@@ -350,7 +350,7 @@ class SubmitSinglePdfSplitParams implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets job_template
      *
-     * @param string|null $job_template job_template
+     * @param string|null $job_template Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
      *
      * @return self
      */
@@ -404,7 +404,7 @@ class SubmitSinglePdfSplitParams implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets pdf_split_jobs_with_address
      *
-     * @param \C2MApi\Model\PdfSplitJobItemWithAddress[] $pdf_split_jobs_with_address pdf_split_jobs_with_address
+     * @param \C2MApi\Model\PdfSplitJobItemWithAddress[] $pdf_split_jobs_with_address List of page-range job items, each with its own inline recipient address.
      *
      * @return self
      */
@@ -512,7 +512,7 @@ class SubmitSinglePdfSplitParams implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets tags
      *
-     * @param string[]|null $tags tags
+     * @param string[]|null $tags Array of user-defined string tags.
      *
      * @return self
      */

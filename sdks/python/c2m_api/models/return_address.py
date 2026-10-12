@@ -24,18 +24,18 @@ from typing_extensions import Self
 
 class ReturnAddress(BaseModel):
     """
-    ReturnAddress
+    Optional sender return address printed on the mailpiece.
     """ # noqa: E501
-    first_name: StrictStr = Field(alias="firstName")
-    last_name: StrictStr = Field(alias="lastName")
-    company: Optional[StrictStr] = None
-    address1: StrictStr
-    city: StrictStr
-    state: StrictStr
-    zip: StrictStr
-    country: StrictStr
-    address2: Optional[StrictStr] = None
-    address3: Optional[StrictStr] = None
+    first_name: StrictStr = Field(description="Recipient's first name.", alias="firstName")
+    last_name: StrictStr = Field(description="Recipient's last name.", alias="lastName")
+    company: Optional[StrictStr] = Field(default=None, description="Recipient's company or organisation name (optional).")
+    address1: StrictStr = Field(description="Primary street address line.")
+    city: StrictStr = Field(description="City name.")
+    state: StrictStr = Field(description="Two-letter state or province abbreviation.")
+    zip: StrictStr = Field(description="ZIP or postal code.")
+    country: StrictStr = Field(description="Country code (e.g. USA).")
+    address2: Optional[StrictStr] = Field(default=None, description="Secondary address line (suite, apartment, floor, etc.).")
+    address3: Optional[StrictStr] = Field(default=None, description="Tertiary address line.")
     __properties: ClassVar[List[str]] = ["firstName", "lastName", "company", "address1", "city", "state", "zip", "country", "address2", "address3"]
 
     model_config = ConfigDict(

@@ -121,6 +121,7 @@ class SubmitSinglePdfAddressCaptureParams {
 SubmitSinglePdfAddressCaptureParams.RequiredProperties = ["docSourceStandard"];
 
 /**
+ * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  * @member {String} jobTemplate
  */
 SubmitSinglePdfAddressCaptureParams.prototype['jobTemplate'] = undefined;
@@ -146,6 +147,7 @@ SubmitSinglePdfAddressCaptureParams.prototype['returnAddress'] = undefined;
 SubmitSinglePdfAddressCaptureParams.prototype['jobOptions'] = undefined;
 
 /**
+ * Array of user-defined string tags.
  * @member {Array.<String>} tags
  */
 SubmitSinglePdfAddressCaptureParams.prototype['tags'] = undefined;

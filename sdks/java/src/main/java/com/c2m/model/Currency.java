@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Gets or Sets currency
+ * ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
  */
 @JsonAdapter(Currency.Adapter.class)
 public enum Currency {

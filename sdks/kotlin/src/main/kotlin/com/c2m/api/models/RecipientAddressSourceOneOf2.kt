@@ -22,12 +22,13 @@ import com.squareup.moshi.JsonClass
 /**
  * 
  *
- * @param recipientAddressByListId 
+ * @param recipientAddressByListId Reference to a previously stored recipient address list by its integer ID.
  */
 
 
 data class RecipientAddressSourceOneOf2 (
 
+    /* Reference to a previously stored recipient address list by its integer ID. */
     @Json(name = "recipientAddressByListId")
     val recipientAddressByListId: kotlin.Int
 

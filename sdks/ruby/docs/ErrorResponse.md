@@ -4,11 +4,11 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **error_type** | **String** |  |  |
-| **error_message** | **String** |  |  |
-| **error_code** | **String** |  |  |
-| **error_details** | **String** |  | [optional] |
-| **error_tracking_id** | **String** |  | [optional] |
+| **error_type** | **String** | High-level error category string (ValidationError, AuthenticationError, etc.). |  |
+| **error_message** | **String** | Human-readable error description. |  |
+| **error_code** | **String** | Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). |  |
+| **error_details** | **String** | Optional JSON object with additional error context (free-form key/value pairs). | [optional] |
+| **error_tracking_id** | **String** | Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX. | [optional] |
 
 ## Example
 

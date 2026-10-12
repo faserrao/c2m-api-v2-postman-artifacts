@@ -11,21 +11,28 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// ErrorResponse : Error response structure returned for all API error conditions.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ErrorResponse {
+    /// High-level error category string (ValidationError, AuthenticationError, etc.).
     #[serde(rename = "errorType")]
     pub error_type: ErrorType,
+    /// Human-readable error description.
     #[serde(rename = "errorMessage")]
     pub error_message: String,
+    /// Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
     #[serde(rename = "errorCode")]
     pub error_code: ErrorCode,
+    /// Optional JSON object with additional error context (free-form key/value pairs).
     #[serde(rename = "errorDetails", skip_serializing_if = "Option::is_none")]
     pub error_details: Option<String>,
+    /// Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
     #[serde(rename = "errorTrackingId", skip_serializing_if = "Option::is_none")]
     pub error_tracking_id: Option<String>,
 }
 
 impl ErrorResponse {
+    /// Error response structure returned for all API error conditions.
     pub fn new(error_type: ErrorType, error_message: String, error_code: ErrorCode) -> ErrorResponse {
         ErrorResponse {
             error_type,
@@ -36,7 +43,7 @@ impl ErrorResponse {
         }
     }
 }
-/// 
+/// High-level error category string (ValidationError, AuthenticationError, etc.).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ErrorType {
     #[serde(rename = "ValidationError")]
@@ -58,7 +65,7 @@ impl Default for ErrorType {
         Self::ValidationError
     }
 }
-/// 
+/// Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ErrorCode {
     #[serde(rename = "MISSING_REQUIRED_FIELD")]

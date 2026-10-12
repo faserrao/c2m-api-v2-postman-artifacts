@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class ProductionTime(str, Enum):
     """
-    ProductionTime
+    Production time preference (next_day, two_day, etc.).
     """
 
     """

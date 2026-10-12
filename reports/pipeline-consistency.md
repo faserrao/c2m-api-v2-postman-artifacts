@@ -1,12 +1,10 @@
 # Pipeline consistency (DD → spec → Postman)
 
-ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 0
+ERROR categories: 0  ·  known-open WARN categories: 18  ·  stale allowances: 1
 
 ## ⚠️ Known open (tracked)
 - **A-DOC-CARDINALITY-UNENFORCED** [*] (1) — X9 / decision D4 (array minimums)
     - documentsToMerge: 'Ordered array of document references to merge into one output document'
-- **A-DOC-NOT-IN-SPEC** [*] (1) — X4 (@doc not emitted as spec descriptions)
-    - 101 of 101 @doc descriptions not emitted
 - **A-DOC-TYPE-CLAIM** [*] (1) — L2 / decision D6 (errorDetails object vs string)
     - errorDetails: @doc says JSON object, DD type is string
 - **A-HINT-EMPTY-STATIC** [*] (1) — L1 (address3 empty static hint)
@@ -48,12 +46,6 @@ ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 0
     - POST /mail-merge / 'Internal server error' (500): mergeDocumentSource has 1 entry
     - POST /mail-merge / 'Database error' (500): mergeDocumentSource has 1 entry
     - POST /mail-merge / 'External service error' (500): mergeDocumentSource has 1 entry
-- **B-EXAMPLE-ORIGINAL-REQUEST** [Test] (5) — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
-    - POST /auth/tokens/long / 'Long-term token issued' (201): ttl_seconds: 1228 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Bad request' (400): ttl_seconds: 1228 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Unauthorized' (401): ttl_seconds: 1228 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Forbidden' (403): ttl_seconds: 1228 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Too Many Requests' (429): ttl_seconds: 1228 is less than the minimum of 3600
 - **B-FILLER-VALUE** [GS-Test] (3) — L7 (example_ filler values)
     - [Less frequently used] /static - setting tags: body/tags[0]='example_tags'
     - [Less frequently used] /static - setting tags: body/tags[1]='example_tags'
@@ -97,9 +89,9 @@ ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 0
     - POST /batch/split/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /batch/zip: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /batch/zip/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
-    - POST /mail-merge: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /static: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /static/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
+    - POST /mail-merge: accepts ['201', '204'] undeclared, rejects [] declared
 - **C-REQUEST-EXAMPLE-MISSING** [*] (7) — C1 (no request-example generator for job endpoints)
     - POST /static
     - POST /static/address-capture
@@ -108,5 +100,8 @@ ERROR categories: 0  ·  known-open WARN categories: 20  ·  stale allowances: 0
     - POST /mail-merge
     - POST /batch/zip
     - POST /batch/zip/address-capture
+
+## 🧹 Stale KNOWN_OPEN entries (no longer occur — remove them)
+- B-EXAMPLE-ORIGINAL-REQUEST [Test] — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
 
 ✅ No ERROR findings

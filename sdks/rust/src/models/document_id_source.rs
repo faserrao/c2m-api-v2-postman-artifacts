@@ -11,13 +11,16 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
+/// DocumentIdSource : Source a document by its previously stored document ID.
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DocumentIdSource {
+    /// Integer ID of a previously stored or uploaded document.
     #[serde(rename = "documentId")]
     pub document_id: i32,
 }
 
 impl DocumentIdSource {
+    /// Source a document by its previously stored document ID.
     pub fn new(document_id: i32) -> DocumentIdSource {
         DocumentIdSource {
             document_id,

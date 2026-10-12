@@ -25,31 +25,31 @@ class ErrorResponseTest : ShouldSpec() {
         // uncomment below to create an instance of ErrorResponse
         //val modelInstance = ErrorResponse()
 
-        // to test the property `errorType`
+        // to test the property `errorType` - High-level error category string (ValidationError, AuthenticationError, etc.).
         should("test errorType") {
             // uncomment below to test the property
             //modelInstance.errorType shouldBe ("TODO")
         }
 
-        // to test the property `errorMessage`
+        // to test the property `errorMessage` - Human-readable error description.
         should("test errorMessage") {
             // uncomment below to test the property
             //modelInstance.errorMessage shouldBe ("TODO")
         }
 
-        // to test the property `errorCode`
+        // to test the property `errorCode` - Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
         should("test errorCode") {
             // uncomment below to test the property
             //modelInstance.errorCode shouldBe ("TODO")
         }
 
-        // to test the property `errorDetails`
+        // to test the property `errorDetails` - Optional JSON object with additional error context (free-form key/value pairs).
         should("test errorDetails") {
             // uncomment below to test the property
             //modelInstance.errorDetails shouldBe ("TODO")
         }
 
-        // to test the property `errorTrackingId`
+        // to test the property `errorTrackingId` - Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
         should("test errorTrackingId") {
             // uncomment below to test the property
             //modelInstance.errorTrackingId shouldBe ("TODO")

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payment_type** | **string** |  |
+**payment_type** | **string** | Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). |
 **credit_card_details** | [**\C2MApi\Model\CreditCardDetails**](CreditCardDetails.md) |  |
 **invoice_details** | [**\C2MApi\Model\InvoiceDetails**](InvoiceDetails.md) |  |
 **ach_details** | [**\C2MApi\Model\AchDetails**](AchDetails.md) |  |

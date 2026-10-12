@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * USPS mail class (first_class, standard, or non_profit).
  *
  * Values: first_class,standard,non_profit
  */

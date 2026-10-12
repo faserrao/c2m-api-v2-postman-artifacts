@@ -1,4 +1,5 @@
 # C2M.Api.Model.Currency
+ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
 
 ## Properties
 

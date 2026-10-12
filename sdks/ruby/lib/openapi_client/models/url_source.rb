@@ -14,7 +14,9 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Fetch the document from an external URL at submission time.
   class UrlSource
+    # URL from which the API will fetch the document at submission time.
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.

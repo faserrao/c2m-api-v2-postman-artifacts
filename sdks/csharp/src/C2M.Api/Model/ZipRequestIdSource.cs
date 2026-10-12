@@ -26,16 +26,16 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// ZipRequestIdSource
+    /// Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip.
     /// </summary>
     public partial class ZipRequestIdSource : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ZipRequestIdSource" /> class.
         /// </summary>
-        /// <param name="requestId">requestId</param>
-        /// <param name="zipFilename">zipFilename</param>
-        /// <param name="filename">filename</param>
+        /// <param name="requestId">Integer ID of a prior file upload request. Also returned in success responses.</param>
+        /// <param name="zipFilename">Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).</param>
+        /// <param name="filename">Filename of a specific file within an upload request or ZIP archive.</param>
         [JsonConstructor]
         public ZipRequestIdSource(int requestId, string zipFilename, string filename)
         {
@@ -48,20 +48,23 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets RequestId
+        /// Integer ID of a prior file upload request. Also returned in success responses.
         /// </summary>
+        /// <value>Integer ID of a prior file upload request. Also returned in success responses.</value>
         [JsonPropertyName("requestId")]
         public int RequestId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ZipFilename
+        /// Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
         /// </summary>
+        /// <value>Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).</value>
         [JsonPropertyName("zipFilename")]
         public string ZipFilename { get; set; }
 
         /// <summary>
-        /// Gets or Sets Filename
+        /// Filename of a specific file within an upload request or ZIP archive.
         /// </summary>
+        /// <value>Filename of a specific file within an upload request or ZIP archive.</value>
         [JsonPropertyName("filename")]
         public string Filename { get; set; }
 

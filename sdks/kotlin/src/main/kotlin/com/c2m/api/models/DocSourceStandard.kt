@@ -26,7 +26,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Document source — standard (non-zip) variants only: requestId, documentId, or URL.
  *
  * @param documentIdSource 
  * @param requestIdSource 

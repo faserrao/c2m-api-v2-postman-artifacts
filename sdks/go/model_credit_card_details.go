@@ -19,11 +19,14 @@ import (
 // checks if the CreditCardDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreditCardDetails{}
 
-// CreditCardDetails struct for CreditCardDetails
+// CreditCardDetails Credit card payment fields: card type, card number, expiration date, and CVV.
 type CreditCardDetails struct {
+	// Card brand enum: visa, mastercard, discover, or americanExpress.
 	CardType string `json:"cardType"`
+	// Credit card number (PAN) as a string.
 	CardNumber string `json:"cardNumber"`
 	ExpirationDate ExpirationDate `json:"expirationDate"`
+	// Card security code (CVV/CVC) as an integer.
 	Cvv int32 `json:"cvv"`
 }
 

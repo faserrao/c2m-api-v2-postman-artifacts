@@ -19,10 +19,13 @@ import (
 // checks if the StandardResponse type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &StandardResponse{}
 
-// StandardResponse struct for StandardResponse
+// StandardResponse Success response returned for all successful job submissions.
 type StandardResponse struct {
+	// Job status string (e.g. \"accepted\").
 	Status string `json:"status"`
+	// Human-readable confirmation message (e.g. \"Your request has been queued\").
 	Message string `json:"message"`
+	// Integer ID of a prior file upload request. Also returned in success responses.
 	RequestId int32 `json:"requestId"`
 }
 

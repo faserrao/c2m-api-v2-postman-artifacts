@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**zipDocumentId** | **Number** |  | 
+**zipDocumentId** | **Number** | Integer ID of a previously stored ZIP archive. | 
 
 

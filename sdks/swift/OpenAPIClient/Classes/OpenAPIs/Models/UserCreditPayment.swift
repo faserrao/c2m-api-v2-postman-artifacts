@@ -10,11 +10,13 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Payment deducted from the account&#39;s prepaid credit balance. */
 public struct UserCreditPayment: Codable, JSONEncodable, Hashable {
 
     public enum PaymentType: String, Codable, CaseIterable {
         case usercredit = "userCredit"
     }
+    /** Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). */
     public var paymentType: PaymentType
     public var creditAmount: CreditAmount
 

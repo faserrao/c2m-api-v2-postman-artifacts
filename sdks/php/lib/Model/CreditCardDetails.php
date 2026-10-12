@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * CreditCardDetails Class Doc Comment
  *
  * @category Class
+ * @description Credit card payment fields: card type, card number, expiration date, and CVV.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -363,7 +364,7 @@ class CreditCardDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets card_type
      *
-     * @param string $card_type card_type
+     * @param string $card_type Card brand enum: visa, mastercard, discover, or americanExpress.
      *
      * @return self
      */
@@ -400,7 +401,7 @@ class CreditCardDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets card_number
      *
-     * @param string $card_number card_number
+     * @param string $card_number Credit card number (PAN) as a string.
      *
      * @return self
      */
@@ -454,7 +455,7 @@ class CreditCardDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets cvv
      *
-     * @param int $cvv cvv
+     * @param int $cvv Card security code (CVV/CVC) as an integer.
      *
      * @return self
      */

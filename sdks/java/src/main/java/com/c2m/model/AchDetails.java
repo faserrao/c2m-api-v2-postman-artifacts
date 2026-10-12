@@ -46,9 +46,9 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * AchDetails
+ * ACH payment fields: routing number, bank account number, and check digit.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-10T00:49:51.791368813Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class AchDetails {
   public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routingNumber";
   @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)
@@ -74,7 +74,7 @@ public class AchDetails {
   }
 
   /**
-   * Get routingNumber
+   * ABA bank routing number.
    * @return routingNumber
    */
   @javax.annotation.Nonnull
@@ -93,7 +93,7 @@ public class AchDetails {
   }
 
   /**
-   * Get accountNumber
+   * Bank account number.
    * @return accountNumber
    */
   @javax.annotation.Nonnull
@@ -112,7 +112,7 @@ public class AchDetails {
   }
 
   /**
-   * Get checkDigit
+   * ACH check digit.
    * @return checkDigit
    */
   @javax.annotation.Nonnull

@@ -10,17 +10,28 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Optional sender return address printed on the mailpiece. */
 public struct ReturnAddress: Codable, JSONEncodable, Hashable {
 
+    /** Recipient's first name. */
     public var firstName: String
+    /** Recipient's last name. */
     public var lastName: String
+    /** Recipient's company or organisation name (optional). */
     public var company: String?
+    /** Primary street address line. */
     public var address1: String
+    /** City name. */
     public var city: String
+    /** Two-letter state or province abbreviation. */
     public var state: String
+    /** ZIP or postal code. */
     public var zip: String
+    /** Country code (e.g. USA). */
     public var country: String
+    /** Secondary address line (suite, apartment, floor, etc.). */
     public var address2: String?
+    /** Tertiary address line. */
     public var address3: String?
 
     public init(firstName: String, lastName: String, company: String? = nil, address1: String, city: String, state: String, zip: String, country: String, address2: String? = nil, address3: String? = nil) {

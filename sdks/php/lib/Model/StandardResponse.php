@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * StandardResponse Class Doc Comment
  *
  * @category Class
+ * @description Success response returned for all successful job submissions.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -325,7 +326,7 @@ class StandardResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param string $status status
+     * @param string $status Job status string (e.g. \"accepted\").
      *
      * @return self
      */
@@ -352,7 +353,7 @@ class StandardResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets message
      *
-     * @param string $message message
+     * @param string $message Human-readable confirmation message (e.g. \"Your request has been queued\").
      *
      * @return self
      */
@@ -379,7 +380,7 @@ class StandardResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets request_id
      *
-     * @param int $request_id request_id
+     * @param int $request_id Integer ID of a prior file upload request. Also returned in success responses.
      *
      * @return self
      */

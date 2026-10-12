@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * CardTypeTest Class Doc Comment
  *
  * @category    Class
- * @description CardType
+ * @description Card brand enum: visa, mastercard, discover, or americanExpress.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

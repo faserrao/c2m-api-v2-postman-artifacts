@@ -12,6 +12,7 @@ import AnyCodable
 
 public struct RecipientAddressSourceOneOf2: Codable, JSONEncodable, Hashable {
 
+    /** Reference to a previously stored recipient address list by its integer ID. */
     public var recipientAddressByListId: Int
 
     public init(recipientAddressByListId: Int) {

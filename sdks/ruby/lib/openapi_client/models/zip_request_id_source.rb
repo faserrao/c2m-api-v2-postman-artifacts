@@ -14,11 +14,15 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip.
   class ZipRequestIdSource
+    # Integer ID of a prior file upload request. Also returned in success responses.
     attr_accessor :request_id
 
+    # Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
     attr_accessor :zip_filename
 
+    # Filename of a specific file within an upload request or ZIP archive.
     attr_accessor :filename
 
     # Attribute mapping from ruby-style variable name to JSON key.

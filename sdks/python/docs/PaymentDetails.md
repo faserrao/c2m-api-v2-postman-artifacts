@@ -1,11 +1,12 @@
 # PaymentDetails
 
+Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payment_type** | **str** |  | 
+**payment_type** | **str** | Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). | 
 **credit_card_details** | [**CreditCardDetails**](CreditCardDetails.md) |  | 
 **invoice_details** | [**InvoiceDetails**](InvoiceDetails.md) |  | 
 **ach_details** | [**AchDetails**](AchDetails.md) |  | 

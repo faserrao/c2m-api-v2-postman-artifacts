@@ -14,21 +14,30 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
   class JobOptions
+    # Document class determining the mailpiece format.
     attr_accessor :document_class
 
+    # Page layout controlling where the recipient address is printed.
     attr_accessor :layout
 
+    # Production time preference (next_day, two_day, etc.).
     attr_accessor :production_time
 
+    # Envelope type used for the mailing.
     attr_accessor :envelope
 
+    # Color mode for printing (full_color or black_and_white).
     attr_accessor :color
 
+    # Paper stock for printing.
     attr_accessor :paper_type
 
+    # Duplex setting (double_sided or single_sided).
     attr_accessor :print_option
 
+    # USPS mail class (first_class, standard, or non_profit).
     attr_accessor :mail_class
 
     class EnumAttributeValidator

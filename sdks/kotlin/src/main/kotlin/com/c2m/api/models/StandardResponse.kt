@@ -20,22 +20,25 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Success response returned for all successful job submissions.
  *
- * @param status 
- * @param message 
- * @param requestId 
+ * @param status Job status string (e.g. \"accepted\").
+ * @param message Human-readable confirmation message (e.g. \"Your request has been queued\").
+ * @param requestId Integer ID of a prior file upload request. Also returned in success responses.
  */
 
 
 data class StandardResponse (
 
+    /* Job status string (e.g. \"accepted\"). */
     @Json(name = "status")
     val status: kotlin.String,
 
+    /* Human-readable confirmation message (e.g. \"Your request has been queued\"). */
     @Json(name = "message")
     val message: kotlin.String,
 
+    /* Integer ID of a prior file upload request. Also returned in success responses. */
     @Json(name = "requestId")
     val requestId: kotlin.Int
 

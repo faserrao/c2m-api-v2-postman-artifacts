@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RoutingNumber** | **string** |  | 
-**AccountNumber** | **string** |  | 
-**CheckDigit** | **int32** |  | 
+**RoutingNumber** | **string** | ABA bank routing number. | 
+**AccountNumber** | **string** | Bank account number. | 
+**CheckDigit** | **int32** | ACH check digit. | 
 
 ## Methods
 

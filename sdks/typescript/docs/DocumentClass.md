@@ -1,5 +1,6 @@
 # DocumentClass
 
+Document class determining the mailpiece format.
 
 ## Enum
 

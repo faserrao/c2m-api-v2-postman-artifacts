@@ -19,12 +19,17 @@ import (
 // checks if the ErrorResponse type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &ErrorResponse{}
 
-// ErrorResponse struct for ErrorResponse
+// ErrorResponse Error response structure returned for all API error conditions.
 type ErrorResponse struct {
+	// High-level error category string (ValidationError, AuthenticationError, etc.).
 	ErrorType string `json:"errorType"`
+	// Human-readable error description.
 	ErrorMessage string `json:"errorMessage"`
+	// Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
 	ErrorCode string `json:"errorCode"`
+	// Optional JSON object with additional error context (free-form key/value pairs).
 	ErrorDetails *string `json:"errorDetails,omitempty"`
+	// Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
 	ErrorTrackingId *string `json:"errorTrackingId,omitempty"`
 }
 

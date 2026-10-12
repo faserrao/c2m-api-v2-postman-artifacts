@@ -21,12 +21,15 @@ var _ MappedNullable = &SubmitSinglePdfSplitParams{}
 
 // SubmitSinglePdfSplitParams struct for SubmitSinglePdfSplitParams
 type SubmitSinglePdfSplitParams struct {
+	// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
 	JobTemplate *string `json:"jobTemplate,omitempty"`
 	DocSourceStandard DocSourceStandard `json:"docSourceStandard"`
+	// List of page-range job items, each with its own inline recipient address.
 	PdfSplitJobsWithAddress []PdfSplitJobItemWithAddress `json:"pdfSplitJobsWithAddress"`
 	PaymentDetails *PaymentDetails `json:"paymentDetails,omitempty"`
 	ReturnAddress *ReturnAddress `json:"returnAddress,omitempty"`
 	JobOptions *JobOptions `json:"jobOptions,omitempty"`
+	// Array of user-defined string tags.
 	Tags []string `json:"tags,omitempty"`
 }
 

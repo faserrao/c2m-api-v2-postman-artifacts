@@ -25,7 +25,7 @@ class ZipDocumentIdOnlyTest : ShouldSpec() {
         // uncomment below to create an instance of ZipDocumentIdOnly
         //val modelInstance = ZipDocumentIdOnly()
 
-        // to test the property `zipDocumentId`
+        // to test the property `zipDocumentId` - Integer ID of a previously stored ZIP archive.
         should("test zipDocumentId") {
             // uncomment below to test the property
             //modelInstance.zipDocumentId shouldBe ("TODO")

@@ -19,9 +19,11 @@ import (
 // checks if the CreditAmount type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &CreditAmount{}
 
-// CreditAmount struct for CreditAmount
+// CreditAmount Account credit payment fields: monetary amount and ISO currency code.
 type CreditAmount struct {
+	// Monetary amount as a numeric value.
 	Amount float32 `json:"amount"`
+	// ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
 	Currency string `json:"currency"`
 }
 

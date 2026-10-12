@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ZipDocumentId** | **int32** |  | 
-**Filename** | **string** |  | 
+**ZipDocumentId** | **int32** | Integer ID of a previously stored ZIP archive. | 
+**Filename** | **string** | Filename of a specific file within an upload request or ZIP archive. | 
 
 ## Methods
 

@@ -16,7 +16,7 @@ import (
 	"gopkg.in/validator.v2"
 )
 
-// DocSourceZipFile - struct for DocSourceZipFile
+// DocSourceZipFile - Document source — zip variants: a specific file within a stored ZIP (zipDocumentId + filename) or uploaded ZIP (requestId + zipFilename + filename).
 type DocSourceZipFile struct {
 	ZipDocumentSourceOneOf *ZipDocumentSourceOneOf
 	ZipDocumentSourceOneOf1 *ZipDocumentSourceOneOf1

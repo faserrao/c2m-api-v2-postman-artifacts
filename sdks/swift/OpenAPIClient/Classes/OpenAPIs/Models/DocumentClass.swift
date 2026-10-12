@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Document class determining the mailpiece format. */
 public enum DocumentClass: String, Codable, CaseIterable {
     case letter = "letter"
     case postcard = "postcard"

@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * PaymentTypeTest Class Doc Comment
  *
  * @category    Class
- * @description PaymentType
+ * @description Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

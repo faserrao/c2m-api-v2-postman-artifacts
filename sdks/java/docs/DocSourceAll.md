@@ -2,6 +2,7 @@
 
 # DocSourceAll
 
+Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).
 
 ## Properties
 

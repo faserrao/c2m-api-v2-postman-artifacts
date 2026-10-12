@@ -26,7 +26,7 @@ class RecipientAddressSourceOneOf1(BaseModel):
     """
     RecipientAddressSourceOneOf1
     """ # noqa: E501
-    recipient_address_by_address_id: StrictInt = Field(alias="recipientAddressByAddressId")
+    recipient_address_by_address_id: StrictInt = Field(description="Reference to a previously stored individual recipient address by its integer ID.", alias="recipientAddressByAddressId")
     __properties: ClassVar[List[str]] = ["recipientAddressByAddressId"]
 
     model_config = ConfigDict(

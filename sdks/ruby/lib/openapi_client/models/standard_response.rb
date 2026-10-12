@@ -14,11 +14,15 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Success response returned for all successful job submissions.
   class StandardResponse
+    # Job status string (e.g. \"accepted\").
     attr_accessor :status
 
+    # Human-readable confirmation message (e.g. \"Your request has been queued\").
     attr_accessor :message
 
+    # Integer ID of a prior file upload request. Also returned in success responses.
     attr_accessor :request_id
 
     # Attribute mapping from ruby-style variable name to JSON key.

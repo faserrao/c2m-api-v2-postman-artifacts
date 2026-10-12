@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * ZipDocumentIdSource Class Doc Comment
  *
  * @category Class
+ * @description Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -315,7 +316,7 @@ class ZipDocumentIdSource implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets zip_document_id
      *
-     * @param int $zip_document_id zip_document_id
+     * @param int $zip_document_id Integer ID of a previously stored ZIP archive.
      *
      * @return self
      */
@@ -342,7 +343,7 @@ class ZipDocumentIdSource implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets filename
      *
-     * @param string $filename filename
+     * @param string $filename Filename of a specific file within an upload request or ZIP archive.
      *
      * @return self
      */

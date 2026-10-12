@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data. */
 public enum PaymentDetails: Codable, JSONEncodable, Hashable {
     case typeAchPayment(AchPayment)
     case typeCreditCardPayment(CreditCardPayment)

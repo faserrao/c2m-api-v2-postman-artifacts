@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Month** | **int32** |  | 
-**Year** | **int32** |  | 
+**Month** | **int32** | Expiration month as an integer (1-12). | 
+**Year** | **int32** | Expiration year as a four-digit integer (e.g. 2029). | 
 
 ## Methods
 

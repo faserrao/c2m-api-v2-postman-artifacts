@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **zip_document_id** | **Integer** |  |  |
+| **zip_document_id** | **Integer** | Integer ID of a previously stored ZIP archive. |  |
 
 ## Example
 

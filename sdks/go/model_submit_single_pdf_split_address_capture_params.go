@@ -21,12 +21,15 @@ var _ MappedNullable = &SubmitSinglePdfSplitAddressCaptureParams{}
 
 // SubmitSinglePdfSplitAddressCaptureParams struct for SubmitSinglePdfSplitAddressCaptureParams
 type SubmitSinglePdfSplitAddressCaptureParams struct {
+	// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
 	JobTemplate *string `json:"jobTemplate,omitempty"`
 	DocSourceStandard DocSourceStandard `json:"docSourceStandard"`
+	// List of page-range job items without inline addresses — addresses are captured externally (POST /batch/split/address-capture).
 	PdfSplitJobsNoAddress []PdfSplitJobItemNoAddress `json:"pdfSplitJobsNoAddress"`
 	PaymentDetails *PaymentDetails `json:"paymentDetails,omitempty"`
 	ReturnAddress *ReturnAddress `json:"returnAddress,omitempty"`
 	JobOptions *JobOptions `json:"jobOptions,omitempty"`
+	// Array of user-defined string tags.
 	Tags []string `json:"tags,omitempty"`
 }
 

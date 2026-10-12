@@ -131,6 +131,7 @@ class SubmitDocParams {
 SubmitDocParams.RequiredProperties = ["docSourceAll", "recipientAddressSource"];
 
 /**
+ * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  * @member {String} jobTemplate
  */
 SubmitDocParams.prototype['jobTemplate'] = undefined;
@@ -161,6 +162,7 @@ SubmitDocParams.prototype['returnAddress'] = undefined;
 SubmitDocParams.prototype['jobOptions'] = undefined;
 
 /**
+ * Array of user-defined string tags.
  * @member {Array.<String>} tags
  */
 SubmitDocParams.prototype['tags'] = undefined;

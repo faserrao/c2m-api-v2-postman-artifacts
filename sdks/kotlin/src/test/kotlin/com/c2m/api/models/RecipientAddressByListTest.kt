@@ -26,19 +26,19 @@ class RecipientAddressByListTest : ShouldSpec() {
         // uncomment below to create an instance of RecipientAddressByList
         //val modelInstance = RecipientAddressByList()
 
-        // to test the property `addressList`
+        // to test the property `addressList` - List of recipient mailing addresses — used for batch sends and mail merge.
         should("test addressList") {
             // uncomment below to test the property
             //modelInstance.addressList shouldBe ("TODO")
         }
 
-        // to test the property `mappingId`
+        // to test the property `mappingId` - Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.
         should("test mappingId") {
             // uncomment below to test the property
             //modelInstance.mappingId shouldBe ("TODO")
         }
 
-        // to test the property `addressListName`
+        // to test the property `addressListName` - Optional name for this address list record.
         should("test addressListName") {
             // uncomment below to test the property
             //modelInstance.addressListName shouldBe ("TODO")

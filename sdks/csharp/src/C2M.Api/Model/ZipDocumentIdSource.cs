@@ -26,15 +26,15 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// ZipDocumentIdSource
+    /// Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
     /// </summary>
     public partial class ZipDocumentIdSource : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ZipDocumentIdSource" /> class.
         /// </summary>
-        /// <param name="zipDocumentId">zipDocumentId</param>
-        /// <param name="filename">filename</param>
+        /// <param name="zipDocumentId">Integer ID of a previously stored ZIP archive.</param>
+        /// <param name="filename">Filename of a specific file within an upload request or ZIP archive.</param>
         [JsonConstructor]
         public ZipDocumentIdSource(int zipDocumentId, string filename)
         {
@@ -46,14 +46,16 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets ZipDocumentId
+        /// Integer ID of a previously stored ZIP archive.
         /// </summary>
+        /// <value>Integer ID of a previously stored ZIP archive.</value>
         [JsonPropertyName("zipDocumentId")]
         public int ZipDocumentId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Filename
+        /// Filename of a specific file within an upload request or ZIP archive.
         /// </summary>
+        /// <value>Filename of a specific file within an upload request or ZIP archive.</value>
         [JsonPropertyName("filename")]
         public string Filename { get; set; }
 

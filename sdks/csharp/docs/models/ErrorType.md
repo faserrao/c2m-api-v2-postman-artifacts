@@ -1,4 +1,5 @@
 # C2M.Api.Model.ErrorType
+High-level error category string (ValidationError, AuthenticationError, etc.).
 
 ## Properties
 

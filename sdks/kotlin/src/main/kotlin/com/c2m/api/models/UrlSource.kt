@@ -20,14 +20,15 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Fetch the document from an external URL at submission time.
  *
- * @param url 
+ * @param url URL from which the API will fetch the document at submission time.
  */
 
 
 data class UrlSource (
 
+    /* URL from which the API will fetch the document at submission time. */
     @Json(name = "url")
     val url: java.net.URI
 

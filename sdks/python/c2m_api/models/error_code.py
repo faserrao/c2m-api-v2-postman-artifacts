@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class ErrorCode(str, Enum):
     """
-    ErrorCode
+    Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
     """
 
     """

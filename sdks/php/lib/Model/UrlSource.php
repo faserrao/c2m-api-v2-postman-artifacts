@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * UrlSource Class Doc Comment
  *
  * @category Class
+ * @description Fetch the document from an external URL at submission time.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -305,7 +306,7 @@ class UrlSource implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets url
      *
-     * @param string $url url
+     * @param string $url URL from which the API will fetch the document at submission time.
      *
      * @return self
      */

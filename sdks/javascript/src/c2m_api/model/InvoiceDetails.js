@@ -21,9 +21,10 @@ import ApiClient from '../ApiClient';
 class InvoiceDetails {
     /**
      * Constructs a new <code>InvoiceDetails</code>.
+     * Invoice payment fields: invoice number and amount due.
      * @alias module:c2m_api/model/InvoiceDetails
-     * @param invoiceNumber {String} 
-     * @param amountDue {Number} 
+     * @param invoiceNumber {String} Invoice reference number.
+     * @param amountDue {Number} Amount due on the invoice.
      */
     constructor(invoiceNumber, amountDue) { 
         
@@ -87,11 +88,13 @@ class InvoiceDetails {
 InvoiceDetails.RequiredProperties = ["invoiceNumber", "amountDue"];
 
 /**
+ * Invoice reference number.
  * @member {String} invoiceNumber
  */
 InvoiceDetails.prototype['invoiceNumber'] = undefined;
 
 /**
+ * Amount due on the invoice.
  * @member {Number} amountDue
  */
 InvoiceDetails.prototype['amountDue'] = undefined;

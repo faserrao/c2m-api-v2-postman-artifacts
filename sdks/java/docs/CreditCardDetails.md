@@ -2,15 +2,16 @@
 
 # CreditCardDetails
 
+Credit card payment fields: card type, card number, expiration date, and CVV.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**cardType** | [**CardTypeEnum**](#CardTypeEnum) |  |  |
-|**cardNumber** | **String** |  |  |
+|**cardType** | [**CardTypeEnum**](#CardTypeEnum) | Card brand enum: visa, mastercard, discover, or americanExpress. |  |
+|**cardNumber** | **String** | Credit card number (PAN) as a string. |  |
 |**expirationDate** | [**ExpirationDate**](ExpirationDate.md) |  |  |
-|**cvv** | **Integer** |  |  |
+|**cvv** | **Integer** | Card security code (CVV/CVC) as an integer. |  |
 
 
 

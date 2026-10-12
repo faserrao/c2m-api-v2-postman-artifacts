@@ -26,7 +26,7 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// RecipientAddressSource
+    /// Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
     /// </summary>
     public partial class RecipientAddressSource : IValidatableObject
     {

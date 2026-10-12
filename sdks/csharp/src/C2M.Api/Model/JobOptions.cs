@@ -26,21 +26,21 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// JobOptions
+    /// Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
     /// </summary>
     public partial class JobOptions : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="JobOptions" /> class.
         /// </summary>
-        /// <param name="documentClass">documentClass</param>
-        /// <param name="layout">layout</param>
-        /// <param name="productionTime">productionTime</param>
-        /// <param name="envelope">envelope</param>
-        /// <param name="color">color</param>
-        /// <param name="paperType">paperType</param>
-        /// <param name="printOption">printOption</param>
-        /// <param name="mailClass">mailClass</param>
+        /// <param name="documentClass">Document class determining the mailpiece format.</param>
+        /// <param name="layout">Page layout controlling where the recipient address is printed.</param>
+        /// <param name="productionTime">Production time preference (next_day, two_day, etc.).</param>
+        /// <param name="envelope">Envelope type used for the mailing.</param>
+        /// <param name="color">Color mode for printing (full_color or black_and_white).</param>
+        /// <param name="paperType">Paper stock for printing.</param>
+        /// <param name="printOption">Duplex setting (double_sided or single_sided).</param>
+        /// <param name="mailClass">USPS mail class (first_class, standard, or non_profit).</param>
         [JsonConstructor]
         public JobOptions(DocumentClassEnum documentClass, LayoutEnum layout, ProductionTimeEnum productionTime, EnvelopeEnum envelope, ColorEnum color, PaperTypeEnum paperType, PrintOptionEnum printOption, MailClassEnum mailClass)
         {
@@ -58,8 +58,9 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Defines DocumentClass
+        /// Document class determining the mailpiece format.
         /// </summary>
+        /// <value>Document class determining the mailpiece format.</value>
         public enum DocumentClassEnum
         {
             /// <summary>
@@ -152,14 +153,16 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets DocumentClass
+        /// Document class determining the mailpiece format.
         /// </summary>
+        /// <value>Document class determining the mailpiece format.</value>
         [JsonPropertyName("documentClass")]
         public DocumentClassEnum DocumentClass { get; set; }
 
         /// <summary>
-        /// Defines Layout
+        /// Page layout controlling where the recipient address is printed.
         /// </summary>
+        /// <value>Page layout controlling where the recipient address is printed.</value>
         public enum LayoutEnum
         {
             /// <summary>
@@ -224,14 +227,16 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets Layout
+        /// Page layout controlling where the recipient address is printed.
         /// </summary>
+        /// <value>Page layout controlling where the recipient address is printed.</value>
         [JsonPropertyName("layout")]
         public LayoutEnum Layout { get; set; }
 
         /// <summary>
-        /// Defines ProductionTime
+        /// Production time preference (next_day, two_day, etc.).
         /// </summary>
+        /// <value>Production time preference (next_day, two_day, etc.).</value>
         public enum ProductionTimeEnum
         {
             /// <summary>
@@ -338,14 +343,16 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets ProductionTime
+        /// Production time preference (next_day, two_day, etc.).
         /// </summary>
+        /// <value>Production time preference (next_day, two_day, etc.).</value>
         [JsonPropertyName("productionTime")]
         public ProductionTimeEnum ProductionTime { get; set; }
 
         /// <summary>
-        /// Defines Envelope
+        /// Envelope type used for the mailing.
         /// </summary>
+        /// <value>Envelope type used for the mailing.</value>
         public enum EnvelopeEnum
         {
             /// <summary>
@@ -438,14 +445,16 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets Envelope
+        /// Envelope type used for the mailing.
         /// </summary>
+        /// <value>Envelope type used for the mailing.</value>
         [JsonPropertyName("envelope")]
         public EnvelopeEnum Envelope { get; set; }
 
         /// <summary>
-        /// Defines Color
+        /// Color mode for printing (full_color or black_and_white).
         /// </summary>
+        /// <value>Color mode for printing (full_color or black_and_white).</value>
         public enum ColorEnum
         {
             /// <summary>
@@ -510,14 +519,16 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets Color
+        /// Color mode for printing (full_color or black_and_white).
         /// </summary>
+        /// <value>Color mode for printing (full_color or black_and_white).</value>
         [JsonPropertyName("color")]
         public ColorEnum Color { get; set; }
 
         /// <summary>
-        /// Defines PaperType
+        /// Paper stock for printing.
         /// </summary>
+        /// <value>Paper stock for printing.</value>
         public enum PaperTypeEnum
         {
             /// <summary>
@@ -610,14 +621,16 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets PaperType
+        /// Paper stock for printing.
         /// </summary>
+        /// <value>Paper stock for printing.</value>
         [JsonPropertyName("paperType")]
         public PaperTypeEnum PaperType { get; set; }
 
         /// <summary>
-        /// Defines PrintOption
+        /// Duplex setting (double_sided or single_sided).
         /// </summary>
+        /// <value>Duplex setting (double_sided or single_sided).</value>
         public enum PrintOptionEnum
         {
             /// <summary>
@@ -682,14 +695,16 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets PrintOption
+        /// Duplex setting (double_sided or single_sided).
         /// </summary>
+        /// <value>Duplex setting (double_sided or single_sided).</value>
         [JsonPropertyName("printOption")]
         public PrintOptionEnum PrintOption { get; set; }
 
         /// <summary>
-        /// Defines MailClass
+        /// USPS mail class (first_class, standard, or non_profit).
         /// </summary>
+        /// <value>USPS mail class (first_class, standard, or non_profit).</value>
         public enum MailClassEnum
         {
             /// <summary>
@@ -768,8 +783,9 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Gets or Sets MailClass
+        /// USPS mail class (first_class, standard, or non_profit).
         /// </summary>
+        /// <value>USPS mail class (first_class, standard, or non_profit).</value>
         [JsonPropertyName("mailClass")]
         public MailClassEnum MailClass { get; set; }
 

@@ -1,15 +1,16 @@
 # ErrorResponse
 
+Error response structure returned for all API error conditions.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**error_type** | **str** |  | 
-**error_message** | **str** |  | 
-**error_code** | **str** |  | 
-**error_details** | **str** |  | [optional] 
-**error_tracking_id** | **str** |  | [optional] 
+**error_type** | **str** | High-level error category string (ValidationError, AuthenticationError, etc.). | 
+**error_message** | **str** | Human-readable error description. | 
+**error_code** | **str** | Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). | 
+**error_details** | **str** | Optional JSON object with additional error context (free-form key/value pairs). | [optional] 
+**error_tracking_id** | **str** | Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX. | [optional] 
 
 ## Example
 

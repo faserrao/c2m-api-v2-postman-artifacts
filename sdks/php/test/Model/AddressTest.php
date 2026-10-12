@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * AddressTest Class Doc Comment
  *
  * @category    Class
- * @description Address
+ * @description Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2).
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

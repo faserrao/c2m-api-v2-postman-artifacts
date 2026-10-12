@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * AchDetails Class Doc Comment
  *
  * @category Class
+ * @description ACH payment fields: routing number, bank account number, and check digit.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -325,7 +326,7 @@ class AchDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets routing_number
      *
-     * @param string $routing_number routing_number
+     * @param string $routing_number ABA bank routing number.
      *
      * @return self
      */
@@ -352,7 +353,7 @@ class AchDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets account_number
      *
-     * @param string $account_number account_number
+     * @param string $account_number Bank account number.
      *
      * @return self
      */
@@ -379,7 +380,7 @@ class AchDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets check_digit
      *
-     * @param int $check_digit check_digit
+     * @param int $check_digit ACH check digit.
      *
      * @return self
      */

@@ -11,7 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// 
+/// MailClass : USPS mail class (first_class, standard, or non_profit).
+/// USPS mail class (first_class, standard, or non_profit).
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum MailClass {
     #[serde(rename = "first_class")]

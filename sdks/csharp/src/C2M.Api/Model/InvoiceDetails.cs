@@ -26,15 +26,15 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// InvoiceDetails
+    /// Invoice payment fields: invoice number and amount due.
     /// </summary>
     public partial class InvoiceDetails : IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="InvoiceDetails" /> class.
         /// </summary>
-        /// <param name="invoiceNumber">invoiceNumber</param>
-        /// <param name="amountDue">amountDue</param>
+        /// <param name="invoiceNumber">Invoice reference number.</param>
+        /// <param name="amountDue">Amount due on the invoice.</param>
         [JsonConstructor]
         public InvoiceDetails(string invoiceNumber, decimal amountDue)
         {
@@ -46,14 +46,16 @@ namespace C2M.Api.Model
         partial void OnCreated();
 
         /// <summary>
-        /// Gets or Sets InvoiceNumber
+        /// Invoice reference number.
         /// </summary>
+        /// <value>Invoice reference number.</value>
         [JsonPropertyName("invoiceNumber")]
         public string InvoiceNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets AmountDue
+        /// Amount due on the invoice.
         /// </summary>
+        /// <value>Amount due on the invoice.</value>
         [JsonPropertyName("amountDue")]
         public decimal AmountDue { get; set; }
 

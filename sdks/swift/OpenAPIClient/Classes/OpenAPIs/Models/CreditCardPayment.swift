@@ -10,11 +10,13 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Credit card payment variant. */
 public struct CreditCardPayment: Codable, JSONEncodable, Hashable {
 
     public enum PaymentType: String, Codable, CaseIterable {
         case creditcard = "creditCard"
     }
+    /** Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount). */
     public var paymentType: PaymentType
     public var creditCardDetails: CreditCardDetails
 

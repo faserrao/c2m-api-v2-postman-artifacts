@@ -10,9 +10,12 @@ import Foundation
 import AnyCodable
 #endif
 
+/** Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files. */
 public struct MergeByRequestId: Codable, JSONEncodable, Hashable {
 
+    /** Integer ID of a prior file upload request. Also returned in success responses. */
     public var requestId: Int
+    /** Filename of a specific file within an upload request or ZIP archive. */
     public var filename: String?
 
     public init(requestId: Int, filename: String? = nil) {

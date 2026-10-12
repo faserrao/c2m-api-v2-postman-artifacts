@@ -26,9 +26,9 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param docSourceZipFileRef 
- * @param multiZipJobs 
+ * @param multiZipJobs List of per-file job items extracted from a ZIP archive (POST /batch/zip).
  * @param paymentDetails 
- * @param tags 
+ * @param tags Array of user-defined string tags.
  */
 
 
@@ -37,12 +37,14 @@ data class SubmitMultiZipParams (
     @Json(name = "docSourceZipFileRef")
     val docSourceZipFileRef: DocSourceZipFileRef,
 
+    /* List of per-file job items extracted from a ZIP archive (POST /batch/zip). */
     @Json(name = "multiZipJobs")
     val multiZipJobs: kotlin.collections.List<MultiZipJobItem>,
 
     @Json(name = "paymentDetails")
     val paymentDetails: PaymentDetails? = null,
 
+    /* Array of user-defined string tags. */
     @Json(name = "tags")
     val tags: kotlin.collections.List<kotlin.String>? = null
 

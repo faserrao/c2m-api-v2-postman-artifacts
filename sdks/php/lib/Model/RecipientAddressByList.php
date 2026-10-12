@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * RecipientAddressByList Class Doc Comment
  *
  * @category Class
+ * @description Inline list of recipient addresses with an optional merge-field mapping ID.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -319,7 +320,7 @@ class RecipientAddressByList implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets mapping_id
      *
-     * @param int|null $mapping_id mapping_id
+     * @param int|null $mapping_id Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.
      *
      * @return self
      */
@@ -346,7 +347,7 @@ class RecipientAddressByList implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets address_list
      *
-     * @param \C2MApi\Model\Address[] $address_list address_list
+     * @param \C2MApi\Model\Address[] $address_list List of recipient mailing addresses — used for batch sends and mail merge.
      *
      * @return self
      */
@@ -373,7 +374,7 @@ class RecipientAddressByList implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets address_list_name
      *
-     * @param string|null $address_list_name address_list_name
+     * @param string|null $address_list_name Optional name for this address list record.
      *
      * @return self
      */

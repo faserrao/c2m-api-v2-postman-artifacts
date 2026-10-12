@@ -25,6 +25,7 @@ import RecipientAddressSourceOneOf2 from './RecipientAddressSourceOneOf2';
 class RecipientAddressSource {
     /**
      * Constructs a new <code>RecipientAddressSource</code>.
+     * Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
      * @alias module:c2m_api/model/RecipientAddressSource
      * @param {(module:c2m_api/model/RecipientAddressSourceOneOf|module:c2m_api/model/RecipientAddressSourceOneOf1|module:c2m_api/model/RecipientAddressSourceOneOf2)} instance The actual instance to initialize RecipientAddressSource.
      */
@@ -145,11 +146,13 @@ class RecipientAddressSource {
 RecipientAddressSource.prototype['recipientAddressByList'] = undefined;
 
 /**
+ * Reference to a previously stored individual recipient address by its integer ID.
  * @member {Number} recipientAddressByAddressId
  */
 RecipientAddressSource.prototype['recipientAddressByAddressId'] = undefined;
 
 /**
+ * Reference to a previously stored recipient address list by its integer ID.
  * @member {Number} recipientAddressByListId
  */
 RecipientAddressSource.prototype['recipientAddressByListId'] = undefined;

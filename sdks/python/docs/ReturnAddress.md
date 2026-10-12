@@ -1,20 +1,21 @@
 # ReturnAddress
 
+Optional sender return address printed on the mailpiece.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**first_name** | **str** |  | 
-**last_name** | **str** |  | 
-**company** | **str** |  | [optional] 
-**address1** | **str** |  | 
-**city** | **str** |  | 
-**state** | **str** |  | 
-**zip** | **str** |  | 
-**country** | **str** |  | 
-**address2** | **str** |  | [optional] 
-**address3** | **str** |  | [optional] 
+**first_name** | **str** | Recipient&#39;s first name. | 
+**last_name** | **str** | Recipient&#39;s last name. | 
+**company** | **str** | Recipient&#39;s company or organisation name (optional). | [optional] 
+**address1** | **str** | Primary street address line. | 
+**city** | **str** | City name. | 
+**state** | **str** | Two-letter state or province abbreviation. | 
+**zip** | **str** | ZIP or postal code. | 
+**country** | **str** | Country code (e.g. USA). | 
+**address2** | **str** | Secondary address line (suite, apartment, floor, etc.). | [optional] 
+**address3** | **str** | Tertiary address line. | [optional] 
 
 ## Example
 

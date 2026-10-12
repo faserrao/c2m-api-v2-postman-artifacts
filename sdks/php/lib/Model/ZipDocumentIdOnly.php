@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * ZipDocumentIdOnly Class Doc Comment
  *
  * @category Class
+ * @description Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -305,7 +306,7 @@ class ZipDocumentIdOnly implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets zip_document_id
      *
-     * @param int $zip_document_id zip_document_id
+     * @param int $zip_document_id Integer ID of a previously stored ZIP archive.
      *
      * @return self
      */

@@ -33,6 +33,7 @@ use \C2MApi\ObjectSerializer;
  * CardType Class Doc Comment
  *
  * @category Class
+ * @description Card brand enum: visa, mastercard, discover, or americanExpress.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

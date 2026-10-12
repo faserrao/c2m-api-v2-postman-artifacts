@@ -28,12 +28,12 @@ import com.squareup.moshi.JsonClass
  * 
  *
  * @param docSourceStandard 
- * @param pdfSplitJobsWithAddress 
- * @param jobTemplate 
+ * @param pdfSplitJobsWithAddress List of page-range job items, each with its own inline recipient address.
+ * @param jobTemplate Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  * @param paymentDetails 
  * @param returnAddress 
  * @param jobOptions 
- * @param tags 
+ * @param tags Array of user-defined string tags.
  */
 
 
@@ -42,9 +42,11 @@ data class SubmitSinglePdfSplitParams (
     @Json(name = "docSourceStandard")
     val docSourceStandard: DocSourceStandard,
 
+    /* List of page-range job items, each with its own inline recipient address. */
     @Json(name = "pdfSplitJobsWithAddress")
     val pdfSplitJobsWithAddress: kotlin.collections.List<PdfSplitJobItemWithAddress>,
 
+    /* Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
     @Json(name = "jobTemplate")
     val jobTemplate: kotlin.String? = null,
 
@@ -57,6 +59,7 @@ data class SubmitSinglePdfSplitParams (
     @Json(name = "jobOptions")
     val jobOptions: JobOptions? = null,
 
+    /* Array of user-defined string tags. */
     @Json(name = "tags")
     val tags: kotlin.collections.List<kotlin.String>? = null
 

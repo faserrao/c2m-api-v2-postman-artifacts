@@ -35,6 +35,7 @@ use \C2MApi\ObjectSerializer;
  * ExpirationDate Class Doc Comment
  *
  * @category Class
+ * @description Card expiration date containing month and year.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -331,7 +332,7 @@ class ExpirationDate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets month
      *
-     * @param int $month month
+     * @param int $month Expiration month as an integer (1-12).
      *
      * @return self
      */
@@ -366,7 +367,7 @@ class ExpirationDate implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets year
      *
-     * @param int $year year
+     * @param int $year Expiration year as a four-digit integer (e.g. 2029).
      *
      * @return self
      */

@@ -1,13 +1,14 @@
 # StandardResponse
 
+Success response returned for all successful job submissions.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **str** |  | 
-**message** | **str** |  | 
-**request_id** | **int** |  | 
+**status** | **str** | Job status string (e.g. \&quot;accepted\&quot;). | 
+**message** | **str** | Human-readable confirmation message (e.g. \&quot;Your request has been queued\&quot;). | 
+**request_id** | **int** | Integer ID of a prior file upload request. Also returned in success responses. | 
 
 ## Example
 

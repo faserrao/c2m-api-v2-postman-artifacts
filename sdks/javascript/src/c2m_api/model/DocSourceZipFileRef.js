@@ -25,6 +25,7 @@ import ZipRequestIdOnly from './ZipRequestIdOnly';
 class DocSourceZipFileRef {
     /**
      * Constructs a new <code>DocSourceZipFileRef</code>.
+     * Top-level ZIP archive reference for batch endpoints — identifies the archive itself, not a file within it. No filename is required at this level.
      * @alias module:c2m_api/model/DocSourceZipFileRef
      * @param {(module:c2m_api/model/DocSourceZipFileRefOneOf|module:c2m_api/model/DocSourceZipFileRefOneOf1)} instance The actual instance to initialize DocSourceZipFileRef.
      */

@@ -14,11 +14,15 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # Inline list of recipient addresses with an optional merge-field mapping ID.
   class RecipientAddressByList
+    # Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.
     attr_accessor :mapping_id
 
+    # List of recipient mailing addresses — used for batch sends and mail merge.
     attr_accessor :address_list
 
+    # Optional name for this address list record.
     attr_accessor :address_list_name
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DocSourceZipFileRef** | [**DocSourceZipFileRef**](DocSourceZipFileRef.md) |  | 
-**MultiZipJobs** | [**[]MultiZipJobItem**](MultiZipJobItem.md) |  | 
+**MultiZipJobs** | [**[]MultiZipJobItem**](MultiZipJobItem.md) | List of per-file job items extracted from a ZIP archive (POST /batch/zip). | 
 **PaymentDetails** | Pointer to [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
-**Tags** | Pointer to **[]string** |  | [optional] 
+**Tags** | Pointer to **[]string** | Array of user-defined string tags. | [optional] 
 
 ## Methods
 

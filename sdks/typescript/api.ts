@@ -23,12 +23,30 @@ import type { RequestArgs } from './base';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
+/**
+ * ACH payment fields: routing number, bank account number, and check digit.
+ */
 export interface AchDetails {
+    /**
+     * ABA bank routing number.
+     */
     'routingNumber': string;
+    /**
+     * Bank account number.
+     */
     'accountNumber': string;
+    /**
+     * ACH check digit.
+     */
     'checkDigit': number;
 }
+/**
+ * ACH bank transfer payment variant.
+ */
 export interface AchPayment {
+    /**
+     * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
+     */
     'paymentType': AchPaymentPaymentTypeEnum;
     'achDetails': AchDetails;
 }
@@ -39,17 +57,53 @@ export const AchPaymentPaymentTypeEnum = {
 
 export type AchPaymentPaymentTypeEnum = typeof AchPaymentPaymentTypeEnum[keyof typeof AchPaymentPaymentTypeEnum];
 
+/**
+ * Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2).
+ */
 export interface Address {
+    /**
+     * Recipient\'s first name.
+     */
     'firstName': string;
+    /**
+     * Recipient\'s last name.
+     */
     'lastName': string;
+    /**
+     * Primary street address line.
+     */
     'address1': string;
+    /**
+     * City name.
+     */
     'city': string;
+    /**
+     * Two-letter state or province abbreviation.
+     */
     'state': string;
+    /**
+     * ZIP or postal code.
+     */
     'zip': string;
+    /**
+     * Country code (e.g. USA).
+     */
     'country': string;
+    /**
+     * Secondary address line (suite, apartment, floor, etc.).
+     */
     'address2'?: string;
+    /**
+     * Tertiary address line.
+     */
     'address3'?: string;
+    /**
+     * User-defined merge variable 1 — forwarded to the address list merge mapping for personalisation.
+     */
     'foo1'?: string;
+    /**
+     * User-defined merge variable 2 — forwarded to the address list merge mapping for personalisation.
+     */
     'foo2'?: string;
 }
 export interface AuthError {
@@ -66,6 +120,9 @@ export interface AuthError {
      */
     'details'?: object;
 }
+/**
+ * Card brand enum: visa, mastercard, discover, or americanExpress.
+ */
 
 export const CardType = {
     Visa: 'visa',
@@ -77,6 +134,9 @@ export const CardType = {
 export type CardType = typeof CardType[keyof typeof CardType];
 
 
+/**
+ * Color mode for printing (full_color or black_and_white).
+ */
 
 export const Color = {
     FullColor: 'full_color',
@@ -86,8 +146,17 @@ export const Color = {
 export type Color = typeof Color[keyof typeof Color];
 
 
+/**
+ * Account credit payment fields: monetary amount and ISO currency code.
+ */
 export interface CreditAmount {
+    /**
+     * Monetary amount as a numeric value.
+     */
     'amount': number;
+    /**
+     * ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
+     */
     'currency': CreditAmountCurrencyEnum;
 }
 
@@ -101,10 +170,22 @@ export const CreditAmountCurrencyEnum = {
 
 export type CreditAmountCurrencyEnum = typeof CreditAmountCurrencyEnum[keyof typeof CreditAmountCurrencyEnum];
 
+/**
+ * Credit card payment fields: card type, card number, expiration date, and CVV.
+ */
 export interface CreditCardDetails {
+    /**
+     * Card brand enum: visa, mastercard, discover, or americanExpress.
+     */
     'cardType': CreditCardDetailsCardTypeEnum;
+    /**
+     * Credit card number (PAN) as a string.
+     */
     'cardNumber': string;
     'expirationDate': ExpirationDate;
+    /**
+     * Card security code (CVV/CVC) as an integer.
+     */
     'cvv': number;
 }
 
@@ -117,7 +198,13 @@ export const CreditCardDetailsCardTypeEnum = {
 
 export type CreditCardDetailsCardTypeEnum = typeof CreditCardDetailsCardTypeEnum[keyof typeof CreditCardDetailsCardTypeEnum];
 
+/**
+ * Credit card payment variant.
+ */
 export interface CreditCardPayment {
+    /**
+     * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
+     */
     'paymentType': CreditCardPaymentPaymentTypeEnum;
     'creditCardDetails': CreditCardDetails;
 }
@@ -128,6 +215,9 @@ export const CreditCardPaymentPaymentTypeEnum = {
 
 export type CreditCardPaymentPaymentTypeEnum = typeof CreditCardPaymentPaymentTypeEnum[keyof typeof CreditCardPaymentPaymentTypeEnum];
 
+/**
+ * ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).
+ */
 
 export const Currency = {
     Usd: 'USD',
@@ -142,11 +232,13 @@ export type Currency = typeof Currency[keyof typeof Currency];
 
 /**
  * @type DocSourceAll
+ * Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).
  */
 export type DocSourceAll = DocSourceStandardOneOf | DocSourceStandardOneOf1 | DocSourceStandardOneOf2 | ZipDocumentSourceOneOf | ZipDocumentSourceOneOf1;
 
 /**
  * @type DocSourceStandard
+ * Document source — standard (non-zip) variants only: requestId, documentId, or URL.
  */
 export type DocSourceStandard = DocSourceStandardOneOf | DocSourceStandardOneOf1 | DocSourceStandardOneOf2;
 
@@ -161,11 +253,13 @@ export interface DocSourceStandardOneOf2 {
 }
 /**
  * @type DocSourceZipFile
+ * Document source — zip variants: a specific file within a stored ZIP (zipDocumentId + filename) or uploaded ZIP (requestId + zipFilename + filename).
  */
 export type DocSourceZipFile = ZipDocumentSourceOneOf | ZipDocumentSourceOneOf1;
 
 /**
  * @type DocSourceZipFileRef
+ * Top-level ZIP archive reference for batch endpoints — identifies the archive itself, not a file within it. No filename is required at this level.
  */
 export type DocSourceZipFileRef = DocSourceZipFileRefOneOf | DocSourceZipFileRefOneOf1;
 
@@ -175,6 +269,9 @@ export interface DocSourceZipFileRefOneOf {
 export interface DocSourceZipFileRefOneOf1 {
     'zipRequestIdOnly': ZipRequestIdOnly;
 }
+/**
+ * Document class determining the mailpiece format.
+ */
 
 export const DocumentClass = {
     Letter: 'letter',
@@ -186,9 +283,18 @@ export const DocumentClass = {
 export type DocumentClass = typeof DocumentClass[keyof typeof DocumentClass];
 
 
+/**
+ * Source a document by its previously stored document ID.
+ */
 export interface DocumentIdSource {
+    /**
+     * Integer ID of a previously stored or uploaded document.
+     */
     'documentId': number;
 }
+/**
+ * Envelope type used for the mailing.
+ */
 
 export const Envelope = {
     Standard: 'standard',
@@ -200,6 +306,9 @@ export const Envelope = {
 export type Envelope = typeof Envelope[keyof typeof Envelope];
 
 
+/**
+ * Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
+ */
 
 export const ErrorCode = {
     MissingRequiredField: 'MISSING_REQUIRED_FIELD',
@@ -224,11 +333,29 @@ export const ErrorCode = {
 export type ErrorCode = typeof ErrorCode[keyof typeof ErrorCode];
 
 
+/**
+ * Error response structure returned for all API error conditions.
+ */
 export interface ErrorResponse {
+    /**
+     * High-level error category string (ValidationError, AuthenticationError, etc.).
+     */
     'errorType': ErrorResponseErrorTypeEnum;
+    /**
+     * Human-readable error description.
+     */
     'errorMessage': string;
+    /**
+     * Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
+     */
     'errorCode': ErrorResponseErrorCodeEnum;
+    /**
+     * Optional JSON object with additional error context (free-form key/value pairs).
+     */
     'errorDetails'?: string;
+    /**
+     * Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
+     */
     'errorTrackingId'?: string;
 }
 
@@ -264,6 +391,9 @@ export const ErrorResponseErrorCodeEnum = {
 
 export type ErrorResponseErrorCodeEnum = typeof ErrorResponseErrorCodeEnum[keyof typeof ErrorResponseErrorCodeEnum];
 
+/**
+ * High-level error category string (ValidationError, AuthenticationError, etc.).
+ */
 
 export const ErrorType = {
     ValidationError: 'ValidationError',
@@ -277,15 +407,39 @@ export const ErrorType = {
 export type ErrorType = typeof ErrorType[keyof typeof ErrorType];
 
 
+/**
+ * Card expiration date containing month and year.
+ */
 export interface ExpirationDate {
+    /**
+     * Expiration month as an integer (1-12).
+     */
     'month': number;
+    /**
+     * Expiration year as a four-digit integer (e.g. 2029).
+     */
     'year': number;
 }
+/**
+ * Invoice payment fields: invoice number and amount due.
+ */
 export interface InvoiceDetails {
+    /**
+     * Invoice reference number.
+     */
     'invoiceNumber': string;
+    /**
+     * Amount due on the invoice.
+     */
     'amountDue': number;
 }
+/**
+ * Invoice payment — billed to an existing account invoice.
+ */
 export interface InvoicePayment {
+    /**
+     * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
+     */
     'paymentType': InvoicePaymentPaymentTypeEnum;
     'invoiceDetails': InvoiceDetails;
 }
@@ -296,14 +450,41 @@ export const InvoicePaymentPaymentTypeEnum = {
 
 export type InvoicePaymentPaymentTypeEnum = typeof InvoicePaymentPaymentTypeEnum[keyof typeof InvoicePaymentPaymentTypeEnum];
 
+/**
+ * Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
+ */
 export interface JobOptions {
+    /**
+     * Document class determining the mailpiece format.
+     */
     'documentClass': JobOptionsDocumentClassEnum;
+    /**
+     * Page layout controlling where the recipient address is printed.
+     */
     'layout': JobOptionsLayoutEnum;
+    /**
+     * Production time preference (next_day, two_day, etc.).
+     */
     'productionTime': JobOptionsProductionTimeEnum;
+    /**
+     * Envelope type used for the mailing.
+     */
     'envelope': JobOptionsEnvelopeEnum;
+    /**
+     * Color mode for printing (full_color or black_and_white).
+     */
     'color': JobOptionsColorEnum;
+    /**
+     * Paper stock for printing.
+     */
     'paperType': JobOptionsPaperTypeEnum;
+    /**
+     * Duplex setting (double_sided or single_sided).
+     */
     'printOption': JobOptionsPrintOptionEnum;
+    /**
+     * USPS mail class (first_class, standard, or non_profit).
+     */
     'mailClass': JobOptionsMailClassEnum;
 }
 
@@ -366,6 +547,9 @@ export const JobOptionsMailClassEnum = {
 
 export type JobOptionsMailClassEnum = typeof JobOptionsMailClassEnum[keyof typeof JobOptionsMailClassEnum];
 
+/**
+ * Page layout controlling where the recipient address is printed.
+ */
 
 export const Layout = {
     AddressOnFirstPage: 'address_on_first_page',
@@ -450,6 +634,9 @@ export const LongTokenResponseTokenTypeEnum = {
 
 export type LongTokenResponseTokenTypeEnum = typeof LongTokenResponseTokenTypeEnum[keyof typeof LongTokenResponseTokenTypeEnum];
 
+/**
+ * USPS mail class (first_class, standard, or non_profit).
+ */
 
 export const MailClass = {
     FirstClass: 'first_class',
@@ -460,15 +647,31 @@ export const MailClass = {
 export type MailClass = typeof MailClass[keyof typeof MailClass];
 
 
+/**
+ * Merge a stored document identified by its document ID.
+ */
 export interface MergeByDocumentId {
+    /**
+     * Integer ID of a previously stored or uploaded document.
+     */
     'documentId': number;
 }
+/**
+ * Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.
+ */
 export interface MergeByRequestId {
+    /**
+     * Integer ID of a prior file upload request. Also returned in success responses.
+     */
     'requestId': number;
+    /**
+     * Filename of a specific file within an upload request or ZIP archive.
+     */
     'filename'?: string;
 }
 /**
  * @type MergeDocumentRef
+ * A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
  */
 export type MergeDocumentRef = MergeDocumentRefOneOf | MergeDocumentRefOneOf1;
 
@@ -478,16 +681,34 @@ export interface MergeDocumentRefOneOf {
 export interface MergeDocumentRefOneOf1 {
     'mergeByRequestId': MergeByRequestId;
 }
+/**
+ * A single independent document job entry within a multi-doc batch.
+ */
 export interface MultiDocJobItem {
+    /**
+     * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+     */
     'jobTemplate'?: string;
     'docSourceAll': DocSourceAll;
     'recipientAddressSource': RecipientAddressSource;
 }
+/**
+ * A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.
+ */
 export interface MultiZipJobItem {
+    /**
+     * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+     */
     'jobTemplate'?: string;
+    /**
+     * Filename of a specific file within an upload request or ZIP archive.
+     */
     'filename': string;
     'recipientAddressSource': RecipientAddressSource;
 }
+/**
+ * Paper stock for printing.
+ */
 
 export const PaperType = {
     White: 'white',
@@ -501,9 +722,13 @@ export type PaperType = typeof PaperType[keyof typeof PaperType];
 
 /**
  * @type PaymentDetails
+ * Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data.
  */
 export type PaymentDetails = { paymentType: 'ach' } & AchPayment | { paymentType: 'creditCard' } & CreditCardPayment | { paymentType: 'invoice' } & InvoicePayment | { paymentType: 'userCredit' } & UserCreditPayment;
 
+/**
+ * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
+ */
 
 export const PaymentType = {
     CreditCard: 'creditCard',
@@ -515,17 +740,44 @@ export const PaymentType = {
 export type PaymentType = typeof PaymentType[keyof typeof PaymentType];
 
 
+/**
+ * A single page-range job entry: page range only (no address — used for address-capture endpoint).
+ */
 export interface PdfSplitJobItemNoAddress {
+    /**
+     * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+     */
     'jobTemplate'?: string;
+    /**
+     * First page of this job\'s page range, 1-indexed (inclusive).
+     */
     'startPage': number;
+    /**
+     * Last page of this job\'s page range (inclusive). Must be >= startPage.
+     */
     'endPage': number;
 }
+/**
+ * A single page-range job entry: page range (startPage, endPage) plus a recipient address.
+ */
 export interface PdfSplitJobItemWithAddress {
+    /**
+     * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+     */
     'jobTemplate'?: string;
+    /**
+     * First page of this job\'s page range, 1-indexed (inclusive).
+     */
     'startPage': number;
+    /**
+     * Last page of this job\'s page range (inclusive). Must be >= startPage.
+     */
     'endPage': number;
     'recipientAddressSource': RecipientAddressSource;
 }
+/**
+ * Duplex setting (double_sided or single_sided).
+ */
 
 export const PrintOption = {
     DoubleSided: 'double_sided',
@@ -535,6 +787,9 @@ export const PrintOption = {
 export type PrintOption = typeof PrintOption[keyof typeof PrintOption];
 
 
+/**
+ * Production time preference (next_day, two_day, etc.).
+ */
 
 export const ProductionTime = {
     NextDay: 'next_day',
@@ -547,13 +802,26 @@ export const ProductionTime = {
 export type ProductionTime = typeof ProductionTime[keyof typeof ProductionTime];
 
 
+/**
+ * Inline list of recipient addresses with an optional merge-field mapping ID.
+ */
 export interface RecipientAddressByList {
+    /**
+     * Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.
+     */
     'mappingId'?: number;
+    /**
+     * List of recipient mailing addresses — used for batch sends and mail merge.
+     */
     'addressList': Array<Address>;
+    /**
+     * Optional name for this address list record.
+     */
     'addressListName'?: string;
 }
 /**
  * @type RecipientAddressSource
+ * Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
  */
 export type RecipientAddressSource = RecipientAddressSourceOneOf | RecipientAddressSourceOneOf1 | RecipientAddressSourceOneOf2;
 
@@ -561,25 +829,73 @@ export interface RecipientAddressSourceOneOf {
     'recipientAddressByList': RecipientAddressByList;
 }
 export interface RecipientAddressSourceOneOf1 {
+    /**
+     * Reference to a previously stored individual recipient address by its integer ID.
+     */
     'recipientAddressByAddressId': number;
 }
 export interface RecipientAddressSourceOneOf2 {
+    /**
+     * Reference to a previously stored recipient address list by its integer ID.
+     */
     'recipientAddressByListId': number;
 }
+/**
+ * Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one.
+ */
 export interface RequestIdSource {
+    /**
+     * Integer ID of a prior file upload request. Also returned in success responses.
+     */
     'requestId': number;
+    /**
+     * Filename of a specific file within an upload request or ZIP archive.
+     */
     'filename'?: string;
 }
+/**
+ * Optional sender return address printed on the mailpiece.
+ */
 export interface ReturnAddress {
+    /**
+     * Recipient\'s first name.
+     */
     'firstName': string;
+    /**
+     * Recipient\'s last name.
+     */
     'lastName': string;
+    /**
+     * Recipient\'s company or organisation name (optional).
+     */
     'company'?: string;
+    /**
+     * Primary street address line.
+     */
     'address1': string;
+    /**
+     * City name.
+     */
     'city': string;
+    /**
+     * Two-letter state or province abbreviation.
+     */
     'state': string;
+    /**
+     * ZIP or postal code.
+     */
     'zip': string;
+    /**
+     * Country code (e.g. USA).
+     */
     'country': string;
+    /**
+     * Secondary address line (suite, apartment, floor, etc.).
+     */
     'address2'?: string;
+    /**
+     * Tertiary address line.
+     */
     'address3'?: string;
 }
 export interface ShortTokenRequest {
@@ -622,73 +938,148 @@ export const ShortTokenResponseTokenTypeEnum = {
 
 export type ShortTokenResponseTokenTypeEnum = typeof ShortTokenResponseTokenTypeEnum[keyof typeof ShortTokenResponseTokenTypeEnum];
 
+/**
+ * Success response returned for all successful job submissions.
+ */
 export interface StandardResponse {
+    /**
+     * Job status string (e.g. \"accepted\").
+     */
     'status': string;
+    /**
+     * Human-readable confirmation message (e.g. \"Your request has been queued\").
+     */
     'message': string;
+    /**
+     * Integer ID of a prior file upload request. Also returned in success responses.
+     */
     'requestId': number;
 }
 export interface SubmitDocParams {
+    /**
+     * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+     */
     'jobTemplate'?: string;
     'docSourceAll': DocSourceAll;
     'recipientAddressSource': RecipientAddressSource;
     'paymentDetails'?: PaymentDetails;
     'returnAddress'?: ReturnAddress;
     'jobOptions'?: JobOptions;
+    /**
+     * Array of user-defined string tags.
+     */
     'tags'?: Array<string>;
 }
 export interface SubmitMultiDocMergeParams {
+    /**
+     * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+     */
     'jobTemplate'?: string;
+    /**
+     * Ordered array of document references to merge into one output document. Minimum two entries required.
+     */
     'mergeDocumentSource': Array<MergeDocumentRef>;
     'recipientAddressSource': RecipientAddressSource;
     'paymentDetails'?: PaymentDetails;
     'returnAddress'?: ReturnAddress;
     'jobOptions'?: JobOptions;
+    /**
+     * Array of user-defined string tags.
+     */
     'tags'?: Array<string>;
 }
 export interface SubmitMultiZipAddressCaptureParams {
+    /**
+     * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+     */
     'jobTemplate'?: string;
     'zipDocumentSource': ZipDocumentSource;
     'paymentDetails'?: PaymentDetails;
     'returnAddress'?: ReturnAddress;
     'jobOptions'?: JobOptions;
+    /**
+     * Array of user-defined string tags.
+     */
     'tags'?: Array<string>;
 }
 export interface SubmitMultiZipParams {
     'docSourceZipFileRef': DocSourceZipFileRef;
+    /**
+     * List of per-file job items extracted from a ZIP archive (POST /batch/zip).
+     */
     'multiZipJobs': Array<MultiZipJobItem>;
     'paymentDetails'?: PaymentDetails;
+    /**
+     * Array of user-defined string tags.
+     */
     'tags'?: Array<string>;
 }
 export interface SubmitSinglePdfAddressCaptureParams {
+    /**
+     * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+     */
     'jobTemplate'?: string;
     'docSourceStandard': DocSourceStandard;
     'paymentDetails'?: PaymentDetails;
     'returnAddress'?: ReturnAddress;
     'jobOptions'?: JobOptions;
+    /**
+     * Array of user-defined string tags.
+     */
     'tags'?: Array<string>;
 }
 export interface SubmitSinglePdfSplitAddressCaptureParams {
+    /**
+     * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+     */
     'jobTemplate'?: string;
     'docSourceStandard': DocSourceStandard;
+    /**
+     * List of page-range job items without inline addresses — addresses are captured externally (POST /batch/split/address-capture).
+     */
     'pdfSplitJobsNoAddress': Array<PdfSplitJobItemNoAddress>;
     'paymentDetails'?: PaymentDetails;
     'returnAddress'?: ReturnAddress;
     'jobOptions'?: JobOptions;
+    /**
+     * Array of user-defined string tags.
+     */
     'tags'?: Array<string>;
 }
 export interface SubmitSinglePdfSplitParams {
+    /**
+     * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+     */
     'jobTemplate'?: string;
     'docSourceStandard': DocSourceStandard;
+    /**
+     * List of page-range job items, each with its own inline recipient address.
+     */
     'pdfSplitJobsWithAddress': Array<PdfSplitJobItemWithAddress>;
     'paymentDetails'?: PaymentDetails;
     'returnAddress'?: ReturnAddress;
     'jobOptions'?: JobOptions;
+    /**
+     * Array of user-defined string tags.
+     */
     'tags'?: Array<string>;
 }
+/**
+ * Fetch the document from an external URL at submission time.
+ */
 export interface UrlSource {
+    /**
+     * URL from which the API will fetch the document at submission time.
+     */
     'url': string;
 }
+/**
+ * Payment deducted from the account\'s prepaid credit balance.
+ */
 export interface UserCreditPayment {
+    /**
+     * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).
+     */
     'paymentType': UserCreditPaymentPaymentTypeEnum;
     'creditAmount': CreditAmount;
 }
@@ -699,15 +1090,31 @@ export const UserCreditPaymentPaymentTypeEnum = {
 
 export type UserCreditPaymentPaymentTypeEnum = typeof UserCreditPaymentPaymentTypeEnum[keyof typeof UserCreditPaymentPaymentTypeEnum];
 
+/**
+ * Reference to a stored ZIP archive without a file selection — used at the batch job top level where individual job items select their own filenames.
+ */
 export interface ZipDocumentIdOnly {
+    /**
+     * Integer ID of a previously stored ZIP archive.
+     */
     'zipDocumentId': number;
 }
+/**
+ * Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
+ */
 export interface ZipDocumentIdSource {
+    /**
+     * Integer ID of a previously stored ZIP archive.
+     */
     'zipDocumentId': number;
+    /**
+     * Filename of a specific file within an upload request or ZIP archive.
+     */
     'filename': string;
 }
 /**
  * @type ZipDocumentSource
+ * ZIP document source — either a stored zip archive (zipDocumentId) or an uploaded zip archive (requestId).
  */
 export type ZipDocumentSource = ZipDocumentSourceOneOf | ZipDocumentSourceOneOf1;
 
@@ -717,12 +1124,30 @@ export interface ZipDocumentSourceOneOf {
 export interface ZipDocumentSourceOneOf1 {
     'zipRequestIdSource': ZipRequestIdSource;
 }
+/**
+ * Reference to an uploaded ZIP archive by request ID only — used at the batch top level; individual job items carry the filename selection.
+ */
 export interface ZipRequestIdOnly {
+    /**
+     * Integer ID of a prior file upload request. Also returned in success responses.
+     */
     'requestId': number;
 }
+/**
+ * Source a specific file within an uploaded ZIP archive — requires the upload request ID, the zip filename within that request, and the target filename in the zip.
+ */
 export interface ZipRequestIdSource {
+    /**
+     * Integer ID of a prior file upload request. Also returned in success responses.
+     */
     'requestId': number;
+    /**
+     * Filename of the ZIP file within an upload request (distinguishes the zip from other files uploaded in the same request).
+     */
     'zipFilename': string;
+    /**
+     * Filename of a specific file within an upload request or ZIP archive.
+     */
     'filename': string;
 }
 

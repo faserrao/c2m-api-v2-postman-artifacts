@@ -30,7 +30,7 @@ DOCSOURCEALL_ONE_OF_SCHEMAS = ["DocSourceStandardOneOf", "DocSourceStandardOneOf
 
 class DocSourceAll(BaseModel):
     """
-    DocSourceAll
+    Document source — accepts any supported variant: requestId, documentId, URL, or zip-based (zipDocumentId or zipRequestId).
     """
     # data type: DocSourceStandardOneOf
     oneof_schema_1_validator: Optional[DocSourceStandardOneOf] = None

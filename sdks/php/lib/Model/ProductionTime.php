@@ -33,6 +33,7 @@ use \C2MApi\ObjectSerializer;
  * ProductionTime Class Doc Comment
  *
  * @category Class
+ * @description Production time preference (next_day, two_day, etc.).
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

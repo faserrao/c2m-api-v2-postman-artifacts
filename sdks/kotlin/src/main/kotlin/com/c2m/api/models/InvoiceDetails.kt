@@ -20,18 +20,20 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Invoice payment fields: invoice number and amount due.
  *
- * @param invoiceNumber 
- * @param amountDue 
+ * @param invoiceNumber Invoice reference number.
+ * @param amountDue Amount due on the invoice.
  */
 
 
 data class InvoiceDetails (
 
+    /* Invoice reference number. */
     @Json(name = "invoiceNumber")
     val invoiceNumber: kotlin.String,
 
+    /* Amount due on the invoice. */
     @Json(name = "amountDue")
     val amountDue: java.math.BigDecimal
 

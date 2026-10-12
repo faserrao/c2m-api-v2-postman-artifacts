@@ -10,6 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
+/** ZIP document source — either a stored zip archive (zipDocumentId) or an uploaded zip archive (requestId). */
 public enum ZipDocumentSource: Codable, JSONEncodable, Hashable {
     case typeZipDocumentSourceOneOf(ZipDocumentSourceOneOf)
     case typeZipDocumentSourceOneOf1(ZipDocumentSourceOneOf1)

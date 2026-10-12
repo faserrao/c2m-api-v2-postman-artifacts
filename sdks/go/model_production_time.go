@@ -15,7 +15,7 @@ import (
 	"fmt"
 )
 
-// ProductionTime the model 'ProductionTime'
+// ProductionTime Production time preference (next_day, two_day, etc.).
 type ProductionTime string
 
 // List of productionTime

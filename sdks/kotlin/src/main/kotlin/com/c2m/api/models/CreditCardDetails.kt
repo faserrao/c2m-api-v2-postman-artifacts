@@ -21,33 +21,36 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Credit card payment fields: card type, card number, expiration date, and CVV.
  *
- * @param cardType 
- * @param cardNumber 
+ * @param cardType Card brand enum: visa, mastercard, discover, or americanExpress.
+ * @param cardNumber Credit card number (PAN) as a string.
  * @param expirationDate 
- * @param cvv 
+ * @param cvv Card security code (CVV/CVC) as an integer.
  */
 
 
 data class CreditCardDetails (
 
+    /* Card brand enum: visa, mastercard, discover, or americanExpress. */
     @Json(name = "cardType")
     val cardType: CreditCardDetails.CardType,
 
+    /* Credit card number (PAN) as a string. */
     @Json(name = "cardNumber")
     val cardNumber: kotlin.String,
 
     @Json(name = "expirationDate")
     val expirationDate: ExpirationDate,
 
+    /* Card security code (CVV/CVC) as an integer. */
     @Json(name = "cvv")
     val cvv: kotlin.Int
 
 ) {
 
     /**
-     * 
+     * Card brand enum: visa, mastercard, discover, or americanExpress.
      *
      * Values: visa,mastercard,discover,americanExpress
      */

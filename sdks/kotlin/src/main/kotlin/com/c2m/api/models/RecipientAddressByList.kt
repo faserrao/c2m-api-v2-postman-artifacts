@@ -21,22 +21,25 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * 
+ * Inline list of recipient addresses with an optional merge-field mapping ID.
  *
- * @param addressList 
- * @param mappingId 
- * @param addressListName 
+ * @param addressList List of recipient mailing addresses — used for batch sends and mail merge.
+ * @param mappingId Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used.
+ * @param addressListName Optional name for this address list record.
  */
 
 
 data class RecipientAddressByList (
 
+    /* List of recipient mailing addresses — used for batch sends and mail merge. */
     @Json(name = "addressList")
     val addressList: kotlin.collections.List<Address>,
 
+    /* Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used. */
     @Json(name = "mappingId")
     val mappingId: kotlin.Int? = null,
 
+    /* Optional name for this address list record. */
     @Json(name = "addressListName")
     val addressListName: kotlin.String? = null
 
