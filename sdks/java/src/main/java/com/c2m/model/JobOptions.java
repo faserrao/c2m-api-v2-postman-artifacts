@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T17:25:32.306738452Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-12T22:27:44.976412580Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class JobOptions {
   /**
    * Document class determining the mailpiece format.
