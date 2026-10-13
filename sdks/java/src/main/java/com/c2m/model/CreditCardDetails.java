@@ -49,7 +49,7 @@ import com.c2m.JSON;
 /**
  * Credit card payment fields: card type, card number, expiration date, and CVV.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T23:24:30.550433701Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T23:35:27.926254296Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class CreditCardDetails {
   /**
    * Card brand enum: visa, mastercard, discover, or americanExpress.

@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * Card expiration date containing month and year.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T23:24:30.550433701Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T23:35:27.926254296Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ExpirationDate {
   public static final String SERIALIZED_NAME_MONTH = "month";
   @SerializedName(SERIALIZED_NAME_MONTH)
