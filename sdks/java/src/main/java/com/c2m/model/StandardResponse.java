@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * Success response returned for all successful job submissions.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T19:09:31.488942816Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T19:33:43.083837890Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class StandardResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)

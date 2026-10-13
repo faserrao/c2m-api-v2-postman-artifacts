@@ -49,7 +49,7 @@ import com.c2m.JSON;
 /**
  * Payment deducted from the account&#39;s prepaid credit balance.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T19:09:31.488942816Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T19:33:43.083837890Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class UserCreditPayment {
   /**
    * Payment method type; must match the details object sent (creditCard → creditCardDetails, invoice → invoiceDetails, ach → achDetails, userCredit → creditAmount).

@@ -1,29 +1,12 @@
 # Pipeline consistency (DD → spec → Postman)
 
-ERROR categories: 0  ·  known-open WARN categories: 19  ·  stale allowances: 0
+ERROR categories: 0  ·  known-open WARN categories: 12  ·  stale allowances: 1
 
 ## ⚠️ Known open (tracked)
 - **A-DOC-CARDINALITY-UNENFORCED** [*] (1) — X9 / decision D4 (array minimums)
     - documentsToMerge: 'Ordered array of document references to merge into one output document'
 - **A-DOC-TYPE-CLAIM** [*] (1) — L2 / decision D6 (errorDetails object vs string)
     - errorDetails: @doc says JSON object, DD type is string
-- **A-HINT-EMPTY-STATIC** [*] (1) — L1 (address3 empty static hint)
-    - address3
-- **A-HINT-INVALID-TYPE** [*] (1) — L1 (routingNumber @hint has no type)
-    - routingNumber: '@hint aba_routing_number'
-- **A-PRIMER-ENDPOINT-UNDEFINED** [*] (1) — /static/multi is PLANNED in the DD primer
-    - /static/multi
-- **A-UNREACHABLE-RULE** [*] (10) — X6; multiDocJobs reserved for /static/multi; HTTP_* aliases
-    - HTTP_400_BAD_REQUEST
-    - HTTP_401_UNAUTHORIZED
-    - HTTP_403_FORBIDDEN
-    - HTTP_404_NOT_FOUND
-    - HTTP_422_UNPROCESSABLE_ENTITY
-    - HTTP_429_TOO_MANY_REQUESTS
-    - HTTP_500_INTERNAL_SERVER_ERROR
-    - multiDocJobItem
-    - multiDocJobs
-    - paymentType
 - **A-VALID-COMBINATION-NOOP** [*] (1) — X11 / decision D5 (envelope=none rule)
     - {"when_field": "envelope", "when_value": "none", "then_field": "layout", "then_values": ["address_on_first_page", "address_on_back_page"]}
 - **B-EXAMPLE-ORIGINAL-REQUEST** [Linked] (19) — X9b (merge minimum in saved examples)
@@ -46,19 +29,6 @@ ERROR categories: 0  ·  known-open WARN categories: 19  ·  stale allowances: 0
     - POST /mail-merge / 'Internal server error' (500): mergeDocumentSource has 1 entry
     - POST /mail-merge / 'Database error' (500): mergeDocumentSource has 1 entry
     - POST /mail-merge / 'External service error' (500): mergeDocumentSource has 1 entry
-- **B-EXAMPLE-ORIGINAL-REQUEST** [Test] (5) — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
-    - POST /auth/tokens/long / 'Long-term token issued' (201): ttl_seconds: 197 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Bad request' (400): ttl_seconds: 197 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Unauthorized' (401): ttl_seconds: 197 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Forbidden' (403): ttl_seconds: 197 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Too Many Requests' (429): ttl_seconds: 197 is less than the minimum of 3600
-- **B-FILLER-VALUE** [GS-Test] (3) — L7 (example_ filler values)
-    - [Less frequently used] /static - setting tags: body/tags[0]='example_tags'
-    - [Less frequently used] /static - setting tags: body/tags[1]='example_tags'
-    - [Less frequently used] /static - setting tags: body/tags[2]='example_tags'
-- **B-FILLER-VALUE** [Real-World] (2) — L7 (example_ filler values)
-    - Real Estate Agent - Property Marketing: body/paymentDetails/invoiceDetails/invoiceNumber='example_invoiceNumber'
-    - Marketing Agency - Multi-Document Campaign: body/paymentDetails/invoiceDetails/invoiceNumber='example_invoiceNumber'
 - **B-MERGE-MINIMUM** [Linked] (1) — X9b / decision D4 (merge minimum 1 or 2)
     - POST /mail-merge: mergeDocumentSource has 1 entry
 - **B-NO-AUTH** [Real-World] (8) — L8 (Real-World has no auth / pre-request script)
@@ -100,5 +70,8 @@ ERROR categories: 0  ·  known-open WARN categories: 19  ·  stale allowances: 0
     - POST /mail-merge: accepts ['201', '204'] undeclared, rejects [] declared
 - **C-REQUEST-EXAMPLE-MERGE-MINIMUM** [*] (1) — X9b / decision D4 (merge minimum 1 or 2)
     - POST /mail-merge: mergeDocumentSource has 1 entry
+
+## 🧹 Stale KNOWN_OPEN entries (no longer occur — remove them)
+- B-EXAMPLE-ORIGINAL-REQUEST [Test] — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
 
 ✅ No ERROR findings
