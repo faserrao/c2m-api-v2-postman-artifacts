@@ -51,7 +51,7 @@ import com.c2m.JSON;
 /**
  * Inline list of recipient addresses with an optional merge-field mapping ID.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T21:46:43.541803627Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-13T23:24:30.550433701Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class RecipientAddressByList {
   public static final String SERIALIZED_NAME_MAPPING_ID = "mappingId";
   @SerializedName(SERIALIZED_NAME_MAPPING_ID)
