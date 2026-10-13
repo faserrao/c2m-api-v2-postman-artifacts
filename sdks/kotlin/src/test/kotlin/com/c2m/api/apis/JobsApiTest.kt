@@ -37,7 +37,7 @@ class JobsApiTest : ShouldSpec() {
         // to test submitDocParams
         should("test submitDocParams") {
             // uncomment below to test submitDocParams
-            //val submitDocParams : SubmitDocParams =  // SubmitDocParams | 
+            //val submitDocParams : SubmitDocParams = {"docSourceAll":{"documentIdSource":{"documentId":85766}},"recipientAddressSource":{"recipientAddressByList":{"mappingId":5001,"addressList":[{"firstName":"Jeremy","lastName":"Meadows","address1":"32243 John Union Apt. 308","city":"Nathanielland","state":"GU","zip":"84642","country":"USA","address2":"Suite 100","address3":"","foo1":"Custom Field 1","foo2":"Custom Field 2"}],"addressListName":"Marketing Campaign Q1"}},"paymentDetails":{"paymentType":"creditCard","creditCardDetails":{"cardType":"visa","cardNumber":"4111111111111111","expirationDate":{"month":12,"year":2029},"cvv":123}},"returnAddress":{"firstName":"Kayla","lastName":"Wood","company":"Ochoa-Hudson","address1":"740 Michael Fork Apt. 349","city":"Marcusmouth","state":"WV","zip":"39348","country":"USA","address2":"Suite 100","address3":""},"jobOptions":{"documentClass":"letter","layout":"address_on_first_page","productionTime":"next_day","envelope":"standard","color":"full_color","paperType":"white","printOption":"double_sided","mailClass":"first_class"},"tags":["q1-campaign"]} // SubmitDocParams | 
             //val result : StandardResponse = apiInstance.submitDocParams(submitDocParams)
             //result shouldBe ("TODO")
         }
@@ -45,7 +45,7 @@ class JobsApiTest : ShouldSpec() {
         // to test submitMultiDocMergeParams
         should("test submitMultiDocMergeParams") {
             // uncomment below to test submitMultiDocMergeParams
-            //val submitMultiDocMergeParams : SubmitMultiDocMergeParams =  // SubmitMultiDocMergeParams | 
+            //val submitMultiDocMergeParams : SubmitMultiDocMergeParams = {"mergeDocumentSource":[{"mergeByDocumentId":{"documentId":10624}}],"recipientAddressSource":{"recipientAddressByList":{"mappingId":5001,"addressList":[{"firstName":"Shane","lastName":"Woods","address1":"47426 Fuentes Spurs Suite 134","city":"West Christina","state":"PA","zip":"62388","country":"USA","address2":"Suite 100","address3":"","foo1":"Custom Field 1","foo2":"Custom Field 2"}],"addressListName":"Marketing Campaign Q1"}},"paymentDetails":{"paymentType":"creditCard","creditCardDetails":{"cardType":"visa","cardNumber":"4111111111111111","expirationDate":{"month":12,"year":2029},"cvv":123}},"returnAddress":{"firstName":"Matthew","lastName":"Hickman","company":"Good, Marshall and Lambert","address1":"57131 Mark Parkways Apt. 606","city":"North Janice","state":"VA","zip":"44006","country":"USA","address2":"Suite 100","address3":""},"jobOptions":{"documentClass":"letter","layout":"address_on_first_page","productionTime":"next_day","envelope":"standard","color":"full_color","paperType":"white","printOption":"double_sided","mailClass":"first_class"},"tags":["q1-campaign"]} // SubmitMultiDocMergeParams | 
             //val result : StandardResponse = apiInstance.submitMultiDocMergeParams(submitMultiDocMergeParams)
             //result shouldBe ("TODO")
         }
@@ -53,7 +53,7 @@ class JobsApiTest : ShouldSpec() {
         // to test submitMultiZipAddressCaptureParams
         should("test submitMultiZipAddressCaptureParams") {
             // uncomment below to test submitMultiZipAddressCaptureParams
-            //val submitMultiZipAddressCaptureParams : SubmitMultiZipAddressCaptureParams =  // SubmitMultiZipAddressCaptureParams | 
+            //val submitMultiZipAddressCaptureParams : SubmitMultiZipAddressCaptureParams = {"zipDocumentSource":{"zipDocumentIdSource":{"zipDocumentId":73154,"filename":"document.pdf"}},"paymentDetails":{"paymentType":"creditCard","creditCardDetails":{"cardType":"visa","cardNumber":"4111111111111111","expirationDate":{"month":12,"year":2029},"cvv":123}},"returnAddress":{"firstName":"Debra","lastName":"Clark","company":"Flores, Carter and Sharp","address1":"97182 Collins Loop Suite 303","city":"Rowlandburgh","state":"VA","zip":"32417","country":"USA","address2":"Suite 100","address3":""},"jobOptions":{"documentClass":"letter","layout":"address_on_first_page","productionTime":"next_day","envelope":"standard","color":"full_color","paperType":"white","printOption":"double_sided","mailClass":"first_class"},"tags":["q1-campaign"]} // SubmitMultiZipAddressCaptureParams | 
             //val result : StandardResponse = apiInstance.submitMultiZipAddressCaptureParams(submitMultiZipAddressCaptureParams)
             //result shouldBe ("TODO")
         }
@@ -61,7 +61,7 @@ class JobsApiTest : ShouldSpec() {
         // to test submitMultiZipParams
         should("test submitMultiZipParams") {
             // uncomment below to test submitMultiZipParams
-            //val submitMultiZipParams : SubmitMultiZipParams =  // SubmitMultiZipParams | 
+            //val submitMultiZipParams : SubmitMultiZipParams = {"docSourceZipFileRef":{"zipDocumentIdOnly":{"zipDocumentId":74883}},"multiZipJobs":[{"jobTemplate":"standard_letter","filename":"document.pdf","recipientAddressSource":{"recipientAddressByList":{"mappingId":5001,"addressList":[{"firstName":"Ryan","lastName":"Gonzalez","address1":"09884 David Hills Apt. 312","city":"East Darlenefort","state":"NJ","zip":"44566","country":"USA","address2":"Suite 100","address3":"","foo1":"Custom Field 1","foo2":"Custom Field 2"}],"addressListName":"Marketing Campaign Q1"}}}],"paymentDetails":{"paymentType":"creditCard","creditCardDetails":{"cardType":"visa","cardNumber":"4111111111111111","expirationDate":{"month":12,"year":2029},"cvv":123}},"tags":["q1-campaign"]} // SubmitMultiZipParams | 
             //val result : StandardResponse = apiInstance.submitMultiZipParams(submitMultiZipParams)
             //result shouldBe ("TODO")
         }
@@ -69,7 +69,7 @@ class JobsApiTest : ShouldSpec() {
         // to test submitSinglePdfAddressCaptureParams
         should("test submitSinglePdfAddressCaptureParams") {
             // uncomment below to test submitSinglePdfAddressCaptureParams
-            //val submitSinglePdfAddressCaptureParams : SubmitSinglePdfAddressCaptureParams =  // SubmitSinglePdfAddressCaptureParams | 
+            //val submitSinglePdfAddressCaptureParams : SubmitSinglePdfAddressCaptureParams = {"docSourceStandard":{"documentIdSource":{"documentId":77618}},"paymentDetails":{"paymentType":"creditCard","creditCardDetails":{"cardType":"visa","cardNumber":"4111111111111111","expirationDate":{"month":12,"year":2029},"cvv":123}},"returnAddress":{"firstName":"Daniel","lastName":"Schultz","company":"Simmons-Munoz","address1":"847 Smith Falls","city":"New Emilytown","state":"IN","zip":"98956","country":"USA","address2":"Suite 100","address3":""},"jobOptions":{"documentClass":"letter","layout":"address_on_first_page","productionTime":"next_day","envelope":"standard","color":"full_color","paperType":"white","printOption":"double_sided","mailClass":"first_class"},"tags":["q1-campaign"]} // SubmitSinglePdfAddressCaptureParams | 
             //val result : StandardResponse = apiInstance.submitSinglePdfAddressCaptureParams(submitSinglePdfAddressCaptureParams)
             //result shouldBe ("TODO")
         }
@@ -77,7 +77,7 @@ class JobsApiTest : ShouldSpec() {
         // to test submitSinglePdfSplitAddressCaptureParams
         should("test submitSinglePdfSplitAddressCaptureParams") {
             // uncomment below to test submitSinglePdfSplitAddressCaptureParams
-            //val submitSinglePdfSplitAddressCaptureParams : SubmitSinglePdfSplitAddressCaptureParams =  // SubmitSinglePdfSplitAddressCaptureParams | 
+            //val submitSinglePdfSplitAddressCaptureParams : SubmitSinglePdfSplitAddressCaptureParams = {"docSourceStandard":{"documentIdSource":{"documentId":55813}},"pdfSplitJobsNoAddress":[{"jobTemplate":"standard_letter","startPage":4,"endPage":9}],"paymentDetails":{"paymentType":"creditCard","creditCardDetails":{"cardType":"visa","cardNumber":"4111111111111111","expirationDate":{"month":12,"year":2029},"cvv":123}},"returnAddress":{"firstName":"Jonathan","lastName":"Davila","company":"Williams, Miller and Nunez","address1":"516 Cross Circles Apt. 409","city":"Wendyberg","state":"RI","zip":"25051","country":"USA","address2":"Suite 100","address3":""},"jobOptions":{"documentClass":"letter","layout":"address_on_first_page","productionTime":"next_day","envelope":"standard","color":"full_color","paperType":"white","printOption":"double_sided","mailClass":"first_class"},"tags":["q1-campaign"]} // SubmitSinglePdfSplitAddressCaptureParams | 
             //val result : StandardResponse = apiInstance.submitSinglePdfSplitAddressCaptureParams(submitSinglePdfSplitAddressCaptureParams)
             //result shouldBe ("TODO")
         }
@@ -85,7 +85,7 @@ class JobsApiTest : ShouldSpec() {
         // to test submitSinglePdfSplitParams
         should("test submitSinglePdfSplitParams") {
             // uncomment below to test submitSinglePdfSplitParams
-            //val submitSinglePdfSplitParams : SubmitSinglePdfSplitParams =  // SubmitSinglePdfSplitParams | 
+            //val submitSinglePdfSplitParams : SubmitSinglePdfSplitParams = {"docSourceStandard":{"documentIdSource":{"documentId":27947}},"pdfSplitJobsWithAddress":[{"jobTemplate":"standard_letter","startPage":1,"endPage":6,"recipientAddressSource":{"recipientAddressByList":{"mappingId":5001,"addressList":[{"firstName":"Patricia","lastName":"Thomas","address1":"149 Alexander Villages","city":"Lake Christopher","state":"TX","zip":"21382","country":"USA","address2":"Suite 100","address3":"","foo1":"Custom Field 1","foo2":"Custom Field 2"}],"addressListName":"Marketing Campaign Q1"}}}],"paymentDetails":{"paymentType":"creditCard","creditCardDetails":{"cardType":"visa","cardNumber":"4111111111111111","expirationDate":{"month":12,"year":2029},"cvv":123}},"returnAddress":{"firstName":"George","lastName":"Weaver","company":"Benitez Group","address1":"5725 Duffy Walks","city":"Samuelview","state":"GU","zip":"40786","country":"USA","address2":"Suite 100","address3":""},"jobOptions":{"documentClass":"letter","layout":"address_on_first_page","productionTime":"next_day","envelope":"standard","color":"full_color","paperType":"white","printOption":"double_sided","mailClass":"first_class"},"tags":["q1-campaign"]} // SubmitSinglePdfSplitParams | 
             //val result : StandardResponse = apiInstance.submitSinglePdfSplitParams(submitSinglePdfSplitParams)
             //result shouldBe ("TODO")
         }

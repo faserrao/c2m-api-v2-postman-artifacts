@@ -1,6 +1,6 @@
 # Pipeline consistency (DD → spec → Postman)
 
-ERROR categories: 0  ·  known-open WARN categories: 18  ·  stale allowances: 1
+ERROR categories: 0  ·  known-open WARN categories: 19  ·  stale allowances: 0
 
 ## ⚠️ Known open (tracked)
 - **A-DOC-CARDINALITY-UNENFORCED** [*] (1) — X9 / decision D4 (array minimums)
@@ -46,6 +46,12 @@ ERROR categories: 0  ·  known-open WARN categories: 18  ·  stale allowances: 1
     - POST /mail-merge / 'Internal server error' (500): mergeDocumentSource has 1 entry
     - POST /mail-merge / 'Database error' (500): mergeDocumentSource has 1 entry
     - POST /mail-merge / 'External service error' (500): mergeDocumentSource has 1 entry
+- **B-EXAMPLE-ORIGINAL-REQUEST** [Test] (5) — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
+    - POST /auth/tokens/long / 'Long-term token issued' (201): ttl_seconds: 197 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Bad request' (400): ttl_seconds: 197 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Unauthorized' (401): ttl_seconds: 197 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Forbidden' (403): ttl_seconds: 197 is less than the minimum of 3600
+    - POST /auth/tokens/long / 'Too Many Requests' (429): ttl_seconds: 197 is less than the minimum of 3600
 - **B-FILLER-VALUE** [GS-Test] (3) — L7 (example_ filler values)
     - [Less frequently used] /static - setting tags: body/tags[0]='example_tags'
     - [Less frequently used] /static - setting tags: body/tags[1]='example_tags'
@@ -94,8 +100,5 @@ ERROR categories: 0  ·  known-open WARN categories: 18  ·  stale allowances: 1
     - POST /mail-merge: accepts ['201', '204'] undeclared, rejects [] declared
 - **C-REQUEST-EXAMPLE-MERGE-MINIMUM** [*] (1) — X9b / decision D4 (merge minimum 1 or 2)
     - POST /mail-merge: mergeDocumentSource has 1 entry
-
-## 🧹 Stale KNOWN_OPEN entries (no longer occur — remove them)
-- B-EXAMPLE-ORIGINAL-REQUEST [Test] — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
 
 ✅ No ERROR findings
