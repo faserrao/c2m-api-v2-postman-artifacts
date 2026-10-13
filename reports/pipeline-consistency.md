@@ -65,9 +65,9 @@ ERROR categories: 0  ·  known-open WARN categories: 12  ·  stale allowances: 1
     - POST /batch/split/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /batch/zip: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /batch/zip/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
-    - POST /mail-merge: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /static: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /static/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
+    - POST /mail-merge: accepts ['201', '204'] undeclared, rejects [] declared
 - **C-REQUEST-EXAMPLE-MERGE-MINIMUM** [*] (1) — X9b / decision D4 (merge minimum 1 or 2)
     - POST /mail-merge: mergeDocumentSource has 1 entry
 
