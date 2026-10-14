@@ -12,6 +12,7 @@ import AnyCodable
 
 public struct SubmitMultiDocMergeParams: Codable, JSONEncodable, Hashable {
 
+    public static let mergeDocumentSourceRule = ArrayRule(minItems: 2, maxItems: nil, uniqueItems: false)
     /** Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
     public var jobTemplate: String?
     /** Ordered array of document references to merge into one output document. Minimum two entries required. */

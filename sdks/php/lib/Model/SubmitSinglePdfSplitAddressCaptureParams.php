@@ -322,6 +322,10 @@ class SubmitSinglePdfSplitAddressCaptureParams implements ModelInterface, ArrayA
         if ($this->container['pdf_split_jobs_no_address'] === null) {
             $invalidProperties[] = "'pdf_split_jobs_no_address' can't be null";
         }
+        if ((count($this->container['pdf_split_jobs_no_address']) < 1)) {
+            $invalidProperties[] = "invalid value for 'pdf_split_jobs_no_address', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -412,6 +416,11 @@ class SubmitSinglePdfSplitAddressCaptureParams implements ModelInterface, ArrayA
     {
         if (is_null($pdf_split_jobs_no_address)) {
             throw new \InvalidArgumentException('non-nullable pdf_split_jobs_no_address cannot be null');
+        }
+
+
+        if ((count($pdf_split_jobs_no_address) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $pdf_split_jobs_no_address when calling SubmitSinglePdfSplitAddressCaptureParams., number of items must be greater than or equal to 1.');
         }
         $this->container['pdf_split_jobs_no_address'] = $pdf_split_jobs_no_address;
 

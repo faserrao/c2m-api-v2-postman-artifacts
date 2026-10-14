@@ -322,6 +322,10 @@ class SubmitSinglePdfSplitParams implements ModelInterface, ArrayAccess, \JsonSe
         if ($this->container['pdf_split_jobs_with_address'] === null) {
             $invalidProperties[] = "'pdf_split_jobs_with_address' can't be null";
         }
+        if ((count($this->container['pdf_split_jobs_with_address']) < 1)) {
+            $invalidProperties[] = "invalid value for 'pdf_split_jobs_with_address', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -412,6 +416,11 @@ class SubmitSinglePdfSplitParams implements ModelInterface, ArrayAccess, \JsonSe
     {
         if (is_null($pdf_split_jobs_with_address)) {
             throw new \InvalidArgumentException('non-nullable pdf_split_jobs_with_address cannot be null');
+        }
+
+
+        if ((count($pdf_split_jobs_with_address) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $pdf_split_jobs_with_address when calling SubmitSinglePdfSplitParams., number of items must be greater than or equal to 1.');
         }
         $this->container['pdf_split_jobs_with_address'] = $pdf_split_jobs_with_address;
 

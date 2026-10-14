@@ -292,6 +292,10 @@ class RecipientAddressByList implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['address_list'] === null) {
             $invalidProperties[] = "'address_list' can't be null";
         }
+        if ((count($this->container['address_list']) < 1)) {
+            $invalidProperties[] = "invalid value for 'address_list', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -355,6 +359,11 @@ class RecipientAddressByList implements ModelInterface, ArrayAccess, \JsonSerial
     {
         if (is_null($address_list)) {
             throw new \InvalidArgumentException('non-nullable address_list cannot be null');
+        }
+
+
+        if ((count($address_list) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $address_list when calling RecipientAddressByList., number of items must be greater than or equal to 1.');
         }
         $this->container['address_list'] = $address_list;
 

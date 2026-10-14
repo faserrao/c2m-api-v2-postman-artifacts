@@ -1276,6 +1276,8 @@ paths:
                   mergeDocumentSource:
                   - mergeByDocumentId:
                       documentId: 10624
+                  - mergeByDocumentId:
+                      documentId: 88664
                   recipientAddressSource:
                     recipientAddressByList:
                       mappingId: 5001
@@ -2543,6 +2545,7 @@ components:
             \ address."
           items:
             $ref: "#/components/schemas/pdfSplitJobItemWithAddress"
+          minItems: 1
           type: array
         paymentDetails:
           $ref: "#/components/schemas/paymentDetails"
@@ -2572,6 +2575,7 @@ components:
             are captured externally (POST /batch/split/address-capture).
           items:
             $ref: "#/components/schemas/pdfSplitJobItemNoAddress"
+          minItems: 1
           type: array
         paymentDetails:
           $ref: "#/components/schemas/paymentDetails"
@@ -2599,6 +2603,7 @@ components:
             document. Minimum two entries required.
           items:
             $ref: "#/components/schemas/mergeDocumentRef"
+          minItems: 2
           type: array
         recipientAddressSource:
           $ref: "#/components/schemas/recipientAddressSource"
@@ -2630,6 +2635,7 @@ components:
             /batch/zip).
           items:
             $ref: "#/components/schemas/multiZipJobItem"
+          minItems: 1
           type: array
         paymentDetails:
           $ref: "#/components/schemas/paymentDetails"
@@ -2960,6 +2966,7 @@ components:
             and mail merge.
           items:
             $ref: "#/components/schemas/address"
+          minItems: 1
           type: array
         addressListName:
           description: Optional name for this address list record.
@@ -2994,6 +3001,7 @@ components:
         mail merge.
       items:
         $ref: "#/components/schemas/address"
+      minItems: 1
       type: array
     documentIdSource:
       description: Source a document by its previously stored document ID.
@@ -3152,6 +3160,7 @@ components:
         Minimum two entries required.
       items:
         $ref: "#/components/schemas/mergeDocumentRef"
+      minItems: 2
       type: array
     mergeDocumentRef:
       description: A single document to include in the merge — either a stored document
@@ -3209,12 +3218,14 @@ components:
         \ address."
       items:
         $ref: "#/components/schemas/pdfSplitJobItemWithAddress"
+      minItems: 1
       type: array
     pdfSplitJobsNoAddress:
       description: List of page-range job items without inline addresses — addresses
         are captured externally (POST /batch/split/address-capture).
       items:
         $ref: "#/components/schemas/pdfSplitJobItemNoAddress"
+      minItems: 1
       type: array
     pdfSplitJobItemWithAddress:
       description: "A single page-range job entry: page range (startPage, endPage)\
@@ -3265,6 +3276,7 @@ components:
       description: List of per-file job items extracted from a ZIP archive (POST /batch/zip).
       items:
         $ref: "#/components/schemas/multiZipJobItem"
+      minItems: 1
       type: array
     multiZipJobItem:
       description: "A single ZIP file job entry: optional job template, filename within\

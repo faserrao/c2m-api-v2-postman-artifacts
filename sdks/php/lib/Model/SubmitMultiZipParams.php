@@ -322,6 +322,10 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
         if ($this->container['multi_zip_jobs'] === null) {
             $invalidProperties[] = "'multi_zip_jobs' can't be null";
         }
+        if ((count($this->container['multi_zip_jobs']) < 1)) {
+            $invalidProperties[] = "invalid value for 'multi_zip_jobs', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -412,6 +416,11 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         if (is_null($multi_zip_jobs)) {
             throw new \InvalidArgumentException('non-nullable multi_zip_jobs cannot be null');
+        }
+
+
+        if ((count($multi_zip_jobs) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $multi_zip_jobs when calling SubmitMultiZipParams., number of items must be greater than or equal to 1.');
         }
         $this->container['multi_zip_jobs'] = $multi_zip_jobs;
 

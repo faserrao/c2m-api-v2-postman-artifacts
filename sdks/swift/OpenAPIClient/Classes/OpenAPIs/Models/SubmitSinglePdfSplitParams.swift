@@ -12,6 +12,7 @@ import AnyCodable
 
 public struct SubmitSinglePdfSplitParams: Codable, JSONEncodable, Hashable {
 
+    public static let pdfSplitJobsWithAddressRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     /** Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
     public var jobTemplate: String?
     public var docSourceStandard: DocSourceStandard

@@ -136,6 +136,10 @@ module OpenapiClient
         invalid_properties.push('invalid value for "merge_document_source", merge_document_source cannot be nil.')
       end
 
+      if @merge_document_source.length < 2
+        invalid_properties.push('invalid value for "merge_document_source", number of items must be greater than or equal to 2.')
+      end
+
       if @recipient_address_source.nil?
         invalid_properties.push('invalid value for "recipient_address_source", recipient_address_source cannot be nil.')
       end
@@ -148,6 +152,7 @@ module OpenapiClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @merge_document_source.nil?
+      return false if @merge_document_source.length < 2
       return false if @recipient_address_source.nil?
       true
     end
@@ -157,6 +162,10 @@ module OpenapiClient
     def merge_document_source=(merge_document_source)
       if merge_document_source.nil?
         fail ArgumentError, 'merge_document_source cannot be nil'
+      end
+
+      if merge_document_source.length < 2
+        fail ArgumentError, 'invalid value for "merge_document_source", number of items must be greater than or equal to 2.'
       end
 
       @merge_document_source = merge_document_source

@@ -140,6 +140,10 @@ module OpenapiClient
         invalid_properties.push('invalid value for "multi_zip_jobs", multi_zip_jobs cannot be nil.')
       end
 
+      if @multi_zip_jobs.length < 1
+        invalid_properties.push('invalid value for "multi_zip_jobs", number of items must be greater than or equal to 1.')
+      end
+
       invalid_properties
     end
 
@@ -149,6 +153,7 @@ module OpenapiClient
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @doc_source_zip_file_ref.nil?
       return false if @multi_zip_jobs.nil?
+      return false if @multi_zip_jobs.length < 1
       true
     end
 
@@ -167,6 +172,10 @@ module OpenapiClient
     def multi_zip_jobs=(multi_zip_jobs)
       if multi_zip_jobs.nil?
         fail ArgumentError, 'multi_zip_jobs cannot be nil'
+      end
+
+      if multi_zip_jobs.length < 1
+        fail ArgumentError, 'invalid value for "multi_zip_jobs", number of items must be greater than or equal to 1.'
       end
 
       @multi_zip_jobs = multi_zip_jobs

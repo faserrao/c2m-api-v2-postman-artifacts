@@ -319,6 +319,10 @@ class SubmitMultiDocMergeParams implements ModelInterface, ArrayAccess, \JsonSer
         if ($this->container['merge_document_source'] === null) {
             $invalidProperties[] = "'merge_document_source' can't be null";
         }
+        if ((count($this->container['merge_document_source']) < 2)) {
+            $invalidProperties[] = "invalid value for 'merge_document_source', number of items must be greater than or equal to 2.";
+        }
+
         if ($this->container['recipient_address_source'] === null) {
             $invalidProperties[] = "'recipient_address_source' can't be null";
         }
@@ -385,6 +389,11 @@ class SubmitMultiDocMergeParams implements ModelInterface, ArrayAccess, \JsonSer
     {
         if (is_null($merge_document_source)) {
             throw new \InvalidArgumentException('non-nullable merge_document_source cannot be null');
+        }
+
+
+        if ((count($merge_document_source) < 2)) {
+            throw new \InvalidArgumentException('invalid length for $merge_document_source when calling SubmitMultiDocMergeParams., number of items must be greater than or equal to 2.');
         }
         $this->container['merge_document_source'] = $merge_document_source;
 

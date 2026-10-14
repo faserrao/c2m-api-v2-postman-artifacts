@@ -140,6 +140,10 @@ module OpenapiClient
         invalid_properties.push('invalid value for "pdf_split_jobs_no_address", pdf_split_jobs_no_address cannot be nil.')
       end
 
+      if @pdf_split_jobs_no_address.length < 1
+        invalid_properties.push('invalid value for "pdf_split_jobs_no_address", number of items must be greater than or equal to 1.')
+      end
+
       invalid_properties
     end
 
@@ -149,6 +153,7 @@ module OpenapiClient
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @doc_source_standard.nil?
       return false if @pdf_split_jobs_no_address.nil?
+      return false if @pdf_split_jobs_no_address.length < 1
       true
     end
 
@@ -167,6 +172,10 @@ module OpenapiClient
     def pdf_split_jobs_no_address=(pdf_split_jobs_no_address)
       if pdf_split_jobs_no_address.nil?
         fail ArgumentError, 'pdf_split_jobs_no_address cannot be nil'
+      end
+
+      if pdf_split_jobs_no_address.length < 1
+        fail ArgumentError, 'invalid value for "pdf_split_jobs_no_address", number of items must be greater than or equal to 1.'
       end
 
       @pdf_split_jobs_no_address = pdf_split_jobs_no_address

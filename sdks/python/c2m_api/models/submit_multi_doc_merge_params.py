@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from c2m_api.models.job_options import JobOptions
 from c2m_api.models.merge_document_ref import MergeDocumentRef
 from c2m_api.models.payment_details import PaymentDetails
@@ -32,7 +33,7 @@ class SubmitMultiDocMergeParams(BaseModel):
     SubmitMultiDocMergeParams
     """ # noqa: E501
     job_template: Optional[StrictStr] = Field(default=None, description="Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.", alias="jobTemplate")
-    merge_document_source: List[MergeDocumentRef] = Field(description="Ordered array of document references to merge into one output document. Minimum two entries required.", alias="mergeDocumentSource")
+    merge_document_source: Annotated[List[MergeDocumentRef], Field(min_length=2)] = Field(description="Ordered array of document references to merge into one output document. Minimum two entries required.", alias="mergeDocumentSource")
     recipient_address_source: RecipientAddressSource = Field(alias="recipientAddressSource")
     payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
     return_address: Optional[ReturnAddress] = Field(default=None, alias="returnAddress")

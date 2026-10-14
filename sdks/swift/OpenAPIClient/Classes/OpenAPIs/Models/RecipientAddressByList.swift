@@ -13,6 +13,7 @@ import AnyCodable
 /** Inline list of recipient addresses with an optional merge-field mapping ID. */
 public struct RecipientAddressByList: Codable, JSONEncodable, Hashable {
 
+    public static let addressListRule = ArrayRule(minItems: 1, maxItems: nil, uniqueItems: false)
     /** Integer ID of a merge-field mapping profile that associates address columns to template variables. If omitted, the account default mapping is used. */
     public var mappingId: Int?
     /** List of recipient mailing addresses — used for batch sends and mail merge. */

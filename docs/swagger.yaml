@@ -78,7 +78,7 @@ info:
     - jobTemplate
     - jobOptions
 servers:
-  - url: https://076fde25-2341-4703-9507-6f96bf070971.mock.pstmn.io
+  - url: https://ba501955-1565-4904-8dc9-69947c5b6458.mock.pstmn.io
     description: Postman Mock Server
   - url: 'https://api.click2mail.com/v2'
     description: Production server
@@ -568,6 +568,7 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/address'
+      minItems: 1
     documentIdSource:
       description: Source a document by its previously stored document ID.
       type: object
@@ -771,6 +772,7 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/mergeDocumentRef'
+      minItems: 2
     mergeDocumentRef:
       description: A single document to include in the merge — either a stored document ID or an upload request ID (with optional filename).
       oneOf:
@@ -831,11 +833,13 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/pdfSplitJobItemWithAddress'
+      minItems: 1
     pdfSplitJobsNoAddress:
       description: List of page-range job items without inline addresses — addresses are captured externally (POST /batch/split/address-capture).
       type: array
       items:
         $ref: '#/components/schemas/pdfSplitJobItemNoAddress'
+      minItems: 1
     pdfSplitJobItemWithAddress:
       description: 'A single page-range job entry: page range (startPage, endPage) plus a recipient address.'
       type: object
@@ -880,6 +884,7 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/multiZipJobItem'
+      minItems: 1
     multiZipJobItem:
       description: 'A single ZIP file job entry: optional job template, filename within the ZIP, and recipient address.'
       type: object
@@ -2541,6 +2546,8 @@ paths:
                   mergeDocumentSource:
                     - mergeByDocumentId:
                         documentId: 10624
+                    - mergeByDocumentId:
+                        documentId: 88664
                   recipientAddressSource:
                     recipientAddressByList:
                       mappingId: 5001

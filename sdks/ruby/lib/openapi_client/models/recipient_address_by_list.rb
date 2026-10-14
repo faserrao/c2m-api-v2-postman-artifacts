@@ -101,6 +101,10 @@ module OpenapiClient
         invalid_properties.push('invalid value for "address_list", address_list cannot be nil.')
       end
 
+      if @address_list.length < 1
+        invalid_properties.push('invalid value for "address_list", number of items must be greater than or equal to 1.')
+      end
+
       invalid_properties
     end
 
@@ -109,6 +113,7 @@ module OpenapiClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @address_list.nil?
+      return false if @address_list.length < 1
       true
     end
 
@@ -117,6 +122,10 @@ module OpenapiClient
     def address_list=(address_list)
       if address_list.nil?
         fail ArgumentError, 'address_list cannot be nil'
+      end
+
+      if address_list.length < 1
+        fail ArgumentError, 'invalid value for "address_list", number of items must be greater than or equal to 1.'
       end
 
       @address_list = address_list
