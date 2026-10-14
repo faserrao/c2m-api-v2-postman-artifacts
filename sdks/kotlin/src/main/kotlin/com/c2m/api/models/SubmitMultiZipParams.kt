@@ -16,8 +16,10 @@
 package com.c2m.api.models
 
 import com.c2m.api.models.DocSourceZipFileRef
+import com.c2m.api.models.JobOptions
 import com.c2m.api.models.MultiZipJobItem
 import com.c2m.api.models.PaymentDetails
+import com.c2m.api.models.ReturnAddress
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
@@ -27,7 +29,10 @@ import com.squareup.moshi.JsonClass
  *
  * @param docSourceZipFileRef 
  * @param multiZipJobs List of per-file job items extracted from a ZIP archive (POST /batch/zip).
+ * @param jobTemplate Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
  * @param paymentDetails 
+ * @param returnAddress 
+ * @param jobOptions 
  * @param tags Array of user-defined string tags.
  */
 
@@ -41,8 +46,18 @@ data class SubmitMultiZipParams (
     @Json(name = "multiZipJobs")
     val multiZipJobs: kotlin.collections.List<MultiZipJobItem>,
 
+    /* Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
+    @Json(name = "jobTemplate")
+    val jobTemplate: kotlin.String? = null,
+
     @Json(name = "paymentDetails")
     val paymentDetails: PaymentDetails? = null,
+
+    @Json(name = "returnAddress")
+    val returnAddress: ReturnAddress? = null,
+
+    @Json(name = "jobOptions")
+    val jobOptions: JobOptions? = null,
 
     /* Array of user-defined string tags. */
     @Json(name = "tags")

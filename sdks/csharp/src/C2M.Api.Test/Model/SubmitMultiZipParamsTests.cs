@@ -72,12 +72,39 @@ namespace C2M.Api.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'JobTemplate'
+        /// </summary>
+        [Fact]
+        public void JobTemplateTest()
+        {
+            // TODO unit test for the property 'JobTemplate'
+        }
+
+        /// <summary>
         /// Test the property 'PaymentDetails'
         /// </summary>
         [Fact]
         public void PaymentDetailsTest()
         {
             // TODO unit test for the property 'PaymentDetails'
+        }
+
+        /// <summary>
+        /// Test the property 'ReturnAddress'
+        /// </summary>
+        [Fact]
+        public void ReturnAddressTest()
+        {
+            // TODO unit test for the property 'ReturnAddress'
+        }
+
+        /// <summary>
+        /// Test the property 'JobOptions'
+        /// </summary>
+        [Fact]
+        public void JobOptionsTest()
+        {
+            // TODO unit test for the property 'JobOptions'
         }
 
         /// <summary>

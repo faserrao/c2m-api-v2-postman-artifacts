@@ -13,6 +13,9 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SubmitMultiZipParams {
+    /// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+    #[serde(rename = "jobTemplate", skip_serializing_if = "Option::is_none")]
+    pub job_template: Option<String>,
     #[serde(rename = "docSourceZipFileRef")]
     pub doc_source_zip_file_ref: Box<models::DocSourceZipFileRef>,
     /// List of per-file job items extracted from a ZIP archive (POST /batch/zip).
@@ -20,6 +23,10 @@ pub struct SubmitMultiZipParams {
     pub multi_zip_jobs: Vec<models::MultiZipJobItem>,
     #[serde(rename = "paymentDetails", skip_serializing_if = "Option::is_none")]
     pub payment_details: Option<Box<models::PaymentDetails>>,
+    #[serde(rename = "returnAddress", skip_serializing_if = "Option::is_none")]
+    pub return_address: Option<Box<models::ReturnAddress>>,
+    #[serde(rename = "jobOptions", skip_serializing_if = "Option::is_none")]
+    pub job_options: Option<Box<models::JobOptions>>,
     /// Array of user-defined string tags.
     #[serde(rename = "tags", skip_serializing_if = "Option::is_none")]
     pub tags: Option<Vec<String>>,
@@ -28,9 +35,12 @@ pub struct SubmitMultiZipParams {
 impl SubmitMultiZipParams {
     pub fn new(doc_source_zip_file_ref: models::DocSourceZipFileRef, multi_zip_jobs: Vec<models::MultiZipJobItem>) -> SubmitMultiZipParams {
         SubmitMultiZipParams {
+            job_template: None,
             doc_source_zip_file_ref: Box::new(doc_source_zip_file_ref),
             multi_zip_jobs,
             payment_details: None,
+            return_address: None,
+            job_options: None,
             tags: None,
         }
     }

@@ -234,6 +234,7 @@ POST,/mail-merge,jobOptions.paperType,Paper stock for printing.,enum: white | wh
 POST,/mail-merge,jobOptions.printOption,Duplex setting (double_sided or single_sided).,enum: double_sided | single_sided,Optional
 POST,/mail-merge,jobOptions.mailClass,"USPS mail class (first_class, standard, or non_profit).",enum: first_class | standard | non_profit,Optional
 POST,/mail-merge,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional
+POST,/batch/zip,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/batch/zip,docSourceZipFileRef[zipDocumentIdOnly].zipDocumentId,Integer ID of a previously stored ZIP archive.,integer,Required*
 POST,/batch/zip,docSourceZipFileRef[zipRequestIdOnly].requestId,Integer ID of a prior file upload request. Also returned in success responses.,integer,Required*
 POST,/batch/zip,multiZipJobs[].jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
@@ -265,6 +266,24 @@ POST,/batch/zip,paymentDetails[achPayment].ach.accountNumber,Bank account number
 POST,/batch/zip,paymentDetails[achPayment].ach.checkDigit,ACH check digit.,integer,Optional
 POST,/batch/zip,paymentDetails[userCreditPayment].userCredit.amount,Monetary amount as a numeric value.,number,Optional
 POST,/batch/zip,paymentDetails[userCreditPayment].userCredit.currency,"ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD).",enum: USD | EUR | GBP | CAD | AUD,Optional
+POST,/batch/zip,returnAddress.firstName,Recipient's first name.,string,Optional
+POST,/batch/zip,returnAddress.lastName,Recipient's last name.,string,Optional
+POST,/batch/zip,returnAddress.company,Recipient's company or organisation name (optional).,string,Optional
+POST,/batch/zip,returnAddress.address1,Primary street address line.,string,Optional
+POST,/batch/zip,returnAddress.city,City name.,string,Optional
+POST,/batch/zip,returnAddress.state,Two-letter state or province abbreviation.,string,Optional
+POST,/batch/zip,returnAddress.zip,ZIP or postal code.,string,Optional
+POST,/batch/zip,returnAddress.country,Country code (e.g. USA).,string,Optional
+POST,/batch/zip,returnAddress.address2,"Secondary address line (suite, apartment, floor, etc.).",string,Optional
+POST,/batch/zip,returnAddress.address3,Tertiary address line.,string,Optional
+POST,/batch/zip,jobOptions.documentClass,Document class determining the mailpiece format.,enum: letter | postcard | brochure | flat,Optional
+POST,/batch/zip,jobOptions.layout,Page layout controlling where the recipient address is printed.,enum: address_on_first_page | address_on_back_page,Optional
+POST,/batch/zip,jobOptions.productionTime,"Production time preference (next_day, two_day, etc.).",enum: next_day | two_day | three_day | standard | same_day,Optional
+POST,/batch/zip,jobOptions.envelope,Envelope type used for the mailing.,enum: standard | none | flat | double_window,Optional
+POST,/batch/zip,jobOptions.color,Color mode for printing (full_color or black_and_white).,enum: full_color | black_and_white,Optional
+POST,/batch/zip,jobOptions.paperType,Paper stock for printing.,enum: white | white_24 | ivory | glossy,Optional
+POST,/batch/zip,jobOptions.printOption,Duplex setting (double_sided or single_sided).,enum: double_sided | single_sided,Optional
+POST,/batch/zip,jobOptions.mailClass,"USPS mail class (first_class, standard, or non_profit).",enum: first_class | standard | non_profit,Optional
 POST,/batch/zip,tags[],Optional list of user-defined string tags for reporting and filtering.,string,Optional
 POST,/batch/zip/address-capture,jobTemplate,Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.,string,Optional
 POST,/batch/zip/address-capture,zipDocumentSource[zipDocumentIdSource].zipDocumentId,Integer ID of a previously stored ZIP archive.,integer,Required*

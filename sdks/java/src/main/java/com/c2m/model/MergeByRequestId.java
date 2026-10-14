@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * Merge an uploaded document identified by its upload request ID, with an optional filename when the request contains multiple files.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-14T00:38:02.992824496Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-14T01:22:40.511018068Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class MergeByRequestId {
   public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
   @SerializedName(SERIALIZED_NAME_REQUEST_ID)

@@ -80,6 +80,15 @@ class SubmitMultiZipParamsTest extends TestCase
     }
 
     /**
+     * Test attribute "job_template"
+     */
+    public function testPropertyJobTemplate()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "doc_source_zip_file_ref"
      */
     public function testPropertyDocSourceZipFileRef()
@@ -101,6 +110,24 @@ class SubmitMultiZipParamsTest extends TestCase
      * Test attribute "payment_details"
      */
     public function testPropertyPaymentDetails()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "return_address"
+     */
+    public function testPropertyReturnAddress()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "job_options"
+     */
+    public function testPropertyJobOptions()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

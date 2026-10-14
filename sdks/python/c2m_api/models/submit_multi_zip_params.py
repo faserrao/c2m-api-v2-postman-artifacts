@@ -20,8 +20,10 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from c2m_api.models.doc_source_zip_file_ref import DocSourceZipFileRef
+from c2m_api.models.job_options import JobOptions
 from c2m_api.models.multi_zip_job_item import MultiZipJobItem
 from c2m_api.models.payment_details import PaymentDetails
+from c2m_api.models.return_address import ReturnAddress
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,11 +31,14 @@ class SubmitMultiZipParams(BaseModel):
     """
     SubmitMultiZipParams
     """ # noqa: E501
+    job_template: Optional[StrictStr] = Field(default=None, description="Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.", alias="jobTemplate")
     doc_source_zip_file_ref: DocSourceZipFileRef = Field(alias="docSourceZipFileRef")
     multi_zip_jobs: List[MultiZipJobItem] = Field(description="List of per-file job items extracted from a ZIP archive (POST /batch/zip).", alias="multiZipJobs")
     payment_details: Optional[PaymentDetails] = Field(default=None, alias="paymentDetails")
+    return_address: Optional[ReturnAddress] = Field(default=None, alias="returnAddress")
+    job_options: Optional[JobOptions] = Field(default=None, alias="jobOptions")
     tags: Optional[List[StrictStr]] = Field(default=None, description="Array of user-defined string tags.")
-    __properties: ClassVar[List[str]] = ["docSourceZipFileRef", "multiZipJobs", "paymentDetails", "tags"]
+    __properties: ClassVar[List[str]] = ["jobTemplate", "docSourceZipFileRef", "multiZipJobs", "paymentDetails", "returnAddress", "jobOptions", "tags"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +92,12 @@ class SubmitMultiZipParams(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of payment_details
         if self.payment_details:
             _dict['paymentDetails'] = self.payment_details.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of return_address
+        if self.return_address:
+            _dict['returnAddress'] = self.return_address.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of job_options
+        if self.job_options:
+            _dict['jobOptions'] = self.job_options.to_dict()
         return _dict
 
     @classmethod
@@ -99,9 +110,12 @@ class SubmitMultiZipParams(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "jobTemplate": obj.get("jobTemplate"),
             "docSourceZipFileRef": DocSourceZipFileRef.from_dict(obj["docSourceZipFileRef"]) if obj.get("docSourceZipFileRef") is not None else None,
             "multiZipJobs": [MultiZipJobItem.from_dict(_item) for _item in obj["multiZipJobs"]] if obj.get("multiZipJobs") is not None else None,
             "paymentDetails": PaymentDetails.from_dict(obj["paymentDetails"]) if obj.get("paymentDetails") is not None else None,
+            "returnAddress": ReturnAddress.from_dict(obj["returnAddress"]) if obj.get("returnAddress") is not None else None,
+            "jobOptions": JobOptions.from_dict(obj["jobOptions"]) if obj.get("jobOptions") is not None else None,
             "tags": obj.get("tags")
         })
         return _obj

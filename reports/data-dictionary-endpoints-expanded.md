@@ -298,6 +298,7 @@
 
 | Field Path | Type | Required | Description |
 | --- | --- | --- | --- |
+| `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `docSourceZipFileRef[zipDocumentIdOnly].zipDocumentId` | integer | Required* | Integer ID of a previously stored ZIP archive. |
 | `docSourceZipFileRef[zipRequestIdOnly].requestId` | integer | Required* | Integer ID of a prior file upload request. Also returned in success responses. |
 | `multiZipJobs[].jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
@@ -329,6 +330,24 @@
 | `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount as a numeric value. |
 | `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD). |
+| `returnAddress.firstName` | string | Optional | Recipient's first name. |
+| `returnAddress.lastName` | string | Optional | Recipient's last name. |
+| `returnAddress.company` | string | Optional | Recipient's company or organisation name (optional). |
+| `returnAddress.address1` | string | Optional | Primary street address line. |
+| `returnAddress.city` | string | Optional | City name. |
+| `returnAddress.state` | string | Optional | Two-letter state or province abbreviation. |
+| `returnAddress.zip` | string | Optional | ZIP or postal code. |
+| `returnAddress.country` | string | Optional | Country code (e.g. USA). |
+| `returnAddress.address2` | string | Optional | Secondary address line (suite, apartment, floor, etc.). |
+| `returnAddress.address3` | string | Optional | Tertiary address line. |
+| `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class determining the mailpiece format. |
+| `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout controlling where the recipient address is printed. |
+| `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference (next_day, two_day, etc.). |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. |
+| `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode for printing (full_color or black_and_white). |
+| `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock for printing. |
+| `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting (double_sided or single_sided). |
+| `jobOptions.mailClass` | enum: first_class | standard | non_profit | Optional | USPS mail class (first_class, standard, or non_profit). |
 | `tags[]` | string | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ---

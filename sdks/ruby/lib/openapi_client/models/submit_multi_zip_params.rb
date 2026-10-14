@@ -15,6 +15,9 @@ require 'time'
 
 module OpenapiClient
   class SubmitMultiZipParams
+    # Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+    attr_accessor :job_template
+
     attr_accessor :doc_source_zip_file_ref
 
     # List of per-file job items extracted from a ZIP archive (POST /batch/zip).
@@ -22,15 +25,22 @@ module OpenapiClient
 
     attr_accessor :payment_details
 
+    attr_accessor :return_address
+
+    attr_accessor :job_options
+
     # Array of user-defined string tags.
     attr_accessor :tags
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'job_template' => :'jobTemplate',
         :'doc_source_zip_file_ref' => :'docSourceZipFileRef',
         :'multi_zip_jobs' => :'multiZipJobs',
         :'payment_details' => :'paymentDetails',
+        :'return_address' => :'returnAddress',
+        :'job_options' => :'jobOptions',
         :'tags' => :'tags'
       }
     end
@@ -48,9 +58,12 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'job_template' => :'String',
         :'doc_source_zip_file_ref' => :'DocSourceZipFileRef',
         :'multi_zip_jobs' => :'Array<MultiZipJobItem>',
         :'payment_details' => :'PaymentDetails',
+        :'return_address' => :'ReturnAddress',
+        :'job_options' => :'JobOptions',
         :'tags' => :'Array<String>'
       }
     end
@@ -77,6 +90,10 @@ module OpenapiClient
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'job_template')
+        self.job_template = attributes[:'job_template']
+      end
+
       if attributes.key?(:'doc_source_zip_file_ref')
         self.doc_source_zip_file_ref = attributes[:'doc_source_zip_file_ref']
       else
@@ -93,6 +110,14 @@ module OpenapiClient
 
       if attributes.key?(:'payment_details')
         self.payment_details = attributes[:'payment_details']
+      end
+
+      if attributes.key?(:'return_address')
+        self.return_address = attributes[:'return_address']
+      end
+
+      if attributes.key?(:'job_options')
+        self.job_options = attributes[:'job_options']
       end
 
       if attributes.key?(:'tags')
@@ -152,9 +177,12 @@ module OpenapiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          job_template == o.job_template &&
           doc_source_zip_file_ref == o.doc_source_zip_file_ref &&
           multi_zip_jobs == o.multi_zip_jobs &&
           payment_details == o.payment_details &&
+          return_address == o.return_address &&
+          job_options == o.job_options &&
           tags == o.tags
     end
 
@@ -167,7 +195,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [doc_source_zip_file_ref, multi_zip_jobs, payment_details, tags].hash
+      [job_template, doc_source_zip_file_ref, multi_zip_jobs, payment_details, return_address, job_options, tags].hash
     end
 
     # Builds the object from hash

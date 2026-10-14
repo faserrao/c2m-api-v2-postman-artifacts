@@ -12,24 +12,34 @@ import AnyCodable
 
 public struct SubmitMultiZipParams: Codable, JSONEncodable, Hashable {
 
+    /** Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. */
+    public var jobTemplate: String?
     public var docSourceZipFileRef: DocSourceZipFileRef
     /** List of per-file job items extracted from a ZIP archive (POST /batch/zip). */
     public var multiZipJobs: [MultiZipJobItem]
     public var paymentDetails: PaymentDetails?
+    public var returnAddress: ReturnAddress?
+    public var jobOptions: JobOptions?
     /** Array of user-defined string tags. */
     public var tags: [String]?
 
-    public init(docSourceZipFileRef: DocSourceZipFileRef, multiZipJobs: [MultiZipJobItem], paymentDetails: PaymentDetails? = nil, tags: [String]? = nil) {
+    public init(jobTemplate: String? = nil, docSourceZipFileRef: DocSourceZipFileRef, multiZipJobs: [MultiZipJobItem], paymentDetails: PaymentDetails? = nil, returnAddress: ReturnAddress? = nil, jobOptions: JobOptions? = nil, tags: [String]? = nil) {
+        self.jobTemplate = jobTemplate
         self.docSourceZipFileRef = docSourceZipFileRef
         self.multiZipJobs = multiZipJobs
         self.paymentDetails = paymentDetails
+        self.returnAddress = returnAddress
+        self.jobOptions = jobOptions
         self.tags = tags
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
+        case jobTemplate
         case docSourceZipFileRef
         case multiZipJobs
         case paymentDetails
+        case returnAddress
+        case jobOptions
         case tags
     }
 
@@ -37,9 +47,12 @@ public struct SubmitMultiZipParams: Codable, JSONEncodable, Hashable {
 
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(jobTemplate, forKey: .jobTemplate)
         try container.encode(docSourceZipFileRef, forKey: .docSourceZipFileRef)
         try container.encode(multiZipJobs, forKey: .multiZipJobs)
         try container.encodeIfPresent(paymentDetails, forKey: .paymentDetails)
+        try container.encodeIfPresent(returnAddress, forKey: .returnAddress)
+        try container.encodeIfPresent(jobOptions, forKey: .jobOptions)
         try container.encodeIfPresent(tags, forKey: .tags)
     }
 }

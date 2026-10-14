@@ -35,6 +35,7 @@ class TestSubmitMultiZipParams(unittest.TestCase):
         model = SubmitMultiZipParams()
         if include_optional:
             return SubmitMultiZipParams(
+                job_template = '',
                 doc_source_zip_file_ref = None,
                 multi_zip_jobs = [
                     c2m_api.models.multi_zip_job_item.multiZipJobItem(
@@ -43,6 +44,26 @@ class TestSubmitMultiZipParams(unittest.TestCase):
                         recipient_address_source = null, )
                     ],
                 payment_details = None,
+                return_address = c2m_api.models.return_address.returnAddress(
+                    first_name = '', 
+                    last_name = '', 
+                    company = '', 
+                    address1 = '', 
+                    city = '', 
+                    state = '', 
+                    zip = '', 
+                    country = '', 
+                    address2 = '', 
+                    address3 = '', ),
+                job_options = c2m_api.models.job_options.jobOptions(
+                    document_class = 'letter', 
+                    layout = 'address_on_first_page', 
+                    production_time = 'next_day', 
+                    envelope = 'standard', 
+                    color = 'full_color', 
+                    paper_type = 'white', 
+                    print_option = 'double_sided', 
+                    mail_class = 'first_class', ),
                 tags = [
                     ''
                     ]

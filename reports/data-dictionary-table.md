@@ -79,9 +79,12 @@ Request body for POST /batch/zip — mail individual files from a ZIP archive, e
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
+| `jobTemplate` | string | Optional | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. |
 | `docSourceZipFileRef` | oneOf | Required | Top-level ZIP archive reference for batch endpoints — identifies the archive itself, not a file within it. No filename is required at this level. |
 | `multiZipJobs` | object[] | Required | List of per-file job items extracted from a ZIP archive (POST /batch/zip). |
 | `paymentDetails` | oneOf | Optional | Payment method — one of: creditCard, invoice, ACH bank transfer, or account credit. The paymentType field names the method; the matching details object carries its data. |
+| `returnAddress` | object | Optional | Optional sender return address printed on the mailpiece. |
+| `jobOptions` | object | Optional | Explicit print and mail configuration options. Mutually exclusive with jobTemplate. |
 | `tags` | string[] | Optional | Optional list of user-defined string tags for reporting and filtering. |
 
 ### `submitMultiZipAddressCaptureParams`  `POST /batch/zip/address-capture`

@@ -20,8 +20,10 @@ import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.SubmitMultiZipParams
 import com.c2m.api.models.DocSourceZipFileRef
+import com.c2m.api.models.JobOptions
 import com.c2m.api.models.MultiZipJobItem
 import com.c2m.api.models.PaymentDetails
+import com.c2m.api.models.ReturnAddress
 
 class SubmitMultiZipParamsTest : ShouldSpec() {
     init {
@@ -40,10 +42,28 @@ class SubmitMultiZipParamsTest : ShouldSpec() {
             //modelInstance.multiZipJobs shouldBe ("TODO")
         }
 
+        // to test the property `jobTemplate` - Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+        should("test jobTemplate") {
+            // uncomment below to test the property
+            //modelInstance.jobTemplate shouldBe ("TODO")
+        }
+
         // to test the property `paymentDetails`
         should("test paymentDetails") {
             // uncomment below to test the property
             //modelInstance.paymentDetails shouldBe ("TODO")
+        }
+
+        // to test the property `returnAddress`
+        should("test returnAddress") {
+            // uncomment below to test the property
+            //modelInstance.returnAddress shouldBe ("TODO")
+        }
+
+        // to test the property `jobOptions`
+        should("test jobOptions") {
+            // uncomment below to test the property
+            //modelInstance.jobOptions shouldBe ("TODO")
         }
 
         // to test the property `tags` - Array of user-defined string tags.

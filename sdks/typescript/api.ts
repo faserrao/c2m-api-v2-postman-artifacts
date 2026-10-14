@@ -1003,12 +1003,18 @@ export interface SubmitMultiZipAddressCaptureParams {
     'tags'?: Array<string>;
 }
 export interface SubmitMultiZipParams {
+    /**
+     * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+     */
+    'jobTemplate'?: string;
     'docSourceZipFileRef': DocSourceZipFileRef;
     /**
      * List of per-file job items extracted from a ZIP archive (POST /batch/zip).
      */
     'multiZipJobs': Array<MultiZipJobItem>;
     'paymentDetails'?: PaymentDetails;
+    'returnAddress'?: ReturnAddress;
+    'jobOptions'?: JobOptions;
     /**
      * Array of user-defined string tags.
      */

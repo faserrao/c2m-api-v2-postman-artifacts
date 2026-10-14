@@ -57,9 +57,12 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
+        'job_template' => 'string',
         'doc_source_zip_file_ref' => '\C2MApi\Model\DocSourceZipFileRef',
         'multi_zip_jobs' => '\C2MApi\Model\MultiZipJobItem[]',
         'payment_details' => '\C2MApi\Model\PaymentDetails',
+        'return_address' => '\C2MApi\Model\ReturnAddress',
+        'job_options' => '\C2MApi\Model\JobOptions',
         'tags' => 'string[]'
     ];
 
@@ -71,9 +74,12 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'job_template' => null,
         'doc_source_zip_file_ref' => null,
         'multi_zip_jobs' => null,
         'payment_details' => null,
+        'return_address' => null,
+        'job_options' => null,
         'tags' => null
     ];
 
@@ -83,9 +89,12 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'job_template' => false,
         'doc_source_zip_file_ref' => false,
         'multi_zip_jobs' => false,
         'payment_details' => false,
+        'return_address' => false,
+        'job_options' => false,
         'tags' => false
     ];
 
@@ -175,9 +184,12 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
+        'job_template' => 'jobTemplate',
         'doc_source_zip_file_ref' => 'docSourceZipFileRef',
         'multi_zip_jobs' => 'multiZipJobs',
         'payment_details' => 'paymentDetails',
+        'return_address' => 'returnAddress',
+        'job_options' => 'jobOptions',
         'tags' => 'tags'
     ];
 
@@ -187,9 +199,12 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
+        'job_template' => 'setJobTemplate',
         'doc_source_zip_file_ref' => 'setDocSourceZipFileRef',
         'multi_zip_jobs' => 'setMultiZipJobs',
         'payment_details' => 'setPaymentDetails',
+        'return_address' => 'setReturnAddress',
+        'job_options' => 'setJobOptions',
         'tags' => 'setTags'
     ];
 
@@ -199,9 +214,12 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
+        'job_template' => 'getJobTemplate',
         'doc_source_zip_file_ref' => 'getDocSourceZipFileRef',
         'multi_zip_jobs' => 'getMultiZipJobs',
         'payment_details' => 'getPaymentDetails',
+        'return_address' => 'getReturnAddress',
+        'job_options' => 'getJobOptions',
         'tags' => 'getTags'
     ];
 
@@ -262,9 +280,12 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('job_template', $data ?? [], null);
         $this->setIfExists('doc_source_zip_file_ref', $data ?? [], null);
         $this->setIfExists('multi_zip_jobs', $data ?? [], null);
         $this->setIfExists('payment_details', $data ?? [], null);
+        $this->setIfExists('return_address', $data ?? [], null);
+        $this->setIfExists('job_options', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
     }
 
@@ -315,6 +336,33 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets job_template
+     *
+     * @return string|null
+     */
+    public function getJobTemplate()
+    {
+        return $this->container['job_template'];
+    }
+
+    /**
+     * Sets job_template
+     *
+     * @param string|null $job_template Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+     *
+     * @return self
+     */
+    public function setJobTemplate($job_template)
+    {
+        if (is_null($job_template)) {
+            throw new \InvalidArgumentException('non-nullable job_template cannot be null');
+        }
+        $this->container['job_template'] = $job_template;
+
+        return $this;
+    }
 
     /**
      * Gets doc_source_zip_file_ref
@@ -393,6 +441,60 @@ class SubmitMultiZipParams implements ModelInterface, ArrayAccess, \JsonSerializ
             throw new \InvalidArgumentException('non-nullable payment_details cannot be null');
         }
         $this->container['payment_details'] = $payment_details;
+
+        return $this;
+    }
+
+    /**
+     * Gets return_address
+     *
+     * @return \C2MApi\Model\ReturnAddress|null
+     */
+    public function getReturnAddress()
+    {
+        return $this->container['return_address'];
+    }
+
+    /**
+     * Sets return_address
+     *
+     * @param \C2MApi\Model\ReturnAddress|null $return_address return_address
+     *
+     * @return self
+     */
+    public function setReturnAddress($return_address)
+    {
+        if (is_null($return_address)) {
+            throw new \InvalidArgumentException('non-nullable return_address cannot be null');
+        }
+        $this->container['return_address'] = $return_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets job_options
+     *
+     * @return \C2MApi\Model\JobOptions|null
+     */
+    public function getJobOptions()
+    {
+        return $this->container['job_options'];
+    }
+
+    /**
+     * Sets job_options
+     *
+     * @param \C2MApi\Model\JobOptions|null $job_options job_options
+     *
+     * @return self
+     */
+    public function setJobOptions($job_options)
+    {
+        if (is_null($job_options)) {
+            throw new \InvalidArgumentException('non-nullable job_options cannot be null');
+        }
+        $this->container['job_options'] = $job_options;
 
         return $this;
     }

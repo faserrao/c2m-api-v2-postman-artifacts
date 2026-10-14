@@ -21,10 +21,14 @@ var _ MappedNullable = &SubmitMultiZipParams{}
 
 // SubmitMultiZipParams struct for SubmitMultiZipParams
 type SubmitMultiZipParams struct {
+	// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+	JobTemplate *string `json:"jobTemplate,omitempty"`
 	DocSourceZipFileRef DocSourceZipFileRef `json:"docSourceZipFileRef"`
 	// List of per-file job items extracted from a ZIP archive (POST /batch/zip).
 	MultiZipJobs []MultiZipJobItem `json:"multiZipJobs"`
 	PaymentDetails *PaymentDetails `json:"paymentDetails,omitempty"`
+	ReturnAddress *ReturnAddress `json:"returnAddress,omitempty"`
+	JobOptions *JobOptions `json:"jobOptions,omitempty"`
 	// Array of user-defined string tags.
 	Tags []string `json:"tags,omitempty"`
 }
@@ -48,6 +52,38 @@ func NewSubmitMultiZipParams(docSourceZipFileRef DocSourceZipFileRef, multiZipJo
 func NewSubmitMultiZipParamsWithDefaults() *SubmitMultiZipParams {
 	this := SubmitMultiZipParams{}
 	return &this
+}
+
+// GetJobTemplate returns the JobTemplate field value if set, zero value otherwise.
+func (o *SubmitMultiZipParams) GetJobTemplate() string {
+	if o == nil || IsNil(o.JobTemplate) {
+		var ret string
+		return ret
+	}
+	return *o.JobTemplate
+}
+
+// GetJobTemplateOk returns a tuple with the JobTemplate field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SubmitMultiZipParams) GetJobTemplateOk() (*string, bool) {
+	if o == nil || IsNil(o.JobTemplate) {
+		return nil, false
+	}
+	return o.JobTemplate, true
+}
+
+// HasJobTemplate returns a boolean if a field has been set.
+func (o *SubmitMultiZipParams) HasJobTemplate() bool {
+	if o != nil && !IsNil(o.JobTemplate) {
+		return true
+	}
+
+	return false
+}
+
+// SetJobTemplate gets a reference to the given string and assigns it to the JobTemplate field.
+func (o *SubmitMultiZipParams) SetJobTemplate(v string) {
+	o.JobTemplate = &v
 }
 
 // GetDocSourceZipFileRef returns the DocSourceZipFileRef field value
@@ -130,6 +166,70 @@ func (o *SubmitMultiZipParams) SetPaymentDetails(v PaymentDetails) {
 	o.PaymentDetails = &v
 }
 
+// GetReturnAddress returns the ReturnAddress field value if set, zero value otherwise.
+func (o *SubmitMultiZipParams) GetReturnAddress() ReturnAddress {
+	if o == nil || IsNil(o.ReturnAddress) {
+		var ret ReturnAddress
+		return ret
+	}
+	return *o.ReturnAddress
+}
+
+// GetReturnAddressOk returns a tuple with the ReturnAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SubmitMultiZipParams) GetReturnAddressOk() (*ReturnAddress, bool) {
+	if o == nil || IsNil(o.ReturnAddress) {
+		return nil, false
+	}
+	return o.ReturnAddress, true
+}
+
+// HasReturnAddress returns a boolean if a field has been set.
+func (o *SubmitMultiZipParams) HasReturnAddress() bool {
+	if o != nil && !IsNil(o.ReturnAddress) {
+		return true
+	}
+
+	return false
+}
+
+// SetReturnAddress gets a reference to the given ReturnAddress and assigns it to the ReturnAddress field.
+func (o *SubmitMultiZipParams) SetReturnAddress(v ReturnAddress) {
+	o.ReturnAddress = &v
+}
+
+// GetJobOptions returns the JobOptions field value if set, zero value otherwise.
+func (o *SubmitMultiZipParams) GetJobOptions() JobOptions {
+	if o == nil || IsNil(o.JobOptions) {
+		var ret JobOptions
+		return ret
+	}
+	return *o.JobOptions
+}
+
+// GetJobOptionsOk returns a tuple with the JobOptions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SubmitMultiZipParams) GetJobOptionsOk() (*JobOptions, bool) {
+	if o == nil || IsNil(o.JobOptions) {
+		return nil, false
+	}
+	return o.JobOptions, true
+}
+
+// HasJobOptions returns a boolean if a field has been set.
+func (o *SubmitMultiZipParams) HasJobOptions() bool {
+	if o != nil && !IsNil(o.JobOptions) {
+		return true
+	}
+
+	return false
+}
+
+// SetJobOptions gets a reference to the given JobOptions and assigns it to the JobOptions field.
+func (o *SubmitMultiZipParams) SetJobOptions(v JobOptions) {
+	o.JobOptions = &v
+}
+
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *SubmitMultiZipParams) GetTags() []string {
 	if o == nil || IsNil(o.Tags) {
@@ -172,10 +272,19 @@ func (o SubmitMultiZipParams) MarshalJSON() ([]byte, error) {
 
 func (o SubmitMultiZipParams) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
+	if !IsNil(o.JobTemplate) {
+		toSerialize["jobTemplate"] = o.JobTemplate
+	}
 	toSerialize["docSourceZipFileRef"] = o.DocSourceZipFileRef
 	toSerialize["multiZipJobs"] = o.MultiZipJobs
 	if !IsNil(o.PaymentDetails) {
 		toSerialize["paymentDetails"] = o.PaymentDetails
+	}
+	if !IsNil(o.ReturnAddress) {
+		toSerialize["returnAddress"] = o.ReturnAddress
+	}
+	if !IsNil(o.JobOptions) {
+		toSerialize["jobOptions"] = o.JobOptions
 	}
 	if !IsNil(o.Tags) {
 		toSerialize["tags"] = o.Tags

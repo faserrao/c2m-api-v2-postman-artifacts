@@ -35,14 +35,20 @@ namespace C2M.Api.Model
         /// </summary>
         /// <param name="docSourceZipFileRef">docSourceZipFileRef</param>
         /// <param name="multiZipJobs">List of per-file job items extracted from a ZIP archive (POST /batch/zip).</param>
+        /// <param name="jobTemplate">Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.</param>
         /// <param name="paymentDetails">paymentDetails</param>
+        /// <param name="returnAddress">returnAddress</param>
+        /// <param name="jobOptions">jobOptions</param>
         /// <param name="tags">Array of user-defined string tags.</param>
         [JsonConstructor]
-        public SubmitMultiZipParams(DocSourceZipFileRef docSourceZipFileRef, List<MultiZipJobItem> multiZipJobs, Option<PaymentDetails?> paymentDetails = default, Option<List<string>?> tags = default)
+        public SubmitMultiZipParams(DocSourceZipFileRef docSourceZipFileRef, List<MultiZipJobItem> multiZipJobs, Option<string?> jobTemplate = default, Option<PaymentDetails?> paymentDetails = default, Option<ReturnAddress?> returnAddress = default, Option<JobOptions?> jobOptions = default, Option<List<string>?> tags = default)
         {
             DocSourceZipFileRef = docSourceZipFileRef;
             MultiZipJobs = multiZipJobs;
+            JobTemplateOption = jobTemplate;
             PaymentDetailsOption = paymentDetails;
+            ReturnAddressOption = returnAddress;
+            JobOptionsOption = jobOptions;
             TagsOption = tags;
             OnCreated();
         }
@@ -63,6 +69,20 @@ namespace C2M.Api.Model
         public List<MultiZipJobItem> MultiZipJobs { get; set; }
 
         /// <summary>
+        /// Used to track the state of JobTemplate
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<string?> JobTemplateOption { get; private set; }
+
+        /// <summary>
+        /// Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+        /// </summary>
+        /// <value>Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.</value>
+        [JsonPropertyName("jobTemplate")]
+        public string? JobTemplate { get { return this.JobTemplateOption; } set { this.JobTemplateOption = new(value); } }
+
+        /// <summary>
         /// Used to track the state of PaymentDetails
         /// </summary>
         [JsonIgnore]
@@ -74,6 +94,32 @@ namespace C2M.Api.Model
         /// </summary>
         [JsonPropertyName("paymentDetails")]
         public PaymentDetails? PaymentDetails { get { return this.PaymentDetailsOption; } set { this.PaymentDetailsOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of ReturnAddress
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<ReturnAddress?> ReturnAddressOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets ReturnAddress
+        /// </summary>
+        [JsonPropertyName("returnAddress")]
+        public ReturnAddress? ReturnAddress { get { return this.ReturnAddressOption; } set { this.ReturnAddressOption = new(value); } }
+
+        /// <summary>
+        /// Used to track the state of JobOptions
+        /// </summary>
+        [JsonIgnore]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public Option<JobOptions?> JobOptionsOption { get; private set; }
+
+        /// <summary>
+        /// Gets or Sets JobOptions
+        /// </summary>
+        [JsonPropertyName("jobOptions")]
+        public JobOptions? JobOptions { get { return this.JobOptionsOption; } set { this.JobOptionsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Tags
@@ -99,7 +145,10 @@ namespace C2M.Api.Model
             sb.Append("class SubmitMultiZipParams {\n");
             sb.Append("  DocSourceZipFileRef: ").Append(DocSourceZipFileRef).Append("\n");
             sb.Append("  MultiZipJobs: ").Append(MultiZipJobs).Append("\n");
+            sb.Append("  JobTemplate: ").Append(JobTemplate).Append("\n");
             sb.Append("  PaymentDetails: ").Append(PaymentDetails).Append("\n");
+            sb.Append("  ReturnAddress: ").Append(ReturnAddress).Append("\n");
+            sb.Append("  JobOptions: ").Append(JobOptions).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -140,7 +189,10 @@ namespace C2M.Api.Model
 
             Option<DocSourceZipFileRef?> docSourceZipFileRef = default;
             Option<List<MultiZipJobItem>?> multiZipJobs = default;
+            Option<string?> jobTemplate = default;
             Option<PaymentDetails?> paymentDetails = default;
+            Option<ReturnAddress?> returnAddress = default;
+            Option<JobOptions?> jobOptions = default;
             Option<List<string>?> tags = default;
 
             while (utf8JsonReader.Read())
@@ -164,8 +216,17 @@ namespace C2M.Api.Model
                         case "multiZipJobs":
                             multiZipJobs = new Option<List<MultiZipJobItem>?>(JsonSerializer.Deserialize<List<MultiZipJobItem>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
+                        case "jobTemplate":
+                            jobTemplate = new Option<string?>(utf8JsonReader.GetString()!);
+                            break;
                         case "paymentDetails":
                             paymentDetails = new Option<PaymentDetails?>(JsonSerializer.Deserialize<PaymentDetails>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "returnAddress":
+                            returnAddress = new Option<ReturnAddress?>(JsonSerializer.Deserialize<ReturnAddress>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            break;
+                        case "jobOptions":
+                            jobOptions = new Option<JobOptions?>(JsonSerializer.Deserialize<JobOptions>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "tags":
                             tags = new Option<List<string>?>(JsonSerializer.Deserialize<List<string>>(ref utf8JsonReader, jsonSerializerOptions)!);
@@ -188,13 +249,22 @@ namespace C2M.Api.Model
             if (multiZipJobs.IsSet && multiZipJobs.Value == null)
                 throw new ArgumentNullException(nameof(multiZipJobs), "Property is not nullable for class SubmitMultiZipParams.");
 
+            if (jobTemplate.IsSet && jobTemplate.Value == null)
+                throw new ArgumentNullException(nameof(jobTemplate), "Property is not nullable for class SubmitMultiZipParams.");
+
             if (paymentDetails.IsSet && paymentDetails.Value == null)
                 throw new ArgumentNullException(nameof(paymentDetails), "Property is not nullable for class SubmitMultiZipParams.");
+
+            if (returnAddress.IsSet && returnAddress.Value == null)
+                throw new ArgumentNullException(nameof(returnAddress), "Property is not nullable for class SubmitMultiZipParams.");
+
+            if (jobOptions.IsSet && jobOptions.Value == null)
+                throw new ArgumentNullException(nameof(jobOptions), "Property is not nullable for class SubmitMultiZipParams.");
 
             if (tags.IsSet && tags.Value == null)
                 throw new ArgumentNullException(nameof(tags), "Property is not nullable for class SubmitMultiZipParams.");
 
-            return new SubmitMultiZipParams(docSourceZipFileRef.Value!, multiZipJobs.Value!, paymentDetails, tags);
+            return new SubmitMultiZipParams(docSourceZipFileRef.Value!, multiZipJobs.Value!, jobTemplate, paymentDetails, returnAddress, jobOptions, tags);
         }
 
         /// <summary>
@@ -227,8 +297,17 @@ namespace C2M.Api.Model
             if (submitMultiZipParams.MultiZipJobs == null)
                 throw new ArgumentNullException(nameof(submitMultiZipParams.MultiZipJobs), "Property is required for class SubmitMultiZipParams.");
 
+            if (submitMultiZipParams.JobTemplateOption.IsSet && submitMultiZipParams.JobTemplate == null)
+                throw new ArgumentNullException(nameof(submitMultiZipParams.JobTemplate), "Property is required for class SubmitMultiZipParams.");
+
             if (submitMultiZipParams.PaymentDetailsOption.IsSet && submitMultiZipParams.PaymentDetails == null)
                 throw new ArgumentNullException(nameof(submitMultiZipParams.PaymentDetails), "Property is required for class SubmitMultiZipParams.");
+
+            if (submitMultiZipParams.ReturnAddressOption.IsSet && submitMultiZipParams.ReturnAddress == null)
+                throw new ArgumentNullException(nameof(submitMultiZipParams.ReturnAddress), "Property is required for class SubmitMultiZipParams.");
+
+            if (submitMultiZipParams.JobOptionsOption.IsSet && submitMultiZipParams.JobOptions == null)
+                throw new ArgumentNullException(nameof(submitMultiZipParams.JobOptions), "Property is required for class SubmitMultiZipParams.");
 
             if (submitMultiZipParams.TagsOption.IsSet && submitMultiZipParams.Tags == null)
                 throw new ArgumentNullException(nameof(submitMultiZipParams.Tags), "Property is required for class SubmitMultiZipParams.");
@@ -237,10 +316,23 @@ namespace C2M.Api.Model
             JsonSerializer.Serialize(writer, submitMultiZipParams.DocSourceZipFileRef, jsonSerializerOptions);
             writer.WritePropertyName("multiZipJobs");
             JsonSerializer.Serialize(writer, submitMultiZipParams.MultiZipJobs, jsonSerializerOptions);
+            if (submitMultiZipParams.JobTemplateOption.IsSet)
+                writer.WriteString("jobTemplate", submitMultiZipParams.JobTemplate);
+
             if (submitMultiZipParams.PaymentDetailsOption.IsSet)
             {
                 writer.WritePropertyName("paymentDetails");
                 JsonSerializer.Serialize(writer, submitMultiZipParams.PaymentDetails, jsonSerializerOptions);
+            }
+            if (submitMultiZipParams.ReturnAddressOption.IsSet)
+            {
+                writer.WritePropertyName("returnAddress");
+                JsonSerializer.Serialize(writer, submitMultiZipParams.ReturnAddress, jsonSerializerOptions);
+            }
+            if (submitMultiZipParams.JobOptionsOption.IsSet)
+            {
+                writer.WritePropertyName("jobOptions");
+                JsonSerializer.Serialize(writer, submitMultiZipParams.JobOptions, jsonSerializerOptions);
             }
             if (submitMultiZipParams.TagsOption.IsSet)
             {

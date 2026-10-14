@@ -13,8 +13,10 @@
 
 import ApiClient from '../ApiClient';
 import DocSourceZipFileRef from './DocSourceZipFileRef';
+import JobOptions from './JobOptions';
 import MultiZipJobItem from './MultiZipJobItem';
 import PaymentDetails from './PaymentDetails';
+import ReturnAddress from './ReturnAddress';
 
 /**
  * The SubmitMultiZipParams model module.
@@ -54,6 +56,9 @@ class SubmitMultiZipParams {
         if (data) {
             obj = obj || new SubmitMultiZipParams();
 
+            if (data.hasOwnProperty('jobTemplate')) {
+                obj['jobTemplate'] = ApiClient.convertToType(data['jobTemplate'], 'String');
+            }
             if (data.hasOwnProperty('docSourceZipFileRef')) {
                 obj['docSourceZipFileRef'] = DocSourceZipFileRef.constructFromObject(data['docSourceZipFileRef']);
             }
@@ -62,6 +67,12 @@ class SubmitMultiZipParams {
             }
             if (data.hasOwnProperty('paymentDetails')) {
                 obj['paymentDetails'] = PaymentDetails.constructFromObject(data['paymentDetails']);
+            }
+            if (data.hasOwnProperty('returnAddress')) {
+                obj['returnAddress'] = ReturnAddress.constructFromObject(data['returnAddress']);
+            }
+            if (data.hasOwnProperty('jobOptions')) {
+                obj['jobOptions'] = JobOptions.constructFromObject(data['jobOptions']);
             }
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
@@ -82,6 +93,10 @@ class SubmitMultiZipParams {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // ensure the json data is a string
+        if (data['jobTemplate'] && !(typeof data['jobTemplate'] === 'string' || data['jobTemplate'] instanceof String)) {
+            throw new Error("Expected the field `jobTemplate` to be a primitive type in the JSON string but got " + data['jobTemplate']);
+        }
         // validate the optional field `docSourceZipFileRef`
         if (data['docSourceZipFileRef']) { // data not null
           DocSourceZipFileRef.validateJSON(data['docSourceZipFileRef']);
@@ -100,6 +115,14 @@ class SubmitMultiZipParams {
         if (data['paymentDetails']) { // data not null
           PaymentDetails.validateJSON(data['paymentDetails']);
         }
+        // validate the optional field `returnAddress`
+        if (data['returnAddress']) { // data not null
+          ReturnAddress.validateJSON(data['returnAddress']);
+        }
+        // validate the optional field `jobOptions`
+        if (data['jobOptions']) { // data not null
+          JobOptions.validateJSON(data['jobOptions']);
+        }
         // ensure the json data is an array
         if (!Array.isArray(data['tags'])) {
             throw new Error("Expected the field `tags` to be an array in the JSON data but got " + data['tags']);
@@ -112,6 +135,12 @@ class SubmitMultiZipParams {
 }
 
 SubmitMultiZipParams.RequiredProperties = ["docSourceZipFileRef", "multiZipJobs"];
+
+/**
+ * Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions.
+ * @member {String} jobTemplate
+ */
+SubmitMultiZipParams.prototype['jobTemplate'] = undefined;
 
 /**
  * @member {module:c2m_api/model/DocSourceZipFileRef} docSourceZipFileRef
@@ -128,6 +157,16 @@ SubmitMultiZipParams.prototype['multiZipJobs'] = undefined;
  * @member {module:c2m_api/model/PaymentDetails} paymentDetails
  */
 SubmitMultiZipParams.prototype['paymentDetails'] = undefined;
+
+/**
+ * @member {module:c2m_api/model/ReturnAddress} returnAddress
+ */
+SubmitMultiZipParams.prototype['returnAddress'] = undefined;
+
+/**
+ * @member {module:c2m_api/model/JobOptions} jobOptions
+ */
+SubmitMultiZipParams.prototype['jobOptions'] = undefined;
 
 /**
  * Array of user-defined string tags.

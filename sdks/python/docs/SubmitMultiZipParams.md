@@ -5,9 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**job_template** | **str** | Saved job template name; pre-populates all print and mail options. Mutually exclusive with jobOptions. | [optional] 
 **doc_source_zip_file_ref** | [**DocSourceZipFileRef**](DocSourceZipFileRef.md) |  | 
 **multi_zip_jobs** | [**List[MultiZipJobItem]**](MultiZipJobItem.md) | List of per-file job items extracted from a ZIP archive (POST /batch/zip). | 
 **payment_details** | [**PaymentDetails**](PaymentDetails.md) |  | [optional] 
+**return_address** | [**ReturnAddress**](ReturnAddress.md) |  | [optional] 
+**job_options** | [**JobOptions**](JobOptions.md) |  | [optional] 
 **tags** | **List[str]** | Array of user-defined string tags. | [optional] 
 
 ## Example
