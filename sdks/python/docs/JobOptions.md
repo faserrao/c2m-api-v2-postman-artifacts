@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **document_class** | **str** | Document class determining the mailpiece format. | 
 **layout** | **str** | Page layout controlling where the recipient address is printed. | 
 **production_time** | **str** | Production time preference (next_day, two_day, etc.). | 
-**envelope** | **str** | Envelope type used for the mailing. | 
+**envelope** | **str** | Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. | 
 **color** | **str** | Color mode for printing (full_color or black_and_white). | 
 **paper_type** | **str** | Paper stock for printing. | 
 **print_option** | **str** | Duplex setting (double_sided or single_sided). | 

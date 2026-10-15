@@ -10,7 +10,7 @@ import Foundation
 import AnyCodable
 #endif
 
-/** Envelope type used for the mailing. */
+/** Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. */
 public enum Envelope: String, Codable, CaseIterable {
     case standard = "standard"
     case _none = "none"

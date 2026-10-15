@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class Envelope(str, Enum):
     """
-    Envelope type used for the mailing.
+    Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
     """
 
     """

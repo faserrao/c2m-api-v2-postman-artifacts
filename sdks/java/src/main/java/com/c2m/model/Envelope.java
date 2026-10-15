@@ -24,7 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Envelope type used for the mailing.
+ * Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
  */
 @JsonAdapter(Envelope.Adapter.class)
 public enum Envelope {

@@ -43,7 +43,7 @@ class JobOptionsTest : ShouldSpec() {
             //modelInstance.productionTime shouldBe ("TODO")
         }
 
-        // to test the property `envelope` - Envelope type used for the mailing.
+        // to test the property `envelope` - Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
         should("test envelope") {
             // uncomment below to test the property
             //modelInstance.envelope shouldBe ("TODO")

@@ -61,7 +61,7 @@ public struct JobOptions: Codable, JSONEncodable, Hashable {
     public var layout: Layout
     /** Production time preference (next_day, two_day, etc.). */
     public var productionTime: ProductionTime
-    /** Envelope type used for the mailing. */
+    /** Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. */
     public var envelope: Envelope
     /** Color mode for printing (full_color or black_and_white). */
     public var color: Color

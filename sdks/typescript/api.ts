@@ -293,7 +293,7 @@ export interface DocumentIdSource {
     'documentId': number;
 }
 /**
- * Envelope type used for the mailing.
+ * Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
  */
 
 export const Envelope = {
@@ -467,7 +467,7 @@ export interface JobOptions {
      */
     'productionTime': JobOptionsProductionTimeEnum;
     /**
-     * Envelope type used for the mailing.
+     * Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
      */
     'envelope': JobOptionsEnvelopeEnum;
     /**

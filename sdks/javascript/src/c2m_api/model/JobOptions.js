@@ -26,7 +26,7 @@ class JobOptions {
      * @param documentClass {module:c2m_api/model/JobOptions.DocumentClassEnum} Document class determining the mailpiece format.
      * @param layout {module:c2m_api/model/JobOptions.LayoutEnum} Page layout controlling where the recipient address is printed.
      * @param productionTime {module:c2m_api/model/JobOptions.ProductionTimeEnum} Production time preference (next_day, two_day, etc.).
-     * @param envelope {module:c2m_api/model/JobOptions.EnvelopeEnum} Envelope type used for the mailing.
+     * @param envelope {module:c2m_api/model/JobOptions.EnvelopeEnum} Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
      * @param color {module:c2m_api/model/JobOptions.ColorEnum} Color mode for printing (full_color or black_and_white).
      * @param paperType {module:c2m_api/model/JobOptions.PaperTypeEnum} Paper stock for printing.
      * @param printOption {module:c2m_api/model/JobOptions.PrintOptionEnum} Duplex setting (double_sided or single_sided).
@@ -164,7 +164,7 @@ JobOptions.prototype['layout'] = undefined;
 JobOptions.prototype['productionTime'] = undefined;
 
 /**
- * Envelope type used for the mailing.
+ * Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
  * @member {module:c2m_api/model/JobOptions.EnvelopeEnum} envelope
  */
 JobOptions.prototype['envelope'] = undefined;

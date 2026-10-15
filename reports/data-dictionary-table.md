@@ -216,7 +216,7 @@ Explicit print and mail configuration options. Mutually exclusive with jobTempla
 | `documentClass` | enum (letter | postcard | brochure | flat) | Required | Document class determining the mailpiece format. |
 | `layout` | enum (address_on_first_page | address_on_back_page) | Required | Page layout controlling where the recipient address is printed. |
 | `productionTime` | enum (next_day | two_day | three_day | standard | same_day) | Required | Production time preference (next_day, two_day, etc.). |
-| `envelope` | enum (standard | none | flat | double_window) | Required | Envelope type used for the mailing. |
+| `envelope` | enum (standard | none | flat | double_window) | Required | Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. |
 | `color` | enum (full_color | black_and_white) | Required | Color mode for printing (full_color or black_and_white). |
 | `paperType` | enum (white | white_24 | ivory | glossy) | Required | Paper stock for printing. |
 | `printOption` | enum (double_sided | single_sided) | Required | Duplex setting (double_sided or single_sided). |
@@ -529,7 +529,7 @@ Document class determining the mailpiece format.
 
 ### `envelope`
 
-Envelope type used for the mailing.
+Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |

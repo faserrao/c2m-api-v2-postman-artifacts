@@ -20,7 +20,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * Envelope type used for the mailing.
+ * Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
  *
  * Values: standard,none,flat,double_window
  */

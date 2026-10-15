@@ -23,7 +23,7 @@ pub struct JobOptions {
     /// Production time preference (next_day, two_day, etc.).
     #[serde(rename = "productionTime")]
     pub production_time: ProductionTime,
-    /// Envelope type used for the mailing.
+    /// Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
     #[serde(rename = "envelope")]
     pub envelope: Envelope,
     /// Color mode for printing (full_color or black_and_white).
@@ -107,7 +107,7 @@ impl Default for ProductionTime {
         Self::NextDay
     }
 }
-/// Envelope type used for the mailing.
+/// Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Envelope {
     #[serde(rename = "standard")]

@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * ACH payment fields: routing number, bank account number, and check digit.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-14T18:13:49.711996538Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T00:52:00.612068079Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class AchDetails {
   public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routingNumber";
   @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)

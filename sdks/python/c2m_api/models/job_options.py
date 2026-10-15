@@ -29,7 +29,7 @@ class JobOptions(BaseModel):
     document_class: StrictStr = Field(description="Document class determining the mailpiece format.", alias="documentClass")
     layout: StrictStr = Field(description="Page layout controlling where the recipient address is printed.")
     production_time: StrictStr = Field(description="Production time preference (next_day, two_day, etc.).", alias="productionTime")
-    envelope: StrictStr = Field(description="Envelope type used for the mailing.")
+    envelope: StrictStr = Field(description="Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.")
     color: StrictStr = Field(description="Color mode for printing (full_color or black_and_white).")
     paper_type: StrictStr = Field(description="Paper stock for printing.", alias="paperType")
     print_option: StrictStr = Field(description="Duplex setting (double_sided or single_sided).", alias="printOption")

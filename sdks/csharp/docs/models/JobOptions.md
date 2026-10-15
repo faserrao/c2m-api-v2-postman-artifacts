@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **DocumentClass** | **string** | Document class determining the mailpiece format. | 
 **Layout** | **string** | Page layout controlling where the recipient address is printed. | 
 **ProductionTime** | **string** | Production time preference (next_day, two_day, etc.). | 
-**Envelope** | **string** | Envelope type used for the mailing. | 
+**Envelope** | **string** | Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. | 
 **Color** | **string** | Color mode for printing (full_color or black_and_white). | 
 **PaperType** | **string** | Paper stock for printing. | 
 **PrintOption** | **string** | Duplex setting (double_sided or single_sided). | 

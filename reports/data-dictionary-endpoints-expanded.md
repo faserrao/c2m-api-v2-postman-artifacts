@@ -68,7 +68,7 @@
 | `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class determining the mailpiece format. |
 | `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout controlling where the recipient address is printed. |
 | `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference (next_day, two_day, etc.). |
-| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. |
 | `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode for printing (full_color or black_and_white). |
 | `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock for printing. |
 | `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting (double_sided or single_sided). |
@@ -113,7 +113,7 @@
 | `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class determining the mailpiece format. |
 | `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout controlling where the recipient address is printed. |
 | `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference (next_day, two_day, etc.). |
-| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. |
 | `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode for printing (full_color or black_and_white). |
 | `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock for printing. |
 | `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting (double_sided or single_sided). |
@@ -176,7 +176,7 @@
 | `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class determining the mailpiece format. |
 | `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout controlling where the recipient address is printed. |
 | `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference (next_day, two_day, etc.). |
-| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. |
 | `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode for printing (full_color or black_and_white). |
 | `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock for printing. |
 | `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting (double_sided or single_sided). |
@@ -224,7 +224,7 @@
 | `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class determining the mailpiece format. |
 | `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout controlling where the recipient address is printed. |
 | `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference (next_day, two_day, etc.). |
-| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. |
 | `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode for printing (full_color or black_and_white). |
 | `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock for printing. |
 | `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting (double_sided or single_sided). |
@@ -283,7 +283,7 @@
 | `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class determining the mailpiece format. |
 | `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout controlling where the recipient address is printed. |
 | `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference (next_day, two_day, etc.). |
-| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. |
 | `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode for printing (full_color or black_and_white). |
 | `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock for printing. |
 | `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting (double_sided or single_sided). |
@@ -343,7 +343,7 @@
 | `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class determining the mailpiece format. |
 | `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout controlling where the recipient address is printed. |
 | `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference (next_day, two_day, etc.). |
-| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. |
 | `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode for printing (full_color or black_and_white). |
 | `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock for printing. |
 | `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting (double_sided or single_sided). |
@@ -389,7 +389,7 @@
 | `jobOptions.documentClass` | enum: letter | postcard | brochure | flat | Optional | Document class determining the mailpiece format. |
 | `jobOptions.layout` | enum: address_on_first_page | address_on_back_page | Optional | Page layout controlling where the recipient address is printed. |
 | `jobOptions.productionTime` | enum: next_day | two_day | three_day | standard | same_day | Optional | Production time preference (next_day, two_day, etc.). |
-| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. |
+| `jobOptions.envelope` | enum: standard | none | flat | double_window | Optional | Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. |
 | `jobOptions.color` | enum: full_color | black_and_white | Optional | Color mode for printing (full_color or black_and_white). |
 | `jobOptions.paperType` | enum: white | white_24 | ivory | glossy | Optional | Paper stock for printing. |
 | `jobOptions.printOption` | enum: double_sided | single_sided | Optional | Duplex setting (double_sided or single_sided). |

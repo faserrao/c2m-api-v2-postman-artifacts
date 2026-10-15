@@ -7,7 +7,7 @@
 | **documentClass** | [**inline**](#DocumentClass) | Document class determining the mailpiece format. |  |
 | **layout** | [**inline**](#Layout) | Page layout controlling where the recipient address is printed. |  |
 | **productionTime** | [**inline**](#ProductionTime) | Production time preference (next_day, two_day, etc.). |  |
-| **envelope** | [**inline**](#Envelope) | Envelope type used for the mailing. |  |
+| **envelope** | [**inline**](#Envelope) | Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. |  |
 | **color** | [**inline**](#Color) | Color mode for printing (full_color or black_and_white). |  |
 | **paperType** | [**inline**](#PaperType) | Paper stock for printing. |  |
 | **printOption** | [**inline**](#PrintOption) | Duplex setting (double_sided or single_sided). |  |

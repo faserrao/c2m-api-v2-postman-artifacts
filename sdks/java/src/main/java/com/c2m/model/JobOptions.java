@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * Explicit print and mail configuration options. Mutually exclusive with jobTemplate.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-14T18:13:49.711996538Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T00:52:00.612068079Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class JobOptions {
   /**
    * Document class determining the mailpiece format.
@@ -232,7 +232,7 @@ public class JobOptions {
   private ProductionTimeEnum productionTime;
 
   /**
-   * Envelope type used for the mailing.
+   * Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
    */
   @JsonAdapter(EnvelopeEnum.Adapter.class)
   public enum EnvelopeEnum {
@@ -592,7 +592,7 @@ public class JobOptions {
   }
 
   /**
-   * Envelope type used for the mailing.
+   * Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
    * @return envelope
    */
   @javax.annotation.Nonnull

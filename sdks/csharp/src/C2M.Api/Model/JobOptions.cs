@@ -36,7 +36,7 @@ namespace C2M.Api.Model
         /// <param name="documentClass">Document class determining the mailpiece format.</param>
         /// <param name="layout">Page layout controlling where the recipient address is printed.</param>
         /// <param name="productionTime">Production time preference (next_day, two_day, etc.).</param>
-        /// <param name="envelope">Envelope type used for the mailing.</param>
+        /// <param name="envelope">Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.</param>
         /// <param name="color">Color mode for printing (full_color or black_and_white).</param>
         /// <param name="paperType">Paper stock for printing.</param>
         /// <param name="printOption">Duplex setting (double_sided or single_sided).</param>
@@ -350,9 +350,9 @@ namespace C2M.Api.Model
         public ProductionTimeEnum ProductionTime { get; set; }
 
         /// <summary>
-        /// Envelope type used for the mailing.
+        /// Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
         /// </summary>
-        /// <value>Envelope type used for the mailing.</value>
+        /// <value>Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.</value>
         public enum EnvelopeEnum
         {
             /// <summary>
@@ -445,9 +445,9 @@ namespace C2M.Api.Model
         }
 
         /// <summary>
-        /// Envelope type used for the mailing.
+        /// Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
         /// </summary>
-        /// <value>Envelope type used for the mailing.</value>
+        /// <value>Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.</value>
         [JsonPropertyName("envelope")]
         public EnvelopeEnum Envelope { get; set; }
 

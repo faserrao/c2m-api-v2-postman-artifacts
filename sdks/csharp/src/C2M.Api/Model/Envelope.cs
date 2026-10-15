@@ -26,9 +26,9 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// Envelope type used for the mailing.
+    /// Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
     /// </summary>
-    /// <value>Envelope type used for the mailing.</value>
+    /// <value>Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.</value>
     public enum Envelope
     {
         /// <summary>

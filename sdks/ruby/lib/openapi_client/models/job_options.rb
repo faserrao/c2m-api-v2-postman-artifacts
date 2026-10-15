@@ -25,7 +25,7 @@ module OpenapiClient
     # Production time preference (next_day, two_day, etc.).
     attr_accessor :production_time
 
-    # Envelope type used for the mailing.
+    # Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
     attr_accessor :envelope
 
     # Color mode for printing (full_color or black_and_white).

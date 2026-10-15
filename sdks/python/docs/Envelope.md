@@ -1,6 +1,6 @@
 # Envelope
 
-Envelope type used for the mailing.
+Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
 
 ## Enum
 

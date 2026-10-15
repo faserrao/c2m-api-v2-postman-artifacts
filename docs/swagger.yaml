@@ -70,15 +70,16 @@ info:
         - flat
     - when_field: envelope
       when_value: none
-      then_field: layout
+      then_field: documentClass
       then_values:
-        - address_on_first_page
-        - address_on_back_page
+        - postcard
+        - brochure
+        - flat
   x-mutual-exclusion:
     - jobTemplate
     - jobOptions
 servers:
-  - url: https://ba501955-1565-4904-8dc9-69947c5b6458.mock.pstmn.io
+  - url: https://1f99a89f-efd0-421d-a4df-6a7247ef487c.mock.pstmn.io
     description: Postman Mock Server
   - url: 'https://api.click2mail.com/v2'
     description: Production server
@@ -321,7 +322,7 @@ components:
             - standard
             - same_day
         envelope:
-          description: Envelope type used for the mailing.
+          description: 'Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.'
           type: string
           enum:
             - standard
@@ -388,7 +389,7 @@ components:
         - standard
         - same_day
     envelope:
-      description: Envelope type used for the mailing.
+      description: 'Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.'
       type: string
       enum:
         - standard

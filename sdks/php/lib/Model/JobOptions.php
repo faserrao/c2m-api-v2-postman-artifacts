@@ -699,7 +699,7 @@ class JobOptions implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets envelope
      *
-     * @param string $envelope Envelope type used for the mailing.
+     * @param string $envelope Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
      *
      * @return self
      */

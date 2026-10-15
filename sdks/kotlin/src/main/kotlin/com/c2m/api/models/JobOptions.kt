@@ -25,7 +25,7 @@ import com.squareup.moshi.JsonClass
  * @param documentClass Document class determining the mailpiece format.
  * @param layout Page layout controlling where the recipient address is printed.
  * @param productionTime Production time preference (next_day, two_day, etc.).
- * @param envelope Envelope type used for the mailing.
+ * @param envelope Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
  * @param color Color mode for printing (full_color or black_and_white).
  * @param paperType Paper stock for printing.
  * @param printOption Duplex setting (double_sided or single_sided).
@@ -47,7 +47,7 @@ data class JobOptions (
     @Json(name = "productionTime")
     val productionTime: JobOptions.ProductionTime,
 
-    /* Envelope type used for the mailing. */
+    /* Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. */
     @Json(name = "envelope")
     val envelope: JobOptions.Envelope,
 
@@ -105,7 +105,7 @@ data class JobOptions (
         @Json(name = "same_day") same_day("same_day");
     }
     /**
-     * Envelope type used for the mailing.
+     * Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
      *
      * Values: standard,none,flat,double_window
      */

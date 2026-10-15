@@ -27,7 +27,7 @@ type JobOptions struct {
 	Layout string `json:"layout"`
 	// Production time preference (next_day, two_day, etc.).
 	ProductionTime string `json:"productionTime"`
-	// Envelope type used for the mailing.
+	// Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
 	Envelope string `json:"envelope"`
 	// Color mode for printing (full_color or black_and_white).
 	Color string `json:"color"`

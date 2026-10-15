@@ -11,8 +11,8 @@
 use crate::models;
 use serde::{Deserialize, Serialize};
 
-/// Envelope : Envelope type used for the mailing.
-/// Envelope type used for the mailing.
+/// Envelope : Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
+/// Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum Envelope {
     #[serde(rename = "standard")]

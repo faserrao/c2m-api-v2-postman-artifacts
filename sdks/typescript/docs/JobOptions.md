@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **documentClass** | **string** | Document class determining the mailpiece format. | [default to undefined]
 **layout** | **string** | Page layout controlling where the recipient address is printed. | [default to undefined]
 **productionTime** | **string** | Production time preference (next_day, two_day, etc.). | [default to undefined]
-**envelope** | **string** | Envelope type used for the mailing. | [default to undefined]
+**envelope** | **string** | Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only. | [default to undefined]
 **color** | **string** | Color mode for printing (full_color or black_and_white). | [default to undefined]
 **paperType** | **string** | Paper stock for printing. | [default to undefined]
 **printOption** | **string** | Duplex setting (double_sided or single_sided). | [default to undefined]

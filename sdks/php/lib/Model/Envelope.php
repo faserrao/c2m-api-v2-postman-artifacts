@@ -33,7 +33,7 @@ use \C2MApi\ObjectSerializer;
  * Envelope Class Doc Comment
  *
  * @category Class
- * @description Envelope type used for the mailing.
+ * @description Envelope type used for the mailing. none means the mailpiece mails itself: postcard, brochure or flat only.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
