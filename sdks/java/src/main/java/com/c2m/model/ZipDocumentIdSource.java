@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * Source a specific file within a stored ZIP archive — requires the archive ID and the filename of the target file within the archive.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-16T17:57:25.461326730Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-16T18:09:28.100286496Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ZipDocumentIdSource {
   public static final String SERIALIZED_NAME_ZIP_DOCUMENT_ID = "zipDocumentId";
   @SerializedName(SERIALIZED_NAME_ZIP_DOCUMENT_ID)
