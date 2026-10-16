@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * A single page-range job entry: page range only (no address — used for address-capture endpoint).
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-16T17:28:35.340441251Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-16T17:43:49.877034271Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class PdfSplitJobItemNoAddress {
   public static final String SERIALIZED_NAME_JOB_TEMPLATE = "jobTemplate";
   @SerializedName(SERIALIZED_NAME_JOB_TEMPLATE)
