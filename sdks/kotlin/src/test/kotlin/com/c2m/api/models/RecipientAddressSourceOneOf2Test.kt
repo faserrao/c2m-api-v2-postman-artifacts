@@ -19,13 +19,14 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.RecipientAddressSourceOneOf2
+import com.c2m.api.models.RecipientAddressByListId
 
 class RecipientAddressSourceOneOf2Test : ShouldSpec() {
     init {
         // uncomment below to create an instance of RecipientAddressSourceOneOf2
         //val modelInstance = RecipientAddressSourceOneOf2()
 
-        // to test the property `recipientAddressByListId` - Reference to a previously stored recipient address list by its integer ID.
+        // to test the property `recipientAddressByListId`
         should("test recipientAddressByListId") {
             // uncomment below to test the property
             //modelInstance.recipientAddressByListId shouldBe ("TODO")

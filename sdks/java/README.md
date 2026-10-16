@@ -2,7 +2,7 @@
 
 C2M API v2
 - API version: 2.0.0
-  - Build date: 2026-10-16T17:43:49.877034271Z[Etc/UTC]
+  - Build date: 2026-10-16T17:57:25.461326730Z[Etc/UTC]
   - Generator version: 7.15.0
 
 API for submitting mailing jobs with various document routing options
@@ -187,7 +187,9 @@ Class | Method | HTTP request | Description
  - [PdfSplitJobItemWithAddress](docs/PdfSplitJobItemWithAddress.md)
  - [PrintOption](docs/PrintOption.md)
  - [ProductionTime](docs/ProductionTime.md)
+ - [RecipientAddressByAddressId](docs/RecipientAddressByAddressId.md)
  - [RecipientAddressByList](docs/RecipientAddressByList.md)
+ - [RecipientAddressByListId](docs/RecipientAddressByListId.md)
  - [RecipientAddressSource](docs/RecipientAddressSource.md)
  - [RecipientAddressSourceOneOf](docs/RecipientAddressSourceOneOf.md)
  - [RecipientAddressSourceOneOf1](docs/RecipientAddressSourceOneOf1.md)

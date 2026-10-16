@@ -52,8 +52,10 @@ class TestRecipientAddressSource(unittest.TestCase):
                             foo2 = '', )
                         ], 
                     address_list_name = '', ),
-                recipient_address_by_address_id = 56,
-                recipient_address_by_list_id = 56
+                recipient_address_by_address_id = c2m_api.models.recipient_address_by_address_id.recipientAddressByAddressId(
+                    address_id = 56, ),
+                recipient_address_by_list_id = c2m_api.models.recipient_address_by_list_id.recipientAddressByListId(
+                    address_list_id = 56, )
             )
         else:
             return RecipientAddressSource(
@@ -74,8 +76,10 @@ class TestRecipientAddressSource(unittest.TestCase):
                             foo2 = '', )
                         ], 
                     address_list_name = '', ),
-                recipient_address_by_address_id = 56,
-                recipient_address_by_list_id = 56,
+                recipient_address_by_address_id = c2m_api.models.recipient_address_by_address_id.recipientAddressByAddressId(
+                    address_id = 56, ),
+                recipient_address_by_list_id = c2m_api.models.recipient_address_by_list_id.recipientAddressByListId(
+                    address_list_id = 56, ),
         )
         """
 

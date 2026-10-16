@@ -14,6 +14,7 @@
 package com.c2m.model;
 
 import java.util.Objects;
+import com.c2m.model.RecipientAddressByAddressId;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -48,31 +49,31 @@ import com.c2m.JSON;
 /**
  * RecipientAddressSourceOneOf1
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-16T17:43:49.877034271Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-16T17:57:25.461326730Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class RecipientAddressSourceOneOf1 {
   public static final String SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_ADDRESS_ID = "recipientAddressByAddressId";
   @SerializedName(SERIALIZED_NAME_RECIPIENT_ADDRESS_BY_ADDRESS_ID)
   @javax.annotation.Nonnull
-  private Integer recipientAddressByAddressId;
+  private RecipientAddressByAddressId recipientAddressByAddressId;
 
   public RecipientAddressSourceOneOf1() {
   }
 
-  public RecipientAddressSourceOneOf1 recipientAddressByAddressId(@javax.annotation.Nonnull Integer recipientAddressByAddressId) {
+  public RecipientAddressSourceOneOf1 recipientAddressByAddressId(@javax.annotation.Nonnull RecipientAddressByAddressId recipientAddressByAddressId) {
     this.recipientAddressByAddressId = recipientAddressByAddressId;
     return this;
   }
 
   /**
-   * Reference to a previously stored individual recipient address by its integer ID.
+   * Get recipientAddressByAddressId
    * @return recipientAddressByAddressId
    */
   @javax.annotation.Nonnull
-  public Integer getRecipientAddressByAddressId() {
+  public RecipientAddressByAddressId getRecipientAddressByAddressId() {
     return recipientAddressByAddressId;
   }
 
-  public void setRecipientAddressByAddressId(@javax.annotation.Nonnull Integer recipientAddressByAddressId) {
+  public void setRecipientAddressByAddressId(@javax.annotation.Nonnull RecipientAddressByAddressId recipientAddressByAddressId) {
     this.recipientAddressByAddressId = recipientAddressByAddressId;
   }
 
@@ -155,6 +156,8 @@ public class RecipientAddressSourceOneOf1 {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `recipientAddressByAddressId`
+      RecipientAddressByAddressId.validateJsonElement(jsonObj.get("recipientAddressByAddressId"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

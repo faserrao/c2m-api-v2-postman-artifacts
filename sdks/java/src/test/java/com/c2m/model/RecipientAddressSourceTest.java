@@ -13,7 +13,9 @@
 
 package com.c2m.model;
 
+import com.c2m.model.RecipientAddressByAddressId;
 import com.c2m.model.RecipientAddressByList;
+import com.c2m.model.RecipientAddressByListId;
 import com.c2m.model.RecipientAddressSourceOneOf;
 import com.c2m.model.RecipientAddressSourceOneOf1;
 import com.c2m.model.RecipientAddressSourceOneOf2;

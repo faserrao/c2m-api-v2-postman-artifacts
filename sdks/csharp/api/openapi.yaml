@@ -3162,11 +3162,23 @@ components:
     recipientAddressByListId:
       description: Reference to a previously stored recipient address list by its
         integer ID.
-      type: integer
+      properties:
+        addressListId:
+          description: Integer ID of a previously stored recipient address list.
+          type: integer
+      required:
+      - addressListId
+      type: object
     recipientAddressByAddressId:
       description: Reference to a previously stored individual recipient address by
         its integer ID.
-      type: integer
+      properties:
+        addressId:
+          description: Integer ID of a previously stored individual recipient address.
+          type: integer
+      required:
+      - addressId
+      type: object
     mappingId:
       description: "Integer ID of a merge-field mapping profile that associates address\
         \ columns to template variables. If omitted, the account default mapping is\
@@ -4012,18 +4024,14 @@ components:
     recipientAddressSource_oneOf_1:
       properties:
         recipientAddressByAddressId:
-          description: Reference to a previously stored individual recipient address
-            by its integer ID.
-          type: integer
+          $ref: "#/components/schemas/recipientAddressByAddressId"
       required:
       - recipientAddressByAddressId
       type: object
     recipientAddressSource_oneOf_2:
       properties:
         recipientAddressByListId:
-          description: Reference to a previously stored recipient address list by
-            its integer ID.
-          type: integer
+          $ref: "#/components/schemas/recipientAddressByListId"
       required:
       - recipientAddressByListId
       type: object

@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import RecipientAddressByAddressId from './RecipientAddressByAddressId';
 
 /**
  * The RecipientAddressSourceOneOf1 model module.
@@ -22,7 +23,7 @@ class RecipientAddressSourceOneOf1 {
     /**
      * Constructs a new <code>RecipientAddressSourceOneOf1</code>.
      * @alias module:c2m_api/model/RecipientAddressSourceOneOf1
-     * @param recipientAddressByAddressId {Number} Reference to a previously stored individual recipient address by its integer ID.
+     * @param recipientAddressByAddressId {module:c2m_api/model/RecipientAddressByAddressId} 
      */
     constructor(recipientAddressByAddressId) { 
         
@@ -50,7 +51,7 @@ class RecipientAddressSourceOneOf1 {
             obj = obj || new RecipientAddressSourceOneOf1();
 
             if (data.hasOwnProperty('recipientAddressByAddressId')) {
-                obj['recipientAddressByAddressId'] = ApiClient.convertToType(data['recipientAddressByAddressId'], 'Number');
+                obj['recipientAddressByAddressId'] = RecipientAddressByAddressId.constructFromObject(data['recipientAddressByAddressId']);
             }
         }
         return obj;
@@ -68,6 +69,10 @@ class RecipientAddressSourceOneOf1 {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // validate the optional field `recipientAddressByAddressId`
+        if (data['recipientAddressByAddressId']) { // data not null
+          RecipientAddressByAddressId.validateJSON(data['recipientAddressByAddressId']);
+        }
 
         return true;
     }
@@ -78,8 +83,7 @@ class RecipientAddressSourceOneOf1 {
 RecipientAddressSourceOneOf1.RequiredProperties = ["recipientAddressByAddressId"];
 
 /**
- * Reference to a previously stored individual recipient address by its integer ID.
- * @member {Number} recipientAddressByAddressId
+ * @member {module:c2m_api/model/RecipientAddressByAddressId} recipientAddressByAddressId
  */
 RecipientAddressSourceOneOf1.prototype['recipientAddressByAddressId'] = undefined;
 

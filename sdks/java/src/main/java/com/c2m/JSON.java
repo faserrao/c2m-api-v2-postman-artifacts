@@ -143,7 +143,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.PaymentDetails.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.PdfSplitJobItemNoAddress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.PdfSplitJobItemWithAddress.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressByAddressId.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressByList.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressByListId.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressSource.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressSourceOneOf.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.c2m.model.RecipientAddressSourceOneOf1.CustomTypeAdapterFactory());

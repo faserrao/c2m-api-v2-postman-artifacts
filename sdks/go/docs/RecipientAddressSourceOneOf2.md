@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RecipientAddressByListId** | **int32** | Reference to a previously stored recipient address list by its integer ID. | 
+**RecipientAddressByListId** | [**RecipientAddressByListId**](RecipientAddressByListId.md) |  | 
 
 ## Methods
 
 ### NewRecipientAddressSourceOneOf2
 
-`func NewRecipientAddressSourceOneOf2(recipientAddressByListId int32, ) *RecipientAddressSourceOneOf2`
+`func NewRecipientAddressSourceOneOf2(recipientAddressByListId RecipientAddressByListId, ) *RecipientAddressSourceOneOf2`
 
 NewRecipientAddressSourceOneOf2 instantiates a new RecipientAddressSourceOneOf2 object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetRecipientAddressByListId
 
-`func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByListId() int32`
+`func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByListId() RecipientAddressByListId`
 
 GetRecipientAddressByListId returns the RecipientAddressByListId field if non-nil, zero value otherwise.
 
 ### GetRecipientAddressByListIdOk
 
-`func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByListIdOk() (*int32, bool)`
+`func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByListIdOk() (*RecipientAddressByListId, bool)`
 
 GetRecipientAddressByListIdOk returns a tuple with the RecipientAddressByListId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipientAddressByListId
 
-`func (o *RecipientAddressSourceOneOf2) SetRecipientAddressByListId(v int32)`
+`func (o *RecipientAddressSourceOneOf2) SetRecipientAddressByListId(v RecipientAddressByListId)`
 
 SetRecipientAddressByListId sets RecipientAddressByListId field to given value.
 

@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import RecipientAddressByListId from './RecipientAddressByListId';
 
 /**
  * The RecipientAddressSourceOneOf2 model module.
@@ -22,7 +23,7 @@ class RecipientAddressSourceOneOf2 {
     /**
      * Constructs a new <code>RecipientAddressSourceOneOf2</code>.
      * @alias module:c2m_api/model/RecipientAddressSourceOneOf2
-     * @param recipientAddressByListId {Number} Reference to a previously stored recipient address list by its integer ID.
+     * @param recipientAddressByListId {module:c2m_api/model/RecipientAddressByListId} 
      */
     constructor(recipientAddressByListId) { 
         
@@ -50,7 +51,7 @@ class RecipientAddressSourceOneOf2 {
             obj = obj || new RecipientAddressSourceOneOf2();
 
             if (data.hasOwnProperty('recipientAddressByListId')) {
-                obj['recipientAddressByListId'] = ApiClient.convertToType(data['recipientAddressByListId'], 'Number');
+                obj['recipientAddressByListId'] = RecipientAddressByListId.constructFromObject(data['recipientAddressByListId']);
             }
         }
         return obj;
@@ -68,6 +69,10 @@ class RecipientAddressSourceOneOf2 {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
+        // validate the optional field `recipientAddressByListId`
+        if (data['recipientAddressByListId']) { // data not null
+          RecipientAddressByListId.validateJSON(data['recipientAddressByListId']);
+        }
 
         return true;
     }
@@ -78,8 +83,7 @@ class RecipientAddressSourceOneOf2 {
 RecipientAddressSourceOneOf2.RequiredProperties = ["recipientAddressByListId"];
 
 /**
- * Reference to a previously stored recipient address list by its integer ID.
- * @member {Number} recipientAddressByListId
+ * @member {module:c2m_api/model/RecipientAddressByListId} recipientAddressByListId
  */
 RecipientAddressSourceOneOf2.prototype['recipientAddressByListId'] = undefined;
 

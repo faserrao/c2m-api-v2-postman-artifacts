@@ -12,7 +12,9 @@
  */
 
 import ApiClient from '../ApiClient';
+import RecipientAddressByAddressId from './RecipientAddressByAddressId';
 import RecipientAddressByList from './RecipientAddressByList';
+import RecipientAddressByListId from './RecipientAddressByListId';
 import RecipientAddressSourceOneOf from './RecipientAddressSourceOneOf';
 import RecipientAddressSourceOneOf1 from './RecipientAddressSourceOneOf1';
 import RecipientAddressSourceOneOf2 from './RecipientAddressSourceOneOf2';
@@ -146,14 +148,12 @@ class RecipientAddressSource {
 RecipientAddressSource.prototype['recipientAddressByList'] = undefined;
 
 /**
- * Reference to a previously stored individual recipient address by its integer ID.
- * @member {Number} recipientAddressByAddressId
+ * @member {module:c2m_api/model/RecipientAddressByAddressId} recipientAddressByAddressId
  */
 RecipientAddressSource.prototype['recipientAddressByAddressId'] = undefined;
 
 /**
- * Reference to a previously stored recipient address list by its integer ID.
- * @member {Number} recipientAddressByListId
+ * @member {module:c2m_api/model/RecipientAddressByListId} recipientAddressByListId
  */
 RecipientAddressSource.prototype['recipientAddressByListId'] = undefined;
 

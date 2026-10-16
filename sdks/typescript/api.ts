@@ -799,6 +799,15 @@ export type ProductionTime = typeof ProductionTime[keyof typeof ProductionTime];
 
 
 /**
+ * Reference to a previously stored individual recipient address by its integer ID.
+ */
+export interface RecipientAddressByAddressId {
+    /**
+     * Integer ID of a previously stored individual recipient address.
+     */
+    'addressId': number;
+}
+/**
  * Inline list of recipient addresses with an optional merge-field mapping ID.
  */
 export interface RecipientAddressByList {
@@ -816,6 +825,15 @@ export interface RecipientAddressByList {
     'addressListName'?: string;
 }
 /**
+ * Reference to a previously stored recipient address list by its integer ID.
+ */
+export interface RecipientAddressByListId {
+    /**
+     * Integer ID of a previously stored recipient address list.
+     */
+    'addressListId': number;
+}
+/**
  * @type RecipientAddressSource
  * Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
  */
@@ -825,16 +843,10 @@ export interface RecipientAddressSourceOneOf {
     'recipientAddressByList': RecipientAddressByList;
 }
 export interface RecipientAddressSourceOneOf1 {
-    /**
-     * Reference to a previously stored individual recipient address by its integer ID.
-     */
-    'recipientAddressByAddressId': number;
+    'recipientAddressByAddressId': RecipientAddressByAddressId;
 }
 export interface RecipientAddressSourceOneOf2 {
-    /**
-     * Reference to a previously stored recipient address list by its integer ID.
-     */
-    'recipientAddressByListId': number;
+    'recipientAddressByListId': RecipientAddressByListId;
 }
 /**
  * Source a document from a prior file upload by request ID. If the upload request contained multiple files, filename is required to identify which one.

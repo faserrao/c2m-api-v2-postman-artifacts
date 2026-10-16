@@ -15,7 +15,6 @@ require 'time'
 
 module OpenapiClient
   class RecipientAddressSourceOneOf1
-    # Reference to a previously stored individual recipient address by its integer ID.
     attr_accessor :recipient_address_by_address_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +37,7 @@ module OpenapiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'recipient_address_by_address_id' => :'Integer'
+        :'recipient_address_by_address_id' => :'RecipientAddressByAddressId'
       }
     end
 

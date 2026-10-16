@@ -76,7 +76,9 @@ __all__ = [
     "PdfSplitJobItemWithAddress",
     "PrintOption",
     "ProductionTime",
+    "RecipientAddressByAddressId",
     "RecipientAddressByList",
+    "RecipientAddressByListId",
     "RecipientAddressSource",
     "RecipientAddressSourceOneOf",
     "RecipientAddressSourceOneOf1",
@@ -168,7 +170,9 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress as PdfSplitJobItemWithAddress
     from c2m_api.models.print_option import PrintOption as PrintOption
     from c2m_api.models.production_time import ProductionTime as ProductionTime
+    from c2m_api.models.recipient_address_by_address_id import RecipientAddressByAddressId as RecipientAddressByAddressId
     from c2m_api.models.recipient_address_by_list import RecipientAddressByList as RecipientAddressByList
+    from c2m_api.models.recipient_address_by_list_id import RecipientAddressByListId as RecipientAddressByListId
     from c2m_api.models.recipient_address_source import RecipientAddressSource as RecipientAddressSource
     from c2m_api.models.recipient_address_source_one_of import RecipientAddressSourceOneOf as RecipientAddressSourceOneOf
     from c2m_api.models.recipient_address_source_one_of1 import RecipientAddressSourceOneOf1 as RecipientAddressSourceOneOf1
@@ -266,7 +270,9 @@ from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddres
 from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress as PdfSplitJobItemWithAddress
 from c2m_api.models.print_option import PrintOption as PrintOption
 from c2m_api.models.production_time import ProductionTime as ProductionTime
+from c2m_api.models.recipient_address_by_address_id import RecipientAddressByAddressId as RecipientAddressByAddressId
 from c2m_api.models.recipient_address_by_list import RecipientAddressByList as RecipientAddressByList
+from c2m_api.models.recipient_address_by_list_id import RecipientAddressByListId as RecipientAddressByListId
 from c2m_api.models.recipient_address_source import RecipientAddressSource as RecipientAddressSource
 from c2m_api.models.recipient_address_source_one_of import RecipientAddressSourceOneOf as RecipientAddressSourceOneOf
 from c2m_api.models.recipient_address_source_one_of1 import RecipientAddressSourceOneOf1 as RecipientAddressSourceOneOf1

@@ -57,7 +57,7 @@ class RecipientAddressSourceOneOf2 implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'recipient_address_by_list_id' => 'int'
+        'recipient_address_by_list_id' => '\C2MApi\Model\RecipientAddressByListId'
     ];
 
     /**
@@ -295,7 +295,7 @@ class RecipientAddressSourceOneOf2 implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets recipient_address_by_list_id
      *
-     * @return int
+     * @return \C2MApi\Model\RecipientAddressByListId
      */
     public function getRecipientAddressByListId()
     {
@@ -305,7 +305,7 @@ class RecipientAddressSourceOneOf2 implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets recipient_address_by_list_id
      *
-     * @param int $recipient_address_by_list_id Reference to a previously stored recipient address list by its integer ID.
+     * @param \C2MApi\Model\RecipientAddressByListId $recipient_address_by_list_id recipient_address_by_list_id
      *
      * @return self
      */

@@ -19,7 +19,9 @@ import io.kotlintest.shouldBe
 import io.kotlintest.specs.ShouldSpec
 
 import com.c2m.api.models.RecipientAddressSource
+import com.c2m.api.models.RecipientAddressByAddressId
 import com.c2m.api.models.RecipientAddressByList
+import com.c2m.api.models.RecipientAddressByListId
 import com.c2m.api.models.RecipientAddressSourceOneOf
 import com.c2m.api.models.RecipientAddressSourceOneOf1
 import com.c2m.api.models.RecipientAddressSourceOneOf2
@@ -35,13 +37,13 @@ class RecipientAddressSourceTest : ShouldSpec() {
             //modelInstance.recipientAddressByList shouldBe ("TODO")
         }
 
-        // to test the property `recipientAddressByAddressId` - Reference to a previously stored individual recipient address by its integer ID.
+        // to test the property `recipientAddressByAddressId`
         should("test recipientAddressByAddressId") {
             // uncomment below to test the property
             //modelInstance.recipientAddressByAddressId shouldBe ("TODO")
         }
 
-        // to test the property `recipientAddressByListId` - Reference to a previously stored recipient address list by its integer ID.
+        // to test the property `recipientAddressByListId`
         should("test recipientAddressByListId") {
             // uncomment below to test the property
             //modelInstance.recipientAddressByListId shouldBe ("TODO")

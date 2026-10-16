@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recipient_address_by_address_id** | **int** | Reference to a previously stored individual recipient address by its integer ID. |
+**recipient_address_by_address_id** | [**\C2MApi\Model\RecipientAddressByAddressId**](RecipientAddressByAddressId.md) |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

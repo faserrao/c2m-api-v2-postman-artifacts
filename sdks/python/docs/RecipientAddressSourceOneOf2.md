@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recipient_address_by_list_id** | **int** | Reference to a previously stored recipient address list by its integer ID. | 
+**recipient_address_by_list_id** | [**RecipientAddressByListId**](RecipientAddressByListId.md) |  | 
 
 ## Example
 

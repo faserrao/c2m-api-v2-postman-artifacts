@@ -12,10 +12,9 @@ import AnyCodable
 
 public struct RecipientAddressSourceOneOf1: Codable, JSONEncodable, Hashable {
 
-    /** Reference to a previously stored individual recipient address by its integer ID. */
-    public var recipientAddressByAddressId: Int
+    public var recipientAddressByAddressId: RecipientAddressByAddressId
 
-    public init(recipientAddressByAddressId: Int) {
+    public init(recipientAddressByAddressId: RecipientAddressByAddressId) {
         self.recipientAddressByAddressId = recipientAddressByAddressId
     }
 

@@ -15,7 +15,9 @@
 
 package com.c2m.api.models
 
+import com.c2m.api.models.RecipientAddressByAddressId
 import com.c2m.api.models.RecipientAddressByList
+import com.c2m.api.models.RecipientAddressByListId
 import com.c2m.api.models.RecipientAddressSourceOneOf
 import com.c2m.api.models.RecipientAddressSourceOneOf1
 import com.c2m.api.models.RecipientAddressSourceOneOf2
@@ -27,8 +29,8 @@ import com.squareup.moshi.JsonClass
  * Recipient address specification — one of: inline address list of one or more recipients (with optional mapping), stored list ID, or stored address ID.
  *
  * @param recipientAddressByList 
- * @param recipientAddressByAddressId Reference to a previously stored individual recipient address by its integer ID.
- * @param recipientAddressByListId Reference to a previously stored recipient address list by its integer ID.
+ * @param recipientAddressByAddressId 
+ * @param recipientAddressByListId 
  */
 
 
@@ -37,13 +39,11 @@ data class RecipientAddressSource (
     @Json(name = "recipientAddressByList")
     val recipientAddressByList: RecipientAddressByList,
 
-    /* Reference to a previously stored individual recipient address by its integer ID. */
     @Json(name = "recipientAddressByAddressId")
-    val recipientAddressByAddressId: kotlin.Int,
+    val recipientAddressByAddressId: RecipientAddressByAddressId,
 
-    /* Reference to a previously stored recipient address list by its integer ID. */
     @Json(name = "recipientAddressByListId")
-    val recipientAddressByListId: kotlin.Int
+    val recipientAddressByListId: RecipientAddressByListId
 
 ) {
 

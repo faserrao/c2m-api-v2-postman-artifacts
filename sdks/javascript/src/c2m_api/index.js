@@ -60,7 +60,9 @@ import PdfSplitJobItemNoAddress from './model/PdfSplitJobItemNoAddress';
 import PdfSplitJobItemWithAddress from './model/PdfSplitJobItemWithAddress';
 import PrintOption from './model/PrintOption';
 import ProductionTime from './model/ProductionTime';
+import RecipientAddressByAddressId from './model/RecipientAddressByAddressId';
 import RecipientAddressByList from './model/RecipientAddressByList';
+import RecipientAddressByListId from './model/RecipientAddressByListId';
 import RecipientAddressSource from './model/RecipientAddressSource';
 import RecipientAddressSourceOneOf from './model/RecipientAddressSourceOneOf';
 import RecipientAddressSourceOneOf1 from './model/RecipientAddressSourceOneOf1';
@@ -411,10 +413,22 @@ export {
     ProductionTime,
 
     /**
+     * The RecipientAddressByAddressId model constructor.
+     * @property {module:c2m_api/model/RecipientAddressByAddressId}
+     */
+    RecipientAddressByAddressId,
+
+    /**
      * The RecipientAddressByList model constructor.
      * @property {module:c2m_api/model/RecipientAddressByList}
      */
     RecipientAddressByList,
+
+    /**
+     * The RecipientAddressByListId model constructor.
+     * @property {module:c2m_api/model/RecipientAddressByListId}
+     */
+    RecipientAddressByListId,
 
     /**
      * The RecipientAddressSource model constructor.

@@ -62,7 +62,9 @@ if __import__("typing").TYPE_CHECKING:
     from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress
     from c2m_api.models.print_option import PrintOption
     from c2m_api.models.production_time import ProductionTime
+    from c2m_api.models.recipient_address_by_address_id import RecipientAddressByAddressId
     from c2m_api.models.recipient_address_by_list import RecipientAddressByList
+    from c2m_api.models.recipient_address_by_list_id import RecipientAddressByListId
     from c2m_api.models.recipient_address_source import RecipientAddressSource
     from c2m_api.models.recipient_address_source_one_of import RecipientAddressSourceOneOf
     from c2m_api.models.recipient_address_source_one_of1 import RecipientAddressSourceOneOf1
@@ -143,7 +145,9 @@ from c2m_api.models.pdf_split_job_item_no_address import PdfSplitJobItemNoAddres
 from c2m_api.models.pdf_split_job_item_with_address import PdfSplitJobItemWithAddress
 from c2m_api.models.print_option import PrintOption
 from c2m_api.models.production_time import ProductionTime
+from c2m_api.models.recipient_address_by_address_id import RecipientAddressByAddressId
 from c2m_api.models.recipient_address_by_list import RecipientAddressByList
+from c2m_api.models.recipient_address_by_list_id import RecipientAddressByListId
 from c2m_api.models.recipient_address_source import RecipientAddressSource
 from c2m_api.models.recipient_address_source_one_of import RecipientAddressSourceOneOf
 from c2m_api.models.recipient_address_source_one_of1 import RecipientAddressSourceOneOf1

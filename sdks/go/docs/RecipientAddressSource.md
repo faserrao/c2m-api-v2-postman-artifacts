@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RecipientAddressByList** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | 
-**RecipientAddressByAddressId** | **int32** | Reference to a previously stored individual recipient address by its integer ID. | 
-**RecipientAddressByListId** | **int32** | Reference to a previously stored recipient address list by its integer ID. | 
+**RecipientAddressByAddressId** | [**RecipientAddressByAddressId**](RecipientAddressByAddressId.md) |  | 
+**RecipientAddressByListId** | [**RecipientAddressByListId**](RecipientAddressByListId.md) |  | 
 
 ## Methods
 
 ### NewRecipientAddressSource
 
-`func NewRecipientAddressSource(recipientAddressByList RecipientAddressByList, recipientAddressByAddressId int32, recipientAddressByListId int32, ) *RecipientAddressSource`
+`func NewRecipientAddressSource(recipientAddressByList RecipientAddressByList, recipientAddressByAddressId RecipientAddressByAddressId, recipientAddressByListId RecipientAddressByListId, ) *RecipientAddressSource`
 
 NewRecipientAddressSource instantiates a new RecipientAddressSource object
 This constructor will assign default values to properties that have it defined,
@@ -49,40 +49,40 @@ SetRecipientAddressByList sets RecipientAddressByList field to given value.
 
 ### GetRecipientAddressByAddressId
 
-`func (o *RecipientAddressSource) GetRecipientAddressByAddressId() int32`
+`func (o *RecipientAddressSource) GetRecipientAddressByAddressId() RecipientAddressByAddressId`
 
 GetRecipientAddressByAddressId returns the RecipientAddressByAddressId field if non-nil, zero value otherwise.
 
 ### GetRecipientAddressByAddressIdOk
 
-`func (o *RecipientAddressSource) GetRecipientAddressByAddressIdOk() (*int32, bool)`
+`func (o *RecipientAddressSource) GetRecipientAddressByAddressIdOk() (*RecipientAddressByAddressId, bool)`
 
 GetRecipientAddressByAddressIdOk returns a tuple with the RecipientAddressByAddressId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipientAddressByAddressId
 
-`func (o *RecipientAddressSource) SetRecipientAddressByAddressId(v int32)`
+`func (o *RecipientAddressSource) SetRecipientAddressByAddressId(v RecipientAddressByAddressId)`
 
 SetRecipientAddressByAddressId sets RecipientAddressByAddressId field to given value.
 
 
 ### GetRecipientAddressByListId
 
-`func (o *RecipientAddressSource) GetRecipientAddressByListId() int32`
+`func (o *RecipientAddressSource) GetRecipientAddressByListId() RecipientAddressByListId`
 
 GetRecipientAddressByListId returns the RecipientAddressByListId field if non-nil, zero value otherwise.
 
 ### GetRecipientAddressByListIdOk
 
-`func (o *RecipientAddressSource) GetRecipientAddressByListIdOk() (*int32, bool)`
+`func (o *RecipientAddressSource) GetRecipientAddressByListIdOk() (*RecipientAddressByListId, bool)`
 
 GetRecipientAddressByListIdOk returns a tuple with the RecipientAddressByListId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipientAddressByListId
 
-`func (o *RecipientAddressSource) SetRecipientAddressByListId(v int32)`
+`func (o *RecipientAddressSource) SetRecipientAddressByListId(v RecipientAddressByListId)`
 
 SetRecipientAddressByListId sets RecipientAddressByListId field to given value.
 

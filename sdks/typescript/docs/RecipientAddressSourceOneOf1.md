@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**recipientAddressByAddressId** | **number** | Reference to a previously stored individual recipient address by its integer ID. | [default to undefined]
+**recipientAddressByAddressId** | [**RecipientAddressByAddressId**](RecipientAddressByAddressId.md) |  | [default to undefined]
 
 ## Example
 

@@ -21,8 +21,7 @@ var _ MappedNullable = &RecipientAddressSourceOneOf2{}
 
 // RecipientAddressSourceOneOf2 struct for RecipientAddressSourceOneOf2
 type RecipientAddressSourceOneOf2 struct {
-	// Reference to a previously stored recipient address list by its integer ID.
-	RecipientAddressByListId int32 `json:"recipientAddressByListId"`
+	RecipientAddressByListId RecipientAddressByListId `json:"recipientAddressByListId"`
 }
 
 type _RecipientAddressSourceOneOf2 RecipientAddressSourceOneOf2
@@ -31,7 +30,7 @@ type _RecipientAddressSourceOneOf2 RecipientAddressSourceOneOf2
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRecipientAddressSourceOneOf2(recipientAddressByListId int32) *RecipientAddressSourceOneOf2 {
+func NewRecipientAddressSourceOneOf2(recipientAddressByListId RecipientAddressByListId) *RecipientAddressSourceOneOf2 {
 	this := RecipientAddressSourceOneOf2{}
 	this.RecipientAddressByListId = recipientAddressByListId
 	return &this
@@ -46,9 +45,9 @@ func NewRecipientAddressSourceOneOf2WithDefaults() *RecipientAddressSourceOneOf2
 }
 
 // GetRecipientAddressByListId returns the RecipientAddressByListId field value
-func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByListId() int32 {
+func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByListId() RecipientAddressByListId {
 	if o == nil {
-		var ret int32
+		var ret RecipientAddressByListId
 		return ret
 	}
 
@@ -57,7 +56,7 @@ func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByListId() int32 {
 
 // GetRecipientAddressByListIdOk returns a tuple with the RecipientAddressByListId field value
 // and a boolean to check if the value has been set.
-func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByListIdOk() (*int32, bool) {
+func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByListIdOk() (*RecipientAddressByListId, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +64,7 @@ func (o *RecipientAddressSourceOneOf2) GetRecipientAddressByListIdOk() (*int32, 
 }
 
 // SetRecipientAddressByListId sets field value
-func (o *RecipientAddressSourceOneOf2) SetRecipientAddressByListId(v int32) {
+func (o *RecipientAddressSourceOneOf2) SetRecipientAddressByListId(v RecipientAddressByListId) {
 	o.RecipientAddressByListId = v
 }
 

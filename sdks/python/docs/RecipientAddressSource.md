@@ -7,8 +7,8 @@ Recipient address specification — one of: inline address list of one or more r
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **recipient_address_by_list** | [**RecipientAddressByList**](RecipientAddressByList.md) |  | 
-**recipient_address_by_address_id** | **int** | Reference to a previously stored individual recipient address by its integer ID. | 
-**recipient_address_by_list_id** | **int** | Reference to a previously stored recipient address list by its integer ID. | 
+**recipient_address_by_address_id** | [**RecipientAddressByAddressId**](RecipientAddressByAddressId.md) |  | 
+**recipient_address_by_list_id** | [**RecipientAddressByListId**](RecipientAddressByListId.md) |  | 
 
 ## Example
 

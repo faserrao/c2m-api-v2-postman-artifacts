@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from c2m_api.models.recipient_address_by_address_id import RecipientAddressByAddressId
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,7 +27,7 @@ class RecipientAddressSourceOneOf1(BaseModel):
     """
     RecipientAddressSourceOneOf1
     """ # noqa: E501
-    recipient_address_by_address_id: StrictInt = Field(description="Reference to a previously stored individual recipient address by its integer ID.", alias="recipientAddressByAddressId")
+    recipient_address_by_address_id: RecipientAddressByAddressId = Field(alias="recipientAddressByAddressId")
     __properties: ClassVar[List[str]] = ["recipientAddressByAddressId"]
 
     model_config = ConfigDict(
@@ -68,6 +69,9 @@ class RecipientAddressSourceOneOf1(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of recipient_address_by_address_id
+        if self.recipient_address_by_address_id:
+            _dict['recipientAddressByAddressId'] = self.recipient_address_by_address_id.to_dict()
         return _dict
 
     @classmethod
@@ -80,7 +84,7 @@ class RecipientAddressSourceOneOf1(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "recipientAddressByAddressId": obj.get("recipientAddressByAddressId")
+            "recipientAddressByAddressId": RecipientAddressByAddressId.from_dict(obj["recipientAddressByAddressId"]) if obj.get("recipientAddressByAddressId") is not None else None
         })
         return _obj
 

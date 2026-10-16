@@ -59,8 +59,8 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
       */
     protected static $openAPITypes = [
         'recipient_address_by_list' => '\C2MApi\Model\RecipientAddressByList',
-        'recipient_address_by_address_id' => 'int',
-        'recipient_address_by_list_id' => 'int'
+        'recipient_address_by_address_id' => '\C2MApi\Model\RecipientAddressByAddressId',
+        'recipient_address_by_list_id' => '\C2MApi\Model\RecipientAddressByListId'
     ];
 
     /**
@@ -343,7 +343,7 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets recipient_address_by_address_id
      *
-     * @return int
+     * @return \C2MApi\Model\RecipientAddressByAddressId
      */
     public function getRecipientAddressByAddressId()
     {
@@ -353,7 +353,7 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets recipient_address_by_address_id
      *
-     * @param int $recipient_address_by_address_id Reference to a previously stored individual recipient address by its integer ID.
+     * @param \C2MApi\Model\RecipientAddressByAddressId $recipient_address_by_address_id recipient_address_by_address_id
      *
      * @return self
      */
@@ -370,7 +370,7 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets recipient_address_by_list_id
      *
-     * @return int
+     * @return \C2MApi\Model\RecipientAddressByListId
      */
     public function getRecipientAddressByListId()
     {
@@ -380,7 +380,7 @@ class RecipientAddressSource implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets recipient_address_by_list_id
      *
-     * @param int $recipient_address_by_list_id Reference to a previously stored recipient address list by its integer ID.
+     * @param \C2MApi\Model\RecipientAddressByListId $recipient_address_by_list_id recipient_address_by_list_id
      *
      * @return self
      */

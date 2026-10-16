@@ -103,7 +103,9 @@ namespace C2M.Api.Client
             _jsonOptions.Converters.Add(new PrintOptionNullableJsonConverter());
             _jsonOptions.Converters.Add(new ProductionTimeJsonConverter());
             _jsonOptions.Converters.Add(new ProductionTimeNullableJsonConverter());
+            _jsonOptions.Converters.Add(new RecipientAddressByAddressIdJsonConverter());
             _jsonOptions.Converters.Add(new RecipientAddressByListJsonConverter());
+            _jsonOptions.Converters.Add(new RecipientAddressByListIdJsonConverter());
             _jsonOptions.Converters.Add(new RecipientAddressSourceJsonConverter());
             _jsonOptions.Converters.Add(new RecipientAddressSourceOneOfJsonConverter());
             _jsonOptions.Converters.Add(new RecipientAddressSourceOneOf1JsonConverter());
