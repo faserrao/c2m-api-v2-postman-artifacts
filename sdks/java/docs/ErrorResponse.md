@@ -11,7 +11,7 @@ Error response structure returned for all API error conditions.
 |**errorType** | [**ErrorTypeEnum**](#ErrorTypeEnum) | High-level error category string (ValidationError, AuthenticationError, etc.). |  |
 |**errorMessage** | **String** | Human-readable error description. |  |
 |**errorCode** | [**ErrorCodeEnum**](#ErrorCodeEnum) | Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). |  |
-|**errorDetails** | **String** | Optional JSON object with additional error context (free-form key/value pairs). |  [optional] |
+|**errorDetails** | **Map&lt;String, Object&gt;** | Optional JSON object with additional error context (free-form key/value pairs). |  [optional] |
 |**errorTrackingId** | **String** | Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX. |  [optional] |
 
 

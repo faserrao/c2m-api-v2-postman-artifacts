@@ -22,14 +22,14 @@ pub struct CreditCardDetails {
     pub card_number: String,
     #[serde(rename = "expirationDate")]
     pub expiration_date: Box<models::ExpirationDate>,
-    /// Card security code (CVV/CVC) as an integer.
+    /// Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.
     #[serde(rename = "cvv")]
-    pub cvv: i32,
+    pub cvv: String,
 }
 
 impl CreditCardDetails {
     /// Credit card payment fields: card type, card number, expiration date, and CVV.
-    pub fn new(card_type: CardType, card_number: String, expiration_date: models::ExpirationDate, cvv: i32) -> CreditCardDetails {
+    pub fn new(card_type: CardType, card_number: String, expiration_date: models::ExpirationDate, cvv: String) -> CreditCardDetails {
         CreditCardDetails {
             card_type,
             card_number,

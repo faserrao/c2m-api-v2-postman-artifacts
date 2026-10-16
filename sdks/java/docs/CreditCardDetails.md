@@ -11,7 +11,7 @@ Credit card payment fields: card type, card number, expiration date, and CVV.
 |**cardType** | [**CardTypeEnum**](#CardTypeEnum) | Card brand enum: visa, mastercard, discover, or americanExpress. |  |
 |**cardNumber** | **String** | Credit card number (PAN) as a string. |  |
 |**expirationDate** | [**ExpirationDate**](ExpirationDate.md) |  |  |
-|**cvv** | **Integer** | Card security code (CVV/CVC) as an integer. |  |
+|**cvv** | **String** | Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept. |  |
 
 
 

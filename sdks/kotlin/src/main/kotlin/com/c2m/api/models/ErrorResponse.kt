@@ -46,7 +46,7 @@ data class ErrorResponse (
 
     /* Optional JSON object with additional error context (free-form key/value pairs). */
     @Json(name = "errorDetails")
-    val errorDetails: kotlin.String? = null,
+    val errorDetails: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null,
 
     /* Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX. */
     @Json(name = "errorTrackingId")

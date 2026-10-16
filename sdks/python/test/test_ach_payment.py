@@ -38,16 +38,14 @@ class TestAchPayment(unittest.TestCase):
                 payment_type = 'ach',
                 ach_details = c2m_api.models.ach_details.achDetails(
                     routing_number = '', 
-                    account_number = '', 
-                    check_digit = 56, )
+                    account_number = '', )
             )
         else:
             return AchPayment(
                 payment_type = 'ach',
                 ach_details = c2m_api.models.ach_details.achDetails(
                     routing_number = '', 
-                    account_number = '', 
-                    check_digit = 56, ),
+                    account_number = '', ),
         )
         """
 

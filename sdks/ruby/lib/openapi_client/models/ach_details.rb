@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module OpenapiClient
-  # ACH payment fields: routing number, bank account number, and check digit.
+  # ACH payment fields: routing number and bank account number.
   class AchDetails
     # ABA bank routing number.
     attr_accessor :routing_number
@@ -22,15 +22,11 @@ module OpenapiClient
     # Bank account number.
     attr_accessor :account_number
 
-    # ACH check digit.
-    attr_accessor :check_digit
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'routing_number' => :'routingNumber',
-        :'account_number' => :'accountNumber',
-        :'check_digit' => :'checkDigit'
+        :'account_number' => :'accountNumber'
       }
     end
 
@@ -48,8 +44,7 @@ module OpenapiClient
     def self.openapi_types
       {
         :'routing_number' => :'String',
-        :'account_number' => :'String',
-        :'check_digit' => :'Integer'
+        :'account_number' => :'String'
       }
     end
 
@@ -86,12 +81,6 @@ module OpenapiClient
       else
         self.account_number = nil
       end
-
-      if attributes.key?(:'check_digit')
-        self.check_digit = attributes[:'check_digit']
-      else
-        self.check_digit = nil
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -107,10 +96,6 @@ module OpenapiClient
         invalid_properties.push('invalid value for "account_number", account_number cannot be nil.')
       end
 
-      if @check_digit.nil?
-        invalid_properties.push('invalid value for "check_digit", check_digit cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -120,7 +105,6 @@ module OpenapiClient
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @routing_number.nil?
       return false if @account_number.nil?
-      return false if @check_digit.nil?
       true
     end
 
@@ -144,24 +128,13 @@ module OpenapiClient
       @account_number = account_number
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] check_digit Value to be assigned
-    def check_digit=(check_digit)
-      if check_digit.nil?
-        fail ArgumentError, 'check_digit cannot be nil'
-      end
-
-      @check_digit = check_digit
-    end
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
           routing_number == o.routing_number &&
-          account_number == o.account_number &&
-          check_digit == o.check_digit
+          account_number == o.account_number
     end
 
     # @see the `==` method
@@ -173,7 +146,7 @@ module OpenapiClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [routing_number, account_number, check_digit].hash
+      [routing_number, account_number].hash
     end
 
     # Builds the object from hash

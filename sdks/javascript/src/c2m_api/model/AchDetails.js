@@ -21,15 +21,14 @@ import ApiClient from '../ApiClient';
 class AchDetails {
     /**
      * Constructs a new <code>AchDetails</code>.
-     * ACH payment fields: routing number, bank account number, and check digit.
+     * ACH payment fields: routing number and bank account number.
      * @alias module:c2m_api/model/AchDetails
      * @param routingNumber {String} ABA bank routing number.
      * @param accountNumber {String} Bank account number.
-     * @param checkDigit {Number} ACH check digit.
      */
-    constructor(routingNumber, accountNumber, checkDigit) { 
+    constructor(routingNumber, accountNumber) { 
         
-        AchDetails.initialize(this, routingNumber, accountNumber, checkDigit);
+        AchDetails.initialize(this, routingNumber, accountNumber);
     }
 
     /**
@@ -37,10 +36,9 @@ class AchDetails {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, routingNumber, accountNumber, checkDigit) { 
+    static initialize(obj, routingNumber, accountNumber) { 
         obj['routingNumber'] = routingNumber;
         obj['accountNumber'] = accountNumber;
-        obj['checkDigit'] = checkDigit;
     }
 
     /**
@@ -59,9 +57,6 @@ class AchDetails {
             }
             if (data.hasOwnProperty('accountNumber')) {
                 obj['accountNumber'] = ApiClient.convertToType(data['accountNumber'], 'String');
-            }
-            if (data.hasOwnProperty('checkDigit')) {
-                obj['checkDigit'] = ApiClient.convertToType(data['checkDigit'], 'Number');
             }
         }
         return obj;
@@ -94,7 +89,7 @@ class AchDetails {
 
 }
 
-AchDetails.RequiredProperties = ["routingNumber", "accountNumber", "checkDigit"];
+AchDetails.RequiredProperties = ["routingNumber", "accountNumber"];
 
 /**
  * ABA bank routing number.
@@ -107,12 +102,6 @@ AchDetails.prototype['routingNumber'] = undefined;
  * @member {String} accountNumber
  */
 AchDetails.prototype['accountNumber'] = undefined;
-
-/**
- * ACH check digit.
- * @member {Number} checkDigit
- */
-AchDetails.prototype['checkDigit'] = undefined;
 
 
 

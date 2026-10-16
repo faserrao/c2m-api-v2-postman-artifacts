@@ -24,10 +24,10 @@ public struct CreditCardDetails: Codable, JSONEncodable, Hashable {
     /** Credit card number (PAN) as a string. */
     public var cardNumber: String
     public var expirationDate: ExpirationDate
-    /** Card security code (CVV/CVC) as an integer. */
-    public var cvv: Int
+    /** Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept. */
+    public var cvv: String
 
-    public init(cardType: CardType, cardNumber: String, expirationDate: ExpirationDate, cvv: Int) {
+    public init(cardType: CardType, cardNumber: String, expirationDate: ExpirationDate, cvv: String) {
         self.cardType = cardType
         self.cardNumber = cardNumber
         self.expirationDate = expirationDate

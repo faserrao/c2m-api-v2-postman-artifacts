@@ -29,7 +29,7 @@ class ErrorResponse(BaseModel):
     error_type: StrictStr = Field(description="High-level error category string (ValidationError, AuthenticationError, etc.).", alias="errorType")
     error_message: StrictStr = Field(description="Human-readable error description.", alias="errorMessage")
     error_code: StrictStr = Field(description="Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).", alias="errorCode")
-    error_details: Optional[StrictStr] = Field(default=None, description="Optional JSON object with additional error context (free-form key/value pairs).", alias="errorDetails")
+    error_details: Optional[Dict[str, Any]] = Field(default=None, description="Optional JSON object with additional error context (free-form key/value pairs).", alias="errorDetails")
     error_tracking_id: Optional[StrictStr] = Field(default=None, description="Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.", alias="errorTrackingId")
     __properties: ClassVar[List[str]] = ["errorType", "errorMessage", "errorCode", "errorDetails", "errorTrackingId"]
 

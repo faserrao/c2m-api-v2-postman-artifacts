@@ -24,7 +24,7 @@ module OpenapiClient
 
     attr_accessor :expiration_date
 
-    # Card security code (CVV/CVC) as an integer.
+    # Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.
     attr_accessor :cvv
 
     class EnumAttributeValidator
@@ -75,7 +75,7 @@ module OpenapiClient
         :'card_type' => :'String',
         :'card_number' => :'String',
         :'expiration_date' => :'ExpirationDate',
-        :'cvv' => :'Integer'
+        :'cvv' => :'String'
       }
     end
 

@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **CardType** | **string** | Card brand enum: visa, mastercard, discover, or americanExpress. | 
 **CardNumber** | **string** | Credit card number (PAN) as a string. | 
 **ExpirationDate** | [**ExpirationDate**](ExpirationDate.md) |  | 
-**Cvv** | **int32** | Card security code (CVV/CVC) as an integer. | 
+**Cvv** | **string** | Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept. | 
 
 ## Methods
 
 ### NewCreditCardDetails
 
-`func NewCreditCardDetails(cardType string, cardNumber string, expirationDate ExpirationDate, cvv int32, ) *CreditCardDetails`
+`func NewCreditCardDetails(cardType string, cardNumber string, expirationDate ExpirationDate, cvv string, ) *CreditCardDetails`
 
 NewCreditCardDetails instantiates a new CreditCardDetails object
 This constructor will assign default values to properties that have it defined,
@@ -90,20 +90,20 @@ SetExpirationDate sets ExpirationDate field to given value.
 
 ### GetCvv
 
-`func (o *CreditCardDetails) GetCvv() int32`
+`func (o *CreditCardDetails) GetCvv() string`
 
 GetCvv returns the Cvv field if non-nil, zero value otherwise.
 
 ### GetCvvOk
 
-`func (o *CreditCardDetails) GetCvvOk() (*int32, bool)`
+`func (o *CreditCardDetails) GetCvvOk() (*string, bool)`
 
 GetCvvOk returns a tuple with the Cvv field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCvv
 
-`func (o *CreditCardDetails) SetCvv(v int32)`
+`func (o *CreditCardDetails) SetCvv(v string)`
 
 SetCvv sets Cvv field to given value.
 

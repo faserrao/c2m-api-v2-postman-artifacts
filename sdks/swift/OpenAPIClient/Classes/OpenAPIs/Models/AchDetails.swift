@@ -10,26 +10,22 @@ import Foundation
 import AnyCodable
 #endif
 
-/** ACH payment fields: routing number, bank account number, and check digit. */
+/** ACH payment fields: routing number and bank account number. */
 public struct AchDetails: Codable, JSONEncodable, Hashable {
 
     /** ABA bank routing number. */
     public var routingNumber: String
     /** Bank account number. */
     public var accountNumber: String
-    /** ACH check digit. */
-    public var checkDigit: Int
 
-    public init(routingNumber: String, accountNumber: String, checkDigit: Int) {
+    public init(routingNumber: String, accountNumber: String) {
         self.routingNumber = routingNumber
         self.accountNumber = accountNumber
-        self.checkDigit = checkDigit
     }
 
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case routingNumber
         case accountNumber
-        case checkDigit
     }
 
     // Encodable protocol methods
@@ -38,7 +34,6 @@ public struct AchDetails: Codable, JSONEncodable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(routingNumber, forKey: .routingNumber)
         try container.encode(accountNumber, forKey: .accountNumber)
-        try container.encode(checkDigit, forKey: .checkDigit)
     }
 }
 

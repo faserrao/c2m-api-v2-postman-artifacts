@@ -17,19 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
 class AchDetails(BaseModel):
     """
-    ACH payment fields: routing number, bank account number, and check digit.
+    ACH payment fields: routing number and bank account number.
     """ # noqa: E501
     routing_number: StrictStr = Field(description="ABA bank routing number.", alias="routingNumber")
     account_number: StrictStr = Field(description="Bank account number.", alias="accountNumber")
-    check_digit: StrictInt = Field(description="ACH check digit.", alias="checkDigit")
-    __properties: ClassVar[List[str]] = ["routingNumber", "accountNumber", "checkDigit"]
+    __properties: ClassVar[List[str]] = ["routingNumber", "accountNumber"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,8 +82,7 @@ class AchDetails(BaseModel):
 
         _obj = cls.model_validate({
             "routingNumber": obj.get("routingNumber"),
-            "accountNumber": obj.get("accountNumber"),
-            "checkDigit": obj.get("checkDigit")
+            "accountNumber": obj.get("accountNumber")
         })
         return _obj
 

@@ -7,7 +7,7 @@
 | **errorType** | [**inline**](#ErrorType) | High-level error category string (ValidationError, AuthenticationError, etc.). |  |
 | **errorMessage** | **kotlin.String** | Human-readable error description. |  |
 | **errorCode** | [**inline**](#ErrorCode) | Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). |  |
-| **errorDetails** | **kotlin.String** | Optional JSON object with additional error context (free-form key/value pairs). |  [optional] |
+| **errorDetails** | [**kotlin.collections.Map&lt;kotlin.String, kotlin.Any&gt;**](kotlin.Any.md) | Optional JSON object with additional error context (free-form key/value pairs). |  [optional] |
 | **errorTrackingId** | **kotlin.String** | Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX. |  [optional] |
 
 

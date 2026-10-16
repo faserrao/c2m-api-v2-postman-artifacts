@@ -7,7 +7,7 @@
 | **cardType** | [**inline**](#CardType) | Card brand enum: visa, mastercard, discover, or americanExpress. |  |
 | **cardNumber** | **kotlin.String** | Credit card number (PAN) as a string. |  |
 | **expirationDate** | [**ExpirationDate**](ExpirationDate.md) |  |  |
-| **cvv** | **kotlin.Int** | Card security code (CVV/CVC) as an integer. |  |
+| **cvv** | **kotlin.String** | Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept. |  |
 
 
 <a id="CardType"></a>

@@ -25,7 +25,7 @@ pub struct ErrorResponse {
     pub error_code: ErrorCode,
     /// Optional JSON object with additional error context (free-form key/value pairs).
     #[serde(rename = "errorDetails", skip_serializing_if = "Option::is_none")]
-    pub error_details: Option<String>,
+    pub error_details: Option<std::collections::HashMap<String, serde_json::Value>>,
     /// Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
     #[serde(rename = "errorTrackingId", skip_serializing_if = "Option::is_none")]
     pub error_tracking_id: Option<String>,

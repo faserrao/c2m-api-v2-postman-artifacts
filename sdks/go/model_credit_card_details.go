@@ -26,8 +26,8 @@ type CreditCardDetails struct {
 	// Credit card number (PAN) as a string.
 	CardNumber string `json:"cardNumber"`
 	ExpirationDate ExpirationDate `json:"expirationDate"`
-	// Card security code (CVV/CVC) as an integer.
-	Cvv int32 `json:"cvv"`
+	// Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.
+	Cvv string `json:"cvv"`
 }
 
 type _CreditCardDetails CreditCardDetails
@@ -36,7 +36,7 @@ type _CreditCardDetails CreditCardDetails
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreditCardDetails(cardType string, cardNumber string, expirationDate ExpirationDate, cvv int32) *CreditCardDetails {
+func NewCreditCardDetails(cardType string, cardNumber string, expirationDate ExpirationDate, cvv string) *CreditCardDetails {
 	this := CreditCardDetails{}
 	this.CardType = cardType
 	this.CardNumber = cardNumber
@@ -126,9 +126,9 @@ func (o *CreditCardDetails) SetExpirationDate(v ExpirationDate) {
 }
 
 // GetCvv returns the Cvv field value
-func (o *CreditCardDetails) GetCvv() int32 {
+func (o *CreditCardDetails) GetCvv() string {
 	if o == nil {
-		var ret int32
+		var ret string
 		return ret
 	}
 
@@ -137,7 +137,7 @@ func (o *CreditCardDetails) GetCvv() int32 {
 
 // GetCvvOk returns a tuple with the Cvv field value
 // and a boolean to check if the value has been set.
-func (o *CreditCardDetails) GetCvvOk() (*int32, bool) {
+func (o *CreditCardDetails) GetCvvOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -145,7 +145,7 @@ func (o *CreditCardDetails) GetCvvOk() (*int32, bool) {
 }
 
 // SetCvv sets field value
-func (o *CreditCardDetails) SetCvv(v int32) {
+func (o *CreditCardDetails) SetCvv(v string) {
 	o.Cvv = v
 }
 

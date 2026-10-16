@@ -46,9 +46,9 @@ import java.util.Set;
 import com.c2m.JSON;
 
 /**
- * ACH payment fields: routing number, bank account number, and check digit.
+ * ACH payment fields: routing number and bank account number.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T00:52:00.612068079Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-16T17:28:35.340441251Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class AchDetails {
   public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routingNumber";
   @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)
@@ -59,11 +59,6 @@ public class AchDetails {
   @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
   @javax.annotation.Nonnull
   private String accountNumber;
-
-  public static final String SERIALIZED_NAME_CHECK_DIGIT = "checkDigit";
-  @SerializedName(SERIALIZED_NAME_CHECK_DIGIT)
-  @javax.annotation.Nonnull
-  private Integer checkDigit;
 
   public AchDetails() {
   }
@@ -106,25 +101,6 @@ public class AchDetails {
   }
 
 
-  public AchDetails checkDigit(@javax.annotation.Nonnull Integer checkDigit) {
-    this.checkDigit = checkDigit;
-    return this;
-  }
-
-  /**
-   * ACH check digit.
-   * @return checkDigit
-   */
-  @javax.annotation.Nonnull
-  public Integer getCheckDigit() {
-    return checkDigit;
-  }
-
-  public void setCheckDigit(@javax.annotation.Nonnull Integer checkDigit) {
-    this.checkDigit = checkDigit;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -136,13 +112,12 @@ public class AchDetails {
     }
     AchDetails achDetails = (AchDetails) o;
     return Objects.equals(this.routingNumber, achDetails.routingNumber) &&
-        Objects.equals(this.accountNumber, achDetails.accountNumber) &&
-        Objects.equals(this.checkDigit, achDetails.checkDigit);
+        Objects.equals(this.accountNumber, achDetails.accountNumber);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(routingNumber, accountNumber, checkDigit);
+    return Objects.hash(routingNumber, accountNumber);
   }
 
   @Override
@@ -151,7 +126,6 @@ public class AchDetails {
     sb.append("class AchDetails {\n");
     sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
-    sb.append("    checkDigit: ").append(toIndentedString(checkDigit)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -173,10 +147,10 @@ public class AchDetails {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("routingNumber", "accountNumber", "checkDigit"));
+    openapiFields = new HashSet<String>(Arrays.asList("routingNumber", "accountNumber"));
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("routingNumber", "accountNumber", "checkDigit"));
+    openapiRequiredFields = new HashSet<String>(Arrays.asList("routingNumber", "accountNumber"));
   }
 
   /**

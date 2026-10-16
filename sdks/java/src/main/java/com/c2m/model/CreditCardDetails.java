@@ -49,7 +49,7 @@ import com.c2m.JSON;
 /**
  * Credit card payment fields: card type, card number, expiration date, and CVV.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T00:52:00.612068079Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-16T17:28:35.340441251Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class CreditCardDetails {
   /**
    * Card brand enum: visa, mastercard, discover, or americanExpress.
@@ -125,7 +125,7 @@ public class CreditCardDetails {
   public static final String SERIALIZED_NAME_CVV = "cvv";
   @SerializedName(SERIALIZED_NAME_CVV)
   @javax.annotation.Nonnull
-  private Integer cvv;
+  private String cvv;
 
   public CreditCardDetails() {
   }
@@ -187,21 +187,21 @@ public class CreditCardDetails {
   }
 
 
-  public CreditCardDetails cvv(@javax.annotation.Nonnull Integer cvv) {
+  public CreditCardDetails cvv(@javax.annotation.Nonnull String cvv) {
     this.cvv = cvv;
     return this;
   }
 
   /**
-   * Card security code (CVV/CVC) as an integer.
+   * Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.
    * @return cvv
    */
   @javax.annotation.Nonnull
-  public Integer getCvv() {
+  public String getCvv() {
     return cvv;
   }
 
-  public void setCvv(@javax.annotation.Nonnull Integer cvv) {
+  public void setCvv(@javax.annotation.Nonnull String cvv) {
     this.cvv = cvv;
   }
 
@@ -300,6 +300,9 @@ public class CreditCardDetails {
       }
       // validate the required field `expirationDate`
       ExpirationDate.validateJsonElement(jsonObj.get("expirationDate"));
+      if (!jsonObj.get("cvv").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cvv` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cvv").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

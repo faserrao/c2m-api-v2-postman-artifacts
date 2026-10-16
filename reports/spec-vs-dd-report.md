@@ -3,11 +3,11 @@
 **DD**: `data_dictionary/c2mapiv2-dd.ebnf`  
 **Spec**: `openapi/c2mapiv2-openapi-spec-final.yaml`
 
-**TOTAL: PASS=184  FAIL=0  WARN=0**
+**TOTAL: PASS=183  FAIL=0  WARN=0**
 
 | Check | PASS | FAIL | WARN |
 |-------|------|------|------|
-| 1. Schema existence | 108 | 0 | 0 |
+| 1. Schema existence | 107 | 0 | 0 |
 | 2. Enum parity | 13 | 0 | 0 |
 | 3. Object properties | 26 | 0 | 0 |
 | 4. Required fields | 26 | 0 | 0 |

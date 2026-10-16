@@ -2,7 +2,7 @@
 
 # AchDetails
 
-ACH payment fields: routing number, bank account number, and check digit.
+ACH payment fields: routing number and bank account number.
 
 ## Properties
 
@@ -10,7 +10,6 @@ ACH payment fields: routing number, bank account number, and check digit.
 |------------ | ------------- | ------------- | -------------|
 |**routingNumber** | **String** | ABA bank routing number. |  |
 |**accountNumber** | **String** | Bank account number. |  |
-|**checkDigit** | **Integer** | ACH check digit. |  |
 
 
 

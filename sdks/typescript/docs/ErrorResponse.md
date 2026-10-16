@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **errorType** | **string** | High-level error category string (ValidationError, AuthenticationError, etc.). | [default to undefined]
 **errorMessage** | **string** | Human-readable error description. | [default to undefined]
 **errorCode** | **string** | Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). | [default to undefined]
-**errorDetails** | **string** | Optional JSON object with additional error context (free-form key/value pairs). | [optional] [default to undefined]
+**errorDetails** | **{ [key: string]: any; }** | Optional JSON object with additional error context (free-form key/value pairs). | [optional] [default to undefined]
 **errorTrackingId** | **string** | Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX. | [optional] [default to undefined]
 
 ## Example

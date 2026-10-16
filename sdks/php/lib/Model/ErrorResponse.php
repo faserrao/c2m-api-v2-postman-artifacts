@@ -61,7 +61,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
         'error_type' => 'string',
         'error_message' => 'string',
         'error_code' => 'string',
-        'error_details' => 'string',
+        'error_details' => 'array<string,mixed>',
         'error_tracking_id' => 'string'
     ];
 
@@ -517,7 +517,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets error_details
      *
-     * @return string|null
+     * @return array<string,mixed>|null
      */
     public function getErrorDetails()
     {
@@ -527,7 +527,7 @@ class ErrorResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets error_details
      *
-     * @param string|null $error_details Optional JSON object with additional error context (free-form key/value pairs).
+     * @param array<string,mixed>|null $error_details Optional JSON object with additional error context (free-form key/value pairs).
      *
      * @return self
      */

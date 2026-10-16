@@ -44,7 +44,7 @@ class CreditCardDetailsTest : ShouldSpec() {
             //modelInstance.expirationDate shouldBe ("TODO")
         }
 
-        // to test the property `cvv` - Card security code (CVV/CVC) as an integer.
+        // to test the property `cvv` - Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.
         should("test cvv") {
             // uncomment below to test the property
             //modelInstance.cvv shouldBe ("TODO")

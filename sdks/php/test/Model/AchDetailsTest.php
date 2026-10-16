@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * AchDetailsTest Class Doc Comment
  *
  * @category    Class
- * @description ACH payment fields: routing number, bank account number, and check digit.
+ * @description ACH payment fields: routing number and bank account number.
  * @package     C2MApi
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -92,15 +92,6 @@ class AchDetailsTest extends TestCase
      * Test attribute "account_number"
      */
     public function testPropertyAccountNumber()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "check_digit"
-     */
-    public function testPropertyCheckDigit()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

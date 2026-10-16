@@ -70,14 +70,5 @@ namespace C2M.Api.Test.Model
         {
             // TODO unit test for the property 'AccountNumber'
         }
-
-        /// <summary>
-        /// Test the property 'CheckDigit'
-        /// </summary>
-        [Fact]
-        public void CheckDigitTest()
-        {
-            // TODO unit test for the property 'CheckDigit'
-        }
     }
 }

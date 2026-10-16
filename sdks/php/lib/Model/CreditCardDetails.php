@@ -61,7 +61,7 @@ class CreditCardDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
         'card_type' => 'string',
         'card_number' => 'string',
         'expiration_date' => '\C2MApi\Model\ExpirationDate',
-        'cvv' => 'int'
+        'cvv' => 'string'
     ];
 
     /**
@@ -445,7 +445,7 @@ class CreditCardDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Gets cvv
      *
-     * @return int
+     * @return string
      */
     public function getCvv()
     {
@@ -455,7 +455,7 @@ class CreditCardDetails implements ModelInterface, ArrayAccess, \JsonSerializabl
     /**
      * Sets cvv
      *
-     * @param int $cvv Card security code (CVV/CVC) as an integer.
+     * @param string $cvv Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.
      *
      * @return self
      */

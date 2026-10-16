@@ -66,12 +66,6 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property checkDigit (base name: "checkDigit")', function() {
-      // uncomment below and update the code to test the property checkDigit
-      //var instance = new C2MApiV2.AchDetails();
-      //expect(instance).to.be();
-    });
-
   });
 
 }));

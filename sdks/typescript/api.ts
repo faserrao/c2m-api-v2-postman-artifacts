@@ -24,7 +24,7 @@ import type { RequestArgs } from './base';
 import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 /**
- * ACH payment fields: routing number, bank account number, and check digit.
+ * ACH payment fields: routing number and bank account number.
  */
 export interface AchDetails {
     /**
@@ -35,10 +35,6 @@ export interface AchDetails {
      * Bank account number.
      */
     'accountNumber': string;
-    /**
-     * ACH check digit.
-     */
-    'checkDigit': number;
 }
 /**
  * ACH bank transfer payment variant.
@@ -184,9 +180,9 @@ export interface CreditCardDetails {
     'cardNumber': string;
     'expirationDate': ExpirationDate;
     /**
-     * Card security code (CVV/CVC) as an integer.
+     * Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.
      */
-    'cvv': number;
+    'cvv': string;
 }
 
 export const CreditCardDetailsCardTypeEnum = {
@@ -352,7 +348,7 @@ export interface ErrorResponse {
     /**
      * Optional JSON object with additional error context (free-form key/value pairs).
      */
-    'errorDetails'?: string;
+    'errorDetails'?: { [key: string]: any; };
     /**
      * Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
      */

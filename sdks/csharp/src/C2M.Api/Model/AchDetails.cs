@@ -26,7 +26,7 @@ using C2M.Api.Client;
 namespace C2M.Api.Model
 {
     /// <summary>
-    /// ACH payment fields: routing number, bank account number, and check digit.
+    /// ACH payment fields: routing number and bank account number.
     /// </summary>
     public partial class AchDetails : IValidatableObject
     {
@@ -35,13 +35,11 @@ namespace C2M.Api.Model
         /// </summary>
         /// <param name="routingNumber">ABA bank routing number.</param>
         /// <param name="accountNumber">Bank account number.</param>
-        /// <param name="checkDigit">ACH check digit.</param>
         [JsonConstructor]
-        public AchDetails(string routingNumber, string accountNumber, int checkDigit)
+        public AchDetails(string routingNumber, string accountNumber)
         {
             RoutingNumber = routingNumber;
             AccountNumber = accountNumber;
-            CheckDigit = checkDigit;
             OnCreated();
         }
 
@@ -62,13 +60,6 @@ namespace C2M.Api.Model
         public string AccountNumber { get; set; }
 
         /// <summary>
-        /// ACH check digit.
-        /// </summary>
-        /// <value>ACH check digit.</value>
-        [JsonPropertyName("checkDigit")]
-        public int CheckDigit { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -78,7 +69,6 @@ namespace C2M.Api.Model
             sb.Append("class AchDetails {\n");
             sb.Append("  RoutingNumber: ").Append(RoutingNumber).Append("\n");
             sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
-            sb.Append("  CheckDigit: ").Append(CheckDigit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,7 +108,6 @@ namespace C2M.Api.Model
 
             Option<string?> routingNumber = default;
             Option<string?> accountNumber = default;
-            Option<int?> checkDigit = default;
 
             while (utf8JsonReader.Read())
             {
@@ -141,9 +130,6 @@ namespace C2M.Api.Model
                         case "accountNumber":
                             accountNumber = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
-                        case "checkDigit":
-                            checkDigit = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
-                            break;
                         default:
                             break;
                     }
@@ -156,19 +142,13 @@ namespace C2M.Api.Model
             if (!accountNumber.IsSet)
                 throw new ArgumentException("Property is required for class AchDetails.", nameof(accountNumber));
 
-            if (!checkDigit.IsSet)
-                throw new ArgumentException("Property is required for class AchDetails.", nameof(checkDigit));
-
             if (routingNumber.IsSet && routingNumber.Value == null)
                 throw new ArgumentNullException(nameof(routingNumber), "Property is not nullable for class AchDetails.");
 
             if (accountNumber.IsSet && accountNumber.Value == null)
                 throw new ArgumentNullException(nameof(accountNumber), "Property is not nullable for class AchDetails.");
 
-            if (checkDigit.IsSet && checkDigit.Value == null)
-                throw new ArgumentNullException(nameof(checkDigit), "Property is not nullable for class AchDetails.");
-
-            return new AchDetails(routingNumber.Value!, accountNumber.Value!, checkDigit.Value!.Value!);
+            return new AchDetails(routingNumber.Value!, accountNumber.Value!);
         }
 
         /// <summary>
@@ -204,8 +184,6 @@ namespace C2M.Api.Model
             writer.WriteString("routingNumber", achDetails.RoutingNumber);
 
             writer.WriteString("accountNumber", achDetails.AccountNumber);
-
-            writer.WriteNumber("checkDigit", achDetails.CheckDigit);
         }
     }
 }

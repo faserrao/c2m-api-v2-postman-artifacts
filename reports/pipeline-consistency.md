@@ -1,16 +1,8 @@
 # Pipeline consistency (DD → spec → Postman)
 
-ERROR categories: 0  ·  known-open WARN categories: 8  ·  stale allowances: 0
+ERROR categories: 0  ·  known-open WARN categories: 6  ·  stale allowances: 1
 
 ## ⚠️ Known open (tracked)
-- **A-DOC-TYPE-CLAIM** [*] (1) — L2 / decision D6 (errorDetails object vs string)
-    - errorDetails: @doc says JSON object, DD type is string
-- **B-EXAMPLE-ORIGINAL-REQUEST** [Test] (5) — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
-    - POST /auth/tokens/long / 'Long-term token issued' (201): ttl_seconds: 1561 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Bad request' (400): ttl_seconds: 1561 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Unauthorized' (401): ttl_seconds: 1561 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Forbidden' (403): ttl_seconds: 1561 is less than the minimum of 3600
-    - POST /auth/tokens/long / 'Too Many Requests' (429): ttl_seconds: 1561 is less than the minimum of 3600
 - **B-NO-AUTH** [Real-World] (8) — L8 (Real-World has no auth / pre-request script)
     - Legal Firm - Court Notices: spec security [{'bearerAuth': []}]
     - Real Estate Agent - Property Marketing: spec security [{'bearerAuth': []}]
@@ -45,8 +37,11 @@ ERROR categories: 0  ·  known-open WARN categories: 8  ·  stale allowances: 0
     - POST /batch/split/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /batch/zip: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /batch/zip/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
-    - POST /mail-merge: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /static: accepts ['201', '204'] undeclared, rejects [] declared
     - POST /static/address-capture: accepts ['201', '204'] undeclared, rejects [] declared
+    - POST /mail-merge: accepts ['201', '204'] undeclared, rejects [] declared
+
+## 🧹 Stale KNOWN_OPEN entries (no longer occur — remove them)
+- B-EXAMPLE-ORIGINAL-REQUEST [Test] — L6 (random auth ttl_seconds can fall below 3600 — intermittent)
 
 ✅ No ERROR findings

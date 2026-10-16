@@ -47,12 +47,11 @@
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1-12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2029). |
-| `paymentDetails[creditCardPayment].creditCard.cvv` | integer | Optional | Card security code (CVV/CVC) as an integer. |
+| `paymentDetails[creditCardPayment].creditCard.cvv` | string | Optional | Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept. |
 | `paymentDetails[invoicePayment].invoice.invoiceNumber` | string | Optional | Invoice reference number. |
 | `paymentDetails[invoicePayment].invoice.amountDue` | number | Optional | Amount due on the invoice. |
 | `paymentDetails[achPayment].ach.routingNumber` | string | Optional | ABA bank routing number. |
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
-| `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount as a numeric value. |
 | `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD). |
 | `returnAddress.firstName` | string | Optional | Recipient's first name. |
@@ -92,12 +91,11 @@
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1-12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2029). |
-| `paymentDetails[creditCardPayment].creditCard.cvv` | integer | Optional | Card security code (CVV/CVC) as an integer. |
+| `paymentDetails[creditCardPayment].creditCard.cvv` | string | Optional | Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept. |
 | `paymentDetails[invoicePayment].invoice.invoiceNumber` | string | Optional | Invoice reference number. |
 | `paymentDetails[invoicePayment].invoice.amountDue` | number | Optional | Amount due on the invoice. |
 | `paymentDetails[achPayment].ach.routingNumber` | string | Optional | ABA bank routing number. |
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
-| `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount as a numeric value. |
 | `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD). |
 | `returnAddress.firstName` | string | Optional | Recipient's first name. |
@@ -155,12 +153,11 @@
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1-12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2029). |
-| `paymentDetails[creditCardPayment].creditCard.cvv` | integer | Optional | Card security code (CVV/CVC) as an integer. |
+| `paymentDetails[creditCardPayment].creditCard.cvv` | string | Optional | Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept. |
 | `paymentDetails[invoicePayment].invoice.invoiceNumber` | string | Optional | Invoice reference number. |
 | `paymentDetails[invoicePayment].invoice.amountDue` | number | Optional | Amount due on the invoice. |
 | `paymentDetails[achPayment].ach.routingNumber` | string | Optional | ABA bank routing number. |
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
-| `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount as a numeric value. |
 | `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD). |
 | `returnAddress.firstName` | string | Optional | Recipient's first name. |
@@ -203,12 +200,11 @@
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1-12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2029). |
-| `paymentDetails[creditCardPayment].creditCard.cvv` | integer | Optional | Card security code (CVV/CVC) as an integer. |
+| `paymentDetails[creditCardPayment].creditCard.cvv` | string | Optional | Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept. |
 | `paymentDetails[invoicePayment].invoice.invoiceNumber` | string | Optional | Invoice reference number. |
 | `paymentDetails[invoicePayment].invoice.amountDue` | number | Optional | Amount due on the invoice. |
 | `paymentDetails[achPayment].ach.routingNumber` | string | Optional | ABA bank routing number. |
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
-| `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount as a numeric value. |
 | `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD). |
 | `returnAddress.firstName` | string | Optional | Recipient's first name. |
@@ -262,12 +258,11 @@
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1-12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2029). |
-| `paymentDetails[creditCardPayment].creditCard.cvv` | integer | Optional | Card security code (CVV/CVC) as an integer. |
+| `paymentDetails[creditCardPayment].creditCard.cvv` | string | Optional | Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept. |
 | `paymentDetails[invoicePayment].invoice.invoiceNumber` | string | Optional | Invoice reference number. |
 | `paymentDetails[invoicePayment].invoice.amountDue` | number | Optional | Amount due on the invoice. |
 | `paymentDetails[achPayment].ach.routingNumber` | string | Optional | ABA bank routing number. |
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
-| `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount as a numeric value. |
 | `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD). |
 | `returnAddress.firstName` | string | Optional | Recipient's first name. |
@@ -322,12 +317,11 @@
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1-12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2029). |
-| `paymentDetails[creditCardPayment].creditCard.cvv` | integer | Optional | Card security code (CVV/CVC) as an integer. |
+| `paymentDetails[creditCardPayment].creditCard.cvv` | string | Optional | Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept. |
 | `paymentDetails[invoicePayment].invoice.invoiceNumber` | string | Optional | Invoice reference number. |
 | `paymentDetails[invoicePayment].invoice.amountDue` | number | Optional | Amount due on the invoice. |
 | `paymentDetails[achPayment].ach.routingNumber` | string | Optional | ABA bank routing number. |
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
-| `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount as a numeric value. |
 | `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD). |
 | `returnAddress.firstName` | string | Optional | Recipient's first name. |
@@ -368,12 +362,11 @@
 | `paymentDetails[creditCardPayment].creditCard.cardNumber` | string | Optional | Credit card number (PAN) as a string. |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.month` | integer | Optional | Expiration month as an integer (1-12). |
 | `paymentDetails[creditCardPayment].creditCard.expirationDate.year` | integer | Optional | Expiration year as a four-digit integer (e.g. 2029). |
-| `paymentDetails[creditCardPayment].creditCard.cvv` | integer | Optional | Card security code (CVV/CVC) as an integer. |
+| `paymentDetails[creditCardPayment].creditCard.cvv` | string | Optional | Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept. |
 | `paymentDetails[invoicePayment].invoice.invoiceNumber` | string | Optional | Invoice reference number. |
 | `paymentDetails[invoicePayment].invoice.amountDue` | number | Optional | Amount due on the invoice. |
 | `paymentDetails[achPayment].ach.routingNumber` | string | Optional | ABA bank routing number. |
 | `paymentDetails[achPayment].ach.accountNumber` | string | Optional | Bank account number. |
-| `paymentDetails[achPayment].ach.checkDigit` | integer | Optional | ACH check digit. |
 | `paymentDetails[userCreditPayment].userCredit.amount` | number | Optional | Monetary amount as a numeric value. |
 | `paymentDetails[userCreditPayment].userCredit.currency` | enum: USD | EUR | GBP | CAD | AUD | Optional | ISO 4217 currency code (USD, EUR, GBP, CAD, or AUD). |
 | `returnAddress.firstName` | string | Optional | Recipient's first name. |

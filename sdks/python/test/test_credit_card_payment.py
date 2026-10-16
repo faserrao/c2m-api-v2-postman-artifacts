@@ -42,7 +42,7 @@ class TestCreditCardPayment(unittest.TestCase):
                     expiration_date = c2m_api.models.expiration_date.expirationDate(
                         month = 1, 
                         year = 2000, ), 
-                    cvv = 56, )
+                    cvv = '', )
             )
         else:
             return CreditCardPayment(
@@ -53,7 +53,7 @@ class TestCreditCardPayment(unittest.TestCase):
                     expiration_date = c2m_api.models.expiration_date.expirationDate(
                         month = 1, 
                         year = 2000, ), 
-                    cvv = 56, ),
+                    cvv = '', ),
         )
         """
 

@@ -6,13 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RoutingNumber** | **string** | ABA bank routing number. | 
 **AccountNumber** | **string** | Bank account number. | 
-**CheckDigit** | **int32** | ACH check digit. | 
 
 ## Methods
 
 ### NewAchDetails
 
-`func NewAchDetails(routingNumber string, accountNumber string, checkDigit int32, ) *AchDetails`
+`func NewAchDetails(routingNumber string, accountNumber string, ) *AchDetails`
 
 NewAchDetails instantiates a new AchDetails object
 This constructor will assign default values to properties that have it defined,
@@ -65,26 +64,6 @@ and a boolean to check if the value has been set.
 `func (o *AchDetails) SetAccountNumber(v string)`
 
 SetAccountNumber sets AccountNumber field to given value.
-
-
-### GetCheckDigit
-
-`func (o *AchDetails) GetCheckDigit() int32`
-
-GetCheckDigit returns the CheckDigit field if non-nil, zero value otherwise.
-
-### GetCheckDigitOk
-
-`func (o *AchDetails) GetCheckDigitOk() (*int32, bool)`
-
-GetCheckDigitOk returns a tuple with the CheckDigit field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCheckDigit
-
-`func (o *AchDetails) SetCheckDigit(v int32)`
-
-SetCheckDigit sets CheckDigit field to given value.
 
 
 

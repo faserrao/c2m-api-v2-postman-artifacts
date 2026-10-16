@@ -39,7 +39,7 @@ namespace C2M.Api.Model
         /// <param name="errorDetails">Optional JSON object with additional error context (free-form key/value pairs).</param>
         /// <param name="errorTrackingId">Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.</param>
         [JsonConstructor]
-        public ErrorResponse(ErrorTypeEnum errorType, string errorMessage, ErrorCodeEnum errorCode, Option<string?> errorDetails = default, Option<string?> errorTrackingId = default)
+        public ErrorResponse(ErrorTypeEnum errorType, string errorMessage, ErrorCodeEnum errorCode, Option<Dictionary<string, Object>?> errorDetails = default, Option<string?> errorTrackingId = default)
         {
             ErrorType = errorType;
             ErrorMessage = errorMessage;
@@ -477,14 +477,14 @@ namespace C2M.Api.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<string?> ErrorDetailsOption { get; private set; }
+        public Option<Dictionary<string, Object>?> ErrorDetailsOption { get; private set; }
 
         /// <summary>
         /// Optional JSON object with additional error context (free-form key/value pairs).
         /// </summary>
         /// <value>Optional JSON object with additional error context (free-form key/value pairs).</value>
         [JsonPropertyName("errorDetails")]
-        public string? ErrorDetails { get { return this.ErrorDetailsOption; } set { this.ErrorDetailsOption = new(value); } }
+        public Dictionary<string, Object>? ErrorDetails { get { return this.ErrorDetailsOption; } set { this.ErrorDetailsOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of ErrorTrackingId
@@ -553,7 +553,7 @@ namespace C2M.Api.Model
             Option<ErrorResponse.ErrorTypeEnum?> errorType = default;
             Option<string?> errorMessage = default;
             Option<ErrorResponse.ErrorCodeEnum?> errorCode = default;
-            Option<string?> errorDetails = default;
+            Option<Dictionary<string, Object>?> errorDetails = default;
             Option<string?> errorTrackingId = default;
 
             while (utf8JsonReader.Read())
@@ -585,7 +585,7 @@ namespace C2M.Api.Model
                                 errorCode = new Option<ErrorResponse.ErrorCodeEnum?>(ErrorResponse.ErrorCodeEnumFromStringOrDefault(errorCodeRawValue));
                             break;
                         case "errorDetails":
-                            errorDetails = new Option<string?>(utf8JsonReader.GetString()!);
+                            errorDetails = new Option<Dictionary<string, Object>?>(JsonSerializer.Deserialize<Dictionary<string, Object>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "errorTrackingId":
                             errorTrackingId = new Option<string?>(utf8JsonReader.GetString()!);
@@ -663,8 +663,10 @@ namespace C2M.Api.Model
             var errorCodeRawValue = ErrorResponse.ErrorCodeEnumToJsonValue(errorResponse.ErrorCode);
             writer.WriteString("errorCode", errorCodeRawValue);
             if (errorResponse.ErrorDetailsOption.IsSet)
-                writer.WriteString("errorDetails", errorResponse.ErrorDetails);
-
+            {
+                writer.WritePropertyName("errorDetails");
+                JsonSerializer.Serialize(writer, errorResponse.ErrorDetails, jsonSerializerOptions);
+            }
             if (errorResponse.ErrorTrackingIdOption.IsSet)
                 writer.WriteString("errorTrackingId", errorResponse.ErrorTrackingId);
         }

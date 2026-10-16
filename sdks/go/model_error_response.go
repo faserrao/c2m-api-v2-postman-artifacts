@@ -28,7 +28,7 @@ type ErrorResponse struct {
 	// Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).
 	ErrorCode string `json:"errorCode"`
 	// Optional JSON object with additional error context (free-form key/value pairs).
-	ErrorDetails *string `json:"errorDetails,omitempty"`
+	ErrorDetails map[string]interface{} `json:"errorDetails,omitempty"`
 	// Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.
 	ErrorTrackingId *string `json:"errorTrackingId,omitempty"`
 }
@@ -128,19 +128,19 @@ func (o *ErrorResponse) SetErrorCode(v string) {
 }
 
 // GetErrorDetails returns the ErrorDetails field value if set, zero value otherwise.
-func (o *ErrorResponse) GetErrorDetails() string {
+func (o *ErrorResponse) GetErrorDetails() map[string]interface{} {
 	if o == nil || IsNil(o.ErrorDetails) {
-		var ret string
+		var ret map[string]interface{}
 		return ret
 	}
-	return *o.ErrorDetails
+	return o.ErrorDetails
 }
 
 // GetErrorDetailsOk returns a tuple with the ErrorDetails field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ErrorResponse) GetErrorDetailsOk() (*string, bool) {
+func (o *ErrorResponse) GetErrorDetailsOk() (map[string]interface{}, bool) {
 	if o == nil || IsNil(o.ErrorDetails) {
-		return nil, false
+		return map[string]interface{}{}, false
 	}
 	return o.ErrorDetails, true
 }
@@ -154,9 +154,9 @@ func (o *ErrorResponse) HasErrorDetails() bool {
 	return false
 }
 
-// SetErrorDetails gets a reference to the given string and assigns it to the ErrorDetails field.
-func (o *ErrorResponse) SetErrorDetails(v string) {
-	o.ErrorDetails = &v
+// SetErrorDetails gets a reference to the given map[string]interface{} and assigns it to the ErrorDetails field.
+func (o *ErrorResponse) SetErrorDetails(v map[string]interface{}) {
+	o.ErrorDetails = v
 }
 
 // GetErrorTrackingId returns the ErrorTrackingId field value if set, zero value otherwise.

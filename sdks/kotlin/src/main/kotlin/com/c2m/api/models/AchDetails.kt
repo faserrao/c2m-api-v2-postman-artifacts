@@ -20,11 +20,10 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 /**
- * ACH payment fields: routing number, bank account number, and check digit.
+ * ACH payment fields: routing number and bank account number.
  *
  * @param routingNumber ABA bank routing number.
  * @param accountNumber Bank account number.
- * @param checkDigit ACH check digit.
  */
 
 
@@ -36,11 +35,7 @@ data class AchDetails (
 
     /* Bank account number. */
     @Json(name = "accountNumber")
-    val accountNumber: kotlin.String,
-
-    /* ACH check digit. */
-    @Json(name = "checkDigit")
-    val checkDigit: kotlin.Int
+    val accountNumber: kotlin.String
 
 ) {
 

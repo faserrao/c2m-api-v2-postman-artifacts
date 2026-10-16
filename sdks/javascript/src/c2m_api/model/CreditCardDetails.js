@@ -27,7 +27,7 @@ class CreditCardDetails {
      * @param cardType {module:c2m_api/model/CreditCardDetails.CardTypeEnum} Card brand enum: visa, mastercard, discover, or americanExpress.
      * @param cardNumber {String} Credit card number (PAN) as a string.
      * @param expirationDate {module:c2m_api/model/ExpirationDate} 
-     * @param cvv {Number} Card security code (CVV/CVC) as an integer.
+     * @param cvv {String} Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.
      */
     constructor(cardType, cardNumber, expirationDate, cvv) { 
         
@@ -67,7 +67,7 @@ class CreditCardDetails {
                 obj['expirationDate'] = ExpirationDate.constructFromObject(data['expirationDate']);
             }
             if (data.hasOwnProperty('cvv')) {
-                obj['cvv'] = ApiClient.convertToType(data['cvv'], 'Number');
+                obj['cvv'] = ApiClient.convertToType(data['cvv'], 'String');
             }
         }
         return obj;
@@ -97,6 +97,10 @@ class CreditCardDetails {
         if (data['expirationDate']) { // data not null
           ExpirationDate.validateJSON(data['expirationDate']);
         }
+        // ensure the json data is a string
+        if (data['cvv'] && !(typeof data['cvv'] === 'string' || data['cvv'] instanceof String)) {
+            throw new Error("Expected the field `cvv` to be a primitive type in the JSON string but got " + data['cvv']);
+        }
 
         return true;
     }
@@ -124,8 +128,8 @@ CreditCardDetails.prototype['cardNumber'] = undefined;
 CreditCardDetails.prototype['expirationDate'] = undefined;
 
 /**
- * Card security code (CVV/CVC) as an integer.
- * @member {Number} cvv
+ * Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.
+ * @member {String} cvv
  */
 CreditCardDetails.prototype['cvv'] = undefined;
 

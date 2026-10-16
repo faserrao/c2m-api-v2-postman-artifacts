@@ -64,7 +64,7 @@ class ErrorResponse {
                 obj['errorCode'] = ApiClient.convertToType(data['errorCode'], 'String');
             }
             if (data.hasOwnProperty('errorDetails')) {
-                obj['errorDetails'] = ApiClient.convertToType(data['errorDetails'], 'String');
+                obj['errorDetails'] = ApiClient.convertToType(data['errorDetails'], {'String': Object});
             }
             if (data.hasOwnProperty('errorTrackingId')) {
                 obj['errorTrackingId'] = ApiClient.convertToType(data['errorTrackingId'], 'String');
@@ -96,10 +96,6 @@ class ErrorResponse {
         // ensure the json data is a string
         if (data['errorCode'] && !(typeof data['errorCode'] === 'string' || data['errorCode'] instanceof String)) {
             throw new Error("Expected the field `errorCode` to be a primitive type in the JSON string but got " + data['errorCode']);
-        }
-        // ensure the json data is a string
-        if (data['errorDetails'] && !(typeof data['errorDetails'] === 'string' || data['errorDetails'] instanceof String)) {
-            throw new Error("Expected the field `errorDetails` to be a primitive type in the JSON string but got " + data['errorDetails']);
         }
         // ensure the json data is a string
         if (data['errorTrackingId'] && !(typeof data['errorTrackingId'] === 'string' || data['errorTrackingId'] instanceof String)) {
@@ -134,7 +130,7 @@ ErrorResponse.prototype['errorCode'] = undefined;
 
 /**
  * Optional JSON object with additional error context (free-form key/value pairs).
- * @member {String} errorDetails
+ * @member {Object.<String, Object>} errorDetails
  */
 ErrorResponse.prototype['errorDetails'] = undefined;
 

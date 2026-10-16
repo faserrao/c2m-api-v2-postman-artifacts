@@ -63,15 +63,14 @@ addressListName,Alias / Primitive,,—,Optional name for this address list recor
 amount,Alias / Primitive,,—,Monetary amount as a numeric value.,number,—
 amountDue,Alias / Primitive,,—,Amount due on the invoice.,number,—
 cardNumber,Alias / Primitive,,—,Credit card number (PAN) as a string.,string,—
-checkDigit,Alias / Primitive,,—,ACH check digit.,integer,—
 city,Alias / Primitive,,—,City name.,string,—
 company,Alias / Primitive,,—,Recipient's company or organisation name (optional).,string,—
 country,Alias / Primitive,,—,Country code (e.g. USA).,string,—
-cvv,Alias / Primitive,,—,Card security code (CVV/CVC) as an integer.,integer,—
+cvv,Alias / Primitive,,—,"Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.",string,—
 documentId,Alias / Primitive,,—,Integer ID of a previously stored or uploaded document.,id,—
 documentIdSource,Alias / Primitive,,—,Source a document by its previously stored document ID.,id,—
 endPage,Alias / Primitive,,—,Last page of this job's page range (inclusive). Must be >= startPage.,integer,—
-errorDetails,Alias / Primitive,,—,Optional JSON object with additional error context (free-form key/value pairs).,string,—
+errorDetails,Alias / Primitive,,—,Optional JSON object with additional error context (free-form key/value pairs).,object,—
 errorMessage,Alias / Primitive,,—,Human-readable error description.,string,—
 errorTrackingId,Alias / Primitive,,—,Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.,string,—
 filename,Alias / Primitive,,—,Filename of a specific file within an upload request or ZIP archive.,string,—
@@ -117,13 +116,12 @@ pdfSplitJobsWithAddress,Array Type,,—,"List of page-range job items, each with
 pdfSplitJobsWithAddress,Array Type,,pdfSplitJobItemWithAddress,"A single page-range job entry: page range (startPage, endPage) plus a recipient address.",object[],—
 tagsList,Array Type,,—,Array of user-defined string tags.,array,—
 tagsList,Array Type,,string,A plain text string value.,string[],—
-achDetails,Data Structure,,—,"ACH payment fields: routing number, bank account number, and check digit.",object,—
+achDetails,Data Structure,,—,ACH payment fields: routing number and bank account number.,object,—
 achDetails,Data Structure,,routingNumber,ABA bank routing number.,string,Required
 achDetails,Data Structure,,accountNumber,Bank account number.,string,Required
-achDetails,Data Structure,,checkDigit,ACH check digit.,integer,Required
 achPayment,Data Structure,,—,ACH bank transfer payment variant.,object,—
 achPayment,Data Structure,,"""ach""",JSON property key identifying the ACH bank-transfer payment variant.,"""ach""",Required
-achPayment,Data Structure,,achDetails,"ACH payment fields: routing number, bank account number, and check digit.",object,Required
+achPayment,Data Structure,,achDetails,ACH payment fields: routing number and bank account number.,object,Required
 address,Data Structure,,—,"Mailing address with required core fields (name, address1, city, state, zip, country) and optional extended fields (company, address2, address3, foo1, foo2).",object,—
 address,Data Structure,,firstName,Recipient's first name.,string,Required
 address,Data Structure,,lastName,Recipient's last name.,string,Required
@@ -143,7 +141,7 @@ creditCardDetails,Data Structure,,—,"Credit card payment fields: card type, ca
 creditCardDetails,Data Structure,,cardType,"Card brand enum: visa, mastercard, discover, or americanExpress.",enum (visa | mastercard | discover | americanExpress),Required
 creditCardDetails,Data Structure,,cardNumber,Credit card number (PAN) as a string.,string,Required
 creditCardDetails,Data Structure,,expirationDate,Card expiration date containing month and year.,object,Required
-creditCardDetails,Data Structure,,cvv,Card security code (CVV/CVC) as an integer.,integer,Required
+creditCardDetails,Data Structure,,cvv,"Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.",string,Required
 creditCardPayment,Data Structure,,—,Credit card payment variant.,object,—
 creditCardPayment,Data Structure,,"""creditCard""",JSON property key identifying the credit-card payment variant.,"""creditCard""",Required
 creditCardPayment,Data Structure,,creditCardDetails,"Credit card payment fields: card type, card number, expiration date, and CVV.",object,Required
@@ -151,7 +149,7 @@ errorResponse,Data Structure,,—,Error response structure returned for all API 
 errorResponse,Data Structure,,errorType,"High-level error category string (ValidationError, AuthenticationError, etc.).",enum (ValidationError | AuthenticationError | AuthorizationError | ResourceNotFoundError | RateLimitError | ServerError),Required
 errorResponse,Data Structure,,errorMessage,Human-readable error description.,string,Required
 errorResponse,Data Structure,,errorCode,Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD).,enum (MISSING_REQUIRED_FIELD | INVALID_ONEOF | INVALID_JSON | MISSING_AUTH_HEADER | INVALID_TOKEN | EXPIRED_TOKEN | INSUFFICIENT_PERMISSIONS | ACCOUNT_SUSPENDED | JOB_NOT_FOUND | RESOURCE_NOT_FOUND | INVALID_ENUM_VALUE | MUTUAL_EXCLUSION_VIOLATION | INVALID_FORMAT | SERVER_ERROR | DATABASE_ERROR | EXTERNAL_SERVICE_ERROR | RATE_LIMIT_EXCEEDED),Required
-errorResponse,Data Structure,,errorDetails,Optional JSON object with additional error context (free-form key/value pairs).,string,Optional
+errorResponse,Data Structure,,errorDetails,Optional JSON object with additional error context (free-form key/value pairs).,object,Optional
 errorResponse,Data Structure,,errorTrackingId,Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX.,string,Optional
 expirationDate,Data Structure,,—,Card expiration date containing month and year.,object,—
 expirationDate,Data Structure,,month,Expiration month as an integer (1-12).,integer,Required

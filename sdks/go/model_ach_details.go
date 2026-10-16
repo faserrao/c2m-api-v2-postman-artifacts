@@ -19,14 +19,12 @@ import (
 // checks if the AchDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &AchDetails{}
 
-// AchDetails ACH payment fields: routing number, bank account number, and check digit.
+// AchDetails ACH payment fields: routing number and bank account number.
 type AchDetails struct {
 	// ABA bank routing number.
 	RoutingNumber string `json:"routingNumber"`
 	// Bank account number.
 	AccountNumber string `json:"accountNumber"`
-	// ACH check digit.
-	CheckDigit int32 `json:"checkDigit"`
 }
 
 type _AchDetails AchDetails
@@ -35,11 +33,10 @@ type _AchDetails AchDetails
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewAchDetails(routingNumber string, accountNumber string, checkDigit int32) *AchDetails {
+func NewAchDetails(routingNumber string, accountNumber string) *AchDetails {
 	this := AchDetails{}
 	this.RoutingNumber = routingNumber
 	this.AccountNumber = accountNumber
-	this.CheckDigit = checkDigit
 	return &this
 }
 
@@ -99,30 +96,6 @@ func (o *AchDetails) SetAccountNumber(v string) {
 	o.AccountNumber = v
 }
 
-// GetCheckDigit returns the CheckDigit field value
-func (o *AchDetails) GetCheckDigit() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.CheckDigit
-}
-
-// GetCheckDigitOk returns a tuple with the CheckDigit field value
-// and a boolean to check if the value has been set.
-func (o *AchDetails) GetCheckDigitOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.CheckDigit, true
-}
-
-// SetCheckDigit sets field value
-func (o *AchDetails) SetCheckDigit(v int32) {
-	o.CheckDigit = v
-}
-
 func (o AchDetails) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -135,7 +108,6 @@ func (o AchDetails) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["routingNumber"] = o.RoutingNumber
 	toSerialize["accountNumber"] = o.AccountNumber
-	toSerialize["checkDigit"] = o.CheckDigit
 	return toSerialize, nil
 }
 
@@ -146,7 +118,6 @@ func (o *AchDetails) UnmarshalJSON(data []byte) (err error) {
 	requiredProperties := []string{
 		"routingNumber",
 		"accountNumber",
-		"checkDigit",
 	}
 
 	allProperties := make(map[string]interface{})

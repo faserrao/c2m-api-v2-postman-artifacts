@@ -104,13 +104,12 @@ Request body for POST /batch/zip/address-capture — ZIP-based mailing batch wit
 
 ### `achDetails`
 
-ACH payment fields: routing number, bank account number, and check digit.
+ACH payment fields: routing number and bank account number.
 
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
 | `routingNumber` | string | Required | ABA bank routing number. |
 | `accountNumber` | string | Required | Bank account number. |
-| `checkDigit` | integer | Required | ACH check digit. |
 
 ### `achPayment`
 
@@ -119,7 +118,7 @@ ACH bank transfer payment variant.
 | Field / Variant | Type | Required | Description |
 | --- | --- | --- | --- |
 | `"ach"` | "ach" | Required | JSON property key identifying the ACH bank-transfer payment variant. |
-| `achDetails` | object | Required | ACH payment fields: routing number, bank account number, and check digit. |
+| `achDetails` | object | Required | ACH payment fields: routing number and bank account number. |
 
 ### `address`
 
@@ -157,7 +156,7 @@ Credit card payment fields: card type, card number, expiration date, and CVV.
 | `cardType` | enum (visa | mastercard | discover | americanExpress) | Required | Card brand enum: visa, mastercard, discover, or americanExpress. |
 | `cardNumber` | string | Required | Credit card number (PAN) as a string. |
 | `expirationDate` | object | Required | Card expiration date containing month and year. |
-| `cvv` | integer | Required | Card security code (CVV/CVC) as an integer. |
+| `cvv` | string | Required | Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept. |
 
 ### `creditCardPayment`
 
@@ -177,7 +176,7 @@ Error response structure returned for all API error conditions.
 | `errorType` | enum (ValidationError | AuthenticationError | AuthorizationError | ResourceNotFoundError | RateLimitError | ServerError) | Required | High-level error category string (ValidationError, AuthenticationError, etc.). |
 | `errorMessage` | string | Required | Human-readable error description. |
 | `errorCode` | enum (MISSING_REQUIRED_FIELD | INVALID_ONEOF | INVALID_JSON | MISSING_AUTH_HEADER | INVALID_TOKEN | EXPIRED_TOKEN | INSUFFICIENT_PERMISSIONS | ACCOUNT_SUSPENDED | JOB_NOT_FOUND | RESOURCE_NOT_FOUND | INVALID_ENUM_VALUE | MUTUAL_EXCLUSION_VIOLATION | INVALID_FORMAT | SERVER_ERROR | DATABASE_ERROR | EXTERNAL_SERVICE_ERROR | RATE_LIMIT_EXCEEDED) | Required | Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). |
-| `errorDetails` | string | Optional | Optional JSON object with additional error context (free-form key/value pairs). |
+| `errorDetails` | object | Optional | Optional JSON object with additional error context (free-form key/value pairs). |
 | `errorTrackingId` | string | Optional | Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX. |
 
 ### `expirationDate`
@@ -679,10 +678,6 @@ Amount due on the invoice.
 
 Credit card number (PAN) as a string.
 
-### `checkDigit`
-
-ACH check digit.
-
 ### `city`
 
 City name.
@@ -697,7 +692,7 @@ Country code (e.g. USA).
 
 ### `cvv`
 
-Card security code (CVV/CVC) as an integer.
+Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.
 
 ### `documentId`
 

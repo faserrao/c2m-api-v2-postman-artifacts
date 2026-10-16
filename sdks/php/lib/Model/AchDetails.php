@@ -35,7 +35,7 @@ use \C2MApi\ObjectSerializer;
  * AchDetails Class Doc Comment
  *
  * @category Class
- * @description ACH payment fields: routing number, bank account number, and check digit.
+ * @description ACH payment fields: routing number and bank account number.
  * @package  C2MApi
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -59,8 +59,7 @@ class AchDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'routing_number' => 'string',
-        'account_number' => 'string',
-        'check_digit' => 'int'
+        'account_number' => 'string'
     ];
 
     /**
@@ -72,8 +71,7 @@ class AchDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'routing_number' => null,
-        'account_number' => null,
-        'check_digit' => null
+        'account_number' => null
     ];
 
     /**
@@ -83,8 +81,7 @@ class AchDetails implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'routing_number' => false,
-        'account_number' => false,
-        'check_digit' => false
+        'account_number' => false
     ];
 
     /**
@@ -174,8 +171,7 @@ class AchDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'routing_number' => 'routingNumber',
-        'account_number' => 'accountNumber',
-        'check_digit' => 'checkDigit'
+        'account_number' => 'accountNumber'
     ];
 
     /**
@@ -185,8 +181,7 @@ class AchDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'routing_number' => 'setRoutingNumber',
-        'account_number' => 'setAccountNumber',
-        'check_digit' => 'setCheckDigit'
+        'account_number' => 'setAccountNumber'
     ];
 
     /**
@@ -196,8 +191,7 @@ class AchDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'routing_number' => 'getRoutingNumber',
-        'account_number' => 'getAccountNumber',
-        'check_digit' => 'getCheckDigit'
+        'account_number' => 'getAccountNumber'
     ];
 
     /**
@@ -259,7 +253,6 @@ class AchDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('routing_number', $data ?? [], null);
         $this->setIfExists('account_number', $data ?? [], null);
-        $this->setIfExists('check_digit', $data ?? [], null);
     }
 
     /**
@@ -294,9 +287,6 @@ class AchDetails implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['account_number'] === null) {
             $invalidProperties[] = "'account_number' can't be null";
-        }
-        if ($this->container['check_digit'] === null) {
-            $invalidProperties[] = "'check_digit' can't be null";
         }
         return $invalidProperties;
     }
@@ -363,33 +353,6 @@ class AchDetails implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable account_number cannot be null');
         }
         $this->container['account_number'] = $account_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets check_digit
-     *
-     * @return int
-     */
-    public function getCheckDigit()
-    {
-        return $this->container['check_digit'];
-    }
-
-    /**
-     * Sets check_digit
-     *
-     * @param int $check_digit ACH check digit.
-     *
-     * @return self
-     */
-    public function setCheckDigit($check_digit)
-    {
-        if (is_null($check_digit)) {
-            throw new \InvalidArgumentException('non-nullable check_digit cannot be null');
-        }
-        $this->container['check_digit'] = $check_digit;
 
         return $this;
     }

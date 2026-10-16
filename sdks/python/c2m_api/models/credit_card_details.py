@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from c2m_api.models.expiration_date import ExpirationDate
 from typing import Optional, Set
@@ -30,7 +30,7 @@ class CreditCardDetails(BaseModel):
     card_type: StrictStr = Field(description="Card brand enum: visa, mastercard, discover, or americanExpress.", alias="cardType")
     card_number: StrictStr = Field(description="Credit card number (PAN) as a string.", alias="cardNumber")
     expiration_date: ExpirationDate = Field(alias="expirationDate")
-    cvv: StrictInt = Field(description="Card security code (CVV/CVC) as an integer.")
+    cvv: StrictStr = Field(description="Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.")
     __properties: ClassVar[List[str]] = ["cardType", "cardNumber", "expirationDate", "cvv"]
 
     @field_validator('card_type')

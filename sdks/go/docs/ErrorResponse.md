@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **ErrorType** | **string** | High-level error category string (ValidationError, AuthenticationError, etc.). | 
 **ErrorMessage** | **string** | Human-readable error description. | 
 **ErrorCode** | **string** | Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). | 
-**ErrorDetails** | Pointer to **string** | Optional JSON object with additional error context (free-form key/value pairs). | [optional] 
+**ErrorDetails** | Pointer to **map[string]interface{}** | Optional JSON object with additional error context (free-form key/value pairs). | [optional] 
 **ErrorTrackingId** | Pointer to **string** | Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX. | [optional] 
 
 ## Methods
@@ -91,20 +91,20 @@ SetErrorCode sets ErrorCode field to given value.
 
 ### GetErrorDetails
 
-`func (o *ErrorResponse) GetErrorDetails() string`
+`func (o *ErrorResponse) GetErrorDetails() map[string]interface{}`
 
 GetErrorDetails returns the ErrorDetails field if non-nil, zero value otherwise.
 
 ### GetErrorDetailsOk
 
-`func (o *ErrorResponse) GetErrorDetailsOk() (*string, bool)`
+`func (o *ErrorResponse) GetErrorDetailsOk() (*map[string]interface{}, bool)`
 
 GetErrorDetailsOk returns a tuple with the ErrorDetails field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetErrorDetails
 
-`func (o *ErrorResponse) SetErrorDetails(v string)`
+`func (o *ErrorResponse) SetErrorDetails(v map[string]interface{})`
 
 SetErrorDetails sets ErrorDetails field to given value.
 

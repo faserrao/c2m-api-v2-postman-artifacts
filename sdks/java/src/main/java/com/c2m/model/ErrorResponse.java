@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,7 +50,7 @@ import com.c2m.JSON;
 /**
  * Error response structure returned for all API error conditions.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-15T00:52:00.612068079Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-16T17:28:35.340441251Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class ErrorResponse {
   /**
    * High-level error category string (ValidationError, AuthenticationError, etc.).
@@ -210,7 +212,7 @@ public class ErrorResponse {
   public static final String SERIALIZED_NAME_ERROR_DETAILS = "errorDetails";
   @SerializedName(SERIALIZED_NAME_ERROR_DETAILS)
   @javax.annotation.Nullable
-  private String errorDetails;
+  private Map<String, Object> errorDetails = new HashMap<>();
 
   public static final String SERIALIZED_NAME_ERROR_TRACKING_ID = "errorTrackingId";
   @SerializedName(SERIALIZED_NAME_ERROR_TRACKING_ID)
@@ -277,8 +279,16 @@ public class ErrorResponse {
   }
 
 
-  public ErrorResponse errorDetails(@javax.annotation.Nullable String errorDetails) {
+  public ErrorResponse errorDetails(@javax.annotation.Nullable Map<String, Object> errorDetails) {
     this.errorDetails = errorDetails;
+    return this;
+  }
+
+  public ErrorResponse putErrorDetailsItem(String key, Object errorDetailsItem) {
+    if (this.errorDetails == null) {
+      this.errorDetails = new HashMap<>();
+    }
+    this.errorDetails.put(key, errorDetailsItem);
     return this;
   }
 
@@ -287,11 +297,11 @@ public class ErrorResponse {
    * @return errorDetails
    */
   @javax.annotation.Nullable
-  public String getErrorDetails() {
+  public Map<String, Object> getErrorDetails() {
     return errorDetails;
   }
 
-  public void setErrorDetails(@javax.annotation.Nullable String errorDetails) {
+  public void setErrorDetails(@javax.annotation.Nullable Map<String, Object> errorDetails) {
     this.errorDetails = errorDetails;
   }
 
@@ -414,9 +424,6 @@ public class ErrorResponse {
       }
       // validate the required field `errorCode`
       ErrorCodeEnum.validateJsonElement(jsonObj.get("errorCode"));
-      if ((jsonObj.get("errorDetails") != null && !jsonObj.get("errorDetails").isJsonNull()) && !jsonObj.get("errorDetails").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `errorDetails` to be a primitive type in the JSON string but got `%s`", jsonObj.get("errorDetails").toString()));
-      }
       if ((jsonObj.get("errorTrackingId") != null && !jsonObj.get("errorTrackingId").isJsonNull()) && !jsonObj.get("errorTrackingId").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `errorTrackingId` to be a primitive type in the JSON string but got `%s`", jsonObj.get("errorTrackingId").toString()));
       }

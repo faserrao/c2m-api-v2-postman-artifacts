@@ -47,11 +47,11 @@ public struct ModelErrorResponse: Codable, JSONEncodable, Hashable {
     /** Machine-readable error code string (e.g. MISSING_REQUIRED_FIELD). */
     public var errorCode: ErrorCode
     /** Optional JSON object with additional error context (free-form key/value pairs). */
-    public var errorDetails: String?
+    public var errorDetails: [String: AnyCodable]?
     /** Optional support tracking identifier in the format TRK-YYYYMMDD-XXXXXX. */
     public var errorTrackingId: String?
 
-    public init(errorType: ErrorType, errorMessage: String, errorCode: ErrorCode, errorDetails: String? = nil, errorTrackingId: String? = nil) {
+    public init(errorType: ErrorType, errorMessage: String, errorCode: ErrorCode, errorDetails: [String: AnyCodable]? = nil, errorTrackingId: String? = nil) {
         self.errorType = errorType
         self.errorMessage = errorMessage
         self.errorCode = errorCode

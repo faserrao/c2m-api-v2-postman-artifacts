@@ -37,11 +37,5 @@ class AchDetailsTest : ShouldSpec() {
             //modelInstance.accountNumber shouldBe ("TODO")
         }
 
-        // to test the property `checkDigit` - ACH check digit.
-        should("test checkDigit") {
-            // uncomment below to test the property
-            //modelInstance.checkDigit shouldBe ("TODO")
-        }
-
     }
 }

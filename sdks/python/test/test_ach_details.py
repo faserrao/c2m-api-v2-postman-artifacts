@@ -36,14 +36,12 @@ class TestAchDetails(unittest.TestCase):
         if include_optional:
             return AchDetails(
                 routing_number = '',
-                account_number = '',
-                check_digit = 56
+                account_number = ''
             )
         else:
             return AchDetails(
                 routing_number = '',
                 account_number = '',
-                check_digit = 56,
         )
         """
 

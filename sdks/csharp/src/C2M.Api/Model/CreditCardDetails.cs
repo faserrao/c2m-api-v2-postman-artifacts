@@ -36,9 +36,9 @@ namespace C2M.Api.Model
         /// <param name="cardType">Card brand enum: visa, mastercard, discover, or americanExpress.</param>
         /// <param name="cardNumber">Credit card number (PAN) as a string.</param>
         /// <param name="expirationDate">expirationDate</param>
-        /// <param name="cvv">Card security code (CVV/CVC) as an integer.</param>
+        /// <param name="cvv">Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.</param>
         [JsonConstructor]
-        public CreditCardDetails(CardTypeEnum cardType, string cardNumber, ExpirationDate expirationDate, int cvv)
+        public CreditCardDetails(CardTypeEnum cardType, string cardNumber, ExpirationDate expirationDate, string cvv)
         {
             CardType = cardType;
             CardNumber = cardNumber;
@@ -165,11 +165,11 @@ namespace C2M.Api.Model
         public ExpirationDate ExpirationDate { get; set; }
 
         /// <summary>
-        /// Card security code (CVV/CVC) as an integer.
+        /// Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.
         /// </summary>
-        /// <value>Card security code (CVV/CVC) as an integer.</value>
+        /// <value>Card security code (CVV/CVC): 3 digits, or 4 for American Express. A string, so a leading zero is kept.</value>
         [JsonPropertyName("cvv")]
-        public int Cvv { get; set; }
+        public string Cvv { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -223,7 +223,7 @@ namespace C2M.Api.Model
             Option<CreditCardDetails.CardTypeEnum?> cardType = default;
             Option<string?> cardNumber = default;
             Option<ExpirationDate?> expirationDate = default;
-            Option<int?> cvv = default;
+            Option<string?> cvv = default;
 
             while (utf8JsonReader.Read())
             {
@@ -252,7 +252,7 @@ namespace C2M.Api.Model
                             expirationDate = new Option<ExpirationDate?>(JsonSerializer.Deserialize<ExpirationDate>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "cvv":
-                            cvv = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            cvv = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         default:
                             break;
@@ -284,7 +284,7 @@ namespace C2M.Api.Model
             if (cvv.IsSet && cvv.Value == null)
                 throw new ArgumentNullException(nameof(cvv), "Property is not nullable for class CreditCardDetails.");
 
-            return new CreditCardDetails(cardType.Value!.Value!, cardNumber.Value!, expirationDate.Value!, cvv.Value!.Value!);
+            return new CreditCardDetails(cardType.Value!.Value!, cardNumber.Value!, expirationDate.Value!, cvv.Value!);
         }
 
         /// <summary>
@@ -317,13 +317,16 @@ namespace C2M.Api.Model
             if (creditCardDetails.ExpirationDate == null)
                 throw new ArgumentNullException(nameof(creditCardDetails.ExpirationDate), "Property is required for class CreditCardDetails.");
 
+            if (creditCardDetails.Cvv == null)
+                throw new ArgumentNullException(nameof(creditCardDetails.Cvv), "Property is required for class CreditCardDetails.");
+
             var cardTypeRawValue = CreditCardDetails.CardTypeEnumToJsonValue(creditCardDetails.CardType);
             writer.WriteString("cardType", cardTypeRawValue);
             writer.WriteString("cardNumber", creditCardDetails.CardNumber);
 
             writer.WritePropertyName("expirationDate");
             JsonSerializer.Serialize(writer, creditCardDetails.ExpirationDate, jsonSerializerOptions);
-            writer.WriteNumber("cvv", creditCardDetails.Cvv);
+            writer.WriteString("cvv", creditCardDetails.Cvv);
         }
     }
 }

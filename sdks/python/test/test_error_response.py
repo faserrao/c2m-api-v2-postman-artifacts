@@ -38,7 +38,7 @@ class TestErrorResponse(unittest.TestCase):
                 error_type = 'ValidationError',
                 error_message = '',
                 error_code = 'MISSING_REQUIRED_FIELD',
-                error_details = '',
+                error_details = { },
                 error_tracking_id = ''
             )
         else:

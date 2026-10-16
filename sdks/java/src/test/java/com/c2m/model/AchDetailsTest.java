@@ -53,12 +53,4 @@ public class AchDetailsTest {
         // TODO: test accountNumber
     }
 
-    /**
-     * Test the property 'checkDigit'
-     */
-    @Test
-    public void checkDigitTest() {
-        // TODO: test checkDigit
-    }
-
 }

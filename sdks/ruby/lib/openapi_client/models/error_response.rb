@@ -80,7 +80,7 @@ module OpenapiClient
         :'error_type' => :'String',
         :'error_message' => :'String',
         :'error_code' => :'String',
-        :'error_details' => :'String',
+        :'error_details' => :'Hash<String, Object>',
         :'error_tracking_id' => :'String'
       }
     end
@@ -126,7 +126,9 @@ module OpenapiClient
       end
 
       if attributes.key?(:'error_details')
-        self.error_details = attributes[:'error_details']
+        if (value = attributes[:'error_details']).is_a?(Hash)
+          self.error_details = value
+        end
       end
 
       if attributes.key?(:'error_tracking_id')
