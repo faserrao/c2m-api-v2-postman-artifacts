@@ -52,7 +52,7 @@ export default class JobsApi {
 
     /**
      * Submit single document
-     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source and recipient address information; payment details are optional.
      * @param {module:c2m_api/model/SubmitDocParams} submitDocParams 
      * @param {module:c2m_api/api/JobsApi~submitDocParamsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:c2m_api/model/StandardResponse}

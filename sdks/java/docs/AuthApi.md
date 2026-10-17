@@ -188,7 +188,7 @@ public class Example {
     ShortTokenAuth.setAccessToken("YOUR ACCESS TOKEN");
 
     AuthApi apiInstance = new AuthApi(defaultClient);
-    String tokenId = "tokenId_example"; // String | The token ID to revoke
+    String tokenId = "tok_st_9f3d2c"; // String | The token ID to revoke
     try {
       apiInstance.revokeToken(tokenId);
     } catch (ApiException e) {

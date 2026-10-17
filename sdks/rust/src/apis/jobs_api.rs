@@ -114,7 +114,7 @@ pub enum SubmitSinglePdfSplitParamsError {
 }
 
 
-/// Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+/// Submits a mailing job for a single document to one or more recipients. The request body must include a document source and recipient address information; payment details are optional.
 pub async fn submit_doc_params(configuration: &configuration::Configuration, submit_doc_params: models::SubmitDocParams) -> Result<models::StandardResponse, Error<SubmitDocParamsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
     let p_body_submit_doc_params = submit_doc_params;

@@ -164,7 +164,7 @@ $apiInstance = new C2MApi\Api\AuthApi(
     new GuzzleHttp\Client(),
     $config
 );
-$token_id = 'token_id_example'; // string | The token ID to revoke
+$token_id = tok_st_9f3d2c; // string | The token ID to revoke
 
 try {
     $apiInstance->revokeToken($token_id);

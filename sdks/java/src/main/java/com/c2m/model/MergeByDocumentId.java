@@ -48,7 +48,7 @@ import com.c2m.JSON;
 /**
  * Merge a stored document identified by its document ID.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-16T18:09:28.100286496Z[Etc/UTC]", comments = "Generator version: 7.15.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-17T10:59:39.730558847Z[Etc/UTC]", comments = "Generator version: 7.15.0")
 public class MergeByDocumentId {
   public static final String SERIALIZED_NAME_DOCUMENT_ID = "documentId";
   @SerializedName(SERIALIZED_NAME_DOCUMENT_ID)

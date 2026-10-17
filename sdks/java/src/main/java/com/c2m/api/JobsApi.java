@@ -158,7 +158,7 @@ public class JobsApi {
 
     /**
      * Submit single document
-     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source and recipient address information; payment details are optional.
      * @param submitDocParams  (required)
      * @return StandardResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -183,7 +183,7 @@ public class JobsApi {
 
     /**
      * Submit single document
-     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source and recipient address information; payment details are optional.
      * @param submitDocParams  (required)
      * @return ApiResponse&lt;StandardResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -209,7 +209,7 @@ public class JobsApi {
 
     /**
      * Submit single document (asynchronously)
-     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+     * Submits a mailing job for a single document to one or more recipients. The request body must include a document source and recipient address information; payment details are optional.
      * @param submitDocParams  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

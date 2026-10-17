@@ -34,7 +34,7 @@ open class JobsAPI {
     /**
      Submit single document
      - POST /static
-     - Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+     - Submits a mailing job for a single document to one or more recipients. The request body must include a document source and recipient address information; payment details are optional.
      - Bearer Token:
        - type: http
        - name: bearerAuth

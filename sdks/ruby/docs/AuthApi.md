@@ -177,7 +177,7 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::AuthApi.new
-token_id = 'token_id_example' # String | The token ID to revoke
+token_id = 'tok_st_9f3d2c' # String | The token ID to revoke
 
 begin
   # Revoke a token

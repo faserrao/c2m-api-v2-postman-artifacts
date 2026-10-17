@@ -163,7 +163,7 @@ import (
 )
 
 func main() {
-	tokenId := "tokenId_example" // string | The token ID to revoke
+	tokenId := "tok_st_9f3d2c" // string | The token ID to revoke
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

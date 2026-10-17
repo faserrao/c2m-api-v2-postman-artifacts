@@ -222,7 +222,7 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 with c2m_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = c2m_api.AuthApi(api_client)
-    token_id = 'token_id_example' # str | The token ID to revoke
+    token_id = 'tok_st_9f3d2c' # str | The token ID to revoke
 
     try:
         # Revoke a token

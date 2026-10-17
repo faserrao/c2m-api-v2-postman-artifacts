@@ -49,7 +49,7 @@ class AuthApiTest : ShouldSpec() {
         // to test revokeToken
         should("test revokeToken") {
             // uncomment below to test revokeToken
-            //val tokenId : kotlin.String = tokenId_example // kotlin.String | The token ID to revoke
+            //val tokenId : kotlin.String = tok_st_9f3d2c // kotlin.String | The token ID to revoke
             //apiInstance.revokeToken(tokenId)
         }
 

@@ -123,7 +123,7 @@ Revokes a short- or long-term token by its &#x60;tokenId&#x60;. Idempotent.
 //import com.c2m.api.models.*
 
 val apiInstance = AuthApi()
-val tokenId : kotlin.String = tokenId_example // kotlin.String | The token ID to revoke
+val tokenId : kotlin.String = tok_st_9f3d2c // kotlin.String | The token ID to revoke
 try {
     apiInstance.revokeToken(tokenId)
 } catch (e: ClientException) {

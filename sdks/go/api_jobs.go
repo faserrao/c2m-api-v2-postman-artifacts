@@ -40,7 +40,7 @@ func (r ApiSubmitDocParamsRequest) Execute() (*StandardResponse, *http.Response,
 /*
 SubmitDocParams Submit single document
 
-Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+Submits a mailing job for a single document to one or more recipients. The request body must include a document source and recipient address information; payment details are optional.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiSubmitDocParamsRequest

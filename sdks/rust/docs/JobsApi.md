@@ -19,7 +19,7 @@ Method | HTTP request | Description
 > models::StandardResponse submit_doc_params(submit_doc_params)
 Submit single document
 
-Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+Submits a mailing job for a single document to one or more recipients. The request body must include a document source and recipient address information; payment details are optional.
 
 ### Parameters
 

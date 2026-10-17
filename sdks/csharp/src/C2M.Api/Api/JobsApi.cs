@@ -39,7 +39,7 @@ namespace C2M.Api.Api
         /// Submit single document
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+        /// Submits a mailing job for a single document to one or more recipients. The request body must include a document source and recipient address information; payment details are optional.
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitDocParams"></param>
@@ -51,7 +51,7 @@ namespace C2M.Api.Api
         /// Submit single document
         /// </summary>
         /// <remarks>
-        /// Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+        /// Submits a mailing job for a single document to one or more recipients. The request body must include a document source and recipient address information; payment details are optional.
         /// </remarks>
         /// <param name="submitDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -842,7 +842,7 @@ namespace C2M.Api.Api
         partial void OnErrorSubmitDocParams(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, SubmitDocParams submitDocParams);
 
         /// <summary>
-        /// Submit single document Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+        /// Submit single document Submits a mailing job for a single document to one or more recipients. The request body must include a document source and recipient address information; payment details are optional.
         /// </summary>
         /// <param name="submitDocParams"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -860,7 +860,7 @@ namespace C2M.Api.Api
         }
 
         /// <summary>
-        /// Submit single document Submits a mailing job for a single document to one or more recipients. The request body must include a document source, recipient address information, and payment details.
+        /// Submit single document Submits a mailing job for a single document to one or more recipients. The request body must include a document source and recipient address information; payment details are optional.
         /// </summary>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="submitDocParams"></param>

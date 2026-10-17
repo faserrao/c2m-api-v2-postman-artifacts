@@ -136,7 +136,7 @@ let ShortTokenAuth = defaultClient.authentications['ShortTokenAuth'];
 ShortTokenAuth.accessToken = 'YOUR ACCESS TOKEN';
 
 let apiInstance = new C2MApiV2.AuthApi();
-let tokenId = "tokenId_example"; // String | The token ID to revoke
+let tokenId = "tok_st_9f3d2c"; // String | The token ID to revoke
 apiInstance.revokeToken(tokenId, (error, data, response) => {
   if (error) {
     console.error(error);
